@@ -7,7 +7,7 @@
   "scripts": {
     "build": "turbo run build",
     "patch": "pnpm --parallel -r exec pnpm version -- patch",
-    "publish": "pnpm -r exec pnpm publish"
+    "publish": "pnpm --filter './packages/**' -r exec pnpm publish"
   },
   "devDependencies": {
     "turbo": "1.2.6"

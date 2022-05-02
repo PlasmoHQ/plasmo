@@ -8,7 +8,7 @@
 	path = packages/puro
 	url = git@github.com:plasmo-corp/puro.git
 [submodule "packages/qtt"]
-	path = packages/qtt
+	path = templates/qtt
 	url = git@github.com:plasmo-corp/qtt.git
 [submodule "packages/mice"]
 	path = extensions/mice
