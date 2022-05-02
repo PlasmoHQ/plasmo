@@ -11,7 +11,7 @@
 	path = packages/qtt
 	url = git@github.com:plasmo-corp/qtt.git
 [submodule "packages/mice"]
-	path = packages/mice
+	path = extensions/mice
 	url = git@github.com:plasmo-corp/mice.git
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token

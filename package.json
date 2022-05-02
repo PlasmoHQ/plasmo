@@ -5,13 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "turbo run start --parallel",
-    "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "patch": "pnpm --parallel -r exec pnpm version -- patch",
-    "clean": "turbo run clean --parallel",
-    "publish": "turbo run publish --parallel",
-    "lint": "turbo run lint --parallel --output-logs=new-only"
+    "publish": "pnpm -r exec pnpm publish"
   },
   "devDependencies": {
     "turbo": "1.2.6"
