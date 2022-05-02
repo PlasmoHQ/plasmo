@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "patch": "pnpm --filter ./packages --parallel -r exec pnpm version -- patch",
-    "publish": "pnpm publish -r --filter ./packages"
+    "publish": "pnpm -r publish --filter ./packages/**"
   },
   "devDependencies": {
     "turbo": "1.2.6"
