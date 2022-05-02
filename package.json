@@ -20,5 +20,6 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@6.32.9"
+  "packageManager": "pnpm@6.32.9",
+  "version": "0.0.1"
 }
