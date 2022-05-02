@@ -45,5 +45,5 @@ pnpm run publish
 
 # OR
 
-pnpm -r publish --parallel --filter ./packages/** --otp xxxxxx
+pnpm --filter ./packages/** -r publish --otp xxxxxx
 ```
