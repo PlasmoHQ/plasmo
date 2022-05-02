@@ -41,5 +41,9 @@ git submodule foreach --recursive git push
 ## Publishing
 
 ```sh
-pnpm publish
+pnpm run publish
+
+# OR
+
+pnpm -r publish --parallel --filter ./packages/** --otp xxxxxx
 ```

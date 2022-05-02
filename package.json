@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "patch": "pnpm --filter ./packages --parallel -r exec pnpm version -- patch",
-    "publish": "pnpm -r publish --filter ./packages/**"
+    "patch": "pnpm --filter ./packages/** --parallel -r exec pnpm version -- patch",
+    "publish": "pnpm -r publish --parallel --filter ./packages/**"
   },
   "devDependencies": {
     "turbo": "1.2.6"
