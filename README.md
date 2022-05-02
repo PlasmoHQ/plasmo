@@ -31,6 +31,13 @@ git submodule foreach --recursive git commit -am "Bump dependencies"
 git submodule foreach --recursive git push
 ```
 
+## Recursively patch
+
+```sh
+pnpm patch
+git submodule foreach --recursive git push
+```
+
 ## Publishing
 
 ```sh
