@@ -1,0 +1,24 @@
+{
+  "name": "p1asm0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "turbo run start --parallel",
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "patch": "turbo run patch --parallel",
+    "clean": "turbo run clean --parallel",
+    "publish": "turbo run publish --parallel",
+    "lint": "turbo run lint --parallel --output-logs=new-only"
+  },
+  "devDependencies": {
+    "turbo": "1.2.6"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@6.32.9"
+}

@@ -1,0 +1,21 @@
+[submodule "packages/rps"]
+	path = packages/rps
+	url = git@github.com:plasmo-corp/rps.git
+[submodule "packages/mirror-force"]
+	path = packages/mirror-force
+	url = git@github.com:plasmo-corp/mirror-force.git
+[submodule "packages/puro"]
+	path = packages/puro
+	url = git@github.com:plasmo-corp/puro.git
+[submodule "packages/qtt"]
+	path = packages/qtt
+	url = git@github.com:plasmo-corp/qtt.git
+[submodule "packages/mice"]
+	path = packages/mice
+	url = git@github.com:plasmo-corp/mice.git
+[submodule "packages/gcp-refresh-token"]
+	path = packages/gcp-refresh-token
+	url = git@github.com:plasmo-corp/gcp-refresh-token.git
+[submodule "packages/mystic-box"]
+	path = packages/mystic-box
+	url = git@github.com:plasmo-corp/mystic-box.git
