@@ -2,7 +2,9 @@
   "name": "p1asm0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "templates/*",
+    "extensions/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -16,6 +18,6 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@6.32.9",
+  "packageManager": "pnpm@7.0.0",
   "version": "0.0.2"
 }
