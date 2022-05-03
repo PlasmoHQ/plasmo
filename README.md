@@ -17,6 +17,12 @@ pnpm i
 # Happy hacking!
 ```
 
+## Add a new submodule into packages
+
+```sh
+git submodule add git@github.com:plasmo-corp/repo.git packages/repo
+```
+
 ## Pull
 
 ```sh
@@ -27,7 +33,11 @@ git submodule update --remote
 
 ```sh
 git submodule foreach --recursive git add .
+
 git submodule foreach --recursive git commit -am "Bump dependencies"
+# OR
+pnpm -r exec git commit -- -am "Bump dependencies"
+
 git submodule foreach --recursive git push
 ```
 

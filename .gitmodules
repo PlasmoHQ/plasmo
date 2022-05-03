@@ -19,3 +19,6 @@
 [submodule "packages/mystic-box"]
 	path = packages/mystic-box
 	url = git@github.com:plasmo-corp/mystic-box.git
+[submodule "packages/use-hashed-state"]
+	path = packages/use-hashed-state
+	url = git@github.com:plasmo-corp/use-hashed-state.git
