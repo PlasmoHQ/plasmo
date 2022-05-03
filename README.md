@@ -36,7 +36,7 @@ git submodule foreach --recursive git add .
 
 git submodule foreach --recursive git commit -am "Bump dependencies"
 # OR
-pnpm -r exec git commit -- -am "Bump dependencies"
+pnpm -r --no-bail exec git commit -- -am "Bump dependencies"
 
 git submodule foreach --recursive git push
 ```
@@ -57,3 +57,7 @@ pnpm run publish
 
 pnpm --filter ./packages/** -r publish --otp xxxxxx
 ```
+
+# License
+
+[MIT](./license) 🚀 [Plasmo Corp.](https://plasmo.com)
