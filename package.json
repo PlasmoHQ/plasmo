@@ -12,7 +12,7 @@
     "publish": "pnpm --parallel --filter ./packages/** -r publish"
   },
   "devDependencies": {
-    "turbo": "1.2.6"
+    "turbo": "1.2.8"
   },
   "engines": {
     "npm": ">=7.0.0",

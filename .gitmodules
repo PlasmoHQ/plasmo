@@ -22,3 +22,6 @@
 [submodule "packages/use-hashed-state"]
 	path = packages/use-hashed-state
 	url = git@github.com:plasmo-corp/use-hashed-state.git
+[submodule "extensions/world-edit"]
+	path = extensions/world-edit
+	url = git@github.com:plasmo-corp/world-edit.git
