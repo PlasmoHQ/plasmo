@@ -11,7 +11,10 @@ git clone git@github.com:PlasmoHQ/p1asm0.git --recurse-submodules
 
 cd p1asm0
 
-# 1. Install the dependencies
+# 1. Checkout main on all submodules
+git submodule foreach --recursive git checkout main
+
+# 2. Install dependencies
 pnpm i
 
 # Happy hacking!
