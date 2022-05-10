@@ -7,7 +7,7 @@ This is an open laboratory for experimental as well as production modules from [
 ```sh
 # 0. Clone the base repo, and initialize the submodules:
 # OR, clone and initialize each individual submodule <- recommended when this get HUGE
-git clone git@github.com:plasmo-corp/p1asm0.git --recurse-submodules
+git clone git@github.com:PlasmoHQ/p1asm0.git --recurse-submodules
 
 cd p1asm0
 
@@ -20,7 +20,7 @@ pnpm i
 ## Add a new submodule into packages
 
 ```sh
-git submodule add git@github.com:plasmo-corp/repo.git packages/repo
+git submodule add git@github.com:PlasmoHQ/repo.git packages/repo
 ```
 
 ## Pull

@@ -1,30 +1,30 @@
 [submodule "packages/rps"]
 	path = packages/rps
-	url = git@github.com:plasmo-corp/rps.git
+	url = git@github.com:PlasmoHQ/rps.git
 [submodule "packages/mirror-force"]
 	path = packages/mirror-force
-	url = git@github.com:plasmo-corp/mirror-force.git
+	url = git@github.com:PlasmoHQ/mirror-force.git
 [submodule "packages/puro"]
 	path = packages/puro
-	url = git@github.com:plasmo-corp/puro.git
-[submodule "packages/qtt"]
+	url = git@github.com:PlasmoHQ/puro.git
+[submodule "templates/qtt"]
 	path = templates/qtt
-	url = git@github.com:plasmo-corp/qtt.git
-[submodule "packages/mice"]
+	url = git@github.com:PlasmoHQ/qtt.git
+[submodule "extensions/mice"]
 	path = extensions/mice
-	url = git@github.com:plasmo-corp/mice.git
+	url = git@github.com:PlasmoHQ/mice.git
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token
-	url = git@github.com:plasmo-corp/gcp-refresh-token.git
+	url = git@github.com:PlasmoHQ/gcp-refresh-token.git
 [submodule "packages/mystic-box"]
 	path = packages/mystic-box
-	url = git@github.com:plasmo-corp/mystic-box.git
+	url = git@github.com:PlasmoHQ/mystic-box.git
 [submodule "packages/use-hashed-state"]
 	path = packages/use-hashed-state
-	url = git@github.com:plasmo-corp/use-hashed-state.git
+	url = git@github.com:PlasmoHQ/use-hashed-state.git
 [submodule "extensions/world-edit"]
 	path = extensions/world-edit
-	url = git@github.com:plasmo-corp/world-edit.git
+	url = git@github.com:PlasmoHQ/world-edit.git
 [submodule "packages/storage"]
 	path = packages/storage
-	url = git@github.com:plasmo-corp/storage.git
+	url = git@github.com:PlasmoHQ/storage.git
