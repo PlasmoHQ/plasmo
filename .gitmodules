@@ -25,3 +25,6 @@
 [submodule "extensions/world-edit"]
 	path = extensions/world-edit
 	url = git@github.com:plasmo-corp/world-edit.git
+[submodule "packages/storage"]
+	path = packages/storage
+	url = git@github.com:plasmo-corp/storage.git
