@@ -12,7 +12,8 @@ git clone git@github.com:PlasmoHQ/p1asm0.git --recurse-submodules
 cd p1asm0
 
 # 1. Checkout main on all submodules
-git submodule foreach --recursive git checkout main
+git submodule foreach git checkout main
+git submodule foreach git pull origin main
 
 # 2. Install dependencies
 pnpm i
@@ -29,7 +30,7 @@ git submodule add git@github.com:PlasmoHQ/repo.git packages/repo
 ## Pull
 
 ```sh
-git submodule update --remote
+git submodule update --remote --merge
 ```
 
 ## Recursively commit and push
