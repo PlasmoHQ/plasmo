@@ -12,7 +12,7 @@ git clone git@github.com:PlasmoHQ/p1asm0.git --recurse-submodules
 cd p1asm0
 
 # 1. Checkout main on all submodules
-pnpm -r --no-bail exec git checkout main
+pnpm -r --parallel --no-bail exec git checkout main
 
 # 2. Install dependencies
 pnpm i
@@ -35,29 +35,24 @@ git submodule update --remote --merge
 ## Recursively commit and push
 
 ```sh
-git submodule foreach --recursive git add .
+pnpm -r --parallel --no-bail exec git add .
 
-git submodule foreach --recursive git commit -am "Bump dependencies"
-# OR
-pnpm -r --no-bail exec git commit -- -am "Bump dependencies"
+pnpm -r --parallel --no-bail exec git commit -- -am "Bump dependencies"
 
-git submodule foreach --recursive git push
+pnpm -r --parallel --no-bail exec git push
 ```
 
 ## Recursively patch
 
 ```sh
 pnpm patch
-git submodule foreach --recursive git push
+
+pnpm -r --parallel --no-bail exec git push
 ```
 
 ## Publishing
 
 ```sh
-pnpm run publish
-
-# OR
-
 pnpm --filter ./packages/** -r publish --otp xxxxxx
 ```
 
