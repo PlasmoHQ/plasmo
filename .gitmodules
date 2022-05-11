@@ -1,40 +1,30 @@
 [submodule "packages/rps"]
 	path = packages/rps
 	url = git@github.com:PlasmoHQ/rps.git
-	branch = main
 [submodule "packages/mirror-force"]
 	path = packages/mirror-force
 	url = git@github.com:PlasmoHQ/mirror-force.git
-	branch = main
 [submodule "packages/puro"]
 	path = packages/puro
 	url = git@github.com:PlasmoHQ/puro.git
-	branch = main
 [submodule "templates/qtt"]
 	path = templates/qtt
 	url = git@github.com:PlasmoHQ/qtt.git
-	branch = main
 [submodule "extensions/mice"]
 	path = extensions/mice
 	url = git@github.com:PlasmoHQ/mice.git
-	branch = main
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token
 	url = git@github.com:PlasmoHQ/gcp-refresh-token.git
-	branch = main
 [submodule "packages/mystic-box"]
 	path = packages/mystic-box
 	url = git@github.com:PlasmoHQ/mystic-box.git
-	branch = main
 [submodule "packages/use-hashed-state"]
 	path = packages/use-hashed-state
 	url = git@github.com:PlasmoHQ/use-hashed-state.git
-	branch = main
 [submodule "extensions/world-edit"]
 	path = extensions/world-edit
 	url = git@github.com:PlasmoHQ/world-edit.git
-	branch = main
 [submodule "packages/storage"]
 	path = packages/storage
 	url = git@github.com:PlasmoHQ/storage.git
-	branch = main
