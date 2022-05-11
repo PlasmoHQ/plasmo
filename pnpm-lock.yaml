@@ -10,7 +10,7 @@ importers:
 
   extensions/mice:
     specifiers:
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.184
@@ -38,7 +38,7 @@ importers:
       react-dom: 18.1.0_react@18.1.0
       simple-peer: 9.11.1
     devDependencies:
-      '@PlasmoHQ/rps': link:../../packages/rps
+      '@plasmo-corp/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/chrome': 0.0.184
       '@types/node': 17.0.32
@@ -83,7 +83,7 @@ importers:
   packages/gcp-refresh-token:
     specifiers:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.32
       cross-env: 7.0.3
@@ -101,7 +101,7 @@ importers:
       open: 8.4.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
       cross-env: 7.0.3
@@ -114,7 +114,7 @@ importers:
   packages/mirror-force:
     specifiers:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/command-line-usage': 5.0.2
       '@types/fs-extra': 9.0.13
@@ -135,7 +135,7 @@ importers:
       simple-git: 3.7.1
     devDependencies:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/command-line-usage': 5.0.2
       '@types/fs-extra': 9.0.13
@@ -149,7 +149,7 @@ importers:
   packages/mystic-box:
     specifiers:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.32
       '@types/semver': 7.3.9
@@ -172,7 +172,7 @@ importers:
       twitter-api-v2: 1.12.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
       '@types/semver': 7.3.9
@@ -186,7 +186,7 @@ importers:
   packages/puro:
     specifiers:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.32
       '@types/react': 18.0.9
@@ -200,7 +200,7 @@ importers:
       react: 18.1.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
       '@types/react': 18.0.9
@@ -245,7 +245,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@testing-library/react': 13.2.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.184
@@ -267,7 +267,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/chrome': 0.0.184
@@ -286,7 +286,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@testing-library/react': 13.2.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.32
@@ -309,7 +309,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': link:../rps
+      '@plasmo-corp/rps': link:../rps
       '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
@@ -327,7 +327,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': workspace:*
+      '@plasmo-corp/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.32
       cross-env: 7.0.3
@@ -340,7 +340,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@PlasmoHQ/rps': link:../../packages/rps
+      '@plasmo-corp/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
       cross-env: 7.0.3
