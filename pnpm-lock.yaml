@@ -8,6 +8,31 @@ importers:
     devDependencies:
       turbo: 1.2.9
 
+  examples/with-popup:
+    specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.181
+      '@types/node': 17.0.24
+      '@types/react': 18.0.5
+      '@types/react-dom': 18.0.1
+      plasmo: latest
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.6.3
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.181
+      '@types/node': 17.0.24
+      '@types/react': 18.0.5
+      '@types/react-dom': 18.0.1
+      plasmo: 0.21.3
+      prettier: 2.6.2
+      typescript: 4.6.3
+
   extensions/mice:
     specifiers:
       '@plasmo-corp/rps': workspace:*
@@ -2434,6 +2459,13 @@ packages:
       '@types/node': 17.0.32
       '@types/responselike': 1.0.0
 
+  /@types/chrome/0.0.181:
+    resolution: {integrity: sha512-34Ln9YVVC8a195ruqWeaty3pouFdCLr9L5kPcbRflQcxnbXQnHor9uETof8OhDf8JLDytSRDiuDsRXYQYQ+9FA==}
+    dependencies:
+      '@types/filesystem': 0.0.32
+      '@types/har-format': 1.2.8
+    dev: true
+
   /@types/chrome/0.0.184:
     resolution: {integrity: sha512-Wvawa0L2jUyLd6RNd0mx/1z0R/RZXkGKDI77+twsbcmhLlsGA64xrXQYxFr/F7yu6yGLEqKpEmrrJ1tveuVkIQ==}
     dependencies:
@@ -2523,6 +2555,10 @@ packages:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
 
+  /@types/node/17.0.24:
+    resolution: {integrity: sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==}
+    dev: true
+
   /@types/node/17.0.32:
     resolution: {integrity: sha512-eAIcfAvhf/BkHcf4pkLJ7ECpBAhh9kcxRBpip9cTiO+hf+aJrsxYxBeS6OXvOd9WqNAJmavXVpZvY1rBjNsXmw==}
 
@@ -2548,10 +2584,24 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
+  /@types/react-dom/18.0.1:
+    resolution: {integrity: sha512-jCwTXvHtRLiyVvKm9aEdHXs8rflVOGd5Sl913JZrPshfXjn8NYsTNZOz70bCsA31IR0TOqwi3ad+X4tSCBoMTw==}
+    dependencies:
+      '@types/react': 18.0.9
+    dev: true
+
   /@types/react-dom/18.0.3:
     resolution: {integrity: sha512-1RRW9kst+67gveJRYPxGmVy8eVJ05O43hg77G2j5m76/RFJtMbcfAs2viQ2UNsvvDg8F7OfQZx8qQcl6ymygaQ==}
     dependencies:
       '@types/react': 18.0.9
+    dev: true
+
+  /@types/react/18.0.5:
+    resolution: {integrity: sha512-UPxNGInDCIKlfqBrm8LDXYWNfLHwIdisWcsH5GpMyGjhEDLFgTtlRBaoWuCua9HcyuE0rMkmAeZ3FXV1pYLIYQ==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.0.11
     dev: true
 
   /@types/react/18.0.9:
@@ -6124,6 +6174,44 @@ packages:
       - uncss
       - utf-8-validate
 
+  /plasmo/0.21.3:
+    resolution: {integrity: sha512-Y+nRvacpuyMdwgIcIpRzFSN7VMT5J3sXerJyPt2dGxL7m3hsjK/N8xDTGBnGK+Q/1ATUQSIv4//hwAom0CKMkA==}
+    hasBin: true
+    dependencies:
+      '@expo/spawn-async': 1.6.0
+      '@parcel/config-webextension': 2.5.0_@parcel+core@2.5.0
+      '@parcel/core': 2.5.0
+      '@parcel/watcher': 2.0.5
+      '@playwright/test': 1.21.1
+      '@vscode/sudo-prompt': 9.3.1
+      chalk: 5.0.1
+      change-case: 4.1.2
+      dotenv: 16.0.1
+      get-port: 6.1.2
+      got: 12.0.4
+      image-js: 0.34.0
+      inquirer: 8.2.4
+      is-path-inside: 4.0.0
+      mnemonic-id: 3.2.7
+      node-object-hash: 2.3.10
+      open: 8.4.0
+      registry-js: 1.15.1
+      semver: 7.3.7
+      ts-ast-to-literal: 1.0.5_typescript@4.6.4
+      typescript: 4.6.4
+    transitivePeerDependencies:
+      - bufferutil
+      - cssnano
+      - postcss
+      - purgecss
+      - relateurl
+      - srcset
+      - supports-color
+      - terser
+      - uncss
+      - utf-8-validate
+    dev: true
+
   /playwright-core/1.21.1:
     resolution: {integrity: sha512-SbK5dEsai9ZUKlxcinqegorBq4GnftXd4/GfW+pLsdQIQWrLCM/JNh6YQ2Rf2enVykXCejtoXW8L5vJXBBVSJQ==}
     engines: {node: '>=12'}
@@ -7251,6 +7339,12 @@ packages:
     resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
     engines: {node: '>=12.20'}
     dev: false
+
+  /typescript/4.6.3:
+    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
 
   /typescript/4.6.4:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}

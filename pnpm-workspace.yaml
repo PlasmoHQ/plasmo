@@ -2,3 +2,4 @@ packages:
   - "packages/*"
   - "extensions/*"
   - "templates/*"
+  - "examples/*"
