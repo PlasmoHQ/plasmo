@@ -261,9 +261,6 @@ importers:
       ts-jest: 28.0.2
       tsup: 5.12.7
       typescript: 4.6.4
-    dependencies:
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
@@ -277,6 +274,8 @@ importers:
       jest: 28.1.0_@types+node@17.0.32
       jest-environment-jsdom: 28.1.0
       prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
       ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
@@ -304,8 +303,6 @@ importers:
       typescript: 4.6.4
     dependencies:
       node-object-hash: 2.3.10
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
@@ -318,6 +315,8 @@ importers:
       jest: 28.1.0_@types+node@17.0.32
       jest-environment-jsdom: 28.1.0
       prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
       ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
@@ -5465,7 +5464,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
@@ -6408,7 +6406,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.1.0
       scheduler: 0.22.0
-    dev: false
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -6426,7 +6423,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-pkg/7.1.0:
     resolution: {integrity: sha512-5iOehe+WF75IccPc30bWTbpdDQLOCc3Uu8bi3Dte3Eueij81yx1Mrufk8qBx/YAbR4uL1FdUr+7BKXDwEtisXg==}
@@ -6612,7 +6608,6 @@ packages:
     resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
