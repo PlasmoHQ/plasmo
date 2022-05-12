@@ -4,7 +4,8 @@
   "workspaces": [
     "packages/*",
     "templates/*",
-    "extensions/*"
+    "extensions/*",
+    "examples/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -12,7 +13,7 @@
     "publish": "pnpm --parallel --filter ./packages/** -r publish"
   },
   "devDependencies": {
-    "turbo": "1.2.8"
+    "turbo": "1.2.9"
   },
   "engines": {
     "npm": ">=7.0.0",

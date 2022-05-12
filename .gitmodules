@@ -38,3 +38,6 @@
 	path = packages/storage
 	url = git@github.com:PlasmoHQ/storage.git
 	branch = main
+[submodule "examples"]
+	path = examples
+	url = git@github.com:PlasmoHQ/examples.git
