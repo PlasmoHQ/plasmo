@@ -29,6 +29,10 @@ git submodule add git@github.com:PlasmoHQ/repo.git packages/repo
 ## Pull
 
 ```sh
+git pull --recurse-submodules
+
+# OR
+
 git submodule update --remote --merge
 ```
 
