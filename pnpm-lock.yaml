@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -35,7 +35,7 @@ importers:
 
   examples/with-popup-storage:
     specifiers:
-      '@plasmohq/storage': workspace:^0.1.0
+      '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.181
       '@types/node': 17.0.24
@@ -159,7 +159,7 @@ importers:
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.32
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -194,7 +194,7 @@ importers:
       '@types/node': 17.0.32
       jest: 28.1.0_@types+node@17.0.32
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -231,7 +231,7 @@ importers:
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.32
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -257,7 +257,7 @@ importers:
       jest: 28.1.0_@types+node@17.0.32
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -316,7 +316,7 @@ importers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
       '@plasmo-corp/rps': link:../rps
-      '@testing-library/react': 13.2.0_react-dom@18.1.0+react@18.1.0
+      '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/chrome': 0.0.184
       '@types/node': 17.0.32
@@ -328,7 +328,7 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -358,7 +358,7 @@ importers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
       '@plasmo-corp/rps': link:../rps
-      '@testing-library/react': 13.2.0_react-dom@18.1.0+react@18.1.0
+      '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.32
       '@types/react': 18.0.9
@@ -369,7 +369,7 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -397,7 +397,7 @@ importers:
       jest: 28.1.0_@types+node@17.0.32
       prettier: 2.6.2
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -2397,7 +2397,7 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react/13.2.0_react-dom@18.1.0+react@18.1.0:
+  /@testing-library/react/13.2.0_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-Bprbz/SZVONCJy5f7hcihNCv313IJXdYiv0nSJklIs1SQCIHHNlnGNkosSXnGZTmesyGIcBGNppYhXcc11pb7g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -7137,7 +7137,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-jest/28.0.2_jest@28.1.0+typescript@4.6.4:
+  /ts-jest/28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4:
     resolution: {integrity: sha512-IOZMb3D0gx6IHO9ywPgiQxJ3Zl4ECylEFwoVpENB55aTn5sdO0Ptyx/7noNBxAaUff708RqQL4XBNxxOVjY0vQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
