@@ -41,3 +41,6 @@
 [submodule "examples"]
 	path = examples
 	url = git@github.com:PlasmoHQ/examples.git
+[submodule "packages/permission-ui"]
+	path = packages/permission-ui
+	url = git@github.com:PlasmoHQ/permission-ui.git
