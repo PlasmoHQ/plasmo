@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -11,32 +11,7 @@ importers:
   examples/with-background:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.181
-      '@types/node': 17.0.24
-      '@types/react': 18.0.5
-      '@types/react-dom': 18.0.1
-      plasmo: latest
-      prettier: 2.6.2
-      react: 18.0.0
-      react-dom: 18.0.0
-      typescript: 4.6.3
-    dependencies:
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
-    devDependencies:
-      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.181
-      '@types/node': 17.0.24
-      '@types/react': 18.0.5
-      '@types/react-dom': 18.0.1
-      plasmo: 0.21.4
-      prettier: 2.6.2
-      typescript: 4.6.3
-
-  examples/with-content-script:
-    specifiers:
-      '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -50,7 +25,32 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: 0.21.4
+      prettier: 2.6.2
+      typescript: 4.6.4
+
+  examples/with-content-script:
+    specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.185
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: latest
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.6.4
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -61,7 +61,7 @@ importers:
   examples/with-many-content-scripts:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -75,7 +75,7 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -85,6 +85,32 @@ importers:
 
   examples/with-options-ui:
     specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.185
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: latest
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.6.4
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.185
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: 0.21.4
+      prettier: 2.6.2
+      typescript: 4.6.4
+
+  examples/with-permission-ui:
+    specifiers:
+      '@plasmohq/permission-ui': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.184
       '@types/node': 17.0.33
@@ -96,6 +122,7 @@ importers:
       react-dom: 18.1.0
       typescript: 4.6.4
     dependencies:
+      '@plasmohq/permission-ui': link:../../packages/permission-ui
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -111,7 +138,7 @@ importers:
   examples/with-popup:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -125,7 +152,7 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -137,7 +164,7 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -152,7 +179,7 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -162,10 +189,10 @@ importers:
 
   extensions/mice:
     specifiers:
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -190,9 +217,9 @@ importers:
       react-dom: 18.1.0_react@18.1.0
       simple-peer: 9.11.1
     devDependencies:
-      '@plasmo-corp/rps': link:../../packages/rps
+      '@plasmohq/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -209,7 +236,7 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -224,7 +251,7 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
@@ -235,7 +262,7 @@ importers:
   packages/gcp-refresh-token:
     specifiers:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.33
       cross-env: 7.0.3
@@ -253,20 +280,20 @@ importers:
       open: 8.4.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': link:../rps
+      '@plasmohq/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.33
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.33
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
   packages/mirror-force:
     specifiers:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/command-line-usage': 5.0.2
       '@types/fs-extra': 9.0.13
@@ -287,21 +314,21 @@ importers:
       simple-git: 3.7.1
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': link:../rps
+      '@plasmohq/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/command-line-usage': 5.0.2
       '@types/fs-extra': 9.0.13
       '@types/node': 17.0.33
       jest: 28.1.0_@types+node@17.0.33
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
   packages/mystic-box:
     specifiers:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.33
       '@types/semver': 7.3.9
@@ -324,21 +351,49 @@ importers:
       twitter-api-v2: 1.12.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': link:../rps
+      '@plasmohq/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.33
       '@types/semver': 7.3.9
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.33
       prettier: 2.6.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
+      tsup: 5.12.7_typescript@4.6.4
+      typescript: 4.6.4
+
+  packages/permission-ui:
+    specifiers:
+      '@jest/globals': 28.1.0
+      '@plasmohq/rps': workspace:*
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      cross-env: 7.0.3
+      jest: 28.1.0
+      prettier: 2.6.2
+      react: 18.1.0
+      ts-jest: 28.0.2
+      tsup: 5.12.7
+      typescript: 4.6.4
+    devDependencies:
+      '@jest/globals': 28.1.0
+      '@plasmohq/rps': link:../rps
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/node': 17.0.33
+      '@types/react': 18.0.9
+      cross-env: 7.0.3
+      jest: 28.1.0_@types+node@17.0.33
+      prettier: 2.6.2
+      react: 18.1.0
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
   packages/puro:
     specifiers:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.33
       '@types/react': 18.0.9
@@ -350,14 +405,14 @@ importers:
       typescript: 4.6.4
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmo-corp/rps': link:../rps
+      '@plasmohq/rps': link:../rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       jest: 28.1.0_@types+node@17.0.33
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -396,10 +451,10 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@testing-library/react': 13.2.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       cross-env: 7.0.3
@@ -415,10 +470,10 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': link:../rps
-      '@testing-library/react': 13.2.0_react-dom@18.1.0+react@18.1.0
+      '@plasmohq/rps': link:../rps
+      '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
-      '@types/chrome': 0.0.184
+      '@types/chrome': 0.0.185
       '@types/node': 17.0.33
       '@types/react': 18.0.9
       cross-env: 7.0.3
@@ -428,7 +483,7 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -436,7 +491,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@testing-library/react': 13.2.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.33
@@ -457,8 +512,8 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': link:../rps
-      '@testing-library/react': 13.2.0_react-dom@18.1.0+react@18.1.0
+      '@plasmohq/rps': link:../rps
+      '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.33
       '@types/react': 18.0.9
@@ -469,7 +524,7 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -477,7 +532,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': workspace:*
+      '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/node': 17.0.33
       cross-env: 7.0.3
@@ -490,14 +545,14 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmo-corp/rps': link:../../packages/rps
+      '@plasmohq/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.33
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.33
       prettier: 2.6.2
       rimraf: 3.0.2
-      ts-jest: 28.0.2_jest@28.1.0+typescript@4.6.4
+      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
       tsup: 5.12.7_typescript@4.6.4
       typescript: 4.6.4
 
@@ -2497,7 +2552,7 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react/13.2.0_react-dom@18.1.0+react@18.1.0:
+  /@testing-library/react/13.2.0_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-Bprbz/SZVONCJy5f7hcihNCv313IJXdYiv0nSJklIs1SQCIHHNlnGNkosSXnGZTmesyGIcBGNppYhXcc11pb7g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2586,15 +2641,15 @@ packages:
       '@types/node': 17.0.33
       '@types/responselike': 1.0.0
 
-  /@types/chrome/0.0.181:
-    resolution: {integrity: sha512-34Ln9YVVC8a195ruqWeaty3pouFdCLr9L5kPcbRflQcxnbXQnHor9uETof8OhDf8JLDytSRDiuDsRXYQYQ+9FA==}
+  /@types/chrome/0.0.184:
+    resolution: {integrity: sha512-Wvawa0L2jUyLd6RNd0mx/1z0R/RZXkGKDI77+twsbcmhLlsGA64xrXQYxFr/F7yu6yGLEqKpEmrrJ1tveuVkIQ==}
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.8
     dev: true
 
-  /@types/chrome/0.0.184:
-    resolution: {integrity: sha512-Wvawa0L2jUyLd6RNd0mx/1z0R/RZXkGKDI77+twsbcmhLlsGA64xrXQYxFr/F7yu6yGLEqKpEmrrJ1tveuVkIQ==}
+  /@types/chrome/0.0.185:
+    resolution: {integrity: sha512-HU0q31jtBHSfqtqW5TqqgU+BnSiUJdB98qFWT1SD2gXZxk8NVuogNmv7T+WUL+q2/GEer/4est19A1h8FdehYQ==}
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.8
@@ -2682,10 +2737,6 @@ packages:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
 
-  /@types/node/17.0.24:
-    resolution: {integrity: sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==}
-    dev: true
-
   /@types/node/17.0.33:
     resolution: {integrity: sha512-miWq2m2FiQZmaHfdZNcbpp9PuXg34W5JZ5CrJ/BaS70VuhoJENBEQybeiYSaPBRNq6KQGnjfEnc/F3PN++D+XQ==}
 
@@ -2711,24 +2762,10 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom/18.0.1:
-    resolution: {integrity: sha512-jCwTXvHtRLiyVvKm9aEdHXs8rflVOGd5Sl913JZrPshfXjn8NYsTNZOz70bCsA31IR0TOqwi3ad+X4tSCBoMTw==}
-    dependencies:
-      '@types/react': 18.0.9
-    dev: true
-
   /@types/react-dom/18.0.4:
     resolution: {integrity: sha512-FgTtbqPOCI3dzZPZoC2T/sx3L34qxy99ITWn4eoSA95qPyXDMH0ALoAqUp49ITniiJFsXUVBtalh/KffMpg21Q==}
     dependencies:
       '@types/react': 18.0.9
-    dev: true
-
-  /@types/react/18.0.5:
-    resolution: {integrity: sha512-UPxNGInDCIKlfqBrm8LDXYWNfLHwIdisWcsH5GpMyGjhEDLFgTtlRBaoWuCua9HcyuE0rMkmAeZ3FXV1pYLIYQ==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.2
-      csstype: 3.0.11
     dev: true
 
   /@types/react/18.0.9:
@@ -2935,15 +2972,15 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      aws-sdk: 2.1134.0
+      aws-sdk: 2.1135.0
       commander: 3.0.2
       js-yaml: 3.14.1
       watchpack: 2.3.1
     dev: false
     optional: true
 
-  /aws-sdk/2.1134.0:
-    resolution: {integrity: sha512-CvIcPSDzKFn4LRmk6GcQZYWtCxD/FwbbC1yaslvmpOYP8CndCmdz1MHMOPy/QyUyrH2WnUrVTAP2WdWqq6oCjQ==}
+  /aws-sdk/2.1135.0:
+    resolution: {integrity: sha512-bl9n4QgrEh52hmQ+Jo76BgJXM/p+PwfVZvImEQHFeel/33H/PDLcTJquEw5bzxM1HRNI24iH+FNPwyWLMrttTw==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -6509,16 +6546,6 @@ packages:
       minimist: 1.2.6
       strip-json-comments: 2.0.1
 
-  /react-dom/18.0.0_react@18.0.0:
-    resolution: {integrity: sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==}
-    peerDependencies:
-      react: ^18.0.0
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.0.0
-      scheduler: 0.21.0
-    dev: false
-
   /react-dom/18.1.0_react@18.1.0:
     resolution: {integrity: sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==}
     peerDependencies:
@@ -6538,13 +6565,6 @@ packages:
   /react-refresh/0.9.0:
     resolution: {integrity: sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==}
     engines: {node: '>=0.10.0'}
-
-  /react/18.0.0:
-    resolution: {integrity: sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
 
   /react/18.1.0:
     resolution: {integrity: sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==}
@@ -6693,8 +6713,8 @@ packages:
   /robust-sum/1.0.0:
     resolution: {integrity: sha1-FmRuUlKStNJdgnV6KGlV4Lv6U9k=}
 
-  /rollup/2.72.1:
-    resolution: {integrity: sha512-NTc5UGy/NWFGpSqF1lFY8z9Adri6uhyMLI6LvPAXdBKoPRFhIIiBUpt+Qg2awixqO3xvzSijjhnb4+QEZwJmxA==}
+  /rollup/2.73.0:
+    resolution: {integrity: sha512-h/UngC3S4Zt28mB3g0+2YCMegT5yoftnQplwzPqGZcKvlld5e+kT/QRmJiL+qxGyZKOYpgirWGdLyEO1b0dpLQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6736,12 +6756,6 @@ packages:
     dependencies:
       xmlchars: 2.2.0
     dev: true
-
-  /scheduler/0.21.0:
-    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
 
   /scheduler/0.22.0:
     resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
@@ -7222,7 +7236,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-jest/28.0.2_jest@28.1.0+typescript@4.6.4:
+  /ts-jest/28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4:
     resolution: {integrity: sha512-IOZMb3D0gx6IHO9ywPgiQxJ3Zl4ECylEFwoVpENB55aTn5sdO0Ptyx/7noNBxAaUff708RqQL4XBNxxOVjY0vQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -7277,7 +7291,7 @@ packages:
       joycon: 3.1.1
       postcss-load-config: 3.1.4
       resolve-from: 5.0.0
-      rollup: 2.72.1
+      rollup: 2.73.0
       source-map: 0.7.3
       sucrase: 3.21.0
       tree-kill: 1.2.2
@@ -7451,12 +7465,6 @@ packages:
     resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
     engines: {node: '>=12.20'}
     dev: false
-
-  /typescript/4.6.3:
-    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
 
   /typescript/4.6.4:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}

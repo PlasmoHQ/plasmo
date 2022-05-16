@@ -30,10 +30,10 @@ git submodule add git@github.com:PlasmoHQ/repo.git packages/repo
 
 ```sh
 git pull --recurse-submodules
-
 # OR
-
 git submodule update --remote --merge
+# OR
+pnpm -r --parallel --no-bail exec git pull
 ```
 
 ## Recursively commit and push
