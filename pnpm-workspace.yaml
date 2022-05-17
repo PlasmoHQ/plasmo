@@ -3,4 +3,3 @@ packages:
   - "extensions/*"
   - "templates/*"
   - "examples/*"
-link-workspace-packages: false
