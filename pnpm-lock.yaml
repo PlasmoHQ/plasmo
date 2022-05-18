@@ -135,7 +135,7 @@ importers:
 
   examples/with-permission-ui:
     specifiers:
-      '@plasmohq/permission-ui': workspace:*
+      '@plasmohq/permission-ui': 0.0.3
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.186
       '@types/node': 17.0.34
@@ -147,7 +147,7 @@ importers:
       react-dom: 18.1.0
       typescript: 4.6.4
     dependencies:
-      '@plasmohq/permission-ui': link:../../packages/permission-ui
+      '@plasmohq/permission-ui': 0.0.3_react@18.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -187,7 +187,7 @@ importers:
 
   examples/with-storage:
     specifiers:
-      '@plasmohq/storage': workspace:*
+      '@plasmohq/storage': 0.2.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.186
       '@types/node': 17.0.34
@@ -199,7 +199,7 @@ importers:
       react-dom: 18.1.0
       typescript: 4.6.4
     dependencies:
-      '@plasmohq/storage': link:../../packages/storage
+      '@plasmohq/storage': 0.2.2_react@18.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -212,10 +212,35 @@ importers:
       prettier: 2.6.2
       typescript: 4.6.4
 
+  examples/with-tailwindcss:
+    specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.186
+      '@types/node': 17.0.34
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: latest
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.6.4
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.186
+      '@types/node': 17.0.34
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: 0.26.0
+      prettier: 2.6.2
+      typescript: 4.6.4
+
   extensions/mice:
     specifiers:
       '@plasmohq/rps': 1.3.2
-      '@plasmohq/storage': workspace:*
+      '@plasmohq/storage': 0.2.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.186
       '@types/node': 17.0.34
@@ -235,14 +260,14 @@ importers:
       simple-peer: 9.11.1
       typescript: 4.6.4
     dependencies:
-      '@plasmohq/storage': link:../../packages/storage
+      '@plasmohq/storage': 0.2.2_react@18.1.0
       mnemonic-id: 3.2.7
       plasmo: 0.25.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       simple-peer: 9.11.1
     devDependencies:
-      '@plasmohq/rps': link:../../packages/rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/chrome': 0.0.186
       '@types/node': 17.0.34
@@ -259,7 +284,7 @@ importers:
 
   extensions/world-edit:
     specifiers:
-      '@plasmohq/storage': workspace:*
+      '@plasmohq/storage': 0.2.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/chrome': 0.0.186
       '@types/node': 17.0.34
@@ -271,7 +296,7 @@ importers:
       react-dom: 18.1.0
       typescript: 4.6.4
     dependencies:
-      '@plasmohq/storage': link:../../packages/storage
+      '@plasmohq/storage': 0.2.2_react@18.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -305,7 +330,7 @@ importers:
       open: 8.4.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
       cross-env: 7.0.3
@@ -339,7 +364,7 @@ importers:
       simple-git: 3.7.1
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/command-line-usage': 5.0.2
       '@types/fs-extra': 9.0.13
@@ -376,7 +401,7 @@ importers:
       twitter-api-v2: 1.12.0
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
       '@types/semver': 7.3.9
@@ -403,7 +428,7 @@ importers:
       typescript: 4.6.4
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
       '@types/react': 18.0.9
@@ -430,7 +455,7 @@ importers:
       typescript: 4.6.4
     devDependencies:
       '@jest/globals': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
       '@types/react': 18.0.9
@@ -495,7 +520,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/chrome': 0.0.186
@@ -537,7 +562,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmohq/rps': link:../rps
+      '@plasmohq/rps': 1.3.2
       '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
@@ -570,7 +595,7 @@ importers:
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
-      '@plasmohq/rps': link:../../packages/rps
+      '@plasmohq/rps': 1.3.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
       '@types/node': 17.0.34
       cross-env: 7.0.3
@@ -2286,6 +2311,34 @@ packages:
       chrome-trace-event: 1.0.3
       nullthrows: 1.1.1
 
+  /@plasmohq/permission-ui/0.0.3_react@18.1.0:
+    resolution: {integrity: sha512-1zQsyAessD4snSy1KjHRsswgrPMeio/Tp3M4L+XkmdCahI+t0uImCE9jTzTjSzVudHJecqp5ATRUSNAzIJBQXw==}
+    hasBin: true
+    peerDependencies:
+      react: '>=17 || >=18'
+    dependencies:
+      react: 18.1.0
+    dev: false
+
+  /@plasmohq/rps/1.3.2:
+    resolution: {integrity: sha512-oxHr6rWN+FawDM45KC7FNfSahBs9qc25MINVES16KHI248q/1zm9ZGiJ+6RMxhJUUcRwo1McapZnlvYZmyI4ag==}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+      minimatch: 5.1.0
+      pidtree: 0.5.0
+      read-pkg: 7.1.0
+      shell-quote: 1.7.3
+    dev: true
+
+  /@plasmohq/storage/0.2.2_react@18.1.0:
+    resolution: {integrity: sha512-Mg7gdkI3v8tqcniIk4aMxer4bVpOsRdmzTa5Jnv3swKhuW4MWwbG6NrbO0dIi8QRg3/u7eG+WoUWQSubuIhZ6g==}
+    peerDependencies:
+      react: ^16.8.6 || ^17 || ^18
+    dependencies:
+      react: 18.1.0
+    dev: false
+
   /@playwright/test/1.22.0:
     resolution: {integrity: sha512-ExcAjiECo3uTG5Sl5H4a7rKp/5TEHTI87dv9NHYEoUFuOHPhSVxB7QsuM70ktO+wTTZ9KzhwzcegxAGRmUFKEA==}
     engines: {node: '>=14'}
@@ -2529,7 +2582,6 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-    dev: false
 
   /@types/pako/1.0.4:
     resolution: {integrity: sha512-Z+5bJSm28EXBSUJEgx29ioWeEEHUh6TiMkZHDhLwjc9wVFH+ressbkmX6waUZc5R3Gobn4Qu5llGxaoflZ+yhA==}
@@ -2913,7 +2965,6 @@ packages:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
     dependencies:
       balanced-match: 1.0.2
-    dev: false
 
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -4198,7 +4249,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       lru-cache: 6.0.0
-    dev: false
 
   /html-encoding-sniffer/3.0.0:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
@@ -5379,7 +5429,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
-    dev: false
 
   /ml-array-max/1.2.4:
     resolution: {integrity: sha512-BlEeg80jI0tW6WaPyGxf5Sa4sqvcyY6lbSn5Vcv44lp1I2GR6AWojfUvLnGTNsIXrZ8uqWmo8VcG1WpkI2ONMQ==}
@@ -5665,7 +5714,6 @@ packages:
       is-core-module: 2.9.0
       semver: 7.3.7
       validate-npm-package-license: 3.0.4
-    dev: false
 
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -5901,7 +5949,6 @@ packages:
     resolution: {integrity: sha512-9nxspIM7OpZuhBxPg73Zvyq7j1QMPMPsGKTqRc2XOaFQauDvoNz9fM1Wdkjmeo7l9GXOZiRs97sPkuayl39wjA==}
     engines: {node: '>=0.10'}
     hasBin: true
-    dev: false
 
   /pirates/4.0.4:
     resolution: {integrity: sha512-ZIrVPH+A52Dw84R0L3/VS9Op04PuQ2SEoJL6bkshmiTic/HldyW9Tf7oH5mhJZBK7NmDx27vSMrYEXPXclpDKw==}
@@ -5953,6 +6000,41 @@ packages:
       - srcset
       - terser
       - uncss
+
+  /plasmo/0.26.0:
+    resolution: {integrity: sha512-C2Pn7OnViQqNIqijz+Cuud/EzQxroyZ2w0QCqElq9f+D/LjssPOW4gzuu/PFZHcAI0FNJoH1aM1dfxVpZVtaYQ==}
+    hasBin: true
+    dependencies:
+      '@expo/spawn-async': 1.6.0
+      '@parcel/config-webextension': 2.5.0_@parcel+core@2.5.0
+      '@parcel/core': 2.5.0
+      '@parcel/watcher': 2.0.5
+      '@playwright/test': 1.22.0
+      archiver: 5.3.1
+      chalk: 5.0.1
+      change-case: 4.1.2
+      dotenv: 16.0.1
+      dotenv-expand: 8.0.3
+      get-port: 6.1.2
+      got: 12.0.4
+      image-js: 0.34.0
+      inquirer: 8.2.4
+      is-path-inside: 4.0.0
+      mnemonic-id: 3.2.7
+      node-object-hash: 2.3.10
+      open: 8.4.0
+      semver: 7.3.7
+      ts-ast-to-literal: 1.0.5_typescript@4.6.4
+      typescript: 4.6.4
+    transitivePeerDependencies:
+      - cssnano
+      - postcss
+      - purgecss
+      - relateurl
+      - srcset
+      - terser
+      - uncss
+    dev: true
 
   /playwright-core/1.22.0:
     resolution: {integrity: sha512-XnDPiV4NCzTtXWxQdyJ6Wg8xhST3ciUjt5mITaxoqOoYggmRtofKm0PXLehfbetXh2ppPYj5U8UhtUpdIE4wag==}
@@ -6123,7 +6205,6 @@ packages:
       normalize-package-data: 3.0.3
       parse-json: 5.2.0
       type-fest: 2.12.2
-    dev: false
 
   /readable-stream/2.3.7:
     resolution: {integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==}
@@ -6340,7 +6421,6 @@ packages:
 
   /shell-quote/1.7.3:
     resolution: {integrity: sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==}
-    dev: false
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
@@ -6417,22 +6497,18 @@ packages:
     dependencies:
       spdx-expression-parse: 3.0.1
       spdx-license-ids: 3.0.11
-    dev: false
 
   /spdx-exceptions/2.3.0:
     resolution: {integrity: sha512-/tTrYOC7PPI1nUAgx34hUpqXuyJG+DTHJTnIULG4rDygi4xu/tfgmq1e1cIRwRzwZgo4NLySi+ricLkZkw4i5A==}
-    dev: false
 
   /spdx-expression-parse/3.0.1:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
     dependencies:
       spdx-exceptions: 2.3.0
       spdx-license-ids: 3.0.11
-    dev: false
 
   /spdx-license-ids/3.0.11:
     resolution: {integrity: sha512-Ctl2BrFiM0X3MANYgj3CkygxhRmr9mi6xhejbdO960nF6EDJApTYpn0BQnDKlnNBULKiCN1n3w9EBkHK8ZWg+g==}
-    dev: false
 
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
@@ -6933,7 +7009,6 @@ packages:
   /type-fest/2.12.2:
     resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
     engines: {node: '>=12.20'}
-    dev: false
 
   /typescript/4.6.4:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
@@ -7019,7 +7094,6 @@ packages:
     dependencies:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
-    dev: false
 
   /w3c-hr-time/1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
