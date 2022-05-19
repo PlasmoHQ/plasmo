@@ -3,5 +3,3 @@ packages:
   - "extensions/*"
   - "templates/*"
   - "examples/*"
-save-workspace-protocol: false
-prefer-workspace-packages: true
