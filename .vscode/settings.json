@@ -14,5 +14,6 @@
   },
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
-  }
+  },
+  "git.detectSubmodulesLimit": 99
 }
