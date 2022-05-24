@@ -1,0 +1,27 @@
+name: 📓 Example Request
+description: Request a new Plasmo Framework with-* example
+title: 'EXP | '
+labels: ["example"]
+body:
+  - type: textarea
+    attributes:
+      label: What is the example you wish to see?
+      description: 'Example: I would like to see more examples of how to use `X-Framework`.'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Is there any context that might help us understand?
+      description: A clear description of any added context that might help us understand.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../../CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+        - label: I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues) for duplicate problems.
+          required: true
