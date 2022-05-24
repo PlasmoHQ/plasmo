@@ -18,7 +18,7 @@
     <img alt="Watch our Live DEMO every Friday" src="https://img.shields.io/twitch/status/plasmohq?logo=twitch&logoColor=white"/>
   </a>
   <a aria-label="Discord" href="https://www.plasmo.com/s/d">
-    <img alt="Join our Discord for support and chat about our projects" src="https://img.shields.io/discord/904466750429609984?logo=discord&logoColor=white"/>
+    <img alt="Join our Discord for support and chat about our projects" src="https://img.shields.io/discord/946290204443025438?logo=discord&logoColor=white"/>
   </a>
 </p>
 
@@ -26,6 +26,21 @@
 
 This is an open laboratory for experimental as well as production modules from [plasmo](https://www.plasmo.com).
 
-# License
+## Getting Started
+
+Visit [https://docs.plasmo.com/]) to get started with the Plasmo Framework.
+
+## Community
+
+The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d).
+
+Our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) applies to all Plasmo community channels.
+
+## Authors
+
+- Louis ❤☮🤚(https://twitter.com/litbid) - [Plasmo](www.plasmo.com)
+- Stefan Aleksic (https://twitter.com/stayfun_) - [Plasmo](www.plasmo.com)
+
+## License
 
 [MIT](./license) 🚀 [Plasmo Corp.](https://plasmo.com)
