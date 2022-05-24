@@ -28,6 +28,7 @@
     "@types/uuid": "8.3.4",
     "@plasmohq/rps": "1.3.3",
     "esbuild": "0.14.39",
+    "tsup": "5.12.8",
     "eslint": "8.16.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-react": "7.30.0",

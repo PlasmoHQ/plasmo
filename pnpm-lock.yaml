@@ -20,6 +20,7 @@ importers:
       eslint-plugin-react: 7.30.0
       fs-extra: 10.1.0
       prettier: 2.6.2
+      tsup: 5.12.8
       turbo: 1.2.11
     devDependencies:
       '@plasmohq/rps': link:packages/rps
@@ -38,6 +39,7 @@ importers:
       eslint-plugin-react: 7.30.0_eslint@8.16.0
       fs-extra: 10.1.0
       prettier: 2.6.2
+      tsup: 5.12.8
       turbo: 1.2.11
 
   cli/create-plasmo-ext:
@@ -8655,6 +8657,35 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+
+  /tsup/5.12.8:
+    resolution: {integrity: sha512-fSBzUBtrnAQ+XKPfj1KcZ2Pl0EUlKBqpbTmRAs+2mL34fQlowrm6ccQgOYyMe9MMAcejMP6/7Rw3qKjx1lreZA==}
+    hasBin: true
+    peerDependencies:
+      typescript: ^4.1.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      bundle-require: 3.0.4_esbuild@0.14.39
+      cac: 6.7.12
+      chokidar: 3.5.3
+      debug: 4.3.4
+      esbuild: 0.14.39
+      execa: 5.1.1
+      globby: 11.1.0
+      joycon: 3.1.1
+      postcss-load-config: 3.1.4
+      resolve-from: 5.0.0
+      rollup: 2.74.1
+      source-map: 0.8.0-beta.0
+      sucrase: 3.21.0
+      tree-kill: 1.2.2
+    transitivePeerDependencies:
+      - postcss
+      - supports-color
+      - ts-node
+    dev: true
 
   /tsup/5.12.8_typescript@4.6.4:
     resolution: {integrity: sha512-fSBzUBtrnAQ+XKPfj1KcZ2Pl0EUlKBqpbTmRAs+2mL34fQlowrm6ccQgOYyMe9MMAcejMP6/7Rw3qKjx1lreZA==}
