@@ -24,11 +24,11 @@
 
 # Plasmo open lab
 
-This is an open laboratory for experimental as well as production modules from [plasmo](https://www.plasmo.com).
+This is an open laboratory for experimental as well as production modules from [Plasmo](https://www.plasmo.com).
 
 ## Getting Started
 
-Visit [https://docs.plasmo.com/]) to get started with the Plasmo Framework.
+Visit https://docs.plasmo.com/ to get started with the Plasmo Framework.
 
 ## Community
 

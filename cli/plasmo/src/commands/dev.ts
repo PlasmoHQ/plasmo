@@ -2,7 +2,7 @@ import Parcel from "@parcel/core"
 import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
 
-import { eLog, getNonFlagArgvs, iLog, vLog } from "@plasmo/utils"
+import { aLog, eLog, getNonFlagArgvs, iLog, vLog } from "@plasmo/utils"
 
 import {
   getCommonPath,
@@ -74,6 +74,8 @@ async function dev() {
     env: devEnvConfig.plasmoPublicEnv
   })
 
+  const { default: chalk } = await import("chalk")
+
   const bundlerWatcher = await bundler.watch((err, event) => {
     if (err) {
       throw err
@@ -82,7 +84,33 @@ async function dev() {
     if (event.type === "buildSuccess") {
       iLog(`✨ Extension reloaded in ${event.buildTime}ms!`)
     } else if (event.type === "buildFailure") {
-      eLog(event.diagnostics)
+      event.diagnostics.forEach((diagnostic) => {
+        eLog(chalk.redBright(diagnostic.message))
+        if (diagnostic.stack) {
+          aLog(diagnostic.stack)
+        }
+
+        diagnostic.hints?.forEach((hint) => {
+          aLog(hint)
+        })
+
+        diagnostic.codeFrames?.forEach((codeFrame) => {
+          if (codeFrame.code) {
+            aLog(codeFrame.code)
+          }
+          codeFrame.codeHighlights.forEach((codeHighlight) => {
+            if (codeHighlight.message) {
+              aLog(codeHighlight.message)
+            }
+
+            aLog(
+              chalk.underline(
+                `${codeFrame.filePath}:${codeHighlight.start.line}:${codeHighlight.start.column}`
+              )
+            )
+          })
+        })
+      })
     }
   })
 
