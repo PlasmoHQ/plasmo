@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest",
+  "name": "Plasmo Sample",
+  "description": "Plasmo extension",
+  "version": "0.0.1",
+  "author": "Plasmo Corp.",
+  "manifest_version": 3,
+  "icons": {
+    "16": "./gen-assets/icon16.png",
+    "48": "./gen-assets/icon48.png",
+    "128": "./gen-assets/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "./gen-assets/icon16.png",
+      "48": "./gen-assets/icon48.png"
+    },
+    "default_popup": "./static/popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["../contents.ts"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "./static/options/index.html",
+    "open_in_tab": true
+  },
+  "permissions": ["activeTab", "storage", "tabs"],
+  "host_permissions": ["https://*/*"]
+}

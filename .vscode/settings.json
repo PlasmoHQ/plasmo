@@ -15,5 +15,8 @@
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
-  "git.detectSubmodulesLimit": 99
+  "git.detectSubmodulesLimit": 99,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-config.json": "file:///p%3A/Projects/plasmo-corp/plasmo/.github/ISSUE_TEMPLATE/config.yml"
+  }
 }
