@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@plasmohq/rps': 1.3.3
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 8.2.1
@@ -21,6 +22,7 @@ importers:
       prettier: 2.6.2
       turbo: 1.2.11
     devDependencies:
+      '@plasmohq/rps': link:packages/rps
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 8.2.1
@@ -88,7 +90,6 @@ importers:
       is-path-inside: 4.0.0
       mnemonic-id: 3.2.7
       node-object-hash: 2.3.10
-      open: 8.4.0
       semver: 7.3.7
       ts-ast-to-literal: 1.0.5
       typescript: 4.6.4
@@ -109,7 +110,6 @@ importers:
       is-path-inside: 4.0.0
       mnemonic-id: 3.2.7
       node-object-hash: 2.3.10
-      open: 8.4.0
       semver: 7.3.7
       ts-ast-to-literal: 1.0.5_typescript@4.6.4
       typescript: 4.6.4
