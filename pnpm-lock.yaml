@@ -21,7 +21,7 @@ importers:
       fs-extra: 10.1.0
       prettier: 2.6.2
       tsup: 5.12.8
-      turbo: 1.2.11
+      turbo: 1.2.12
     devDependencies:
       '@plasmohq/rps': link:packages/rps
       '@types/archiver': 5.3.1
@@ -40,7 +40,7 @@ importers:
       fs-extra: 10.1.0
       prettier: 2.6.2
       tsup: 5.12.8
-      turbo: 1.2.11
+      turbo: 1.2.12
 
   cli/create-plasmo-ext:
     specifiers:
@@ -55,7 +55,7 @@ importers:
       node-object-hash: 2.3.10
       open: 8.4.0
       semver: 7.3.7
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@expo/spawn-async': 1.6.0
       chalk: 5.0.1
@@ -69,7 +69,7 @@ importers:
     devDependencies:
       '@plasmo/config': link:../../packages/config
       '@plasmo/constants': link:../../packages/constants
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   cli/plasmo:
     specifiers:
@@ -94,7 +94,7 @@ importers:
       node-object-hash: 2.3.10
       semver: 7.3.7
       ts-ast-to-literal: 1.0.5
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@expo/spawn-async': 1.6.0
       '@parcel/config-webextension': 2.5.0_@parcel+core@2.5.0
@@ -113,8 +113,8 @@ importers:
       mnemonic-id: 3.2.7
       node-object-hash: 2.3.10
       semver: 7.3.7
-      ts-ast-to-literal: 1.0.5_typescript@4.6.4
-      typescript: 4.6.4
+      ts-ast-to-literal: 1.0.5_typescript@4.7.2
+      typescript: 4.7.2
     devDependencies:
       '@plasmo/config': link:../../packages/config
       '@plasmo/constants': link:../../packages/constants
@@ -131,7 +131,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -143,7 +143,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-content-script:
     specifiers:
@@ -156,7 +156,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -168,7 +168,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-env-files:
     specifiers:
@@ -181,7 +181,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -193,7 +193,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-firebase-auth:
     specifiers:
@@ -207,7 +207,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       firebase: 9.8.1
       react: 18.1.0
@@ -220,7 +220,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-many-content-scripts:
     specifiers:
@@ -233,7 +233,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -245,7 +245,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-options-ui:
     specifiers:
@@ -258,7 +258,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -270,7 +270,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-permission-ui:
     specifiers:
@@ -284,7 +284,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@plasmohq/permission-ui': link:../../packages/permission-ui
       react: 18.1.0
@@ -297,7 +297,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-popup:
     specifiers:
@@ -310,7 +310,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -322,7 +322,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-storage:
     specifiers:
@@ -336,7 +336,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@plasmohq/storage': link:../../packages/storage
       react: 18.1.0
@@ -349,7 +349,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-supabase:
     specifiers:
@@ -363,7 +363,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@supabase/supabase-js': 1.35.3
       react: 18.1.0
@@ -376,7 +376,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   examples/with-tailwindcss:
     specifiers:
@@ -393,7 +393,7 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0
       tailwindcss: 3.0.24
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@tailwindcss/forms': 0.5.2_tailwindcss@3.0.24
       '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
@@ -409,7 +409,7 @@ importers:
       plasmo: link:../../cli/plasmo
       postcss: 8.4.14
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   extensions/mice:
     specifiers:
@@ -432,7 +432,7 @@ importers:
       react-dom: 18.1.0
       rimraf: 3.0.2
       simple-peer: 9.11.1
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@plasmohq/storage': link:../../packages/storage
       mnemonic-id: 3.2.7
@@ -454,7 +454,7 @@ importers:
       prettier: 2.6.2
       process: 0.11.10
       rimraf: 3.0.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   extensions/world-edit:
     specifiers:
@@ -468,7 +468,7 @@ importers:
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@plasmohq/storage': link:../../packages/storage
       react: 18.1.0
@@ -481,7 +481,7 @@ importers:
       '@types/react-dom': 18.0.5
       plasmo: link:../../cli/plasmo
       prettier: 2.6.2
-      typescript: 4.6.4
+      typescript: 4.7.2
 
   packages/config:
     specifiers: {}
@@ -508,9 +508,9 @@ importers:
       jest: 28.1.0
       open: 8.4.0
       prettier: 2.6.2
-      ts-jest: ^28.0.2
+      ts-jest: ^28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       get-port: 6.1.2
       google-auth-library: 8.0.2
@@ -523,9 +523,9 @@ importers:
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/mirror-force:
     specifiers:
@@ -541,9 +541,9 @@ importers:
       jest: 28.1.0
       prettier: 2.6.2
       simple-git: 3.7.1
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       arg: 5.0.1
       command-line-usage: 6.1.3
@@ -558,9 +558,9 @@ importers:
       '@types/node': 17.0.35
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/mystic-box:
     specifiers:
@@ -577,10 +577,10 @@ importers:
       octokit: 1.7.1
       prettier: 2.6.2
       semver: 7.3.7
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
       twitter-api-v2: 1.12.2
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       got: 12.0.4
       jszip: 3.10.0
@@ -597,9 +597,9 @@ importers:
       cross-env: 7.0.3
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/permission-ui:
     specifiers:
@@ -612,9 +612,9 @@ importers:
       jest: 28.1.0
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     devDependencies:
       '@jest/globals': 28.1.0
       '@plasmohq/rps': link:../rps
@@ -625,9 +625,9 @@ importers:
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/puro:
     specifiers:
@@ -639,9 +639,9 @@ importers:
       jest: 28.1.0
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     devDependencies:
       '@jest/globals': 28.1.0
       '@plasmohq/rps': link:../rps
@@ -651,9 +651,9 @@ importers:
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
       react: 18.1.0
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/rps:
     specifiers:
@@ -669,7 +669,7 @@ importers:
       read-pkg: 7.1.0
       shell-quote: 1.7.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       cross-spawn: 7.0.3
       minimatch: 5.1.0
@@ -683,8 +683,8 @@ importers:
       '@types/node': 17.0.35
       '@types/shell-quote': 1.7.1
       prettier: 2.6.2
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/storage:
     specifiers:
@@ -703,9 +703,9 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
@@ -722,9 +722,9 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/use-hashed-state:
     specifiers:
@@ -743,9 +743,9 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2
+      ts-jest: 28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       node-object-hash: 2.3.10
     devDependencies:
@@ -763,9 +763,9 @@ importers:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       rimraf: 3.0.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
   packages/utils:
     specifiers:
@@ -786,9 +786,9 @@ importers:
       jest: 28.1.0
       prettier: 2.6.2
       rimraf: 3.0.2
-      ts-jest: ^28.0.2
+      ts-jest: ^28.0.3
       tsup: 5.12.8
-      typescript: 4.6.4
+      typescript: 4.7.2
     devDependencies:
       '@jest/globals': 28.1.0
       '@jest/types': 28.1.0
@@ -799,9 +799,9 @@ importers:
       jest: 28.1.0_@types+node@17.0.35
       prettier: 2.6.2
       rimraf: 3.0.2
-      ts-jest: 28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4
-      tsup: 5.12.8_typescript@4.6.4
-      typescript: 4.6.4
+      ts-jest: 28.0.3_3idyv6jqzrc23kpntvtlm4rwnq
+      tsup: 5.12.8_typescript@4.7.2
+      typescript: 4.7.2
 
 packages:
 
@@ -8608,22 +8608,22 @@ packages:
     hasBin: true
     dev: true
 
-  /ts-ast-to-literal/1.0.5_typescript@4.6.4:
+  /ts-ast-to-literal/1.0.5_typescript@4.7.2:
     resolution: {integrity: sha512-dHRN7h2UGkWtQriPMGRokoN6st4bUr6ADccH90opZWrRpKxjQvdCOkpy69foSVL2zXD18eaGuVldsr3XJoi6vQ==}
     engines: {node: '>=12'}
     peerDependencies:
       typescript: ^4.3.5
     dependencies:
       '@dword-design/functions': 4.0.7
-      typescript: 4.6.4
+      typescript: 4.7.2
     dev: false
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-jest/28.0.2_uy2hwlw3b2xjbkk4v7x6v75ly4:
-    resolution: {integrity: sha512-IOZMb3D0gx6IHO9ywPgiQxJ3Zl4ECylEFwoVpENB55aTn5sdO0Ptyx/7noNBxAaUff708RqQL4XBNxxOVjY0vQ==}
+  /ts-jest/28.0.3_3idyv6jqzrc23kpntvtlm4rwnq:
+    resolution: {integrity: sha512-HzgbEDQ2KgVtDmpXToqAcKTyGHdHsG23i/iUjfxji92G5eT09S1m9UHZd7csF0Bfgh9txM4JzwHnv7r1waFPlw==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
@@ -8651,7 +8651,7 @@ packages:
       lodash.memoize: 4.1.2
       make-error: 1.3.6
       semver: 7.3.7
-      typescript: 4.6.4
+      typescript: 4.7.2
       yargs-parser: 20.2.9
     dev: true
 
@@ -8687,7 +8687,7 @@ packages:
       - ts-node
     dev: true
 
-  /tsup/5.12.8_typescript@4.6.4:
+  /tsup/5.12.8_typescript@4.7.2:
     resolution: {integrity: sha512-fSBzUBtrnAQ+XKPfj1KcZ2Pl0EUlKBqpbTmRAs+2mL34fQlowrm6ccQgOYyMe9MMAcejMP6/7Rw3qKjx1lreZA==}
     hasBin: true
     peerDependencies:
@@ -8710,135 +8710,135 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.21.0
       tree-kill: 1.2.2
-      typescript: 4.6.4
+      typescript: 4.7.2
     transitivePeerDependencies:
       - postcss
       - supports-color
       - ts-node
     dev: true
 
-  /turbo-darwin-64/1.2.11:
-    resolution: {integrity: sha512-UupYR63l7UaUPW6cKUSlpA98hEeCh1OSPWFf02igbvADUCi54Hv0uy4uNZPPago0NKFmmeGUO2wcsLIFrAZYrA==}
+  /turbo-darwin-64/1.2.12:
+    resolution: {integrity: sha512-Tb9aRlMHKfMUnnxmChqNKIidUD6PTv01fUGBkNNeGv3ViXrsfnRjKuvSW4+moSpm2NasqiLAZzwctwW5YLdmwg==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.2.11:
-    resolution: {integrity: sha512-Bvd1UDNrZuDTFXPN1/Yg/p2AyhzY2KtoAyvhGrF30SM1d2k8G9HtO7z47eX4pvF6biNd5+d7WN+kwLs74UzBmw==}
+  /turbo-darwin-arm64/1.2.12:
+    resolution: {integrity: sha512-kvmbNiINtIg4TLX0tW7Qlaf7e4BEnBBUK7nhI3dC6n7aILxW5nhr9pZJC4OJz5tTJq9i5pTrbKu42g9nwUONOg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-freebsd-64/1.2.11:
-    resolution: {integrity: sha512-VyIU1Z6rX1f05O2jxjYBmOCTgHLFzLo6TrXY+iveSHwHMWlnz35rQf9fQNNXqR3QthNhZVRhlW1lImA7C9gxoQ==}
+  /turbo-freebsd-64/1.2.12:
+    resolution: {integrity: sha512-c9PFeau4/lTGtcSejN+MNHJ6OJjsxUfP3Ctdha7niuqT9nk18McSkM2JIqlERFJ2TA1lcUxpN8viV5FXlkW0xA==}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-freebsd-arm64/1.2.11:
-    resolution: {integrity: sha512-o4gVCdCLyz4ymLVxUh+hu2GCiYb0ODfT94z1FJvEGv/10mh+iygxkmI0UOwTQjBTwjLfaAmoHB8ujMDCt65XPQ==}
+  /turbo-freebsd-arm64/1.2.12:
+    resolution: {integrity: sha512-8obbWS9+hnyCDP1JvcIQArwv/iDEOYkt0Kp2LHZoHSeShXkuKSXMqopM3yiCAhHVQ5LOHN4gPdLZlnmdgzoqOg==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-32/1.2.11:
-    resolution: {integrity: sha512-fvDEKWnJIumdeB5QxABybadBWSS5TWN4z3cnJEoLGj1yGFhTOULmquT9LeRNo8qwxBOkRP0PX8J5GHspbrN5rw==}
+  /turbo-linux-32/1.2.12:
+    resolution: {integrity: sha512-s+K1xvAcTWhuCfm2xSyxEeTr/ljNGLN2yTt3HdB0Dj7uHWwq/balYegPRpVrtqTZjkz2+adblr9uGgyZJalrAg==}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.2.11:
-    resolution: {integrity: sha512-N/hJDouCid0WF/pNXDIYQf+6fbZXspHME+KpWjiZcRgMrs+IU6Nni/roXXlGzZSe/w2sQGo4FENpR4jP9qBP7w==}
+  /turbo-linux-64/1.2.12:
+    resolution: {integrity: sha512-jl3YBpXxEpG3GWNVhGRoQLAebl3NnL705pIXfkBe/+nVCSah8ft6XqMzjlBZvuaOS1+myUVL5Wk2yOgoRITiYA==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm/1.2.11:
-    resolution: {integrity: sha512-wbti79x3XOt/l28J7MHRyoLW8KkKG/PeC053OSU+bCFx8Q7eCfsXW2CY9ihNZOqSf0H/e+62w0XSerjSOyGO0A==}
+  /turbo-linux-arm/1.2.12:
+    resolution: {integrity: sha512-u1YoQb7Eil42+k3/88H3t3oieYN80AF33ovNETh6230HkkiDtT7n12n2XTqHuZTSwksppqFULsnSKRikioCZGA==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.2.11:
-    resolution: {integrity: sha512-dXe+uy+n61ZL2LScyPjO1dIzqWuUTgyYUaRW5qMoyqtgxKu2e741eCvigLKm4FpNKZ3zxeoiI4svpW4ZU6Hq9g==}
+  /turbo-linux-arm64/1.2.12:
+    resolution: {integrity: sha512-UIljUb4ozDkz6oHPZVEmYBvQ+fF0uphgG8e9umNay+9UojPQmSW3hp2FTQ+cK77XRQHvM5bLMa422JV7dwC8Iw==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-mips64le/1.2.11:
-    resolution: {integrity: sha512-RuG12lCJTgsXmHckfyoZxoNchemPZ/Oo4Db06G4KF3SIn2jTycAzNqj5c/tfYdZuntIoafjrOpwxYbnbj0a2Qw==}
+  /turbo-linux-mips64le/1.2.12:
+    resolution: {integrity: sha512-lAYxRNYymQ9xcFuX4lgAu3v4lcMMNgKUbAHnHVv3689qi7cxBQatb5ZoPI4xFX0fJIyo7tKFgfcsoaE259mqPg==}
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-ppc64le/1.2.11:
-    resolution: {integrity: sha512-Bl01W8CcwaSSNjVAO8HN3CDl5RwpTo/8iKTMiHyH8S14xWf2ffTEDNNPwQScIuJx5A44f6nkz7cv+IrV/eY1Og==}
+  /turbo-linux-ppc64le/1.2.12:
+    resolution: {integrity: sha512-r0q1a9ELcCDwC9jZ3Z+OfYqCW81G83EPXXMqzrWzvlU8tzb/Af634T36Ez819oiu7suX527ay0kts0ZMFgVDpw==}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-32/1.2.11:
-    resolution: {integrity: sha512-U0b769P0U27mCG7zP5StNe+DhBZ7cPGEwRb7/mHsCsJpAVCWbOwM9tKNu6hJ3eeVIjuFyDM1UCisCelE6gG1Og==}
+  /turbo-windows-32/1.2.12:
+    resolution: {integrity: sha512-5Rdvoka889FqFryE6xUUidH0+cy3T0cnTSaeOINPYxhoUlmPbJINObrqY9L7gJFeoEcVuz0rXvZYV/5Ri3t92A==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.2.11:
-    resolution: {integrity: sha512-+59JLynPElhttEZkDy4hFp8nCj/21PxDNs60LXFkYDggxRPDT6qKkO5t65b8f/f9O1bvLqflzIoSuydZ8OO8EA==}
+  /turbo-windows-64/1.2.12:
+    resolution: {integrity: sha512-crKWC6kx0Fd+xjcA+sBv0GYgPHsrNHPx6V6i7HWXUEaT3LxUyl3RbXJ9oZloVMN4nT0c4WZmVz6at3nukBkhUQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.2.11:
-    resolution: {integrity: sha512-DyoE2Zt5LE4czg0JE32fvZVpVVynYyStLUiBa/FO5GA5ppIH9z5Wn2wai13xvGzACQoDL+e3lyQu1/u3UgVyxQ==}
+  /turbo-windows-arm64/1.2.12:
+    resolution: {integrity: sha512-EwqWvy8ahuTgYkygB4cCwpIafctPWzICh6JSlwkJEL+O9E7SHTW0DhVBQNQM0u/WSSVU7Pm1QV6YjDKzZ415VA==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.2.11:
-    resolution: {integrity: sha512-m10xpV4QzTf6Cx/zpUflauXVjI4KK5BY5Msz0OBbt2qWU640JM/qWHGNAs12ZgosdwR9rw1bv9PgmuVCNbY0pg==}
+  /turbo/1.2.12:
+    resolution: {integrity: sha512-mqTye/2FKdDUk4sIxHvu9WX1Q8RBWRwLUuHQFPfrygMvUm09QsoFgXvr7qQqZJ9rBmSJ/aaCAMPdZpV/BlhchA==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.2.11
-      turbo-darwin-arm64: 1.2.11
-      turbo-freebsd-64: 1.2.11
-      turbo-freebsd-arm64: 1.2.11
-      turbo-linux-32: 1.2.11
-      turbo-linux-64: 1.2.11
-      turbo-linux-arm: 1.2.11
-      turbo-linux-arm64: 1.2.11
-      turbo-linux-mips64le: 1.2.11
-      turbo-linux-ppc64le: 1.2.11
-      turbo-windows-32: 1.2.11
-      turbo-windows-64: 1.2.11
-      turbo-windows-arm64: 1.2.11
+      turbo-darwin-64: 1.2.12
+      turbo-darwin-arm64: 1.2.12
+      turbo-freebsd-64: 1.2.12
+      turbo-freebsd-arm64: 1.2.12
+      turbo-linux-32: 1.2.12
+      turbo-linux-64: 1.2.12
+      turbo-linux-arm: 1.2.12
+      turbo-linux-arm64: 1.2.12
+      turbo-linux-mips64le: 1.2.12
+      turbo-linux-ppc64le: 1.2.12
+      turbo-windows-32: 1.2.12
+      turbo-windows-64: 1.2.12
+      turbo-windows-arm64: 1.2.12
     dev: true
 
   /twitter-api-v2/1.12.2:
@@ -8901,6 +8901,12 @@ packages:
 
   /typescript/4.6.4:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/4.7.2:
+    resolution: {integrity: sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==}
     engines: {node: '>=4.2.0'}
     hasBin: true
 
