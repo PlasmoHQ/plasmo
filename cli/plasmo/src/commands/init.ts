@@ -14,13 +14,14 @@ import {
   getNonFlagArgvs,
   hasFlag,
   iLog,
+  isFolderEmpty,
+  isWriteable,
   sLog,
   vLog
 } from "@plasmo/utils"
 
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import { generatePackage } from "~features/extension-devtools/package-file"
-import { isFolderEmpty, isWriteable } from "~features/helpers/fs"
 import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"

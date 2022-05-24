@@ -5,7 +5,14 @@ import { cp, mkdir } from "fs/promises"
 import { prompt } from "inquirer"
 import { resolve } from "path"
 
-import { getNonFlagArgvs, hasFlag, iLog, sLog, vLog } from "@plasmo/utils"
+import {
+  fileExists,
+  getNonFlagArgvs,
+  hasFlag,
+  iLog,
+  sLog,
+  vLog
+} from "@plasmo/utils"
 
 import {
   getCommonPath,
@@ -17,7 +24,6 @@ import { generateNewTabManifest } from "~features/extension-devtools/manifest-he
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { loadEnvConfig } from "~features/extension-devtools/parse-env"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
-import { fileExists } from "~features/helpers/fs"
 
 async function build() {
   const { default: chalk } = await import("chalk")
