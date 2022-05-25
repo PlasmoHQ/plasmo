@@ -33,8 +33,8 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.6.0",
-    "@parcel/config-webextension": "2.5.0",
-    "@parcel/core": "2.5.0",
+    "@parcel/config-webextension": "nightly",
+    "@parcel/core": "nightly",
     "@parcel/watcher": "2.0.5",
     "archiver": "5.3.1",
     "chalk": "5.0.1",
