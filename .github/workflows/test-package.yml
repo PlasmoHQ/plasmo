@@ -35,4 +35,4 @@ jobs:
           ${{ matrix.package-manager.name }} run build
           pushd build
           popd
-          timeout 10 --preserve-status ${{ matrix.package-manager.name }} run build
+          timeout --preserve-status 10 ${{ matrix.package-manager.name }} run build
