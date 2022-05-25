@@ -170,6 +170,31 @@ importers:
       prettier: 2.6.2
       typescript: 4.7.2
 
+  examples/with-devtools:
+    specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.186
+      '@types/node': 17.0.34
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: latest
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.6.4
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.186
+      '@types/node': 17.0.34
+      '@types/react': 18.0.9
+      '@types/react-dom': 18.0.4
+      plasmo: link:../../cli/plasmo
+      prettier: 2.6.2
+      typescript: 4.6.4
+
   examples/with-env-files:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
@@ -827,14 +852,14 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/generator': 7.13.9
+      '@babel/generator': 7.18.0
       '@babel/helper-compilation-targets': 7.17.10_@babel+core@7.13.10
       '@babel/helper-module-transforms': 7.18.0
       '@babel/helpers': 7.18.0
-      '@babel/parser': 7.14.6
+      '@babel/parser': 7.18.0
       '@babel/template': 7.16.7
-      '@babel/traverse': 7.13.0
-      '@babel/types': 7.13.0
+      '@babel/traverse': 7.18.0
+      '@babel/types': 7.18.0
       convert-source-map: 1.8.0
       debug: 4.3.4
       gensync: 1.0.0-beta.2
@@ -872,7 +897,7 @@ packages:
   /@babel/generator/7.13.9:
     resolution: {integrity: sha512-mHOOmY0Axl/JCTkxTU6Lf5sWOg/v8nUa+Xkt4zMTftX0wqmb6Sh7J8gvcehBw7q0AhrhAR+FDacKjCZ2X8K+Sw==}
     dependencies:
-      '@babel/types': 7.13.0
+      '@babel/types': 7.18.0
       jsesc: 2.5.2
       source-map: 0.5.7
     dev: true
@@ -1009,7 +1034,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.13.0
+      '@babel/types': 7.18.0
     dev: true
 
   /@babel/parser/7.18.0:
@@ -1158,11 +1183,11 @@ packages:
     resolution: {integrity: sha512-xys5xi5JEhzC3RzEmSGrs/b3pJW/o87SypZ+G/PhaE7uqVQNv/jlmVIBXuoh5atqQ434LfXV+sf23Oxj0bchJQ==}
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/generator': 7.13.9
+      '@babel/generator': 7.18.0
       '@babel/helper-function-name': 7.17.9
       '@babel/helper-split-export-declaration': 7.16.7
-      '@babel/parser': 7.14.6
-      '@babel/types': 7.13.0
+      '@babel/parser': 7.18.0
+      '@babel/types': 7.18.0
       debug: 4.3.4
       globals: 11.12.0
       lodash: 4.17.21
@@ -4110,6 +4135,13 @@ packages:
       '@types/node': 17.0.35
       '@types/responselike': 1.0.0
 
+  /@types/chrome/0.0.186:
+    resolution: {integrity: sha512-Ykpf95dbv0resO/PcRF/9vKETOKma5D2sSUKo8mSL1vz03IgVhyHuCrlzbDYMLrXIl9CcyGnYTMG2Zg0WAk62w==}
+    dependencies:
+      '@types/filesystem': 0.0.32
+      '@types/har-format': 1.2.8
+    dev: true
+
   /@types/chrome/0.0.188:
     resolution: {integrity: sha512-fVxbcnSrQqCaaTFfaP9QooRr0Lf47Ni+QVGpd4SQafe6x8RlLrlp+AAgc4QKNUVK7W6xEoOePMAu5sBXrc2qhA==}
     dependencies:
@@ -4224,6 +4256,10 @@ packages:
     resolution: {integrity: sha512-itzxtaBgk4OMbrCawVCvas934waMZWjW17v7EYgFVlfYS/cl0/P7KZdojWCq9SDJMI5cnLQLUP8ayhVCTY8TEg==}
     dependencies:
       '@types/node': 17.0.35
+    dev: true
+
+  /@types/node/17.0.34:
+    resolution: {integrity: sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==}
     dev: true
 
   /@types/node/17.0.35:

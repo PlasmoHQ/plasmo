@@ -29,13 +29,16 @@ export enum WatchReason {
   PackageJson,
   AssetsDirectory,
 
-  PopupIndex,
-  OptionsDirectory,
-  ContentsIndex,
   BackgroundIndex,
+  DevtoolsIndex,
 
+  PopupIndex,
   PopupDirectory,
+
   OptionsIndex,
+  OptionsDirectory,
+
+  ContentsIndex,
   ContentsDirectory
 }
 
@@ -62,6 +65,11 @@ export const getProjectPath = ({
     resolve(projectDir, "options", "index.tsx")
   ]
 
+  const devtoolsIndexList = [
+    resolve(projectDir, "devtools.tsx"),
+    resolve(projectDir, "devtools", "index.tsx")
+  ]
+
   const envFileList = [
     resolve(projectDir, ".env"),
     resolve(projectDir, ".env.local"),
@@ -69,14 +77,14 @@ export const getProjectPath = ({
     resolve(projectDir, ".env.development.local")
   ]
 
+  const contentsIndexPath = resolve(projectDir, "content.ts")
   const backgroundIndexPath = resolve(projectDir, "background.ts")
 
-  const contentsIndexPath = resolve(projectDir, "content.ts")
-
   const watchPathReasonMap = {
+    ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
     ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
-    ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
+    ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
 
     [backgroundIndexPath]: WatchReason.BackgroundIndex,
     [contentsIndexPath]: WatchReason.ContentsIndex,
@@ -97,6 +105,7 @@ export const getProjectPath = ({
   return {
     popupIndexList,
     optionsIndexList,
+    devtoolsIndexList,
 
     watchPathReasonMap,
     watchDirectoryEntries,

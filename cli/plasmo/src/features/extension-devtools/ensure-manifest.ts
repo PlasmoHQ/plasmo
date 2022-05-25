@@ -14,13 +14,15 @@ export async function ensureManifest(
     optionsIndexList,
     contentsIndexPath,
     contentsDirectory,
-    backgroundIndexPath
+    backgroundIndexPath,
+    devtoolsIndexList
   }: ProjectPath
 ) {
   vLog("Creating Extension Manifest...")
 
   const hasPopup = popupIndexList.some(existsSync)
   const hasOptions = optionsIndexList.some(existsSync)
+  const hasDevtools = devtoolsIndexList.some(existsSync)
   const hasBackground = existsSync(backgroundIndexPath)
   const hasContentsIndex = existsSync(contentsIndexPath)
   const hasContentsDirectory = existsSync(contentsDirectory)
@@ -33,10 +35,12 @@ export async function ensureManifest(
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
     .toggleBackground(hasBackground)
+    .toggleDevtools(hasDevtools)
 
   await Promise.all([
     manifestData.createPopupScaffolds(),
     manifestData.createOptionsScaffolds(),
+    manifestData.createDevtoolsScaffolds(),
     hasContentsIndex &&
       manifestData.toggleContentScript(contentsIndexPath, true),
     hasContentsDirectory &&

@@ -71,6 +71,13 @@ export class PlasmoExtensionManifest {
       this.#packageData.displayName
     )
 
+  createDevtoolsScaffolds = () =>
+    createTemplateFiles(
+      "devtools",
+      this.commonPath.staticDirectory,
+      this.#packageData.displayName
+    )
+
   toggleOptions = (enable = false) => {
     if (enable) {
       this.#data.options_ui = {
@@ -88,6 +95,15 @@ export class PlasmoExtensionManifest {
       this.#data.action.default_popup = "./static/popup/index.html"
     } else {
       delete this.#data.action.default_popup
+    }
+    return this
+  }
+
+  toggleDevtools = (enable = false) => {
+    if (enable) {
+      this.#data.devtools_page = "./static/devtools/index.html"
+    } else {
+      delete this.#data.devtools_page
     }
     return this
   }

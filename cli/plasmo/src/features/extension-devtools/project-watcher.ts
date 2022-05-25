@@ -95,6 +95,10 @@ export const handleProjectFile = async (
       plasmoManifest.toggleBackground(type !== "delete")
       return
     }
+    case WatchReason.DevtoolsIndex: {
+      plasmoManifest.toggleDevtools(type !== "delete")
+      return
+    }
     case WatchReason.ContentsIndex:
     case WatchReason.ContentsDirectory: {
       await plasmoManifest.toggleContentScript(path, type !== "delete")
