@@ -35,4 +35,4 @@ jobs:
           ${{ matrix.package-manager.name }} run build
           pushd build
           popd
-          timeout 10 ${{ matrix.package-manager.name }} run dev | || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
+          timeout 10 ${{ matrix.package-manager.name }} run dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
