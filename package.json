@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev:cli": "turbo run dev --scope=plasmo",
+    "dev:cli": "turbo run dev --filter=plasmo",
     "patch": "pnpm --filter ./packages/** --parallel -r exec pnpm version -- patch",
     "publish:packages": "pnpm --parallel --filter ./packages/** -r publish",
     "publish:cli": "pnpm --filter ./cli/plasmo publish",
@@ -40,5 +40,5 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.1.2"
+  "packageManager": "pnpm@7.1.5"
 }

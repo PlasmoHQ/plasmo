@@ -8,7 +8,7 @@ import type {
 } from "@plasmo/constants"
 import { vLog } from "@plasmo/utils"
 
-import type { CommonPath } from "./common-paths"
+import type { CommonPath } from "./common-path"
 import { extractContentScriptMetadata } from "./content-script"
 import type { PackageJSON } from "./package-file"
 import { createTemplateFiles } from "./scaffolds"

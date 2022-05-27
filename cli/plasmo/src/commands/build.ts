@@ -14,15 +14,13 @@ import {
   vLog
 } from "@plasmo/utils"
 
-import {
-  getCommonPath,
-  getProjectPath
-} from "~features/extension-devtools/common-paths"
+import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { generateNewTabManifest } from "~features/extension-devtools/manifest-helpers"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { loadEnvConfig } from "~features/extension-devtools/parse-env"
+import { getProjectPath } from "~features/extension-devtools/project-path"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
 
 async function build() {

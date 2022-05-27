@@ -4,8 +4,9 @@ import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
-import type { CommonPath, ProjectPath } from "./common-paths"
+import type { CommonPath } from "./common-path"
 import { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
+import type { ProjectPath } from "./project-path"
 
 export async function ensureManifest(
   commonPath: CommonPath,

@@ -4,14 +4,13 @@ import { resolve } from "path"
 
 import { aLog, eLog, getNonFlagArgvs, iLog, vLog } from "@plasmo/utils"
 
-import {
-  getCommonPath,
-  getProjectPath
-} from "~features/extension-devtools/common-paths"
+import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { loadEnvConfig } from "~features/extension-devtools/parse-env"
+import { getProjectPath } from "~features/extension-devtools/project-path"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
@@ -22,6 +21,7 @@ async function dev() {
 
   const commonPath = getCommonPath()
   const projectPath = getProjectPath(commonPath)
+  const templatePath = getTemplatePath()
 
   // read typescript config file
   vLog("Make sure .plasmo exists")
@@ -59,7 +59,7 @@ async function dev() {
       host: "localhost",
       port: servePort
     },
-    config: require.resolve("@parcel/config-webextension"),
+    config: templatePath.parcelConfig,
     hmrOptions: {
       host: "localhost",
       port: hmrPort

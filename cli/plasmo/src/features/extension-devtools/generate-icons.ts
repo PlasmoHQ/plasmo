@@ -3,7 +3,7 @@ import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
-import type { CommonPath } from "./common-paths"
+import type { CommonPath } from "./common-path"
 
 export async function generateIcons(
   { assetsDirectory, genAssetsDirectory }: CommonPath,

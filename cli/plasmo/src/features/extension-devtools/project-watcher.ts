@@ -3,9 +3,9 @@ import { Event, subscribe } from "@parcel/watcher"
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
 import { iLog, vLog, wLog } from "@plasmo/utils"
 
-import { ProjectPath, WatchReason } from "./common-paths"
 import { generateIcons } from "./generate-icons"
 import type { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
+import { ProjectPath, WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
 

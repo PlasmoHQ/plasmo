@@ -22,6 +22,7 @@ import {
 
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import { generatePackage } from "~features/extension-devtools/package-file"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
@@ -81,20 +82,18 @@ async function init() {
     spaces: 2
   })
 
-  const templatePath = resolve(__dirname, "..", "templates")
-
   iLog(`Copying template files...`)
 
-  const initTemplatePath = resolve(templatePath, "init")
-  const gitIgnorePath = resolve(projectDirectory, ".gitignore")
+  const { initTemplatePath, bppYaml } = getTemplatePath()
 
-  const bppYaml = resolve(templatePath, "bpp.yml")
   const bppSubmitWorkflowYamlPath = resolve(
     projectDirectory,
     ".github",
     "workflows",
     "submit.yml"
   )
+
+  const gitIgnorePath = resolve(projectDirectory, ".gitignore")
 
   await Promise.all([
     copy(initTemplatePath, projectDirectory),

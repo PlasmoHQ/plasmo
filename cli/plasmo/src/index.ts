@@ -2,7 +2,7 @@
 import { argv, exit } from "process"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
-import { eLog, exitCountDown, vLog } from "@plasmo/utils"
+import { aLog, eLog, exitCountDown, vLog } from "@plasmo/utils"
 
 import { ValidCommand, runMap, validCommandSet } from "~commands"
 import { printHeader, printHelp } from "~features/helpers/print"
@@ -39,6 +39,7 @@ async function main() {
     }
   } catch (e) {
     eLog((e as Error).message || ErrorMessage.Unknown)
+    aLog(e.stack)
     await exitCountDown(3)
     exit(1)
   }

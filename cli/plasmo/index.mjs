@@ -26,7 +26,7 @@ async function main() {
     external: Object.keys(config.dependencies),
     platform: "node",
     define,
-    outfile:  "dist/index.js"
+    outfile: "dist/index.js"
   })
 }
 

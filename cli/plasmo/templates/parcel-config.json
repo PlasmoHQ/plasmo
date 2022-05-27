@@ -1,0 +1,4 @@
+{
+  "extends": "@parcel/config-webextension",
+  "resolvers": ["@plasmohq/parcel-resolver", "..."]
+}

@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.34.0",
+  "version": "0.34.1",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -33,8 +33,9 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.6.0",
-    "@parcel/config-webextension": "2.5.1-nightly.2708",
-    "@parcel/core": "2.0.0-nightly.1083",
+    "@plasmohq/parcel-resolver": "0.0.1",
+    "@parcel/config-webextension": "2.6.0",
+    "@parcel/core": "2.6.0",
     "@parcel/watcher": "2.0.5",
     "archiver": "5.3.1",
     "chalk": "5.0.1",
