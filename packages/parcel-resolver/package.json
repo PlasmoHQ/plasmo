@@ -12,10 +12,15 @@
     "dev": "tsup src/index.ts --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
   "engines": {
     "parcel": "2.5.0"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
   "devDependencies": {
     "@parcel/core": "2.5.0",
     "@plasmo/config": "workspace:*",
