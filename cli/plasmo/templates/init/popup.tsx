@@ -1,9 +1,8 @@
-export const newTabToDocs = () =>
-  chrome.tabs.create({
-    url: "https://docs.plasmo.com/"
-  })
+import { useState } from "react"
 
 function IndexPopup() {
+  const [data, setData] = useState("")
+
   return (
     <div
       style={{
@@ -14,7 +13,7 @@ function IndexPopup() {
       <h1>
         Welcome to your <a href="https://www.plasmo.com">Plasmo</a> Extension!
       </h1>
-      <button onClick={newTabToDocs}>Go to Plasmo Docs</button>
+      <input onChange={(e) => setData(e.target.value)} value={data} />
     </div>
   )
 }

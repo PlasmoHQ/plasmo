@@ -25,6 +25,6 @@
     "preserveWatchOutput": true,
     "importsNotUsedAsValues": "error",
 
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   }
 }
