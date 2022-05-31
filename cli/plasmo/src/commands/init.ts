@@ -122,11 +122,12 @@ async function init() {
   sLog(
     "Your extension is ready in: ",
     chalk.yellowBright(projectDirectory),
-    `\n    To start hacking, run:\n\n`,
+    `\n\n    To start hacking, run:\n\n`,
     `      cd ${packageName}\n`,
     `      ${packageManager.name} ${
       packageManager.name === "npm" ? "run dev" : "dev"
-    }\n`
+    }\n`,
+    "\n    Visit https://docs.plasmo.com for documentation and more examples."
   )
 }
 

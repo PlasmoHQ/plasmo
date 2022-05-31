@@ -1,4 +1,9 @@
 {
   "extends": "@parcel/config-webextension",
-  "resolvers": ["@plasmohq/parcel-resolver", "..."]
+  "resolvers": ["@plasmohq/parcel-resolver", "..."],
+  "runtimes": [
+    "@parcel/runtime-js",
+    "@plasmohq/parcel-runtime",
+    "@parcel/runtime-webextension"
+  ]
 }
