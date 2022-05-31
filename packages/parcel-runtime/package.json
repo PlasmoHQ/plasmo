@@ -10,7 +10,7 @@
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup src/index.ts --minify --clean",
-    "dev": "tsup src/index.ts --sourceMap --watch"
+    "dev": "tsup src/index.ts --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
