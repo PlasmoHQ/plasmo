@@ -28,8 +28,6 @@
     "tsup": "6.0.1"
   },
   "dependencies": {
-    "@parcel/hash": "2.5.0",
-    "@parcel/plugin": "2.5.0",
-    "got": "12.1.0"
+    "@parcel/plugin": "2.5.0"
   }
 }
