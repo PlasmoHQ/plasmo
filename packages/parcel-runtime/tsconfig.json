@@ -1,0 +1,8 @@
+{
+  "extends": "@plasmo/config/ts/cli",
+  "include": ["src/**/*.ts", "loaders/hmr-runtime.ts"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "strict": false
+  }
+}
