@@ -2,10 +2,6 @@
 	path = packages/rps
 	url = git@github.com:PlasmoHQ/rps.git
 	branch = main
-[submodule "packages/mirror-force"]
-	path = packages/mirror-force
-	url = git@github.com:PlasmoHQ/mirror-force.git
-	branch = main
 [submodule "packages/puro"]
 	path = packages/puro
 	url = git@github.com:PlasmoHQ/puro.git
@@ -21,10 +17,6 @@
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token
 	url = git@github.com:PlasmoHQ/gcp-refresh-token.git
-	branch = main
-[submodule "packages/mystic-box"]
-	path = packages/mystic-box
-	url = git@github.com:PlasmoHQ/mystic-box.git
 	branch = main
 [submodule "packages/use-hashed-state"]
 	path = packages/use-hashed-state

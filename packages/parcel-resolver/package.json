@@ -12,18 +12,23 @@
     "dev": "tsup src/index.ts --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
   "engines": {
-    "parcel": "2.6.0"
+    "parcel": "2.5.0"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
   "devDependencies": {
-    "@parcel/core": "2.6.0",
+    "@parcel/core": "2.5.0",
     "@plasmo/config": "workspace:*",
     "tsup": "6.0.1"
   },
   "dependencies": {
     "got": "12.1.0",
-    "@parcel/hash": "2.6.0",
-    "@parcel/plugin": "2.6.0"
+    "@parcel/hash": "2.5.0",
+    "@parcel/plugin": "2.5.0"
   }
 }

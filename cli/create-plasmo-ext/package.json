@@ -35,7 +35,7 @@
     "@expo/spawn-async": "1.6.0",
     "chalk": "5.0.1",
     "change-case": "4.1.2",
-    "got": "12.0.4",
+    "got": "12.1.0",
     "inquirer": "8.2.4",
     "mnemonic-id": "3.2.7",
     "node-object-hash": "2.3.10",
