@@ -26,7 +26,7 @@
 
 The [Plasmo](https://www.plasmo.com/) Framework is a low-config declarative browser extension development SDK. Build your product and stop worrying about manifest.json files and the odd peculiarities of building browser extensions.
 
-![](demo.gif)
+![](https://github.com/PlasmoHQ/plasmo/blob/main/cli/plasmo/demo.gif)
 
 Features include:
 
@@ -96,15 +96,15 @@ ext-dir
 
 Finally, you can also avoid putting source code in your root directory by putting everything mentioned in an `src` directory.
 
+## Community
+
+The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d). This is the appropriate channel to get help with using the Plasmo Framework.
+
+Our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) applies to all Plasmo community channels.
+
 ## Contributing
 
 Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) to learn more.
-
-## Support
-
-For community support, join our [Plasmo Discord Community](https://www.plasmo.com/s/d) or tweet us [@plasmohq](https://www.twitter.com/plasmohq).
-
-Reach out at `support at plasmo dot com` to inquire about our [Pro plan](https://www.plasmo.com/#pricing) for premium support.
 
 ## Disclaimer
 
