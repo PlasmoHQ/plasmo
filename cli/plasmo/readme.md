@@ -22,17 +22,93 @@
   </a>
 </p>
 
-# Plasmo Framework CLI
+# Plasmo Framework
 
-The [Plasmo](https://www.plasmo.com/) Framework is a declarative browser extension development SDK. We abstract away most of the configuration of building browser extensions so that you can focus on the functionality of your product and ship faster!
+The [Plasmo](https://www.plasmo.com/) Framework is a low-config declarative browser extension development SDK. Build your product and stop worrying about manifest.json files and the odd peculiarities of building browser extensions.
 
-Checkout the [documentation](https://docs.plasmo.com/).
+![](demo.gif)
 
-More to come - **USE AT YOUR OWN RISK, ALPHA SOFTWARE**
+Features include:
+
+- First-class React + Typescript Support
+- Declarative development
+- Live-reloading
+- `manifest.json` auto-generation
+- MV3-by-default
+- .env file support
+
+And a large backlog of features that haven't been built yet!
+
+## Requirements
+
+Plasmo is an opinionated framework. As such, we support the following technologies out-of-the-box:
+
+- View Library
+  - React
+- Language
+  - Typescript
+- Testing Library
+  - Jest
+- Browser Extension Version
+  - Manifest Version 3
+
+We have many examples showcasing how one can use Plasmo with [Firebase Authentication](https://github.com/PlasmoHQ/examples/tree/main/with-firebase-auth), [Redux](https://github.com/PlasmoHQ/examples/tree/main/with-redux), [Supabase authentication](https://github.com/PlasmoHQ/examples/tree/main/with-supabase), [Tailwind](https://github.com/PlasmoHQ/examples/tree/main/with-tailwindcss), and a bunch more you can see if you visit our [examples repository](https://github.com/PlasmoHQ/examples).
+
+## Documentation
+
+Check out the [documentation](https://docs.plasmo.com/) to get a more in-depth view into the Plasmo Framework.
+
+## Usage
+
+```
+pnpm dlx plasmo init example-dir
+cd example-dir
+pnpm dev
+```
+
+The road ahead is filled with many turns.
+
+- Popup changes go in `popup.tsx`
+- Options page changes go in `options.tsx`
+- Background service worker changes go in `background.ts`
+- Content script changes go in `content.ts`
+
+### Directories
+
+You can also put these files in their own directories if you think that's cleaner:
+
+```
+ext-dir
+|-background
+ |-index.ts
+|-contents
+ |-a-content-script.ts
+ |-another-one.ts
+ |-names-dont-matter-here.ts
+|-options
+ |-index.tsx
+ |-some-other-file.ts
+ |-another-file.tsx
+.
+.
+.
+```
+
+Finally, you can also avoid putting source code in your root directory by putting everything mentioned in an `src` directory.
+
+## Contributing
+
+Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) to learn more.
+
+## Support
 
 For community support, join our [Plasmo Discord Community](https://www.plasmo.com/s/d) or tweet us [@plasmohq](https://www.twitter.com/plasmohq).
 
-For premium support, please contact us: `support at plasmo dot com` and inquire about our [Pro plan](https://www.plasmo.com/#pricing).
+Reach out at `support at plasmo dot com` to inquire about our [Pro plan](https://www.plasmo.com/#pricing) for premium support.
+
+## Disclaimer
+
+Plasmo is currently alpha software, and some things might change from version to version, so please be mindful and use it at your own risk.
 
 # License
 
