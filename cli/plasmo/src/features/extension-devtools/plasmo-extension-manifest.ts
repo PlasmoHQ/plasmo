@@ -1,6 +1,6 @@
 import { readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
-import { relative, resolve } from "path"
+import { dirname, relative, resolve } from "path"
 
 import type {
   ExtensionManifest,
@@ -135,7 +135,7 @@ export class PlasmoExtensionManifest {
         metadata.config.css = metadata.config.css.map((cssFile) =>
           relative(
             this.commonPath.dotPlasmoDirectory,
-            resolve(this.commonPath.currentDirectory, cssFile)
+            resolve(dirname(path), cssFile)
           )
         )
       }

@@ -31,25 +31,19 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
     return output
   }, {}) as Record<string, WatchReason>
 
+const getTSXIndexList = (projectDir: string, moduleName: string) => [
+  resolve(projectDir, `${moduleName}.tsx`),
+  resolve(projectDir, moduleName, "index.tsx")
+]
+
 export const getProjectPath = ({
-  currentDirectory: projectDir,
+  sourceDirectory: projectDir,
   packageFilePath,
   assetsDirectory
 }: CommonPath) => {
-  const popupIndexList = [
-    resolve(projectDir, "popup.tsx"),
-    resolve(projectDir, "popup", "index.tsx")
-  ]
-
-  const optionsIndexList = [
-    resolve(projectDir, "options.tsx"),
-    resolve(projectDir, "options", "index.tsx")
-  ]
-
-  const devtoolsIndexList = [
-    resolve(projectDir, "devtools.tsx"),
-    resolve(projectDir, "devtools", "index.tsx")
-  ]
+  const popupIndexList = getTSXIndexList(projectDir, "popup")
+  const optionsIndexList = getTSXIndexList(projectDir, "options")
+  const devtoolsIndexList = getTSXIndexList(projectDir, "devtools")
 
   const envFileList = [
     resolve(projectDir, ".env"),
@@ -58,7 +52,10 @@ export const getProjectPath = ({
     resolve(projectDir, ".env.development.local")
   ]
 
-  const contentsIndexPath = resolve(projectDir, "content.ts")
+  const contentIndexList = [
+    resolve(projectDir, "content.ts"),
+    resolve(projectDir, "content.tsx")
+  ]
   const backgroundIndexPath = resolve(projectDir, "background.ts")
 
   const watchPathReasonMap = {
@@ -66,9 +63,9 @@ export const getProjectPath = ({
     ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
+    ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
 
     [backgroundIndexPath]: WatchReason.BackgroundIndex,
-    [contentsIndexPath]: WatchReason.ContentsIndex,
     [packageFilePath]: WatchReason.PackageJson
   }
 
@@ -94,7 +91,7 @@ export const getProjectPath = ({
 
     backgroundIndexPath,
 
-    contentsIndexPath,
+    contentIndexList,
     contentsDirectory
   }
 }
