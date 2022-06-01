@@ -1,10 +1,12 @@
 import { readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
 import { dirname, relative, resolve } from "path"
+import { valid } from "semver"
 
 import type {
   ExtensionManifest,
-  ManifestContentScript
+  ManifestContentScript,
+  ManifestPermission
 } from "@plasmo/constants"
 import { vLog } from "@plasmo/utils"
 
@@ -12,6 +14,8 @@ import type { CommonPath } from "./common-path"
 import { extractContentScriptMetadata } from "./content-script"
 import type { PackageJSON } from "./package-file"
 import { createTemplateFiles } from "./scaffolds"
+
+export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export class PlasmoExtensionManifest {
   commonPath: CommonPath
@@ -55,6 +59,14 @@ export class PlasmoExtensionManifest {
     this.#data.name = this.#packageData.displayName
     this.#data.description = this.#packageData.description
     this.#data.author = this.#packageData.author
+
+    this.#data.permissions = autoPermissionList.filter((p) =>
+      valid(this.#packageData.dependencies[`@plasmohq/${p}`])
+    )
+
+    if (this.#data.permissions.length === 0) {
+      delete this.#data.permissions
+    }
   }
 
   createOptionsScaffolds = () =>
@@ -180,11 +192,14 @@ export class PlasmoExtensionManifest {
       base.content_scripts = Array.from(this.#contentScriptMap.values())
     }
 
-    const { options_ui, action, ...overide } = this.#packageData?.manifest || {}
+    const { options_ui, action, permissions, ...overide } =
+      this.#packageData?.manifest || {}
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
     }
+
+    base.permissions = [...(base.permissions || []), ...(permissions || [])]
 
     return {
       ...base,
