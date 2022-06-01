@@ -82,8 +82,8 @@ importers:
       '@plasmo/config': workspace:*
       '@plasmo/constants': workspace:*
       '@plasmo/utils': workspace:*
-      '@plasmohq/parcel-resolver': 0.0.1
-      '@plasmohq/parcel-runtime': 0.0.1
+      '@plasmohq/parcel-resolver': workspace:*
+      '@plasmohq/parcel-runtime': workspace:*
       archiver: 5.3.1
       chalk: 5.0.1
       change-case: 4.1.2
@@ -107,7 +107,7 @@ importers:
       '@parcel/runtime-webextension': 2.5.0_@parcel+core@2.5.0
       '@parcel/watcher': 2.0.5
       '@plasmohq/parcel-resolver': link:../../packages/parcel-resolver
-      '@plasmohq/parcel-runtime': 0.0.1_@parcel+core@2.5.0
+      '@plasmohq/parcel-runtime': link:../../packages/parcel-runtime
       archiver: 5.3.1
       chalk: 5.0.1
       change-case: 4.1.2
@@ -3013,15 +3013,6 @@ packages:
       got: 12.1.0
     transitivePeerDependencies:
       - '@parcel/core'
-
-  /@plasmohq/parcel-runtime/0.0.1_@parcel+core@2.5.0:
-    resolution: {integrity: sha512-z0tq56CDjp2AQsvPHR8xuQDiZXrqmrQBvMHUhHyp79VK4N8j8VNfBO+sffrYwvto0QqwjWTRZoGapho5VC7Efg==}
-    engines: {parcel: 2.5.0}
-    dependencies:
-      '@parcel/plugin': 2.5.0_@parcel+core@2.5.0
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
 
   /@plasmohq/redux-persist/6.1.0_redux@4.2.0:
     resolution: {integrity: sha512-12mDmEotgMH/+4g9Hput5DDAIVAnmo8cZGPBsi106i8t/GuySX439XF8gEdEY2sEZaFkminq2smXnMTNysfD+A==}
