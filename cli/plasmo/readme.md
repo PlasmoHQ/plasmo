@@ -24,35 +24,31 @@
 
 # Plasmo Framework
 
-The [Plasmo](https://www.plasmo.com/) Framework is a low-config declarative browser extension development SDK. Build your product and stop worrying about manifest.json files and the odd peculiarities of building browser extensions.
+The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser extension development SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.
 
-![](https://github.com/PlasmoHQ/plasmo/blob/main/cli/plasmo/demo.gif)
+> It's like [Next.js](https://nextjs.org/) for browser extensions!
 
-Features include:
+![CLI Demo](https://www.plasmo.com/assets/plasmo-cli-demo.gif)
 
-- First-class React + Typescript Support
-- Declarative development
+## Features
+
+- First-class [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) Support
+- [Declarative development with `manifest.json` auto-generation (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
 - Live-reloading
-- `manifest.json` auto-generation
-- MV3-by-default
-- .env file support
+- [`.env*` files](https://docs.plasmo.com/workflows/env)
+- Remote script bundling (e.g for gtag)
+- Automated deployment (via [BPP](https://docs.plasmo.com/workflows/submit))
+- And many, many more! 🚀
 
-And a large backlog of features that haven't been built yet!
+## System Requirements
 
-## Requirements
+- Node.js 16.x or later
+- MacOS, Windows, or Linux
+- (Strongly Recommended) [pnpm](https://pnpm.io/)
 
-Plasmo is an opinionated framework. As such, we support the following technologies out-of-the-box:
+## Examples
 
-- View Library
-  - React
-- Language
-  - Typescript
-- Testing Library
-  - Jest
-- Browser Extension Version
-  - Manifest Version 3
-
-We have many examples showcasing how one can use Plasmo with [Firebase Authentication](https://github.com/PlasmoHQ/examples/tree/main/with-firebase-auth), [Redux](https://github.com/PlasmoHQ/examples/tree/main/with-redux), [Supabase authentication](https://github.com/PlasmoHQ/examples/tree/main/with-supabase), [Tailwind](https://github.com/PlasmoHQ/examples/tree/main/with-tailwindcss), and a bunch more you can see if you visit our [examples repository](https://github.com/PlasmoHQ/examples).
+We have examples showcasing how one can use Plasmo with [Firebase Authentication](https://github.com/PlasmoHQ/examples/tree/main/with-firebase-auth), [Redux](https://github.com/PlasmoHQ/examples/tree/main/with-redux), [Supabase authentication](https://github.com/PlasmoHQ/examples/tree/main/with-supabase), [Tailwind](https://github.com/PlasmoHQ/examples/tree/main/with-tailwindcss), and many more. To check them out, [visit our examples repository](https://github.com/PlasmoHQ/examples).
 
 ## Documentation
 
@@ -70,31 +66,32 @@ The road ahead is filled with many turns.
 
 - Popup changes go in `popup.tsx`
 - Options page changes go in `options.tsx`
-- Background service worker changes go in `background.ts`
 - Content script changes go in `content.ts`
+- Background service worker changes go in `background.ts`
 
 ### Directories
 
-You can also put these files in their own directories if you think that's cleaner:
+You can also organize these files in their own directories:
 
 ```
 ext-dir
-|-background
- |-index.ts
-|-contents
- |-a-content-script.ts
- |-another-one.ts
- |-names-dont-matter-here.ts
-|-options
- |-index.tsx
- |-some-other-file.ts
- |-another-file.tsx
-.
-.
-.
+├───assets
+|   └───icon512.png
+├───popup
+|   ├───index.tsx
+|   └───button.tsx
+├───options
+|   ├───index.tsx
+|   ├───utils.ts
+|   └───input.tsx
+├───contents
+|   ├───site-one.ts
+|   ├───site-two.ts
+|   └───site-three.ts
+...
 ```
 
-Finally, you can also avoid putting source code in your root directory by putting everything mentioned in an `src` directory.
+Finally, you can also avoid putting source code in your root directory by putting them in a `src` sub-directory, [following this guide](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Note that `assets` and other config files will still need to be in the root directory.
 
 ## Community
 
