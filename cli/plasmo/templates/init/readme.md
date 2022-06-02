@@ -24,8 +24,6 @@ Run the following:
 pnpm build
 # or
 npm run build
-# or
-yarn build
 ```
 
 This should create a production bundle for your extension, ready to be zipped and published to the stores.
