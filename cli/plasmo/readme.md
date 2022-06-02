@@ -36,7 +36,7 @@ The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser exte
 - [Declarative development with `manifest.json` auto-generation (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
 - Live-reloading
 - [`.env*` files](https://docs.plasmo.com/workflows/env)
-- Remote script bundling (e.g for gtag)
+- [Remote code bundling](https://docs.plasmo.com/workflows/remote-code) (e.g for gtag4)
 - Automated deployment (via [BPP](https://docs.plasmo.com/workflows/submit))
 - And many, many more! 🚀
 
