@@ -21,9 +21,9 @@
     "@types/archiver": "5.3.1",
     "@types/fs-extra": "9.0.13",
     "@types/inquirer": "8.2.1",
-    "@types/node": "17.0.36",
+    "@types/node": "17.0.38",
     "@types/node-rsa": "1.1.1",
-    "@types/react": "18.0.9",
+    "@types/react": "18.0.10",
     "@types/react-dom": "18.0.5",
     "@types/semver": "7.3.9",
     "@types/uuid": "8.3.4",
@@ -34,7 +34,7 @@
     "fs-extra": "10.1.0",
     "prettier": "2.6.2",
     "tsup": "6.0.1",
-    "turbo": "1.2.14"
+    "turbo": "1.2.15"
   },
   "engines": {
     "npm": ">=7.0.0",
