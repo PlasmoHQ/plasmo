@@ -1,6 +1,6 @@
 import { readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
-import { dirname, relative, resolve } from "path"
+import { dirname, extname, join, parse, relative, resolve } from "path"
 import { valid } from "semver"
 
 import type {
@@ -13,12 +13,14 @@ import { vLog } from "@plasmo/utils"
 import type { CommonPath } from "./common-path"
 import { extractContentScriptMetadata } from "./content-script"
 import type { PackageJSON } from "./package-file"
-import { createTemplateFiles } from "./scaffolds"
+import { createContentScriptMount, createTemplateFiles } from "./scaffolds"
+import { TemplatePath, getTemplatePath } from "./template-path"
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export class PlasmoExtensionManifest {
   commonPath: CommonPath
+  templatePath: TemplatePath
 
   #data: Partial<ExtensionManifest>
   #packageData: PackageJSON
@@ -36,6 +38,7 @@ export class PlasmoExtensionManifest {
 
   constructor(commonPath: CommonPath) {
     this.commonPath = commonPath
+    this.templatePath = getTemplatePath()
     this.#data = {
       manifest_version: 3,
       icons: {
@@ -69,26 +72,15 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  createOptionsScaffolds = () =>
-    createTemplateFiles(
-      "options",
-      this.commonPath.staticDirectory,
-      this.#packageData.displayName
-    )
+  get name() {
+    return this.#packageData.displayName
+  }
 
-  createPopupScaffolds = () =>
-    createTemplateFiles(
-      "popup",
-      this.commonPath.staticDirectory,
-      this.#packageData.displayName
-    )
+  createOptionsScaffolds = () => createTemplateFiles(this, "options")
 
-  createDevtoolsScaffolds = () =>
-    createTemplateFiles(
-      "devtools",
-      this.commonPath.staticDirectory,
-      this.#packageData.displayName
-    )
+  createPopupScaffolds = () => createTemplateFiles(this, "popup")
+
+  createDevtoolsScaffolds = () => createTemplateFiles(this, "devtools")
 
   toggleOptions = (enable = false) => {
     if (enable) {
@@ -120,10 +112,11 @@ export class PlasmoExtensionManifest {
     return this
   }
 
-  toggleBackground = (enable = false) => {
+  toggleBackground = (path: string, enable = false) => {
     if (enable) {
+      const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
       this.#data.background = {
-        service_worker: "../background.ts",
+        service_worker: scriptPath,
         type: "module"
       }
     } else {
@@ -135,12 +128,19 @@ export class PlasmoExtensionManifest {
 
   toggleContentScript = async (path: string, enable = false) => {
     if (enable) {
-      const manifestScriptPath = relative(
+      const metadata = await extractContentScriptMetadata(path)
+
+      let manifestScriptPath = relative(
         this.commonPath.dotPlasmoDirectory,
         path
       )
 
-      const metadata = await extractContentScriptMetadata(path)
+      if (extname(manifestScriptPath) === ".tsx") {
+        // copy the contents and change the manifest path
+        const modulePath = join("plasmo", manifestScriptPath)
+        await createContentScriptMount(this, parse(modulePath))
+        manifestScriptPath = join("static", modulePath)
+      }
 
       // Resolve css file paths
       if (!!metadata?.config?.css && metadata.config.css.length > 0) {

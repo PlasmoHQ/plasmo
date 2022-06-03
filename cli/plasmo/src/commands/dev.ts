@@ -2,7 +2,7 @@ import Parcel from "@parcel/core"
 import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
 
-import { aLog, eLog, getNonFlagArgvs, iLog, vLog } from "@plasmo/utils"
+import { aLog, eLog, getNonFlagArgvs, hasFlag, iLog, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
@@ -14,6 +14,8 @@ import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
+  const onImpulse = hasFlag("--impulse")
+
   printHeader()
   const [rawServePort = "1012", rawHmrPort = "1815"] = getNonFlagArgvs("dev")
 
@@ -32,7 +34,7 @@ async function dev() {
   const plasmoManifest = await ensureManifest(commonPath, projectPath)
 
   const [projectWatcher, devEnvConfig] = await Promise.all([
-    createProjectWatcher(plasmoManifest, projectPath),
+    onImpulse ? null : createProjectWatcher(plasmoManifest, projectPath),
     loadEnvConfig(commonPath.currentDirectory, true)
   ])
 
@@ -115,7 +117,7 @@ async function dev() {
   })
 
   const cleanup = () => {
-    projectWatcher.unsubscribe()
+    projectWatcher?.unsubscribe()
     bundlerWatcher.unsubscribe()
   }
 

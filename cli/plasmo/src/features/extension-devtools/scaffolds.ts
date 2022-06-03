@@ -1,77 +1,79 @@
-import { pascalCase } from "change-case"
 import { ensureDir } from "fs-extra"
-import { writeFile } from "fs/promises"
-import { resolve } from "path"
+import { readFile, writeFile } from "fs/promises"
+import { ParsedPath, resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
-export const generateIndexTsx = ({
-  renderModule = "popup",
-  rootId = "root"
-}) => {
-  const importName = pascalCase(renderModule)
+import type { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
+import { getTemplatePath } from "./template-path"
 
-  return `import { createRoot } from "react-dom/client"
-import ${importName} from "~${renderModule}"
+const { staticTemplatePath } = getTemplatePath()
 
-const root = createRoot(document.getElementById("${rootId}"))
-root.render(<${importName} />)
-`
-}
+const scaffoldCache = {} as Record<string, string>
 
-const basicStyle = `<style>
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+const generateScaffold = async (
+  fileName: string,
+  outputFilePath: string,
+  replaceMap: Record<string, string>
+) => {
+  if (!scaffoldCache[fileName]) {
+    scaffoldCache[fileName] = await readFile(
+      resolve(staticTemplatePath, fileName),
+      "utf8"
+    )
+  }
 
-html,
-body {
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-  padding: 0;
-}
-</style>
-`
-
-export const generateIndexHtml = ({
-  title = "Plasmo Extension",
-  globalStyle = basicStyle
-}) => `<!DOCTYPE html>
-<html>
-  <head>
-    <title>${title}</title>
-    <meta charset="utf-8" />
-    ${globalStyle}
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script src="./index.tsx" type="module"></script>
-  </body>
-</html>
-`
-
-export async function createTemplateFiles(
-  moduleFile: string,
-  staticDirectory: string,
-  title: string
-) {
-  vLog(
-    `${moduleFile}.tsx or an ${moduleFile} directory found, creating statics options`
+  const finalScaffold = Object.keys(replaceMap).reduce(
+    (html, key) => html.replaceAll(key, replaceMap[key]),
+    scaffoldCache[fileName]
   )
 
-  const staticOptionsDirectory = resolve(staticDirectory, moduleFile)
+  await writeFile(outputFilePath, finalScaffold)
+}
+
+const generateMirrorScaffold = async (
+  fileName: string,
+  staticModulePath: string,
+  replaceMap: Record<string, string>
+) => generateScaffold(fileName, resolve(staticModulePath, fileName), replaceMap)
+
+export async function createTemplateFiles(
+  plasmoManifest: PlasmoExtensionManifest,
+  moduleFile: string
+) {
+  vLog(
+    `${moduleFile}.tsx or an ${moduleFile} directory found, creating static templates`
+  )
+
+  const staticModulePath = resolve(
+    plasmoManifest.commonPath.staticDirectory,
+    moduleFile
+  )
   // Generate the static diretory
-  await ensureDir(staticOptionsDirectory)
+  await ensureDir(staticModulePath)
 
   return Promise.all([
-    writeFile(
-      resolve(staticOptionsDirectory, "index.html"),
-      generateIndexHtml({ title })
-    ),
-    writeFile(
-      resolve(staticOptionsDirectory, "index.tsx"),
-      generateIndexTsx({ renderModule: moduleFile })
-    )
+    generateMirrorScaffold("index.html", staticModulePath, {
+      __plasmo_static_index_title__: plasmoManifest.name
+    }),
+    generateMirrorScaffold("index.tsx", staticModulePath, {
+      __plasmo_import_module__: `~${moduleFile}`
+    })
   ])
+}
+
+export async function createContentScriptMount(
+  plasmoManifest: PlasmoExtensionManifest,
+  module: ParsedPath
+) {
+  const staticContentPath = resolve(
+    plasmoManifest.commonPath.staticDirectory,
+    module.dir,
+    module.base
+  )
+
+  // Can pass metadata to check config for type of mount as well?
+  return generateScaffold("content-script-ui-mount.tsx", staticContentPath, {
+    __plasmo_mount_content_script__: `~${module.dir}/${module.base}`
+  })
 }
