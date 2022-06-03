@@ -29,10 +29,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
 
     var data /*: HMRMessage */ = JSON.parse(event.data)
 
-    console.log("DATA WAS: ", event.data)
-
     if (data.type === "update") {
-      console.log("WOULD HAVE RELOADED")
       if (data.assets.filter((e) => e.type === "json").length > 0) {
         // If it's a manifest change, we must reload the entire app
         chrome.runtime.reload()
