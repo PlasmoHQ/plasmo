@@ -18,6 +18,12 @@ export default new Resolver({
       return tildeSrcResult
     }
 
-    return null
+    try {
+      return {
+        filePath: require.resolve(opts.specifier)
+      }
+    } catch (e) {
+      return null
+    }
   }
 })
