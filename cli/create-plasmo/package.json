@@ -1,7 +1,7 @@
 {
-  "name": "create-plasmo-ext",
+  "name": "create-plasmo",
   "version": "0.0.0",
-  "description": "The Plasmo Platform CLI",
+  "description": "Create Plasmo Framework Browser Extension",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "type": "module",
