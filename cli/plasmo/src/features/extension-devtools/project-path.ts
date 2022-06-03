@@ -31,9 +31,9 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
     return output
   }, {}) as Record<string, WatchReason>
 
-const getTSXIndexList = (projectDir: string, moduleName: string) => [
-  resolve(projectDir, `${moduleName}.tsx`),
-  resolve(projectDir, moduleName, "index.tsx")
+const getIndexList = (projectDir: string, moduleName: string, ext = "tsx") => [
+  resolve(projectDir, `${moduleName}.${ext}`),
+  resolve(projectDir, moduleName, `index.${ext}`)
 ]
 
 export const getProjectPath = ({
@@ -41,9 +41,9 @@ export const getProjectPath = ({
   packageFilePath,
   assetsDirectory
 }: CommonPath) => {
-  const popupIndexList = getTSXIndexList(projectDir, "popup")
-  const optionsIndexList = getTSXIndexList(projectDir, "options")
-  const devtoolsIndexList = getTSXIndexList(projectDir, "devtools")
+  const popupIndexList = getIndexList(projectDir, "popup")
+  const optionsIndexList = getIndexList(projectDir, "options")
+  const devtoolsIndexList = getIndexList(projectDir, "devtools")
 
   const envFileList = [
     resolve(projectDir, ".env"),
@@ -56,7 +56,7 @@ export const getProjectPath = ({
     resolve(projectDir, "content.ts"),
     resolve(projectDir, "content.tsx")
   ]
-  const backgroundIndexPath = resolve(projectDir, "background.ts")
+  const backgroundIndexList = getIndexList(projectDir, "background", "ts")
 
   const watchPathReasonMap = {
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
@@ -64,8 +64,8 @@ export const getProjectPath = ({
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
     ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
+    ...getWatchReasonMap(contentIndexList, WatchReason.BackgroundIndex),
 
-    [backgroundIndexPath]: WatchReason.BackgroundIndex,
     [packageFilePath]: WatchReason.PackageJson
   }
 
@@ -89,7 +89,7 @@ export const getProjectPath = ({
     watchDirectoryEntries,
     knownPathSet,
 
-    backgroundIndexPath,
+    backgroundIndexList,
 
     contentIndexList,
     contentsDirectory

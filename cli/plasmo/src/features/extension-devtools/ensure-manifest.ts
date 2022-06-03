@@ -15,7 +15,7 @@ export async function ensureManifest(
     optionsIndexList,
     contentIndexList,
     contentsDirectory,
-    backgroundIndexPath,
+    backgroundIndexList,
     devtoolsIndexList
   }: ProjectPath
 ) {
@@ -26,8 +26,8 @@ export async function ensureManifest(
   const hasDevtools = devtoolsIndexList.some(existsSync)
 
   const contentIndex = getAnyFile(contentIndexList)
+  const backgroundIndex = getAnyFile(backgroundIndexList)
 
-  const hasBackground = existsSync(backgroundIndexPath)
   const hasContentsDirectory = existsSync(contentsDirectory)
 
   const manifestData = new PlasmoExtensionManifest(commonPath)
@@ -37,7 +37,6 @@ export async function ensureManifest(
   manifestData
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
-    .toggleBackground(hasBackground)
     .toggleDevtools(hasDevtools)
 
   await Promise.all([
@@ -46,6 +45,8 @@ export async function ensureManifest(
     manifestData.createDevtoolsScaffolds(),
     contentIndex.exists &&
       manifestData.toggleContentScript(contentIndex.path, true),
+    backgroundIndex.exists &&
+      manifestData.toggleBackground(backgroundIndex.path, true),
     hasContentsDirectory &&
       readdir(contentsDirectory, { withFileTypes: true }).then((files) =>
         Promise.all(
