@@ -3,21 +3,15 @@
   "version": "0.0.0",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
-  "types": "dist/type.d.ts",
   "bin": "dist/index.js",
+  "type": "module",
   "files": [
-    "dist/index.js",
-    "dist/type.d.ts",
-    "templates"
+    "dist/index.js"
   ],
   "scripts": {
-    "dev": "node index.mjs -w",
-    "build": "node index.mjs",
-    "type": "tsup src/type.ts --dts-only --dts-resolve",
-    "prepublishOnly": "run-p type build",
-    "lint": "run-p lint:*",
-    "lint:type": "tsc --noemit",
-    "lint:code": "eslint src/**/*.ts"
+    "dev": "tsup src/index.ts --format esm --watch --sourcemap",
+    "build": "tsup src/index.ts --format esm --minify --clean",
+    "prepublishOnly": "run-s build"
   },
   "author": "Plasmo Corp. <support@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -31,20 +25,10 @@
     "browser-extensions",
     "framework"
   ],
-  "dependencies": {
-    "@expo/spawn-async": "1.6.0",
-    "chalk": "5.0.1",
-    "change-case": "4.1.2",
-    "got": "12.1.0",
-    "inquirer": "8.2.4",
-    "mnemonic-id": "3.2.7",
-    "node-object-hash": "2.3.10",
-    "open": "8.4.0",
-    "semver": "7.3.7"
-  },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
+    "@plasmo/utils": "workspace:*",
     "typescript": "4.7.2"
   }
 }
