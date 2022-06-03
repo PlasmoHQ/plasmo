@@ -1,0 +1,34 @@
+{
+  "name": "create-plasmo",
+  "version": "0.0.0",
+  "description": "Create Plasmo Framework Browser Extension",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist/index.js"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.ts --format esm --watch --sourcemap",
+    "build": "tsup src/index.ts --format esm --minify --clean",
+    "prepublishOnly": "run-s build"
+  },
+  "author": "Plasmo Corp. <support@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "plasmo",
+    "browser-extensions",
+    "framework"
+  ],
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/constants": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "typescript": "4.7.2"
+  }
+}

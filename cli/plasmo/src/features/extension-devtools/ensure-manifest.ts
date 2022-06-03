@@ -13,7 +13,7 @@ export async function ensureManifest(
   {
     popupIndexList,
     optionsIndexList,
-    contentsIndexPath,
+    contentIndexList,
     contentsDirectory,
     backgroundIndexPath,
     devtoolsIndexList
@@ -24,8 +24,10 @@ export async function ensureManifest(
   const hasPopup = popupIndexList.some(existsSync)
   const hasOptions = optionsIndexList.some(existsSync)
   const hasDevtools = devtoolsIndexList.some(existsSync)
+
+  const contentIndex = getAnyFile(contentIndexList)
+
   const hasBackground = existsSync(backgroundIndexPath)
-  const hasContentsIndex = existsSync(contentsIndexPath)
   const hasContentsDirectory = existsSync(contentsDirectory)
 
   const manifestData = new PlasmoExtensionManifest(commonPath)
@@ -42,8 +44,8 @@ export async function ensureManifest(
     manifestData.createPopupScaffolds(),
     manifestData.createOptionsScaffolds(),
     manifestData.createDevtoolsScaffolds(),
-    hasContentsIndex &&
-      manifestData.toggleContentScript(contentsIndexPath, true),
+    contentIndex.exists &&
+      manifestData.toggleContentScript(contentIndex.path, true),
     hasContentsDirectory &&
       readdir(contentsDirectory, { withFileTypes: true }).then((files) =>
         Promise.all(
@@ -58,4 +60,19 @@ export async function ensureManifest(
   await manifestData.write(true)
 
   return manifestData
+}
+
+function getAnyFile(fileList: string[]) {
+  let filePath = ""
+  const exists = fileList.some((path) => {
+    const fileExists = existsSync(path)
+    if (fileExists) {
+      filePath = path
+    }
+    return fileExists
+  })
+  return {
+    path: filePath,
+    exists
+  }
 }
