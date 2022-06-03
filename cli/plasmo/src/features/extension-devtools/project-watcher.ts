@@ -92,7 +92,7 @@ export const handleProjectFile = async (
       return
     }
     case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(type !== "delete")
+      plasmoManifest.toggleBackground(path, type !== "delete")
       return
     }
     case WatchReason.DevtoolsIndex: {

@@ -24,7 +24,7 @@
 
 # Plasmo Framework
 
-The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser extension development SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.
+The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser extension SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.
 
 > It's like [Next.js](https://nextjs.org/) for browser extensions!
 

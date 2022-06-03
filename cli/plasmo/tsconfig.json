@@ -4,6 +4,7 @@
   "exclude": ["dist", "node_modules", "templates"],
   "compilerOptions": {
     "outDir": "dist",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "lib": ["es2022"]
   }
 }
