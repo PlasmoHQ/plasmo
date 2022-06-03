@@ -1,4 +1,3 @@
-import { pascalCase } from "change-case"
 import { ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, resolve } from "path"
@@ -58,8 +57,7 @@ export async function createTemplateFiles(
       __plasmo_static_index_title__: plasmoManifest.name
     }),
     generateMirrorScaffold("index.tsx", staticModulePath, {
-      __plasmo_import_name__: pascalCase(moduleFile),
-      __plasmo_import_module__: moduleFile
+      __plasmo_import_module__: `~${moduleFile}`
     })
   ])
 }

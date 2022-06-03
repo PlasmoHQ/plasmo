@@ -7,17 +7,14 @@ Choose the right checklist for the change that you're making:
 ## Bug
 
 - [ ] Related issues linked using `fixes #number`
-- [ ] Errors have helpful link attached, see [`CONTRIBUTING`](./CONTRIBUTING)
 
 ## Feature
 
 - [ ] Implements an existing feature request or RFC. Make sure the feature request has been accepted for implementation before opening a PR.
 - [ ] Related issues linked using `fixes #number`
-- [ ] Integration tests added
 - [ ] Documentation added
-- [ ] Telemetry added. In case of a feature if it's used or not.
-- [ ] Errors have helpful link attached, see [`CONTRIBUTING`](./CONTRIBUTING)
+- [ ] Example added
 
 ## Documentation / Examples
 
-- [ ] Make sure the linting passes by running `yarn lint`
+- [ ] Update https://github.com/PlasmoHQ/docs
