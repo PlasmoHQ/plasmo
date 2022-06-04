@@ -18,22 +18,23 @@ export default new Resolver({
       return tildeSrcResult
     }
 
-    return null
+    // return null
 
-    // try {
-    //   console.log(opts.specifier)
+    try {
+      const segments = opts.specifier.split("/")
 
-    //   console.log(opts.specifier.split("/").length > 2)
+      if (segments.length > 2) {
+        const filePath = require.resolve(opts.specifier, {
+          paths: [opts.dependency.resolveFrom]
+        })
 
-    //   if (opts.specifier.split("/").length > 2) {
-    //     console.log(opts.specifier, require.resolve(opts.specifier))
-
-    //     return {
-    //       filePath: require.resolve(opts.specifier)
-    //     }
-    //   }
-    // } catch (e) {
-    //   return null
-    // }
+        return {
+          filePath
+        }
+      }
+    } catch (e) {
+      // console.error(e)
+      return null
+    }
   }
 })
