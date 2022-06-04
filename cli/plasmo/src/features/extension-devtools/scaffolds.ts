@@ -24,7 +24,7 @@ const generateScaffold = async (
   }
 
   const finalScaffold = Object.keys(replaceMap).reduce(
-    (html, key) => html.replaceAll(key, replaceMap[key]),
+    (html, key) => html.split(key).join(replaceMap[key]),
     scaffoldCache[fileName]
   )
 
