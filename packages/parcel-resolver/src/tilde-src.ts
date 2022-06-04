@@ -19,6 +19,8 @@ export async function tildeSrc({
   if (specifier[0] === "~") {
     const absoluteBaseFile = resolve(state.srcDir, specifier.slice(1))
 
+    // console.log(`tildeSrc: ${absoluteBaseFile}`)
+
     const parentExt = extname(dependency.resolveFrom)
     const checkingExts = [
       parentExt,
@@ -29,6 +31,8 @@ export async function tildeSrc({
       `${absoluteBaseFile}${ext}`,
       resolve(absoluteBaseFile, `index${ext}`)
     ])
+
+    // console.log(`tildeSrc: ${potentialFiles}`)
 
     for (const file of potentialFiles) {
       try {

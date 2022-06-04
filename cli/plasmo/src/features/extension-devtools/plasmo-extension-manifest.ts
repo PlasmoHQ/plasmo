@@ -130,6 +130,8 @@ export class PlasmoExtensionManifest {
     if (enable) {
       const metadata = await extractContentScriptMetadata(path)
 
+      vLog("Adding content script: ", path)
+
       let manifestScriptPath = relative(
         this.commonPath.dotPlasmoDirectory,
         path
@@ -137,8 +139,13 @@ export class PlasmoExtensionManifest {
 
       if (extname(manifestScriptPath) === ".tsx") {
         // copy the contents and change the manifest path
-        const modulePath = join("plasmo", manifestScriptPath)
-        await createContentScriptMount(this, parse(modulePath))
+        const modulePath = join("plasmo", manifestScriptPath).replace(
+          /(^src)[\\/]/,
+          ""
+        )
+
+        const parsedModulePath = parse(modulePath)
+        await createContentScriptMount(this, parsedModulePath)
         manifestScriptPath = join("static", modulePath)
       }
 

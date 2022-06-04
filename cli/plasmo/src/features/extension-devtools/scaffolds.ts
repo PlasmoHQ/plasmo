@@ -41,9 +41,7 @@ export async function createTemplateFiles(
   plasmoManifest: PlasmoExtensionManifest,
   moduleFile: string
 ) {
-  vLog(
-    `${moduleFile}.tsx or an ${moduleFile} directory found, creating static templates`
-  )
+  vLog(`creating static templates for ${moduleFile}`)
 
   const staticModulePath = resolve(
     plasmoManifest.commonPath.staticDirectory,
@@ -66,14 +64,17 @@ export async function createContentScriptMount(
   plasmoManifest: PlasmoExtensionManifest,
   module: ParsedPath
 ) {
-  const staticContentPath = resolve(
+  const staticModulePath = resolve(
     plasmoManifest.commonPath.staticDirectory,
-    module.dir,
-    module.base
+    module.dir
   )
+
+  await ensureDir(staticModulePath)
+
+  const staticContentPath = resolve(staticModulePath, module.base)
 
   // Can pass metadata to check config for type of mount as well?
   return generateScaffold("content-script-ui-mount.tsx", staticContentPath, {
-    __plasmo_mount_content_script__: `~${module.dir}/${module.base}`
+    __plasmo_mount_content_script__: `~${module.dir}/${module.name}`
   })
 }
