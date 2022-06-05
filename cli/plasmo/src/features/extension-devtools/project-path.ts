@@ -84,6 +84,7 @@ export const getProjectPath = ({
     popupIndexList,
     optionsIndexList,
     devtoolsIndexList,
+    newtabIndexList,
 
     watchPathReasonMap,
     watchDirectoryEntries,

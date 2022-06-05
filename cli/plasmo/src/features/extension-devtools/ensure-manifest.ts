@@ -14,6 +14,8 @@ export async function ensureManifest(
     popupIndexList,
     optionsIndexList,
     contentIndexList,
+    newtabIndexList,
+
     contentsDirectory,
     backgroundIndexList,
     devtoolsIndexList
@@ -24,6 +26,7 @@ export async function ensureManifest(
   const hasPopup = popupIndexList.some(existsSync)
   const hasOptions = optionsIndexList.some(existsSync)
   const hasDevtools = devtoolsIndexList.some(existsSync)
+  const hasNewtab = newtabIndexList.some(existsSync)
 
   const contentIndex = getAnyFile(contentIndexList)
   const backgroundIndex = getAnyFile(backgroundIndexList)
@@ -38,11 +41,13 @@ export async function ensureManifest(
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
     .toggleDevtools(hasDevtools)
+    .toggleNewtab(hasNewtab)
 
   await Promise.all([
     manifestData.createPopupScaffolds(),
     manifestData.createOptionsScaffolds(),
     manifestData.createDevtoolsScaffolds(),
+    manifestData.createNewtabScaffolds(),
     contentIndex.exists &&
       manifestData.toggleContentScript(contentIndex.path, true),
     backgroundIndex.exists &&
