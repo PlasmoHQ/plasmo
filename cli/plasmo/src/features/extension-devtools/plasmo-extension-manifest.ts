@@ -82,6 +82,8 @@ export class PlasmoExtensionManifest {
 
   createDevtoolsScaffolds = () => createTemplateFiles(this, "devtools")
 
+  createNewtabScaffolds = () => createTemplateFiles(this, "newtab")
+
   toggleOptions = (enable = false) => {
     if (enable) {
       this.#data.options_ui = {
@@ -102,6 +104,23 @@ export class PlasmoExtensionManifest {
     }
     return this
   }
+
+  toggleOverrides = (
+    page: keyof ExtensionManifest["chrome_url_overrides"],
+    enable = false
+  ) => {
+    if (enable) {
+      this.#data.chrome_url_overrides = {
+        ...this.#data.chrome_url_overrides,
+        [page]: "./static/newtab/index.html"
+      }
+    } else {
+      delete this.#data.chrome_url_overrides[page]
+    }
+    return this
+  }
+
+  toggleNewtab = (enable = false) => this.toggleOverrides("newtab", enable)
 
   toggleDevtools = (enable = false) => {
     if (enable) {

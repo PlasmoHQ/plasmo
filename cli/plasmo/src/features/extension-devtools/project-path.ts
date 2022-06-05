@@ -10,16 +10,16 @@ export enum WatchReason {
   PackageJson,
   AssetsDirectory,
 
+  NewtabIndex,
+
   BackgroundIndex,
   DevtoolsIndex,
 
   PopupIndex,
-  PopupDirectory,
-
   OptionsIndex,
-  OptionsDirectory,
 
   ContentsIndex,
+
   ContentsDirectory
 }
 
@@ -44,6 +44,7 @@ export const getProjectPath = ({
   const popupIndexList = getIndexList(projectDir, "popup")
   const optionsIndexList = getIndexList(projectDir, "options")
   const devtoolsIndexList = getIndexList(projectDir, "devtools")
+  const newtabIndexList = getIndexList(projectDir, "newtab")
 
   const envFileList = [
     resolve(projectDir, ".env"),
@@ -65,6 +66,7 @@ export const getProjectPath = ({
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
     ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
     ...getWatchReasonMap(contentIndexList, WatchReason.BackgroundIndex),
+    ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
 
     [packageFilePath]: WatchReason.PackageJson
   }
@@ -73,8 +75,6 @@ export const getProjectPath = ({
 
   const watchDirectoryEntries = [
     [WatchReason.ContentsDirectory, contentsDirectory],
-    [WatchReason.OptionsDirectory, resolve(projectDir, "options")],
-    [WatchReason.PopupDirectory, resolve(projectDir, "popup")],
     [WatchReason.AssetsDirectory, assetsDirectory]
   ] as Array<DirectoryWatchTuple>
 
