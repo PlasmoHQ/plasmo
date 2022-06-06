@@ -1,25 +1,32 @@
 name: 📓 Example Request
 description: Request a new Plasmo Framework with-* example
 title: "EXP | "
-labels: ["example"]
+labels: ["documentation"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for taking the time to fill out this example request!** 🥳
+
   - type: textarea
     attributes:
       label: What is the example you wish to see?
       description: "Example: I would like to see more examples of how to use `X-Framework`."
     validations:
       required: true
+
   - type: textarea
     attributes:
       label: Is there any context that might help us understand?
       description: A clear description of any added context that might help us understand.
     validations:
       required: false
+
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md).
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

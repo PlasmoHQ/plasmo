@@ -6,7 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        **Thank you for taking the time to fill out this bug report!** 🥳
+
   - type: textarea
     id: what-happened
     attributes:
@@ -29,7 +30,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: What version of our software are you running?
+      description: What version of the framework are you using?
       options:
         - Latest
         - Canary
@@ -58,6 +59,7 @@ body:
         - Microsoft Edge
         - Opera
         - Safari
+
   - type: textarea
     id: logs
     attributes:
@@ -76,9 +78,9 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md).
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-        - label: I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues) for duplicate problems.
+        - label: I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues?q=is%3Aopen+is%3Aissue+label%3Abug) for duplicate problems.
           required: true
