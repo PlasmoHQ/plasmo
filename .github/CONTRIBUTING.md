@@ -11,19 +11,26 @@ To develop locally:
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 2. Clone the repository together with its submodules:
+
    ```bash
    git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
    ```
+
 3. Create a new branch:
+
    ```
    git checkout -b MY_BRANCH_NAME
    ```
+
 4. Install [pnpm](https://pnpm.io/)
 5. Install the dependencies with:
+
    ```
    pnpm i
    ```
+
 6. Start developing and watch for code changes:
+
    ```
    pnpm dev
    ```
@@ -32,9 +39,9 @@ To develop locally:
 
 You can build the project, including all type definitions, with:
 
-    ```bash
-    pnpm build
-    ```
+```bash
+pnpm build
+```
 
 ## Developing with your local version of Plasmo
 
