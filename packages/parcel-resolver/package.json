@@ -24,11 +24,11 @@
   "devDependencies": {
     "@parcel/core": "2.5.0",
     "@plasmo/config": "workspace:*",
-    "tsup": "6.0.1"
+    "tsup": "6.1.0"
   },
   "dependencies": {
-    "got": "12.1.0",
     "@parcel/hash": "2.5.0",
-    "@parcel/plugin": "2.5.0"
+    "@parcel/plugin": "2.5.0",
+    "got": "12.1.0"
   }
 }

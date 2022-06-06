@@ -33,10 +33,10 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.6.0",
-    "@parcel/runtime-js": "2.5.0",
     "@parcel/config-webextension": "2.5.0",
-    "@parcel/runtime-webextension": "2.5.0",
     "@parcel/core": "2.5.0",
+    "@parcel/runtime-js": "2.5.0",
+    "@parcel/runtime-webextension": "2.5.0",
     "@parcel/watcher": "2.0.5",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*",
@@ -54,7 +54,7 @@
     "node-object-hash": "2.3.10",
     "semver": "7.3.7",
     "ts-ast-to-literal": "1.0.5",
-    "typescript": "4.7.2"
+    "typescript": "4.7.3"
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
