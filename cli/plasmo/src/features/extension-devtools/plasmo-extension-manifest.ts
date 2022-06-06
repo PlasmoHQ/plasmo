@@ -115,7 +115,7 @@ export class PlasmoExtensionManifest {
         [page]: "./static/newtab/index.html"
       }
     } else {
-      delete this.#data.chrome_url_overrides[page]
+      delete this.#data.chrome_url_overrides?.[page]
     }
     return this
   }

@@ -9,7 +9,6 @@ const HMR_RUNTIME = fs.readFileSync(
 
 export default new Runtime({
   apply({ bundle, options }) {
-    // console.log("OPTIONS: ", options)
     if (
       bundle.type !== "js" ||
       !options.hmrOptions ||

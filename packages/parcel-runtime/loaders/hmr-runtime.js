@@ -23,16 +23,34 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
     protocol + "://" + hostname + (port ? ":" + port : "") + "/"
   )
 
-  ws.onmessage = async function (event) {
-    var acceptedAssets = {}
-    var assetsToAccept = []
+  // If there's an error it's probably because of a race
+  // between this content script and the extension reloading
+  if (chrome.runtime.lastError) {
+    location.reload()
+  }
 
+  ws.onmessage = async function (event) {
+    if (!chrome.runtime.id) {
+      return
+    }
     var data /*: HMRMessage */ = JSON.parse(event.data)
 
     if (data.type === "update") {
       if (data.assets.filter((e) => e.type === "json").length > 0) {
         // If it's a manifest change, we must reload the entire app
-        chrome.runtime.reload()
+        if (
+          chrome &&
+          chrome.runtime &&
+          typeof chrome.runtime.reload === "function"
+        ) {
+          chrome.runtime.reload()
+        } else {
+          // Content scripts can't reload the extension on their own
+          // so we need to send a message to the background service worker
+          // to do it for us, using Parcel's webextension runtime's background worker
+          chrome.runtime.sendMessage({ __parcel_hmr_reload__: true })
+          location.reload()
+        }
       } else {
         // Otherwise, we check whether they have location.reload()
         // If they do, we reload the page. Otherwise, we reload the entire extension
