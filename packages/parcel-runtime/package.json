@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist",
@@ -15,7 +15,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
   "engines": {
-    "parcel": "2.5.0"
+    "parcel": "2.6.0"
   },
   "license": "MIT",
   "repository": {
