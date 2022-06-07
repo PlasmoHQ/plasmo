@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { argv, exit } from "process"
+import { argv, exit, versions } from "process"
+import { major } from "semver"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
 import { aLog, eLog, exitCountDown, vLog } from "@plasmo/utils"
@@ -20,6 +21,10 @@ async function main() {
     // In case someone pasted an essay into the cli
     if (argv.length > 10) {
       throw new Error(ErrorMessage.TooManyArg)
+    }
+
+    if (major(versions.node) < 16) {
+      throw new Error("Node version must be >= 16")
     }
 
     // Setting startup policy/daemon

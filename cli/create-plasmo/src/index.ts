@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { argv, exit } from "process"
+import { argv, exit, versions } from "process"
 
 import { ErrorMessage } from "@plasmo/constants"
 import { aLog, eLog, exitCountDown, iLog } from "@plasmo/utils"
@@ -12,6 +12,7 @@ async function main() {
     }
 
     iLog("HELLO WORLD 147")
+    iLog("NODE version: ", versions.node)
   } catch (e) {
     eLog((e as Error).message || ErrorMessage.Unknown)
     aLog(e.stack)
