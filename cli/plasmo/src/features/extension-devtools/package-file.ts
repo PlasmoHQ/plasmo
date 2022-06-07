@@ -27,14 +27,14 @@ export const generatePackage = ({
       "react-dom": "18.1.0"
     } as Record<string, string>,
     devDependencies: {
+      plasmo: "latest",
       "@trivago/prettier-plugin-sort-imports": "3.2.0",
       "@types/chrome": "0.0.188",
-      "@types/node": "17.0.36",
-      "@types/react": "18.0.9",
+      "@types/node": "17.0.40",
+      "@types/react": "18.0.12",
       "@types/react-dom": "18.0.5",
-      plasmo: "latest",
       prettier: "2.6.2",
-      typescript: "4.7.2"
+      typescript: "4.7.3"
     },
     manifest: {
       // permissions: [] as ValidManifestPermission[],
