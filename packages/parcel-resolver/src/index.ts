@@ -18,8 +18,6 @@ export default new Resolver({
       return tildeSrcResult
     }
 
-    // return null
-
     try {
       const segments = opts.specifier.split("/")
 
@@ -34,7 +32,8 @@ export default new Resolver({
       }
     } catch (e) {
       // console.error(e)
-      return null
     }
+
+    return null
   }
 })

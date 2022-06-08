@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Plasmo Extension",
-
+  "files": ["./plasmo.d.ts"],
   "compilerOptions": {
     "strict": false,
     "skipLibCheck": true,

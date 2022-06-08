@@ -8,14 +8,13 @@ const MountContainer = () => {
   const [left, setLeft] = useState(0)
 
   useEffect(() => {
+    if (typeof Mount.getMountPoint !== "function") {
+      return
+    }
     const updatePosition = async () => {
-      if (typeof Mount.getMountPoint !== "function") {
-        return
-      }
+      const anchor = (await Mount.getMountPoint()) as HTMLElement
 
-      const pricingSection = (await Mount.getMountPoint()) as HTMLElement
-
-      const rect = pricingSection?.getBoundingClientRect()
+      const rect = anchor?.getBoundingClientRect()
 
       if (!rect) {
         console.error("getMountPoint is not returning a valid HTMLElement")
@@ -51,10 +50,10 @@ const MountContainer = () => {
   )
 }
 
-window.addEventListener("load", () => {
-  const mountPoint = document.createElement("div")
+async function createShadowContainer() {
+  const container = document.createElement("div")
 
-  mountPoint.style.cssText = `
+  container.style.cssText = `
     z-index: 1;
     position: absolute;
   `
@@ -64,8 +63,21 @@ window.addEventListener("load", () => {
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
   document.body.insertAdjacentElement("beforebegin", shadowHost)
 
-  shadowRoot.appendChild(mountPoint)
-  const root = createRoot(mountPoint)
+  if (typeof Mount.getStyle === "function") {
+    shadowRoot.appendChild(await Mount.getStyle())
+  }
+
+  shadowRoot.appendChild(container)
+  return container
+}
+
+window.addEventListener("load", async () => {
+  const rootContainer =
+    typeof Mount.getRootContainer === "function"
+      ? await Mount.getRootContainer()
+      : await createShadowContainer()
+
+  const root = createRoot(rootContainer)
 
   root.render(<MountContainer />)
 })

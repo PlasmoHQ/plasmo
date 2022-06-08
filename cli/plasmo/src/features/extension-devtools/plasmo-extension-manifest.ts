@@ -145,7 +145,14 @@ export class PlasmoExtensionManifest {
     return this
   }
 
+  #contentScriptExt = new Set([".tsx", ".ts"])
   toggleContentScript = async (path: string, enable = false) => {
+    const ext = extname(path)
+
+    if (!this.#contentScriptExt.has(ext)) {
+      return
+    }
+
     if (enable) {
       const metadata = await extractContentScriptMetadata(path)
 
