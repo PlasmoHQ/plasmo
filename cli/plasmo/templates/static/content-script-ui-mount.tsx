@@ -51,9 +51,9 @@ const MountContainer =
   typeof Mount.getMountPoint === "function" ? AnchorContainer : Mount.default
 
 function createShadowContainer() {
-  const mountRoot = document.createElement("div")
+  const container = document.createElement("div")
 
-  mountRoot.style.cssText = `
+  container.style.cssText = `
     z-index: 1;
     position: absolute;
   `
@@ -63,9 +63,9 @@ function createShadowContainer() {
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
   document.body.insertAdjacentElement("beforebegin", shadowHost)
 
-  shadowRoot.appendChild(mountRoot)
+  shadowRoot.appendChild(container)
 
-  return mountRoot
+  return container
 }
 
 window.addEventListener("load", () => {
