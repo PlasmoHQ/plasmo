@@ -126,7 +126,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -151,7 +151,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -176,7 +176,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -201,7 +201,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -226,7 +226,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -252,7 +252,7 @@ importers:
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       firebase: ^9.8.1
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -280,7 +280,7 @@ importers:
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       firebase: ^9.8.1
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -307,7 +307,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -335,7 +335,7 @@ importers:
       '@types/react-dom': 18.0.5
       jest: 28.1.1
       jest-webextension-mock: 3.7.22
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -365,7 +365,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -390,7 +390,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -416,7 +416,7 @@ importers:
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       next: 12.1.6
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -442,7 +442,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -468,7 +468,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -494,7 +494,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -523,7 +523,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -560,7 +560,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -586,13 +586,38 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
       typescript: 4.7.3
     dependencies:
       '@plasmohq/storage': link:../../packages/storage
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
+      '@types/chrome': 0.0.190
+      '@types/node': 17.0.41
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      plasmo: link:../../cli/plasmo
+      prettier: 2.6.2
+      typescript: 4.7.3
+
+  examples/with-stripe:
+    specifiers:
+      '@trivago/prettier-plugin-sort-imports': 3.2.0
+      '@types/chrome': 0.0.190
+      '@types/node': 17.0.41
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      plasmo: 0.39.1
+      prettier: 2.6.2
+      react: 18.1.0
+      react-dom: 18.1.0
+      typescript: 4.7.3
+    dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -613,7 +638,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -641,7 +666,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       postcss: 8.4.14
       prettier: 2.6.2
       react: 18.1.0
@@ -674,7 +699,7 @@ importers:
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       ethers: 5.6.8
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
@@ -710,7 +735,7 @@ importers:
       events: 3.3.0
       mnemonic-id: 3.2.7
       parcel: 2.6.0
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       process: 0.11.10
       react: 18.1.0
@@ -749,7 +774,7 @@ importers:
       '@types/node': 17.0.41
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      plasmo: 0.39.0
+      plasmo: 0.39.1
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0
