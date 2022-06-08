@@ -2,3 +2,5 @@
 import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
 
 export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
+
+export type PlasmoGetMountPoint = () => Promise<HTMLElement> | HTMLElement
