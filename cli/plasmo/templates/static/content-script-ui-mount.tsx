@@ -1,7 +1,7 @@
 // @ts-nocheck
+import * as Mount from "__plasmo_mount_content_script__"
 import { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
-import * as Mount from "__plasmo_mount_content_script__"
 
 const MountContainer = () => {
   const [top, setTop] = useState(0)
@@ -66,12 +66,12 @@ async function createShadowContainer() {
   if (typeof Mount.getStyle === "function") {
     shadowRoot.appendChild(await Mount.getStyle())
   }
-  
+
   shadowRoot.appendChild(container)
   return container
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const rootContainer =
     typeof Mount.getRootContainer === "function"
       ? await Mount.getRootContainer()
