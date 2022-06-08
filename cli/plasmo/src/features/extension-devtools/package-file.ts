@@ -38,8 +38,7 @@ export const generatePackage = ({
     },
     manifest: {
       // permissions: [] as ValidManifestPermission[],
-      host_permissions: ["https://*/*"],
-      permissions: ["tabs"]
+      host_permissions: ["https://*/*"]
     } as ExtensionManifest
   }
 
