@@ -1,13 +1,16 @@
 // @ts-nocheck
-import * as Mount from "__plasmo_mount_content_script__"
 import { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
+import * as Mount from "__plasmo_mount_content_script__"
 
-const AnchorContainer = () => {
+const MountContainer = () => {
   const [top, setTop] = useState(0)
   const [left, setLeft] = useState(0)
 
   useEffect(() => {
+    if (typeof Mount.getMountPoint !== "function") {
+      return
+    }
     const updatePosition = async () => {
       const anchor = (await Mount.getMountPoint()) as HTMLElement
 
@@ -47,10 +50,7 @@ const AnchorContainer = () => {
   )
 }
 
-const MountContainer =
-  typeof Mount.getMountPoint === "function" ? AnchorContainer : Mount.default
-
-function createShadowContainer() {
+async function createShadowContainer() {
   const container = document.createElement("div")
 
   container.style.cssText = `
@@ -63,16 +63,19 @@ function createShadowContainer() {
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
   document.body.insertAdjacentElement("beforebegin", shadowHost)
 
+  if (typeof Mount.getStyle === "function") {
+    shadowRoot.appendChild(await Mount.getStyle())
+  }
+  
   shadowRoot.appendChild(container)
-
   return container
 }
 
 window.addEventListener("load", () => {
   const rootContainer =
     typeof Mount.getRootContainer === "function"
-      ? Mount.getRootContainer()
-      : createShadowContainer()
+      ? await Mount.getRootContainer()
+      : await createShadowContainer()
 
   const root = createRoot(rootContainer)
 
