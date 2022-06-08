@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.38.4-alpha.1",
+  "version": "0.38.5",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -62,6 +62,7 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
-    "@plasmo/utils": "workspace:*"
+    "@plasmo/utils": "workspace:*",
+    "npm-run-all": "4.1.5"
   }
 }
