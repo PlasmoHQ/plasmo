@@ -14,6 +14,8 @@ import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
+  process.env.NODE_ENV = "development"
+
   const onImpulse = hasFlag("--impulse")
 
   printHeader()

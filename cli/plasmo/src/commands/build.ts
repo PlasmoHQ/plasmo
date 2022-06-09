@@ -25,6 +25,8 @@ import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 
 async function build() {
+  process.env.NODE_ENV = "production"
+
   const { default: chalk } = await import("chalk")
 
   const [internalCmd] = getNonFlagArgvs("build")
