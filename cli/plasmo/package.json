@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.38.4",
+  "version": "0.39.3",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -37,6 +37,9 @@
     "@parcel/core": "2.6.0",
     "@parcel/runtime-js": "2.6.0",
     "@parcel/runtime-webextension": "2.6.0",
+    "@parcel/transformer-inline-string": "2.6.0",
+    "@parcel/optimizer-data-url": "2.6.0",
+    "@parcel/transformer-worklet": "2.6.0",
     "@parcel/watcher": "2.0.5",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*",

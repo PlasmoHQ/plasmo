@@ -22,13 +22,17 @@ import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { loadEnvConfig } from "~features/extension-devtools/parse-env"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 
 async function build() {
+  process.env.NODE_ENV = "production"
+
   const { default: chalk } = await import("chalk")
 
   const [internalCmd] = getNonFlagArgvs("build")
 
   const commonPath = getCommonPath()
+  const templatePath = getTemplatePath()
 
   const {
     currentDirectory,
@@ -115,7 +119,7 @@ async function build() {
   const bundler = new Parcel({
     cacheDir,
     entries: entryManifestPath,
-    config: require.resolve("@parcel/config-webextension"),
+    config: templatePath.parcelConfig,
     shouldAutoInstall: true,
     shouldDisableCache: true,
     mode: "production",
