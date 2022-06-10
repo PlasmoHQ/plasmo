@@ -232,7 +232,7 @@ export class PlasmoExtensionManifest {
     }
 
     const { options_ui, action, permissions, ...overide } =
-      this.#packageData?.manifest || {}
+      this.#getOverrideManifest()
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
@@ -244,5 +244,18 @@ export class PlasmoExtensionManifest {
       ...base,
       ...overide
     }
+  }
+
+  #getOverrideManifest = (): Partial<ExtensionManifest> => {
+    if (!this.#packageData?.manifest) {
+      return {}
+    }
+
+    return JSON.parse(
+      JSON.stringify(this.#packageData.manifest).replace(
+        /\$(\w+)/gm,
+        (envKey) => this.envConfig.combinedEnv[envKey.substring(1)] || envKey
+      )
+    )
   }
 }

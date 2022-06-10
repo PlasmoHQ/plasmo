@@ -30,7 +30,10 @@ export async function remoteCaching({
   }
 
   const target = new URL(
-    specifier.replace(/\$(\w+)/, (env) => process.env[env.substring(1)] || env)
+    specifier.replace(
+      /\$(\w+)/gm,
+      (envKey) => process.env[envKey.substring(1)] || envKey
+    )
   )
 
   const fileType = "js"
