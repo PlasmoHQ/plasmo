@@ -10,6 +10,8 @@ import type {
 } from "@plasmo/constants"
 import { vLog } from "@plasmo/utils"
 
+import { definedTraverse } from "~features/helpers/traverse"
+
 import type { CommonPath } from "./common-path"
 import { extractContentScriptMetadata } from "./content-script"
 import { EnvConfig, loadEnvConfig } from "./load-env-config"
@@ -251,11 +253,19 @@ export class PlasmoExtensionManifest {
       return {}
     }
 
-    return JSON.parse(
-      JSON.stringify(this.#packageData.manifest).replace(
-        /\$(\w+)/gm,
-        (envKey) => this.envConfig.combinedEnv[envKey.substring(1)] || envKey
-      )
-    )
+    return definedTraverse(this.#packageData.manifest, (value) => {
+      if (typeof value !== "string") {
+        return value
+      }
+
+      if (!!value.match(/^\$(\w+)$/)) {
+        return this.envConfig.combinedEnv[value.substring(1)] || undefined
+      } else {
+        return value.replace(
+          /\$(\w+)/gm,
+          (envKey) => this.envConfig.combinedEnv[envKey.substring(1)] || envKey
+        )
+      }
+    })
   }
 }
