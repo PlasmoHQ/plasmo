@@ -1,99 +1,31 @@
 import Parcel from "@parcel/core"
 import { createWriteStream } from "fs"
-import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
-import { cp, mkdir } from "fs/promises"
-import { prompt } from "inquirer"
+import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
 
-import {
-  fileExists,
-  getNonFlagArgvs,
-  hasFlag,
-  iLog,
-  sLog,
-  vLog
-} from "@plasmo/utils"
+import { getNonFlagArgvs, hasFlag, iLog, sLog, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
-import { generateNewTabManifest } from "~features/extension-devtools/manifest-helpers"
-import type { PackageJSON } from "~features/extension-devtools/package-file"
-import { loadEnvConfig } from "~features/extension-devtools/parse-env"
 import { getProjectPath } from "~features/extension-devtools/project-path"
-import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
+import { nextNewTab } from "~features/extra/next-new-tab"
 
 async function build() {
   process.env.NODE_ENV = "production"
-
-  const { default: chalk } = await import("chalk")
 
   const [internalCmd] = getNonFlagArgvs("build")
 
   const commonPath = getCommonPath()
   const templatePath = getTemplatePath()
 
-  const {
-    currentDirectory,
-    buildDirectory,
-    entryManifestPath,
-    cacheDirectory,
-    packageFilePath
-  } = commonPath
-
   if (internalCmd === "next-new-tab") {
-    vLog("Creating a Plasmo + Nextjs based new tab extension")
-    const out = resolve(currentDirectory, "out")
-
-    if (!(await fileExists(out))) {
-      throw new Error(
-        `${chalk.bold(
-          "out"
-        )} directory does not exist, did you forget to run "${chalk.underline(
-          "next build && next export"
-        )}"?`
-      )
-    }
-
-    const packageData: PackageJSON = await readJson(packageFilePath)
-
-    const extensionDirectory = resolve(currentDirectory, "extension")
-    if (await fileExists(extensionDirectory)) {
-      const { answer } = await prompt({
-        type: "confirm",
-        name: "answer",
-        message: `${chalk.bold(
-          "extension"
-        )} directory already exists, do you want to overwrite it?`
-      })
-
-      if (!answer) {
-        throw new Error("Aborted")
-      }
-
-      await emptyDir(extensionDirectory)
-    }
-
-    await mkdir(extensionDirectory)
-    await cp(out, extensionDirectory, { recursive: true })
-    vLog("Extension created at:", extensionDirectory)
-
-    await stripUnderscore(extensionDirectory)
-
-    // Create manifest.json with chrome_url_overrides with index.html
-
-    await writeJson(
-      resolve(extensionDirectory, "manifest.json"),
-      generateNewTabManifest(packageData),
-      {
-        spaces: 2
-      }
-    )
-
-    sLog("Your extension is ready in the extension/ directory")
+    await nextNewTab(commonPath)
     return
   }
+
+  const { buildDirectory, cacheDirectory } = commonPath
 
   iLog("Prepare to bundle the extension...")
 
@@ -102,23 +34,19 @@ async function build() {
   // read typescript config file
   vLog("Make sure .plasmo exists")
   await ensureDir(commonPath.dotPlasmoDirectory)
+  await generateIcons(commonPath)
 
-  const [prodEnvConfig] = await Promise.all([
-    loadEnvConfig(commonPath.currentDirectory),
-    generateIcons(commonPath),
-    ensureManifest(commonPath, projectPath)
-  ])
+  const plasmoManifest = await ensureManifest(commonPath, projectPath)
 
   // TODO: Make this more dynamic
   const buildType = "chrome-mv3-prod"
   const distDir = resolve(buildDirectory, buildType)
-  const cacheDir = resolve(cacheDirectory, "parcel")
 
   await emptyDir(distDir)
 
   const bundler = new Parcel({
-    cacheDir,
-    entries: entryManifestPath,
+    cacheDir: resolve(cacheDirectory, "parcel"),
+    entries: commonPath.entryManifestPath,
     config: templatePath.parcelConfig,
     shouldAutoInstall: true,
     shouldDisableCache: true,
@@ -132,7 +60,7 @@ async function build() {
       },
       distDir
     },
-    env: prodEnvConfig.plasmoPublicEnv
+    env: plasmoManifest.envConfig.plasmoPublicEnv
   })
 
   const result = await bundler.run()

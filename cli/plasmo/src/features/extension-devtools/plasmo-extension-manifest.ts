@@ -12,6 +12,7 @@ import { vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "./common-path"
 import { extractContentScriptMetadata } from "./content-script"
+import { EnvConfig, loadEnvConfig } from "./load-env-config"
 import type { PackageJSON } from "./package-file"
 import { createContentScriptMount, createTemplateFiles } from "./scaffolds"
 import { TemplatePath, getTemplatePath } from "./template-path"
@@ -19,6 +20,7 @@ import { TemplatePath, getTemplatePath } from "./template-path"
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export class PlasmoExtensionManifest {
+  envConfig: EnvConfig
   commonPath: CommonPath
   templatePath: TemplatePath
 
@@ -34,6 +36,10 @@ export class PlasmoExtensionManifest {
 
   get changed() {
     return this.#hash !== this.#prevHash
+  }
+
+  get name() {
+    return this.#packageData.displayName
   }
 
   constructor(commonPath: CommonPath) {
@@ -64,7 +70,7 @@ export class PlasmoExtensionManifest {
     this.#data.author = this.#packageData.author
 
     this.#data.permissions = autoPermissionList.filter((p) =>
-      valid(this.#packageData.dependencies[`@plasmohq/${p}`])
+      valid(this.#packageData.dependencies?.[`@plasmohq/${p}`])
     )
 
     if (this.#data.permissions.length === 0) {
@@ -72,8 +78,8 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  get name() {
-    return this.#packageData.displayName
+  async updateEnv() {
+    this.envConfig = await loadEnvConfig(this.commonPath.currentDirectory)
   }
 
   createOptionsScaffolds = () => createTemplateFiles(this, "options")

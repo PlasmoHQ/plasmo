@@ -36,6 +36,7 @@ export async function ensureManifest(
   const manifestData = new PlasmoExtensionManifest(commonPath)
 
   await manifestData.updatePackageData()
+  await manifestData.updateEnv()
 
   manifestData
     .togglePopup(hasPopup)
