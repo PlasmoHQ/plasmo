@@ -1,6 +1,13 @@
 {
   "extends": "@parcel/config-webextension",
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
+  "transformers": {
+    "data-text:*": ["...", "@parcel/transformer-inline-string"],
+    "data-base64:*": ["...", "@parcel/transformer-inline-string"]
+  },
+  "optimizers": {
+    "data-base64:*": ["...", "@parcel/optimizer-data-url"]
+  },
   "runtimes": [
     "@parcel/runtime-js",
     "@plasmohq/parcel-runtime",
