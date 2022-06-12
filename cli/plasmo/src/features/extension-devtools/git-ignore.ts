@@ -11,6 +11,8 @@ export const generateGitIgnore = () => `
 
 #cache
 .turbo
+.next
+.vercel
 
 # misc
 .DS_Store
@@ -21,6 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
 
 # local env files
 .env*

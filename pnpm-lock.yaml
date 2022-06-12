@@ -673,17 +673,25 @@ importers:
       '@types/node': 17.0.42
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
+      google-auth-library: 8.0.2
       next: 12.1.6
       plasmo: 0.42.1
       prettier: 2.6.2
+      puro: 0.3.4
       react: 18.1.0
       react-dom: 18.1.0
+      stripe: 9.8.0
+      swr: 1.3.0
       typescript: 4.7.3
     dependencies:
+      google-auth-library: 8.0.2
       next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
       plasmo: link:../../cli/plasmo
+      puro: link:../../packages/puro
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
+      stripe: 9.8.0
+      swr: 1.3.0_react@18.1.0
     devDependencies:
       '@plasmohq/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
@@ -10853,6 +10861,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /stripe/9.8.0:
+    resolution: {integrity: sha512-6trh3w4U2wRAvXdh2ilHxky/nWP7aFMGvQX0Ga2eCMAqQwYGOBkBT0ZxT3V+wWruOB1svpuOO6ixpMQif0bnIw==}
+    engines: {node: ^8.1 || >=10.*}
+    dependencies:
+      '@types/node': 17.0.42
+      qs: 6.10.5
+    dev: false
+
   /styled-jsx/5.0.2_react@18.1.0:
     resolution: {integrity: sha512-LqPQrbBh3egD57NBcHET4qcgshPks+yblyhPlH2GY8oaDgKs8SK4C3dBh3oSJjgzJ3G5t1SYEZGHkP+QEpX9EQ==}
     engines: {node: '>= 12.0.0'}
@@ -10925,6 +10941,14 @@ packages:
       csso: 4.2.0
       picocolors: 1.0.0
       stable: 0.1.8
+
+  /swr/1.3.0_react@18.1.0:
+    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.1.0
+    dev: false
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
