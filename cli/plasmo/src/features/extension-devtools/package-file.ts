@@ -23,14 +23,13 @@ export const generatePackage = ({
       build: "plasmo build"
     },
     dependencies: {
+      plasmo: "latest",
       react: "18.1.0",
       "react-dom": "18.1.0"
     } as Record<string, string>,
     devDependencies: {
-      plasmo: "latest",
-      "@trivago/prettier-plugin-sort-imports": "3.2.0",
-      "@types/chrome": "0.0.188",
-      "@types/node": "17.0.40",
+      "@types/chrome": "0.0.190",
+      "@types/node": "17.0.42",
       "@types/react": "18.0.12",
       "@types/react-dom": "18.0.5",
       prettier: "2.6.2",
