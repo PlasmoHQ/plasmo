@@ -9,7 +9,6 @@ import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
-import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
@@ -24,7 +23,6 @@ async function dev() {
 
   const commonPath = getCommonPath()
   const projectPath = getProjectPath(commonPath)
-  const templatePath = getTemplatePath()
 
   // read typescript config file
   vLog("Make sure .plasmo exists")
@@ -56,7 +54,7 @@ async function dev() {
   const bundler = new Parcel({
     cacheDir: resolve(commonPath.cacheDirectory, "parcel"),
     entries: commonPath.entryManifestPath,
-    config: templatePath.parcelConfig,
+    config: "@plasmohq/parcel-config",
     logLevel: "verbose",
     serveOptions: {
       host: "localhost",
