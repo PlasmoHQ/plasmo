@@ -14,12 +14,37 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - uses: actions/checkout@master
         with:
-          repository: plasmohq/examples
+          submodules: "recursive"
+      - name: "Install package manager"
+        run: npm install -g pnpm
+      - name: "Replace Plasmo version with workspace in examples"
+        run: |
+          pushd examples
+          for d in *
+          do
+            test -d "$d" || continue
+            pushd "$d"
+            tmp=$(mktemp)
+            jq '.devDependencies.plasmo = "workspace:*"' package.json > "$tmp" && mv "$tmp" package.json
+            popd
+          done
+          popd
+      - name: "Build local version of Plasmo"
+        run: |
+          pnpm i --no-frozen-lockfile
+          pnpm run build:cli
+          pnpm i
       - name: "Go to each example and try to build it"
-        run:
-          ls # TODO
-          # pushd testdir
-          # ${{ matrix.package-manager.name }} run build
-          # pushd build
-          # popd
-          # timeout 10 ${{ matrix.package-manager.name }} run dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
+        run: |
+          pushd examples
+          for d in *
+          do
+            test -d "$d" || continue
+            pushd "$d"
+            pnpm build
+            rm -rf .plasmo
+            rm -rf build
+            timeout 10 pnpm dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi 
+            popd
+          done
+          popd
