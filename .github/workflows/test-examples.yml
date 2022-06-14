@@ -1,0 +1,25 @@
+name: Test examples
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@master
+        with:
+          repository: plasmohq/examples
+      - name: "Go to each example and try to build it"
+        run:
+          ls # TODO
+          # pushd testdir
+          # ${{ matrix.package-manager.name }} run build
+          # pushd build
+          # popd
+          # timeout 10 ${{ matrix.package-manager.name }} run dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
