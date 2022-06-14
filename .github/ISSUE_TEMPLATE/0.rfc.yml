@@ -1,5 +1,5 @@
 name: ⚡ RFC
-description: File an RFC
+description: File an RFC for Feature Request/Enhancement/Refactor
 title: "RFC | "
 labels: ["enhancement"]
 body:
