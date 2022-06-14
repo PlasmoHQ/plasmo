@@ -54,7 +54,7 @@ async function dev() {
   const bundler = new Parcel({
     cacheDir: resolve(commonPath.cacheDirectory, "parcel"),
     entries: commonPath.entryManifestPath,
-    config: "@plasmohq/parcel-config",
+    config: require.resolve("@plasmohq/parcel-config"),
     logLevel: "verbose",
     serveOptions: {
       host: "localhost",
