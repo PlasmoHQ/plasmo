@@ -53,7 +53,7 @@ async function build() {
     shouldDisableCache: true,
     defaultTargetOptions: {
       shouldOptimize: true,
-      shouldScopeHoist: true,
+      shouldScopeHoist: false,
       sourceMaps: false,
       engines: {
         browsers: ["last 1 Chrome version"]
