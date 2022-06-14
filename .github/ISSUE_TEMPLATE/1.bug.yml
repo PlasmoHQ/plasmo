@@ -54,11 +54,11 @@ body:
       label: What browsers are you seeing the problem on?
       multiple: true
       options:
-        - Firefox
         - Chrome
         - Microsoft Edge
         - Opera
         - Safari
+        - Firefox
 
   - type: textarea
     id: logs
