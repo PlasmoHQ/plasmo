@@ -48,9 +48,10 @@ async function build() {
     cacheDir: resolve(cacheDirectory, "parcel"),
     entries: commonPath.entryManifestPath,
     config: templatePath.parcelConfig,
+    mode: "production",
     shouldAutoInstall: true,
     shouldDisableCache: true,
-    mode: "production",
+    shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
       shouldScopeHoist: true,
