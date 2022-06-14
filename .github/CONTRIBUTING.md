@@ -9,17 +9,16 @@ requests should be made against.
 
 To develop locally:
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 1. Clone the repository together with its submodules:
 
    ```bash
    git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
    ```
 
-1. Checkout the current sprint `release-*` branch, see [workflow](#workflow) for more info:
+1. Checkout the `main` branch, see [workflow](#workflow) for more info:
 
    ```
-   git checkout release-
+   git checkout main
    ```
 
 1. Create a new feature branch:
@@ -110,8 +109,6 @@ Directory and source file should use `kebab-case`, unless required by tooling. E
 
 ### Branch and PR names
 
-- Release branch: `release-x.x.x`
-- Release branch PR: `Release x.x.x`
 - Feature branch: `feat-FFFF`
 - Feature branch PR: `FEAT | Some new feature | #FFFF |`
 - Hotfix branch: `hotfix-FFFF`
@@ -126,55 +123,57 @@ Plasmo has 3 deployed environments:
 | env name | purpose        | requirement           |
 | -------- | -------------- | --------------------- |
 | canary   | For WIP test   | Admin deploy directly |
-| staging  | For beta test  | Merge to `release-*`  |
-| latest   | Stable release | Merge to `main`       |
+| staging  | For beta test  | Merge to `main`       |
+| latest   | Stable release | Merge to `stable`     |
 
 ### Workflow
 
-1. Admin starts a cycle by bumping the cli version, creating a `release-x.x.x` branch off `main` and a PR to `main`
+For `staging`/development deployment:
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it:
+
+   ```bash
+   git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
+   ```
+
+1. Creates a `feat-FFFF` branch off of `main` and a PR to `main`
 
    ```sh
    git checkout main
-   git checkout -b release-x.x.x
-   ```
-
-   PR name: `Release x.x.x`
-
-1. Contributor creates a `{feature}` branch off of `release-*` and a PR to `release-*`
-
-   ```sh
-   git checkout release-x.x.x
    git checkout -b feat-FFFF
    ```
 
    PR name: `FEAT | Some new feature | #FFFF |`
+   `FFFF` is an issue number
 
-1. Reviewer approves and merges `{feature}` to `release-*` branch -> deploys to `staging`
-1. Repeat the last 2 steps for the cycle duration (168 hours)
-1. Admin merges `release-*` PR into `main` branch -> deploys to `latest`
-1. Back to step 1
+1. Reviewer approves and merges `feat-FFFF` to `main` branch -> deploys to `staging`
 
 For `hotfix`, the workflow is:
 
-1. Contributor creates a `hotfix-*` branch off of `main` and a PR to `main`
+1. Creates a `hotfix-FFFF` branch off of `stable` and a PR to `stable`
 
    ```sh
-   git checkout main
+   git checkout stable
    git checkout -b hotfix-FFFF
    ```
 
-   PR name: `HOTIX | Some quick patch | #FFFF |`
+   PR name: `HOTFIX | Some quick patch | #FFFF |`
+   `FFFF` is an issue number
 
-1. Admin reviews, approves and merges `hotfix-*` to `main` -> deploys to `latest`
-1. Admin update current cycle's `release-x.x.x` with update from `main` -> deploys to `staging`
+1. Admin reviews, approves and merges `hotfix-FFFF` to `stable` -> deploys to `latest`
+1. Admin update `main` with `stable` -> deploys to `staging`
+
+For `latest` deployment:
+
+1. Admin merges `main` PR into `stable` branch -> deploys to `latest`
 
 ### Merge strategy
 
-| To          | From        | Strategy         | Deploy to |
-| ----------- | ----------- | ---------------- | --------- |
-| `release-*` | `{feature}` | Squash and Merge | staging   |
-| `release-*` | `main`      | Update           | staging   |
-| `main`      | `hotfix-*`  | Squash and Merge | latest    |
-| `main`      | `release-*` | Merge commit     | latest    |
+| From       | To       | Strategy         | Deploy to |
+| ---------- | -------- | ---------------- | --------- |
+| `feat-*`   | `main`   | Squash and Merge | staging   |
+| `main`     | `stable` | Merge commit     | latest    |
+| `hotfix-*` | `stable` | Squash and Merge | latest    |
+| `stable`   | `main`   | Update/Merge     | staging   |
 
 This is inspired by the [git flows workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
