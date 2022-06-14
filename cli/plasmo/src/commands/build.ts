@@ -45,13 +45,13 @@ async function build() {
   const bundler = new Parcel({
     cacheDir: resolve(cacheDirectory, "parcel"),
     entries: commonPath.entryManifestPath,
-    config: "@plasmohq/parcel-config",
+    config: require.resolve("@plasmohq/parcel-config"),
     mode: "production",
     shouldAutoInstall: true,
     shouldDisableCache: true,
     defaultTargetOptions: {
       shouldOptimize: true,
-      shouldScopeHoist: false,
+      shouldScopeHoist: true,
       sourceMaps: false,
       engines: {
         browsers: ["last 1 Chrome version"]
