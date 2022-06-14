@@ -1,9 +1,11 @@
 // @ts-nocheck
-import * as Mount from "__plasmo_mount_content_script__"
+import * as RawMount from "__plasmo_mount_content_script__"
 import { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
 
-// Escaping Parcel's static assessment
+// Escape parcel's static analyzer
+const Mount = RawMount
+
 const MountContainer = () => {
   const [top, setTop] = useState(0)
   const [left, setLeft] = useState(0)
@@ -46,7 +48,7 @@ const MountContainer = () => {
         top,
         left
       }}>
-      <Mount.default />
+      <RawMount.default />
     </div>
   )
 }
