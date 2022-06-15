@@ -10,14 +10,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "bob": "pnpm -v",
     "dev:cli": "turbo run dev --filter=plasmo",
     "build:packages": "pnpm --filter \"./packages/**\" --parallel -r build",
     "build:cli": "turbo run build --filter=plasmo",
     "build:examples": "pnpm --filter \"./examples/**\" --parallel -r build",
     "patch": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version -- patch",
     "publish:packages": "pnpm --parallel --filter \"./packages/**\" -r publish",
-    "publish:cli": "pnpm --filter ./cli/plasmo publish",
+    "publish:cli": "pnpm --filter \"./cli/plasmo\" publish",
     "publish:cli:canary": "pnpm --filter \"./cli/plasmo publish\" --no-git-checks --tag canary",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish"
   },
@@ -26,7 +25,7 @@
     "@types/archiver": "5.3.1",
     "@types/fs-extra": "9.0.13",
     "@types/inquirer": "8.2.1",
-    "@types/node": "17.0.42",
+    "@types/node": "17.0.43",
     "@types/node-rsa": "1.1.1",
     "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
@@ -37,7 +36,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-react": "7.30.0",
     "fs-extra": "10.1.0",
-    "prettier": "2.6.2",
+    "prettier": "2.7.0",
     "tsup": "6.1.2",
     "turbo": "1.2.16"
   },
