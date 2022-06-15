@@ -71,9 +71,9 @@ export class PlasmoExtensionManifest {
     this.#data.description = this.#packageData.description
     this.#data.author = this.#packageData.author
 
-    this.#data.permissions = autoPermissionList.filter((p) => {
-      return `@plasmohq/${p}` in this.#packageData.dependencies
-    })
+    this.#data.permissions = autoPermissionList.filter(
+      (p) => `@plasmohq/${p}` in this.#packageData.dependencies
+    )
 
     if (this.#data.permissions.length === 0) {
       delete this.#data.permissions
