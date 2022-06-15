@@ -2,6 +2,31 @@
 
 To contribute to [our examples](https://github.com/PlasmoHQ/examples/), please see **[Adding examples](#adding-examples)** below.
 
+## Contributing
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it:
+
+   ```bash
+   git clone git@github.com:<org>/plasmo.git --recurse-submodules
+   ```
+
+   **NOTE:** Replace `<org>` with your GitHub username.
+
+1. Work on your fork's `main` branch, then [open a PR](https://github.com/PlasmoHQ/plasmo/compare). Please ensure the PR name follows the naming convention:
+
+   `feat: some new feature`
+
+   Replacing `feat` with `fix`, `bug` or `doc` accordingly
+
+## Adding examples
+
+When you add an example to the [examples](https://github.com/PlasmoHQ/examples/) repository:
+
+- Use `pnpm dlx plasmo init` to create the example.
+- The name of the example should have a `with-*` prefix.
+- To add additional notes, add `## Notes` section at the start of the generated readme.
+- Your PR should be pointed to the [examples project](https://github.com/PlasmoHQ/examples/).
+
 ## Developing
 
 The development branch is `main`, and this is the branch that all pull
@@ -15,16 +40,10 @@ To develop locally:
    git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
    ```
 
-1. Checkout the `main` branch, see [workflow](#workflow) for more info:
+1. Checkout the `main` branch:
 
    ```
    git checkout main
-   ```
-
-1. Create a new feature branch:
-
-   ```
-   git checkout -b MY_BRANCH_NAME
    ```
 
 1. Install [pnpm](https://pnpm.io/)
@@ -39,14 +58,6 @@ To develop locally:
    ```
    pnpm dev
    ```
-
-## Building
-
-You can build the project, including all type definitions, with:
-
-```bash
-pnpm build
-```
 
 ## Developing with your local version of Plasmo
 
@@ -64,18 +75,18 @@ There are two options to develop with your local version of the codebase:
 2. Invoke plasmo directly:
 
    ```sh
-     plasmo init
-     plasmo dev
-     plasmo build
+   plasmo init
+   plasmo dev
+   plasmo build
    ```
 
-## Adding examples
+## Building
 
-When you add an example to the [examples](examples) repository:
+You can build the project, including all type definitions, with:
 
-- Use `pnpm dlx plasmo init` to create the example.
-- The name of the example should have a `with-*` prefix.
-- To add additional notes, add `## Notes` section at the start of the generated readme.
+```bash
+pnpm build
+```
 
 ## Naming convention
 
@@ -107,16 +118,7 @@ Directory and source file should use `kebab-case`, unless required by tooling. E
 | Functions            | `camelCase`             |
 | API Routes           | `kebab-case`            |
 
-### Branch and PR names
-
-- Feature branch: `feat-FFFF`
-- Feature branch PR: `FEAT | Some new feature | #FFFF |`
-- Hotfix branch: `hotfix-FFFF`
-- Hotfix branch PR: `HOTIX | Some quick patch | #FFFF |`
-
-> `FFFF` is the issue number
-
-## Devops and Merging process
+## For Core Maintainers / Admin
 
 Plasmo has 3 deployed environments:
 
@@ -126,27 +128,9 @@ Plasmo has 3 deployed environments:
 | staging  | For beta test  | Merge to `main`       |
 | latest   | Stable release | Merge to `stable`     |
 
-### Workflow
+Reviewer approves and merges PRs to `main` branch -> deploys to `staging`
 
-For `staging`/development deployment:
-
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it:
-
-   ```bash
-   git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
-   ```
-
-1. Creates a `feat-FFFF` branch off of `main` and a PR to `main`
-
-   ```sh
-   git checkout main
-   git checkout -b feat-FFFF
-   ```
-
-   PR name: `FEAT | Some new feature | #FFFF |`
-   `FFFF` is an issue number
-
-1. Reviewer approves and merges `feat-FFFF` to `main` branch -> deploys to `staging`
+> NOTE: Please make sure to use the `Squash and Merge` strategy
 
 For `hotfix`, the workflow is:
 
@@ -157,7 +141,8 @@ For `hotfix`, the workflow is:
    git checkout -b hotfix-FFFF
    ```
 
-   PR name: `HOTFIX | Some quick patch | #FFFF |`
+   PR name: `hotfix: some quick patch`
+
    `FFFF` is an issue number
 
 1. Admin reviews, approves and merges `hotfix-FFFF` to `stable` -> deploys to `latest`
