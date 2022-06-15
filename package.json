@@ -11,6 +11,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev:cli": "turbo run dev --filter=plasmo",
+    "build:cli": "turbo run build --filter=plasmo",
     "patch": "pnpm --filter ./packages/** --parallel -r exec pnpm version -- patch",
     "publish:packages": "pnpm --parallel --filter ./packages/** -r publish",
     "publish:cli": "pnpm --filter ./cli/plasmo publish",
