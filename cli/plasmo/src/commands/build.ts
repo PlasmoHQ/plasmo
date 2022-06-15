@@ -9,7 +9,6 @@ import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { getProjectPath } from "~features/extension-devtools/project-path"
-import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { nextNewTab } from "~features/extra/next-new-tab"
 
 async function build() {
@@ -18,7 +17,6 @@ async function build() {
   const [internalCmd] = getNonFlagArgvs("build")
 
   const commonPath = getCommonPath()
-  const templatePath = getTemplatePath()
 
   if (internalCmd === "next-new-tab") {
     await nextNewTab(commonPath)
@@ -47,10 +45,11 @@ async function build() {
   const bundler = new Parcel({
     cacheDir: resolve(cacheDirectory, "parcel"),
     entries: commonPath.entryManifestPath,
-    config: templatePath.parcelConfig,
+    config: require.resolve("@plasmohq/parcel-config"),
     mode: "production",
     shouldAutoInstall: true,
     shouldDisableCache: true,
+    shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
       shouldScopeHoist: true,

@@ -1,0 +1,30 @@
+{
+  "name": "@plasmohq/parcel-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "main": "index.json",
+  "dependencies": {
+    "@parcel/core": "2.6.0",
+    "@parcel/config-webextension": "2.6.0",
+    "@parcel/runtime-js": "2.6.0",
+    "@parcel/runtime-webextension": "2.6.0",
+    "@parcel/transformer-inline-string": "2.6.0",
+    "@parcel/optimizer-data-url": "2.6.0",
+    "@parcel/transformer-worklet": "2.6.0",
+    "@plasmohq/parcel-bundler": "workspace:*",
+    "@plasmohq/parcel-resolver": "workspace:*",
+    "@plasmohq/parcel-runtime": "workspace:*"
+  },
+  "@parcel/bundler-default": {
+    "minBundles": 10000000,
+    "minBundleSize": 3000,
+    "maxParallelRequests": 20
+  },
+  "peerDependencies": {
+    "@parcel/core": "2.6.0"
+  }
+}

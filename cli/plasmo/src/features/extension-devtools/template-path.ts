@@ -7,14 +7,12 @@ export const getTemplatePath = () => {
   const staticTemplatePath = resolve(templatePath, "static")
 
   const bppYaml = resolve(templatePath, "bpp.yml")
-  const parcelConfig = resolve(templatePath, "parcel-config.json")
 
   return {
     templatePath,
     initTemplatePath,
     staticTemplatePath,
-    bppYaml,
-    parcelConfig
+    bppYaml
   }
 }
 
