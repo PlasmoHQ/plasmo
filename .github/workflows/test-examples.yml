@@ -32,6 +32,7 @@ jobs:
       - name: "Build local version of Plasmo"
         run: |
           pnpm i --no-frozen-lockfile
+          pnpm --parallel --filter ./packages/** -r build
           pnpm run build:cli
           pnpm i
       - name: "Go to each example and try to build it"
