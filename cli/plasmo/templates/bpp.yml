@@ -21,7 +21,7 @@ jobs:
       - name: Build and zip extension artifact
         run: pnpm build -- --zip
       - name: Browser Platform Publish
-        uses: plasmo-corp/bpp@v2
+        uses: PlasmoHQ/bpp@v2
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
           artifact: build/chrome-mv3-prod.zip
