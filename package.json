@@ -10,12 +10,15 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "bob": "pnpm -v",
     "dev:cli": "turbo run dev --filter=plasmo",
+    "build:packages": "pnpm --filter \"./packages/**\" --parallel -r build",
     "build:cli": "turbo run build --filter=plasmo",
-    "patch": "pnpm --filter ./packages/** --parallel -r exec pnpm version -- patch",
-    "publish:packages": "pnpm --parallel --filter ./packages/** -r publish",
+    "build:examples": "pnpm --filter \"./examples/**\" --parallel -r build",
+    "patch": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version -- patch",
+    "publish:packages": "pnpm --parallel --filter \"./packages/**\" -r publish",
     "publish:cli": "pnpm --filter ./cli/plasmo publish",
-    "publish:cli:canary": "pnpm --filter ./cli/plasmo publish --no-git-checks --tag canary",
+    "publish:cli:canary": "pnpm --filter \"./cli/plasmo publish\" --no-git-checks --tag canary",
     "publish:resolver": "pnpm --filter ./packages/parcel-resolver publish",
     "publish:runtime": "pnpm --filter ./packages/parcel-runtime publish"
   },
