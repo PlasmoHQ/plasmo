@@ -16,8 +16,7 @@
     "publish:packages": "pnpm --parallel --filter ./packages/** -r publish",
     "publish:cli": "pnpm --filter ./cli/plasmo publish",
     "publish:cli:canary": "pnpm --filter ./cli/plasmo publish --no-git-checks --tag canary",
-    "publish:resolver": "pnpm --filter ./packages/parcel-resolver publish",
-    "publish:runtime": "pnpm --filter ./packages/parcel-runtime publish"
+    "publish:parcel": "pnpm --filter ./packages/parcel-* publish"
   },
   "devDependencies": {
     "@plasmohq/rps": "1.3.4",
