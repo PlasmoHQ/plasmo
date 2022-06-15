@@ -893,6 +893,29 @@ importers:
       tsup: 6.1.2_typescript@4.7.3
       typescript: 4.7.3
 
+  packages/parcel-bundler:
+    specifiers:
+      '@parcel/core': 2.6.0
+      '@parcel/diagnostic': 2.6.0
+      '@parcel/hash': 2.6.0
+      '@parcel/plugin': 2.6.0
+      '@parcel/types': 2.6.0
+      '@parcel/utils': 2.6.0
+      '@plasmo/config': workspace:*
+      nullthrows: 1.1.1
+      tsup: 6.1.2
+    dependencies:
+      '@parcel/diagnostic': 2.6.0
+      '@parcel/hash': 2.6.0
+      '@parcel/plugin': 2.6.0_@parcel+core@2.6.0
+      '@parcel/utils': 2.6.0
+      nullthrows: 1.1.1
+    devDependencies:
+      '@parcel/core': 2.6.0
+      '@parcel/types': 2.6.0_@parcel+core@2.6.0
+      '@plasmo/config': link:../config
+      tsup: 6.1.2
+
   packages/parcel-config:
     specifiers:
       '@parcel/config-webextension': 2.6.0
@@ -902,6 +925,7 @@ importers:
       '@parcel/runtime-webextension': 2.6.0
       '@parcel/transformer-inline-string': 2.6.0
       '@parcel/transformer-worklet': 2.6.0
+      '@plasmohq/parcel-bundler': workspace:*
       '@plasmohq/parcel-resolver': workspace:*
       '@plasmohq/parcel-runtime': workspace:*
     dependencies:
@@ -912,6 +936,7 @@ importers:
       '@parcel/runtime-webextension': 2.6.0_@parcel+core@2.6.0
       '@parcel/transformer-inline-string': 2.6.0_@parcel+core@2.6.0
       '@parcel/transformer-worklet': 2.6.0_@parcel+core@2.6.0
+      '@plasmohq/parcel-bundler': link:../parcel-bundler
       '@plasmohq/parcel-resolver': link:../parcel-resolver
       '@plasmohq/parcel-runtime': link:../parcel-runtime
 

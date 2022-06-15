@@ -1,5 +1,6 @@
 {
   "extends": "@parcel/config-webextension",
+  "bundler": "@plasmohq/parcel-bundler",
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
