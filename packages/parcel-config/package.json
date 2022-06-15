@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,11 +18,6 @@
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*"
-  },
-  "@parcel/bundler-default": {
-    "minBundles": 10000000,
-    "minBundleSize": 3000,
-    "maxParallelRequests": 20
   },
   "peerDependencies": {
     "@parcel/core": "2.6.0"
