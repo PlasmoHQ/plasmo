@@ -49,6 +49,7 @@ async function build() {
     mode: "production",
     shouldAutoInstall: true,
     shouldDisableCache: true,
+    shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
       shouldScopeHoist: true,

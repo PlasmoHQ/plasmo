@@ -15,6 +15,7 @@
     "@parcel/transformer-inline-string": "2.6.0",
     "@parcel/optimizer-data-url": "2.6.0",
     "@parcel/transformer-worklet": "2.6.0",
+    "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*"
   },
