@@ -33,6 +33,7 @@ async function build() {
   // read typescript config file
   vLog("Make sure .plasmo exists")
   await ensureDir(commonPath.dotPlasmoDirectory)
+
   await generateIcons(commonPath)
   await generateLocales(commonPath)
 

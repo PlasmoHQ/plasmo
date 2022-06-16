@@ -7,6 +7,7 @@ import { aLog, eLog, getNonFlagArgvs, hasFlag, iLog, vLog } from "@plasmo/utils"
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
+import { generateLocales } from "~features/extension-devtools/generate-locales"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { printHeader } from "~features/helpers/print"
@@ -29,6 +30,7 @@ async function dev() {
   await ensureDir(commonPath.dotPlasmoDirectory)
 
   await generateIcons(commonPath)
+  await generateLocales(commonPath)
 
   const plasmoManifest = await ensureManifest(commonPath, projectPath)
 

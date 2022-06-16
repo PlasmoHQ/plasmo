@@ -4,6 +4,7 @@ import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
 import { iLog, vLog, wLog } from "@plasmo/utils"
 
 import { generateIcons } from "./generate-icons"
+import { generateLocales } from "./generate-locales"
 import type { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
 import { ProjectPath, WatchReason } from "./project-path"
 
@@ -76,6 +77,7 @@ export const handleProjectFile = async (
     case WatchReason.AssetsDirectory: {
       iLog("Assets directory changed, update dynamic assets")
       await generateIcons(plasmoManifest.commonPath)
+      await generateLocales(plasmoManifest.commonPath)
       return
     }
     case WatchReason.PackageJson: {
