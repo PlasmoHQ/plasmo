@@ -17,7 +17,7 @@
     "patch": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version -- patch",
     "publish:packages": "pnpm --parallel --filter \"./packages/**\" -r publish",
     "publish:cli": "pnpm --filter \"./cli/plasmo\" publish",
-    "publish:cli:canary": "pnpm --filter \"./cli/plasmo publish\" --no-git-checks --tag canary",
+    "publish:cli:canary": "pnpm --filter \"./cli/plasmo\" publish --no-git-checks --tag canary",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish"
   },
   "devDependencies": {
