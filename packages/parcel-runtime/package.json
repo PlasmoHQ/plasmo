@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist",
@@ -15,7 +15,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
   "engines": {
-    "parcel": "2.6.0"
+    "parcel": ">= 2.6.0"
   },
   "license": "MIT",
   "repository": {
@@ -23,11 +23,11 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
-    "@parcel/core": "2.6.0",
+    "@parcel/core": "2.6.1",
     "@plasmo/config": "workspace:*",
     "tsup": "6.1.2"
   },
   "dependencies": {
-    "@parcel/plugin": "2.6.0"
+    "@parcel/plugin": "2.6.1"
   }
 }

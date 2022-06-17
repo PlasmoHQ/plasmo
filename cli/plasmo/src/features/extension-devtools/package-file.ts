@@ -34,7 +34,7 @@ export const generatePackage = ({
       "@types/react": "18.0.12",
       "@types/react-dom": "18.0.5",
       prettier: "2.7.0",
-      typescript: "4.7.3"
+      typescript: "4.7.4"
     },
     manifest: {
       // permissions: [] as ValidManifestPermission[],

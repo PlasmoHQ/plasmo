@@ -8,18 +8,15 @@
   },
   "main": "index.json",
   "dependencies": {
-    "@parcel/core": "2.6.0",
-    "@parcel/config-webextension": "2.6.0",
-    "@parcel/runtime-js": "2.6.0",
-    "@parcel/runtime-webextension": "2.6.0",
-    "@parcel/transformer-inline-string": "2.6.0",
-    "@parcel/optimizer-data-url": "2.6.0",
-    "@parcel/transformer-worklet": "2.6.0",
+    "@parcel/config-webextension": "2.6.1",
+    "@parcel/core": "2.6.1",
+    "@parcel/optimizer-data-url": "2.6.1",
+    "@parcel/runtime-js": "2.6.1",
+    "@parcel/runtime-webextension": "2.6.1",
+    "@parcel/transformer-inline-string": "2.6.1",
+    "@parcel/transformer-worklet": "2.6.1",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*"
-  },
-  "peerDependencies": {
-    "@parcel/core": "2.6.0"
   }
 }
