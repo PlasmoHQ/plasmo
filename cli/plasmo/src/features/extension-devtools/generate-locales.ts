@@ -1,4 +1,4 @@
-import { copy, ensureDir, existsSync } from "fs-extra"
+import { copy, existsSync } from "fs-extra"
 import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils"

@@ -22,6 +22,10 @@
   </a>
 </p>
 
+<p align="center">
+  English | <a href="/cli/plasmo/readme-zh_CN.md">简体中文</a>
+</p>
+
 # Plasmo Framework
 
 The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser extension SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.
