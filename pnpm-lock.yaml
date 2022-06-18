@@ -860,7 +860,7 @@ importers:
       '@types/node': 18.0.0
       '@types/react': 18.0.14
       '@types/react-dom': 18.0.5
-      ethers: 5.6.8
+      ethers: 5.6.9
       plasmo: latest
       prettier: 2.7.1
       react: 18.2.0
@@ -868,10 +868,10 @@ importers:
       typescript: 4.7.4
       wagmi: 0.4.12
     dependencies:
-      ethers: 5.6.8
+      ethers: 5.6.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      wagmi: 0.4.12_ruwf2drqkvjkepzlbzwskznqqa
+      wagmi: 0.4.12_2pvqx3wni2imkaucnfdtyrjuiq
     devDependencies:
       '@babel/core': 7.18.5
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
@@ -1877,8 +1877,8 @@ packages:
       - supports-color
     dev: true
 
-  /@ethersproject/abi/5.6.3:
-    resolution: {integrity: sha512-CxKTdoZY4zDJLWXG6HzNH6znWK0M79WzzxHegDoecE3+K32pzfHOzuXg2/oGSTecZynFgpkjYXNPOqXVJlqClw==}
+  /@ethersproject/abi/5.6.4:
+    resolution: {integrity: sha512-TTeZUlCeIHG6527/2goZA6gW5F8Emoc7MrZDC7hhP84aRGvW3TEdTnZR08Ls88YXM1m2SuK42Osw/jSi3uO8gg==}
     dependencies:
       '@ethersproject/address': 5.6.1
       '@ethersproject/bignumber': 5.6.2
@@ -1897,7 +1897,7 @@ packages:
       '@ethersproject/bignumber': 5.6.2
       '@ethersproject/bytes': 5.6.1
       '@ethersproject/logger': 5.6.0
-      '@ethersproject/networks': 5.6.3
+      '@ethersproject/networks': 5.6.4
       '@ethersproject/properties': 5.6.0
       '@ethersproject/transactions': 5.6.2
       '@ethersproject/web': 5.6.1
@@ -1959,7 +1959,7 @@ packages:
   /@ethersproject/contracts/5.6.2:
     resolution: {integrity: sha512-hguUA57BIKi6WY0kHvZp6PwPlWF87MCeB4B7Z7AbUpTxfFXFdn/3b0GmjZPagIHS+3yhcBJDnuEfU4Xz+Ks/8g==}
     dependencies:
-      '@ethersproject/abi': 5.6.3
+      '@ethersproject/abi': 5.6.4
       '@ethersproject/abstract-provider': 5.6.1
       '@ethersproject/abstract-signer': 5.6.2
       '@ethersproject/address': 5.6.1
@@ -2030,8 +2030,8 @@ packages:
     resolution: {integrity: sha512-BiBWllUROH9w+P21RzoxJKzqoqpkyM1pRnEKG69bulE9TSQD8SAIvTQqIMZmmCO8pUNkgLP1wndX1gKghSpBmg==}
     dev: false
 
-  /@ethersproject/networks/5.6.3:
-    resolution: {integrity: sha512-QZxRH7cA5Ut9TbXwZFiCyuPchdWi87ZtVNHWZd0R6YFgYtes2jQ3+bsslJ0WdyDe0i6QumqtoYqvY3rrQFRZOQ==}
+  /@ethersproject/networks/5.6.4:
+    resolution: {integrity: sha512-KShHeHPahHI2UlWdtDMn2lJETcbtaJge4k7XSjDR9h79QTd6yQJmv6Cp2ZA4JdqWnhszAOLSuJEd9C0PRw7hSQ==}
     dependencies:
       '@ethersproject/logger': 5.6.0
     dev: false
@@ -2062,7 +2062,7 @@ packages:
       '@ethersproject/constants': 5.6.1
       '@ethersproject/hash': 5.6.1
       '@ethersproject/logger': 5.6.0
-      '@ethersproject/networks': 5.6.3
+      '@ethersproject/networks': 5.6.4
       '@ethersproject/properties': 5.6.0
       '@ethersproject/random': 5.6.1
       '@ethersproject/rlp': 5.6.1
@@ -4508,7 +4508,7 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@wagmi/core/0.3.8_6o3hxk6gilmzskp2akmtcdiabq:
+  /@wagmi/core/0.3.8_joqlj2avzy4m3mrav26wv4v2ju:
     resolution: {integrity: sha512-9wsd8YGW2ivjFwpkgAETn7cRbKOAddZz91vuh2VmIP2bWGiDuFA6RXy5/KLV/tGpvIIiCyGFO0JXpx+n4hFhgQ==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.2.0'
@@ -4522,7 +4522,7 @@ packages:
     dependencies:
       '@coinbase/wallet-sdk': 3.2.0_@babel+core@7.18.5
       '@walletconnect/ethereum-provider': 1.7.8
-      ethers: 5.6.8
+      ethers: 5.6.9
       eventemitter3: 4.0.7
       zustand: 4.0.0-rc.1_react@18.2.0
     transitivePeerDependencies:
@@ -6865,10 +6865,10 @@ packages:
       rlp: 2.2.7
     dev: false
 
-  /ethers/5.6.8:
-    resolution: {integrity: sha512-YxIGaltAOdvBFPZwIkyHnXbW40f1r8mHUgapW6dxkO+6t7H6wY8POUn0Kbxrd/N7I4hHxyi7YCddMAH/wmho2w==}
+  /ethers/5.6.9:
+    resolution: {integrity: sha512-lMGC2zv9HC5EC+8r429WaWu3uWJUCgUCt8xxKCFqkrFuBDZXDYIdzDUECxzjf2BMF8IVBByY1EBoGSL3RTm8RA==}
     dependencies:
-      '@ethersproject/abi': 5.6.3
+      '@ethersproject/abi': 5.6.4
       '@ethersproject/abstract-provider': 5.6.1
       '@ethersproject/abstract-signer': 5.6.2
       '@ethersproject/address': 5.6.1
@@ -6883,7 +6883,7 @@ packages:
       '@ethersproject/json-wallets': 5.6.1
       '@ethersproject/keccak256': 5.6.1
       '@ethersproject/logger': 5.6.0
-      '@ethersproject/networks': 5.6.3
+      '@ethersproject/networks': 5.6.4
       '@ethersproject/pbkdf2': 5.6.1
       '@ethersproject/properties': 5.6.0
       '@ethersproject/providers': 5.6.8
@@ -11881,16 +11881,16 @@ packages:
       xml-name-validator: 4.0.0
     dev: true
 
-  /wagmi/0.4.12_ruwf2drqkvjkepzlbzwskznqqa:
+  /wagmi/0.4.12_2pvqx3wni2imkaucnfdtyrjuiq:
     resolution: {integrity: sha512-YfpRAJyGL9YvtecYDf6cUT6yaIBksHK9JZyq3WlVMUfeTleFmsqCiIaIaKhlPcE+NZxSsUHz1jbZw8KLWTcwvA==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
     dependencies:
       '@coinbase/wallet-sdk': 3.2.0_@babel+core@7.18.5
-      '@wagmi/core': 0.3.8_6o3hxk6gilmzskp2akmtcdiabq
+      '@wagmi/core': 0.3.8_joqlj2avzy4m3mrav26wv4v2ju
       '@walletconnect/ethereum-provider': 1.7.8
-      ethers: 5.6.8
+      ethers: 5.6.9
       react: 18.2.0
       react-query: 4.0.0-beta.23_biqbaboplfbrettd7655fr4n2y
       use-sync-external-store: 1.1.0_react@18.2.0
