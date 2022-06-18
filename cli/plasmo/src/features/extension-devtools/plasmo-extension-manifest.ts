@@ -1,7 +1,6 @@
 import { readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
 import { dirname, extname, join, parse, relative, resolve } from "path"
-import { valid } from "semver"
 
 import type {
   ExtensionManifest,
@@ -193,11 +192,11 @@ export class PlasmoExtensionManifest {
         )
       }
 
-      const contentScript = {
+      const contentScript = this.#injectEnv({
         matches: ["<all_urls>"],
         js: [manifestScriptPath],
         ...(metadata?.config || {})
-      }
+      })
 
       this.#contentScriptMap.set(path, contentScript)
     } else {
@@ -253,7 +252,11 @@ export class PlasmoExtensionManifest {
       return {}
     }
 
-    return definedTraverse(this.#packageData.manifest, (value) => {
+    return this.#injectEnv(this.#packageData.manifest)
+  }
+
+  #injectEnv = <T = any>(target: T): T =>
+    definedTraverse(target, (value) => {
       if (typeof value !== "string") {
         return value
       }
@@ -267,5 +270,4 @@ export class PlasmoExtensionManifest {
         )
       }
     })
-  }
 }
