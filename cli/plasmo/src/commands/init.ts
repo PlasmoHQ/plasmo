@@ -31,7 +31,9 @@ async function init() {
 
   vLog("Prompting for the extension name")
 
-  const { prompt } = await import("inquirer")
+  const {
+    default: { prompt }
+  } = await import("inquirer")
 
   const [rawNameNonInteractive] = getNonFlagArgvs("init")
   const rawName =

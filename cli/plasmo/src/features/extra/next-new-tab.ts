@@ -31,7 +31,9 @@ export const nextNewTab = async (commonPath: CommonPath) => {
 
   const extensionDirectory = resolve(currentDirectory, "extension")
   if (await fileExists(extensionDirectory)) {
-    const { prompt } = await import("inquirer")
+    const {
+      default: { prompt }
+    } = await import("inquirer")
 
     const { answer } = await prompt({
       type: "confirm",

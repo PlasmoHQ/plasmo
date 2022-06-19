@@ -22,18 +22,6 @@ jobs:
           submodules: "recursive"
       - name: "Install package manager"
         run: npm install -g pnpm
-      - name: "Replace Plasmo version with workspace in examples"
-        run: |
-          pushd examples
-          for d in *
-          do
-            test -d "$d" || continue
-            pushd "$d"
-            tmp=$(mktemp)
-            jq '.devDependencies.plasmo = "workspace:*"' package.json > "$tmp" && mv "$tmp" package.json
-            popd
-          done
-          popd
       - name: "Build local version of Plasmo"
         run: |
           pnpm i --no-frozen-lockfile
