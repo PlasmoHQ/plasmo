@@ -3,7 +3,6 @@ import { paramCase } from "change-case"
 import { existsSync } from "fs"
 import { copy, writeJson } from "fs-extra"
 import { mkdir, writeFile } from "fs/promises"
-import { prompt } from "inquirer"
 import { createQuestId } from "mnemonic-id"
 import { resolve } from "path"
 import { cwd } from "process"
@@ -31,6 +30,8 @@ async function init() {
   printHeader()
 
   vLog("Prompting for the extension name")
+
+  const { prompt } = await import("inquirer")
 
   const [rawNameNonInteractive] = getNonFlagArgvs("init")
   const rawName =

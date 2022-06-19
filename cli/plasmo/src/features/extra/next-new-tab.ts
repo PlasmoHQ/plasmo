@@ -1,6 +1,5 @@
 import { emptyDir, readJson, writeJson } from "fs-extra"
 import { cp, mkdir } from "fs/promises"
-import { prompt } from "inquirer"
 import { resolve } from "path"
 
 import { fileExists, sLog, vLog } from "@plasmo/utils"
@@ -32,6 +31,8 @@ export const nextNewTab = async (commonPath: CommonPath) => {
 
   const extensionDirectory = resolve(currentDirectory, "extension")
   if (await fileExists(extensionDirectory)) {
+    const { prompt } = await import("inquirer")
+
     const { answer } = await prompt({
       type: "confirm",
       name: "answer",
