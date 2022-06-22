@@ -1,7 +1,7 @@
 import { Event, subscribe } from "@parcel/watcher"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
-import { assertUnreachable, eLog, iLog, vLog, wLog } from "@plasmo/utils"
+import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 
 import { generateIcons } from "./generate-icons"
 import { generateLocales } from "./generate-locales"
@@ -111,7 +111,6 @@ export const handleProjectFile = async (
       return
     }
     default:
-      eLog(`Unknown watch reason: ${reason}`)
       assertUnreachable(reason)
   }
 }
