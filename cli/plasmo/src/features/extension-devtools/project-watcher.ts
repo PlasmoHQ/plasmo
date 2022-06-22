@@ -1,7 +1,7 @@
 import { Event, subscribe } from "@parcel/watcher"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
-import { iLog, vLog, wLog } from "@plasmo/utils"
+import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 
 import { generateIcons } from "./generate-icons"
 import { generateLocales } from "./generate-locales"
@@ -65,7 +65,7 @@ export const handleProjectFile = async (
   reason: WatchReason,
   plasmoManifest: PlasmoExtensionManifest
 ) => {
-  if (!reason) {
+  if (reason === WatchReason.None) {
     return
   }
 
@@ -101,10 +101,16 @@ export const handleProjectFile = async (
       plasmoManifest.toggleDevtools(type !== "delete")
       return
     }
+    case WatchReason.NewtabIndex: {
+      plasmoManifest.toggleNewtab(type !== "delete")
+      return
+    }
     case WatchReason.ContentsIndex:
     case WatchReason.ContentsDirectory: {
       await plasmoManifest.toggleContentScript(path, type !== "delete")
       return
     }
+    default:
+      assertUnreachable(reason)
   }
 }
