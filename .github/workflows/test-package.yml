@@ -1,5 +1,7 @@
 name: Test package manager execution
 on:
+  release:
+    types: [published]
   workflow_dispatch:
     inputs:
       tag:
