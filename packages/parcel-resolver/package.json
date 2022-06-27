@@ -22,13 +22,13 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
-    "@parcel/core": "2.6.1",
+    "@parcel/core": "2.6.2",
     "@plasmo/config": "workspace:*",
     "tsup": "6.1.2"
   },
   "dependencies": {
-    "@parcel/hash": "2.6.1",
-    "@parcel/plugin": "2.6.1",
+    "@parcel/hash": "2.6.2",
+    "@parcel/plugin": "2.6.2",
     "got": "12.1.0"
   }
 }
