@@ -27,6 +27,9 @@ async function main() {
     platform: "node",
     format: "esm",
     define,
+    banner: {
+      js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
+    },
     outfile: "dist/index.js"
   })
 }

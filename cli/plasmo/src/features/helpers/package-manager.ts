@@ -2,7 +2,7 @@
  * Forked from https://github.com/vercel/next.js/blob/canary/packages/create-next-app/helpers/get-pkg-manager.ts
  */
 import spawnAsync from "@expo/spawn-async"
-import { valid } from "semver"
+import semver from "semver"
 
 export type PackageManager = "npm" | "pnpm" | "yarn"
 
@@ -13,7 +13,7 @@ export type PackageManagerInfo = {
 
 async function getPMInfo(name: PackageManager): Promise<PackageManagerInfo> {
   const data = await spawnAsync(name, ["--version"])
-  const version = valid(data.stdout.trim())
+  const version = semver.valid(data.stdout.trim())
   return { name, version }
 }
 

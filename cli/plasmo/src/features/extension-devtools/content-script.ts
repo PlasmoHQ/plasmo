@@ -1,18 +1,19 @@
 import { readFile } from "fs/promises"
-import {
-  Node,
-  ScriptTarget,
-  SyntaxKind,
-  VariableDeclaration,
-  createSourceFile,
-  isObjectLiteralExpression,
-  isVariableStatement
-} from "typescript"
+import type { Node, VariableDeclaration } from "typescript"
+import typescript from "typescript"
 
 import type { ManifestContentScript } from "@plasmo/constants"
 import { eLog, vLog } from "@plasmo/utils"
 
 import { parseAst } from "./parse-ast"
+
+const {
+  ScriptTarget,
+  SyntaxKind,
+  createSourceFile,
+  isObjectLiteralExpression,
+  isVariableStatement
+} = typescript
 
 export const extractContentScriptMetadata = async (path: string) => {
   try {

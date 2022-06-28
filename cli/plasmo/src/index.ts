@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { argv, exit, versions } from "process"
-import { major } from "semver"
+import semver from "semver"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
 import { aLog, eLog, exitCountDown, vLog } from "@plasmo/utils"
@@ -23,7 +23,7 @@ async function main() {
       throw new Error(ErrorMessage.TooManyArg)
     }
 
-    if (major(versions.node) < 16) {
+    if (semver.major(versions.node) < 16) {
       throw new Error("Node version must be >= 16")
     }
 
