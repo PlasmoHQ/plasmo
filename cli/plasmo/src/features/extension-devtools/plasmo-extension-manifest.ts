@@ -178,6 +178,9 @@ export class PlasmoExtensionManifest {
         )
 
         const parsedModulePath = parse(modulePath)
+
+        vLog({ parsedModulePath })
+
         await createContentScriptMount(this, parsedModulePath)
         manifestScriptPath = join("static", modulePath)
       }
