@@ -25,7 +25,11 @@ async function main() {
     entryPoints: ["src/index.ts"],
     external: Object.keys(config.dependencies),
     platform: "node",
+    format: "esm",
     define,
+    banner: {
+      js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
+    },
     outfile: "dist/index.js"
   })
 }

@@ -12,7 +12,9 @@ import type {
   ObjectLiteralExpression,
   PropertyAssignment
 } from "typescript"
-import { SyntaxKind } from "typescript"
+import typescript from "typescript"
+
+const { SyntaxKind } = typescript
 
 export const parseAst = (node: Node) => {
   switch (node.kind) {

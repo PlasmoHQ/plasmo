@@ -1,16 +1,27 @@
 {
   "name": "create-plasmo",
-  "version": "0.0.1",
+  "version": "0.0.19",
   "description": "Create Plasmo Framework Browser Extension",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "type": "module",
   "files": [
-    "dist/index.js"
+    "dist"
   ],
+  "tsup": {
+    "format": "esm",
+    "target": "esnext",
+    "platform": "node",
+    "splitting": false,
+    "bundle": true,
+    "minify": true,
+    "clean": true,
+    "banner": {
+      "js": "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
+    }
+  },
   "scripts": {
-    "dev": "tsup src/index.ts --format esm --watch --sourcemap",
-    "build": "tsup src/index.ts --format esm --minify --clean",
+    "build": "tsup src/index.ts",
     "prepublishOnly": "run-s build"
   },
   "author": "Plasmo Corp. <support@plasmo.com>",
@@ -25,7 +36,11 @@
     "browser-extensions",
     "framework"
   ],
+  "dependencies": {
+    "@plasmohq/init": "workspace:*"
+  },
   "devDependencies": {
+    "plasmo": "workspace:*",
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
     "@plasmo/utils": "workspace:*",

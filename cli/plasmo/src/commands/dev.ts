@@ -1,4 +1,4 @@
-import Parcel from "@parcel/core"
+import { Parcel } from "@parcel/core"
 import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
 

@@ -1,12 +1,19 @@
-import { resolve } from "path"
+import { dirname, resolve } from "path"
+import { fileURLToPath } from "url"
 
 export const getTemplatePath = () => {
-  const templatePath = resolve(__dirname, "..", "templates")
+  const packagePath = dirname(fileURLToPath(import.meta.url))
 
-  const initTemplatePath = resolve(templatePath, "init")
+  const templatePath = resolve(packagePath, "..", "templates")
   const staticTemplatePath = resolve(templatePath, "static")
 
-  const bppYaml = resolve(templatePath, "bpp.yml")
+  const initTemplatePackagePath = resolve(
+    require.resolve("@plasmohq/init"),
+    ".."
+  )
+
+  const initTemplatePath = resolve(initTemplatePackagePath, "templates")
+  const bppYaml = resolve(initTemplatePackagePath, "bpp.yml")
 
   return {
     templatePath,

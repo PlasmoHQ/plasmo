@@ -13,8 +13,8 @@ export const runMap = {
   ["--version"]: () => import("./version")
 }
 
-export type ValidCommand = keyof typeof runMap 
+export type ValidCommand = keyof typeof runMap
 
-export const validCommandList =Object.keys(runMap) as ValidCommand[]
+export const validCommandList = Object.keys(runMap) as ValidCommand[]
 
 export const validCommandSet = new Set(validCommandList)
