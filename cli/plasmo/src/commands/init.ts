@@ -48,7 +48,11 @@ async function init() {
     ).rawName
 
   // For resolving project directory
-  const projectDirectory = resolve(cwd(), paramCase(rawName))
+  const currentDirectory = cwd()
+  const projectDirectory = resolve(
+    currentDirectory,
+    paramCase(rawName) || rawName
+  )
   vLog("Project directory:", projectDirectory)
 
   // For final naming
@@ -129,7 +133,7 @@ async function init() {
     "Your extension is ready in: ",
     chalk.yellowBright(projectDirectory),
     `\n\n    To start hacking, run:\n\n`,
-    rawName === "." ? "" : `      cd ${packageName}\n`,
+    projectDirectory === currentDirectory ? "" : `      cd ${packageName}\n`,
     `      ${packageManager.name} ${
       packageManager.name === "npm" ? "run dev" : "dev"
     }\n`,
