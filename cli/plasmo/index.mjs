@@ -25,6 +25,7 @@ async function main() {
     entryPoints: ["src/index.ts"],
     external: Object.keys(config.dependencies),
     platform: "node",
+    format: "esm",
     define,
     outfile: "dist/index.js"
   })
