@@ -4,6 +4,10 @@
   "exclude": ["dist", "node_modules", "templates"],
   "compilerOptions": {
     "outDir": "dist",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "~features/*": ["../plasmo/src/features/*"],
+      "~commands": ["./src/commands"]
+    }
   }
 }

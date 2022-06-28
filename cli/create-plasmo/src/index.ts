@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-import { argv, exit, versions } from "process"
+import init from "plasmo/src/commands/init"
+import { argv, exit } from "process"
 
 import { ErrorMessage } from "@plasmo/constants"
-import { aLog, eLog, exitCountDown, iLog } from "@plasmo/utils"
+import { aLog, eLog, exitCountDown } from "@plasmo/utils"
 
 async function main() {
   try {
@@ -10,9 +11,7 @@ async function main() {
     if (argv.length > 10) {
       throw new Error(ErrorMessage.TooManyArg)
     }
-
-    iLog("HELLO WORLD 147")
-    iLog("NODE version: ", versions.node)
+    await init()
   } catch (e) {
     eLog((e as Error).message || ErrorMessage.Unknown)
     aLog(e.stack)

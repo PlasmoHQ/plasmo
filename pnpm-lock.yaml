@@ -47,11 +47,13 @@ importers:
       '@plasmo/config': workspace:*
       '@plasmo/constants': workspace:*
       '@plasmo/utils': workspace:*
+      plasmo: workspace:*
       typescript: 4.7.4
     devDependencies:
       '@plasmo/config': link:../../packages/config
       '@plasmo/constants': link:../../packages/constants
       '@plasmo/utils': link:../../packages/utils
+      plasmo: link:../plasmo
       typescript: 4.7.4
 
   cli/plasmo:
@@ -79,7 +81,6 @@ importers:
       node-object-hash: 2.3.10
       process: 0.11.10
       semver: 7.3.7
-      ts-ast-to-literal: 1.0.5
       typescript: 4.7.4
     dependencies:
       '@expo/spawn-async': 1.6.0
@@ -102,7 +103,6 @@ importers:
       node-object-hash: 2.3.10
       process: 0.11.10
       semver: 7.3.7
-      ts-ast-to-literal: 1.0.5_typescript@4.7.4
       typescript: 4.7.4
     devDependencies:
       '@plasmo/config': link:../../packages/config
@@ -2001,24 +2001,6 @@ packages:
   /@ctrl/tinycolor/3.4.1:
     resolution: {integrity: sha512-ej5oVy6lykXsvieQtqZxCOaLT+xD4+QNarq78cIYISHmZXshCvROLudpQN3lfL8G0NL7plMSSK+zlyvCaIJ4Iw==}
     engines: {node: '>=10'}
-    dev: false
-
-  /@dword-design/endent/1.0.1:
-    resolution: {integrity: sha512-F8xRP8hTVd8JclhvmZskVN6QMLMge+kYCPOZ2Xsx7FJbs2dyD9J1cwDNsBAVujBfK2aKeznI/eqbHVK2XxCA2g==}
-    dependencies:
-      dedent: github.com/dword-design/dedent/c8d46e5017d60504657c2d01b59082c0329a12a7
-      fast-json-parse: 1.0.3
-      objectorarray: 1.0.5
-    dev: false
-
-  /@dword-design/functions/4.0.7:
-    resolution: {integrity: sha512-Q225czTokHcXIUhe+yVlHuhnETdfKyJptNAfg2LnoB/HXUxQyb76+kwpBzwlldOQ7FJl+RDATj4zTRBh4puesA==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@dword-design/endent': 1.0.1
-      delay: 5.0.0
-      lodash: 4.17.21
-      tinycolor2: 1.4.2
     dev: false
 
   /@eslint/eslintrc/1.3.0:
@@ -5233,10 +5215,6 @@ packages:
       - supports-color
     dev: true
 
-  /babel-plugin-add-module-exports/1.0.4:
-    resolution: {integrity: sha512-g+8yxHUZ60RcyaUpfNzy56OtWW+x9cyEe9j+CranqLiqbju2yf/Cy6ZtYK40EZxtrdHllzlVZgLmcOUCTlJ7Jg==}
-    dev: false
-
   /babel-plugin-istanbul/6.1.1:
     resolution: {integrity: sha512-Y1IQok9821cC9onCx5otgFfRm7Lm+I+wwxOx738M/WLPZ9Q42m4IG5W0FNX8WLL2gYMZo3JkuXIH2DOpWM+qwA==}
     engines: {node: '>=8'}
@@ -6111,11 +6089,6 @@ packages:
 
   /defined/1.0.0:
     resolution: {integrity: sha512-Y2caI5+ZwS5c3RiNDJ6u53VhQHv+hHKwhkI1iHvceKUHw9Df6EK2zRLfjejRgMuCuxK7PfSWIMwWecceVvThjQ==}
-    dev: false
-
-  /delay/5.0.0:
-    resolution: {integrity: sha512-ReEBKkIfe4ya47wlPYf/gu5ib6yUG0/Aez0JQZQz94kiWtRQvZIQbTiehsnwHvLSWJnQdhVeqYue7Id1dKr0qw==}
-    engines: {node: '>=10'}
     dev: false
 
   /delayed-stream/1.0.0:
@@ -7247,10 +7220,6 @@ packages:
     dependencies:
       iobuffer: 2.1.0
       tiff: 2.1.0
-    dev: false
-
-  /fast-json-parse/1.0.3:
-    resolution: {integrity: sha512-FRWsaZRWEJ1ESVNbDWmsAlqDk96gPQezzLghafp5J4GUKjbCz3OkAHuZs5TuPEtkbVQERysLp9xv6c24fBm8Aw==}
     dev: false
 
   /fast-json-stable-stringify/2.1.0:
@@ -9662,10 +9631,6 @@ packages:
       es-abstract: 1.20.1
     dev: true
 
-  /objectorarray/1.0.5:
-    resolution: {integrity: sha512-eJJDYkhJFFbBBAxeh8xW+weHlkI28n2ZdQV/J/DNfWfSKlGEf2xcfAbZTv3riEXHAhL9SVOTs2pRmXiSTf78xg==}
-    dev: false
-
   /oblivious-set/1.0.0:
     resolution: {integrity: sha512-z+pI07qxo4c2CulUHCDf9lcqDlMSo72N/4rLUpRXf6fu+q8vjt8y0xS+Tlf8NTJDdTXHbdeO1n3MlbctwEoXZw==}
     dev: false
@@ -11691,10 +11656,6 @@ packages:
   /timsort/0.3.0:
     resolution: {integrity: sha512-qsdtZH+vMoCARQtyod4imc2nIJwg9Cc7lPRrw9CzF8ZKR0khdr8+2nX80PBhET3tcyTtJDxAffGh2rXH4tyU8A==}
 
-  /tinycolor2/1.4.2:
-    resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
-    dev: false
-
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -11757,16 +11718,6 @@ packages:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
     dev: true
-
-  /ts-ast-to-literal/1.0.5_typescript@4.7.4:
-    resolution: {integrity: sha512-dHRN7h2UGkWtQriPMGRokoN6st4bUr6ADccH90opZWrRpKxjQvdCOkpy69foSVL2zXD18eaGuVldsr3XJoi6vQ==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      typescript: ^4.3.5
-    dependencies:
-      '@dword-design/functions': 4.0.7
-      typescript: 4.7.4
-    dev: false
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
@@ -12600,14 +12551,6 @@ packages:
     dependencies:
       react: 18.2.0
       use-sync-external-store: 1.1.0_react@18.2.0
-    dev: false
-
-  github.com/dword-design/dedent/c8d46e5017d60504657c2d01b59082c0329a12a7:
-    resolution: {tarball: https://codeload.github.com/dword-design/dedent/tar.gz/c8d46e5017d60504657c2d01b59082c0329a12a7}
-    name: dedent
-    version: 0.7.0
-    dependencies:
-      babel-plugin-add-module-exports: 1.0.4
     dev: false
 
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
