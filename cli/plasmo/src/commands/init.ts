@@ -4,7 +4,7 @@ import { existsSync } from "fs"
 import { copy, writeJson } from "fs-extra"
 import { mkdir, writeFile } from "fs/promises"
 import { createQuestId } from "mnemonic-id"
-import { resolve } from "path"
+import { basename, resolve } from "path"
 import { cwd } from "process"
 
 import {
@@ -47,10 +47,13 @@ async function init() {
       })
     ).rawName
 
-  const packageName = paramCase(rawName)
+  // For resolving project directory
+  const projectDirectory = resolve(cwd(), paramCase(rawName))
+  vLog("Project directory:", projectDirectory)
 
-  const projectDirectory = resolve(cwd(), packageName)
-  vLog("Absolute path:", projectDirectory)
+  // For final naming
+  const packageName = basename(projectDirectory)
+  vLog("Package name:", packageName)
 
   if (!existsSync(projectDirectory)) {
     vLog("Directory does not exist, creating...")
@@ -126,7 +129,7 @@ async function init() {
     "Your extension is ready in: ",
     chalk.yellowBright(projectDirectory),
     `\n\n    To start hacking, run:\n\n`,
-    `      cd ${packageName}\n`,
+    rawName === "." ? "" : `      cd ${packageName}\n`,
     `      ${packageManager.name} ${
       packageManager.name === "npm" ? "run dev" : "dev"
     }\n`,
