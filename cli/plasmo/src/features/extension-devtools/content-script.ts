@@ -1,5 +1,4 @@
 import { readFile } from "fs/promises"
-import astToLiteral from "ts-ast-to-literal"
 import {
   Node,
   ScriptTarget,
@@ -12,6 +11,8 @@ import {
 
 import type { ManifestContentScript } from "@plasmo/constants"
 import { eLog, vLog } from "@plasmo/utils"
+
+import { parseAst } from "./parse-ast"
 
 export const extractContentScriptMetadata = async (path: string) => {
   try {
@@ -52,11 +53,9 @@ export const extractContentScriptMetadata = async (path: string) => {
 
       try {
         if (valueNode.kind === SyntaxKind.Identifier) {
-          output[key] = astToLiteral(
-            variableDeclarationMap[valueNode.getText()]
-          )
+          output[key] = parseAst(variableDeclarationMap[valueNode.getText()])
         } else {
-          output[key] = astToLiteral(valueNode)
+          output[key] = parseAst(valueNode)
         }
       } catch (error) {
         eLog(error)
@@ -64,6 +63,8 @@ export const extractContentScriptMetadata = async (path: string) => {
 
       return output
     }, {} as ManifestContentScript)
+
+    vLog("Parsed config:", config)
 
     return {
       config
