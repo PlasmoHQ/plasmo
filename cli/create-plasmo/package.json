@@ -6,7 +6,7 @@
   "bin": "dist/index.js",
   "type": "module",
   "files": [
-    "dist/index.js"
+    "dist"
   ],
   "scripts": {
     "dev": "tsup src/index.ts --format esm --watch --sourcemap",
