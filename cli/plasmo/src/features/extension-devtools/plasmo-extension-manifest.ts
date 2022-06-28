@@ -170,7 +170,8 @@ export class PlasmoExtensionManifest {
         path
       )
 
-      if (extname(manifestScriptPath) === ".tsx") {
+      const needsMount = [".ts", ".tsx"].includes(extname(manifestScriptPath))
+      if (needsMount) {
         // copy the contents and change the manifest path
         const modulePath = join("plasmo", manifestScriptPath).replace(
           /(^src)[\\/]/,
