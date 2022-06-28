@@ -75,7 +75,7 @@ async function init() {
   )
 
   const packageFilePath = resolve(projectDirectory, "package.json")
-  const packageNameFromDirectory = currentDirectory.split('/').pop()
+  const packageNameFromDirectory = paramCase(currentDirectory.split('/').pop())
   vLog("Package name:", packageName || packageNameFromDirectory)
 
   const packageData = generatePackage({
