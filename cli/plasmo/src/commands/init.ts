@@ -48,8 +48,8 @@ async function init() {
     ).rawName
 
   const packageName = paramCase(rawName)
-
-  const projectDirectory = resolve(cwd(), packageName)
+  const currentDirectory = cwd()
+  const projectDirectory = resolve(currentDirectory, packageName)
   vLog("Absolute path:", projectDirectory)
 
   if (!existsSync(projectDirectory)) {
@@ -75,9 +75,11 @@ async function init() {
   )
 
   const packageFilePath = resolve(projectDirectory, "package.json")
+  const packageNameFromDirectory = currentDirectory.split('/').pop()
+  vLog("Package name:", packageName || packageNameFromDirectory)
 
   const packageData = generatePackage({
-    name: packageName,
+    name: packageName || packageNameFromDirectory,
     packageManager
   })
 
