@@ -13,11 +13,12 @@ import { createProjectWatcher } from "~features/extension-devtools/project-watch
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
+  printHeader()
+
   process.env.NODE_ENV = "development"
 
   const isImpulse = hasFlag("--impulse")
 
-  printHeader()
   const [rawServePort = "1012", rawHmrPort = "1815"] = getNonFlagArgvs("dev")
 
   iLog("Starting the extension development server...")

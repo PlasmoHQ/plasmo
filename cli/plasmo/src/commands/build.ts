@@ -11,8 +11,11 @@ import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { generateLocales } from "~features/extension-devtools/generate-locales"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { nextNewTab } from "~features/extra/next-new-tab"
+import { printHeader } from "~features/helpers/print"
 
 async function build() {
+  printHeader()
+
   process.env.NODE_ENV = "production"
 
   const [internalCmd] = getNonFlagArgvs("build")
