@@ -1,6 +1,6 @@
 name: 📓 Request/Improve an Example
 description: Request or Improve a Plasmo Framework with-* example
-title: "EXP | "
+title: "[EXP] "
 labels: ["documentation"]
 body:
   - type: markdown
