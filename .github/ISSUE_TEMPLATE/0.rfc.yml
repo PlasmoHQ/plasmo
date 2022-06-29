@@ -1,6 +1,6 @@
 name: ⚡ Request for Comments
 description: File an RFC for Feature Request/Enhancement/Refactor
-title: "RFC | "
+title: "[RFC] "
 labels: ["enhancement"]
 body:
   - type: markdown
