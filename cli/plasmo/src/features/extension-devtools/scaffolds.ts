@@ -1,6 +1,6 @@
 import { ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
-import { ParsedPath, resolve } from "path"
+import { ParsedPath, posix, resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
@@ -75,6 +75,6 @@ export async function createContentScriptMount(
 
   // Can pass metadata to check config for type of mount as well?
   return generateScaffold("content-script-ui-mount.tsx", staticContentPath, {
-    __plasmo_mount_content_script__: `~${module.dir}/${module.name}`
+    __plasmo_mount_content_script__: `~${posix.join(module.dir, module.name)}`
   })
 }
