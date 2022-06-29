@@ -1,6 +1,14 @@
-import { readJson, writeJson } from "fs-extra"
+import { copy, readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
-import { dirname, extname, join, parse, relative, resolve } from "path"
+import {
+  basename,
+  dirname,
+  extname,
+  join,
+  parse,
+  relative,
+  resolve
+} from "path"
 
 import type {
   ExtensionManifest,
@@ -206,10 +214,10 @@ export class PlasmoExtensionManifest {
     return this
   }
 
-  write = (force = false) => {
+  write = async (force = false) => {
     this.#prevHash = this.#hash
 
-    const newManifest = this.toJSON()
+    const newManifest = await this.toJSON()
 
     this.#hash = this.#hasher.hash(newManifest)
 
@@ -222,7 +230,7 @@ export class PlasmoExtensionManifest {
     })
   }
 
-  toJSON = () => {
+  toJSON = async () => {
     const base = {
       ...this.#data
     }
@@ -233,7 +241,7 @@ export class PlasmoExtensionManifest {
     }
 
     const { options_ui, action, permissions, ...overide } =
-      this.#getOverrideManifest()
+      await this.#getOverrideManifest()
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
@@ -247,13 +255,58 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  #getOverrideManifest = (): Partial<ExtensionManifest> => {
+  #getOverrideManifest = async (): Promise<Partial<ExtensionManifest>> => {
     if (!this.#packageData?.manifest) {
       return {}
     }
 
-    return this.#injectEnv(this.#packageData.manifest)
+    const envEnrichedManifest = this.#injectEnv(this.#packageData.manifest)
+
+    if (envEnrichedManifest.web_accessible_resources?.length > 0) {
+      envEnrichedManifest.web_accessible_resources = await this.#resolveWAR(
+        envEnrichedManifest.web_accessible_resources
+      )
+    }
+
+    return envEnrichedManifest
   }
+
+  #resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
+    Promise.all(
+      war.map(async ({ resources, matches }) => {
+        const resolvedResources = await Promise.all(
+          resources.map(async (resourcePath) => {
+            const resourceFilePath = require.resolve(resourcePath, {
+              paths: [this.commonPath.currentDirectory]
+            })
+
+            const fileName = basename(resourceFilePath)
+
+            await copy(
+              resourceFilePath,
+              resolve(this.commonPath.dotPlasmoDirectory, fileName)
+            )
+
+            return fileName
+            //
+            // if (
+            //   resourcePath.startsWith("resources/") ||
+            //   resourcePath.startsWith("./resources/") ||
+            //   resourcePath.split("/").length <= 1
+            //   ) {
+            //   const rawPath = resolve(this.commonPath.currentDirectory, resourcePath)
+            //   const dotPath = resolve(this.commonPath.dotPlasmoDirectory, resourcePath)
+
+            // }
+          })
+        )
+
+        return {
+          resources: resolvedResources,
+          matches
+        }
+      })
+    )
 
   #injectEnv = <T = any>(target: T): T =>
     definedTraverse(target, (value) => {
