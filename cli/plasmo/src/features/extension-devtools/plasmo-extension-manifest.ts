@@ -260,15 +260,15 @@ export class PlasmoExtensionManifest {
       return {}
     }
 
-    const envEnrichedManifest = this.#injectEnv(this.#packageData.manifest)
+    const output = this.#injectEnv(this.#packageData.manifest)
 
-    if (envEnrichedManifest.web_accessible_resources?.length > 0) {
-      envEnrichedManifest.web_accessible_resources = await this.#resolveWAR(
-        envEnrichedManifest.web_accessible_resources
+    if (output.web_accessible_resources?.length > 0) {
+      output.web_accessible_resources = await this.#resolveWAR(
+        output.web_accessible_resources
       )
     }
 
-    return envEnrichedManifest
+    return output
   }
 
   #resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
@@ -276,28 +276,27 @@ export class PlasmoExtensionManifest {
       war.map(async ({ resources, matches }) => {
         const resolvedResources = await Promise.all(
           resources.map(async (resourcePath) => {
-            const resourceFilePath = require.resolve(resourcePath, {
-              paths: [this.commonPath.currentDirectory]
-            })
+            try {
+              // Short-circuit it
+              if (resourcePath.startsWith("~")) {
+                return resourcePath
+              }
 
-            const fileName = basename(resourceFilePath)
+              const resourceFilePath = require.resolve(resourcePath, {
+                paths: [this.commonPath.currentDirectory]
+              })
 
-            await copy(
-              resourceFilePath,
-              resolve(this.commonPath.dotPlasmoDirectory, fileName)
-            )
+              const fileName = basename(resourceFilePath)
 
-            return fileName
-            //
-            // if (
-            //   resourcePath.startsWith("resources/") ||
-            //   resourcePath.startsWith("./resources/") ||
-            //   resourcePath.split("/").length <= 1
-            //   ) {
-            //   const rawPath = resolve(this.commonPath.currentDirectory, resourcePath)
-            //   const dotPath = resolve(this.commonPath.dotPlasmoDirectory, resourcePath)
+              await copy(
+                resourceFilePath,
+                resolve(this.commonPath.dotPlasmoDirectory, fileName)
+              )
 
-            // }
+              return fileName
+            } catch (error) {
+              return resourcePath
+            }
           })
         )
 
