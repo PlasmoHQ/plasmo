@@ -4,17 +4,12 @@ In order to make sure your PR is handled as smoothly as possible we request that
 Choose the right checklist for the change that you're making:
 -->
 
-## Bug
+## Details
 
-- [ ] Related issues linked using `fixes #number`
+- [ ] closes #
+- [ ] If RFC, it has been approved for implementation.
 
-## Feature
+### Code of Conduct
 
-- [ ] Implements an existing feature request or RFC. Make sure the feature request has been accepted for implementation before opening a PR.
-- [ ] Related issues linked using `fixes #number`
-- [ ] Documentation added
-- [ ] Example added
-
-## Documentation / Examples
-
-- [ ] Update https://github.com/PlasmoHQ/docs
+- [ ] I agree to follow this project's Code of Conduct
+- [ ] I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement+) for duplicate problems.
