@@ -12,4 +12,4 @@ Choose the right checklist for the change that you're making:
 ### Code of Conduct
 
 - [ ] I agree to follow this project's Code of Conduct
-- [ ] I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement+) for duplicate problems.
+- [ ] I checked the [current PR](https://github.com/PlasmoHQ/plasmo/pulls) for duplication.
