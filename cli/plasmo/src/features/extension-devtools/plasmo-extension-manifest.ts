@@ -172,15 +172,12 @@ export class PlasmoExtensionManifest {
 
       if (extname(manifestScriptPath) === ".tsx") {
         // copy the contents and change the manifest path
-        const modulePath = join("plasmo", manifestScriptPath).replace(
+        const modulePath = join("lab", manifestScriptPath).replace(
           /(^src)[\\/]/,
           ""
         )
 
         const parsedModulePath = parse(modulePath)
-
-        vLog({ parsedModulePath })
-
         await createContentScriptMount(this, parsedModulePath)
         manifestScriptPath = join("static", modulePath)
       }
