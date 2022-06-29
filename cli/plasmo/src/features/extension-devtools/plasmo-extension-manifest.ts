@@ -294,7 +294,7 @@ export class PlasmoExtensionManifest {
               )
 
               return fileName
-            } catch (error) {
+            } catch {
               return resourcePath
             }
           })
