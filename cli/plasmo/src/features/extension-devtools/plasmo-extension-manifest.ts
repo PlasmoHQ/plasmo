@@ -73,6 +73,10 @@ export class PlasmoExtensionManifest {
     }
   }
 
+  async updateEnv() {
+    this.envConfig = await loadEnvConfig(this.commonPath.currentDirectory)
+  }
+
   async updatePackageData() {
     this.#packageData = await readJson(this.commonPath.packageFilePath)
 
@@ -94,10 +98,6 @@ export class PlasmoExtensionManifest {
     }
 
     this.#overideManifest = await this.#getOverrideManifest()
-  }
-
-  async updateEnv() {
-    this.envConfig = await loadEnvConfig(this.commonPath.currentDirectory)
   }
 
   createOptionsScaffolds = () => createTemplateFiles(this, "options")
