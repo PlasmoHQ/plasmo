@@ -22,7 +22,7 @@ To contribute to [our examples](https://github.com/PlasmoHQ/examples/), please s
 
 When you add an example to the [examples](https://github.com/PlasmoHQ/examples/) repository:
 
-- Use `pnpm dlx plasmo init` to create the example.
+- Use `pnpm dlx plasmo init --exp` to create the example.
 - The name of the example should have a `with-*` prefix.
 - Change plasmo in `package.json` to point to `workspace:*` instead of `latest`.
 - To add additional notes, add `## Notes` section at the start of the generated readme.
