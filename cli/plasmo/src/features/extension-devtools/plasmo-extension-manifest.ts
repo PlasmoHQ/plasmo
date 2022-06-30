@@ -1,14 +1,16 @@
-import { copy, readJson, writeJson } from "fs-extra"
+import { copy, pathExists, readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
 import {
   basename,
   dirname,
   extname,
+  isAbsolute,
   join,
   parse,
   relative,
   resolve
 } from "path"
+import glob from "tiny-glob"
 
 import type {
   ExtensionManifest,
@@ -42,6 +44,7 @@ export class PlasmoExtensionManifest {
   #hasher = createHasher({ trim: true, sort: true })
 
   #contentScriptMap: Map<string, ManifestContentScript> = new Map()
+  #overideManifest: Partial<ExtensionManifest> = {}
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -78,6 +81,10 @@ export class PlasmoExtensionManifest {
     this.#data.description = this.#packageData.description
     this.#data.author = this.#packageData.author
 
+    if (this.#packageData.homepage) {
+      this.#data.homepage_url = this.#packageData.homepage
+    }
+
     this.#data.permissions = autoPermissionList.filter(
       (p) => `@plasmohq/${p}` in this.#packageData.dependencies
     )
@@ -85,6 +92,8 @@ export class PlasmoExtensionManifest {
     if (this.#data.permissions.length === 0) {
       delete this.#data.permissions
     }
+
+    this.#overideManifest = await this.#getOverrideManifest()
   }
 
   async updateEnv() {
@@ -214,10 +223,10 @@ export class PlasmoExtensionManifest {
     return this
   }
 
-  write = async (force = false) => {
+  write = (force = false) => {
     this.#prevHash = this.#hash
 
-    const newManifest = await this.toJSON()
+    const newManifest = this.toJSON()
 
     this.#hash = this.#hasher.hash(newManifest)
 
@@ -230,7 +239,7 @@ export class PlasmoExtensionManifest {
     })
   }
 
-  toJSON = async () => {
+  toJSON = () => {
     const base = {
       ...this.#data
     }
@@ -241,7 +250,7 @@ export class PlasmoExtensionManifest {
     }
 
     const { options_ui, action, permissions, ...overide } =
-      await this.#getOverrideManifest()
+      this.#overideManifest
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
@@ -275,37 +284,77 @@ export class PlasmoExtensionManifest {
     Promise.all(
       war.map(async ({ resources, matches }) => {
         const resolvedResources = await Promise.all(
-          resources.map(async (resourcePath) => {
-            try {
-              // Short-circuit it
-              if (resourcePath.startsWith("~")) {
-                return resourcePath
-              }
-
-              const resourceFilePath = require.resolve(resourcePath, {
-                paths: [this.commonPath.currentDirectory]
-              })
-
-              const fileName = basename(resourceFilePath)
-
-              await copy(
-                resourceFilePath,
-                resolve(this.commonPath.dotPlasmoDirectory, fileName)
-              )
-
-              return fileName
-            } catch {
-              return resourcePath
-            }
-          })
+          resources.map(
+            async (resourcePath) =>
+              (await this.#copyNodeModuleFile(resourcePath)) ||
+              (await this.#copyProjectFile(resourcePath))
+          )
         )
 
         return {
-          resources: resolvedResources,
+          resources: resolvedResources.flat(),
           matches
         }
       })
     )
+
+  #copyProjectFile = async (
+    inputFilePath: string
+  ): Promise<string | string[]> => {
+    try {
+      if (inputFilePath.startsWith("~")) {
+        return this.#copyProjectFile(inputFilePath.slice(1))
+      }
+
+      if (inputFilePath.includes("*")) {
+        // Handling glob...
+        const files = await glob(inputFilePath, {
+          cwd: this.commonPath.currentDirectory,
+          filesOnly: true
+        })
+
+        const filePaths = await Promise.all(files.map(this.#copyProjectFile))
+        return filePaths.flat()
+      }
+
+      const resourceFilePath = isAbsolute(inputFilePath)
+        ? inputFilePath
+        : resolve(this.commonPath.currentDirectory, inputFilePath)
+
+      if (!pathExists(resourceFilePath)) {
+        return inputFilePath
+      }
+
+      const destination = resolve(
+        this.commonPath.dotPlasmoDirectory,
+        inputFilePath
+      )
+
+      await copy(resourceFilePath, destination)
+
+      return inputFilePath
+    } catch {
+      return null
+    }
+  }
+
+  #copyNodeModuleFile = async (inputFilePath: string) => {
+    try {
+      const resourceFilePath = require.resolve(inputFilePath, {
+        paths: [this.commonPath.currentDirectory]
+      })
+
+      const fileName = basename(resourceFilePath)
+
+      const destination = resolve(this.commonPath.dotPlasmoDirectory, fileName)
+
+      await copy(resourceFilePath, destination)
+
+      return fileName
+    } catch {
+      return null
+    }
+  }
 
   #injectEnv = <T = any>(target: T): T =>
     definedTraverse(target, (value) => {

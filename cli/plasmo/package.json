@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.44.1-alpha.0",
+  "version": "0.44.1-alpha.1",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -54,6 +54,7 @@
     "node-object-hash": "2.3.10",
     "process": "0.11.10",
     "semver": "7.3.7",
+    "tiny-glob": "0.2.9",
     "typescript": "4.7.4"
   },
   "devDependencies": {
