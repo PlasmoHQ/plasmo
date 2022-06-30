@@ -27,7 +27,7 @@ jobs:
           pnpm i --no-frozen-lockfile
           pnpm run build:packages
           pnpm i
-          timeout 5 pnpm run dev:cli || true
+          pnpm run build:cli
           pnpm i
       - name: "Go to each example and try to build it"
         run: |
