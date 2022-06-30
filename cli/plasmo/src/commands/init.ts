@@ -47,6 +47,8 @@ async function init() {
       })
     ).rawName
 
+  const isExample = hasFlag("--exp")
+
   // For resolving project directory
   const currentDirectory = cwd()
   const projectDirectory = resolve(
@@ -58,6 +60,10 @@ async function init() {
   // For final naming
   const packageName = basename(projectDirectory)
   vLog("Package name:", packageName)
+
+  if (isExample && !packageName.startsWith("with-")) {
+    throw new Error("Example extensions must have the `with-` prefix")
+  }
 
   if (!existsSync(projectDirectory)) {
     vLog("Directory does not exist, creating...")
@@ -107,7 +113,9 @@ async function init() {
 
   await Promise.all([
     copy(initTemplatePath, projectDirectory),
-    !hasFlag("--no-bpp") && copy(bppYaml, bppSubmitWorkflowYamlPath),
+    !hasFlag("--no-bpp") &&
+      !isExample &&
+      copy(bppYaml, bppSubmitWorkflowYamlPath),
     writeFile(gitIgnorePath, generateGitIgnore())
   ])
 

@@ -51,4 +51,6 @@ export const generatePackage = ({
   return baseData
 }
 
-export type PackageJSON = ReturnType<typeof generatePackage>
+export type PackageJSON = ReturnType<typeof generatePackage> & {
+  homepage?: string
+}

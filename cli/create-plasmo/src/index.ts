@@ -14,7 +14,9 @@ async function main() {
     if (argv.length > 10) {
       throw new Error(ErrorMessage.TooManyArg)
     }
-    argv.push("init")
+
+    argv.splice(2, 0, "init")
+
     await init()
   } catch (e) {
     eLog((e as Error).message || ErrorMessage.Unknown)
