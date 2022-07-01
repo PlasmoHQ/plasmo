@@ -37,9 +37,8 @@ export const extractContentScriptMetadata = async (path: string) => {
       }, {} as Record<string, Node>)
 
     const configAST = variableDeclarationMap["config"]
-    // console.log(configAST)
 
-    if (!isObjectLiteralExpression(configAST)) {
+    if (!configAST || !isObjectLiteralExpression(configAST)) {
       return null
     }
 
