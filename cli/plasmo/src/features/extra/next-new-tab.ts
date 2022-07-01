@@ -1,5 +1,5 @@
-import { emptyDir, readJson, writeJson } from "fs-extra"
-import { cp, mkdir } from "fs/promises"
+import { copy, emptyDir, readJson, writeJson } from "fs-extra"
+import { mkdir } from "fs/promises"
 import { resolve } from "path"
 
 import { fileExists, sLog, vLog } from "@plasmo/utils"
@@ -51,7 +51,7 @@ export const nextNewTab = async (commonPath: CommonPath) => {
   }
 
   await mkdir(extensionDirectory)
-  await cp(out, extensionDirectory, { recursive: true })
+  await copy(out, extensionDirectory, { recursive: true })
   vLog("Extension created at:", extensionDirectory)
 
   await stripUnderscore(extensionDirectory)

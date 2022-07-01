@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="License" href="./license">
+  <a aria-label="License" href="/cli/plasmo/license">
     <img alt="See License" src="https://img.shields.io/npm/l/plasmo"/>
   </a>
   <a aria-label="NPM" href="https://www.npmjs.com/package/plasmo">
@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  English | <a href="/cli/plasmo/readme-zh_CN.md">简体中文</a>
+  English | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a>
 </p>
 
 # Plasmo Framework

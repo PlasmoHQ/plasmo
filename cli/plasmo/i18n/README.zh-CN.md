@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="License" href="./license">
+  <a aria-label="License" href="/cli/plasmo/license">
     <img alt="See License" src="https://img.shields.io/npm/l/plasmo"/>
   </a>
   <a aria-label="NPM" href="https://www.npmjs.com/package/plasmo">
@@ -23,12 +23,12 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/readme.md">English</a> | 简体中文
+  <a href="/cli/plasmo/readme.md">English</a> | 简体中文 | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a>
 </p>
 
 # Plasmo 框架
 
-[Plasmo](https://www.plasmo.com/) 框架是骇客为骇客制作的一个强力的浏览器扩展SDK。构建您的产品，无需担心配置文件编写和构建浏览器扩展时的奇怪特性。
+[Plasmo](https://www.plasmo.com/) 框架是骇客为骇客制作的一个强力的浏览器扩展 SDK。构建您的产品，无需担心配置文件编写和构建浏览器扩展时的奇怪特性。
 
 > 它就像浏览器扩展界的 [Next.js](https://nextjs.org/) ！
 
@@ -56,7 +56,7 @@
 
 ## 文档
 
-阅读[文档](https://docs.plasmo.com/)以更深入地了解Plasmo框架。
+阅读[文档](https://docs.plasmo.com/)以更深入地了解 Plasmo 框架。
 
 ## 使用
 
