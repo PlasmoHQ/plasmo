@@ -28,6 +28,6 @@
     "@parcel/core": "2.6.2",
     "@parcel/types": "2.6.2",
     "@plasmo/config": "workspace:*",
-    "tsup": "6.1.2"
+    "tsup": "6.1.3"
   }
 }

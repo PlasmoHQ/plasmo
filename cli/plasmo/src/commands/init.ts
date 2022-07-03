@@ -94,6 +94,10 @@ async function init() {
     packageManager
   })
 
+  if (isExample) {
+    packageData.dependencies["plasmo"] = "workspace:*"
+  }
+
   await writeJson(packageFilePath, packageData, {
     spaces: 2
   })
