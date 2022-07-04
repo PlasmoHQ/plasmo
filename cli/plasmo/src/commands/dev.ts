@@ -1,8 +1,9 @@
 import { Parcel } from "@parcel/core"
+import { paramCase } from "change-case"
 import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
 
-import { aLog, eLog, getNonFlagArgvs, hasFlag, iLog, vLog } from "@plasmo/utils"
+import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
@@ -19,12 +20,22 @@ async function dev() {
 
   const isImpulse = hasFlag("--impulse")
 
-  const [rawServePort = "1012", rawHmrPort = "1815"] = getNonFlagArgvs("dev")
+  const rawServePort = getFlag("--serve-port") || "1012"
+  const rawHmrPort = getFlag("--hmr-port") || "1815"
 
   iLog("Starting the extension development server...")
 
   const commonPath = getCommonPath()
   const projectPath = getProjectPath(commonPath)
+
+  // firefox-mv2
+  const target = paramCase(getFlag("--target") || "chrome-mv3")
+
+  const [browser, manifestVersion] = target.split("-")
+
+  const distDirName = `${target}-dev`
+
+  const distDir = resolve(commonPath.buildDirectory, distDirName)
 
   // read typescript config file
   vLog("Make sure .plasmo exists")
@@ -33,7 +44,10 @@ async function dev() {
   await generateIcons(commonPath)
   await generateLocales(commonPath)
 
-  const plasmoManifest = await ensureManifest(commonPath, projectPath)
+  const plasmoManifest = await ensureManifest(commonPath, projectPath, {
+    browser,
+    manifestVersion
+  })
 
   const projectWatcher = isImpulse
     ? null
@@ -47,10 +61,6 @@ async function dev() {
   ])
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
-
-  // TODO: Make this more dynamic
-  const buildType = "chrome-mv3-dev"
-  const distDir = resolve(commonPath.buildDirectory, buildType)
 
   await emptyDir(distDir)
 

@@ -3,15 +3,15 @@ import { Event, subscribe } from "@parcel/watcher"
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
 import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 
+import type { BaseFactory } from "../manifest-factory/base"
 import { generateIcons } from "./generate-icons"
 import { generateLocales } from "./generate-locales"
-import type { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
 import { ProjectPath, WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
 
 export const createProjectWatcher = async (
-  plasmoManifest: PlasmoExtensionManifest,
+  plasmoManifest: BaseFactory,
   { knownPathSet, watchPathReasonMap, watchDirectoryEntries }: ProjectPath
 ) => {
   const { default: isPathInside } = await import("is-path-inside")
@@ -63,7 +63,7 @@ export const handleProjectFile = async (
   type: Event["type"],
   path: string,
   reason: WatchReason,
-  plasmoManifest: PlasmoExtensionManifest
+  plasmoManifest: BaseFactory
 ) => {
   if (reason === WatchReason.None) {
     return

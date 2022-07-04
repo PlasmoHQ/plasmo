@@ -4,8 +4,10 @@ import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
+import { PlasmoExtensionManifestMV2 } from "~features/manifest-factory/mv2"
+import { PlasmoExtensionManifestMV3 } from "~features/manifest-factory/mv3"
+
 import type { CommonPath } from "./common-path"
-import { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
 import type { ProjectPath } from "./project-path"
 
 export async function ensureManifest(
@@ -19,7 +21,8 @@ export async function ensureManifest(
     contentsDirectory,
     backgroundIndexList,
     devtoolsIndexList
-  }: ProjectPath
+  }: ProjectPath,
+  { browser = "chrome", manifestVersion = "mv3" }
 ) {
   vLog("Creating Extension Manifest...")
 
@@ -33,7 +36,10 @@ export async function ensureManifest(
 
   const hasContentsDirectory = existsSync(contentsDirectory)
 
-  const manifestData = new PlasmoExtensionManifest(commonPath)
+  const manifestData =
+    manifestVersion === "mv3"
+      ? new PlasmoExtensionManifestMV3(commonPath)
+      : new PlasmoExtensionManifestMV2(commonPath)
 
   await manifestData.updateEnv()
   await manifestData.updatePackageData()

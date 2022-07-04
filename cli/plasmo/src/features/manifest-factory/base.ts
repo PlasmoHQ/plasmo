@@ -14,62 +14,65 @@ import glob from "tiny-glob"
 
 import type {
   ExtensionManifest,
+  ExtensionManifestV2,
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
 import { vLog } from "@plasmo/utils"
 
+import type { CommonPath } from "~features/extension-devtools/common-path"
+import { extractContentScriptMetadata } from "~features/extension-devtools/content-script"
+import {
+  EnvConfig,
+  loadEnvConfig
+} from "~features/extension-devtools/load-env-config"
+import type { PackageJSON } from "~features/extension-devtools/package-file"
+import {
+  createContentScriptMount,
+  createTemplateFiles
+} from "~features/extension-devtools/scaffolds"
+import {
+  TemplatePath,
+  getTemplatePath
+} from "~features/extension-devtools/template-path"
 import { definedTraverse } from "~features/helpers/traverse"
-
-import type { CommonPath } from "./common-path"
-import { extractContentScriptMetadata } from "./content-script"
-import { EnvConfig, loadEnvConfig } from "./load-env-config"
-import type { PackageJSON } from "./package-file"
-import { createContentScriptMount, createTemplateFiles } from "./scaffolds"
-import { TemplatePath, getTemplatePath } from "./template-path"
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
-export class PlasmoExtensionManifest {
+export abstract class BaseFactory<
+  T extends ExtensionManifest | ExtensionManifestV2 = any
+> {
   envConfig: EnvConfig
   commonPath: CommonPath
   templatePath: TemplatePath
 
-  #data: Partial<ExtensionManifest>
-  #packageData: PackageJSON
+  #hasher = createHasher({ trim: true, sort: true })
 
   #hash: string
   #prevHash: string
 
-  #hasher = createHasher({ trim: true, sort: true })
+  protected data: Partial<T>
+  protected overideManifest: Partial<T> = {}
 
-  #contentScriptMap: Map<string, ManifestContentScript> = new Map()
-  #overideManifest: Partial<ExtensionManifest> = {}
+  protected packageData: PackageJSON
+  protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
   get changed() {
     return this.#hash !== this.#prevHash
   }
 
   get name() {
-    return this.#packageData.displayName
+    return this.packageData.displayName
   }
 
   constructor(commonPath: CommonPath) {
     this.commonPath = commonPath
     this.templatePath = getTemplatePath()
-    this.#data = {
-      manifest_version: 3,
-      icons: {
-        "16": "./gen-assets/icon16.png",
-        "48": "./gen-assets/icon48.png",
-        "128": "./gen-assets/icon128.png"
-      },
-      action: {
-        default_icon: {
-          "16": "./gen-assets/icon16.png",
-          "48": "./gen-assets/icon48.png"
-        }
-      }
+    this.data = {}
+    this.data.icons = {
+      "16": "./gen-assets/icon16.png",
+      "48": "./gen-assets/icon48.png",
+      "128": "./gen-assets/icon128.png"
     }
   }
 
@@ -78,26 +81,26 @@ export class PlasmoExtensionManifest {
   }
 
   async updatePackageData() {
-    this.#packageData = await readJson(this.commonPath.packageFilePath)
+    this.packageData = await readJson(this.commonPath.packageFilePath)
 
-    this.#data.version = this.#packageData.version
-    this.#data.name = this.#packageData.displayName
-    this.#data.description = this.#packageData.description
-    this.#data.author = this.#packageData.author
+    this.data.version = this.packageData.version
+    this.data.name = this.packageData.displayName
+    this.data.description = this.packageData.description
+    this.data.author = this.packageData.author
 
-    if (this.#packageData.homepage) {
-      this.#data.homepage_url = this.#packageData.homepage
+    if (this.packageData.homepage) {
+      this.data.homepage_url = this.packageData.homepage
     }
 
-    this.#data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in this.#packageData.dependencies
+    this.data.permissions = autoPermissionList.filter(
+      (p) => `@plasmohq/${p}` in this.packageData.dependencies
     )
 
-    if (this.#data.permissions.length === 0) {
-      delete this.#data.permissions
+    if (this.data.permissions.length === 0) {
+      delete this.data.permissions
     }
 
-    this.#overideManifest = await this.#getOverrideManifest()
+    this.overideManifest = await this.#getOverrideManifest()
   }
 
   createOptionsScaffolds = () => createTemplateFiles(this, "options")
@@ -108,23 +111,17 @@ export class PlasmoExtensionManifest {
 
   createNewtabScaffolds = () => createTemplateFiles(this, "newtab")
 
+  abstract togglePopup: (enable?: boolean) => this
+  abstract toggleBackground: (path: string, enable?: boolean) => this
+
   toggleOptions = (enable = false) => {
     if (enable) {
-      this.#data.options_ui = {
+      this.data.options_ui = {
         page: "./static/options/index.html",
         open_in_tab: true
       }
     } else {
-      delete this.#data.options_ui
-    }
-    return this
-  }
-
-  togglePopup = (enable = false) => {
-    if (enable) {
-      this.#data.action.default_popup = "./static/popup/index.html"
-    } else {
-      delete this.#data.action.default_popup
+      delete this.data.options_ui
     }
     return this
   }
@@ -134,12 +131,12 @@ export class PlasmoExtensionManifest {
     enable = false
   ) => {
     if (enable) {
-      this.#data.chrome_url_overrides = {
-        ...this.#data.chrome_url_overrides,
+      this.data.chrome_url_overrides = {
+        ...this.data.chrome_url_overrides,
         [page]: "./static/newtab/index.html"
       }
     } else {
-      delete this.#data.chrome_url_overrides?.[page]
+      delete this.data.chrome_url_overrides?.[page]
     }
     return this
   }
@@ -148,24 +145,10 @@ export class PlasmoExtensionManifest {
 
   toggleDevtools = (enable = false) => {
     if (enable) {
-      this.#data.devtools_page = "./static/devtools/index.html"
+      this.data.devtools_page = "./static/devtools/index.html"
     } else {
-      delete this.#data.devtools_page
+      delete this.data.devtools_page
     }
-    return this
-  }
-
-  toggleBackground = (path: string, enable = false) => {
-    if (enable) {
-      const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
-      this.#data.background = {
-        service_worker: scriptPath,
-        type: "module"
-      }
-    } else {
-      delete this.#data.background
-    }
-
     return this
   }
 
@@ -209,15 +192,15 @@ export class PlasmoExtensionManifest {
         )
       }
 
-      const contentScript = this.#injectEnv({
+      const contentScript = this.injectEnv({
         matches: ["<all_urls>"],
         js: [manifestScriptPath],
         ...(metadata?.config || {})
       })
 
-      this.#contentScriptMap.set(path, contentScript)
+      this.contentScriptMap.set(path, contentScript)
     } else {
-      this.#contentScriptMap.delete(path)
+      this.contentScriptMap.delete(path)
     }
 
     return this
@@ -241,16 +224,15 @@ export class PlasmoExtensionManifest {
 
   toJSON = () => {
     const base = {
-      ...this.#data
+      ...this.data
     }
 
     // Populate content_scripts
-    if (this.#contentScriptMap.size > 0) {
-      base.content_scripts = Array.from(this.#contentScriptMap.values())
+    if (this.contentScriptMap.size > 0) {
+      base.content_scripts = Array.from(this.contentScriptMap.values())
     }
 
-    const { options_ui, action, permissions, ...overide } =
-      this.#overideManifest
+    const { options_ui, permissions, ...overide } = this.overideManifest
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
@@ -264,46 +246,34 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  #getOverrideManifest = async (): Promise<Partial<ExtensionManifest>> => {
-    if (!this.#packageData?.manifest) {
+  #getOverrideManifest = async (): Promise<Partial<T>> => {
+    if (!this.packageData?.manifest) {
       return {}
     }
 
-    const output = this.#injectEnv(this.#packageData.manifest)
+    const output = this.injectEnv<ExtensionManifest, T>(
+      this.packageData.manifest
+    )
 
     if (output.web_accessible_resources?.length > 0) {
-      output.web_accessible_resources = await this.#resolveWAR(
-        output.web_accessible_resources
+      output.web_accessible_resources = await this.resolveWAR(
+        output.web_accessible_resources as any
       )
     }
 
     return output
   }
 
-  #resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
-    Promise.all(
-      war.map(async ({ resources, matches }) => {
-        const resolvedResources = await Promise.all(
-          resources.map(
-            async (resourcePath) =>
-              (await this.#copyNodeModuleFile(resourcePath)) ||
-              (await this.#copyProjectFile(resourcePath))
-          )
-        )
+  protected abstract resolveWAR: (
+    war: ExtensionManifest["web_accessible_resources"]
+  ) => Promise<T["web_accessible_resources"]>
 
-        return {
-          resources: resolvedResources.flat(),
-          matches
-        }
-      })
-    )
-
-  #copyProjectFile = async (
+  protected copyProjectFile = async (
     inputFilePath: string
   ): Promise<string | string[]> => {
     try {
       if (inputFilePath.startsWith("~")) {
-        return this.#copyProjectFile(inputFilePath.slice(1))
+        return this.copyProjectFile(inputFilePath.slice(1))
       }
 
       if (inputFilePath.includes("*")) {
@@ -313,7 +283,7 @@ export class PlasmoExtensionManifest {
           filesOnly: true
         })
 
-        const filePaths = await Promise.all(files.map(this.#copyProjectFile))
+        const filePaths = await Promise.all(files.map(this.copyProjectFile))
         return filePaths.flat()
       }
 
@@ -338,7 +308,7 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  #copyNodeModuleFile = async (inputFilePath: string) => {
+  protected copyNodeModuleFile = async (inputFilePath: string) => {
     try {
       const resourceFilePath = require.resolve(inputFilePath, {
         paths: [this.commonPath.currentDirectory]
@@ -356,7 +326,7 @@ export class PlasmoExtensionManifest {
     }
   }
 
-  #injectEnv = <T = any>(target: T): T =>
+  protected injectEnv = <T = any, O = T>(target: T): O =>
     definedTraverse(target, (value) => {
       if (typeof value !== "string") {
         return value
