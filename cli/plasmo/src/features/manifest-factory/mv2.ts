@@ -41,6 +41,21 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
     return this
   }
 
+  protected prepareOverrideManifest = () => {
+    const output = super.prepareOverrideManifest()
+
+    // Merge host permissions into permissions
+    if (output.host_permissions) {
+      output.permissions = [
+        ...output.permissions,
+        ...output.host_permissions
+      ] as any
+      delete output.host_permissions
+    }
+
+    return output
+  }
+
   resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
     Promise.all(
       war.map(async ({ resources }) => {

@@ -246,22 +246,24 @@ export abstract class BaseFactory<
     }
   }
 
+  protected prepareOverrideManifest = () => ({
+    ...this.packageData.manifest
+  })
+
   #getOverrideManifest = async (): Promise<Partial<T>> => {
     if (!this.packageData?.manifest) {
       return {}
     }
 
-    const output = this.injectEnv<ExtensionManifest, T>(
-      this.packageData.manifest
-    )
+    const output = this.prepareOverrideManifest() as T
 
     if (output.web_accessible_resources?.length > 0) {
       output.web_accessible_resources = await this.resolveWAR(
-        output.web_accessible_resources as any
+        this.packageData.manifest.web_accessible_resources
       )
     }
 
-    return output
+    return this.injectEnv(output)
   }
 
   protected abstract resolveWAR: (
