@@ -246,7 +246,9 @@ export abstract class BaseFactory<
     }
   }
 
-  protected abstract prepareOverrideManifest: () => Promise<T> | T
+  protected abstract prepareOverrideManifest: () =>
+    | Promise<Partial<T>>
+    | Partial<T>
 
   #getOverrideManifest = async (): Promise<Partial<T>> => {
     if (!this.packageData?.manifest) {

@@ -45,7 +45,7 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifest> {
     ...this.packageData.manifest
   })
 
-  resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
+  protected resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
     Promise.all(
       war.map(async ({ resources, matches }) => {
         const resolvedResources = await Promise.all(
