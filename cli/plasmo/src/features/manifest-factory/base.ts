@@ -65,7 +65,7 @@ export abstract class BaseFactory<
     return this.packageData.displayName
   }
 
-  constructor(commonPath: CommonPath) {
+  protected constructor(commonPath: CommonPath) {
     this.commonPath = commonPath
     this.templatePath = getTemplatePath()
     this.data = {}
@@ -246,16 +246,14 @@ export abstract class BaseFactory<
     }
   }
 
-  protected prepareOverrideManifest = () => ({
-    ...this.packageData.manifest
-  })
+  protected abstract prepareOverrideManifest: () => Promise<T> | T
 
   #getOverrideManifest = async (): Promise<Partial<T>> => {
     if (!this.packageData?.manifest) {
       return {}
     }
 
-    const output = this.prepareOverrideManifest() as T
+    const output = await this.prepareOverrideManifest()
 
     if (output.web_accessible_resources?.length > 0) {
       output.web_accessible_resources = await this.resolveWAR(
