@@ -8,10 +8,10 @@ importers:
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 8.2.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/node-rsa': 1.1.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       '@types/semver': 7.3.10
       '@types/uuid': 8.3.4
       esbuild: 0.14.48
@@ -27,10 +27,10 @@ importers:
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 8.2.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/node-rsa': 1.1.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       '@types/semver': 7.3.10
       '@types/uuid': 8.3.4
       esbuild: 0.14.48
@@ -119,10 +119,10 @@ importers:
   examples/with-ant-design:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       antd: 4.21.5
       plasmo: workspace:*
       prettier: 2.7.1
@@ -135,10 +135,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -146,10 +146,10 @@ importers:
   examples/with-background:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -160,10 +160,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -171,10 +171,10 @@ importers:
   examples/with-content-script:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -185,10 +185,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -196,10 +196,10 @@ importers:
   examples/with-content-scripts-ui:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -210,10 +210,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -221,10 +221,10 @@ importers:
   examples/with-devtools:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -235,10 +235,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -246,10 +246,10 @@ importers:
   examples/with-env-files:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -260,10 +260,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -271,10 +271,10 @@ importers:
   examples/with-firebase-auth:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       firebase: ^9.8.4
       plasmo: workspace:*
       prettier: 2.7.1
@@ -287,10 +287,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -299,10 +299,10 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       firebase: ^9.8.4
       plasmo: workspace:*
       prettier: 2.7.1
@@ -316,10 +316,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -327,10 +327,10 @@ importers:
   examples/with-google-analytics:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -341,10 +341,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -352,10 +352,10 @@ importers:
   examples/with-i18n:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -367,21 +367,21 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-jest:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
+      '@types/chrome': 0.0.193
       '@types/jest': 28.1.4
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       jest: 28.1.2
       jest-webextension-mock: 3.7.22
       plasmo: workspace:*
@@ -395,12 +395,12 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
+      '@types/chrome': 0.0.193
       '@types/jest': 28.1.4
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
-      jest: 28.1.2_@types+node@18.0.1
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
+      jest: 28.1.2_@types+node@18.0.3
       jest-webextension-mock: 3.7.22
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -410,10 +410,10 @@ importers:
   examples/with-jotai:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       jotai: 1.7.3
       plasmo: workspace:*
       prettier: 2.7.1
@@ -427,20 +427,20 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-main-world-content-script-injection:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -452,20 +452,20 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-many-content-scripts:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -476,10 +476,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -487,10 +487,10 @@ importers:
   examples/with-newtab:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -501,10 +501,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -513,10 +513,10 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       next: 12.2.0
       plasmo: workspace:*
       prettier: 2.7.1
@@ -530,10 +530,10 @@ importers:
     devDependencies:
       '@plasmohq/storage': link:../../packages/storage
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -541,10 +541,10 @@ importers:
   examples/with-options-ui:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -555,10 +555,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -567,10 +567,10 @@ importers:
     specifiers:
       '@plasmohq/permission-ui': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -582,10 +582,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -593,10 +593,10 @@ importers:
   examples/with-popup:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -608,20 +608,20 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-react-query:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -635,20 +635,20 @@ importers:
       react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-react-router:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -662,10 +662,10 @@ importers:
       react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -675,11 +675,11 @@ importers:
       '@plasmohq/storage': workspace:*
       '@reduxjs/toolkit': 1.8.3
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
+      '@types/chrome': 0.0.193
       '@types/jest': 28.1.4
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -695,17 +695,17 @@ importers:
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-redux: 8.0.2_jcbkrypqxz3emsprsw5dchskju
+      react-redux: 8.0.2_rxpulxqxsibgdk5rs4llgxl6gy
       redux: 4.2.0
       redux-persist-webextension-storage: 1.0.2
       redux-thunk: 2.4.1_redux@4.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
+      '@types/chrome': 0.0.193
       '@types/jest': 28.1.4
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -713,10 +713,10 @@ importers:
   examples/with-src:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -727,10 +727,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -739,10 +739,10 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -755,10 +755,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -766,10 +766,10 @@ importers:
     specifiers:
       '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       google-auth-library: 8.1.0
       next: 12.2.0
       plasmo: workspace:*
@@ -792,10 +792,10 @@ importers:
     devDependencies:
       '@plasmohq/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -803,10 +803,10 @@ importers:
     specifiers:
       '@supabase/supabase-js': 1.35.4
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -818,10 +818,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -831,10 +831,10 @@ importers:
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/typography': 0.5.2
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       postcss: 8.4.14
       prettier: 2.7.1
@@ -850,10 +850,10 @@ importers:
       tailwindcss: 3.1.4
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       postcss: 8.4.14
       prettier: 2.7.1
@@ -863,29 +863,29 @@ importers:
     specifiers:
       '@babel/core': 7.18.6
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       ethers: 5.6.9
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.7.4
-      wagmi: 0.5.5
+      wagmi: 0.5.9
     dependencies:
       ethers: 5.6.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      wagmi: 0.5.5_vl6iscrdodirx4c7oizvb5wpzu
+      wagmi: 0.5.9_vl6iscrdodirx4c7oizvb5wpzu
     devDependencies:
       '@babel/core': 7.18.6
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
@@ -893,10 +893,10 @@ importers:
   examples/with-web-accessible-resources:
     specifiers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -908,10 +908,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -919,10 +919,10 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       '@types/simple-peer': 9.11.4
       buffer: 6.0.3
       events: 3.3.0
@@ -945,10 +945,10 @@ importers:
       simple-peer: 9.11.1
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       '@types/simple-peer': 9.11.4
       buffer: 6.0.3
       events: 3.3.0
@@ -962,10 +962,10 @@ importers:
     specifiers:
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -978,10 +978,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -1003,7 +1003,7 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       cross-env: 7.0.3
       get-port: 6.1.2
       google-auth-library: 8.1.0
@@ -1021,9 +1021,9 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': link:../storage
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       cross-env: 7.0.3
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       prettier: 2.7.1
       ts-jest: 28.0.5_lt5llx2ti6zt4eclhanfli5ynu
       tsup: 6.1.3_typescript@4.7.4
@@ -1114,8 +1114,8 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
       jest: 28.1.2
       prettier: 2.7.1
@@ -1127,10 +1127,10 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': link:../storage
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       prettier: 2.7.1
       react: 18.2.0
       ts-jest: 28.0.5_lt5llx2ti6zt4eclhanfli5ynu
@@ -1142,8 +1142,8 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       jest: 28.1.2
       prettier: 2.7.1
       react: 18.2.0
@@ -1154,9 +1154,9 @@ importers:
       '@jest/globals': 28.1.2
       '@plasmohq/storage': link:../storage
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
-      jest: 28.1.2_@types+node@18.0.1
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      jest: 28.1.2_@types+node@18.0.3
       prettier: 2.7.1
       react: 18.2.0
       ts-jest: 28.0.5_lt5llx2ti6zt4eclhanfli5ynu
@@ -1168,7 +1168,7 @@ importers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0
       '@types/cross-spawn': 6.0.2
       '@types/minimatch': 3.0.5
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/shell-quote': 1.7.1
       cross-spawn: 7.0.3
       minimatch: 5.1.0
@@ -1188,7 +1188,7 @@ importers:
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
       '@types/cross-spawn': 6.0.2
       '@types/minimatch': 3.0.5
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/shell-quote': 1.7.1
       prettier: 2.7.1
       tsup: 6.1.3_typescript@4.7.4
@@ -1201,9 +1201,9 @@ importers:
       '@plasmohq/rps': workspace:*
       '@testing-library/react': 13.3.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
       jest: 28.1.2
       jest-environment-jsdom: 28.1.2
@@ -1220,11 +1220,11 @@ importers:
       '@plasmohq/rps': link:../rps
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/chrome': 0.0.191
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       jest-environment-jsdom: 28.1.2
       prettier: 2.7.1
       react: 18.2.0
@@ -1241,8 +1241,8 @@ importers:
       '@plasmohq/storage': workspace:*
       '@testing-library/react': 13.3.0
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
       jest: 28.1.2
       jest-environment-jsdom: 28.1.2
@@ -1262,10 +1262,10 @@ importers:
       '@plasmohq/storage': link:../storage
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/node': 18.0.1
-      '@types/react': 18.0.14
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
       cross-env: 7.0.3
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       jest-environment-jsdom: 28.1.2
       prettier: 2.7.1
       react: 18.2.0
@@ -1287,7 +1287,7 @@ importers:
       '@jest/types': 28.1.1
       '@plasmohq/rps': workspace:*
       '@trivago/prettier-plugin-sort-imports': 3.2.0
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       cross-env: 7.0.3
       jest: 28.1.2
       prettier: 2.7.1
@@ -1299,9 +1299,9 @@ importers:
       '@jest/types': 28.1.1
       '@plasmohq/rps': link:../../packages/rps
       '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       cross-env: 7.0.3
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       prettier: 2.7.1
       ts-jest: 28.0.5_lt5llx2ti6zt4eclhanfli5ynu
       tsup: 6.1.3_typescript@4.7.4
@@ -1506,7 +1506,7 @@ packages:
     resolution: {integrity: sha512-0NFvs3VkuSYbFi1x2Vd6tKrywq+z/cLeYC/RJNFrIX/30Bf5aiGYbtvGXolEktzJH8o5E5KJ3tT+nkxuuZFVlA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.18.6
+      '@babel/types': 7.18.7
 
   /@babel/helper-module-transforms/7.18.6:
     resolution: {integrity: sha512-L//phhB4al5uucwzlimruukHB3jRd5JGClwRMD/ROrVjXfLqovYnvQrK/JK36WYyVwGGO7OD3kMyVTjx+WVPhw==}
@@ -1531,7 +1531,7 @@ packages:
     resolution: {integrity: sha512-iNpIgTgyAvDQpDj76POqg+YEt8fPxx3yaNBg3S30dxNKm2SWfYhD0TGrK/Eu9wHpUW63VQU894TsTg+GLbUa1g==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.18.6
+      '@babel/types': 7.18.7
 
   /@babel/helper-split-export-declaration/7.18.6:
     resolution: {integrity: sha512-bde1etTx6ZyTmobl9LLMMQsaizFVZrquTEHOqKeQESMKo4PlObf+8+JA25ZsIpZhT/WEd39+vOdLXAFG/nELpA==}
@@ -1825,14 +1825,14 @@ packages:
       bind-decorator: 1.0.11
       bn.js: 5.2.1
       buffer: 6.0.3
-      clsx: 1.1.1
+      clsx: 1.2.1
       eth-block-tracker: 4.4.3_@babel+core@7.18.6
       eth-json-rpc-filters: 4.2.2
       eth-rpc-errors: 4.0.2
       js-sha256: 0.9.0
       json-rpc-engine: 6.1.0
       keccak: 3.0.2
-      preact: 10.8.2
+      preact: 10.9.0
       qs: 6.11.0
       rxjs: 6.6.7
       stream-browserify: 3.0.0
@@ -2642,7 +2642,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.6.13
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: false
 
   /@grpc/proto-loader/0.6.13:
@@ -2693,7 +2693,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       chalk: 4.1.2
       jest-message-util: 28.1.1
       jest-util: 28.1.1
@@ -2714,14 +2714,14 @@ packages:
       '@jest/test-result': 28.1.1
       '@jest/transform': 28.1.2
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.3.2
       exit: 0.1.2
       graceful-fs: 4.2.10
       jest-changed-files: 28.0.2
-      jest-config: 28.1.2_@types+node@18.0.1
+      jest-config: 28.1.2_@types+node@18.0.3
       jest-haste-map: 28.1.1
       jest-message-util: 28.1.1
       jest-regex-util: 28.0.2
@@ -2749,7 +2749,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 28.1.2
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       jest-mock: 28.1.1
     dev: true
 
@@ -2776,7 +2776,7 @@ packages:
     dependencies:
       '@jest/types': 28.1.1
       '@sinonjs/fake-timers': 9.1.2
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       jest-message-util: 28.1.1
       jest-mock: 28.1.1
       jest-util: 28.1.1
@@ -2808,7 +2808,7 @@ packages:
       '@jest/transform': 28.1.2
       '@jest/types': 28.1.1
       '@jridgewell/trace-mapping': 0.3.14
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       chalk: 4.1.2
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
@@ -2897,7 +2897,7 @@ packages:
       '@jest/schemas': 28.0.2
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/yargs': 17.0.10
       chalk: 4.1.2
     dev: true
@@ -3932,6 +3932,17 @@ packages:
       - '@parcel/core'
     dev: false
 
+  /@parcel/types/2.6.2:
+    resolution: {integrity: sha512-MV8BFpCIs2jMUvK2RHqzkoiuOQ//JIbrD1zocA2YRW3zuPL/iABvbAABJoXpoPCKikVWOoCWASgBfWQo26VvJQ==}
+    dependencies:
+      '@parcel/cache': 2.6.2_@parcel+core@2.6.2
+      '@parcel/diagnostic': 2.6.2
+      '@parcel/fs': 2.6.2_@parcel+core@2.6.2
+      '@parcel/package-manager': 2.6.2_@parcel+core@2.6.2
+      '@parcel/source-map': 2.0.5
+      '@parcel/workers': 2.6.2_@parcel+core@2.6.2
+      utility-types: 3.10.0
+
   /@parcel/types/2.6.2_@parcel+core@2.6.2:
     resolution: {integrity: sha512-MV8BFpCIs2jMUvK2RHqzkoiuOQ//JIbrD1zocA2YRW3zuPL/iABvbAABJoXpoPCKikVWOoCWASgBfWQo26VvJQ==}
     dependencies:
@@ -3974,7 +3985,7 @@ packages:
       '@parcel/core': 2.6.2
       '@parcel/diagnostic': 2.6.2
       '@parcel/logger': 2.6.2
-      '@parcel/types': 2.6.2_@parcel+core@2.6.2
+      '@parcel/types': 2.6.2
       '@parcel/utils': 2.6.2
       chrome-trace-event: 1.0.3
       nullthrows: 1.1.1
@@ -4047,7 +4058,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 18.2.0
-      react-redux: 8.0.2_jcbkrypqxz3emsprsw5dchskju
+      react-redux: 8.0.2_rxpulxqxsibgdk5rs4llgxl6gy
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -4262,7 +4273,7 @@ packages:
   /@types/bn.js/4.11.6:
     resolution: {integrity: sha512-pqr857jrp2kPuO9uRjZ3PwnJTjoQy+fcdxvBTvHm6dkmEL9q+hDD/2j/0ELOBPtPnS8LjCX0gI9nbl8lVkadpg==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: false
 
   /@types/cacheable-request/6.0.2:
@@ -4274,8 +4285,8 @@ packages:
       '@types/responselike': 1.0.0
     dev: false
 
-  /@types/chrome/0.0.191:
-    resolution: {integrity: sha512-hXYHJJ1Y265xKCw0o2Kz4CnR8aUhOMdyxK1AinET4EDr3fhpEMvOFDwdqz9LUX4syfTVYWb8w7vfC12s112ehg==}
+  /@types/chrome/0.0.193:
+    resolution: {integrity: sha512-R8C84oqvk8A8C8G1viBd8qLpDr86Y/jwD+KLgzUekbIT9RGds6a9GnlQyg8P7ltnGogTMHkiEQK0ZlcrvTeo3Q==}
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.8
@@ -4284,7 +4295,7 @@ packages:
   /@types/cross-spawn/6.0.2:
     resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/filesystem/0.0.32:
@@ -4300,20 +4311,20 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/har-format/1.2.8:
@@ -4323,7 +4334,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.0.14
+      '@types/react': 18.0.15
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -4364,7 +4375,7 @@ packages:
   /@types/jsdom/16.2.14:
     resolution: {integrity: sha512-6BAy1xXEmMuHeAJ4Fv4yXKwBDTGTOseExKE3OaHiNycdHdZw59KfYzrt0DkDluvwmik1HRt6QS7bImxUmpSy+w==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       '@types/parse5': 6.0.3
       '@types/tough-cookie': 4.0.2
     dev: true
@@ -4390,15 +4401,15 @@ packages:
   /@types/node-rsa/1.1.1:
     resolution: {integrity: sha512-itzxtaBgk4OMbrCawVCvas934waMZWjW17v7EYgFVlfYS/cl0/P7KZdojWCq9SDJMI5cnLQLUP8ayhVCTY8TEg==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/node/17.0.43:
     resolution: {integrity: sha512-jnUpgw8fL9kP2iszfIDyBQtw5Mf4/XSqy0Loc1J9pI14ejL83XcCEvSf50Gs/4ET0I9VCCDoOfufQysj0S66xA==}
     dev: false
 
-  /@types/node/18.0.1:
-    resolution: {integrity: sha512-CmR8+Tsy95hhwtZBKJBs0/FFq4XX7sDZHlGGf+0q+BRZfMbOTkzkj0AFAuTyXbObDIoanaBBW0+KEW+m3N16Wg==}
+  /@types/node/18.0.3:
+    resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -4418,7 +4429,7 @@ packages:
   /@types/pbkdf2/3.1.0:
     resolution: {integrity: sha512-Cf63Rv7jCQ0LaL8tNXmEyqTHuIJxRdlS5vMh1mj5voN4+QFhVZnlZruezqpWYDiJ8UTzhP0VmeLXCmBk66YrMQ==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: false
 
   /@types/phoenix/1.5.4:
@@ -4435,10 +4446,16 @@ packages:
   /@types/react-dom/18.0.5:
     resolution: {integrity: sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==}
     dependencies:
-      '@types/react': 18.0.14
+      '@types/react': 18.0.15
+    dev: true
 
-  /@types/react/18.0.14:
-    resolution: {integrity: sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==}
+  /@types/react-dom/18.0.6:
+    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
+    dependencies:
+      '@types/react': 18.0.15
+
+  /@types/react/18.0.15:
+    resolution: {integrity: sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -4456,7 +4473,7 @@ packages:
   /@types/secp256k1/4.0.3:
     resolution: {integrity: sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: false
 
   /@types/semver/7.3.10:
@@ -4470,7 +4487,7 @@ packages:
   /@types/simple-peer/9.11.4:
     resolution: {integrity: sha512-Elje14YvM47k+XEaoyRAeUSvZN7TOLWYL233QCckUaXjT4lRESHnYs0iOK2JoosO5DnCvWu/0Vpl9qnw4KCLWw==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/stack-utils/2.0.1:
@@ -4480,7 +4497,7 @@ packages:
   /@types/through/0.0.30:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /@types/tough-cookie/4.0.2:
@@ -4505,8 +4522,8 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@wagmi/core/0.4.4_2ocw4wf2kb3i6lf4ct7nhauhqu:
-    resolution: {integrity: sha512-F5GDev6ylp3ZhvLnZriQYPrT0aHGlgcxahMozraO4snQizyMp6CTJ7gJHyL/7at+rDXDqI6Kb5Yy09GGfoaQFA==}
+  /@wagmi/core/0.4.7_2ocw4wf2kb3i6lf4ct7nhauhqu:
+    resolution: {integrity: sha512-YpD9bxE22qV1vhCKDy18Yq5B6ArRRH15XpMnZhB/1Hdbk9nLK1heSJ1HoCetn1uCxrdUByTAzlmuxL3FbeXM5A==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
       '@walletconnect/ethereum-provider': '>=1.7.5'
@@ -5265,8 +5282,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001359
-      electron-to-chromium: 1.4.172
+      caniuse-lite: 1.0.30001363
+      electron-to-chromium: 1.4.182
       node-releases: 2.0.5
       update-browserslist-db: 1.0.4_browserslist@4.21.1
 
@@ -5421,6 +5438,9 @@ packages:
   /caniuse-lite/1.0.30001359:
     resolution: {integrity: sha512-Xln/BAsPzEuiVLgJ2/45IaqD9jShtk3Y33anKb4+yLwQzws3+v6odKfpgES/cDEaZMLzSChpIGdbOYtH9MyuHw==}
 
+  /caniuse-lite/1.0.30001363:
+    resolution: {integrity: sha512-HpQhpzTGGPVMnCjIomjt+jvyUu8vNFo3TaDiZ/RcoTrlOq/5+tC8zHdsbgFB6MxmaY+jCpsH09aD80Bb4Ow3Sg==}
+
   /canny-edge-detector/1.0.0:
     resolution: {integrity: sha512-SpewmkHDE1PbJ1/AVAcpvZKOufYpUXT0euMvhb5C4Q83Q9XEOmSXC+yR7jl3F4Ae1Ev6OtQKbFgdcPrOdHjzQg==}
     dev: false
@@ -5563,8 +5583,8 @@ packages:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
 
-  /clsx/1.1.1:
-    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
     engines: {node: '>=6'}
     dev: false
 
@@ -6060,6 +6080,9 @@ packages:
 
   /electron-to-chromium/1.4.172:
     resolution: {integrity: sha512-yDoFfTJnqBAB6hSiPvzmsBJSrjOXJtHSJoqJdI/zSIh7DYupYnIOHt/bbPw/WE31BJjNTybDdNAs21gCMnTh0Q==}
+
+  /electron-to-chromium/1.4.182:
+    resolution: {integrity: sha512-OpEjTADzGoXABjqobGhpy0D2YsTncAax7IkER68ycc4adaq0dqEG9//9aenKPy7BGA90bqQdLac0dPp6uMkcSg==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -7850,7 +7873,7 @@ packages:
       '@jest/expect': 28.1.2
       '@jest/test-result': 28.1.1
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       chalk: 4.1.2
       co: 4.6.0
       dedent: 0.7.0
@@ -7869,7 +7892,7 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli/28.1.2_@types+node@18.0.1:
+  /jest-cli/28.1.2_@types+node@18.0.3:
     resolution: {integrity: sha512-l6eoi5Do/IJUXAFL9qRmDiFpBeEJAnjJb1dcd9i/VWfVWbp3mJhuH50dNtX67Ali4Ecvt4eBkWb4hXhPHkAZTw==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -7886,7 +7909,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.10
       import-local: 3.1.0
-      jest-config: 28.1.2_@types+node@18.0.1
+      jest-config: 28.1.2_@types+node@18.0.3
       jest-util: 28.1.1
       jest-validate: 28.1.1
       prompts: 2.4.2
@@ -7897,7 +7920,7 @@ packages:
       - ts-node
     dev: true
 
-  /jest-config/28.1.2_@types+node@18.0.1:
+  /jest-config/28.1.2_@types+node@18.0.3:
     resolution: {integrity: sha512-g6EfeRqddVbjPVBVY4JWpUY4IvQoFRIZcv4V36QkqzE0IGhEC/VkugFeBMAeUE7PRgC8KJF0yvJNDeQRbamEVA==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     peerDependencies:
@@ -7912,7 +7935,7 @@ packages:
       '@babel/core': 7.18.6
       '@jest/test-sequencer': 28.1.1
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       babel-jest: 28.1.2_@babel+core@7.18.6
       chalk: 4.1.2
       ci-info: 3.3.2
@@ -7972,7 +7995,7 @@ packages:
       '@jest/fake-timers': 28.1.2
       '@jest/types': 28.1.1
       '@types/jsdom': 16.2.14
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       jest-mock: 28.1.1
       jest-util: 28.1.1
       jsdom: 19.0.0
@@ -7990,7 +8013,7 @@ packages:
       '@jest/environment': 28.1.2
       '@jest/fake-timers': 28.1.2
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       jest-mock: 28.1.1
       jest-util: 28.1.1
     dev: true
@@ -8006,7 +8029,7 @@ packages:
     dependencies:
       '@jest/types': 28.1.1
       '@types/graceful-fs': 4.1.5
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.10
@@ -8057,7 +8080,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
     dev: true
 
   /jest-pnp-resolver/1.2.2_jest-resolve@28.1.1:
@@ -8111,7 +8134,7 @@ packages:
       '@jest/test-result': 28.1.1
       '@jest/transform': 28.1.2
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       chalk: 4.1.2
       emittery: 0.10.2
       graceful-fs: 4.2.10
@@ -8197,7 +8220,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       chalk: 4.1.2
       ci-info: 3.3.2
       graceful-fs: 4.2.10
@@ -8222,7 +8245,7 @@ packages:
     dependencies:
       '@jest/test-result': 28.1.1
       '@jest/types': 28.1.1
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.10.2
@@ -8238,12 +8261,12 @@ packages:
     resolution: {integrity: sha512-Au7slXB08C6h+xbJPp7VIb6U0XX5Kc9uel/WFc6/rcTzGiaVCBRngBExSYuXSLFPULPSYU3cJ3ybS988lNFQhQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
 
-  /jest/28.1.2_@types+node@18.0.1:
+  /jest/28.1.2_@types+node@18.0.3:
     resolution: {integrity: sha512-Tuf05DwLeCh2cfWCQbcz9UxldoDyiR1E9Igaei5khjonKncYdc6LDfynKCEWozK0oLE3GD+xKAo2u8x/0s6GOg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8256,7 +8279,7 @@ packages:
       '@jest/core': 28.1.2
       '@jest/types': 28.1.1
       import-local: 3.1.0
-      jest-cli: 28.1.2_@types+node@18.0.1
+      jest-cli: 28.1.2_@types+node@18.0.3
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -8497,7 +8520,7 @@ packages:
     requiresBuild: true
     dependencies:
       node-addon-api: 2.0.2
-      node-gyp-build: 4.4.0
+      node-gyp-build: 4.5.0
       readable-stream: 3.6.0
     dev: false
 
@@ -9134,6 +9157,11 @@ packages:
     resolution: {integrity: sha512-amJnQCcgtRVw9SvoebO3BKGESClrfXGCUTX9hSn1OuGQTQBOZmVd0Z0OlecpuRksKvbsUqALE8jls/ErClAPuQ==}
     hasBin: true
 
+  /node-gyp-build/4.5.0:
+    resolution: {integrity: sha512-2iGbaQBV+ITgCz76ZEjmhUKAKVf7xfY1sRl4UiKQspfZMH2h06SyhNsnSVy50cwkFQDGLyif6m/6uFXHkOZ6rg==}
+    hasBin: true
+    dev: false
+
   /node-int64/0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
     dev: true
@@ -9627,8 +9655,8 @@ packages:
     resolution: {integrity: sha512-WKrRpCSwL2t3tpOOGhf2WfTpcmbpxaWtDbdJdKdjd0aEiTkvOmS4NBkG6kzlaAHI9AkQ3iVqbFWM3Ei7mZ4o1Q==}
     dev: false
 
-  /preact/10.8.2:
-    resolution: {integrity: sha512-AKGt0BsDSiAYzVS78jZ9qRwuorY2CoSZtf1iOC6gLb/3QyZt+fLT09aYJBjRc/BEcRc4j+j3ggERMdNE43i1LQ==}
+  /preact/10.9.0:
+    resolution: {integrity: sha512-jO6/OvCRL+OT8gst/+Q2ir7dMybZAX8ioP02Zmzh3BkQMHLyqZSujvxbUriXvHi8qmhcHKC2Gwbog6Kt+YTh+Q==}
     dev: false
 
   /prelude-ls/1.1.2:
@@ -9710,7 +9738,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       long: 4.0.0
     dev: false
 
@@ -10364,7 +10392,7 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
-  /react-redux/8.0.2_jcbkrypqxz3emsprsw5dchskju:
+  /react-redux/8.0.2_rxpulxqxsibgdk5rs4llgxl6gy:
     resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -10387,8 +10415,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.0
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.0.14
-      '@types/react-dom': 18.0.5
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
@@ -10721,7 +10749,7 @@ packages:
     dependencies:
       elliptic: 6.5.4
       node-addon-api: 2.0.2
-      node-gyp-build: 4.4.0
+      node-gyp-build: 4.5.0
     dev: false
 
   /selenium-webdriver/4.1.2:
@@ -11048,7 +11076,7 @@ packages:
     resolution: {integrity: sha512-+BlGhp3xyey9uVdd32xa7t9qnJC7mQASNWa1j/tIoP1k4xYOn0ZPqCNR/IlWh8c3zfYCA7CWFWBng1tqZlR+nA==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
-      '@types/node': 18.0.1
+      '@types/node': 18.0.3
       qs: 6.11.0
     dev: false
 
@@ -11346,7 +11374,7 @@ packages:
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.2_@types+node@18.0.1
+      jest: 28.1.2_@types+node@18.0.3
       jest-util: 28.1.1
       json5: 2.2.1
       lodash.memoize: 4.1.2
@@ -11775,14 +11803,14 @@ packages:
       xml-name-validator: 4.0.0
     dev: true
 
-  /wagmi/0.5.5_vl6iscrdodirx4c7oizvb5wpzu:
-    resolution: {integrity: sha512-nCp3o9RNrIjFBSIUvOD3M9CEWR3IW7Y21mpLtsWcbr0oNociAzWIrPg9dZcAc/FD0HtFOdP1l0eWfIMUyX3Dag==}
+  /wagmi/0.5.9_vl6iscrdodirx4c7oizvb5wpzu:
+    resolution: {integrity: sha512-B9wL+1J3J/9sVqj3DMJtTYuBSx0QdFFu6QwPlw2zVvB995lWivG2vABTYwoWuyUbXwcVvSVHEgPyFBRx5zoPqw==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
     dependencies:
       '@coinbase/wallet-sdk': 3.3.0_@babel+core@7.18.6
-      '@wagmi/core': 0.4.4_2ocw4wf2kb3i6lf4ct7nhauhqu
+      '@wagmi/core': 0.4.7_2ocw4wf2kb3i6lf4ct7nhauhqu
       '@walletconnect/ethereum-provider': 1.7.8
       ethers: 5.6.9
       react: 18.2.0
