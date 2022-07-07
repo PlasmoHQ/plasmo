@@ -4,7 +4,7 @@ import { ParsedPath, posix, resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
 
-import type { PlasmoExtensionManifest } from "./plasmo-extension-manifest"
+import type { BaseFactory } from "../manifest-factory/base"
 import { getTemplatePath } from "./template-path"
 
 const { staticTemplatePath } = getTemplatePath()
@@ -38,7 +38,7 @@ const generateMirrorScaffold = async (
 ) => generateScaffold(fileName, resolve(staticModulePath, fileName), replaceMap)
 
 export async function createTemplateFiles(
-  plasmoManifest: PlasmoExtensionManifest,
+  plasmoManifest: BaseFactory,
   moduleFile: string
 ) {
   vLog(`creating static templates for ${moduleFile}`)
@@ -61,7 +61,7 @@ export async function createTemplateFiles(
 }
 
 export async function createContentScriptMount(
-  plasmoManifest: PlasmoExtensionManifest,
+  plasmoManifest: BaseFactory,
   module: ParsedPath
 ) {
   const staticModulePath = resolve(

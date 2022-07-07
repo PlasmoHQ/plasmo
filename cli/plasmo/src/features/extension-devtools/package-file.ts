@@ -39,7 +39,7 @@ export const generatePackage = ({
     manifest: {
       // permissions: [] as ValidManifestPermission[],
       host_permissions: ["https://*/*"]
-    } as ExtensionManifest
+    } as Partial<ExtensionManifest>
   }
 
   if (!packageManager || !packageManager.version) {
