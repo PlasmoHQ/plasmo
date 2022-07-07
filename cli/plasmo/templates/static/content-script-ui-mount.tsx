@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as RawMount from "__plasmo_mount_content_script__"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
 
 // Escape parcel's static analyzer
