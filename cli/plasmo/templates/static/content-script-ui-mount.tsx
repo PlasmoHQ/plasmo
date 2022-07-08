@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as RawMount from "__plasmo_mount_content_script__"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
 
 // Escape parcel's static analyzer
@@ -42,6 +42,7 @@ const MountContainer = () => {
 
   return (
     <div
+      id="plasmo-mount-container"
       style={{
         display: "flex",
         position: "relative",
@@ -55,6 +56,8 @@ const MountContainer = () => {
 
 async function createShadowContainer() {
   const container = document.createElement("div")
+
+  container.id = "plasmo-shadow-container"
 
   container.style.cssText = `
     z-index: 1;
