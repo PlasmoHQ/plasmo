@@ -63,6 +63,8 @@ importers:
     specifiers:
       '@expo/spawn-async': 1.6.0
       '@parcel/core': 2.6.2
+      '@parcel/fs': 2.6.2
+      '@parcel/package-manager': 2.6.2
       '@parcel/watcher': 2.0.5
       '@plasmo/config': workspace:*
       '@plasmo/constants': workspace:*
@@ -90,6 +92,8 @@ importers:
     dependencies:
       '@expo/spawn-async': 1.6.0
       '@parcel/core': 2.6.2
+      '@parcel/fs': 2.6.2_@parcel+core@2.6.2
+      '@parcel/package-manager': 2.6.2_@parcel+core@2.6.2
       '@parcel/watcher': 2.0.5
       '@plasmohq/init': link:../../packages/init
       '@plasmohq/parcel-config': link:../../packages/parcel-config
@@ -133,6 +137,7 @@ importers:
       typescript: 4.7.4
     dependencies:
       antd: 4.21.5_biqbaboplfbrettd7655fr4n2y
+      plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -143,7 +148,6 @@ importers:
       '@types/node': 18.0.3
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
-      plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
 
