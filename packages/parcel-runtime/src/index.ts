@@ -3,7 +3,7 @@ import fs from "fs"
 import path from "path"
 
 const HMR_RUNTIME = fs.readFileSync(
-  path.join(__dirname, "../loaders/hmr-runtime.js"),
+  path.join(__dirname, "./hmr-runtime.js"),
   "utf8"
 )
 

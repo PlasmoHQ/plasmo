@@ -133,6 +133,7 @@ importers:
       typescript: 4.7.4
     dependencies:
       antd: 4.21.5_biqbaboplfbrettd7655fr4n2y
+      plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -143,7 +144,6 @@ importers:
       '@types/node': 18.0.3
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
-      plasmo: link:../../cli/plasmo
       prettier: 2.7.1
       typescript: 4.7.4
 
@@ -1105,6 +1105,7 @@ importers:
       '@parcel/core': 2.6.2
       '@parcel/plugin': 2.6.2
       '@plasmo/config': workspace:*
+      '@types/chrome': 0.0.193
       reconnecting-websocket: 4.4.0
       tsup: 6.1.3
     dependencies:
@@ -1113,6 +1114,7 @@ importers:
     devDependencies:
       '@parcel/core': 2.6.2
       '@plasmo/config': link:../config
+      '@types/chrome': 0.0.193
       tsup: 6.1.3
 
   packages/permission-ui:

@@ -1,4 +1,11 @@
-const ReconnectingWebSocket = require("reconnecting-websocket")
+// @ts-nocheck
+import ReconnectingWebSocket from "reconnecting-websocket"
+
+declare global {
+  const HMR_HOST: string
+  const HMR_PORT: string
+  const HMR_SECURE: boolean
+}
 
 function getHostname() {
   return (
@@ -17,7 +24,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
   var port = getPort()
   var protocol =
     HMR_SECURE ||
-    (location.protocol == "https:" &&
+    (location.protocol === "https:" &&
       !/localhost|127.0.0.1|0.0.0.0/.test(hostname))
       ? "wss"
       : "ws"
