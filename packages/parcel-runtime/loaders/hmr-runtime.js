@@ -1,4 +1,4 @@
-const ReconnectingWebSocket = require("reconnecting-websocket");
+const ReconnectingWebSocket = require("reconnecting-websocket")
 
 function getHostname() {
   return (
@@ -21,7 +21,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
       !/localhost|127.0.0.1|0.0.0.0/.test(hostname))
       ? "wss"
       : "ws"
-  
+
   // WebSocket will automatically reconnect if the connection is lost. (i.e. restarting `plasmo dev`)
   var ws = new ReconnectingWebSocket(
     protocol + "://" + hostname + (port ? ":" + port : "") + "/"
@@ -74,7 +74,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
           : ansiDiagnostic.stack
 
         console.error(
-          "🚨 [parcel]: " +
+          "🟡 [plasmo/parcel-runtime]: " +
             ansiDiagnostic.message +
             "\n" +
             stack +
@@ -89,7 +89,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
   }
   ws.onclose = function (e) {
     if (process.env.PARCEL_BUILD_ENV !== "test") {
-      console.warn("[parcel] 🚨 Connection to the HMR server was lost, trying to reconnect...")
+      console.warn(
+        "🟡 [plasmo/parcel-runtime]: Connection to the HMR server was lost, trying to reconnect..."
+      )
     }
   }
 }
