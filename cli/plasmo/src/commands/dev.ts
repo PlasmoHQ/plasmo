@@ -67,7 +67,6 @@ async function dev() {
   const bundler = await createParcelBuilder(commonPath, {
     logLevel: "verbose",
     defaultTargetOptions: {
-      // sourceMaps: false,
       engines: {
         browsers: ["last 1 Chrome version"]
       },
