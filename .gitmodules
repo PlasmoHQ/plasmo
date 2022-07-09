@@ -45,3 +45,6 @@
 [submodule "packages/config"]
 	path = packages/config
 	url = https://github.com/PlasmoHQ/plasmo-config.git
+[submodule "packages/prettier-plugin-sort-imports"]
+	path = packages/prettier-plugin-sort-imports
+	url = https://github.com/PlasmoHQ/prettier-plugin-sort-imports.git

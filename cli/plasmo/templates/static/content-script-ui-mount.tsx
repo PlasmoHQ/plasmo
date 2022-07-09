@@ -1,16 +1,18 @@
 // @ts-nocheck
+// prettier-sort-ignore
+import React from "react"
+
 import * as RawMount from "__plasmo_mount_content_script__"
-import { useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
 
 // Escape parcel's static analyzer
 const Mount = RawMount
 
 const MountContainer = () => {
-  const [top, setTop] = useState(0)
-  const [left, setLeft] = useState(0)
+  const [top, setTop] = React.useState(0)
+  const [left, setLeft] = React.useState(0)
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (typeof Mount.getMountPoint !== "function") {
       return
     }
