@@ -96,6 +96,8 @@ async function init() {
 
   if (isExample) {
     packageData.dependencies["plasmo"] = "workspace:*"
+    packageData.devDependencies["@plasmohq/prettier-plugin-sort-imports"] =
+      "workspace:*"
   }
 
   await writeJson(packageFilePath, packageData, {

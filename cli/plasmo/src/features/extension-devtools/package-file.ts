@@ -28,11 +28,11 @@ export const generatePackage = ({
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
-      "@types/chrome": "0.0.191",
-      "@types/node": "18.0.1",
-      "@types/react": "18.0.14",
-      "@types/react-dom": "18.0.5",
+      "@plasmohq/prettier-plugin-sort-imports": "1.1.1",
+      "@types/chrome": "0.0.193",
+      "@types/node": "18.0.3",
+      "@types/react": "18.0.15",
+      "@types/react-dom": "18.0.6",
       prettier: "2.7.1",
       typescript: "4.7.4"
     },
