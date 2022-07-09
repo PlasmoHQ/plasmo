@@ -1,4 +1,3 @@
-import { Parcel } from "@parcel/core"
 import { paramCase } from "change-case"
 import { emptyDir, ensureDir } from "fs-extra"
 import { resolve } from "path"
@@ -11,6 +10,7 @@ import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { generateLocales } from "~features/extension-devtools/generate-locales"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
+import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 
 async function dev() {
@@ -64,11 +64,15 @@ async function dev() {
 
   await emptyDir(distDir)
 
-  const bundler = new Parcel({
-    cacheDir: resolve(commonPath.cacheDirectory, "parcel"),
-    entries: commonPath.entryManifestPath,
-    config: require.resolve("@plasmohq/parcel-config"),
+  const bundler = await createParcelBuilder(commonPath, {
     logLevel: "verbose",
+    defaultTargetOptions: {
+      // sourceMaps: false,
+      engines: {
+        browsers: ["last 1 Chrome version"]
+      },
+      distDir
+    },
     serveOptions: {
       host: "localhost",
       port: servePort
@@ -76,13 +80,6 @@ async function dev() {
     hmrOptions: {
       host: "localhost",
       port: hmrPort
-    },
-    shouldAutoInstall: true,
-    defaultTargetOptions: {
-      engines: {
-        browsers: ["last 1 Chrome version"]
-      },
-      distDir
     },
     env: plasmoManifest.envConfig.plasmoPublicEnv
   })

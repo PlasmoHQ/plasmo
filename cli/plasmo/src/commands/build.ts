@@ -1,4 +1,3 @@
-import { Parcel } from "@parcel/core"
 import { paramCase } from "change-case"
 import { createWriteStream } from "fs"
 import { emptyDir, ensureDir } from "fs-extra"
@@ -19,6 +18,7 @@ import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { generateLocales } from "~features/extension-devtools/generate-locales"
 import { getProjectPath } from "~features/extension-devtools/project-path"
 import { nextNewTab } from "~features/extra/next-new-tab"
+import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 
 async function build() {
@@ -63,12 +63,8 @@ async function build() {
 
   await emptyDir(distDir)
 
-  const bundler = new Parcel({
-    cacheDir: resolve(cacheDirectory, "parcel"),
-    entries: commonPath.entryManifestPath,
-    config: require.resolve("@plasmohq/parcel-config"),
+  const bundler = await createParcelBuilder(commonPath, {
     mode: "production",
-    shouldAutoInstall: true,
     shouldDisableCache: true,
     shouldContentHash: false,
     defaultTargetOptions: {

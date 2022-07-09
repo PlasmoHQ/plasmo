@@ -28,7 +28,7 @@ export const generatePackage = ({
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@trivago/prettier-plugin-sort-imports": "3.2.0",
+      "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
       "@types/chrome": "0.0.191",
       "@types/node": "18.0.1",
       "@types/react": "18.0.14",
