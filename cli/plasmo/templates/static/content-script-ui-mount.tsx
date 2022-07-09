@@ -1,6 +1,8 @@
 // @ts-nocheck
-import * as RawMount from "__plasmo_mount_content_script__"
+// prettier-sort-ignore
 import React from "react"
+
+import * as RawMount from "__plasmo_mount_content_script__"
 import { createRoot } from "react-dom/client"
 
 // Escape parcel's static analyzer
