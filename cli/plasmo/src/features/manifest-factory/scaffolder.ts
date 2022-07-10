@@ -18,7 +18,7 @@ export class Scaffolder {
     vLog(`creating static templates for ${moduleFile}`)
 
     const staticModulePath = resolve(
-      this.#plasmoManifest.staticScaffoldPath,
+      this.#plasmoManifest.commonPath.staticDirectory,
       moduleFile
     )
     // Generate the static diretory
@@ -35,6 +35,7 @@ export class Scaffolder {
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
+    vLog(`creating content script mount for ${module.dir}`)
     const staticModulePath = resolve(
       this.#plasmoManifest.commonPath.staticDirectory,
       module.dir
