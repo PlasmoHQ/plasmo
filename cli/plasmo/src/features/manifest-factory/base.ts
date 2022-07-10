@@ -28,14 +28,13 @@ import {
 } from "~features/extension-devtools/load-env-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
-  createContentScriptMount,
-  createTemplateFiles
-} from "~features/extension-devtools/scaffolds"
-import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
 import { definedTraverse } from "~features/helpers/traverse"
+import { Scaffolder } from "~features/manifest-factory/scaffolder"
+
+import { UILibrary, getUILibrary } from "./ui-library"
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
@@ -56,6 +55,7 @@ export abstract class BaseFactory<
 
   protected packageData: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
+  protected scaffolder: Scaffolder
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -63,6 +63,23 @@ export abstract class BaseFactory<
 
   get name() {
     return this.packageData.displayName
+  }
+
+  get dependencies() {
+    return this.packageData.dependencies
+  }
+
+  get devDependencies() {
+    return this.packageData.devDependencies
+  }
+
+  #cachedUILibrary: UILibrary
+  get uiLibrary() {
+    return this.#cachedUILibrary
+  }
+
+  get staticScaffoldPath() {
+    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
   protected constructor(commonPath: CommonPath) {
@@ -74,6 +91,7 @@ export abstract class BaseFactory<
       "48": "./gen-assets/icon48.png",
       "128": "./gen-assets/icon128.png"
     }
+    this.scaffolder = new Scaffolder(this)
   }
 
   async updateEnv() {
@@ -100,16 +118,20 @@ export abstract class BaseFactory<
       delete this.data.permissions
     }
 
-    this.overideManifest = await this.#getOverrideManifest()
+    await Promise.all([
+      (this.overideManifest = await this.#getOverrideManifest()),
+      (this.#cachedUILibrary = await getUILibrary(this))
+    ])
   }
 
-  createOptionsScaffolds = () => createTemplateFiles(this, "options")
+  createOptionsScaffolds = () => this.scaffolder.createTemplateFiles("options")
 
-  createPopupScaffolds = () => createTemplateFiles(this, "popup")
+  createPopupScaffolds = () => this.scaffolder.createTemplateFiles("popup")
 
-  createDevtoolsScaffolds = () => createTemplateFiles(this, "devtools")
+  createDevtoolsScaffolds = () =>
+    this.scaffolder.createTemplateFiles("devtools")
 
-  createNewtabScaffolds = () => createTemplateFiles(this, "newtab")
+  createNewtabScaffolds = () => this.scaffolder.createTemplateFiles("newtab")
 
   abstract togglePopup: (enable?: boolean) => this
   abstract toggleBackground: (path: string, enable?: boolean) => this
@@ -178,7 +200,7 @@ export abstract class BaseFactory<
         )
 
         const parsedModulePath = parse(modulePath)
-        await createContentScriptMount(this, parsedModulePath)
+        await this.scaffolder.createContentScriptMount(parsedModulePath)
         manifestScriptPath = join("static", modulePath)
       }
 
