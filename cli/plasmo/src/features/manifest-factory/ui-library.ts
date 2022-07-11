@@ -15,7 +15,7 @@ export type UILibrary = {
   version: number
 }
 
-const uiLibraryError = `No supported UI library found.  You may file an RFC for new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
+const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
 
 export const getUILibrary = async (
   plasmoManifest: BaseFactory
