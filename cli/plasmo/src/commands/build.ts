@@ -35,7 +35,7 @@ async function build() {
     return
   }
 
-  const { buildDirectory, cacheDirectory } = commonPath
+  const { buildDirectory } = commonPath
 
   iLog("Prepare to bundle the extension...")
 

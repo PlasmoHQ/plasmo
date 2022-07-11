@@ -7,7 +7,7 @@ import type { BaseFactory } from "./base"
 
 const supportedUILibraries = ["react"] as const
 
-type SupportedUILibraryName = typeof supportedUILibrary[number]
+type SupportedUILibraryName = typeof supportedUILibraries[number]
 
 export type UILibrary = {
   name: SupportedUILibraryName
@@ -20,7 +20,7 @@ const uiLibraryError = `No supported UI library found.  You can file an RFC for 
 export const getUILibrary = async (
   plasmoManifest: BaseFactory
 ): Promise<UILibrary> => {
-  const baseLibrary = supportedUILibrary.find(
+  const baseLibrary = supportedUILibraries.find(
     (l) => l in plasmoManifest.dependencies
   )
 
