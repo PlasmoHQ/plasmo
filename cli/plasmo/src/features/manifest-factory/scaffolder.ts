@@ -6,9 +6,17 @@ import { vLog } from "@plasmo/utils"
 
 import type { BaseFactory } from "./base"
 
+const supportedMountExt = [".ts", ".tsx"] as const
+
+export type ScaffolderMountExt = typeof supportedMountExt[number]
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
   #plasmoManifest: BaseFactory
+
+  #mountExt: ScaffolderMountExt
+  public set mountExt(value: ScaffolderMountExt) {
+    this.#mountExt = value
+  }
 
   constructor(plasmoManifest: BaseFactory) {
     this.#plasmoManifest = plasmoManifest
@@ -28,7 +36,7 @@ export class Scaffolder {
       this.#generateMirror("index.html", staticModulePath, {
         __plasmo_static_index_title__: this.#plasmoManifest.name
       }),
-      this.#generateMirror("index.tsx", staticModulePath, {
+      this.#generateMirror(`index${this.#mountExt}`, staticModulePath, {
         __plasmo_import_module__: `~${moduleFile}`
       })
     ])
@@ -46,9 +54,16 @@ export class Scaffolder {
     const staticContentPath = resolve(staticModulePath, module.base)
 
     // Can pass metadata to check config for type of mount as well?
-    return this.#generate("content-script-ui-mount.tsx", staticContentPath, {
-      __plasmo_mount_content_script__: `~${posix.join(module.dir, module.name)}`
-    })
+    return this.#generate(
+      `content-script-ui-mount${this.#mountExt}`,
+      staticContentPath,
+      {
+        __plasmo_mount_content_script__: `~${posix.join(
+          module.dir,
+          module.name
+        )}`
+      }
+    )
   }
 
   #generate = async (

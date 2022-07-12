@@ -6,15 +6,15 @@ import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 import type { BaseFactory } from "../manifest-factory/base"
 import { generateIcons } from "./generate-icons"
 import { generateLocales } from "./generate-locales"
-import { ProjectPath, WatchReason } from "./project-path"
+import { WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
 
-export const createProjectWatcher = async (
-  plasmoManifest: BaseFactory,
-  { knownPathSet, watchPathReasonMap, watchDirectoryEntries }: ProjectPath
-) => {
+export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
   const { default: isPathInside } = await import("is-path-inside")
+
+  const { knownPathSet, watchPathReasonMap, watchDirectoryEntries } =
+    plasmoManifest.projectPath
 
   vLog("Initialized watch set:", knownPathSet)
 

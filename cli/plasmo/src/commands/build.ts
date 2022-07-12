@@ -1,25 +1,15 @@
 import { paramCase } from "change-case"
 import { createWriteStream } from "fs"
-import { emptyDir, ensureDir } from "fs-extra"
+import { emptyDir } from "fs-extra"
 import { resolve } from "path"
 
-import {
-  getFlag,
-  getNonFlagArgvs,
-  hasFlag,
-  iLog,
-  sLog,
-  vLog
-} from "@plasmo/utils"
+import { getFlag, getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
-import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
-import { generateIcons } from "~features/extension-devtools/generate-icons"
-import { generateLocales } from "~features/extension-devtools/generate-locales"
-import { getProjectPath } from "~features/extension-devtools/project-path"
 import { nextNewTab } from "~features/extra/next-new-tab"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
+import { createManifest } from "~features/manifest-factory/create-manifest"
 
 async function build() {
   printHeader()
@@ -35,31 +25,20 @@ async function build() {
     return
   }
 
-  const { buildDirectory } = commonPath
-
   iLog("Prepare to bundle the extension...")
-
-  const projectPath = getProjectPath(commonPath)
 
   const target = paramCase(getFlag("--target") || "chrome-mv3")
 
   const [browser, manifestVersion] = target.split("-")
 
-  const distDirName = `${target}-prod`
-
-  const distDir = resolve(commonPath.buildDirectory, distDirName)
-
-  // read typescript config file
-  vLog("Make sure .plasmo exists")
-  await ensureDir(commonPath.dotPlasmoDirectory)
-
-  await generateIcons(commonPath)
-  await generateLocales(commonPath)
-
-  const plasmoManifest = await ensureManifest(commonPath, projectPath, {
+  const plasmoManifest = await createManifest(commonPath, {
     browser,
     manifestVersion
   })
+
+  const distDirName = `${target}-prod`
+
+  const distDir = resolve(commonPath.buildDirectory, distDirName)
 
   await emptyDir(distDir)
 
@@ -88,7 +67,7 @@ async function build() {
       zlib: { level: 9 }
     })
 
-    const zipFilePath = resolve(buildDirectory, `${distDirName}.zip`)
+    const zipFilePath = resolve(commonPath.buildDirectory, `${distDirName}.zip`)
 
     const output = createWriteStream(zipFilePath)
     output.on("close", () => {

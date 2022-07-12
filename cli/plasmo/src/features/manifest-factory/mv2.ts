@@ -29,6 +29,10 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
   }
 
   toggleBackground = (path: string, enable = false) => {
+    if (path === undefined) {
+      return this
+    }
+
     if (enable) {
       const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
       this.data.background = {
