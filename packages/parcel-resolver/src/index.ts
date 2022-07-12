@@ -30,9 +30,7 @@ export default new Resolver({
           filePath
         }
       }
-    } catch (e) {
-      // console.error(e)
-    }
+    } catch {}
 
     return null
   }
