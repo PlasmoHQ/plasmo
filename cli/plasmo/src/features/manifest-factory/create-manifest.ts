@@ -15,7 +15,7 @@ export async function createManifest(
   commonPath: CommonPath,
   { browser = "chrome", manifestVersion = "mv3" }
 ) {
-  vLog("Make sure .plasmo exists")
+  vLog("Making sure .plasmo exists")
   await ensureDir(commonPath.dotPlasmoDirectory)
 
   await generateIcons(commonPath)
