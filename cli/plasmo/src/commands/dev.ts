@@ -1,17 +1,14 @@
 import { paramCase } from "change-case"
-import { emptyDir, ensureDir } from "fs-extra"
+import { emptyDir } from "fs-extra"
 import { resolve } from "path"
 
 import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
-import { ensureManifest } from "~features/extension-devtools/ensure-manifest"
-import { generateIcons } from "~features/extension-devtools/generate-icons"
-import { generateLocales } from "~features/extension-devtools/generate-locales"
-import { getProjectPath } from "~features/extension-devtools/project-path"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
+import { createManifest } from "~features/manifest-factory/create-manifest"
 
 async function dev() {
   printHeader()
@@ -26,32 +23,20 @@ async function dev() {
   iLog("Starting the extension development server...")
 
   const commonPath = getCommonPath()
-  const projectPath = getProjectPath(commonPath)
 
   // firefox-mv2
   const target = paramCase(getFlag("--target") || "chrome-mv3")
 
   const [browser, manifestVersion] = target.split("-")
 
-  const distDirName = `${target}-dev`
-
-  const distDir = resolve(commonPath.buildDirectory, distDirName)
-
-  // read typescript config file
-  vLog("Make sure .plasmo exists")
-  await ensureDir(commonPath.dotPlasmoDirectory)
-
-  await generateIcons(commonPath)
-  await generateLocales(commonPath)
-
-  const plasmoManifest = await ensureManifest(commonPath, projectPath, {
+  const plasmoManifest = await createManifest(commonPath, {
     browser,
     manifestVersion
   })
 
   const projectWatcher = isImpulse
     ? null
-    : await createProjectWatcher(plasmoManifest, projectPath)
+    : await createProjectWatcher(plasmoManifest)
 
   const { default: getPort } = await import("get-port")
 
@@ -61,6 +46,10 @@ async function dev() {
   ])
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
+
+  const distDirName = `${target}-dev`
+
+  const distDir = resolve(commonPath.buildDirectory, distDirName)
 
   await emptyDir(distDir)
 

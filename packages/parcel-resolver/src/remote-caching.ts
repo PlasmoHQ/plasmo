@@ -4,7 +4,7 @@ import { resolve } from "path"
 import {
   ResolverOptions,
   ResolverResult,
-  relevantExtension,
+  relevantExtensionList,
   state
 } from "./shared"
 
@@ -25,7 +25,9 @@ export async function remoteCaching({
     return null
   }
 
-  if (!relevantExtension.some((ext) => dependency.sourcePath.endsWith(ext))) {
+  if (
+    !relevantExtensionList.some((ext) => dependency.sourcePath.endsWith(ext))
+  ) {
     return null
   }
 

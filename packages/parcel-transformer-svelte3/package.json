@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-resolver",
-  "version": "0.1.0",
-  "description": "Plasmo Parcel Resolver",
+  "name": "@plasmohq/parcel-transformer-svelte3",
+  "version": "0.0.0",
+  "description": "Plasmo Parcel Transformer for Svelte3",
   "files": [
     "dist"
   ],
@@ -9,7 +9,7 @@
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup src/index.ts --minify --clean",
-    "dev": "tsup src/index.ts --watch"
+    "dev": "tsup src/index.ts --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -22,13 +22,15 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
-    "@parcel/core": "2.6.2",
     "@plasmo/config": "workspace:*",
+    "svelte": "3.49.0",
     "tsup": "6.1.3"
   },
   "dependencies": {
-    "@parcel/hash": "2.6.2",
+    "@parcel/core": "2.6.2",
+    "@parcel/diagnostic": "2.6.2",
     "@parcel/plugin": "2.6.2",
-    "got": "12.1.0"
+    "@parcel/utils": "2.6.2",
+    "@parcel/source-map": "2.1.0"
   }
 }

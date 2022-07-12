@@ -28,13 +28,17 @@ import {
 } from "~features/extension-devtools/load-env-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
+  ProjectPath,
+  getProjectPath
+} from "~features/extension-devtools/project-path"
+import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
 import { definedTraverse } from "~features/helpers/traverse"
-import { Scaffolder } from "~features/manifest-factory/scaffolder"
 
-import { UILibrary, getUILibrary } from "./ui-library"
+import { Scaffolder } from "./scaffolder"
+import { SupportedUIExt, UILibrary, getUILibrary } from "./ui-library"
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
@@ -42,8 +46,24 @@ export abstract class BaseFactory<
   T extends ExtensionManifest | ExtensionManifestV2 = any
 > {
   envConfig: EnvConfig
-  commonPath: CommonPath
-  templatePath: TemplatePath
+
+  #commonPath: CommonPath
+  public get commonPath(): CommonPath {
+    return this.#commonPath
+  }
+
+  #projectPath: ProjectPath
+  public get projectPath(): ProjectPath {
+    return this.#projectPath
+  }
+
+  #templatePath: TemplatePath
+  public get templatePath(): TemplatePath {
+    return this.#templatePath
+  }
+
+  #uiExt: SupportedUIExt
+  #extSet = new Set([".ts"])
 
   #hasher = createHasher({ trim: true, sort: true })
 
@@ -83,8 +103,8 @@ export abstract class BaseFactory<
   }
 
   protected constructor(commonPath: CommonPath) {
-    this.commonPath = commonPath
-    this.templatePath = getTemplatePath()
+    this.#commonPath = commonPath
+    this.#templatePath = getTemplatePath()
     this.data = {}
     this.data.icons = {
       "16": "./gen-assets/icon16.png",
@@ -120,8 +140,26 @@ export abstract class BaseFactory<
 
     await Promise.all([
       (this.overideManifest = await this.#getOverrideManifest()),
-      (this.#cachedUILibrary = await getUILibrary(this))
+      await this.#cacheUILibrary()
     ])
+  }
+
+  #cacheUILibrary = async () => {
+    this.#cachedUILibrary = await getUILibrary(this)
+    switch (this.#cachedUILibrary.name) {
+      case "svelte":
+        this.#uiExt = ".svelte"
+        this.scaffolder.mountExt = ".ts"
+        break
+      case "react":
+      default:
+        this.#uiExt = ".tsx"
+        this.scaffolder.mountExt = ".tsx"
+        break
+    }
+
+    this.#extSet.add(this.#uiExt)
+    this.#projectPath = getProjectPath(this.commonPath, this.#uiExt)
   }
 
   createOptionsScaffolds = () => this.scaffolder.createTemplateFiles("options")
@@ -174,11 +212,14 @@ export abstract class BaseFactory<
     return this
   }
 
-  #contentScriptExt = new Set([".tsx", ".ts"])
   toggleContentScript = async (path: string, enable = false) => {
+    if (path === undefined) {
+      return
+    }
+
     const ext = extname(path)
 
-    if (!this.#contentScriptExt.has(ext)) {
+    if (!this.#extSet.has(ext)) {
       return
     }
 
@@ -192,7 +233,7 @@ export abstract class BaseFactory<
         path
       )
 
-      if (extname(manifestScriptPath) === ".tsx") {
+      if (extname(manifestScriptPath) === this.#uiExt) {
         // copy the contents and change the manifest path
         const modulePath = join("lab", manifestScriptPath).replace(
           /(^src)[\\/]/,

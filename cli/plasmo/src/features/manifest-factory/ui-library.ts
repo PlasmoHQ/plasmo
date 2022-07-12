@@ -5,9 +5,13 @@ import { fileExists } from "@plasmo/utils"
 
 import type { BaseFactory } from "./base"
 
-const supportedUILibraries = ["react"] as const
+const supportedUILibraries = ["react", "svelte"] as const
 
 type SupportedUILibraryName = typeof supportedUILibraries[number]
+
+const supportedUIExt = [".tsx", ".svelte"] as const
+
+export type SupportedUIExt = typeof supportedUIExt[number]
 
 export type UILibrary = {
   name: SupportedUILibraryName

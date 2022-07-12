@@ -4,7 +4,8 @@ import { extname, resolve } from "path"
 import {
   ResolverOptions,
   ResolverResult,
-  relevantExtension,
+  relevantExtensionList,
+  relevantExtensionSet,
   state
 } from "./shared"
 
@@ -19,12 +20,21 @@ export async function tildeSrc({
   if (specifier[0] === "~") {
     const absoluteBaseFile = resolve(state.srcDir, specifier.slice(1))
 
-    // console.log(`tildeSrc: ${absoluteBaseFile}`)
+    const importExt = extname(absoluteBaseFile)
+
+    if (importExt.length > 0 && relevantExtensionSet.has(importExt as any)) {
+      return {
+        filePath: absoluteBaseFile
+      }
+    }
 
     const parentExt = extname(dependency.resolveFrom)
+
+    // console.log(`tildeSrc: resolveFrom: ${dependency.resolveFrom}`)
+
     const checkingExts = [
       parentExt,
-      ...relevantExtension.filter((ext) => ext !== parentExt)
+      ...relevantExtensionList.filter((ext) => ext !== parentExt)
     ]
 
     const potentialFiles = checkingExts.flatMap((ext) => [

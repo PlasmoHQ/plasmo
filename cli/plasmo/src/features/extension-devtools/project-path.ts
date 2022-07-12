@@ -1,5 +1,7 @@
 import { resolve } from "path"
 
+import type { SupportedUIExt } from "~features/manifest-factory/ui-library"
+
 import type { CommonPath } from "./common-path"
 
 export enum WatchReason {
@@ -31,20 +33,19 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
     return output
   }, {}) as Record<string, WatchReason>
 
-const getIndexList = (projectDir: string, moduleName: string, ext = "tsx") => [
-  resolve(projectDir, `${moduleName}.${ext}`),
-  resolve(projectDir, moduleName, `index.${ext}`)
+const getIndexList = (projectDir: string, moduleName: string, ext = ".ts") => [
+  resolve(projectDir, `${moduleName}${ext}`),
+  resolve(projectDir, moduleName, `index${ext}`)
 ]
 
-export const getProjectPath = ({
-  sourceDirectory: projectDir,
-  packageFilePath,
-  assetsDirectory
-}: CommonPath) => {
-  const popupIndexList = getIndexList(projectDir, "popup")
-  const optionsIndexList = getIndexList(projectDir, "options")
-  const devtoolsIndexList = getIndexList(projectDir, "devtools")
-  const newtabIndexList = getIndexList(projectDir, "newtab")
+export const getProjectPath = (
+  { sourceDirectory: projectDir, packageFilePath, assetsDirectory }: CommonPath,
+  uiExt: SupportedUIExt
+) => {
+  const popupIndexList = getIndexList(projectDir, "popup", uiExt)
+  const optionsIndexList = getIndexList(projectDir, "options", uiExt)
+  const devtoolsIndexList = getIndexList(projectDir, "devtools", uiExt)
+  const newtabIndexList = getIndexList(projectDir, "newtab", uiExt)
 
   const envFileList = [
     resolve(projectDir, ".env"),
@@ -55,9 +56,9 @@ export const getProjectPath = ({
 
   const contentIndexList = [
     resolve(projectDir, "content.ts"),
-    resolve(projectDir, "content.tsx")
+    resolve(projectDir, `content${uiExt}`)
   ]
-  const backgroundIndexList = getIndexList(projectDir, "background", "ts")
+  const backgroundIndexList = getIndexList(projectDir, "background")
 
   const watchPathReasonMap = {
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),

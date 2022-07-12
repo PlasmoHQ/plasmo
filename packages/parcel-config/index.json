@@ -4,7 +4,8 @@
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
-    "data-base64:*": ["...", "@parcel/transformer-inline-string"]
+    "data-base64:*": ["...", "@parcel/transformer-inline-string"],
+    "*.svelte": ["@plasmohq/parcel-transformer-svelte3"]
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"]
