@@ -1,5 +1,5 @@
 // @ts-nocheck
-import * as Component from "__plasmo_import_module__.tsx"
+import * as Component from "__plasmo_import_module__"
 import React from "react"
 import * as ReactDOM from "react-dom"
 

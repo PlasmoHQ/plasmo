@@ -1,6 +1,6 @@
 // @ts-nocheck
 // prettier-sort-ignore
-import * as RawMount from "__plasmo_mount_content_script__.svelte"
+import * as RawMount from "__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = RawMount

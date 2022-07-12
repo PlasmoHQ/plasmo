@@ -3,7 +3,14 @@ import { existsSync } from "fs"
 import type { Got } from "got"
 import { resolve } from "path"
 
-export const relevantExtension = [".ts", ".tsx", ".json"]
+export const relevantExtensionList = [
+  ".ts",
+  ".tsx",
+  ".svelte",
+  ".json"
+] as const
+
+export const relevantExtensionSet = new Set(relevantExtensionList)
 
 type ResolveFx = ConstructorParameters<typeof Resolver>[0]["resolve"]
 
