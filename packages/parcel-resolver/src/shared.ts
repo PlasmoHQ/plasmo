@@ -7,6 +7,7 @@ export const relevantExtensionList = [
   ".ts",
   ".tsx",
   ".svelte",
+  ".vue",
   ".json"
 ] as const
 
