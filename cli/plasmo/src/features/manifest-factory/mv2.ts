@@ -51,11 +51,12 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
     }
 
     // Merge host permissions into permissions
+    output.permissions = [
+      ...(output.permissions || []),
+      ...(output.host_permissions || [])
+    ] as any
+
     if (output.host_permissions) {
-      output.permissions = [
-        ...output.permissions,
-        ...output.host_permissions
-      ] as any
       delete output.host_permissions
     }
 
