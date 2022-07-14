@@ -5,7 +5,16 @@
   "transformers": {
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
     "data-base64:*": ["...", "@parcel/transformer-inline-string"],
-    "*.svelte": ["@plasmohq/parcel-transformer-svelte3"]
+    "*.vue": ["@parcel/transformer-vue"],
+    "template:*.vue": ["@parcel/transformer-vue"],
+    "script:*.vue": ["@parcel/transformer-vue"],
+    "style:*.vue": ["@parcel/transformer-vue"],
+    "custom:*.vue": ["@parcel/transformer-vue"],
+    "*.svelte": ["@plasmohq/parcel-transformer-svelte3"],
+    "*.{gql,graphql}": ["@parcel/transformer-graphql"],
+    "*.{styl,stylus}": ["@parcel/transformer-stylus"],
+    "*.{sass,scss}": ["@parcel/transformer-sass"],
+    "*.less": ["@parcel/transformer-less"]
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"]

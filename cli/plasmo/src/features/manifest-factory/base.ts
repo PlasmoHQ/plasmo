@@ -151,6 +151,10 @@ export abstract class BaseFactory<
         this.#uiExt = ".svelte"
         this.scaffolder.mountExt = ".ts"
         break
+      case "vue":
+        this.#uiExt = ".vue"
+        this.scaffolder.mountExt = ".ts"
+        break
       case "react":
       default:
         this.#uiExt = ".tsx"
