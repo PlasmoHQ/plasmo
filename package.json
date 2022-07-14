@@ -32,7 +32,7 @@
     "@types/archiver": "5.3.1",
     "@types/fs-extra": "9.0.13",
     "@types/inquirer": "8.2.1",
-    "@types/node": "18.0.3",
+    "@types/node": "18.0.4",
     "@types/node-rsa": "1.1.1",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
