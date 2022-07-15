@@ -1,3 +1,4 @@
+import { sentenceCase } from "change-case"
 import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 import { mkdir } from "fs/promises"
 import { resolve } from "path"
@@ -5,9 +6,18 @@ import { resolve } from "path"
 import { fileExists, sLog, vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
-import { generateNewTabManifest } from "~features/extension-devtools/manifest-helpers"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
+
+export const generateNewTabManifest = (packageData = null as PackageJSON) => ({
+  name: sentenceCase(packageData.name),
+  description: packageData.description,
+  version: packageData.version,
+  manifest_version: 3,
+  chrome_url_overrides: {
+    newtab: "./index.html"
+  }
+})
 
 export const nextNewTab = async (commonPath: CommonPath) => {
   const { currentDirectory, packageFilePath } = commonPath

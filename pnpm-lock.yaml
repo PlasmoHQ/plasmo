@@ -423,14 +423,14 @@ importers:
       '@types/node': 18.0.4
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
-      jotai: 1.7.4
+      jotai: 1.7.5
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.7.4
     dependencies:
-      jotai: 1.7.4_react@18.2.0
+      jotai: 1.7.5_react@18.2.0
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -635,13 +635,13 @@ importers:
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
-      react-query: 3.39.1
+      react-query: 3.39.2
       typescript: 4.7.4
     dependencies:
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
+      react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
@@ -685,7 +685,7 @@ importers:
       '@plasmohq/storage': workspace:*
       '@reduxjs/toolkit': 1.8.3
       '@types/chrome': 0.0.193
-      '@types/jest': 28.1.5
+      '@types/jest': 28.1.6
       '@types/node': 18.0.4
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -711,7 +711,7 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/jest': 28.1.5
+      '@types/jest': 28.1.6
       '@types/node': 18.0.4
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -2890,18 +2890,11 @@ packages:
       - supports-color
     dev: true
 
-  /@jest/schemas/28.0.2:
-    resolution: {integrity: sha512-YVDJZjd4izeTDkij00vHHAymNXQ6WWsdChFRK86qck6Jpr3DCL5W3Is3vslviRlP+bLuMYRLbdp98amMvqudhA==}
-    engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
-    dependencies:
-      '@sinclair/typebox': 0.23.5
-    dev: true
-
   /@jest/schemas/28.1.3:
     resolution: {integrity: sha512-/l/VWsdt/aBXgjshLWOFyFt3IVdYypu5y2Wn2rOO1un6nkqIn8SLXzgIMYXFyYsRWDyF5EthmKJMIdJvk08grg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@sinclair/typebox': 0.24.19
+      '@sinclair/typebox': 0.24.20
     dev: true
 
   /@jest/source-map/28.1.2:
@@ -4245,12 +4238,8 @@ packages:
       reselect: 4.1.6
     dev: false
 
-  /@sinclair/typebox/0.23.5:
-    resolution: {integrity: sha512-AFBVi/iT4g20DHoujvMH1aEDn8fGJh4xsRGCP6d8RpLPMqsNPvW01Jcn0QysXTsg++/xj25NmJsGyH9xug/wKg==}
-    dev: true
-
-  /@sinclair/typebox/0.24.19:
-    resolution: {integrity: sha512-gHJu8cdYTD5p4UqmQHrxaWrtb/jkH5imLXzuBypWhKzNkW0qfmgz+w1xaJccWVuJta1YYUdlDiPHXRTR4Ku0MQ==}
+  /@sinclair/typebox/0.24.20:
+    resolution: {integrity: sha512-kVaO5aEFZb33nPMTZBxiPEkY+slxiPtqC7QX8f9B3eGOMBvEfuMfxp9DSTTCsRJPumPKjrge4yagyssO4q6qzQ==}
     dev: true
 
   /@sindresorhus/is/4.6.0:
@@ -4533,11 +4522,11 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/28.1.5:
-    resolution: {integrity: sha512-TLAC2zXxGnohSP3GxgIyJn7yrTeRPDEyVFyCY1NE2wzg392auI+69uk5EPGjUXuhkq/K208J/TWpLG7J8ebIEQ==}
+  /@types/jest/28.1.6:
+    resolution: {integrity: sha512-0RbGAFMfcBJKOmqRazM8L98uokwuwD5F8rHrv/ZMbrZBwVOWZUyPG6VFNscjYr/vjM3Vu4fRrCPbOs42AfemaQ==}
     dependencies:
-      jest-matcher-utils: 28.1.1
-      pretty-format: 28.1.1
+      jest-matcher-utils: 28.1.3
+      pretty-format: 28.1.3
     dev: true
 
   /@types/jsdom/16.2.14:
@@ -8503,16 +8492,6 @@ packages:
       - supports-color
     dev: true
 
-  /jest-diff/28.1.1:
-    resolution: {integrity: sha512-/MUUxeR2fHbqHoMMiffe/Afm+U8U4olFRJ0hiVG2lZatPJcnGxx292ustVu7bULhjV65IYMxRdploAKLbcrsyg==}
-    engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
-    dependencies:
-      chalk: 4.1.2
-      diff-sequences: 28.1.1
-      jest-get-type: 28.0.2
-      pretty-format: 28.1.1
-    dev: true
-
   /jest-diff/28.1.3:
     resolution: {integrity: sha512-8RqP1B/OXzjjTWkqMX67iqgwBVJRgCyKD3L9nq+6ZqJMdvjE8RgHktqZ6jNrkdMT+dJuYNI3rhQpxaz7drJHfw==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
@@ -8602,16 +8581,6 @@ packages:
     dependencies:
       jest-get-type: 28.0.2
       pretty-format: 28.1.3
-    dev: true
-
-  /jest-matcher-utils/28.1.1:
-    resolution: {integrity: sha512-NPJPRWrbmR2nAJ+1nmnfcKKzSwgfaciCCrYZzVnNoxVoyusYWIjkBMNvu0RHJe7dNj4hH3uZOPZsQA+xAYWqsw==}
-    engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
-    dependencies:
-      chalk: 4.1.2
-      jest-diff: 28.1.1
-      jest-get-type: 28.0.2
-      pretty-format: 28.1.1
     dev: true
 
   /jest-matcher-utils/28.1.3:
@@ -8850,8 +8819,8 @@ packages:
       - ts-node
     dev: true
 
-  /jotai/1.7.4_react@18.2.0:
-    resolution: {integrity: sha512-PvkjL6DA4I0GFNFWt/1MKouTpN6Ohj0qyfuV4LoYGBHQRlf38qF6cPILozYsYZi2Nfeap9MdzWVGSYu1qBElKQ==}
+  /jotai/1.7.5_react@18.2.0:
+    resolution: {integrity: sha512-EpawdHUOQmiKDoKRaFkO0L7R7YAFYBylK6M9IivMUPUpiHnXnt5e80AlqHvMUwg4p8BcQewh2JLWGQqFhtjpEA==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
@@ -10354,16 +10323,6 @@ packages:
       react-is: 17.0.2
     dev: true
 
-  /pretty-format/28.1.1:
-    resolution: {integrity: sha512-wwJbVTGFHeucr5Jw2bQ9P+VYHyLdAqedFLEkdQUVaBF/eiidDwH5OpilINq4mEfhbCjLnirt6HTTDhv1HaTIQw==}
-    engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
-    dependencies:
-      '@jest/schemas': 28.0.2
-      ansi-regex: 5.0.1
-      ansi-styles: 5.2.0
-      react-is: 18.2.0
-    dev: true
-
   /pretty-format/28.1.3:
     resolution: {integrity: sha512-8gFb/To0OmxHR9+ZTb14Df2vNxdGCX8g1xWGUTqUw5TiZvcQf5sHKObd5UcPyLLyowNwDAMTF3XWOG1B6mxl1Q==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
@@ -11037,8 +10996,8 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
-  /react-query/3.39.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-qYKT1bavdDiQZbngWZyPotlBVzcBjDYEJg5RQLBa++5Ix5jjfbEYJmHSZRZD+USVHUSvl/ey9Hu+QfF1QAK80A==}
+  /react-query/3.39.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-F6hYDKyNgDQfQOuR1Rsp3VRzJnWHx6aRnnIZHMNGGgbL3SBgpZTDg8MQwmxOgpCAoqZJA+JSNCydF1xGJqKOCA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: '*'
@@ -11049,7 +11008,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': 7.18.3
+      '@babel/runtime': 7.18.6
       broadcast-channel: 3.7.0
       match-sorter: 6.3.1
       react: 18.2.0
