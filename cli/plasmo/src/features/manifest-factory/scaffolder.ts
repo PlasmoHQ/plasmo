@@ -51,10 +51,13 @@ export class Scaffolder {
 
     await ensureDir(staticModulePath)
 
-    const staticContentPath = resolve(staticModulePath, module.base)
+    const staticContentPath = resolve(
+      staticModulePath,
+      `${module.name}${this.#mountExt}`
+    )
 
     // Can pass metadata to check config for type of mount as well?
-    return this.#generate(
+    await this.#generate(
       `content-script-ui-mount${this.#mountExt}`,
       staticContentPath,
       {
@@ -64,6 +67,8 @@ export class Scaffolder {
         )}`
       }
     )
+
+    return staticContentPath
   }
 
   #generate = async (

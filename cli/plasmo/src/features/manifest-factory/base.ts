@@ -245,8 +245,12 @@ export abstract class BaseFactory<
         )
 
         const parsedModulePath = parse(modulePath)
-        await this.scaffolder.createContentScriptMount(parsedModulePath)
-        manifestScriptPath = join("static", modulePath)
+        manifestScriptPath = relative(
+          this.commonPath.dotPlasmoDirectory,
+          await this.scaffolder.createContentScriptMount(parsedModulePath)
+        )
+
+        // vLog(manifestScriptPath)
       }
 
       // Resolve css file paths
