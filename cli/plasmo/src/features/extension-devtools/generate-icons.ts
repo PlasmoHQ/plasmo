@@ -1,4 +1,4 @@
-import { ensureDir, existsSync } from "fs-extra"
+import { copy, ensureDir, existsSync } from "fs-extra"
 import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
@@ -21,11 +21,19 @@ export async function generateIcons(
 
     const image512 = await Image.load(image512Path)
     await Promise.all(
-      [128, 48, 16].map((width) =>
-        image512
-          .resize({ width })
-          .save(resolve(genAssetsDirectory, `icon${width}.png`))
-      )
+      [128, 48, 16].map((width) => {
+        const iconFileName = `icon${width}.png`
+        const developerProvidedImagePath = resolve(
+          assetsDirectory,
+          iconFileName
+        )
+
+        const generatedIconPath = resolve(genAssetsDirectory, iconFileName)
+
+        return existsSync(developerProvidedImagePath)
+          ? copy(developerProvidedImagePath, generatedIconPath)
+          : image512.resize({ width }).save(generatedIconPath)
+      })
     )
   }
 }
