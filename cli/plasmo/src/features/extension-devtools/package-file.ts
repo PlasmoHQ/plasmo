@@ -53,4 +53,5 @@ export const generatePackage = ({
 
 export type PackageJSON = ReturnType<typeof generatePackage> & {
   homepage?: string
+  contributors?: string[]
 }

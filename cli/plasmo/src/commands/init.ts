@@ -20,7 +20,10 @@ import {
 } from "@plasmo/utils"
 
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
-import { generatePackage } from "~features/extension-devtools/package-file"
+import {
+  PackageJSON,
+  generatePackage
+} from "~features/extension-devtools/package-file"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
@@ -92,12 +95,16 @@ async function init() {
   const packageData = generatePackage({
     name: packageName,
     packageManager
-  })
+  }) as PackageJSON
 
   if (isExample) {
     packageData.dependencies["plasmo"] = "workspace:*"
     packageData.devDependencies["@plasmohq/prettier-plugin-sort-imports"] =
       "workspace:*"
+    packageData.contributors = [packageData.author]
+    packageData.author = "Plasmo Corp. <foss@plasmo.com>"
+
+    delete packageData.packageManager
   }
 
   await writeJson(packageFilePath, packageData, {
