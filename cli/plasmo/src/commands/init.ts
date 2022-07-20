@@ -9,14 +9,14 @@ import { cwd } from "process"
 
 import {
   dryRun,
-  eLog,
   getNonFlagArgvs,
   hasFlag,
   iLog,
   isFolderEmpty,
   isWriteable,
   sLog,
-  vLog
+  vLog,
+  wLog
 } from "@plasmo/utils"
 
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
@@ -134,17 +134,21 @@ async function init() {
 
   iLog("Installing dependencies...")
 
-  await spawnAsync(packageManager.name, ["install"], {
-    cwd: projectDirectory,
-    stdio: "inherit"
-  })
+  try {
+    await spawnAsync(packageManager.name, ["install"], {
+      cwd: projectDirectory,
+      stdio: "inherit"
+    })
+  } catch (error) {
+    wLog(error.message)
+  }
 
   iLog("Initializing git project...")
   if (existsSync(gitIgnorePath)) {
     try {
       await initGitRepoAsync(projectDirectory)
     } catch (error) {
-      eLog(error.message)
+      wLog(error.message)
     }
   }
 
