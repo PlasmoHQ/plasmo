@@ -298,18 +298,24 @@ export abstract class BaseFactory<
       ...this.data
     }
 
-    // Populate content_scripts
-    if (this.contentScriptMap.size > 0) {
-      base.content_scripts = Array.from(this.contentScriptMap.values())
-    }
-
-    const { options_ui, permissions, ...overide } = this.overideManifest
+    const { options_ui, permissions, content_scripts, ...overide } =
+      this.overideManifest
 
     if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
       base.options_ui.open_in_tab = options_ui.open_in_tab
     }
 
     base.permissions = [...(base.permissions || []), ...(permissions || [])]
+
+    // Populate content_scripts
+    base.content_scripts = [
+      ...Array.from(this.contentScriptMap.values()),
+      ...(content_scripts || [])
+    ]
+
+    if (base.content_scripts.length === 0) {
+      delete base.content_scripts
+    }
 
     return {
       ...base,
