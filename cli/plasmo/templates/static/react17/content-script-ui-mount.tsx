@@ -71,7 +71,7 @@ async function createShadowContainer() {
   if (typeof Mount.getShadowHostId() === "function") {
     const SHADOW_HOST_ID =  await Mount.getShadowHostId();
     // as per HTML5, element ids must not be empty & must not contain spaces
-    if (Mount.SHADOW_HOST_ID.length > 0 && Mount.SHADOW_HOST_ID.indexOf(' ') >= 0) {
+    if (SHADOW_HOST_ID.length > 0 && SHADOW_HOST_ID.indexOf(' ') >= 0) {
       shadowHost.id = SHADOW_HOST_ID
     }
   }
