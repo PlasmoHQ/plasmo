@@ -36,6 +36,11 @@ export async function createManifest(
     contentIndexList,
     newtabIndexList,
 
+    popupHtmlList,
+    optionsHtmlList,
+    newtabHtmlList,
+    devtoolsHtmlList,
+
     contentsDirectory,
     backgroundIndexList,
     devtoolsIndexList
@@ -51,6 +56,11 @@ export async function createManifest(
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
+  const popupHtml = popupHtmlList.find(existsSync)
+  const optionsHtml = optionsHtmlList.find(existsSync)
+  const newtabHtml = newtabHtmlList.find(existsSync)
+  const devtoolsHtml = devtoolsHtmlList.find(existsSync)
+
   manifestData
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
@@ -58,10 +68,10 @@ export async function createManifest(
     .toggleNewtab(hasNewtab)
 
   await Promise.all([
-    manifestData.createPopupScaffolds(),
-    manifestData.createOptionsScaffolds(),
-    manifestData.createDevtoolsScaffolds(),
-    manifestData.createNewtabScaffolds(),
+    manifestData.scaffolder.createTemplateFiles("popup", popupHtml),
+    manifestData.scaffolder.createTemplateFiles("options", optionsHtml),
+    manifestData.scaffolder.createTemplateFiles("newtab", newtabHtml),
+    manifestData.scaffolder.createTemplateFiles("devtools", devtoolsHtml),
     manifestData.toggleContentScript(contentIndex, true),
     manifestData.toggleBackground(backgroundIndex, true),
     hasContentsDirectory &&

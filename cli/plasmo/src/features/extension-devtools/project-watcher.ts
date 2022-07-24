@@ -85,16 +85,22 @@ export const handleProjectFile = async (
       await plasmoManifest.updatePackageData()
       return
     }
+    case WatchReason.BackgroundIndex: {
+      plasmoManifest.toggleBackground(path, type !== "delete")
+      return
+    }
+    case WatchReason.ContentsIndex:
+    case WatchReason.ContentsDirectory: {
+      await plasmoManifest.toggleContentScript(path, type !== "delete")
+      return
+    }
+
     case WatchReason.PopupIndex: {
       plasmoManifest.togglePopup(type !== "delete")
       return
     }
     case WatchReason.OptionsIndex: {
       plasmoManifest.toggleOptions(type !== "delete")
-      return
-    }
-    case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(path, type !== "delete")
       return
     }
     case WatchReason.DevtoolsIndex: {
@@ -105,11 +111,36 @@ export const handleProjectFile = async (
       plasmoManifest.toggleNewtab(type !== "delete")
       return
     }
-    case WatchReason.ContentsIndex:
-    case WatchReason.ContentsDirectory: {
-      await plasmoManifest.toggleContentScript(path, type !== "delete")
+
+    case WatchReason.PopupHtml: {
+      plasmoManifest.scaffolder.createTemplateFiles(
+        "popup",
+        type !== "delete" && path
+      )
       return
     }
+    case WatchReason.OptionsHtml: {
+      plasmoManifest.scaffolder.createTemplateFiles(
+        "options",
+        type !== "delete" && path
+      )
+      return
+    }
+    case WatchReason.DevtoolsHtml: {
+      plasmoManifest.scaffolder.createTemplateFiles(
+        "devtools",
+        type !== "delete" && path
+      )
+      return
+    }
+    case WatchReason.NewtabHtml: {
+      plasmoManifest.scaffolder.createTemplateFiles(
+        "newtab",
+        type !== "delete" && path
+      )
+      return
+    }
+
     default:
       assertUnreachable(reason)
   }

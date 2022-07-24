@@ -75,7 +75,11 @@ export abstract class BaseFactory<
 
   protected packageData: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
-  protected scaffolder: Scaffolder
+
+  #scaffolder: Scaffolder
+  get scaffolder() {
+    return this.#scaffolder
+  }
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -111,7 +115,7 @@ export abstract class BaseFactory<
       "48": "./gen-assets/icon48.png",
       "128": "./gen-assets/icon128.png"
     }
-    this.scaffolder = new Scaffolder(this)
+    this.#scaffolder = new Scaffolder(this)
   }
 
   async updateEnv() {
@@ -149,31 +153,22 @@ export abstract class BaseFactory<
     switch (this.#cachedUILibrary.name) {
       case "svelte":
         this.#uiExt = ".svelte"
-        this.scaffolder.mountExt = ".ts"
+        this.#scaffolder.mountExt = ".ts"
         break
       case "vue":
         this.#uiExt = ".vue"
-        this.scaffolder.mountExt = ".ts"
+        this.#scaffolder.mountExt = ".ts"
         break
       case "react":
       default:
         this.#uiExt = ".tsx"
-        this.scaffolder.mountExt = ".tsx"
+        this.#scaffolder.mountExt = ".tsx"
         break
     }
 
     this.#extSet.add(this.#uiExt)
     this.#projectPath = getProjectPath(this.commonPath, this.#uiExt)
   }
-
-  createOptionsScaffolds = () => this.scaffolder.createTemplateFiles("options")
-
-  createPopupScaffolds = () => this.scaffolder.createTemplateFiles("popup")
-
-  createDevtoolsScaffolds = () =>
-    this.scaffolder.createTemplateFiles("devtools")
-
-  createNewtabScaffolds = () => this.scaffolder.createTemplateFiles("newtab")
 
   abstract togglePopup: (enable?: boolean) => this
   abstract toggleBackground: (path: string, enable?: boolean) => this
@@ -247,7 +242,7 @@ export abstract class BaseFactory<
         const parsedModulePath = parse(modulePath)
         manifestScriptPath = relative(
           this.commonPath.dotPlasmoDirectory,
-          await this.scaffolder.createContentScriptMount(parsedModulePath)
+          await this.#scaffolder.createContentScriptMount(parsedModulePath)
         )
 
         // vLog(manifestScriptPath)

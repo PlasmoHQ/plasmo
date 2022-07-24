@@ -12,17 +12,20 @@ export enum WatchReason {
   PackageJson,
   AssetsDirectory,
 
-  NewtabIndex,
-
   BackgroundIndex,
-  DevtoolsIndex,
 
+  ContentsIndex,
+  ContentsDirectory,
+
+  NewtabIndex,
+  DevtoolsIndex,
   PopupIndex,
   OptionsIndex,
 
-  ContentsIndex,
-
-  ContentsDirectory
+  NewtabHtml,
+  DevtoolsHtml,
+  PopupHtml,
+  OptionsHtml
 }
 
 type DirectoryWatchTuple = [WatchReason, string]
@@ -47,6 +50,11 @@ export const getProjectPath = (
   const devtoolsIndexList = getIndexList(projectDir, "devtools", uiExt)
   const newtabIndexList = getIndexList(projectDir, "newtab", uiExt)
 
+  const popupHtmlList = getIndexList(projectDir, "popup", ".html")
+  const optionsHtmlList = getIndexList(projectDir, "options", ".html")
+  const devtoolsHtmlList = getIndexList(projectDir, "devtools", ".html")
+  const newtabHtmlList = getIndexList(projectDir, "newtab", ".html")
+
   const envFileList = [
     resolve(projectDir, ".env"),
     resolve(projectDir, ".env.local"),
@@ -62,12 +70,18 @@ export const getProjectPath = (
 
   const watchPathReasonMap = {
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
+    ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
+    ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
+
     ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
-    ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
-    ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
     ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
+
+    ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
+    ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
+    ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
+    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml),
 
     [packageFilePath]: WatchReason.PackageJson
   }
@@ -87,14 +101,18 @@ export const getProjectPath = (
     devtoolsIndexList,
     newtabIndexList,
 
-    watchPathReasonMap,
-    watchDirectoryEntries,
-    knownPathSet,
+    popupHtmlList,
+    optionsHtmlList,
+    devtoolsHtmlList,
+    newtabHtmlList,
 
     backgroundIndexList,
-
     contentIndexList,
-    contentsDirectory
+    contentsDirectory,
+
+    watchPathReasonMap,
+    watchDirectoryEntries,
+    knownPathSet
   }
 }
 
