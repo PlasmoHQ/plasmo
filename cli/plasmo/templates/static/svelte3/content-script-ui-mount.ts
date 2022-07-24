@@ -55,20 +55,8 @@ async function createShadowContainer() {
 
   const shadowHost = document.createElement("div")
 
-  if (typeof Mount.getShadowHostId() === "function") {
-    const SHADOW_HOST_ID =  await Mount.getShadowHostId();
-    // as per HTML5, element ids must not be empty & must not contain spaces
-    if (SHADOW_HOST_ID.length > 0 && SHADOW_HOST_ID.indexOf(' ') >= 0) {
-      shadowHost.id = SHADOW_HOST_ID
-    }
-  }
-
-  const if (typeof Mount.getShadowHostId() === "function") {
-    const SHADOW_HOST_ID =  await Mount.getShadowHostId();
-    // as per HTML5, element ids must not be empty & must not contain spaces
-    if (SHADOW_HOST_ID.length > 0 && SHADOW_HOST_ID.indexOf(' ') >= 0) {
-      shadowHost.id = SHADOW_HOST_ID
-    }
+  if (typeof Mount.getShadowHostId === "function") {
+    shadowHost.id = await Mount.getShadowHostId()
   }
 
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
