@@ -55,6 +55,10 @@ async function createShadowContainer() {
 
   const shadowHost = document.createElement("div")
 
+  if (typeof Mount.getShadowHostId === "function") {
+    shadowHost.id = await Mount.getShadowHostId()
+  }
+
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
   document.body.insertAdjacentElement("beforebegin", shadowHost)
 
