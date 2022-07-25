@@ -1,6 +1,6 @@
 import { ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
-import { ParsedPath, join, posix, resolve } from "path"
+import { ParsedPath, join, posix, resolve, win32 } from "path"
 
 import { vLog } from "@plasmo/utils"
 
@@ -75,9 +75,10 @@ export class Scaffolder {
       `content-script-ui-mount${this.#mountExt}`,
       staticContentPath,
       {
-        __plasmo_mount_content_script__: `~${posix.normalize(
-          join(module.dir, module.name)
-        )}`
+        __plasmo_mount_content_script__: `~${join(
+          module.dir,
+          module.name
+        ).replaceAll(win32.sep, posix.sep)}`
       }
     )
 
