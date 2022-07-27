@@ -45,6 +45,11 @@ export const autoPermissionList: ManifestPermission[] = ["storage"]
 export abstract class BaseFactory<
   T extends ExtensionManifest | ExtensionManifestV2 = any
 > {
+  #browser: string
+  get browser() {
+    return this.#browser
+  }
+
   envConfig: EnvConfig
 
   #commonPath: CommonPath
@@ -106,8 +111,9 @@ export abstract class BaseFactory<
     return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(commonPath: CommonPath) {
+  protected constructor(commonPath: CommonPath, browser: string) {
     this.#commonPath = commonPath
+    this.#browser = browser
     this.#templatePath = getTemplatePath()
     this.data = {}
     this.data.icons = {
@@ -167,7 +173,11 @@ export abstract class BaseFactory<
     }
 
     this.#extSet.add(this.#uiExt)
-    this.#projectPath = getProjectPath(this.commonPath, this.#uiExt)
+    this.#projectPath = getProjectPath(
+      this.commonPath,
+      this.#uiExt,
+      this.#browser
+    )
   }
 
   abstract togglePopup: (enable?: boolean) => this

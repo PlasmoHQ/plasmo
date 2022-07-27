@@ -24,8 +24,8 @@ export async function createManifest(
   vLog("Creating Extension Manifest...")
   const manifestData =
     manifestVersion === "mv3"
-      ? new PlasmoExtensionManifestMV3(commonPath)
-      : new PlasmoExtensionManifestMV2(commonPath)
+      ? new PlasmoExtensionManifestMV3(commonPath, browser)
+      : new PlasmoExtensionManifestMV2(commonPath, browser)
 
   await manifestData.updateEnv()
   await manifestData.updatePackageData()

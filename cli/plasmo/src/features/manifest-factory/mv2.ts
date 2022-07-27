@@ -7,8 +7,8 @@ import type { CommonPath } from "~features/extension-devtools/common-path"
 import { BaseFactory } from "./base"
 
 export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2> {
-  constructor(commonPath: CommonPath) {
-    super(commonPath)
+  constructor(commonPath: CommonPath, browser: string) {
+    super(commonPath, browser)
 
     this.data.manifest_version = 2
     this.data.browser_action = {
