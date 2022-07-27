@@ -49,7 +49,9 @@ export class Scaffolder {
             resolve(staticModulePath, "index.html"),
             {
               ...templateReplace,
-              "</body>": `<div id="root"></div><script src="./index${this.mountExt}" type="module"></script></body>`
+              "</body>": `<div id="root"></div><script src="./index${
+                this.#mountExt
+              }" type="module"></script></body>`
             }
           )
         : this.#mirrorGenerate("index.html", staticModulePath, templateReplace)
