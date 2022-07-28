@@ -1,3 +1,4 @@
+import { existsSync } from "fs"
 import { copy, pathExists, readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
 import {
@@ -234,8 +235,16 @@ export abstract class BaseFactory<
     }
 
     const subExt = getSubExt(path)
-    // Ignore if path is platform specific and does not match browser
+    // Ignore if path is browser specific and does not match browser
     if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
+      return
+    }
+
+    // Ignore if path is browser generic and there is a browser specific path
+    if (
+      subExt.length === 0 &&
+      existsSync(path.replace(ext, `.${this.#browser}${ext}`))
+    ) {
       return
     }
 
