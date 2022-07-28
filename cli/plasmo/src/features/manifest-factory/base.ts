@@ -35,6 +35,7 @@ import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
+import { getSubExt } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
@@ -229,6 +230,12 @@ export abstract class BaseFactory<
     const ext = extname(path)
 
     if (!this.#extSet.has(ext)) {
+      return
+    }
+
+    const subExt = getSubExt(path)
+    // Ignore if path is platform specific and does not match browser
+    if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
       return
     }
 
