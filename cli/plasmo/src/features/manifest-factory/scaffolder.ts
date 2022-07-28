@@ -43,10 +43,13 @@ export class Scaffolder {
     // Generate the static diretory
     await ensureDir(staticModulePath)
 
-    const indexImport =
-      indexFile === undefined
-        ? `~${uiPageName}`
-        : toPosix(relative(staticModulePath, indexFile))
+    const hasIndex = indexFile !== undefined
+
+    // console.log({ indexFile, hasIndex })
+
+    const indexImport = hasIndex
+      ? toPosix(relative(staticModulePath, indexFile))
+      : `~${uiPageName}`
 
     await Promise.all([
       this.#mirrorGenerate(`index${this.#mountExt}`, staticModulePath, {
@@ -55,7 +58,7 @@ export class Scaffolder {
       this.createPageHtml(uiPageName, htmlFile, staticModulePath)
     ])
 
-    return !!indexFile
+    return hasIndex
   }
 
   createPageHtml = async (
@@ -114,8 +117,8 @@ export class Scaffolder {
     outputFilePath: string,
     replaceMap: Record<string, string>
   ) => {
-    const finalScaffold = Object.keys(replaceMap).reduce(
-      (html, key) => html.replaceAll(key, replaceMap[key]),
+    const finalScaffold = Object.entries(replaceMap).reduce(
+      (html, [key, value]) => html.replaceAll(key, value),
       templateContent
     )
 

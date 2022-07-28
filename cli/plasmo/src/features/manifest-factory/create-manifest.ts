@@ -59,8 +59,8 @@ export async function createManifest(
   manifestData
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
-    .toggleDevtools(hasNewtab)
-    .toggleNewtab(hasDevtools)
+    .toggleDevtools(hasDevtools)
+    .toggleNewtab(hasNewtab)
 
   await manifestData.write(true)
 
