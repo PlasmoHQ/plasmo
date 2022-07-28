@@ -1,12 +1,17 @@
+import { existsSync } from "fs"
 import { ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
-import { ParsedPath, join, posix, resolve, win32 } from "path"
+import { ParsedPath, join, relative, resolve } from "path"
 
 import { vLog } from "@plasmo/utils"
+
+import { toPosix } from "~features/helpers/path"
 
 import type { BaseFactory } from "./base"
 
 const supportedMountExt = [".ts", ".tsx"] as const
+
+type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
 export type ScaffolderMountExt = typeof supportedMountExt[number]
 export class Scaffolder {
@@ -22,40 +27,58 @@ export class Scaffolder {
     this.#plasmoManifest = plasmoManifest
   }
 
-  createTemplateFiles = async (
-    moduleName: "popup" | "options" | "devtools" | "newtab",
-    htmlFile = ""
-  ) => {
-    vLog(`creating static templates for ${moduleName}`)
+  initTemplateFiles = async (uiPageName: ExtensionUIPage) => {
+    vLog(`creating static templates for ${uiPageName}`)
+
+    const indexList = this.#plasmoManifest.projectPath[`${uiPageName}IndexList`]
+    const htmlList = this.#plasmoManifest.projectPath[`${uiPageName}HtmlList`]
+
+    const indexFile = indexList.find(existsSync)
+    const htmlFile = htmlList.find(existsSync)
 
     const staticModulePath = resolve(
       this.#plasmoManifest.commonPath.staticDirectory,
-      moduleName
+      uiPageName
     )
     // Generate the static diretory
     await ensureDir(staticModulePath)
+
+    const indexImport =
+      indexFile === undefined
+        ? `~${uiPageName}`
+        : toPosix(relative(staticModulePath, indexFile))
+
+    await Promise.all([
+      this.#mirrorGenerate(`index${this.#mountExt}`, staticModulePath, {
+        __plasmo_import_module__: indexImport
+      }),
+      this.createPageHtml(uiPageName, htmlFile, staticModulePath)
+    ])
+
+    return !!indexFile
+  }
+
+  createPageHtml = async (
+    uiPageName: ExtensionUIPage,
+    htmlFile = "",
+    _staticModulePath = ""
+  ) => {
+    const staticModulePath =
+      _staticModulePath ||
+      resolve(this.#plasmoManifest.commonPath.staticDirectory, uiPageName)
 
     const templateReplace = {
       __plasmo_static_index_title__: this.#plasmoManifest.name
     }
 
-    return Promise.all([
-      this.#mirrorGenerate(`index${this.#mountExt}`, staticModulePath, {
-        __plasmo_import_module__: `~${moduleName}`
-      }),
-      htmlFile
-        ? this.#copyGenerate(
-            htmlFile,
-            resolve(staticModulePath, "index.html"),
-            {
-              ...templateReplace,
-              "</body>": `<div id="root"></div><script src="./index${
-                this.#mountExt
-              }" type="module"></script></body>`
-            }
-          )
-        : this.#mirrorGenerate("index.html", staticModulePath, templateReplace)
-    ])
+    return htmlFile
+      ? this.#copyGenerate(htmlFile, resolve(staticModulePath, "index.html"), {
+          ...templateReplace,
+          "</body>": `<div id="root"></div><script src="./index${
+            this.#mountExt
+          }" type="module"></script></body>`
+        })
+      : this.#mirrorGenerate("index.html", staticModulePath, templateReplace)
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
@@ -77,10 +100,9 @@ export class Scaffolder {
       `content-script-ui-mount${this.#mountExt}`,
       staticContentPath,
       {
-        __plasmo_mount_content_script__: `~${join(
-          module.dir,
-          module.name
-        ).replaceAll(win32.sep, posix.sep)}`
+        __plasmo_mount_content_script__: `~${toPosix(
+          join(module.dir, module.name)
+        )}`
       }
     )
 
