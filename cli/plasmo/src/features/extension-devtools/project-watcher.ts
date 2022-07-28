@@ -3,7 +3,8 @@ import { Event, subscribe } from "@parcel/watcher"
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
 import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 
-import type { BaseFactory } from "../manifest-factory/base"
+import type { BaseFactory } from "~features/manifest-factory/base"
+
 import { generateIcons } from "./generate-icons"
 import { generateLocales } from "./generate-locales"
 import { WatchReason } from "./project-path"
@@ -113,28 +114,28 @@ export const handleProjectFile = async (
     }
 
     case WatchReason.PopupHtml: {
-      plasmoManifest.scaffolder.createTemplateFiles(
+      await plasmoManifest.scaffolder.createPageHtml(
         "popup",
         type !== "delete" && path
       )
       return
     }
     case WatchReason.OptionsHtml: {
-      plasmoManifest.scaffolder.createTemplateFiles(
+      await plasmoManifest.scaffolder.createPageHtml(
         "options",
         type !== "delete" && path
       )
       return
     }
     case WatchReason.DevtoolsHtml: {
-      plasmoManifest.scaffolder.createTemplateFiles(
+      await plasmoManifest.scaffolder.createPageHtml(
         "devtools",
         type !== "delete" && path
       )
       return
     }
     case WatchReason.NewtabHtml: {
-      plasmoManifest.scaffolder.createTemplateFiles(
+      await plasmoManifest.scaffolder.createPageHtml(
         "newtab",
         type !== "delete" && path
       )

@@ -36,24 +36,27 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
     return output
   }, {}) as Record<string, WatchReason>
 
-const getIndexList = (projectDir: string, moduleName: string, ext = ".ts") => [
-  resolve(projectDir, `${moduleName}${ext}`),
-  resolve(projectDir, moduleName, `index${ext}`)
-]
-
 export const getProjectPath = (
   { sourceDirectory: projectDir, packageFilePath, assetsDirectory }: CommonPath,
-  uiExt: SupportedUIExt
+  uiExt: SupportedUIExt,
+  browserTarget: string
 ) => {
-  const popupIndexList = getIndexList(projectDir, "popup", uiExt)
-  const optionsIndexList = getIndexList(projectDir, "options", uiExt)
-  const devtoolsIndexList = getIndexList(projectDir, "devtools", uiExt)
-  const newtabIndexList = getIndexList(projectDir, "newtab", uiExt)
+  const getIndexList = (moduleName: string, ext = ".ts") => [
+    resolve(projectDir, `${moduleName}.${browserTarget}${ext}`),
+    resolve(projectDir, moduleName, `index.${browserTarget}${ext}`),
+    resolve(projectDir, `${moduleName}${ext}`),
+    resolve(projectDir, moduleName, `index${ext}`)
+  ]
 
-  const popupHtmlList = getIndexList(projectDir, "popup", ".html")
-  const optionsHtmlList = getIndexList(projectDir, "options", ".html")
-  const devtoolsHtmlList = getIndexList(projectDir, "devtools", ".html")
-  const newtabHtmlList = getIndexList(projectDir, "newtab", ".html")
+  const popupIndexList = getIndexList("popup", uiExt)
+  const optionsIndexList = getIndexList("options", uiExt)
+  const devtoolsIndexList = getIndexList("devtools", uiExt)
+  const newtabIndexList = getIndexList("newtab", uiExt)
+
+  const popupHtmlList = getIndexList("popup", ".html")
+  const optionsHtmlList = getIndexList("options", ".html")
+  const devtoolsHtmlList = getIndexList("devtools", ".html")
+  const newtabHtmlList = getIndexList("newtab", ".html")
 
   const envFileList = [
     resolve(projectDir, ".env"),
@@ -64,8 +67,11 @@ export const getProjectPath = (
 
   const contentIndexList = [
     resolve(projectDir, "content.ts"),
-    resolve(projectDir, `content${uiExt}`)
+    resolve(projectDir, `content.${browserTarget}.ts`),
+    resolve(projectDir, `content${uiExt}`),
+    resolve(projectDir, `content.${browserTarget}${uiExt}`)
   ]
+
   const backgroundIndexList = getIndexList(projectDir, "background")
 
   const watchPathReasonMap = {

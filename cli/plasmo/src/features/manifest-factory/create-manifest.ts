@@ -24,54 +24,25 @@ export async function createManifest(
   vLog("Creating Extension Manifest...")
   const manifestData =
     manifestVersion === "mv3"
-      ? new PlasmoExtensionManifestMV3(commonPath)
-      : new PlasmoExtensionManifestMV2(commonPath)
+      ? new PlasmoExtensionManifestMV3(commonPath, browser)
+      : new PlasmoExtensionManifestMV2(commonPath, browser)
 
   await manifestData.updateEnv()
   await manifestData.updatePackageData()
 
-  const {
-    popupIndexList,
-    optionsIndexList,
-    contentIndexList,
-    newtabIndexList,
-
-    popupHtmlList,
-    optionsHtmlList,
-    newtabHtmlList,
-    devtoolsHtmlList,
-
-    contentsDirectory,
-    backgroundIndexList,
-    devtoolsIndexList
-  } = manifestData.projectPath
-
-  const hasPopup = popupIndexList.some(existsSync)
-  const hasOptions = optionsIndexList.some(existsSync)
-  const hasDevtools = devtoolsIndexList.some(existsSync)
-  const hasNewtab = newtabIndexList.some(existsSync)
+  const { contentIndexList, contentsDirectory, backgroundIndexList } =
+    manifestData.projectPath
 
   const hasContentsDirectory = existsSync(contentsDirectory)
 
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
-  const popupHtml = popupHtmlList.find(existsSync)
-  const optionsHtml = optionsHtmlList.find(existsSync)
-  const newtabHtml = newtabHtmlList.find(existsSync)
-  const devtoolsHtml = devtoolsHtmlList.find(existsSync)
-
-  manifestData
-    .togglePopup(hasPopup)
-    .toggleOptions(hasOptions)
-    .toggleDevtools(hasDevtools)
-    .toggleNewtab(hasNewtab)
-
-  await Promise.all([
-    manifestData.scaffolder.createTemplateFiles("popup", popupHtml),
-    manifestData.scaffolder.createTemplateFiles("options", optionsHtml),
-    manifestData.scaffolder.createTemplateFiles("newtab", newtabHtml),
-    manifestData.scaffolder.createTemplateFiles("devtools", devtoolsHtml),
+  const [hasPopup, hasOptions, hasNewtab, hasDevtools] = await Promise.all([
+    manifestData.scaffolder.initTemplateFiles("popup"),
+    manifestData.scaffolder.initTemplateFiles("options"),
+    manifestData.scaffolder.initTemplateFiles("newtab"),
+    manifestData.scaffolder.initTemplateFiles("devtools"),
     manifestData.toggleContentScript(contentIndex, true),
     manifestData.toggleBackground(backgroundIndex, true),
     hasContentsDirectory &&
@@ -84,6 +55,12 @@ export async function createManifest(
         )
       )
   ])
+
+  manifestData
+    .togglePopup(hasPopup)
+    .toggleOptions(hasOptions)
+    .toggleDevtools(hasDevtools)
+    .toggleNewtab(hasNewtab)
 
   await manifestData.write(true)
 

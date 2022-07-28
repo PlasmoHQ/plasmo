@@ -1,3 +1,4 @@
+import { existsSync } from "fs"
 import { copy, pathExists, readJson, writeJson } from "fs-extra"
 import createHasher from "node-object-hash"
 import {
@@ -35,6 +36,7 @@ import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
+import { getSubExt } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
@@ -45,6 +47,11 @@ export const autoPermissionList: ManifestPermission[] = ["storage"]
 export abstract class BaseFactory<
   T extends ExtensionManifest | ExtensionManifestV2 = any
 > {
+  #browser: string
+  get browser() {
+    return this.#browser
+  }
+
   envConfig: EnvConfig
 
   #commonPath: CommonPath
@@ -106,8 +113,9 @@ export abstract class BaseFactory<
     return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(commonPath: CommonPath) {
+  protected constructor(commonPath: CommonPath, browser: string) {
     this.#commonPath = commonPath
+    this.#browser = browser
     this.#templatePath = getTemplatePath()
     this.data = {}
     this.data.icons = {
@@ -167,7 +175,11 @@ export abstract class BaseFactory<
     }
 
     this.#extSet.add(this.#uiExt)
-    this.#projectPath = getProjectPath(this.commonPath, this.#uiExt)
+    this.#projectPath = getProjectPath(
+      this.commonPath,
+      this.#uiExt,
+      this.#browser
+    )
   }
 
   abstract togglePopup: (enable?: boolean) => this
@@ -219,6 +231,20 @@ export abstract class BaseFactory<
     const ext = extname(path)
 
     if (!this.#extSet.has(ext)) {
+      return
+    }
+
+    const subExt = getSubExt(path)
+    // Ignore if path is browser specific and does not match browser
+    if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
+      return
+    }
+
+    // Ignore if path is browser generic and there is a browser specific path
+    if (
+      subExt.length === 0 &&
+      existsSync(path.replace(ext, `.${this.#browser}${ext}`))
+    ) {
       return
     }
 
