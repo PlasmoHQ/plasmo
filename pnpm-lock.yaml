@@ -552,6 +552,33 @@ importers:
       prettier: 2.7.1
       typescript: 4.7.4
 
+  examples/with-many-targets:
+    specifiers:
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/rps': workspace:*
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
+      plasmo: workspace:*
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      typescript: 4.7.4
+    dependencies:
+      plasmo: link:../../cli/plasmo
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
+      '@plasmohq/rps': link:../../packages/rps
+      '@types/chrome': 0.0.193
+      '@types/node': 18.0.3
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
+      prettier: 2.7.1
+      typescript: 4.7.4
+
   examples/with-newtab:
     specifiers:
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
@@ -4384,6 +4411,17 @@ packages:
       - '@parcel/core'
     dev: false
 
+  /@parcel/types/2.6.2:
+    resolution: {integrity: sha512-MV8BFpCIs2jMUvK2RHqzkoiuOQ//JIbrD1zocA2YRW3zuPL/iABvbAABJoXpoPCKikVWOoCWASgBfWQo26VvJQ==}
+    dependencies:
+      '@parcel/cache': 2.6.2_@parcel+core@2.6.2
+      '@parcel/diagnostic': 2.6.2
+      '@parcel/fs': 2.6.2_@parcel+core@2.6.2
+      '@parcel/package-manager': 2.6.2_@parcel+core@2.6.2
+      '@parcel/source-map': 2.1.0
+      '@parcel/workers': 2.6.2_@parcel+core@2.6.2
+      utility-types: 3.10.0
+
   /@parcel/types/2.6.2_@parcel+core@2.6.2:
     resolution: {integrity: sha512-MV8BFpCIs2jMUvK2RHqzkoiuOQ//JIbrD1zocA2YRW3zuPL/iABvbAABJoXpoPCKikVWOoCWASgBfWQo26VvJQ==}
     dependencies:
@@ -4426,7 +4464,7 @@ packages:
       '@parcel/core': 2.6.2
       '@parcel/diagnostic': 2.6.2
       '@parcel/logger': 2.6.2
-      '@parcel/types': 2.6.2_@parcel+core@2.6.2
+      '@parcel/types': 2.6.2
       '@parcel/utils': 2.6.2
       chrome-trace-event: 1.0.3
       nullthrows: 1.1.1
@@ -5028,6 +5066,10 @@ packages:
     resolution: {integrity: sha512-itzxtaBgk4OMbrCawVCvas934waMZWjW17v7EYgFVlfYS/cl0/P7KZdojWCq9SDJMI5cnLQLUP8ayhVCTY8TEg==}
     dependencies:
       '@types/node': 18.6.2
+    dev: true
+
+  /@types/node/18.0.3:
+    resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
     dev: true
 
   /@types/node/18.6.2:
