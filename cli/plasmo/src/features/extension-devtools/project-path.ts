@@ -72,7 +72,7 @@ export const getProjectPath = (
     resolve(projectDir, `content.${browserTarget}${uiExt}`)
   ]
 
-  const backgroundIndexList = getIndexList(projectDir, "background")
+  const backgroundIndexList = getIndexList("background")
 
   const watchPathReasonMap = {
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
