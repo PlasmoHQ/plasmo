@@ -29,6 +29,6 @@
     "@parcel/core": "2.6.2",
     "@parcel/hash": "2.6.2",
     "@parcel/plugin": "2.6.2",
-    "got": "12.2.0"
+    "got": "12.3.0"
   }
 }
