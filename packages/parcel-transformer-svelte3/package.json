@@ -24,7 +24,7 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "svelte": "3.49.0",
-    "tsup": "6.2.0"
+    "tsup": "6.2.1"
   },
   "dependencies": {
     "@parcel/core": "2.6.2",

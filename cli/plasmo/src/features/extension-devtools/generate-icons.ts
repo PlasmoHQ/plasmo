@@ -1,5 +1,6 @@
 import { copy, ensureDir, existsSync } from "fs-extra"
 import { resolve } from "path"
+import sharp from "sharp"
 
 import { vLog } from "@plasmo/utils"
 
@@ -17,9 +18,8 @@ export async function generateIcons(
 
     // TODO: hash check the image512 to skip this routine
     vLog(`${iconName} found, create resized icons in gen-assets`)
-    const { Image } = await import("image-js")
 
-    const image512 = await Image.load(image512Path)
+    const image512 = sharp(image512Path)
     await Promise.all(
       [128, 48, 16].map((width) => {
         const iconFileName = `icon${width}.png`
@@ -32,7 +32,7 @@ export async function generateIcons(
 
         return existsSync(developerProvidedImagePath)
           ? copy(developerProvidedImagePath, generatedIconPath)
-          : image512.resize({ width }).save(generatedIconPath)
+          : image512.resize({ width, height: width }).toFile(generatedIconPath)
       })
     )
   }

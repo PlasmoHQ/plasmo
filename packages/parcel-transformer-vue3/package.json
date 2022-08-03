@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.2.0",
+    "tsup": "6.2.1",
     "vue": "3.2.37"
   },
   "dependencies": {
