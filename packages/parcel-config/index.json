@@ -1,8 +1,9 @@
 {
-  "extends": "@parcel/config-webextension",
+  "extends": "@parcel/config-default",
   "bundler": "@plasmohq/parcel-bundler",
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
+    "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
     "data-base64:*": ["...", "@parcel/transformer-inline-string"],
     "*.vue": ["@plasmohq/parcel-transformer-vue3"],
@@ -13,7 +14,11 @@
     "*.svelte": ["@plasmohq/parcel-transformer-svelte3"],
     "*.{gql,graphql}": ["@parcel/transformer-graphql"],
     "*.{sass,scss}": ["@parcel/transformer-sass"],
-    "*.less": ["@parcel/transformer-less"]
+    "*.less": ["@parcel/transformer-less"],
+    "raw:*": ["@parcel/transformer-raw"]
+  },
+  "packagers": {
+    "*.plasmo.manifest.json": "@parcel/packager-webextension"
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"]

@@ -1,0 +1,5 @@
+{
+  "extends": "@plasmo/config/ts/cli",
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "node_modules"]
+}

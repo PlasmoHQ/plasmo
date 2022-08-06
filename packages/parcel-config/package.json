@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -8,21 +8,24 @@
   },
   "main": "index.json",
   "dependencies": {
-    "@parcel/config-webextension": "2.6.2",
-    "@parcel/core": "2.6.2",
-    "@parcel/optimizer-data-url": "2.6.2",
-    "@parcel/runtime-js": "2.6.2",
-    "@parcel/runtime-webextension": "2.6.2",
-    "@parcel/transformer-inline-string": "2.6.2",
-    "@parcel/transformer-worklet": "2.6.2",
-    "@parcel/transformer-sass": "2.6.2",
-    "@parcel/transformer-less": "2.6.2",
-    "@parcel/transformer-graphql": "2.6.2",
+    "@parcel/config-webextension": "2.7.0",
+    "@parcel/core": "2.7.0",
+    "@parcel/optimizer-data-url": "2.7.0",
+    "@parcel/packager-webextension": "2.7.0",
+    "@parcel/runtime-js": "2.7.0",
+    "@parcel/runtime-webextension": "2.7.0",
     "@parcel/source-map": "2.1.0",
+    "@parcel/transformer-graphql": "2.7.0",
+    "@parcel/transformer-inline-string": "2.7.0",
+    "@parcel/transformer-less": "2.7.0",
+    "@parcel/transformer-raw": "2.7.0",
+    "@parcel/transformer-sass": "2.7.0",
+    "@parcel/transformer-worklet": "2.7.0",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*",
-    "@plasmohq/parcel-transformer-vue3": "workspace:*",
-    "@plasmohq/parcel-transformer-svelte3": "workspace:*"
+    "@plasmohq/parcel-transformer-manifest": "workspace:*",
+    "@plasmohq/parcel-transformer-svelte3": "workspace:*",
+    "@plasmohq/parcel-transformer-vue3": "workspace:*"
   }
 }

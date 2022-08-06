@@ -1,15 +1,16 @@
 {
-  "name": "@plasmohq/parcel-resolver",
-  "version": "0.2.0",
-  "description": "Plasmo Parcel Resolver",
+  "name": "@plasmohq/parcel-transformer-manifest",
+  "version": "0.0.0",
+  "description": "Plasmo Parcel Transformer for Web Extension Manifest",
   "files": [
-    "dist"
+    "dist",
+    "runtime"
   ],
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup src/index.ts --minify --clean",
-    "dev": "tsup src/index.ts --watch"
+    "dev": "tsup src/index.ts --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -26,9 +27,15 @@
     "tsup": "6.2.1"
   },
   "dependencies": {
+    "@mischnic/json-sourcemap": "0.1.0",
     "@parcel/core": "2.7.0",
-    "@parcel/hash": "2.7.0",
+    "@parcel/diagnostic": "2.7.0",
+    "@parcel/fs": "2.7.0",
     "@parcel/plugin": "2.7.0",
-    "got": "12.3.1"
+    "@parcel/types": "2.7.0",
+    "@parcel/utils": "2.7.0",
+    "content-security-policy-parser": "0.4.1",
+    "json-schema-to-ts": "2.5.5",
+    "nullthrows": "1.1.1"
   }
 }
