@@ -4,19 +4,19 @@ importers:
 
   .:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/rps': workspace:*
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 9.0.0
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/node-rsa': 1.1.1
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/semver': 7.3.10
-      '@types/sharp': 0.30.4
+      '@types/sharp': 0.30.5
       '@types/uuid': 8.3.4
-      esbuild: 0.14.53
+      esbuild: 0.14.54
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-react: 7.30.1
@@ -30,14 +30,14 @@ importers:
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 9.0.0
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/node-rsa': 1.1.1
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/semver': 7.3.10
-      '@types/sharp': 0.30.4
+      '@types/sharp': 0.30.5
       '@types/uuid': 8.3.4
-      esbuild: 0.14.53
+      esbuild: 0.14.54
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       eslint-plugin-react: 7.30.1_eslint@8.21.0
@@ -126,37 +126,37 @@ importers:
 
   examples/with-ant-design:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      antd: 4.22.3
+      antd: 4.22.4
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.7.4
     dependencies:
-      antd: 4.22.3_biqbaboplfbrettd7655fr4n2y
+      antd: 4.22.4_biqbaboplfbrettd7655fr4n2y
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-background:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -169,8 +169,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -178,10 +178,10 @@ importers:
 
   examples/with-content-script:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -194,8 +194,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -203,10 +203,10 @@ importers:
 
   examples/with-content-scripts-ui:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -219,8 +219,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -228,10 +228,10 @@ importers:
 
   examples/with-devtools:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -245,8 +245,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
@@ -257,10 +257,10 @@ importers:
       '@emotion/cache': 11.10.1
       '@emotion/react': 11.10.0
       '@emotion/styled': 11.10.0
-      '@plasmohq/prettier-plugin-sort-imports': 1.1.1
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -269,27 +269,27 @@ importers:
       typescript: 4.7.4
     dependencies:
       '@emotion/cache': 11.10.1
-      '@emotion/react': 11.10.0_dekd3qhq25os2zmp2sxj6oaoou
-      '@emotion/styled': 11.10.0_cvyjuqpqzsw2jroi6znapo3uiq
+      '@emotion/react': 11.10.0_msmmgljd7hl2w2irtggflhmema
+      '@emotion/styled': 11.10.0_5sec57kzpgkzooe4crua5kfcly
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@babel/core': 7.18.10
-      '@plasmohq/prettier-plugin-sort-imports': 1.1.1_prettier@2.7.1
+      '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-env-files:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -302,8 +302,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -311,10 +311,10 @@ importers:
 
   examples/with-firebase-auth:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       firebase: 9.9.2
       plasmo: workspace:*
@@ -330,19 +330,19 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-firebase-fcm:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       firebase: ^9.9.2
       plasmo: workspace:*
@@ -358,8 +358,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -367,10 +367,10 @@ importers:
 
   examples/with-google-analytics:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -383,8 +383,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -392,10 +392,10 @@ importers:
 
   examples/with-i18n:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -409,8 +409,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
@@ -418,11 +418,11 @@ importers:
   examples/with-inbox-sdk:
     specifiers:
       '@inboxsdk/core': 0.2.9
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
       '@types/inboxsdk': 2.0.8
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -438,8 +438,8 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
       '@types/inboxsdk': 2.0.8
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
@@ -447,10 +447,10 @@ importers:
   examples/with-jest:
     specifiers:
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       jest: 28.1.3
       jest-webextension-mock: 3.7.22
@@ -468,10 +468,10 @@ importers:
       '@jest/types': 28.1.3
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       jest-webextension-mock: 3.7.22
       prettier: 2.7.1
       ts-jest: 28.0.7_lhw3xkmzugq5tscs3x2ndm4sby
@@ -479,37 +479,37 @@ importers:
 
   examples/with-jotai:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      jotai: 1.7.7
+      jotai: 1.7.8
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.7.4
     dependencies:
-      jotai: 1.7.7_react@18.2.0
+      jotai: 1.7.8_react@18.2.0
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-main-world-content-script-injection:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -523,18 +523,18 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-many-content-scripts:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -547,8 +547,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -556,11 +556,11 @@ importers:
 
   examples/with-many-targets:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/rps': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -575,22 +575,22 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@plasmohq/rps': link:../../packages/rps
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-multiple-tailwindcss:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       autoprefixer: 10.4.8
       plasmo: workspace:*
-      postcss: 8.4.14
+      postcss: 8.4.16
       postcss-multiple-tailwind: 1.0.1
       prettier: 2.7.1
       react: 18.2.0
@@ -605,21 +605,21 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      autoprefixer: 10.4.8_postcss@8.4.14
-      postcss: 8.4.14
-      postcss-multiple-tailwind: 1.0.1_2dxw26vuu7mmft66na5jcixoty
+      autoprefixer: 10.4.8_postcss@8.4.16
+      postcss: 8.4.16
+      postcss-multiple-tailwind: 1.0.1_rmzpoojhpzj5mm5if7t5wiggve
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-newtab:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -632,8 +632,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -641,11 +641,11 @@ importers:
 
   examples/with-nextjs:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       next: 12.2.4
       plasmo: workspace:*
@@ -661,8 +661,8 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@plasmohq/storage': link:../../packages/storage
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -670,10 +670,10 @@ importers:
 
   examples/with-options-ui:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -686,8 +686,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -696,10 +696,10 @@ importers:
   examples/with-permission-ui:
     specifiers:
       '@plasmohq/permission-ui': workspace:*
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -713,8 +713,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -722,10 +722,10 @@ importers:
 
   examples/with-popup:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -739,19 +739,19 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-react-query:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@tanstack/react-query': 4.0.10
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -766,18 +766,18 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-react-router:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -793,22 +793,22 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-redux:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/redux-persist': 6.1.0
       '@plasmohq/storage': workspace:*
       '@reduxjs/toolkit': 1.8.3
       '@types/chrome': 0.0.193
       '@types/jest': 28.1.6
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -825,7 +825,7 @@ importers:
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-redux: 8.0.2_rxpulxqxsibgdk5rs4llgxl6gy
+      react-redux: 8.0.2_ps4ywwwjjeajezffxxirqk36qa
       redux: 4.2.0
       redux-persist-webextension-storage: 1.0.2
       redux-thunk: 2.4.1_redux@4.2.0
@@ -833,8 +833,8 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
       '@types/jest': 28.1.6
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -842,10 +842,10 @@ importers:
 
   examples/with-src:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -858,8 +858,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -867,11 +867,11 @@ importers:
 
   examples/with-storage:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -886,19 +886,19 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-stripe:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/rps': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       google-auth-library: 8.1.1
       next: 12.2.4
@@ -923,19 +923,19 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@plasmohq/rps': link:../../packages/rps
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-supabase:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@supabase/supabase-js': 1.35.6
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -949,8 +949,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -958,9 +958,9 @@ importers:
 
   examples/with-svelte:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       plasmo: workspace:*
       prettier: 2.7.1
       svelte: 3.49.0
@@ -973,21 +973,21 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-tailwindcss:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/typography': 0.5.4
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
-      postcss: 8.4.14
+      postcss: 8.4.16
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -1002,19 +1002,19 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
-      postcss: 8.4.14
+      postcss: 8.4.16
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-vue:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       plasmo: workspace:*
       prettier: 2.7.1
       typescript: 4.7.4
@@ -1025,17 +1025,17 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       prettier: 2.7.1
       typescript: 4.7.4
 
   examples/with-wagmi:
     specifiers:
       '@babel/core': 7.18.10
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       ethers: 5.6.9
       plasmo: workspace:*
@@ -1053,8 +1053,8 @@ importers:
       '@babel/core': 7.18.10
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: link:../../cli/plasmo
       prettier: 2.7.1
@@ -1062,10 +1062,10 @@ importers:
 
   examples/with-web-accessible-resources:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -1079,19 +1079,19 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
 
   extensions/mice:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/simple-peer': 9.11.4
       buffer: 6.0.3
@@ -1116,8 +1116,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/simple-peer': 9.11.4
       buffer: 6.0.3
@@ -1130,11 +1130,11 @@ importers:
 
   extensions/world-edit:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       plasmo: workspace:*
       prettier: 2.7.1
@@ -1149,8 +1149,8 @@ importers:
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       prettier: 2.7.1
       typescript: 4.7.4
@@ -1172,9 +1172,9 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       cross-env: 7.0.3
       get-port: 6.1.2
       google-auth-library: 8.1.1
@@ -1193,9 +1193,9 @@ importers:
       '@jest/types': 28.1.3
       '@plasmohq/prettier-plugin-sort-imports': link:../prettier-plugin-sort-imports
       '@plasmohq/storage': link:../storage
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       cross-env: 7.0.3
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       prettier: 2.7.1
       ts-jest: 28.0.7_lhw3xkmzugq5tscs3x2ndm4sby
       tsup: 6.2.1_typescript@4.7.4
@@ -1411,10 +1411,10 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
       jest: 28.1.3
       prettier: 2.7.1
@@ -1427,10 +1427,10 @@ importers:
       '@jest/types': 28.1.3
       '@plasmohq/prettier-plugin-sort-imports': link:../prettier-plugin-sort-imports
       '@plasmohq/storage': link:../storage
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       prettier: 2.7.1
       react: 18.2.0
       ts-jest: 28.0.7_lhw3xkmzugq5tscs3x2ndm4sby
@@ -1446,7 +1446,7 @@ importers:
       '@babel/types': 7.18.10
       '@types/lodash.clone': 4.5.7
       '@types/lodash.isequal': 4.5.6
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       javascript-natural-sort: 0.7.1
       lodash.clone: 4.5.0
       lodash.isequal: 4.5.0
@@ -1465,7 +1465,7 @@ importers:
     devDependencies:
       '@types/lodash.clone': 4.5.7
       '@types/lodash.isequal': 4.5.6
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       prettier: 2.7.1
       tsup: 6.2.1_typescript@4.7.4
       typescript: 4.7.4
@@ -1474,10 +1474,10 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       jest: 28.1.3
       prettier: 2.7.1
       react: 18.2.0
@@ -1489,9 +1489,9 @@ importers:
       '@jest/types': 28.1.3
       '@plasmohq/prettier-plugin-sort-imports': link:../prettier-plugin-sort-imports
       '@plasmohq/storage': link:../storage
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
-      jest: 28.1.3_@types+node@18.6.4
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
+      jest: 28.1.3_@types+node@18.6.5
       prettier: 2.7.1
       react: 18.2.0
       ts-jest: 28.0.7_lhw3xkmzugq5tscs3x2ndm4sby
@@ -1500,10 +1500,10 @@ importers:
 
   packages/rps:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@types/cross-spawn': 6.0.2
       '@types/minimatch': 3.0.5
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/shell-quote': 1.7.1
       cross-spawn: 7.0.3
       minimatch: 5.1.0
@@ -1523,7 +1523,7 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../prettier-plugin-sort-imports
       '@types/cross-spawn': 6.0.2
       '@types/minimatch': 3.0.5
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/shell-quote': 1.7.1
       prettier: 2.7.1
       tsup: 6.2.1_typescript@4.7.4
@@ -1533,12 +1533,12 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/rps': workspace:*
       '@testing-library/react': 13.3.0
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
@@ -1556,10 +1556,10 @@ importers:
       '@plasmohq/rps': link:../rps
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/chrome': 0.0.193
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       jest-environment-jsdom: 28.1.3
       prettier: 2.7.1
       react: 18.2.0
@@ -1573,11 +1573,11 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/storage': workspace:*
       '@testing-library/react': 13.3.0
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
@@ -1597,10 +1597,10 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../prettier-plugin-sort-imports
       '@plasmohq/storage': link:../storage
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
-      '@types/node': 18.6.4
-      '@types/react': 18.0.15
+      '@types/node': 18.6.5
+      '@types/react': 18.0.17
       cross-env: 7.0.3
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       jest-environment-jsdom: 28.1.3
       prettier: 2.7.1
       react: 18.2.0
@@ -1620,9 +1620,9 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
       '@plasmohq/rps': workspace:*
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       cross-env: 7.0.3
       jest: 28.1.3
       prettier: 2.7.1
@@ -1634,9 +1634,9 @@ importers:
       '@jest/types': 28.1.3
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@plasmohq/rps': link:../../packages/rps
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       cross-env: 7.0.3
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       prettier: 2.7.1
       ts-jest: 28.0.7_lhw3xkmzugq5tscs3x2ndm4sby
       tsup: 6.2.1_typescript@4.7.4
@@ -2256,7 +2256,7 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: false
 
-  /@emotion/react/11.10.0_dekd3qhq25os2zmp2sxj6oaoou:
+  /@emotion/react/11.10.0_msmmgljd7hl2w2irtggflhmema:
     resolution: {integrity: sha512-K6z9zlHxxBXwN8TcpwBKcEsBsOw4JWCCmR+BeeOWgqp8GIU1yA2Odd41bwdAAr0ssbQrbJbVnndvv7oiv1bZeQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2275,7 +2275,7 @@ packages:
       '@emotion/serialize': 1.1.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.3.0
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -2294,7 +2294,7 @@ packages:
     resolution: {integrity: sha512-OiTkRgpxescko+M51tZsMq7Puu/KP55wMT8BgpcXVG2hqXc0Vo0mfymJ/Uj24Hp0i083ji/o0aLddh08UEjq8w==}
     dev: false
 
-  /@emotion/styled/11.10.0_cvyjuqpqzsw2jroi6znapo3uiq:
+  /@emotion/styled/11.10.0_5sec57kzpgkzooe4crua5kfcly:
     resolution: {integrity: sha512-V9oaEH6V4KePeQpgUE83i8ht+4Ri3E8Djp/ZPJ4DQlqWhSKITvgzlR3/YQE2hdfP4Jw3qVRkANJz01LLqK9/TA==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2311,10 +2311,10 @@ packages:
       '@babel/runtime': 7.18.9
       '@emotion/babel-plugin': 11.10.0_@babel+core@7.18.10
       '@emotion/is-prop-valid': 1.2.0
-      '@emotion/react': 11.10.0_dekd3qhq25os2zmp2sxj6oaoou
+      '@emotion/react': 11.10.0_msmmgljd7hl2w2irtggflhmema
       '@emotion/serialize': 1.1.0
       '@emotion/utils': 1.2.0
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       react: 18.2.0
     dev: false
 
@@ -2332,6 +2332,15 @@ packages:
 
   /@esbuild/linux-loong64/0.14.53:
     resolution: {integrity: sha512-W2dAL6Bnyn4xa/QRSU3ilIK4EzD5wgYXKXJiS1HDF5vU3675qc2bvFyLwbUcdmssDveyndy7FbitrCoiV/eMLg==}
+    engines: {node: '>=12'}
+    cpu: [loong64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@esbuild/linux-loong64/0.14.54:
+    resolution: {integrity: sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
@@ -3157,7 +3166,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.0
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@grpc/proto-loader/0.6.13:
@@ -3207,7 +3216,7 @@ packages:
     resolution: {integrity: sha512-/ETFv161hmjsWfT2b42ecsF7/wv17uPkmbggkZW6+iB46U1kNMLmWQ5yMxCh5gDaH9az0iFU9S44q7WR27cIiw==}
     dependencies:
       '@types/kefir': 3.8.7
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       typed-emitter: 2.1.0
     dev: false
 
@@ -3232,7 +3241,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       chalk: 4.1.2
       jest-message-util: 28.1.3
       jest-util: 28.1.3
@@ -3253,14 +3262,14 @@ packages:
       '@jest/test-result': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.3.2
       exit: 0.1.2
       graceful-fs: 4.2.10
       jest-changed-files: 28.1.3
-      jest-config: 28.1.3_@types+node@18.6.4
+      jest-config: 28.1.3_@types+node@18.6.5
       jest-haste-map: 28.1.3
       jest-message-util: 28.1.3
       jest-regex-util: 28.0.2
@@ -3288,7 +3297,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       jest-mock: 28.1.3
     dev: true
 
@@ -3315,7 +3324,7 @@ packages:
     dependencies:
       '@jest/types': 28.1.3
       '@sinonjs/fake-timers': 9.1.2
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       jest-message-util: 28.1.3
       jest-mock: 28.1.3
       jest-util: 28.1.3
@@ -3347,7 +3356,7 @@ packages:
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
       '@jridgewell/trace-mapping': 0.3.14
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       chalk: 4.1.2
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
@@ -3436,7 +3445,7 @@ packages:
       '@jest/schemas': 28.1.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/yargs': 17.0.10
       chalk: 4.1.2
     dev: true
@@ -4694,24 +4703,6 @@ packages:
       bluebird: 3.7.2
     dev: false
 
-  /@plasmohq/prettier-plugin-sort-imports/1.1.1_prettier@2.7.1:
-    resolution: {integrity: sha512-Xc9yu31lXze+q8M4YnGtTPYwOKYFsLLzpyqRJgpZLlA9WXlBx+Ca7RVrAm/iujwudETEv6i4Imqh1bTBqWVhQg==}
-    peerDependencies:
-      prettier: 2.x
-    dependencies:
-      '@babel/core': 7.18.6
-      '@babel/generator': 7.18.7
-      '@babel/parser': 7.18.8
-      '@babel/traverse': 7.18.8
-      '@babel/types': 7.18.8
-      javascript-natural-sort: 0.7.1
-      lodash.clone: 4.5.0
-      lodash.isequal: 4.5.0
-      prettier: 2.7.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@plasmohq/redux-persist/6.1.0_redux@4.2.0:
     resolution: {integrity: sha512-12mDmEotgMH/+4g9Hput5DDAIVAnmo8cZGPBsi106i8t/GuySX439XF8gEdEY2sEZaFkminq2smXnMTNysfD+A==}
     peerDependencies:
@@ -4776,7 +4767,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 18.2.0
-      react-redux: 8.0.2_rxpulxqxsibgdk5rs4llgxl6gy
+      react-redux: 8.0.2_ps4ywwwjjeajezffxxirqk36qa
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -4991,7 +4982,7 @@ packages:
   /@types/bn.js/4.11.6:
     resolution: {integrity: sha512-pqr857jrp2kPuO9uRjZ3PwnJTjoQy+fcdxvBTvHm6dkmEL9q+hDD/2j/0ELOBPtPnS8LjCX0gI9nbl8lVkadpg==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@types/cacheable-request/6.0.2:
@@ -5013,7 +5004,7 @@ packages:
   /@types/cross-spawn/6.0.2:
     resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/filesystem/0.0.32:
@@ -5029,20 +5020,20 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/har-format/1.2.8:
@@ -5052,7 +5043,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -5097,7 +5088,7 @@ packages:
   /@types/jsdom/16.2.14:
     resolution: {integrity: sha512-6BAy1xXEmMuHeAJ4Fv4yXKwBDTGTOseExKE3OaHiNycdHdZw59KfYzrt0DkDluvwmik1HRt6QS7bImxUmpSy+w==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       '@types/parse5': 6.0.3
       '@types/tough-cookie': 4.0.2
     dev: true
@@ -5113,7 +5104,7 @@ packages:
   /@types/kefir/3.8.7:
     resolution: {integrity: sha512-2flvlUgAgLmMUje9dGmvQ2jNzNCc3aKm912z1qrjxrRWQT6iglAq28f7m9xcScHjV1QPH6LosRvR4bTUAgAO2w==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@types/keyv/3.1.4:
@@ -5149,11 +5140,15 @@ packages:
   /@types/node-rsa/1.1.1:
     resolution: {integrity: sha512-itzxtaBgk4OMbrCawVCvas934waMZWjW17v7EYgFVlfYS/cl0/P7KZdojWCq9SDJMI5cnLQLUP8ayhVCTY8TEg==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/node/18.6.4:
     resolution: {integrity: sha512-I4BD3L+6AWiUobfxZ49DlU43gtI+FTHSv9pE2Zekg6KjMpre4ByusaljW3vYSLJrvQ1ck1hUaeVu8HVlY3vzHg==}
+    dev: false
+
+  /@types/node/18.6.5:
+    resolution: {integrity: sha512-Xjt5ZGUa5WusGZJ4WJPbOT8QOqp6nDynVFRKcUt32bOgvXEoc6o085WNkYTMO7ifAj2isEfQQ2cseE+wT6jsRw==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -5169,7 +5164,7 @@ packages:
   /@types/pbkdf2/3.1.0:
     resolution: {integrity: sha512-Cf63Rv7jCQ0LaL8tNXmEyqTHuIJxRdlS5vMh1mj5voN4+QFhVZnlZruezqpWYDiJ8UTzhP0VmeLXCmBk66YrMQ==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@types/phoenix/1.5.4:
@@ -5190,16 +5185,16 @@ packages:
   /@types/react-dom/18.0.5:
     resolution: {integrity: sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==}
     dependencies:
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
     dev: true
 
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
 
-  /@types/react/18.0.15:
-    resolution: {integrity: sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==}
+  /@types/react/18.0.17:
+    resolution: {integrity: sha512-38ETy4tL+rn4uQQi7mB81G7V1g0u2ryquNmsVIOKUAEIDK+3CUjZ6rSRpdvS99dNBnkLFL83qfmtLacGOTIhwQ==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -5214,7 +5209,7 @@ packages:
   /@types/sass/1.43.1:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@types/scheduler/0.16.2:
@@ -5223,17 +5218,17 @@ packages:
   /@types/secp256k1/4.0.3:
     resolution: {integrity: sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: false
 
   /@types/semver/7.3.10:
     resolution: {integrity: sha512-zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==}
     dev: true
 
-  /@types/sharp/0.30.4:
-    resolution: {integrity: sha512-6oJEzKt7wZeS7e+6x9QFEOWGs0T/6of00+0onZGN1zSmcSjcTDZKgIGZ6YWJnHowpaKUCFBPH52mYljWqU32Eg==}
+  /@types/sharp/0.30.5:
+    resolution: {integrity: sha512-EhO29617AIBqxoVtpd1qdBanWpspk/kD2B6qTFRJ31Q23Rdf+DNU1xlHSwtqvwq1vgOqBwq1i38SX+HGCymIQg==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/shell-quote/1.7.1:
@@ -5243,7 +5238,7 @@ packages:
   /@types/simple-peer/9.11.4:
     resolution: {integrity: sha512-Elje14YvM47k+XEaoyRAeUSvZN7TOLWYL233QCckUaXjT4lRESHnYs0iOK2JoosO5DnCvWu/0Vpl9qnw4KCLWw==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/stack-utils/2.0.1:
@@ -5253,7 +5248,7 @@ packages:
   /@types/through/0.0.30:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /@types/tough-cookie/4.0.2:
@@ -5693,8 +5688,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /antd/4.22.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Nay1tO+G5Z9szmshK9TinOWclJnxOtSe7cr15EX64NGkZZyRoHX2xXOFQoYtBt4qfVfFvLf97m9on7fwgy1Svg==}
+  /antd/4.22.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-u7l68PhSJMxyZmCNw+jwaeurSAaE+bU+lB0SPRHLfOFJR6xRudntvRoQdiEFOD5FZ3eeqz4lYQ3RZZRIarmceg==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -5705,7 +5700,7 @@ packages:
       '@babel/runtime': 7.18.9
       '@ctrl/tinycolor': 3.4.1
       classnames: 2.3.1
-      copy-to-clipboard: 3.3.1
+      copy-to-clipboard: 3.3.2
       lodash: 4.17.21
       memoize-one: 6.0.0
       moment: 2.29.4
@@ -5719,8 +5714,8 @@ packages:
       rc-image: 5.7.0_biqbaboplfbrettd7655fr4n2y
       rc-input: 0.0.1-alpha.7_biqbaboplfbrettd7655fr4n2y
       rc-input-number: 7.3.6_biqbaboplfbrettd7655fr4n2y
-      rc-mentions: 1.9.0_biqbaboplfbrettd7655fr4n2y
-      rc-menu: 9.6.0_biqbaboplfbrettd7655fr4n2y
+      rc-mentions: 1.9.1_biqbaboplfbrettd7655fr4n2y
+      rc-menu: 9.6.2_biqbaboplfbrettd7655fr4n2y
       rc-motion: 2.6.2_biqbaboplfbrettd7655fr4n2y
       rc-notification: 4.6.0_biqbaboplfbrettd7655fr4n2y
       rc-pagination: 3.1.17_biqbaboplfbrettd7655fr4n2y
@@ -5858,7 +5853,7 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
-  /autoprefixer/10.4.8_postcss@8.4.14:
+  /autoprefixer/10.4.8_postcss@8.4.16:
     resolution: {integrity: sha512-75Jr6Q/XpTqEf6D2ltS5uMewJIx5irCU1oBYJrWjFenq/m12WRRrz6g15L1EIoYvPLXTbEry7rDOwrcYNj77xw==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -5870,7 +5865,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.14
+      postcss: 8.4.16
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -6229,6 +6224,16 @@ packages:
       load-tsconfig: 0.2.3
     dev: true
 
+  /bundle-require/3.0.4_esbuild@0.14.54:
+    resolution: {integrity: sha512-VXG6epB1yrLAvWVQpl92qF347/UXmncQj7J3U8kZEbdVZ1ZkQyr4hYeL/9RvcE8vVVdp53dY78Fd/3pqfRqI1A==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    peerDependencies:
+      esbuild: '>=0.13'
+    dependencies:
+      esbuild: 0.14.54
+      load-tsconfig: 0.2.3
+    dev: true
+
   /cac/6.7.12:
     resolution: {integrity: sha512-rM7E2ygtMkJqD9c7WnFU6fruFcN3xe4FM5yUmgxhZzIKJk4uHl9U/fhwdajGFQbQuv43FAUo1Fe8gX/oIKDeSA==}
     engines: {node: '>=8'}
@@ -6548,12 +6553,6 @@ packages:
     resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
     dependencies:
       is-what: 3.14.1
-    dev: false
-
-  /copy-to-clipboard/3.3.1:
-    resolution: {integrity: sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==}
-    dependencies:
-      toggle-selection: 1.0.6
     dev: false
 
   /copy-to-clipboard/3.3.2:
@@ -7126,8 +7125,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-android-64/0.14.54:
+    resolution: {integrity: sha512-Tz2++Aqqz0rJ7kYBfz+iqyE3QMycD4vk7LBRyWaAVFgFtQ/O8EJOnVmTOiDWYZ/uYzB4kvP+bqejYdVKzE5lAQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-android-arm64/0.14.53:
     resolution: {integrity: sha512-PC7KaF1v0h/nWpvlU1UMN7dzB54cBH8qSsm7S9mkwFA1BXpaEOufCg8hdoEI1jep0KeO/rjZVWrsH8+q28T77A==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-android-arm64/0.14.54:
+    resolution: {integrity: sha512-F9E+/QDi9sSkLaClO8SOV6etqPd+5DgJje1F9lOWoNncDdOBL2YF59IhsWATSt0TLZbYCf3pNlTHvVV5VfHdvg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
@@ -7144,8 +7161,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-darwin-64/0.14.54:
+    resolution: {integrity: sha512-jtdKWV3nBviOd5v4hOpkVmpxsBy90CGzebpbO9beiqUYVMBtSc0AL9zGftFuBon7PNDcdvNCEuQqw2x0wP9yug==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-darwin-arm64/0.14.53:
     resolution: {integrity: sha512-otJwDU3hnI15Q98PX4MJbknSZ/WSR1I45il7gcxcECXzfN4Mrpft5hBDHXNRnCh+5858uPXBXA1Vaz2jVWLaIA==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-darwin-arm64/0.14.54:
+    resolution: {integrity: sha512-OPafJHD2oUPyvJMrsCvDGkRrVCar5aVyHfWGQzY1dWnzErjrDuSETxwA2HSsyg2jORLY8yBfzc1MIpUkXlctmw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -7162,8 +7197,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-freebsd-64/0.14.54:
+    resolution: {integrity: sha512-OKwd4gmwHqOTp4mOGZKe/XUlbDJ4Q9TjX0hMPIDBUWWu/kwhBAudJdBoxnjNf9ocIB6GN6CPowYpR/hRCbSYAg==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-freebsd-arm64/0.14.53:
     resolution: {integrity: sha512-9T7WwCuV30NAx0SyQpw8edbKvbKELnnm1FHg7gbSYaatH+c8WJW10g/OdM7JYnv7qkimw2ZTtSA+NokOLd2ydQ==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-freebsd-arm64/0.14.54:
+    resolution: {integrity: sha512-sFwueGr7OvIFiQT6WeG0jRLjkjdqWWSrfbVwZp8iMP+8UHEHRBvlaxL6IuKNDwAozNUmbb8nIMXa7oAOARGs1Q==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
@@ -7180,8 +7233,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-linux-32/0.14.54:
+    resolution: {integrity: sha512-1ZuY+JDI//WmklKlBgJnglpUL1owm2OX+8E1syCD6UAxcMM/XoWd76OHSjl/0MR0LisSAXDqgjT3uJqT67O3qw==}
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-64/0.14.53:
     resolution: {integrity: sha512-pP/FA55j/fzAV7N9DF31meAyjOH6Bjuo3aSKPh26+RW85ZEtbJv9nhoxmGTd9FOqjx59Tc1ZbrJabuiXlMwuZQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-linux-64/0.14.54:
+    resolution: {integrity: sha512-EgjAgH5HwTbtNsTqQOXWApBaPVdDn7XcK+/PtJwZLT1UmpLoznPd8c5CxqsH2dQK3j05YsB3L17T8vE7cp4cCg==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -7198,8 +7269,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-linux-arm/0.14.54:
+    resolution: {integrity: sha512-qqz/SjemQhVMTnvcLGoLOdFpCYbz4v4fUo+TfsWG+1aOu70/80RV6bgNpR2JCrppV2moUQkww+6bWxXRL9YMGw==}
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-arm64/0.14.53:
     resolution: {integrity: sha512-GDmWITT+PMsjCA6/lByYk7NyFssW4Q6in32iPkpjZ/ytSyH+xeEx8q7HG3AhWH6heemEYEWpTll/eui3jwlSnw==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-linux-arm64/0.14.54:
+    resolution: {integrity: sha512-WL71L+0Rwv+Gv/HTmxTEmpv0UgmxYa5ftZILVi2QmZBgX3q7+tDeOQNqGtdXSdsL8TQi1vIaVFHUPDe0O0kdig==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -7216,8 +7305,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-linux-mips64le/0.14.54:
+    resolution: {integrity: sha512-qTHGQB8D1etd0u1+sB6p0ikLKRVuCWhYQhAHRPkO+OF3I/iSlTKNNS0Lh2Oc0g0UFGguaFZZiPJdJey3AGpAlw==}
+    engines: {node: '>=12'}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-ppc64le/0.14.53:
     resolution: {integrity: sha512-ndnJmniKPCB52m+r6BtHHLAOXw+xBCWIxNnedbIpuREOcbSU/AlyM/2dA3BmUQhsHdb4w3amD5U2s91TJ3MzzA==}
+    engines: {node: '>=12'}
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-linux-ppc64le/0.14.54:
+    resolution: {integrity: sha512-j3OMlzHiqwZBDPRCDFKcx595XVfOfOnv68Ax3U4UKZ3MTYQB5Yz3X1mn5GnodEVYzhtZgxEBidLWeIs8FDSfrQ==}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
@@ -7234,8 +7341,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-linux-riscv64/0.14.54:
+    resolution: {integrity: sha512-y7Vt7Wl9dkOGZjxQZnDAqqn+XOqFD7IMWiewY5SPlNlzMX39ocPQlOaoxvT4FllA5viyV26/QzHtvTjVNOxHZg==}
+    engines: {node: '>=12'}
+    cpu: [riscv64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-s390x/0.14.53:
     resolution: {integrity: sha512-OCJlgdkB+XPYndHmw6uZT7jcYgzmx9K+28PVdOa/eLjdoYkeAFvH5hTwX4AXGLZLH09tpl4bVsEtvuyUldaNCg==}
+    engines: {node: '>=12'}
+    cpu: [s390x]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-linux-s390x/0.14.54:
+    resolution: {integrity: sha512-zaHpW9dziAsi7lRcyV4r8dhfG1qBidQWUXweUjnw+lliChJqQr+6XD71K41oEIC3Mx1KStovEmlzm+MkGZHnHA==}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
@@ -7252,8 +7377,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-netbsd-64/0.14.54:
+    resolution: {integrity: sha512-PR01lmIMnfJTgeU9VJTDY9ZerDWVFIUzAtJuDHwwceppW7cQWjBBqP48NdeRtoP04/AtO9a7w3viI+PIDr6d+w==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-openbsd-64/0.14.53:
     resolution: {integrity: sha512-eKQ30ZWe+WTZmteDYg8S+YjHV5s4iTxeSGhJKJajFfQx9TLZJvsJX0/paqwP51GicOUruFpSUAs2NCc0a4ivQQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-openbsd-64/0.14.54:
+    resolution: {integrity: sha512-Qyk7ikT2o7Wu76UsvvDS5q0amJvmRzDyVlL0qf5VLsLchjCa1+IAvd8kTBgUxD7VBUUVgItLkk609ZHUc1oCaw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
@@ -7270,8 +7413,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-sunos-64/0.14.54:
+    resolution: {integrity: sha512-28GZ24KmMSeKi5ueWzMcco6EBHStL3B6ubM7M51RmPwXQGLe0teBGJocmWhgwccA1GeFXqxzILIxXpHbl9Q/Kw==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-windows-32/0.14.53:
     resolution: {integrity: sha512-m14XyWQP5rwGW0tbEfp95U6A0wY0DYPInWBB7D69FAXUpBpBObRoGTKRv36lf2RWOdE4YO3TNvj37zhXjVL5xg==}
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-windows-32/0.14.54:
+    resolution: {integrity: sha512-T+rdZW19ql9MjS7pixmZYVObd9G7kcaZo+sETqNH4RCkuuYSuv9AGHUVnPoP9hhuE1WM1ZimHz1CIBHBboLU7w==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
@@ -7288,8 +7449,26 @@ packages:
     dev: true
     optional: true
 
+  /esbuild-windows-64/0.14.54:
+    resolution: {integrity: sha512-AoHTRBUuYwXtZhjXZbA1pGfTo8cJo3vZIcWGLiUcTNgHpJJMC1rVA44ZereBHMJtotyN71S8Qw0npiCIkW96cQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-windows-arm64/0.14.53:
     resolution: {integrity: sha512-E+5Gvb+ZWts+00T9II6wp2L3KG2r3iGxByqd/a1RmLmYWVsSVUjkvIxZuJ3hYTIbhLkH5PRwpldGTKYqVz0nzQ==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /esbuild-windows-arm64/0.14.54:
+    resolution: {integrity: sha512-M0kuUvXhot1zOISQGXwWn6YtS+Y/1RT9WrVIOywZnJHo3jCDyewAc79aKNQWFCQm+xNHVTq9h8dZKvygoXQQRg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -7324,6 +7503,35 @@ packages:
       esbuild-windows-32: 0.14.53
       esbuild-windows-64: 0.14.53
       esbuild-windows-arm64: 0.14.53
+    dev: true
+
+  /esbuild/0.14.54:
+    resolution: {integrity: sha512-Cy9llcy8DvET5uznocPyqL3BFRrFXSVqbgpMJ9Wz8oVjZlh/zUSNbPRbov0VX7VxN2JH1Oa0uNxZ7eLRb62pJA==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@esbuild/linux-loong64': 0.14.54
+      esbuild-android-64: 0.14.54
+      esbuild-android-arm64: 0.14.54
+      esbuild-darwin-64: 0.14.54
+      esbuild-darwin-arm64: 0.14.54
+      esbuild-freebsd-64: 0.14.54
+      esbuild-freebsd-arm64: 0.14.54
+      esbuild-linux-32: 0.14.54
+      esbuild-linux-64: 0.14.54
+      esbuild-linux-arm: 0.14.54
+      esbuild-linux-arm64: 0.14.54
+      esbuild-linux-mips64le: 0.14.54
+      esbuild-linux-ppc64le: 0.14.54
+      esbuild-linux-riscv64: 0.14.54
+      esbuild-linux-s390x: 0.14.54
+      esbuild-netbsd-64: 0.14.54
+      esbuild-openbsd-64: 0.14.54
+      esbuild-sunos-64: 0.14.54
+      esbuild-windows-32: 0.14.54
+      esbuild-windows-64: 0.14.54
+      esbuild-windows-arm64: 0.14.54
     dev: true
 
   /escalade/3.1.1:
@@ -8733,6 +8941,7 @@ packages:
 
   /javascript-natural-sort/0.7.1:
     resolution: {integrity: sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=}
+    dev: false
 
   /jest-changed-files/28.1.3:
     resolution: {integrity: sha512-esaOfUWJXk2nfZt9SPyC8gA1kNfdKLkQWyzsMlqq8msYSlNKfmZxfRgZn4Cd4MGVUF+7v6dBs0d5TOAKa7iIiA==}
@@ -8750,7 +8959,7 @@ packages:
       '@jest/expect': 28.1.3
       '@jest/test-result': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       chalk: 4.1.2
       co: 4.6.0
       dedent: 0.7.0
@@ -8769,7 +8978,7 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli/28.1.3_@types+node@18.6.4:
+  /jest-cli/28.1.3_@types+node@18.6.5:
     resolution: {integrity: sha512-roY3kvrv57Azn1yPgdTebPAXvdR2xfezaKKYzVxZ6It/5NCxzJym6tUI5P1zkdWhfUYkxEI9uZWcQdaFLo8mJQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8786,7 +8995,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.10
       import-local: 3.1.0
-      jest-config: 28.1.3_@types+node@18.6.4
+      jest-config: 28.1.3_@types+node@18.6.5
       jest-util: 28.1.3
       jest-validate: 28.1.3
       prompts: 2.4.2
@@ -8797,7 +9006,7 @@ packages:
       - ts-node
     dev: true
 
-  /jest-config/28.1.3_@types+node@18.6.4:
+  /jest-config/28.1.3_@types+node@18.6.5:
     resolution: {integrity: sha512-MG3INjByJ0J4AsNBm7T3hsuxKQqFIiRo/AUqb1q9LRKI5UU6Aar9JHbr9Ivn1TVwfUD9KirRoM/T6u8XlcQPHQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     peerDependencies:
@@ -8812,7 +9021,7 @@ packages:
       '@babel/core': 7.18.6
       '@jest/test-sequencer': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       babel-jest: 28.1.3_@babel+core@7.18.6
       chalk: 4.1.2
       ci-info: 3.3.2
@@ -8872,7 +9081,7 @@ packages:
       '@jest/fake-timers': 28.1.3
       '@jest/types': 28.1.3
       '@types/jsdom': 16.2.14
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       jest-mock: 28.1.3
       jest-util: 28.1.3
       jsdom: 19.0.0
@@ -8890,7 +9099,7 @@ packages:
       '@jest/environment': 28.1.3
       '@jest/fake-timers': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       jest-mock: 28.1.3
       jest-util: 28.1.3
     dev: true
@@ -8906,7 +9115,7 @@ packages:
     dependencies:
       '@jest/types': 28.1.3
       '@types/graceful-fs': 4.1.5
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.10
@@ -8957,7 +9166,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
 
   /jest-pnp-resolver/1.2.2_jest-resolve@28.1.3:
@@ -9011,7 +9220,7 @@ packages:
       '@jest/test-result': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       chalk: 4.1.2
       emittery: 0.10.2
       graceful-fs: 4.2.10
@@ -9097,7 +9306,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       chalk: 4.1.2
       ci-info: 3.3.2
       graceful-fs: 4.2.10
@@ -9122,7 +9331,7 @@ packages:
     dependencies:
       '@jest/test-result': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.10.2
@@ -9138,12 +9347,12 @@ packages:
     resolution: {integrity: sha512-CqRA220YV/6jCo8VWvAt1KKx6eek1VIHMPeLEbpcfSfkEeWyBNppynM/o6q+Wmw+sOhos2ml34wZbSX3G13//g==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
 
-  /jest/28.1.3_@types+node@18.6.4:
+  /jest/28.1.3_@types+node@18.6.5:
     resolution: {integrity: sha512-N4GT5on8UkZgH0O5LUavMRV1EDEhNTL0KEfRmDIeZHSV7p2XgLoY9t9VDUgL6o+yfdgYHVxuz81G8oB9VG5uyA==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -9156,15 +9365,15 @@ packages:
       '@jest/core': 28.1.3
       '@jest/types': 28.1.3
       import-local: 3.1.0
-      jest-cli: 28.1.3_@types+node@18.6.4
+      jest-cli: 28.1.3_@types+node@18.6.5
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
       - ts-node
     dev: true
 
-  /jotai/1.7.7_react@18.2.0:
-    resolution: {integrity: sha512-UK1fzkR2vq62rUL7iHlMkjkKj49AEU9iOm2xwfgPAeMJ8GIzKrEiKQC81w+O4dlNCjmCIi9UVkV75dADqccVCw==}
+  /jotai/1.7.8_react@18.2.0:
+    resolution: {integrity: sha512-rXwWz6uLqyZUCRzWIPiYTjI1hjskVxVpDN3lBoOHi66z6uQFkFmKwR8YhcQd+Ex4lODlReuKNIx6WwsF9aKy3g==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
@@ -9524,6 +9733,7 @@ packages:
 
   /lodash.clone/4.5.0:
     resolution: {integrity: sha512-GhrVeweiTD6uTmmn5hV/lzgCQhccwReIVRLHp7LT4SopOjqEZ5BbX8b5WWEtAKasjmy8hR7ZPwsYlxRCku5odg==}
+    dev: false
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -9543,6 +9753,7 @@ packages:
 
   /lodash.isequal/4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    dev: false
 
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -10360,25 +10571,25 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: false
 
-  /postcss-import/14.1.0_postcss@8.4.14:
+  /postcss-import/14.1.0_postcss@8.4.16:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.14
+      postcss: 8.4.16
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.1
 
-  /postcss-js/4.0.0_postcss@8.4.14:
+  /postcss-js/4.0.0_postcss@8.4.16:
     resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.3.3
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.14
+      postcss: 8.4.16
 
   /postcss-load-config/3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
@@ -10396,7 +10607,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /postcss-load-config/3.1.4_postcss@8.4.14:
+  /postcss-load-config/3.1.4_postcss@8.4.16:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -10409,27 +10620,27 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.0.6
-      postcss: 8.4.14
+      postcss: 8.4.16
       yaml: 1.10.2
 
-  /postcss-multiple-tailwind/1.0.1_2dxw26vuu7mmft66na5jcixoty:
+  /postcss-multiple-tailwind/1.0.1_rmzpoojhpzj5mm5if7t5wiggve:
     resolution: {integrity: sha512-2HFAvNLBfEFQn9x4XZsOrsTdzJCqiTyOK3TCDafZlY0c4LQztybL73e26X3dHg2i3jwc700M6cTLLthCmAgAVw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       postcss: ^8.2.8
       tailwindcss: ^3.0.0
     dependencies:
-      postcss: 8.4.14
+      postcss: 8.4.16
       tailwindcss: 3.1.8
     dev: true
 
-  /postcss-nested/5.0.6_postcss@8.4.14:
+  /postcss-nested/5.0.6_postcss@8.4.16:
     resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.14
+      postcss: 8.4.16
       postcss-selector-parser: 6.0.10
 
   /postcss-selector-parser/6.0.10:
@@ -10444,6 +10655,14 @@ packages:
 
   /postcss/8.4.14:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.4
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+
+  /postcss/8.4.16:
+    resolution: {integrity: sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
@@ -10581,7 +10800,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       long: 4.0.0
     dev: false
 
@@ -10601,7 +10820,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       long: 5.2.0
     dev: false
 
@@ -10824,15 +11043,15 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /rc-mentions/1.9.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-CSC2t8WxK8daS8lylJcquzCgKz4bXLAVNrSHXlTI8fNUy4toot8Sv79wT4fcP/bYgdt07/e3RXzkZfX6xjYYow==}
+  /rc-mentions/1.9.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-6VBaEkJjYdGGxAygQvE2NaIegAzLJSDodgzpoV+vonUUCZ4A/d8izVlc2JqCYa0Yi15HiDcWyfRgJYI7OKTILg==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
       '@babel/runtime': 7.18.9
       classnames: 2.3.1
-      rc-menu: 9.6.0_biqbaboplfbrettd7655fr4n2y
+      rc-menu: 9.6.2_biqbaboplfbrettd7655fr4n2y
       rc-textarea: 0.3.7_biqbaboplfbrettd7655fr4n2y
       rc-trigger: 5.3.1_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.23.0_biqbaboplfbrettd7655fr4n2y
@@ -10840,8 +11059,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /rc-menu/9.6.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-d26waws42U/rVwW/+rOE2FN9pX6wUc9bDy38vVQYoie6gE85auWIpl5oChGlnW6nE2epnTwUsgWl8ipOPgmnUA==}
+  /rc-menu/9.6.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-sSobfm30OAw6XfVaj+rEkBfalLxbZ3uOsB876MCG6NmwXQGSKRv+arTBnJnJqAmCGh2dMyb/Jf9kTCMpII6RTg==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -11071,7 +11290,7 @@ packages:
       '@babel/runtime': 7.18.9
       classnames: 2.3.1
       rc-dropdown: 4.0.1_biqbaboplfbrettd7655fr4n2y
-      rc-menu: 9.6.0_biqbaboplfbrettd7655fr4n2y
+      rc-menu: 9.6.2_biqbaboplfbrettd7655fr4n2y
       rc-resize-observer: 1.2.0_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.23.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -11251,7 +11470,7 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
-  /react-redux/8.0.2_rxpulxqxsibgdk5rs4llgxl6gy:
+  /react-redux/8.0.2_ps4ywwwjjeajezffxxirqk36qa:
     resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -11274,7 +11493,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.0
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
@@ -11997,7 +12216,7 @@ packages:
     resolution: {integrity: sha512-Tk40Q6eZVQbghG6RVhT6oTiL95MZR58QA1/de+q94pfKxaMHiuLE1p1SGHqfPzAZEFAXoxiPVkGVLTfPKlXDLA==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
       qs: 6.11.0
     dev: false
 
@@ -12163,11 +12382,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.14
-      postcss-import: 14.1.0_postcss@8.4.14
-      postcss-js: 4.0.0_postcss@8.4.14
-      postcss-load-config: 3.1.4_postcss@8.4.14
-      postcss-nested: 5.0.6_postcss@8.4.14
+      postcss: 8.4.16
+      postcss-import: 14.1.0_postcss@8.4.16
+      postcss-js: 4.0.0_postcss@8.4.16
+      postcss-load-config: 3.1.4_postcss@8.4.16
+      postcss-nested: 5.0.6_postcss@8.4.16
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
@@ -12355,7 +12574,7 @@ packages:
       '@jest/types': 28.1.3
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.3_@types+node@18.6.4
+      jest: 28.1.3_@types+node@18.6.5
       jest-util: 28.1.3
       json5: 2.2.1
       lodash.memoize: 4.1.2
@@ -12392,11 +12611,11 @@ packages:
       typescript:
         optional: true
     dependencies:
-      bundle-require: 3.0.4_esbuild@0.14.53
+      bundle-require: 3.0.4_esbuild@0.14.54
       cac: 6.7.12
       chokidar: 3.5.3
       debug: 4.3.4
-      esbuild: 0.14.53
+      esbuild: 0.14.54
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
