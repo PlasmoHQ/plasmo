@@ -5,10 +5,10 @@ const validateVersion = (ver: string): string | null | undefined => {
   if (parts.length > 3) return "Extension versions to have at most three dots"
 
   if (
-    parts.some(
-      (part) =>
-        part.length !== 0 && Number(part[0]) >= 0 && Number(part) < 65536
-    )
+    parts.some((part) => {
+      const num = Number(part)
+      return !isNaN(num) && num < 0 && num > 65536
+    })
   )
     return "Extension versions must be dot-separated integers between 0 and 65535"
 }
@@ -543,19 +543,5 @@ export const MV2Schema = {
 } as const
 
 export type MV2Data = FromSchema<typeof MV2Schema>
-
-export const VersionSchema = {
-  type: "object",
-  properties: {
-    $schema: stringSchema,
-    manifest_version: {
-      type: "number",
-      enum: [2, 3]
-    }
-  },
-  required: ["manifest_version"]
-} as const
-
-export type VersionData = FromSchema<typeof VersionSchema>
 
 export type ManifestData = MV2Data | MV3Data

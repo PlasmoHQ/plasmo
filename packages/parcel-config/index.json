@@ -3,7 +3,7 @@
   "bundler": "@plasmohq/parcel-bundler",
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
-    "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
+    "*.plasmo.manifest.json": ["@parcel/transformer-webextension"],
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
     "data-base64:*": ["...", "@parcel/transformer-inline-string"],
     "*.vue": ["@plasmohq/parcel-transformer-vue3"],
@@ -18,7 +18,7 @@
     "raw:*": ["@parcel/transformer-raw"]
   },
   "packagers": {
-    "*.plasmo.manifest.json": "@parcel/packager-webextension"
+    "*.plasmo.manifest.json": "@plasmohq/parcel-packager"
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"]

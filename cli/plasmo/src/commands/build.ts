@@ -2,6 +2,7 @@ import { paramCase } from "change-case"
 import { createWriteStream } from "fs"
 import { emptyDir } from "fs-extra"
 import { resolve } from "path"
+import { cwd } from "process"
 
 import { getFlag, getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
 
@@ -18,7 +19,9 @@ async function build() {
 
   const [internalCmd] = getNonFlagArgvs("build")
 
-  const commonPath = getCommonPath()
+  const target = paramCase(getFlag("--target") || "chrome-mv3")
+
+  const commonPath = getCommonPath(cwd(), target)
 
   if (internalCmd === "next-new-tab") {
     await nextNewTab(commonPath)
@@ -26,8 +29,6 @@ async function build() {
   }
 
   iLog("Prepare to bundle the extension...")
-
-  const target = paramCase(getFlag("--target") || "chrome-mv3")
 
   const [browser, manifestVersion] = target.split("-")
 
