@@ -1232,7 +1232,6 @@ importers:
       '@parcel/config-default': 2.7.0
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0
-      '@parcel/packager-webextension': 2.7.0
       '@parcel/runtime-js': 2.7.0
       '@parcel/runtime-webextension': 2.7.0
       '@parcel/source-map': 2.1.0
@@ -1254,7 +1253,6 @@ importers:
       '@parcel/config-default': 2.7.0_@parcel+core@2.7.0
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0_@parcel+core@2.7.0
-      '@parcel/packager-webextension': 2.7.0_@parcel+core@2.7.0
       '@parcel/runtime-js': 2.7.0_@parcel+core@2.7.0
       '@parcel/runtime-webextension': 2.7.0_@parcel+core@2.7.0
       '@parcel/source-map': 2.1.0
@@ -4175,17 +4173,6 @@ packages:
       posthtml: 0.16.6
     transitivePeerDependencies:
       - '@parcel/core'
-
-  /@parcel/packager-webextension/2.7.0_@parcel+core@2.7.0:
-    resolution: {integrity: sha512-HoGE/6S+beiFuLhYWUctA1UHtN1YIuTeqP3JitDwGEMz2iMaffajTP+8LNGqZjB3X+98rVYiNLdk0uEWUs70kw==}
-    engines: {node: '>=12.0.0', parcel: ^2.7.0}
-    dependencies:
-      '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
-      '@parcel/utils': 2.7.0
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
 
   /@parcel/plugin/2.7.0_@parcel+core@2.7.0:
     resolution: {integrity: sha512-qqgx+nnMn6/0lRc4lKbLGmhNtBiT93S2gFNB4Eb4Pfz/SxVYoW+fmml+KdfOSiZffWOAH5L6NwhyD7N8aSikzw==}
