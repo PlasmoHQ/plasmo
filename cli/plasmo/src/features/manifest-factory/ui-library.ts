@@ -29,7 +29,9 @@ const getMajorVersion = async (version: string) => {
     switch (protocol) {
       case "file":
       default:
-        const packageJson = await readJson(resolve(cwd(), versionData))
+        const packageJson = await readJson(
+          resolve(cwd(), versionData, "package.json")
+        )
         return semver.major(packageJson.version)
     }
   } else {
