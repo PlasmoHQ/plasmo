@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-vue3",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "Plasmo Parcel Transformer for Vue3",
   "files": [
     "dist"
@@ -14,7 +14,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
   "engines": {
-    "parcel": ">= 2.6.0"
+    "parcel": ">= 2.7.0"
   },
   "license": "MIT",
   "repository": {
@@ -27,12 +27,12 @@
     "vue": "3.2.37"
   },
   "dependencies": {
-    "@parcel/core": "2.6.2",
-    "@parcel/diagnostic": "2.6.2",
-    "@parcel/plugin": "2.6.2",
+    "@parcel/core": "2.7.0",
+    "@parcel/diagnostic": "2.7.0",
+    "@parcel/plugin": "2.7.0",
     "@parcel/source-map": "2.1.0",
-    "@parcel/types": "2.6.2",
-    "@parcel/utils": "2.6.2",
+    "@parcel/types": "2.7.0",
+    "@parcel/utils": "2.7.0",
     "@plasmohq/consolidate": "0.17.0",
     "@vue/compiler-sfc": "3.2.37",
     "nullthrows": "1.1.1",

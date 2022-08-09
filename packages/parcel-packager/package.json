@@ -1,15 +1,15 @@
 {
-  "name": "@plasmohq/parcel-runtime",
-  "version": "0.3.1",
-  "description": "Plasmo Parcel Runtime",
+  "name": "@plasmohq/parcel-packager",
+  "version": "0.0.1",
+  "description": "Plasmo Parcel Packager for Web Extension Manifest",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "pnpm build",
-    "build": "tsup src/index.ts src/hmr-runtime.ts --minify --clean",
-    "dev": "tsup src/index.ts src/hmr-runtime.ts --sourcemap --watch"
+    "build": "tsup src/index.ts --minify --clean",
+    "dev": "tsup src/index.ts --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -23,12 +23,13 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "@types/chrome": "0.0.193",
-    "reconnecting-websocket": "4.4.0",
     "tsup": "6.2.1"
   },
   "dependencies": {
     "@parcel/core": "2.7.0",
-    "@parcel/plugin": "2.7.0"
+    "@parcel/types": "2.7.0",
+    "@parcel/plugin": "2.7.0",
+    "@parcel/utils": "2.7.0",
+    "nullthrows": "^1.1.1"
   }
 }

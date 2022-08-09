@@ -1,6 +1,7 @@
 import { paramCase } from "change-case"
 import { emptyDir } from "fs-extra"
 import { resolve } from "path"
+import { cwd } from "process"
 
 import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
@@ -22,10 +23,10 @@ async function dev() {
 
   iLog("Starting the extension development server...")
 
-  const commonPath = getCommonPath()
-
   // firefox-mv2
   const target = paramCase(getFlag("--target") || "chrome-mv3")
+
+  const commonPath = getCommonPath(cwd(), target)
 
   const [browser, manifestVersion] = target.split("-")
 

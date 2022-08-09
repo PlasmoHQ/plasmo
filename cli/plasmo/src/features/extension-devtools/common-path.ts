@@ -4,6 +4,7 @@ import { cwd } from "process"
 
 export const getCommonPath = (
   currentDirectory = cwd(),
+  target = "chrome-mv3",
   dotPlasmo = ".plasmo"
 ) => {
   const srcPath = resolve(currentDirectory, "src")
@@ -20,7 +21,11 @@ export const getCommonPath = (
     cacheDirectory: resolve(currentDirectory, dotPlasmo, "cache"),
     staticDirectory: resolve(currentDirectory, dotPlasmo, "static"),
     genAssetsDirectory: resolve(currentDirectory, dotPlasmo, "gen-assets"),
-    entryManifestPath: resolve(currentDirectory, dotPlasmo, "manifest.json")
+    entryManifestPath: resolve(
+      currentDirectory,
+      dotPlasmo,
+      `${target}.plasmo.manifest.json`
+    )
   }
 }
 
