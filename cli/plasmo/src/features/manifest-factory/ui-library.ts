@@ -1,4 +1,6 @@
+import { readJson } from "fs-extra"
 import { resolve } from "path"
+import { cwd } from "process"
 import semver from "semver"
 
 import { fileExists } from "@plasmo/utils"
@@ -21,6 +23,22 @@ export type UILibrary = {
 
 const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
 
+const getMajorVersion = async (version: string) => {
+  if (version.includes(":")) {
+    const [protocol, versionData] = version.split(":")
+    switch (protocol) {
+      case "file":
+      default:
+        const packageJson = await readJson(
+          resolve(cwd(), versionData, "package.json")
+        )
+        return semver.major(packageJson.version)
+    }
+  } else {
+    return semver.major(version)
+  }
+}
+
 export const getUILibrary = async (
   plasmoManifest: BaseFactory
 ): Promise<UILibrary> => {
@@ -32,7 +50,9 @@ export const getUILibrary = async (
     throw new Error(uiLibraryError)
   }
 
-  const majorVersion = semver.major(plasmoManifest.dependencies[baseLibrary])
+  const majorVersion = await getMajorVersion(
+    plasmoManifest.dependencies[baseLibrary]
+  )
 
   // React lower than 18 can uses 17 scaffold
   if (baseLibrary === "react" && majorVersion < 18) {

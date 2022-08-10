@@ -41,11 +41,11 @@
     "fs-extra": "10.1.0",
     "prettier": "2.7.1",
     "tsup": "6.2.1",
-    "turbo": "1.4.2"
+    "turbo": "1.4.3"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.8.0"
+  "packageManager": "pnpm@7.9.0"
 }

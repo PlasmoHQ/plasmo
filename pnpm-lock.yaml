@@ -23,7 +23,7 @@ importers:
       fs-extra: 10.1.0
       prettier: 2.7.1
       tsup: 6.2.1
-      turbo: 1.4.2
+      turbo: 1.4.3
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:packages/prettier-plugin-sort-imports
       '@plasmohq/rps': link:packages/rps
@@ -44,7 +44,7 @@ importers:
       fs-extra: 10.1.0
       prettier: 2.7.1
       tsup: 6.2.1
-      turbo: 1.4.2
+      turbo: 1.4.3
 
   cli/create-plasmo:
     specifiers:
@@ -126,7 +126,7 @@ importers:
 
   examples/with-ant-design:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -153,7 +153,7 @@ importers:
 
   examples/with-background:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -178,7 +178,7 @@ importers:
 
   examples/with-content-script:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -203,7 +203,7 @@ importers:
 
   examples/with-content-scripts-ui:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -228,7 +228,7 @@ importers:
 
   examples/with-devtools:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -257,7 +257,7 @@ importers:
       '@emotion/cache': 11.10.1
       '@emotion/react': 11.10.0
       '@emotion/styled': 11.10.0
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -286,7 +286,7 @@ importers:
 
   examples/with-env-files:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -311,7 +311,7 @@ importers:
 
   examples/with-firebase-auth:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -338,7 +338,7 @@ importers:
 
   examples/with-firebase-fcm:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -367,7 +367,7 @@ importers:
 
   examples/with-google-analytics:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -392,7 +392,7 @@ importers:
 
   examples/with-i18n:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -418,7 +418,7 @@ importers:
   examples/with-inbox-sdk:
     specifiers:
       '@inboxsdk/core': 0.2.9
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/inboxsdk': 2.0.8
       '@types/node': 18.6.5
@@ -447,7 +447,7 @@ importers:
   examples/with-jest:
     specifiers:
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -479,7 +479,7 @@ importers:
 
   examples/with-jotai:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -506,7 +506,7 @@ importers:
 
   examples/with-main-world-content-script-injection:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -531,7 +531,7 @@ importers:
 
   examples/with-many-content-scripts:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -556,7 +556,7 @@ importers:
 
   examples/with-many-targets:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/rps': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -583,7 +583,7 @@ importers:
 
   examples/with-multiple-tailwindcss:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -616,7 +616,7 @@ importers:
 
   examples/with-newtab:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -641,7 +641,7 @@ importers:
 
   examples/with-nextjs:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -670,7 +670,7 @@ importers:
 
   examples/with-options-ui:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -696,7 +696,7 @@ importers:
   examples/with-permission-ui:
     specifiers:
       '@plasmohq/permission-ui': workspace:*
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -722,7 +722,7 @@ importers:
 
   examples/with-popup:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -747,7 +747,7 @@ importers:
 
   examples/with-react-query:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@tanstack/react-query': 4.0.10
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -774,7 +774,7 @@ importers:
 
   examples/with-react-router:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -801,7 +801,7 @@ importers:
 
   examples/with-redux:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/redux-persist': 6.1.0
       '@plasmohq/storage': workspace:*
       '@reduxjs/toolkit': 1.8.3
@@ -842,7 +842,7 @@ importers:
 
   examples/with-src:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -867,7 +867,7 @@ importers:
 
   examples/with-storage:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -894,7 +894,7 @@ importers:
 
   examples/with-stripe:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/rps': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -907,7 +907,7 @@ importers:
       puro: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
-      stripe: 10.0.0
+      stripe: 10.1.0
       swr: 1.3.0
       typescript: 4.7.4
     dependencies:
@@ -917,7 +917,7 @@ importers:
       puro: link:../../packages/puro
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      stripe: 10.0.0
+      stripe: 10.1.0
       swr: 1.3.0_react@18.2.0
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
@@ -931,7 +931,7 @@ importers:
 
   examples/with-supabase:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@supabase/supabase-js': 1.35.6
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -958,7 +958,7 @@ importers:
 
   examples/with-svelte:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       plasmo: workspace:*
@@ -979,7 +979,7 @@ importers:
 
   examples/with-tailwindcss:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/typography': 0.5.4
       '@types/chrome': 0.0.193
@@ -1012,7 +1012,7 @@ importers:
 
   examples/with-vue:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       plasmo: workspace:*
@@ -1032,7 +1032,7 @@ importers:
   examples/with-wagmi:
     specifiers:
       '@babel/core': 7.18.10
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -1043,12 +1043,12 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.7.4
-      wagmi: 0.6.1
+      wagmi: 0.6.2
     dependencies:
       ethers: 5.6.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      wagmi: 0.6.1_v53yskzlb7auon6fdtjnpmvxqu
+      wagmi: 0.6.2_v53yskzlb7auon6fdtjnpmvxqu
     devDependencies:
       '@babel/core': 7.18.10
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
@@ -1062,7 +1062,7 @@ importers:
 
   examples/with-web-accessible-resources:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -1087,7 +1087,7 @@ importers:
 
   extensions/mice:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -1130,7 +1130,7 @@ importers:
 
   extensions/world-edit:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.193
       '@types/node': 18.6.5
@@ -1172,7 +1172,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/node': 18.6.5
       cross-env: 7.0.3
@@ -1243,6 +1243,7 @@ importers:
       '@parcel/transformer-webextension': 2.7.0
       '@parcel/transformer-worklet': 2.7.0
       '@plasmohq/parcel-bundler': workspace:*
+      '@plasmohq/parcel-namer-manifest': workspace:*
       '@plasmohq/parcel-packager': workspace:*
       '@plasmohq/parcel-resolver': workspace:*
       '@plasmohq/parcel-runtime': workspace:*
@@ -1264,12 +1265,30 @@ importers:
       '@parcel/transformer-webextension': 2.7.0_@parcel+core@2.7.0
       '@parcel/transformer-worklet': 2.7.0_@parcel+core@2.7.0
       '@plasmohq/parcel-bundler': link:../parcel-bundler
+      '@plasmohq/parcel-namer-manifest': link:../parcel-namer-manifest
       '@plasmohq/parcel-packager': link:../parcel-packager
       '@plasmohq/parcel-resolver': link:../parcel-resolver
       '@plasmohq/parcel-runtime': link:../parcel-runtime
       '@plasmohq/parcel-transformer-manifest': link:../parcel-transformer-manifest
       '@plasmohq/parcel-transformer-svelte3': link:../parcel-transformer-svelte3
       '@plasmohq/parcel-transformer-vue3': link:../parcel-transformer-vue3
+
+  packages/parcel-namer-manifest:
+    specifiers:
+      '@parcel/core': 2.7.0
+      '@parcel/plugin': 2.7.0
+      '@parcel/types': 2.7.0
+      '@parcel/utils': 2.7.0
+      '@plasmo/config': workspace:*
+      tsup: 6.2.1
+    dependencies:
+      '@parcel/core': 2.7.0
+      '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
+      '@parcel/types': 2.7.0_@parcel+core@2.7.0
+      '@parcel/utils': 2.7.0
+    devDependencies:
+      '@plasmo/config': link:../config
+      tsup: 6.2.1
 
   packages/parcel-packager:
     specifiers:
@@ -1409,7 +1428,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -1472,7 +1491,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/node': 18.6.5
       '@types/react': 18.0.17
@@ -1498,7 +1517,7 @@ importers:
 
   packages/rps:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/cross-spawn': 6.0.2
       '@types/minimatch': 3.0.5
       '@types/node': 18.6.5
@@ -1531,7 +1550,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/rps': workspace:*
       '@testing-library/react': 13.3.0
       '@types/chrome': 0.0.193
@@ -1571,7 +1590,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/storage': workspace:*
       '@testing-library/react': 13.3.0
       '@types/node': 18.6.5
@@ -1618,7 +1637,7 @@ importers:
     specifiers:
       '@jest/globals': 28.1.3
       '@jest/types': 28.1.3
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/rps': workspace:*
       '@types/node': 18.6.5
       cross-env: 7.0.3
@@ -2327,15 +2346,6 @@ packages:
   /@emotion/weak-memoize/0.3.0:
     resolution: {integrity: sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==}
     dev: false
-
-  /@esbuild/linux-loong64/0.14.53:
-    resolution: {integrity: sha512-W2dAL6Bnyn4xa/QRSU3ilIK4EzD5wgYXKXJiS1HDF5vU3675qc2bvFyLwbUcdmssDveyndy7FbitrCoiV/eMLg==}
-    engines: {node: '>=12'}
-    cpu: [loong64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /@esbuild/linux-loong64/0.14.54:
     resolution: {integrity: sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==}
@@ -5333,8 +5343,8 @@ packages:
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
 
-  /@wagmi/core/0.5.1_6ihxxpftkzewcisdp7osyx524i:
-    resolution: {integrity: sha512-EgFppUNDLVtjThSoGqr3yzY/jq5qZUPhCgfubcPGET8Xd1OMoag/Z85e2krcxkVZ+ExWPSUGCFLau4odd2PDFQ==}
+  /@wagmi/core/0.5.2_6ihxxpftkzewcisdp7osyx524i:
+    resolution: {integrity: sha512-Mbwq+ZMkxgPnEMXE+ldwseqRtryeeHokMMEMOGVuvUyrjJyn2mta2d6Yt2mMdfeqLVD6FfcSeKU4Pq8IscbaCw==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
       '@walletconnect/ethereum-provider': '>=1.7.5'
@@ -6200,16 +6210,6 @@ packages:
     dependencies:
       node-gyp-build: 4.5.0
     dev: false
-
-  /bundle-require/3.0.4_esbuild@0.14.53:
-    resolution: {integrity: sha512-VXG6epB1yrLAvWVQpl92qF347/UXmncQj7J3U8kZEbdVZ1ZkQyr4hYeL/9RvcE8vVVdp53dY78Fd/3pqfRqI1A==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    peerDependencies:
-      esbuild: '>=0.13'
-    dependencies:
-      esbuild: 0.14.53
-      load-tsconfig: 0.2.3
-    dev: true
 
   /bundle-require/3.0.4_esbuild@0.14.54:
     resolution: {integrity: sha512-VXG6epB1yrLAvWVQpl92qF347/UXmncQj7J3U8kZEbdVZ1ZkQyr4hYeL/9RvcE8vVVdp53dY78Fd/3pqfRqI1A==}
@@ -7103,28 +7103,10 @@ packages:
       ext: 1.6.0
     dev: false
 
-  /esbuild-android-64/0.14.53:
-    resolution: {integrity: sha512-fIL93sOTnEU+NrTAVMIKiAw0YH22HWCAgg4N4Z6zov2t0kY9RAJ50zY9ZMCQ+RT6bnOfDt8gCTnt/RaSNA2yRA==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-android-64/0.14.54:
     resolution: {integrity: sha512-Tz2++Aqqz0rJ7kYBfz+iqyE3QMycD4vk7LBRyWaAVFgFtQ/O8EJOnVmTOiDWYZ/uYzB4kvP+bqejYdVKzE5lAQ==}
     engines: {node: '>=12'}
     cpu: [x64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-android-arm64/0.14.53:
-    resolution: {integrity: sha512-PC7KaF1v0h/nWpvlU1UMN7dzB54cBH8qSsm7S9mkwFA1BXpaEOufCg8hdoEI1jep0KeO/rjZVWrsH8+q28T77A==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: true
@@ -7139,28 +7121,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-darwin-64/0.14.53:
-    resolution: {integrity: sha512-gE7P5wlnkX4d4PKvLBUgmhZXvL7lzGRLri17/+CmmCzfncIgq8lOBvxGMiQ4xazplhxq+72TEohyFMZLFxuWvg==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-darwin-64/0.14.54:
     resolution: {integrity: sha512-jtdKWV3nBviOd5v4hOpkVmpxsBy90CGzebpbO9beiqUYVMBtSc0AL9zGftFuBon7PNDcdvNCEuQqw2x0wP9yug==}
     engines: {node: '>=12'}
     cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-darwin-arm64/0.14.53:
-    resolution: {integrity: sha512-otJwDU3hnI15Q98PX4MJbknSZ/WSR1I45il7gcxcECXzfN4Mrpft5hBDHXNRnCh+5858uPXBXA1Vaz2jVWLaIA==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
@@ -7175,28 +7139,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-freebsd-64/0.14.53:
-    resolution: {integrity: sha512-WkdJa8iyrGHyKiPF4lk0MiOF87Q2SkE+i+8D4Cazq3/iqmGPJ6u49je300MFi5I2eUsQCkaOWhpCVQMTKGww2w==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-freebsd-64/0.14.54:
     resolution: {integrity: sha512-OKwd4gmwHqOTp4mOGZKe/XUlbDJ4Q9TjX0hMPIDBUWWu/kwhBAudJdBoxnjNf9ocIB6GN6CPowYpR/hRCbSYAg==}
     engines: {node: '>=12'}
     cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-freebsd-arm64/0.14.53:
-    resolution: {integrity: sha512-9T7WwCuV30NAx0SyQpw8edbKvbKELnnm1FHg7gbSYaatH+c8WJW10g/OdM7JYnv7qkimw2ZTtSA+NokOLd2ydQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: true
@@ -7211,28 +7157,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-linux-32/0.14.53:
-    resolution: {integrity: sha512-VGanLBg5en2LfGDgLEUxQko2lqsOS7MTEWUi8x91YmsHNyzJVT/WApbFFx3MQGhkf+XdimVhpyo5/G0PBY91zg==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-linux-32/0.14.54:
     resolution: {integrity: sha512-1ZuY+JDI//WmklKlBgJnglpUL1owm2OX+8E1syCD6UAxcMM/XoWd76OHSjl/0MR0LisSAXDqgjT3uJqT67O3qw==}
     engines: {node: '>=12'}
     cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-64/0.14.53:
-    resolution: {integrity: sha512-pP/FA55j/fzAV7N9DF31meAyjOH6Bjuo3aSKPh26+RW85ZEtbJv9nhoxmGTd9FOqjx59Tc1ZbrJabuiXlMwuZQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
@@ -7247,28 +7175,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-linux-arm/0.14.53:
-    resolution: {integrity: sha512-/u81NGAVZMopbmzd21Nu/wvnKQK3pT4CrvQ8BTje1STXcQAGnfyKgQlj3m0j2BzYbvQxSy+TMck4TNV2onvoPA==}
-    engines: {node: '>=12'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-linux-arm/0.14.54:
     resolution: {integrity: sha512-qqz/SjemQhVMTnvcLGoLOdFpCYbz4v4fUo+TfsWG+1aOu70/80RV6bgNpR2JCrppV2moUQkww+6bWxXRL9YMGw==}
     engines: {node: '>=12'}
     cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-arm64/0.14.53:
-    resolution: {integrity: sha512-GDmWITT+PMsjCA6/lByYk7NyFssW4Q6in32iPkpjZ/ytSyH+xeEx8q7HG3AhWH6heemEYEWpTll/eui3jwlSnw==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
@@ -7283,28 +7193,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-linux-mips64le/0.14.53:
-    resolution: {integrity: sha512-d6/XHIQW714gSSp6tOOX2UscedVobELvQlPMkInhx1NPz4ThZI9uNLQ4qQJHGBGKGfu+rtJsxM4NVHLhnNRdWQ==}
-    engines: {node: '>=12'}
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-linux-mips64le/0.14.54:
     resolution: {integrity: sha512-qTHGQB8D1etd0u1+sB6p0ikLKRVuCWhYQhAHRPkO+OF3I/iSlTKNNS0Lh2Oc0g0UFGguaFZZiPJdJey3AGpAlw==}
     engines: {node: '>=12'}
     cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-ppc64le/0.14.53:
-    resolution: {integrity: sha512-ndnJmniKPCB52m+r6BtHHLAOXw+xBCWIxNnedbIpuREOcbSU/AlyM/2dA3BmUQhsHdb4w3amD5U2s91TJ3MzzA==}
-    engines: {node: '>=12'}
-    cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: true
@@ -7319,28 +7211,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-linux-riscv64/0.14.53:
-    resolution: {integrity: sha512-yG2sVH+QSix6ct4lIzJj329iJF3MhloLE6/vKMQAAd26UVPVkhMFqFopY+9kCgYsdeWvXdPgmyOuKa48Y7+/EQ==}
-    engines: {node: '>=12'}
-    cpu: [riscv64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-linux-riscv64/0.14.54:
     resolution: {integrity: sha512-y7Vt7Wl9dkOGZjxQZnDAqqn+XOqFD7IMWiewY5SPlNlzMX39ocPQlOaoxvT4FllA5viyV26/QzHtvTjVNOxHZg==}
     engines: {node: '>=12'}
     cpu: [riscv64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-s390x/0.14.53:
-    resolution: {integrity: sha512-OCJlgdkB+XPYndHmw6uZT7jcYgzmx9K+28PVdOa/eLjdoYkeAFvH5hTwX4AXGLZLH09tpl4bVsEtvuyUldaNCg==}
-    engines: {node: '>=12'}
-    cpu: [s390x]
     os: [linux]
     requiresBuild: true
     dev: true
@@ -7355,29 +7229,11 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-netbsd-64/0.14.53:
-    resolution: {integrity: sha512-gp2SB+Efc7MhMdWV2+pmIs/Ja/Mi5rjw+wlDmmbIn68VGXBleNgiEZG+eV2SRS0kJEUyHNedDtwRIMzaohWedQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-netbsd-64/0.14.54:
     resolution: {integrity: sha512-PR01lmIMnfJTgeU9VJTDY9ZerDWVFIUzAtJuDHwwceppW7cQWjBBqP48NdeRtoP04/AtO9a7w3viI+PIDr6d+w==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-openbsd-64/0.14.53:
-    resolution: {integrity: sha512-eKQ30ZWe+WTZmteDYg8S+YjHV5s4iTxeSGhJKJajFfQx9TLZJvsJX0/paqwP51GicOUruFpSUAs2NCc0a4ivQQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [openbsd]
     requiresBuild: true
     dev: true
     optional: true
@@ -7391,15 +7247,6 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-sunos-64/0.14.53:
-    resolution: {integrity: sha512-OWLpS7a2FrIRukQqcgQqR1XKn0jSJoOdT+RlhAxUoEQM/IpytS3FXzCJM6xjUYtpO5GMY0EdZJp+ur2pYdm39g==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-sunos-64/0.14.54:
     resolution: {integrity: sha512-28GZ24KmMSeKi5ueWzMcco6EBHStL3B6ubM7M51RmPwXQGLe0teBGJocmWhgwccA1GeFXqxzILIxXpHbl9Q/Kw==}
     engines: {node: '>=12'}
@@ -7409,28 +7256,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-windows-32/0.14.53:
-    resolution: {integrity: sha512-m14XyWQP5rwGW0tbEfp95U6A0wY0DYPInWBB7D69FAXUpBpBObRoGTKRv36lf2RWOdE4YO3TNvj37zhXjVL5xg==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-windows-32/0.14.54:
     resolution: {integrity: sha512-T+rdZW19ql9MjS7pixmZYVObd9G7kcaZo+sETqNH4RCkuuYSuv9AGHUVnPoP9hhuE1WM1ZimHz1CIBHBboLU7w==}
     engines: {node: '>=12'}
     cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-windows-64/0.14.53:
-    resolution: {integrity: sha512-s9skQFF0I7zqnQ2K8S1xdLSfZFsPLuOGmSx57h2btSEswv0N0YodYvqLcJMrNMXh6EynOmWD7rz+0rWWbFpIHQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
@@ -7445,15 +7274,6 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-windows-arm64/0.14.53:
-    resolution: {integrity: sha512-E+5Gvb+ZWts+00T9II6wp2L3KG2r3iGxByqd/a1RmLmYWVsSVUjkvIxZuJ3hYTIbhLkH5PRwpldGTKYqVz0nzQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild-windows-arm64/0.14.54:
     resolution: {integrity: sha512-M0kuUvXhot1zOISQGXwWn6YtS+Y/1RT9WrVIOywZnJHo3jCDyewAc79aKNQWFCQm+xNHVTq9h8dZKvygoXQQRg==}
     engines: {node: '>=12'}
@@ -7462,35 +7282,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /esbuild/0.14.53:
-    resolution: {integrity: sha512-ohO33pUBQ64q6mmheX1mZ8mIXj8ivQY/L4oVuAshr+aJI+zLl+amrp3EodrUNDNYVrKJXGPfIHFGhO8slGRjuw==}
-    engines: {node: '>=12'}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@esbuild/linux-loong64': 0.14.53
-      esbuild-android-64: 0.14.53
-      esbuild-android-arm64: 0.14.53
-      esbuild-darwin-64: 0.14.53
-      esbuild-darwin-arm64: 0.14.53
-      esbuild-freebsd-64: 0.14.53
-      esbuild-freebsd-arm64: 0.14.53
-      esbuild-linux-32: 0.14.53
-      esbuild-linux-64: 0.14.53
-      esbuild-linux-arm: 0.14.53
-      esbuild-linux-arm64: 0.14.53
-      esbuild-linux-mips64le: 0.14.53
-      esbuild-linux-ppc64le: 0.14.53
-      esbuild-linux-riscv64: 0.14.53
-      esbuild-linux-s390x: 0.14.53
-      esbuild-netbsd-64: 0.14.53
-      esbuild-openbsd-64: 0.14.53
-      esbuild-sunos-64: 0.14.53
-      esbuild-windows-32: 0.14.53
-      esbuild-windows-64: 0.14.53
-      esbuild-windows-arm64: 0.14.53
-    dev: true
 
   /esbuild/0.14.54:
     resolution: {integrity: sha512-Cy9llcy8DvET5uznocPyqL3BFRrFXSVqbgpMJ9Wz8oVjZlh/zUSNbPRbov0VX7VxN2JH1Oa0uNxZ7eLRb62pJA==}
@@ -8715,6 +8506,11 @@ packages:
   /is-callable/1.2.4:
     resolution: {integrity: sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==}
     engines: {node: '>= 0.4'}
+
+  /is-core-module/2.10.0:
+    resolution: {integrity: sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==}
+    dependencies:
+      has: 1.0.3
 
   /is-core-module/2.9.0:
     resolution: {integrity: sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==}
@@ -11657,7 +11453,7 @@ packages:
     resolution: {integrity: sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==}
     hasBin: true
     dependencies:
-      is-core-module: 2.9.0
+      is-core-module: 2.10.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -12199,8 +11995,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/10.0.0:
-    resolution: {integrity: sha512-Tk40Q6eZVQbghG6RVhT6oTiL95MZR58QA1/de+q94pfKxaMHiuLE1p1SGHqfPzAZEFAXoxiPVkGVLTfPKlXDLA==}
+  /stripe/10.1.0:
+    resolution: {integrity: sha512-J5TF8ACY+aE2S0N9Uch/rXTmMwKvcrakoHFMW0hLOFpOEAUF6C+zHU4U9zNmJVBS7TQ2TLFb22EA9aHNUWi0Vg==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
       '@types/node': 18.6.5
@@ -12633,11 +12429,11 @@ packages:
       typescript:
         optional: true
     dependencies:
-      bundle-require: 3.0.4_esbuild@0.14.53
+      bundle-require: 3.0.4_esbuild@0.14.54
       cac: 6.7.12
       chokidar: 3.5.3
       debug: 4.3.4
-      esbuild: 0.14.53
+      esbuild: 0.14.54
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
@@ -12659,137 +12455,137 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /turbo-android-arm64/1.4.2:
-    resolution: {integrity: sha512-h6PorJ+muKDQE3wETwrkx3NpqypAxjIFLP3b8RQaAoNvxYa1JTSC71VMtYxMbwuDk58A1KGbXLDteR4by8Lqew==}
+  /turbo-android-arm64/1.4.3:
+    resolution: {integrity: sha512-ZUvdoEHJkTkOFOO9PKWYrdONDBVqkNsvwEMufTVf07RXgqmbXDPkznzT4hcQm6xXyqWqJdjgSAMdlm+2nNE1Og==}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-64/1.4.2:
-    resolution: {integrity: sha512-HrXRwx+5FuKeR4r2ea2mWO5dImzxG7z987t4xZWytEWJ0gEujln1z1cjwotYU1l2pq8slJS8W3q9Qv3JRMrSkQ==}
+  /turbo-darwin-64/1.4.3:
+    resolution: {integrity: sha512-gapoVm5qbu2TJS4lJ6fM3o2eAkLyXSxHihw/4NRAYmwHCH3at1/cIAnRcctB/HLL3ZaB/p3HKb8mnI7k6xNHOw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.4.2:
-    resolution: {integrity: sha512-/qkMqq1hdbM/I0gchx08/ZZucgnQVp6gd03tHHYnyG20z8a39f38MbX7+I5aLRpa3pQzBk8RgNx0o7G1T+KvzA==}
+  /turbo-darwin-arm64/1.4.3:
+    resolution: {integrity: sha512-XUe6FTsHamEH7FfNslYYO04yecAaguhZuwW4kE9B/BAP8MUYsmVqONauLPyE/YqM6pf2K0xwVe+RlEGf53CWbg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-freebsd-64/1.4.2:
-    resolution: {integrity: sha512-bZcjR7GxpuE/0qz/aKg4gWDa+6eiuoV0cRnqCJ/rae14/iSmBt0MsMa+lUH5gZUFj581Dj8fQRoBeE+EOau5CA==}
+  /turbo-freebsd-64/1.4.3:
+    resolution: {integrity: sha512-1CAjXmDClgMXdWZXreUfAbGBB2WB9TZHfJIdsgnDqt4fIcFGChknzYqc+Fj3tGHAczMpinGjBbWIzFuxOq/ofQ==}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-freebsd-arm64/1.4.2:
-    resolution: {integrity: sha512-dDx++7AELGAHuaMQjzNiKjSPu/xdDelUtRjWOzJWmwXzrgJlwNgQ93p+LYEA7LBWVZ8a32fpBE/VDait0alIJw==}
+  /turbo-freebsd-arm64/1.4.3:
+    resolution: {integrity: sha512-j5C7j/vwabPKpr5d6YlLgHGHBZCOcXj3HdkBshDHTQ0wghH0NuCUUaesYxI3wva/4/Ec0dhIrb20Laa/HMxXLA==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-32/1.4.2:
-    resolution: {integrity: sha512-AAxsEYhgv6x4UXwCoiRe+iL2pd+ArsJQDMgJGsJn+Tb09ca6+i1rTgdOTgcCSyvRwbXt0LYzqXN9zp6FwG6VHQ==}
+  /turbo-linux-32/1.4.3:
+    resolution: {integrity: sha512-vnc+StXIoQEnxIU43j7rEz/J+v+RV4dbUdUolBq0k9gkUV8KMCcqPkIa753K47E2KLNGKXMaYDI6AHQX1GAQZg==}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.4.2:
-    resolution: {integrity: sha512-t7gGxp1ILmGwzymcf72Lw4Ca916Bi9j2C4xPnJ2CAqxMWQOJKCRvyOuUHC/uy1kFDjR2yszxMb+ZJL6P3nccfA==}
+  /turbo-linux-64/1.4.3:
+    resolution: {integrity: sha512-KAUeIa8Ejt6BLrBGbVurlrjDxqh62tu75D4cqKqKfzWspcbEtmdqlV6qthXfm8SlzGSNuQXX0+qXEWds2FIZXg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm/1.4.2:
-    resolution: {integrity: sha512-6Rri//bX3wPMa8D0sSie05Xuze+6jTUDt4qsKp+JoQVanUKkKmRaVDpyV4WuFfjDbC5iP4ocN20FeaXenMFxTA==}
+  /turbo-linux-arm/1.4.3:
+    resolution: {integrity: sha512-zZNoHUK5ioFyxAngh8tHe763Dzb22ne3LJkaZn0ExkFHJtWClWv536lPcDuQPpIH9W9iz5OwPKtN32DNpNwk8A==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.4.2:
-    resolution: {integrity: sha512-V7eBFUOrIvLvjrc81UE8C+NfqBRKADyKrrbKD9hMG5beE/piZZNGoHUwuEgLgsykCSfHjn1sQCidocVztuTMAw==}
+  /turbo-linux-arm64/1.4.3:
+    resolution: {integrity: sha512-rzB7w+RHCQkKr8aDxxozv/IzdN976CYyBiRocSf9QGU73uyAg8pCo3i0MiENSRjDC+tUbdbu2lEUwGXf9ziB9Q==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-mips64le/1.4.2:
-    resolution: {integrity: sha512-C0JpzpwyvhW5ChWr6S7ulUd8a+1SBLe2mLBepTWaXTh/5+sFDU/AMwPNkhpfV5o0gEtz03UPm7Y4G6dqU3UCAQ==}
+  /turbo-linux-mips64le/1.4.3:
+    resolution: {integrity: sha512-Ztr1BM5NiUsHWjB7zpkP2RpRDA/fjbLaCbkyfyGlLmVkrSkh05NFBD03IWs2LSLy/wb6vRpL3MQ4FKcb97Tn8w==}
     cpu: [mipsel]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-ppc64le/1.4.2:
-    resolution: {integrity: sha512-ipxyQCj3NXq/2V6a4lKoNDt8CjcufICgHAvOhAUmoAxz4kIEKRvA/75xsPpt2Ih/a4fWGxsbWFK6oA+ac0l3jQ==}
+  /turbo-linux-ppc64le/1.4.3:
+    resolution: {integrity: sha512-tJaFJWxwfy/iLd69VHZj6JcXy9hO8LQ+ZUOna/p/wiy5WrFVgEYlD+4gfECfRZ+52EIelMgXl97vACaN1WMhLw==}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-32/1.4.2:
-    resolution: {integrity: sha512-pCvsh8mPSw6ZFABQqeJzfercnsOwCj1LpbWTPW1QftDij6zw1OWU4jWU529Ub1f+GMBej+xm/ufJhT+8A3NhwA==}
+  /turbo-windows-32/1.4.3:
+    resolution: {integrity: sha512-w9LyYd+DW3PYFXu9vQiie5lfdqmVIKLV0h181C49hempkIXfgQAosXfaugYWDwBc0GEBoBIQB0vGQKE7gt5nzA==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.4.2:
-    resolution: {integrity: sha512-GnvM8uGOA6idUloDDxiEgUpIx5o5ZJL0ARL7f+6r/vfwA+qlSe/F+4hDCmT3+Xkg7/7zDZix5ViKVoTDMBP/Ig==}
+  /turbo-windows-64/1.4.3:
+    resolution: {integrity: sha512-qPCqemxxOrXyqqig3fVQozRkOwo5oJSsQ3FTZE5YlNu2NwwWvY1mC0X4WTZIDsbj4oHqr0riqC7RGKbjQm1IIQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.4.2:
-    resolution: {integrity: sha512-2mCPiDnMLY924+M07mMo464cjOr0EITuIkK67IBm3EeEwSlunOmQk+LRc/Jq/Zx6Zuzp5XPZ2fZVvmmSFfogpQ==}
+  /turbo-windows-arm64/1.4.3:
+    resolution: {integrity: sha512-djnOOBjw33AnUx2SR6TMOpDr3nKLnVD+HcZvnQz70HyE331AKWjBoEE4rtUOteLAfViWAp3afbiljFSOnbU00Q==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.4.2:
-    resolution: {integrity: sha512-ry1vUs5oHCIM+Sef8HED2XsbL28YAeclCrOtDp9zbZZMUX1r5s01COqOJjFJZfDiv2zSlUge9IIQXprM8BfrtA==}
+  /turbo/1.4.3:
+    resolution: {integrity: sha512-g08eD2HdO/XW5xGHnXr0cXGiWnrgFBI6pN/3u0EOTeerKAsWIZU0ZrpSnl3whRtImeBB/gQu7Eu1waM2VOxzgw==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-android-arm64: 1.4.2
-      turbo-darwin-64: 1.4.2
-      turbo-darwin-arm64: 1.4.2
-      turbo-freebsd-64: 1.4.2
-      turbo-freebsd-arm64: 1.4.2
-      turbo-linux-32: 1.4.2
-      turbo-linux-64: 1.4.2
-      turbo-linux-arm: 1.4.2
-      turbo-linux-arm64: 1.4.2
-      turbo-linux-mips64le: 1.4.2
-      turbo-linux-ppc64le: 1.4.2
-      turbo-windows-32: 1.4.2
-      turbo-windows-64: 1.4.2
-      turbo-windows-arm64: 1.4.2
+      turbo-android-arm64: 1.4.3
+      turbo-darwin-64: 1.4.3
+      turbo-darwin-arm64: 1.4.3
+      turbo-freebsd-64: 1.4.3
+      turbo-freebsd-arm64: 1.4.3
+      turbo-linux-32: 1.4.3
+      turbo-linux-64: 1.4.3
+      turbo-linux-arm: 1.4.3
+      turbo-linux-arm64: 1.4.3
+      turbo-linux-mips64le: 1.4.3
+      turbo-linux-ppc64le: 1.4.3
+      turbo-windows-32: 1.4.3
+      turbo-windows-64: 1.4.3
+      turbo-windows-arm64: 1.4.3
     dev: true
 
   /type-check/0.3.2:
@@ -12992,14 +12788,14 @@ packages:
       xml-name-validator: 4.0.0
     dev: true
 
-  /wagmi/0.6.1_v53yskzlb7auon6fdtjnpmvxqu:
-    resolution: {integrity: sha512-QS/QDlRz6vVt8ZcKqaR7OGawQcN6mC/qCEhmO1qAmXx3LTkNyszBDJOdvn6AuGAljFowqb6aqD87RcKfjyEhyQ==}
+  /wagmi/0.6.2_v53yskzlb7auon6fdtjnpmvxqu:
+    resolution: {integrity: sha512-P+zeCzUCEgojvG5RjwNDOIBf3AlHUZ5pE6r6dNy7mBh1E80fZSmOq4gPohgSZkTNPh+iqB4q6xcMlwSRbBfcmA==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
     dependencies:
       '@coinbase/wallet-sdk': 3.4.0_@babel+core@7.18.10
-      '@wagmi/core': 0.5.1_6ihxxpftkzewcisdp7osyx524i
+      '@wagmi/core': 0.5.2_6ihxxpftkzewcisdp7osyx524i
       '@walletconnect/ethereum-provider': 1.8.0
       ethers: 5.6.9
       react: 18.2.0
