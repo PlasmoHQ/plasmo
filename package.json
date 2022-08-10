@@ -22,7 +22,7 @@
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish"
   },
   "devDependencies": {
-    "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
+    "@plasmohq/prettier-plugin-sort-imports": "workspace:1.2.0",
     "@plasmohq/rps": "workspace:*",
     "@types/archiver": "5.3.1",
     "@types/fs-extra": "9.0.13",
@@ -47,5 +47,5 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.8.0"
+  "packageManager": "pnpm@7.9.0"
 }
