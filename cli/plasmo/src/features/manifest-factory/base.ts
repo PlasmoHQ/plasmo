@@ -36,7 +36,7 @@ import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
-import { getSubExt } from "~features/helpers/path"
+import { getSubExt, toPosix } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
@@ -402,7 +402,7 @@ export abstract class BaseFactory<
 
       await copy(resourceFilePath, destination)
 
-      return inputFilePath
+      return toPosix(inputFilePath)
     } catch {
       return null
     }

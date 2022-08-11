@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@plasmohq/prettier-plugin-sort-imports': workspace:1.2.0
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@plasmohq/rps': workspace:*
       '@types/archiver': 5.3.1
       '@types/fs-extra': 9.0.13
@@ -1240,7 +1240,6 @@ importers:
       '@parcel/transformer-less': 2.7.0
       '@parcel/transformer-raw': 2.7.0
       '@parcel/transformer-sass': 2.7.0
-      '@parcel/transformer-webextension': 2.7.0
       '@parcel/transformer-worklet': 2.7.0
       '@plasmohq/parcel-bundler': workspace:*
       '@plasmohq/parcel-namer-manifest': workspace:*
@@ -1262,7 +1261,6 @@ importers:
       '@parcel/transformer-less': 2.7.0_@parcel+core@2.7.0
       '@parcel/transformer-raw': 2.7.0_@parcel+core@2.7.0
       '@parcel/transformer-sass': 2.7.0_@parcel+core@2.7.0
-      '@parcel/transformer-webextension': 2.7.0_@parcel+core@2.7.0
       '@parcel/transformer-worklet': 2.7.0_@parcel+core@2.7.0
       '@plasmohq/parcel-bundler': link:../parcel-bundler
       '@plasmohq/parcel-namer-manifest': link:../parcel-namer-manifest
@@ -4478,19 +4476,6 @@ packages:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  /@parcel/transformer-webextension/2.7.0_@parcel+core@2.7.0:
-    resolution: {integrity: sha512-r7mQJ91oVnL9gMvqURlaq4ru95/685utOc51QaOfSCYjuEbosvPUIDXDRAXFVLea56iLP5nIUsrUGtycE6zsQg==}
-    engines: {parcel: ^2.7.0}
-    dependencies:
-      '@mischnic/json-sourcemap': 0.1.0
-      '@parcel/diagnostic': 2.7.0
-      '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
-      '@parcel/utils': 2.7.0
-      content-security-policy-parser: 0.3.0
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
-
   /@parcel/transformer-worklet/2.7.0_@parcel+core@2.7.0:
     resolution: {integrity: sha512-CIG0MLOrl3IV23ZS4z4N6j/atF6LsKJYMAEtKneCrUaVmM5sIJb00Hp08iIjnR28mf0lk8qEhBI6mTL0B4+pWw==}
     engines: {node: '>= 12.0.0', parcel: ^2.7.0}
@@ -6528,11 +6513,6 @@ packages:
       no-case: 3.0.4
       tslib: 2.4.0
       upper-case: 2.0.2
-    dev: false
-
-  /content-security-policy-parser/0.3.0:
-    resolution: {integrity: sha512-ub90B4t9EfDPv3DCH7vEwGe4tVMkSm4Ow1HsmvmEQwinDfpTEDmkuJVa5WpzHDTt2bUirNRZuzL6S0msASlJhg==}
-    engines: {node: '>=8.0.0'}
     dev: false
 
   /content-security-policy-parser/0.4.1:

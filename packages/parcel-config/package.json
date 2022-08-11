@@ -20,7 +20,6 @@
     "@parcel/transformer-raw": "2.7.0",
     "@parcel/transformer-sass": "2.7.0",
     "@parcel/transformer-worklet": "2.7.0",
-    "@parcel/transformer-webextension": "2.7.0",
     "@plasmohq/parcel-namer-manifest": "workspace:*",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-packager": "workspace:*",
