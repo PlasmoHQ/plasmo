@@ -83,6 +83,8 @@ export abstract class BaseFactory<
   protected packageData: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
+  protected copyQueue: Array<[string, string]> = []
+
   #scaffolder: Scaffolder
   get scaffolder() {
     return this.#scaffolder
@@ -364,6 +366,10 @@ export abstract class BaseFactory<
     return this.injectEnv(output)
   }
 
+  async postBuild() {
+    await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
+  }
+
   protected abstract resolveWAR: (
     war: ExtensionManifest["web_accessible_resources"]
   ) => Promise<T["web_accessible_resources"]>
@@ -395,12 +401,9 @@ export abstract class BaseFactory<
         return inputFilePath
       }
 
-      const destination = resolve(
-        this.commonPath.dotPlasmoDirectory,
-        inputFilePath
-      )
+      const destination = resolve(this.commonPath.distDirectory, inputFilePath)
 
-      await copy(resourceFilePath, destination)
+      this.copyQueue.push([resourceFilePath, destination])
 
       return toPosix(inputFilePath)
     } catch {
@@ -416,9 +419,9 @@ export abstract class BaseFactory<
 
       const fileName = basename(resourceFilePath)
 
-      const destination = resolve(this.commonPath.dotPlasmoDirectory, fileName)
+      const destination = resolve(this.commonPath.distDirectory, fileName)
 
-      await copy(resourceFilePath, destination)
+      this.copyQueue.push([resourceFilePath, destination])
 
       return fileName
     } catch {

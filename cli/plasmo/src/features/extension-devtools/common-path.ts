@@ -9,21 +9,31 @@ export const getCommonPath = (
 ) => {
   const srcPath = resolve(currentDirectory, "src")
 
+  const buildDirectory = resolve(currentDirectory, "build")
+
+  const distDirectoryName = `${target}-${
+    process.env.NODE_ENV === "production" ? "prod" : "dev"
+  }`
+
+  const distDirectory = resolve(buildDirectory, distDirectoryName)
+
+  const dotPlasmoDirectory = resolve(currentDirectory, dotPlasmo)
   return {
     currentDirectory,
+    buildDirectory,
+    distDirectory,
+    distDirectoryName,
+
     sourceDirectory: existsSync(srcPath) ? srcPath : currentDirectory,
     packageFilePath: resolve(currentDirectory, "package.json"),
     assetsDirectory: resolve(currentDirectory, "assets"),
 
-    buildDirectory: resolve(currentDirectory, "build"),
-
-    dotPlasmoDirectory: resolve(currentDirectory, dotPlasmo),
-    cacheDirectory: resolve(currentDirectory, dotPlasmo, "cache"),
-    staticDirectory: resolve(currentDirectory, dotPlasmo, "static"),
-    genAssetsDirectory: resolve(currentDirectory, dotPlasmo, "gen-assets"),
+    dotPlasmoDirectory,
+    cacheDirectory: resolve(dotPlasmoDirectory, "cache"),
+    staticDirectory: resolve(dotPlasmoDirectory, "static"),
+    genAssetsDirectory: resolve(dotPlasmoDirectory, "gen-assets"),
     entryManifestPath: resolve(
-      currentDirectory,
-      dotPlasmo,
+      dotPlasmoDirectory,
       `${target}.plasmo.manifest.json`
     )
   }

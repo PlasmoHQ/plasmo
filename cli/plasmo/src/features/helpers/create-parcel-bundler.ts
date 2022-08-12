@@ -1,6 +1,7 @@
 import { Parcel } from "@parcel/core"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
+import { emptyDir } from "fs-extra"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -19,6 +20,8 @@ export const createParcelBuilder = async (
   commonPath: CommonPath,
   options: ParcelOptions
 ) => {
+  await emptyDir(commonPath.distDirectory)
+
   const pmInfo = await getPackageManager()
 
   const inputFS = new ParcelFS.NodeFS()

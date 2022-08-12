@@ -8,24 +8,7 @@ const HMR_RUNTIME = fs.readFileSync(
 )
 
 export default new Runtime({
-  apply({ bundle, bundleGraph, options }) {
-    if (bundle.name.endsWith("plasmo.manifest.json")) {
-      const asset = bundle.getMainEntry()
-      if (!asset?.meta.webextEntry) return
-
-      // Hack to bust packager cache when any descendants update
-      const descendants = []
-      bundleGraph.traverseBundles((b) => {
-        descendants.push(b.id)
-      }, bundle)
-
-      return {
-        filePath: __filename,
-        code: JSON.stringify(descendants),
-        isEntry: true
-      }
-    }
-
+  apply({ bundle, options }) {
     if (
       bundle.type !== "js" ||
       !options.hmrOptions ||

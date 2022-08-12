@@ -37,11 +37,7 @@ async function build() {
     manifestVersion
   })
 
-  const distDirName = `${target}-prod`
-
-  const distDir = resolve(commonPath.buildDirectory, distDirName)
-
-  await emptyDir(distDir)
+  await emptyDir(commonPath.distDirectory)
 
   const bundler = await createParcelBuilder(commonPath, {
     mode: "production",
@@ -54,7 +50,7 @@ async function build() {
       engines: {
         browsers: ["last 1 Chrome version"]
       },
-      distDir
+      distDir: commonPath.distDirectory
     },
     env: plasmoManifest.envConfig.plasmoPublicEnv
   })
@@ -62,13 +58,18 @@ async function build() {
   const result = await bundler.run()
   sLog(`Finished in ${result.buildTime}ms!`)
 
+  await plasmoManifest.postBuild()
+
   if (hasFlag("--zip")) {
     const { default: archiver } = await import("archiver")
     const zip = archiver("zip", {
       zlib: { level: 9 }
     })
 
-    const zipFilePath = resolve(commonPath.buildDirectory, `${distDirName}.zip`)
+    const zipFilePath = resolve(
+      commonPath.buildDirectory,
+      `${commonPath.distDirectoryName}.zip`
+    )
 
     const output = createWriteStream(zipFilePath)
     output.on("close", () => {
@@ -77,7 +78,7 @@ async function build() {
 
     zip.pipe(output)
 
-    zip.directory(distDir, "")
+    zip.directory(commonPath.distDirectory, "")
 
     await zip.finalize()
   }
