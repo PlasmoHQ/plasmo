@@ -1,6 +1,5 @@
 import { paramCase } from "change-case"
 import { createWriteStream } from "fs"
-import { emptyDir } from "fs-extra"
 import { resolve } from "path"
 import { cwd } from "process"
 
@@ -36,8 +35,6 @@ async function build() {
     browser,
     manifestVersion
   })
-
-  await emptyDir(commonPath.distDirectory)
 
   const bundler = await createParcelBuilder(commonPath, {
     mode: "production",
