@@ -25,7 +25,7 @@
     "@plasmo/config": "workspace:*",
     "@types/chrome": "0.0.193",
     "reconnecting-websocket": "4.4.0",
-    "tsup": "6.2.1"
+    "tsup": "6.2.2"
   },
   "dependencies": {
     "@parcel/core": "2.7.0",

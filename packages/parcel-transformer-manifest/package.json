@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.2.1"
+    "tsup": "6.2.2"
   },
   "dependencies": {
     "@mischnic/json-sourcemap": "0.1.0",
