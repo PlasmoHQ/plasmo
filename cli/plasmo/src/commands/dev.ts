@@ -1,6 +1,4 @@
 import { paramCase } from "change-case"
-import { emptyDir } from "fs-extra"
-import { resolve } from "path"
 import { cwd } from "process"
 
 import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
@@ -48,12 +46,6 @@ async function dev() {
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
 
-  const distDirName = `${target}-dev`
-
-  const distDir = resolve(commonPath.buildDirectory, distDirName)
-
-  await emptyDir(distDir)
-
   const bundler = await createParcelBuilder(commonPath, {
     logLevel: "verbose",
     defaultTargetOptions: {
@@ -61,7 +53,7 @@ async function dev() {
       engines: {
         browsers: ["last 1 Chrome version"]
       },
-      distDir
+      distDir: commonPath.distDirectory
     },
     serveOptions: {
       host: "localhost",
@@ -76,13 +68,14 @@ async function dev() {
 
   const { default: chalk } = await import("chalk")
 
-  const bundlerWatcher = await bundler.watch((err, event) => {
+  const bundlerWatcher = await bundler.watch(async (err, event) => {
     if (err) {
       throw err
     }
 
     if (event.type === "buildSuccess") {
       iLog(`✨ Extension reloaded in ${event.buildTime}ms!`)
+      await plasmoManifest.postBuild()
     } else if (event.type === "buildFailure") {
       event.diagnostics.forEach((diagnostic) => {
         eLog(chalk.redBright(diagnostic.message))

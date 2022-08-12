@@ -16,7 +16,6 @@ import { handleDeclarativeNetRequest } from "./handle-declarative-net-request"
 import { handleDeepLOC } from "./handle-deep-loc"
 import { handleDictionaries } from "./handle-dictionaries"
 import { handleLocale } from "./handle-locale"
-import { handleWebAccessibleResources } from "./handle-web-accessible-resources"
 import { normalizeManifest } from "./normalize-manifest"
 import { MV2Schema, MV3Schema } from "./schema"
 import { initState } from "./state"
@@ -27,7 +26,6 @@ async function collectDependencies() {
   await Promise.all([
     handleLocale(),
     handleAction(),
-    handleWebAccessibleResources(),
     handleDeclarativeNetRequest()
   ])
 

@@ -3,7 +3,7 @@
   "bundler": "@plasmohq/parcel-bundler",
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
-    "*.plasmo.manifest.json": ["@parcel/transformer-webextension"],
+    "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
     "data-base64:*": ["...", "@parcel/transformer-inline-string"],
     "*.vue": ["@plasmohq/parcel-transformer-vue3"],
