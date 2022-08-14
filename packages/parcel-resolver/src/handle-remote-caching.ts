@@ -16,7 +16,7 @@ const cookCode = async (target: URL, code: string) => {
   }
 }
 
-export async function remoteCaching({
+export async function handleRemoteCaching({
   specifier,
   dependency,
   options

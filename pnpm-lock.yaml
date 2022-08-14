@@ -1252,6 +1252,7 @@ importers:
       '@plasmohq/parcel-packager': workspace:*
       '@plasmohq/parcel-resolver': workspace:*
       '@plasmohq/parcel-runtime': workspace:*
+      '@plasmohq/parcel-transformer-inject-env': workspace:*
       '@plasmohq/parcel-transformer-manifest': workspace:*
       '@plasmohq/parcel-transformer-svelte3': workspace:*
       '@plasmohq/parcel-transformer-vue3': workspace:*
@@ -1273,6 +1274,7 @@ importers:
       '@plasmohq/parcel-packager': link:../parcel-packager
       '@plasmohq/parcel-resolver': link:../parcel-resolver
       '@plasmohq/parcel-runtime': link:../parcel-runtime
+      '@plasmohq/parcel-transformer-inject-env': link:../parcel-transformer-inject-env
       '@plasmohq/parcel-transformer-manifest': link:../parcel-transformer-manifest
       '@plasmohq/parcel-transformer-svelte3': link:../parcel-transformer-svelte3
       '@plasmohq/parcel-transformer-vue3': link:../parcel-transformer-vue3
@@ -1345,6 +1347,21 @@ importers:
       '@plasmo/config': link:../config
       '@types/chrome': 0.0.193
       reconnecting-websocket: 4.4.0
+      tsup: 6.2.2
+
+  packages/parcel-transformer-inject-env:
+    specifiers:
+      '@parcel/core': 2.7.0
+      '@parcel/plugin': 2.7.0
+      '@parcel/types': 2.7.0
+      '@plasmo/config': workspace:*
+      tsup: 6.2.2
+    dependencies:
+      '@parcel/core': 2.7.0
+      '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
+      '@parcel/types': 2.7.0_@parcel+core@2.7.0
+    devDependencies:
+      '@plasmo/config': link:../config
       tsup: 6.2.2
 
   packages/parcel-transformer-manifest:
@@ -6176,7 +6193,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001374
+      caniuse-lite: 1.0.30001375
       electron-to-chromium: 1.4.204
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
@@ -6332,12 +6349,8 @@ packages:
     resolution: {integrity: sha512-pJYArGHrPp3TUqQzFYRmP/lwJlj8RCbVe3Gd3eJQkAV8SAC6b19XS9BjMvRdvaS8RMkaTN8ZhoHP6S1y8zzwEQ==}
     dev: true
 
-  /caniuse-lite/1.0.30001374:
-    resolution: {integrity: sha512-mWvzatRx3w+j5wx/mpFN5v5twlPrabG8NqX2c6e45LCpymdoGqNvRkRutFUqpRTXKFQFNQJasvK0YT7suW6/Hw==}
-
   /caniuse-lite/1.0.30001375:
     resolution: {integrity: sha512-kWIMkNzLYxSvnjy0hL8w1NOaWNr2rn39RTAVyIwcw8juu60bZDWiF1/loOYANzjtJmy6qPgNmn38ro5Pygagdw==}
-    dev: false
 
   /capital-case/1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}

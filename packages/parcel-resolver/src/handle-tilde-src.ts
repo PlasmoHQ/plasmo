@@ -9,7 +9,7 @@ import {
   state
 } from "./shared"
 
-export async function tildeSrc({
+export async function handleTildeSrc({
   specifier,
   dependency
 }: ResolverOptions): Promise<ResolverResult> {
