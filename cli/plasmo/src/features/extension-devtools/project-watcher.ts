@@ -39,7 +39,7 @@ export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
   }
 
   return subscribe(
-    plasmoManifest.commonPath.currentDirectory,
+    plasmoManifest.commonPath.projectDirectory,
     async (err, events) => {
       if (err) {
         throw err
