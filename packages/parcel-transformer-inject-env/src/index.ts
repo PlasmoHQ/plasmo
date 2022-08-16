@@ -1,6 +1,6 @@
 import { Transformer } from "@parcel/plugin"
 
-const envRegex = /\$(PLASMO_PUBLIC_[(\w+)]+)/gm
+const envRegex = /\$(PLASMO_PUBLIC_[\w+]+)/gm
 
 export default new Transformer({
   async transform({ asset, options }) {
