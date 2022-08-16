@@ -1,4 +1,5 @@
 // Forked from https://github.com/vercel/next.js/blob/canary/packages/next-env/index.ts
+import { constantCase } from "change-case"
 import dotenv from "dotenv"
 import { expand as dotenvExpand } from "dotenv-expand"
 import { existsSync, statSync } from "fs"
@@ -13,15 +14,34 @@ export type LoadedEnvFiles = Array<{
   contents: string
 }>
 
+export class PlasmoPublicEnv {
+  data: Env
+
+  constructor(_env: Env) {
+    this.data = Object.keys(_env)
+      .filter((k) => k.startsWith("PLASMO_PUBLIC_"))
+      .reduce((env, key) => {
+        env[key] = _env[key]
+        return env
+      }, {})
+  }
+
+  extends(rawData: Env) {
+    Object.entries(rawData).forEach(([key, value]) => {
+      this.data[`PLASMO_${constantCase(key)}`] = value
+    })
+    return this
+  }
+}
+
 function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
   const parsed: dotenv.DotenvParseOutput = {}
 
   for (const envFile of loadedEnvFiles) {
     try {
-      let result: dotenv.DotenvConfigOutput = {}
-      result.parsed = dotenv.parse(envFile.contents)
-
-      result = dotenvExpand(result)
+      const result = dotenvExpand({
+        parsed: dotenv.parse(envFile.contents)
+      })
 
       if (result.parsed) {
         iLog(`Loaded env from ${join(dir || "", envFile.path)}`)
@@ -75,12 +95,7 @@ export async function loadEnvConfig(dir: string) {
 
   const combinedEnv = processEnv(envFiles, dir)
 
-  const plasmoPublicEnv = Object.keys(combinedEnv)
-    .filter((k) => k.startsWith("PLASMO_PUBLIC_"))
-    .reduce((env, key) => {
-      env[key] = combinedEnv[key]
-      return env
-    }, {})
+  const plasmoPublicEnv = new PlasmoPublicEnv(combinedEnv)
 
   return { combinedEnv, plasmoPublicEnv, loadedEnvFiles: envFiles }
 }

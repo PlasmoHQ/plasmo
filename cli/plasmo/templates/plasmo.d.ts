@@ -1,3 +1,11 @@
+declare namespace NodeJS {
+  interface ProcessEnv {
+    PLASMO_TARGET: string
+    PLASMO_BROWSER: string
+    PLASMO_MANIFEST_VERSION: string
+  }
+}
+
 declare module "data-text:*" {
   const value: string
   export default value
