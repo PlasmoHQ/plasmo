@@ -1,6 +1,6 @@
 import spawnAsync, { SpawnOptions } from "@expo/spawn-async"
 
-import { vLog } from "@plasmo/utils"
+import { iLog, vLog } from "@plasmo/utils"
 
 export async function initGitRepoAsync(root: string): Promise<boolean> {
   const { default: chalk } = await import("chalk")
@@ -16,6 +16,8 @@ export async function initGitRepoAsync(root: string): Promise<boolean> {
       throw new Error("Unable to initialize git repo. `git` not in PATH.")
     }
   }
+
+  iLog("Initializing git project...")
 
   await spawnAsync("git", ["init"], commonOpt)
 

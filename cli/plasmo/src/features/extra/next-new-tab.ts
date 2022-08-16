@@ -20,10 +20,10 @@ export const generateNewTabManifest = (packageData = null as PackageJSON) => ({
 })
 
 export const nextNewTab = async (commonPath: CommonPath) => {
-  const { currentDirectory, packageFilePath } = commonPath
+  const { projectDirectory, packageFilePath } = commonPath
 
   vLog("Creating a Plasmo + Nextjs based new tab extension")
-  const out = resolve(currentDirectory, "out")
+  const out = resolve(projectDirectory, "out")
 
   const { default: chalk } = await import("chalk")
 
@@ -39,7 +39,7 @@ export const nextNewTab = async (commonPath: CommonPath) => {
 
   const packageData: PackageJSON = await readJson(packageFilePath)
 
-  const extensionDirectory = resolve(currentDirectory, "extension")
+  const extensionDirectory = resolve(projectDirectory, "extension")
   if (await fileExists(extensionDirectory)) {
     const {
       default: { prompt }

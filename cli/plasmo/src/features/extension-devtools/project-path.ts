@@ -37,15 +37,15 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
   }, {}) as Record<string, WatchReason>
 
 export const getProjectPath = (
-  { sourceDirectory: projectDir, packageFilePath, assetsDirectory }: CommonPath,
+  { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,
   uiExt: SupportedUIExt,
   browserTarget: string
 ) => {
   const getIndexList = (moduleName: string, ext = ".ts") => [
-    resolve(projectDir, `${moduleName}.${browserTarget}${ext}`),
-    resolve(projectDir, moduleName, `index.${browserTarget}${ext}`),
-    resolve(projectDir, `${moduleName}${ext}`),
-    resolve(projectDir, moduleName, `index${ext}`)
+    resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
+    resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
+    resolve(sourceDirectory, `${moduleName}${ext}`),
+    resolve(sourceDirectory, moduleName, `index${ext}`)
   ]
 
   const popupIndexList = getIndexList("popup", uiExt)
@@ -59,17 +59,17 @@ export const getProjectPath = (
   const newtabHtmlList = getIndexList("newtab", ".html")
 
   const envFileList = [
-    resolve(projectDir, ".env"),
-    resolve(projectDir, ".env.local"),
-    resolve(projectDir, ".env.development"),
-    resolve(projectDir, ".env.development.local")
+    resolve(sourceDirectory, ".env"),
+    resolve(sourceDirectory, ".env.local"),
+    resolve(sourceDirectory, ".env.development"),
+    resolve(sourceDirectory, ".env.development.local")
   ]
 
   const contentIndexList = [
-    resolve(projectDir, "content.ts"),
-    resolve(projectDir, `content.${browserTarget}.ts`),
-    resolve(projectDir, `content${uiExt}`),
-    resolve(projectDir, `content.${browserTarget}${uiExt}`)
+    resolve(sourceDirectory, "content.ts"),
+    resolve(sourceDirectory, `content.${browserTarget}.ts`),
+    resolve(sourceDirectory, `content${uiExt}`),
+    resolve(sourceDirectory, `content.${browserTarget}${uiExt}`)
   ]
 
   const backgroundIndexList = getIndexList("background")
@@ -92,7 +92,7 @@ export const getProjectPath = (
     [packageFilePath]: WatchReason.PackageJson
   }
 
-  const contentsDirectory = resolve(projectDir, "contents")
+  const contentsDirectory = resolve(sourceDirectory, "contents")
 
   const watchDirectoryEntries = [
     [WatchReason.ContentsDirectory, contentsDirectory],

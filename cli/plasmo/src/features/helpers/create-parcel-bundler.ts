@@ -31,7 +31,7 @@ export const createParcelBuilder = async (
   // @ts-ignore - The typing is wrong: https://github.com/parcel-bundler/parcel/pull/8293
   const packageManager = new ParcelPM.NodePackageManager(
     inputFS,
-    commonPath.currentDirectory,
+    commonPath.projectDirectory,
     // @ts-ignore
     new PackageInstaller()
   )
