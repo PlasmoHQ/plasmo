@@ -1,11 +1,11 @@
-import { paramCase } from "change-case"
 import { createWriteStream } from "fs"
 import { resolve } from "path"
 import { cwd } from "process"
 
-import { getFlag, getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
+import { getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
+import { getTargetData } from "~features/extension-devtools/get-target-data"
 import { nextNewTab } from "~features/extra/next-new-tab"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
@@ -18,9 +18,9 @@ async function build() {
 
   const [internalCmd] = getNonFlagArgvs("build")
 
-  const target = paramCase(getFlag("--target") || "chrome-mv3")
+  const targetData = getTargetData()
 
-  const commonPath = getCommonPath(cwd(), target)
+  const commonPath = getCommonPath(cwd(), targetData.target)
 
   if (internalCmd === "next-new-tab") {
     await nextNewTab(commonPath)
@@ -29,12 +29,7 @@ async function build() {
 
   iLog("Prepare to bundle the extension...")
 
-  const [browser, manifestVersion] = target.split("-")
-
-  const plasmoManifest = await createManifest(commonPath, {
-    browser,
-    manifestVersion
-  })
+  const plasmoManifest = await createManifest(commonPath, targetData)
 
   const bundler = await createParcelBuilder(commonPath, {
     mode: "production",
@@ -49,7 +44,7 @@ async function build() {
       },
       distDir: commonPath.distDirectory
     },
-    env: plasmoManifest.envConfig.plasmoPublicEnv
+    env: plasmoManifest.publicEnv.extends(targetData).data
   })
 
   const result = await bundler.run()

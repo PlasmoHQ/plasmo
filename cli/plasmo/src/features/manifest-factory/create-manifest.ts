@@ -7,13 +7,14 @@ import { vLog } from "@plasmo/utils"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import { generateLocales } from "~features/extension-devtools/generate-locales"
+import type { TargetData } from "~features/extension-devtools/get-target-data"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
 
 export async function createManifest(
   commonPath: CommonPath,
-  { browser = "chrome", manifestVersion = "mv3" }
+  { browser, manifestVersion }: TargetData
 ) {
   vLog("Making sure .plasmo exists")
   await ensureDir(commonPath.dotPlasmoDirectory)
