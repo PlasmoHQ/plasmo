@@ -19,7 +19,7 @@ import {
 } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
-import { createBlankProject } from "~features/extension-devtools/create-project"
+import { ProjectCreator } from "~features/extension-devtools/project-creator"
 import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
@@ -85,14 +85,11 @@ async function init() {
     `Using package manager: ${packageManager.name} ${packageManager?.version}`
   )
 
-  await createBlankProject(commonPath, {
-    packageManager,
-    isExample
-  })
-
-  iLog("Installing dependencies...")
+  const creator = new ProjectCreator(commonPath, packageManager, isExample)
+  await creator.create()
 
   try {
+    iLog("Installing dependencies...")
     await spawnAsync(packageManager.name, ["install"], {
       cwd: projectDirectory,
       stdio: "inherit"
@@ -101,7 +98,6 @@ async function init() {
     wLog(error.message)
   }
 
-  iLog("Initializing git project...")
   if (existsSync(commonPath.gitIgnorePath)) {
     try {
       await initGitRepoAsync(projectDirectory)
