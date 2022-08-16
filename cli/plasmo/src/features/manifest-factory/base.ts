@@ -132,7 +132,7 @@ export abstract class BaseFactory<
   }
 
   async updateEnv() {
-    this.envConfig = await loadEnvConfig(this.commonPath.currentDirectory)
+    this.envConfig = await loadEnvConfig(this.commonPath.projectDirectory)
   }
 
   async updatePackageData() {
@@ -388,7 +388,7 @@ export abstract class BaseFactory<
       if (inputFilePath.includes("*")) {
         // Handling glob...
         const files = await glob(inputFilePath, {
-          cwd: this.commonPath.currentDirectory,
+          cwd: this.commonPath.projectDirectory,
           filesOnly: true
         })
 
@@ -398,7 +398,7 @@ export abstract class BaseFactory<
 
       const resourceFilePath = isAbsolute(inputFilePath)
         ? inputFilePath
-        : resolve(this.commonPath.currentDirectory, inputFilePath)
+        : resolve(this.commonPath.projectDirectory, inputFilePath)
 
       if (!pathExists(resourceFilePath)) {
         return inputFilePath
@@ -417,7 +417,7 @@ export abstract class BaseFactory<
   protected copyNodeModuleFile = async (inputFilePath: string) => {
     try {
       const resourceFilePath = require.resolve(inputFilePath, {
-        paths: [this.commonPath.currentDirectory]
+        paths: [this.commonPath.projectDirectory]
       })
 
       const fileName = basename(resourceFilePath)

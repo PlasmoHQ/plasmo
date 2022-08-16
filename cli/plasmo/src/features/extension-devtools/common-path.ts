@@ -1,15 +1,17 @@
 import { existsSync } from "fs"
-import { resolve } from "path"
+import { basename, resolve } from "path"
 import { cwd } from "process"
 
 export const getCommonPath = (
-  currentDirectory = cwd(),
+  projectDirectory = cwd(),
   target = "chrome-mv3",
   dotPlasmo = ".plasmo"
 ) => {
-  const srcPath = resolve(currentDirectory, "src")
+  const packageName = basename(projectDirectory)
 
-  const buildDirectory = resolve(currentDirectory, "build")
+  const srcPath = resolve(projectDirectory, "src")
+
+  const buildDirectory = resolve(projectDirectory, "build")
 
   const distDirectoryName = `${target}-${
     process.env.NODE_ENV === "production" ? "prod" : "dev"
@@ -17,16 +19,20 @@ export const getCommonPath = (
 
   const distDirectory = resolve(buildDirectory, distDirectoryName)
 
-  const dotPlasmoDirectory = resolve(currentDirectory, dotPlasmo)
+  const dotPlasmoDirectory = resolve(projectDirectory, dotPlasmo)
+
   return {
-    currentDirectory,
+    packageName,
+    projectDirectory,
+
     buildDirectory,
     distDirectory,
     distDirectoryName,
 
-    sourceDirectory: existsSync(srcPath) ? srcPath : currentDirectory,
-    packageFilePath: resolve(currentDirectory, "package.json"),
-    assetsDirectory: resolve(currentDirectory, "assets"),
+    sourceDirectory: existsSync(srcPath) ? srcPath : projectDirectory,
+    packageFilePath: resolve(projectDirectory, "package.json"),
+    gitIgnorePath: resolve(projectDirectory, ".gitignore"),
+    assetsDirectory: resolve(projectDirectory, "assets"),
 
     dotPlasmoDirectory,
     cacheDirectory: resolve(dotPlasmoDirectory, "cache"),

@@ -1,5 +1,6 @@
 import { sentenceCase } from "change-case"
 import { userInfo } from "os"
+import getPackageJson from "package-json"
 
 import type { ExtensionManifest } from "@plasmo/constants"
 
@@ -35,7 +36,7 @@ export const generatePackage = ({
       "@types/react-dom": "18.0.6",
       prettier: "2.7.1",
       typescript: "4.7.4"
-    },
+    } as Record<string, string>,
     manifest: {
       // permissions: [] as ValidManifestPermission[],
       host_permissions: ["https://*/*"]
@@ -54,4 +55,23 @@ export const generatePackage = ({
 export type PackageJSON = ReturnType<typeof generatePackage> & {
   homepage?: string
   contributors?: string[]
+}
+
+export const resolveWorkspaceToLatestSemver = async (
+  dependencies: Record<string, string>
+) => {
+  const output = {}
+
+  await Promise.all(
+    Object.entries(dependencies).map(async ([key, value]) => {
+      if (value !== "workspace:*") {
+        output[key] = value
+      } else {
+        const remotePackageData = await getPackageJson(key)
+        output[key] = remotePackageData.version
+      }
+    })
+  )
+
+  return output
 }

@@ -1,10 +1,9 @@
 import spawnAsync from "@expo/spawn-async"
 import { paramCase } from "change-case"
 import { existsSync } from "fs"
-import { copy, writeJson } from "fs-extra"
-import { mkdir, writeFile } from "fs/promises"
+import { mkdir } from "fs/promises"
 import { createQuestId } from "mnemonic-id"
-import { basename, resolve } from "path"
+import { resolve } from "path"
 import { cwd } from "process"
 
 import {
@@ -19,12 +18,8 @@ import {
   wLog
 } from "@plasmo/utils"
 
-import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
-import {
-  PackageJSON,
-  generatePackage
-} from "~features/extension-devtools/package-file"
-import { getTemplatePath } from "~features/extension-devtools/template-path"
+import { getCommonPath } from "~features/extension-devtools/common-path"
+import { ProjectCreator } from "~features/extension-devtools/project-creator"
 import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
@@ -60,11 +55,11 @@ async function init() {
   )
   vLog("Project directory:", projectDirectory)
 
-  // For final naming
-  const packageName = basename(projectDirectory)
-  vLog("Package name:", packageName)
+  const commonPath = getCommonPath(projectDirectory)
 
-  if (isExample && !packageName.startsWith("with-")) {
+  vLog("Package name:", commonPath.packageName)
+
+  if (isExample && !commonPath.packageName.startsWith("with-")) {
     throw new Error("Example extensions must have the `with-` prefix")
   }
 
@@ -90,51 +85,11 @@ async function init() {
     `Using package manager: ${packageManager.name} ${packageManager?.version}`
   )
 
-  const packageFilePath = resolve(projectDirectory, "package.json")
-
-  const packageData = generatePackage({
-    name: packageName,
-    packageManager
-  }) as PackageJSON
-
-  if (isExample) {
-    packageData.dependencies["plasmo"] = "workspace:*"
-    packageData.devDependencies["@plasmohq/prettier-plugin-sort-imports"] =
-      "workspace:*"
-    packageData.contributors = [packageData.author]
-    packageData.author = "Plasmo Corp. <foss@plasmo.com>"
-
-    delete packageData.packageManager
-  }
-
-  await writeJson(packageFilePath, packageData, {
-    spaces: 2
-  })
-
-  iLog(`Copying template files...`)
-
-  const { initTemplatePath, bppYaml } = getTemplatePath()
-
-  const bppSubmitWorkflowYamlPath = resolve(
-    projectDirectory,
-    ".github",
-    "workflows",
-    "submit.yml"
-  )
-
-  const gitIgnorePath = resolve(projectDirectory, ".gitignore")
-
-  await Promise.all([
-    copy(initTemplatePath, projectDirectory),
-    !hasFlag("--no-bpp") &&
-      !isExample &&
-      copy(bppYaml, bppSubmitWorkflowYamlPath),
-    writeFile(gitIgnorePath, generateGitIgnore())
-  ])
-
-  iLog("Installing dependencies...")
+  const creator = new ProjectCreator(commonPath, packageManager, isExample)
+  await creator.create()
 
   try {
+    iLog("Installing dependencies...")
     await spawnAsync(packageManager.name, ["install"], {
       cwd: projectDirectory,
       stdio: "inherit"
@@ -143,8 +98,7 @@ async function init() {
     wLog(error.message)
   }
 
-  iLog("Initializing git project...")
-  if (existsSync(gitIgnorePath)) {
+  if (existsSync(commonPath.gitIgnorePath)) {
     try {
       await initGitRepoAsync(projectDirectory)
     } catch (error) {
@@ -158,7 +112,9 @@ async function init() {
     "Your extension is ready in: ",
     chalk.yellowBright(projectDirectory),
     `\n\n    To start hacking, run:\n\n`,
-    projectDirectory === currentDirectory ? "" : `      cd ${packageName}\n`,
+    projectDirectory === currentDirectory
+      ? ""
+      : `      cd ${commonPath.packageName}\n`,
     `      ${packageManager.name} ${
       packageManager.name === "npm" ? "run dev" : "dev"
     }\n`,
