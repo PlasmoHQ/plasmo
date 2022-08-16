@@ -1,9 +1,9 @@
-import { paramCase } from "change-case"
 import { cwd } from "process"
 
 import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
+import { getTargetData } from "~features/extension-devtools/get-target-data"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
@@ -21,17 +21,10 @@ async function dev() {
 
   iLog("Starting the extension development server...")
 
-  // firefox-mv2
-  const target = paramCase(getFlag("--target") || "chrome-mv3")
+  const targetData = getTargetData()
+  const commonPath = getCommonPath(cwd(), targetData.target)
 
-  const commonPath = getCommonPath(cwd(), target)
-
-  const [browser, manifestVersion] = target.split("-")
-
-  const plasmoManifest = await createManifest(commonPath, {
-    browser,
-    manifestVersion
-  })
+  const plasmoManifest = await createManifest(commonPath, targetData)
 
   const projectWatcher = isImpulse
     ? null
@@ -63,7 +56,7 @@ async function dev() {
       host: "localhost",
       port: hmrPort
     },
-    env: plasmoManifest.envConfig.plasmoPublicEnv
+    env: plasmoManifest.publicEnv.extends(targetData).data
   })
 
   const { default: chalk } = await import("chalk")

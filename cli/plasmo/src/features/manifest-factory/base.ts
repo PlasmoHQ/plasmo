@@ -53,6 +53,9 @@ export abstract class BaseFactory<
   }
 
   envConfig: EnvConfig
+  public get publicEnv() {
+    return this.envConfig.plasmoPublicEnv
+  }
 
   #commonPath: CommonPath
   public get commonPath(): CommonPath {
