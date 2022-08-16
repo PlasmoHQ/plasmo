@@ -1,4 +1,5 @@
 import spawnAsync from "@expo/spawn-async"
+import { existsSync } from "fs"
 import { copy, readJson, writeJson } from "fs-extra"
 import { writeFile } from "fs/promises"
 import { userInfo } from "os"
@@ -58,20 +59,32 @@ export class ProjectCreator {
     const tempDirectory = temporaryDirectory()
     vLog(`Download examples to temporary directory: ${tempDirectory}`)
 
-    // download the examples
-    await spawnAsync(
-      "git",
-      [
-        "clone",
-        "--depth",
-        "1",
-        "https://github.com/PlasmoHQ/examples.git",
-        "."
-      ],
-      { cwd: tempDirectory, ignoreStdio: true }
-    )
+    try {
+      // download the examples
+      await spawnAsync(
+        "git",
+        [
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/PlasmoHQ/examples.git",
+          "."
+        ],
+        { cwd: tempDirectory, ignoreStdio: true }
+      )
+    } catch (error) {
+      if (error.errno === "ENOENT") {
+        throw new Error("Unable to clone example repo. `git` is not in PATH.")
+      }
+    }
 
     const exampleDirectory = resolve(tempDirectory, exampleName)
+
+    if (!existsSync(exampleDirectory)) {
+      throw new Error(
+        `Example ${exampleName} not found. You may file an example request at: https://docs.plasmo.com/exp`
+      )
+    }
 
     vLog("Copy example to project directory")
     await Promise.all([
