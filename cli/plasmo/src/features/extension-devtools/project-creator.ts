@@ -21,7 +21,7 @@ import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
 import type { CommonPath } from "./common-path"
 
-const regex = /--with-[\w|-]+/
+const regex = /(?:^--with-)(?:\w+-?)+(?:[^-]$)/
 
 export class ProjectCreator {
   commonPath: CommonPath
