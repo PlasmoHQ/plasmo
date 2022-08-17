@@ -97,7 +97,7 @@ ext-dir
 ...
 ```
 
-Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem Sie dieser Anleitung folgen](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
+Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem du dieser Anleitung folgst](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
 
 ## Community
 
