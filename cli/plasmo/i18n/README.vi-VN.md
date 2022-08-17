@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/readme.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | Tiếng Việt
+  <a href="/cli/plasmo/readme.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | Tiếng Việt | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a>
 </p>
 
 # Plasmo Framework
