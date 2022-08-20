@@ -36,7 +36,7 @@ export default new Packager({
     const deps = manifestAsset.getDependencies()
     const war = []
 
-    const isMv2 = manifest.version === 2
+    const isMV2 = manifest.manifest_version === 2
 
     for (const contentScript of manifest.content_scripts || []) {
       const srcBundles = deps
@@ -86,7 +86,7 @@ export default new Packager({
       }
     }
 
-    if (!isMv2 && options.hmrOptions) {
+    if (!isMV2 && options.hmrOptions) {
       war.push({
         matches: ["<all_urls>"],
         resources: ["__parcel_hmr_proxy__"]
@@ -94,7 +94,7 @@ export default new Packager({
     }
 
     const warResult = (manifest.web_accessible_resources || []).concat(
-      isMv2 ? [...new Set(war.flatMap((entry) => entry.resources))] : war
+      isMV2 ? [...new Set(war.flatMap((entry) => entry.resources))] : war
     )
 
     if (warResult.length > 0) {

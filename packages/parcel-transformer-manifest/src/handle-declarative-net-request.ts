@@ -17,7 +17,7 @@ export async function handleDeclarativeNetRequest() {
 
   program.declarative_net_request.rule_resources = rrs.map((resources, i) => {
     resources.path = asset.addURLDependency(resources.path, {
-      pipeline: "raw",
+      pipeline: "raw-env",
       loc: {
         filePath,
         ...getJSONSourceLocation(

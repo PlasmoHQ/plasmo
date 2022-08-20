@@ -4,11 +4,14 @@
   "resolvers": ["@plasmohq/parcel-resolver", "..."],
   "transformers": {
     "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
-    "data-env:*": [
+
+    "data-env:*": ["@plasmohq/parcel-transformer-inject-env", "..."],
+    "data-text-env:*": [
       "@plasmohq/parcel-transformer-inject-env",
       "...",
       "@parcel/transformer-inline-string"
     ],
+
     "data-text:*": ["...", "@parcel/transformer-inline-string"],
     "data-base64:*": ["...", "@parcel/transformer-inline-string"],
 
