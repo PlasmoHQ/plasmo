@@ -32,10 +32,10 @@ const getMajorVersion = async (version: string) => {
         const packageJson = await readJson(
           resolve(cwd(), versionData, "package.json")
         )
-        return semver.major(packageJson.version)
+        return semver.coerce(packageJson.version).major
     }
   } else {
-    return semver.major(version)
+    return semver.coerce(version).major
   }
 }
 
