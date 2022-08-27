@@ -46,21 +46,27 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
   }
 
   protected prepareOverrideManifest = () => {
+    const { manifest } = this.packageData
     const output = {
-      ...this.packageData.manifest
-    }
+      ...manifest
+    } as unknown as ExtensionManifestV2
 
     // Merge host permissions into permissions
     output.permissions = [
-      ...(output.permissions || []),
-      ...(output.host_permissions || [])
+      ...(manifest.permissions || []),
+      ...(manifest.host_permissions || [])
     ] as any
 
-    if (output.host_permissions) {
-      delete output.host_permissions
+    if ("host_permissions" in output) {
+      delete output["host_permissions"]
     }
 
-    return output as any
+    if ("content_security_policy" in manifest) {
+      output.content_security_policy =
+        manifest.content_security_policy.extension_pages
+    }
+
+    return output
   }
 
   protected resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
