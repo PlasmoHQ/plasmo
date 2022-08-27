@@ -51,7 +51,7 @@ async function createShadowContainer() {
   container.id = "plasmo-shadow-container"
 
   container.style.cssText = `
-    z-index: 2147483647 !important;
+    z-index: 2147483647;
     position: absolute;
   `
 
