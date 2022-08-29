@@ -11,15 +11,17 @@
   "scripts": {
     "dev:cli": "turbo run dev --filter=plasmo",
     "build": "turbo run build",
-    "build:packages": "turbo run build --filter \"./packages/**\"",
     "build:cli": "turbo run build --filter=plasmo",
+    "build:packages": "turbo run build --filter \"./packages/**\"",
     "build:examples": "pnpm --filter \"./examples/**\" --parallel -r build",
-    "patch:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version -- patch",
-    "patch:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version -- patch",
-    "publish:packages": "pnpm --filter \"./packages/**\" --parallel -r publish",
+    "publish:packages": "pnpm --filter \"./packages/**\" publish",
+    "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish",
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
     "publish:cli:canary": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag canary",
-    "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish"
+    "### version script usage example": "pnpm v:cli patch",
+    "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version",
+    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version",
+    "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
