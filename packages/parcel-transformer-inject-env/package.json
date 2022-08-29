@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-inject-env",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Plasmo Parcel Transformer to inject environment variables",
   "files": [
     "dist"
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.2.2"
+    "tsup": "6.2.3"
   },
   "dependencies": {
     "@parcel/core": "2.7.0",
