@@ -16,7 +16,7 @@
     "build:examples": "pnpm --filter \"./examples/**\" --parallel -r build",
     "patch:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version -- patch",
     "patch:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version -- patch",
-    "publish:packages": "pnpm --parallel --filter \"./packages/**\" -r publish",
+    "publish:packages": "pnpm --filter \"./packages/**\" --parallel -r publish",
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
     "publish:cli:canary": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag canary",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish"
