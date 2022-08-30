@@ -6,37 +6,41 @@ declare namespace NodeJS {
   }
 }
 
-declare module "data-text:*" {
-  const value: string
-  export default value
+declare module "*.json" {
+  const data: Record<string, any>
+  export default data
 }
 
-declare module "data-base64:*" {
-  const value: string
-  export default value
-}
-
-declare module "data-env:*" {
-  const value: string
-  export default value
-}
-
-declare module "data-text-env:*" {
-  const value: string
-  export default value
-}
-
-declare module "raw:*" {
-  const value: string
-  export default value
-}
-
-declare module "raw-env:*" {
-  const value: string
-  export default value
+declare module "*.module.css" {
+  const styles: Record<string, string>
+  export default styles
 }
 
 declare module "url:*" {
   const value: string
   export default value
+}
+
+declare module "data-text:*" {
+  export * from "url:*"
+}
+
+declare module "data-base64:*" {
+  export * from "url:*"
+}
+
+declare module "data-env:*" {
+  export * from "url:*"
+}
+
+declare module "data-text-env:*" {
+  export * from "url:*"
+}
+
+declare module "raw:*" {
+  export * from "url:*"
+}
+
+declare module "raw-env:*" {
+  export * from "url:*"
 }
