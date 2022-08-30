@@ -6,11 +6,6 @@ declare namespace NodeJS {
   }
 }
 
-declare module "*.json" {
-  const data: Record<string, any>
-  export default data
-}
-
 declare module "*.module.css" {
   const styles: Record<string, string>
   export default styles
