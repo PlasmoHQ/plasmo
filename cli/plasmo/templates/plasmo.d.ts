@@ -16,6 +16,26 @@ declare module "data-base64:*" {
   export default value
 }
 
+declare module "data-env:*" {
+  const value: string
+  export default value
+}
+
+declare module "data-text-env:*" {
+  const value: string
+  export default value
+}
+
+declare module "raw:*" {
+  const value: string
+  export default value
+}
+
+declare module "raw-env:*" {
+  const value: string
+  export default value
+}
+
 declare module "url:*" {
   const value: string
   export default value
