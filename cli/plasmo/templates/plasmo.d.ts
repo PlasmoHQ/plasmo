@@ -17,25 +17,31 @@ declare module "url:*" {
 }
 
 declare module "data-text:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
 
 declare module "data-base64:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
 
 declare module "data-env:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
 
 declare module "data-text-env:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
 
 declare module "raw:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
 
 declare module "raw-env:*" {
-  export * from "url:*"
+  const value: string
+  export default value
 }
