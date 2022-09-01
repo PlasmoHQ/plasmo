@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "@types/chrome": "0.0.195",
+    "@types/chrome": "0.0.196",
     "reconnecting-websocket": "4.4.0",
     "tsup": "6.2.3"
   },
