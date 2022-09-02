@@ -1,6 +1,6 @@
 {
   "name": "create-plasmo",
-  "version": "0.52.4",
+  "version": "0.52.5",
   "description": "Create Plasmo Framework Browser Extension",
   "main": "dist/index.js",
   "bin": "dist/index.js",
