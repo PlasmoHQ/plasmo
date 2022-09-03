@@ -2,7 +2,7 @@ import { ensureDir, existsSync } from "fs-extra"
 import { readdir } from "fs/promises"
 import { resolve } from "path"
 
-import { vLog } from "@plasmo/utils"
+import { vLog, wLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
@@ -39,7 +39,7 @@ export async function createManifest(
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
-  const [hasPopup, hasOptions, hasNewtab, hasDevtools] = await Promise.all([
+  const hasEntrypoints = await Promise.all([
     manifestData.scaffolder.initTemplateFiles("popup"),
     manifestData.scaffolder.initTemplateFiles("options"),
     manifestData.scaffolder.initTemplateFiles("newtab"),
@@ -56,6 +56,12 @@ export async function createManifest(
         )
       )
   ])
+  
+  if (!hasEntrypoints.includes(true)) {
+    wLog("Unable to find any entrypoints. You may end up with an empty extension...")
+  }
+  
+  const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
 
   manifestData
     .togglePopup(hasPopup)
