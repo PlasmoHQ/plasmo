@@ -37,11 +37,11 @@ const iconState = {
 }
 
 /**
- * optionally handle other icon name variant too like icon-512 or icon-512x512
- * optionally, handle larger icon such as icon-1024 or just icon
- * optionally resolve icon512.${process.env.NODE_ENV}.png as well
-  // process.env.NODE_ENV === "development"
- * We stick to png for now
+ * Generate manifest icons from an icon in the assets directory
+ * - One icon will be picked in the set { `icon`, `icon512`, `icon-512`, `icon-512x512`, `icon1024`, `icon-1024`, `icon-1024x1024` }
+ * - Optionally, it will resolve `process.env.NODE_ENV` suffix, e.g: `icon.development.png`, `icon.production.png`
+ * - The suffix is prioritized. Thus, if `icon512.development.png` exists, it will be picked over `icon512.png`
+ * - Only png is supported
  */
 export async function generateIcons({
   assetsDirectory,
@@ -64,9 +64,6 @@ export async function generateIcons({
   vLog("Make sure generated assets directory exists")
   await ensureDir(genAssetsDirectory)
 
-  // TODO: hash check the baseIcon to skip this routine?
-  vLog(`${baseIconPath} found, create resized icons in gen-assets`)
-
   const baseIcon = sharp(baseIconPath)
   const baseIconHash = getMd5RevHash(await baseIcon.toBuffer())
 
@@ -75,12 +72,14 @@ export async function generateIcons({
     return
   }
 
+  vLog(`${baseIconPath} found, create resized icons in gen-assets`)
+
   iconState.baseIconHash = baseIconHash
 
   await Promise.all(
     [128, 48, 32, 16].map((width) => {
-      // Cache the dev provided icon paths for each width
       if (iconState.devProvidedIcons[width] === undefined) {
+        vLog(`Caching dev provided icon paths for size: ${width}`)
         const devIconPath = getPrioritizedIconPaths(getIconNameVariants(width))
         iconState.devProvidedIcons[width] = devIconPath.map((name) =>
           resolve(assetsDirectory, name)
