@@ -125,6 +125,7 @@ export abstract class BaseFactory<
     this.data = {}
     this.data.icons = {
       "16": "./gen-assets/icon16.png",
+      "32": "./gen-assets/icon32.png",
       "48": "./gen-assets/icon48.png",
       "128": "./gen-assets/icon128.png"
     }

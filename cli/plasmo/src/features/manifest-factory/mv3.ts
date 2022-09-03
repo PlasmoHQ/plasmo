@@ -13,6 +13,7 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifest> {
     this.data.action = {
       default_icon: {
         "16": "./gen-assets/icon16.png",
+        "32": "./gen-assets/icon32.png",
         "48": "./gen-assets/icon48.png"
       }
     }
