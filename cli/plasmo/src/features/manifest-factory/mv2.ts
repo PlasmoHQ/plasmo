@@ -14,6 +14,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
     this.data.browser_action = {
       default_icon: {
         "16": "./gen-assets/icon16.png",
+        "32": "./gen-assets/icon32.png",
         "48": "./gen-assets/icon48.png"
       }
     }
