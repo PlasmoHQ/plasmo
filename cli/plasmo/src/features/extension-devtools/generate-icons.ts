@@ -8,9 +8,14 @@ import type { CommonPath } from "./common-path"
 
 export async function generateIcons(
   { assetsDirectory, genAssetsDirectory }: CommonPath,
-  iconName = "icon512.png"
+  iconName = process.env.NODE_ENV === "development"
+    ? "icon512.development.png"
+    : "icon512.png"
 ) {
-  const image512Path = resolve(assetsDirectory, iconName)
+  let image512Path = resolve(assetsDirectory, iconName)
+  image512Path = existsSync(image512Path)
+    ? image512Path
+    : resolve(assetsDirectory, "icon512.png")
 
   if (existsSync(image512Path)) {
     vLog("Make sure generated assets directory exists")
