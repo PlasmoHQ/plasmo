@@ -22,7 +22,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
   togglePopup = (enable = false) => {
     if (enable) {
-      this.data.browser_action.default_popup = "./static/popup/index.html"
+      this.data.browser_action.default_popup = "./popup.html"
     } else {
       delete this.data.browser_action.default_popup
     }

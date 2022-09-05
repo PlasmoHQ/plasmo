@@ -21,7 +21,7 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifest> {
 
   togglePopup = (enable = false) => {
     if (enable) {
-      this.data.action.default_popup = "./static/popup/index.html"
+      this.data.action.default_popup = "./popup.html"
     } else {
       delete this.data.action.default_popup
     }

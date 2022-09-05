@@ -194,7 +194,7 @@ export abstract class BaseFactory<
   toggleOptions = (enable = false) => {
     if (enable) {
       this.data.options_ui = {
-        page: "./static/options/index.html",
+        page: "./options.html",
         open_in_tab: true
       }
     } else {
@@ -210,7 +210,7 @@ export abstract class BaseFactory<
     if (enable) {
       this.data.chrome_url_overrides = {
         ...this.data.chrome_url_overrides,
-        [page]: "./static/newtab/index.html"
+        [page]: `./${page}.html`
       }
     } else {
       delete this.data.chrome_url_overrides?.[page]
@@ -222,7 +222,7 @@ export abstract class BaseFactory<
 
   toggleDevtools = (enable = false) => {
     if (enable) {
-      this.data.devtools_page = "./static/devtools/index.html"
+      this.data.devtools_page = "./devtools.html"
     } else {
       delete this.data.devtools_page
     }
