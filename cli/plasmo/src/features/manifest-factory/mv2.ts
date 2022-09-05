@@ -31,7 +31,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
   toggleBackground = (path: string, enable = false) => {
     if (path === undefined) {
-      return this
+      return false
     }
 
     if (enable) {
@@ -43,7 +43,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
       delete this.data.background
     }
 
-    return this
+    return enable
   }
 
   protected prepareOverrideManifest = () => {
