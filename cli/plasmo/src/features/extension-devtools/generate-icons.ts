@@ -27,8 +27,6 @@ const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
     .map((name) => [`${name}.${process.env.NODE_ENV}.png`, `${name}.png`])
     .flat()
 
-const iconNameList = getPrioritizedIconPaths()
-
 // Use this to cache the path resolving result
 const iconState = {
   baseIconPaths: [] as string[],
@@ -49,6 +47,7 @@ export async function generateIcons({
 }: CommonPath) {
   // Precalculate the base icon paths
   if (iconState.baseIconPaths.length === 0) {
+    const iconNameList = getPrioritizedIconPaths()
     iconState.baseIconPaths = iconNameList.map((name) =>
       resolve(assetsDirectory, name)
     )
