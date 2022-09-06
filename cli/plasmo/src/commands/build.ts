@@ -38,7 +38,7 @@ async function build() {
     defaultTargetOptions: {
       shouldOptimize: true,
       shouldScopeHoist: true,
-      sourceMaps: false,
+      sourceMaps: hasFlag("--source-maps"),
       engines: {
         browsers: ["last 1 Chrome version"]
       },
