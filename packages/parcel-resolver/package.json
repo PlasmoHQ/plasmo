@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
@@ -29,6 +29,6 @@
     "@parcel/core": "2.7.0",
     "@parcel/hash": "2.7.0",
     "@parcel/plugin": "2.7.0",
-    "got": "12.3.1"
+    "got": "12.4.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.53.0-alpha.1",
+  "version": "0.53.0",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -48,7 +48,7 @@
     "dotenv-expand": "9.0.0",
     "events": "3.3.0",
     "get-port": "6.1.2",
-    "got": "12.3.1",
+    "got": "12.4.1",
     "inquirer": "9.1.1",
     "is-path-inside": "4.0.0",
     "mnemonic-id": "3.2.7",
@@ -56,7 +56,7 @@
     "package-json": "8.1.0",
     "process": "0.11.10",
     "semver": "7.3.7",
-    "sharp": "0.30.7",
+    "sharp": "0.31.0",
     "tempy": "3.0.0",
     "tiny-glob": "0.2.9",
     "typescript": "4.8.2"

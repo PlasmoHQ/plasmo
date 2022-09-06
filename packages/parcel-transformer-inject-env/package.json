@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-inject-env",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plasmo Parcel Transformer to inject environment variables",
   "files": [
     "dist"
