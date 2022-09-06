@@ -1,5 +1,5 @@
-import { existsSync } from "fs"
-import { copy, pathExists, readJson, writeJson } from "fs-extra"
+import { copy, existsSync, pathExists, readJson, writeJson } from "fs-extra"
+import { readdir } from "fs/promises"
 import createHasher from "node-object-hash"
 import {
   basename,
@@ -189,12 +189,12 @@ export abstract class BaseFactory<
   }
 
   abstract togglePopup: (enable?: boolean) => this
-  abstract toggleBackground: (path: string, enable?: boolean) => this
+  abstract toggleBackground: (path: string, enable?: boolean) => boolean
 
   toggleOptions = (enable = false) => {
     if (enable) {
       this.data.options_ui = {
-        page: "./static/options/index.html",
+        page: "./options.html",
         open_in_tab: true
       }
     } else {
@@ -210,7 +210,7 @@ export abstract class BaseFactory<
     if (enable) {
       this.data.chrome_url_overrides = {
         ...this.data.chrome_url_overrides,
-        [page]: "./static/newtab/index.html"
+        [page]: `./${page}.html`
       }
     } else {
       delete this.data.chrome_url_overrides?.[page]
@@ -222,7 +222,7 @@ export abstract class BaseFactory<
 
   toggleDevtools = (enable = false) => {
     if (enable) {
-      this.data.devtools_page = "./static/devtools/index.html"
+      this.data.devtools_page = "./devtools.html"
     } else {
       delete this.data.devtools_page
     }
@@ -231,19 +231,19 @@ export abstract class BaseFactory<
 
   toggleContentScript = async (path: string, enable = false) => {
     if (path === undefined) {
-      return
+      return false
     }
 
     const ext = extname(path)
 
     if (!this.#extSet.has(ext)) {
-      return
+      return false
     }
 
     const subExt = getSubExt(path)
     // Ignore if path is browser specific and does not match browser
     if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
-      return
+      return false
     }
 
     // Ignore if path is browser generic and there is a browser specific path
@@ -251,7 +251,7 @@ export abstract class BaseFactory<
       subExt.length === 0 &&
       existsSync(path.replace(ext, `.${this.#browser}${ext}`))
     ) {
-      return
+      return false
     }
 
     if (enable) {
@@ -300,8 +300,25 @@ export abstract class BaseFactory<
     } else {
       this.contentScriptMap.delete(path)
     }
+    return enable
+  }
 
-    return this
+  addContentScriptsDirectory = async (contentsDirectory: string) => {
+    const hasContentsDirectory = existsSync(contentsDirectory)
+    if (!hasContentsDirectory) {
+      return false
+    }
+
+    return readdir(contentsDirectory, { withFileTypes: true })
+      .then((files) =>
+        Promise.all(
+          files
+            .filter((f) => f.isFile())
+            .map((f) => resolve(contentsDirectory, f.name))
+            .map((filePath) => this.toggleContentScript(filePath, true))
+        )
+      )
+      .then((results) => results.includes(true))
   }
 
   write = (force = false) => {

@@ -1,6 +1,4 @@
 import { ensureDir, existsSync } from "fs-extra"
-import { readdir } from "fs/promises"
-import { resolve } from "path"
 
 import { vLog, wLog } from "@plasmo/utils"
 
@@ -34,8 +32,6 @@ export async function createManifest(
   const { contentIndexList, contentsDirectory, backgroundIndexList } =
     manifestData.projectPath
 
-  const hasContentsDirectory = existsSync(contentsDirectory)
-
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
@@ -46,21 +42,15 @@ export async function createManifest(
     manifestData.scaffolder.initTemplateFiles("devtools"),
     manifestData.toggleContentScript(contentIndex, true),
     manifestData.toggleBackground(backgroundIndex, true),
-    hasContentsDirectory &&
-      readdir(contentsDirectory, { withFileTypes: true }).then((files) =>
-        Promise.all(
-          files
-            .filter((f) => f.isFile())
-            .map((f) => resolve(contentsDirectory, f.name))
-            .map((filePath) => manifestData.toggleContentScript(filePath, true))
-        )
-      )
+    manifestData.addContentScriptsDirectory(contentsDirectory)
   ])
-  
+
   if (!hasEntrypoints.includes(true)) {
-    wLog("Unable to find any entrypoints. You may end up with an empty extension...")
+    wLog(
+      "Unable to find any entrypoints. You may end up with an empty extension..."
+    )
   }
-  
+
   const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
 
   manifestData

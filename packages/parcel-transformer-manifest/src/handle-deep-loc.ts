@@ -41,24 +41,28 @@ export const handleDeepLOC = () => {
     const lastLoc = loc[loc.length - 1]
     const obj = programPtr[lastLoc]
 
-    if (typeof obj == "string")
+    if (typeof obj === "string") {
+      const ext = extname(obj)
       programPtr[lastLoc] = asset.addURLDependency(obj, {
         bundleBehavior: "isolated",
         loc: {
           filePath,
           ...getJSONSourceLocation(ptrs[location], "value")
         },
-        pipeline: extname(obj) === ".json" ? "raw" : undefined
+        needsStableName: ext === ".html",
+        pipeline: ext === ".json" ? "raw" : undefined
       })
-    else {
+    } else {
       for (const k of Object.keys(obj)) {
+        const ext = extname(obj[k])
         obj[k] = asset.addURLDependency(obj[k], {
           bundleBehavior: "isolated",
           loc: {
             filePath,
             ...getJSONSourceLocation(ptrs[location + "/" + k], "value")
           },
-          pipeline: extname(obj[k]) === ".json" ? "raw" : undefined
+          needsStableName: ext === ".html",
+          pipeline: ext === ".json" ? "raw" : undefined
         })
       }
     }

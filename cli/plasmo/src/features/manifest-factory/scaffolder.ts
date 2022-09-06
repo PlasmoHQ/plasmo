@@ -36,52 +36,53 @@ export class Scaffolder {
     const indexFile = indexList.find(existsSync)
     const htmlFile = htmlList.find(existsSync)
 
-    const staticModulePath = resolve(
-      this.#plasmoManifest.commonPath.staticDirectory,
-      uiPageName
-    )
+    const { staticDirectory } = this.#plasmoManifest.commonPath
+
     // Generate the static diretory
-    await ensureDir(staticModulePath)
+    await ensureDir(staticDirectory)
 
     const hasIndex = indexFile !== undefined
 
     // console.log({ indexFile, hasIndex })
 
     const indexImport = hasIndex
-      ? toPosix(relative(staticModulePath, indexFile))
+      ? toPosix(relative(staticDirectory, indexFile))
       : `~${uiPageName}`
 
+    const uiPageModulePath = resolve(
+      staticDirectory,
+      `${uiPageName}${this.#mountExt}`
+    )
+
     await Promise.all([
-      this.#mirrorGenerate(`index${this.#mountExt}`, staticModulePath, {
+      this.#cachedGenerate(`index${this.#mountExt}`, uiPageModulePath, {
         __plasmo_import_module__: indexImport
       }),
-      this.createPageHtml(uiPageName, htmlFile, staticModulePath)
+      this.createPageHtml(uiPageName, htmlFile)
     ])
 
     return hasIndex
   }
 
-  createPageHtml = async (
-    uiPageName: ExtensionUIPage,
-    htmlFile = "",
-    _staticModulePath = ""
-  ) => {
-    const staticModulePath =
-      _staticModulePath ||
-      resolve(this.#plasmoManifest.commonPath.staticDirectory, uiPageName)
+  createPageHtml = async (uiPageName: ExtensionUIPage, htmlFile = "") => {
+    const outputHtmlPath = resolve(
+      this.#plasmoManifest.commonPath.dotPlasmoDirectory,
+      `${uiPageName}.html`
+    )
 
     const templateReplace = {
-      __plasmo_static_index_title__: this.#plasmoManifest.name
+      __plasmo_static_index_title__: this.#plasmoManifest.name,
+      __plasmo_static_ui_name__: uiPageName
     }
 
     return htmlFile
-      ? this.#copyGenerate(htmlFile, resolve(staticModulePath, "index.html"), {
+      ? this.#copyGenerate(htmlFile, outputHtmlPath, {
           ...templateReplace,
-          "</body>": `<div id="root"></div><script src="./index${
+          "</body>": `<div id="root"></div><script src="./static/${uiPageName}${
             this.#mountExt
           }" type="module"></script></body>`
         })
-      : this.#mirrorGenerate("index.html", staticModulePath, templateReplace)
+      : this.#cachedGenerate("index.html", outputHtmlPath, templateReplace)
   }
 
   createContentScriptMount = async (module: ParsedPath) => {

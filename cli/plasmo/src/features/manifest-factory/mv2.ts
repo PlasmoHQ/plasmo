@@ -22,7 +22,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
   togglePopup = (enable = false) => {
     if (enable) {
-      this.data.browser_action.default_popup = "./static/popup/index.html"
+      this.data.browser_action.default_popup = "./popup.html"
     } else {
       delete this.data.browser_action.default_popup
     }
@@ -31,7 +31,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
   toggleBackground = (path: string, enable = false) => {
     if (path === undefined) {
-      return this
+      return false
     }
 
     if (enable) {
@@ -43,7 +43,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
       delete this.data.background
     }
 
-    return this
+    return enable
   }
 
   protected prepareOverrideManifest = () => {
