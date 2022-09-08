@@ -88,18 +88,16 @@ async function createShadowContainer() {
   return container
 }
 
-const render = async () => {
+window.addEventListener("load", async () => {
   const rootContainer =
     typeof Mount.getRootContainer === "function"
       ? await Mount.getRootContainer()
       : await createShadowContainer()
 
-  const root = createRoot(rootContainer)
-
-  root.render(<MountContainer />)
-}
-
-window.addEventListener(
-  "load",
-  typeof Mount.render === "function" ? Mount.render : render
-)
+  if (typeof Mount.render === "function") {
+    Mount.render(rootContainer, MountContainer)
+  } else {
+    const root = createRoot(rootContainer)
+    root.render(<MountContainer />)
+  }
+})
