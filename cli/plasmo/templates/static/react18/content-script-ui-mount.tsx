@@ -73,7 +73,12 @@ async function createShadowContainer() {
   }
 
   const shadowRoot = shadowHost.attachShadow({ mode: "open" })
-  document.body.insertAdjacentElement("beforebegin", shadowHost)
+
+  if (typeof Mount.mountShadowHost === "function") {
+    await Mount.mountShadowHost(shadowHost)
+  } else {
+    document.body.insertAdjacentElement("beforebegin", shadowHost)
+  }
 
   if (typeof Mount.getStyle === "function") {
     shadowRoot.appendChild(await Mount.getStyle())
@@ -83,7 +88,7 @@ async function createShadowContainer() {
   return container
 }
 
-window.addEventListener("load", async () => {
+const render = async () => {
   const rootContainer =
     typeof Mount.getRootContainer === "function"
       ? await Mount.getRootContainer()
@@ -92,4 +97,9 @@ window.addEventListener("load", async () => {
   const root = createRoot(rootContainer)
 
   root.render(<MountContainer />)
-})
+}
+
+window.addEventListener(
+  "load",
+  typeof Mount.render === "function" ? Mount.render : render
+)
