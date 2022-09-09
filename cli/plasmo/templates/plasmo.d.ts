@@ -1,8 +1,22 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    PLASMO_TARGET: string
-    PLASMO_BROWSER: string
-    PLASMO_MANIFEST_VERSION: string
+    NODE_ENV: "development" | "production"
+
+    PLASMO_BROWSER:
+      | "chrome"
+      | "firefox"
+      | "edge"
+      | "opera"
+      | "safari"
+      | "brave"
+      | "vivaldi"
+      | "sigmaos"
+      | string
+
+    PLASMO_MANIFEST_VERSION: "mv2" | "mv3" | `mv${string}` | string
+
+    PLASMO_TARGET:
+      | `${ProcessEnv["PLASMO_BROWSER"]}-${ProcessEnv["PLASMO_MANIFEST_VERSION"]}`
   }
 }
 
