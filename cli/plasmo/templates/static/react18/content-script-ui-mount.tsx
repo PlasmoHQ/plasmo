@@ -1,9 +1,9 @@
-// @ts-nocheck
-// prettier-sort-ignore
 import React from "react"
-
-import * as RawMount from "__plasmo_mount_content_script__"
 import { createRoot } from "react-dom/client"
+
+// prettier-sort-ignore
+// @ts-ignore
+import * as RawMount from "__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = RawMount
@@ -88,15 +88,16 @@ async function createShadowContainer() {
   return container
 }
 
-window.addEventListener("load", async () => {
-  const rootContainer =
-    typeof Mount.getRootContainer === "function"
-      ? await Mount.getRootContainer()
-      : await createShadowContainer()
+const createRootContainer =
+  typeof Mount.getRootContainer === "function"
+    ? Mount.getRootContainer
+    : createShadowContainer
 
+window.addEventListener("load", async () => {
   if (typeof Mount.render === "function") {
-    Mount.render(rootContainer, MountContainer)
+    Mount.render(createRootContainer, MountContainer)
   } else {
+    const rootContainer = await createRootContainer()
     const root = createRoot(rootContainer)
     root.render(<MountContainer />)
   }
