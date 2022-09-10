@@ -37,11 +37,13 @@ The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser exte
 ## Features
 
 - First-class [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) Support
-- [Declarative development with `manifest.json` auto-generation (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
+- [Declarative development](https://docs.plasmo.com/#where-is-the-manifestjson-file)
 - Live-reloading
 - [`.env*` files](https://docs.plasmo.com/workflows/env)
 - [Remote code bundling](https://docs.plasmo.com/workflows/remote-code) (e.g for gtag4)
+- Targetting [multiple browser and manifest pairs](https://docs.plasmo.com/workflows#--target-flag)
 - Automated deployment (via [BPP](https://docs.plasmo.com/workflows/submit))
+- Optional support for [Svelte](https://github.com/PlasmoHQ/with-svelte) and [Vue](https://github.com/PlasmoHQ/with-vue)
 - And many, many more! 🚀
 
 ## System Requirements
@@ -61,7 +63,7 @@ Check out the [documentation](https://docs.plasmo.com/) to get a more in-depth v
 ## Usage
 
 ```
-pnpm dlx plasmo init example-dir
+pnpm create plasmo example-dir
 cd example-dir
 pnpm dev
 ```
