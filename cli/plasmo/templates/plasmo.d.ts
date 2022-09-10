@@ -3,17 +3,23 @@ declare namespace NodeJS {
     NODE_ENV: "development" | "production"
 
     PLASMO_BROWSER:
-      | "chrome"
-      | "firefox"
-      | "edge"
-      | "opera"
-      | "safari"
+      | "arc"
       | "brave"
-      | "vivaldi"
+      | "chrome"
+      | "chromium"
+      | "edge"
+      | "firefox"
+      | "island"
+      | "opera"
+      | "plasmo"
+      | "safari"
       | "sigmaos"
-      | string
+      | "tor"
+      | "vivaldi"
+      | "waterfox"
+      | "yandex"
 
-    PLASMO_MANIFEST_VERSION: "mv2" | "mv3" | `mv${string}` | string
+    PLASMO_MANIFEST_VERSION: "mv2" | "mv3"
 
     PLASMO_TARGET:
       | `${ProcessEnv["PLASMO_BROWSER"]}-${ProcessEnv["PLASMO_MANIFEST_VERSION"]}`
