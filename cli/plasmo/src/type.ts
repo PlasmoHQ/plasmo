@@ -3,10 +3,35 @@ import type { ManifestContentScript } from "@plasmo/constants/manifest/content-s
 
 export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
 
-export type PlasmoGetMountPoint = () => Promise<HTMLElement> | HTMLElement
+type GetT<T = HTMLElement> = () => T | Promise<T>
 
-export type PlasmoGetRootContainer = () => Promise<HTMLElement> | HTMLElement
+export type PlasmoGetRootContainer = GetT
+
+export type PlasmoGetOverlayAnchor = GetT
+export type PlasmoGetInlineAnchor = () => HTMLElement | null
 
 export type PlasmoMountShadowHost = (
-  _shadowHost: HTMLDivElement
+  shadowHost: HTMLElement
 ) => Promise<void> | void
+
+export type PlasmoRender = (
+  createRootContainer: GetT,
+  MountContainer: () => JSX.Element
+) => Promise<void> | void
+
+export type PlasmoGetShadowHostId = GetT<string>
+
+export type PlasmoGetStyle = GetT<HTMLStyleElement>
+
+export type PlasmoCSUI = {
+  default: any
+  getStyle: PlasmoGetStyle
+  getShadowHostId: PlasmoGetShadowHostId
+
+  getOverlayAnchor: PlasmoGetOverlayAnchor
+  getInlineAnchor: PlasmoGetInlineAnchor
+
+  getRootContainer: PlasmoGetRootContainer
+  mountShadowHost: PlasmoMountShadowHost
+  render: PlasmoRender
+}

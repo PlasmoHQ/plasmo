@@ -1,9 +1,11 @@
-// @ts-nocheck
 // prettier-sort-ignore
+// @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
+import type { PlasmoCSUI } from "../../../src/type"
+
 // Escape parcel's static analyzer
-const Mount = RawMount
+const Mount = RawMount as PlasmoCSUI
 
 const createMountContainer = () => {
   const container = document.createElement("div")
@@ -16,31 +18,29 @@ const createMountContainer = () => {
     left: 0px;
   `
 
-  if (typeof Mount.getMountPoint !== "function") {
-    return container
-  }
+  if (typeof Mount.getOverlayAnchor === "function") {
+    const updatePosition = async () => {
+      const anchor = (await Mount.getOverlayAnchor()) as HTMLElement
 
-  const updatePosition = async () => {
-    const anchor = (await Mount.getMountPoint()) as HTMLElement
+      const rect = anchor?.getBoundingClientRect()
 
-    const rect = anchor?.getBoundingClientRect()
+      if (!rect) {
+        return
+      }
 
-    if (!rect) {
-      console.error("getMountPoint is not returning a valid HTMLElement")
-      return
+      const pos = {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+      }
+
+      container.style.top = `${pos.top}px`
+      container.style.left = `${pos.left}px`
     }
 
-    const pos = {
-      left: rect.left + window.scrollX,
-      top: rect.top + window.scrollY
-    }
-
-    container.style.top = `${pos.top}px`
-    container.style.left = `${pos.left}px`
+    updatePosition()
+    window.addEventListener("scroll", updatePosition)
   }
-
-  updatePosition()
-  window.addEventListener("scroll", updatePosition)
+  return container
 }
 
 async function createShadowContainer() {

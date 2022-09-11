@@ -5,24 +5,37 @@ import { createRoot } from "react-dom/client"
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
+import type { PlasmoCSUI } from "../../../src/type"
+
 // Escape parcel's static analyzer
-const Mount = RawMount
+const Mount = RawMount as PlasmoCSUI
+
+const mountState = {
+  document: document || window.document,
+  observer: null as MutationObserver | null,
+  shadowHost: null as Element | null,
+
+  inlineAnchor: null as Element | null
+}
+
+const isMounted = (el: Element | null) =>
+  el?.getRootNode({ composed: true }) === mountState.document
 
 const MountContainer = () => {
   const [top, setTop] = React.useState(0)
   const [left, setLeft] = React.useState(0)
 
   React.useEffect(() => {
-    if (typeof Mount.getMountPoint !== "function") {
+    if (typeof Mount.getOverlayAnchor !== "function") {
       return
     }
+
     const updatePosition = async () => {
-      const anchor = (await Mount.getMountPoint()) as HTMLElement
+      const anchor = await Mount.getOverlayAnchor()
 
       const rect = anchor?.getBoundingClientRect()
 
       if (!rect) {
-        console.error("getMountPoint is not returning a valid HTMLElement")
         return
       }
 
@@ -80,6 +93,8 @@ async function createShadowContainer() {
     document.body.insertAdjacentElement("beforebegin", shadowHost)
   }
 
+  mountState.shadowHost = shadowHost
+
   if (typeof Mount.getStyle === "function") {
     shadowRoot.appendChild(await Mount.getStyle())
   }
@@ -93,12 +108,37 @@ const createRootContainer =
     ? Mount.getRootContainer
     : createShadowContainer
 
-window.addEventListener("load", async () => {
+window.addEventListener("load", () => {
   if (typeof Mount.render === "function") {
-    Mount.render(createRootContainer, MountContainer)
-  } else {
+    return Mount.render(createRootContainer, MountContainer)
+  }
+
+  const _render = async () => {
     const rootContainer = await createRootContainer()
     const root = createRoot(rootContainer)
     root.render(<MountContainer />)
   }
+
+  if (typeof Mount.getInlineAnchor === "function") {
+    mountState.observer = new MutationObserver(() => {
+      if (!isMounted(mountState.shadowHost)) {
+        const inlineAnchor = Mount.getInlineAnchor()
+        if (!inlineAnchor) {
+          return
+        }
+
+        mountState.inlineAnchor = inlineAnchor
+        _render()
+      }
+    })
+
+    mountState.observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    })
+
+    return
+  }
+
+  _render()
 })
