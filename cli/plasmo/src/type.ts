@@ -10,8 +10,15 @@ export type PlasmoGetRootContainer = GetT
 export type PlasmoGetOverlayAnchor = GetT
 export type PlasmoGetInlineAnchor = () => HTMLElement | null
 
+export type PlasmoCSUIMountState = {
+  document: Document
+  observer: MutationObserver | null
+  shadowHost: Element | null
+  inlineAnchor: Element | null
+}
+
 export type PlasmoMountShadowHost = (
-  shadowHost: HTMLElement
+  mountState: PlasmoCSUIMountState
 ) => Promise<void> | void
 
 export type PlasmoRender = (
