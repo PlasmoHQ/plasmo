@@ -91,6 +91,8 @@ async function createShadowContainer() {
 
   if (typeof Mount.mountShadowHost === "function") {
     await Mount.mountShadowHost(mountState)
+  } else if (!!mountState.inlineAnchor) {
+    mountState.inlineAnchor.insertAdjacentElement("afterend", shadowHost)
   } else {
     document.body.insertAdjacentElement("beforebegin", shadowHost)
   }
