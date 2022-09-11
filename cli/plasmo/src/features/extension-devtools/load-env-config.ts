@@ -20,10 +20,15 @@ export class PlasmoPublicEnv {
   constructor(_env: Env) {
     this.data = Object.keys(_env)
       .filter((k) => k.startsWith("PLASMO_PUBLIC_"))
-      .reduce((env, key) => {
-        env[key] = _env[key]
-        return env
-      }, {})
+      .reduce(
+        (env, key) => {
+          env[key] = _env[key]
+          return env
+        },
+        {
+          NODE_ENV: process.env.NODE_ENV
+        }
+      )
   }
 
   extends(rawData: Env) {
