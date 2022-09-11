@@ -74,9 +74,11 @@ async function createShadowContainer() {
 
   container.id = "plasmo-shadow-container"
 
+  const isInline = !!mountState.inlineAnchor
+
   container.style.cssText = `
     z-index: 2147483647;
-    position: absolute;
+    position: ${isInline ? "relative" : "absolute"};
   `
 
   const shadowHost = document.createElement("div")
@@ -89,8 +91,8 @@ async function createShadowContainer() {
 
   if (typeof Mount.mountShadowHost === "function") {
     await Mount.mountShadowHost(mountState)
-  } else if (!!mountState.inlineAnchor) {
-    mountState.inlineAnchor.insertAdjacentElement("afterend", shadowHost)
+  } else if (isInline) {
+    mountState.inlineAnchor?.insertAdjacentElement("afterend", shadowHost)
   } else {
     document.body.insertAdjacentElement("beforebegin", shadowHost)
   }
