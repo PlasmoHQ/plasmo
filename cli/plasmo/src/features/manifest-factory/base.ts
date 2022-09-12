@@ -398,6 +398,7 @@ export abstract class BaseFactory<
           output.browser_specific_settings = {
             gecko: output.browser_specific_settings.gecko
           }
+          break
         default:
           delete output.browser_specific_settings
       }
