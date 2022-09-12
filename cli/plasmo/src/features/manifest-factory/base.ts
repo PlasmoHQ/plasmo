@@ -384,6 +384,25 @@ export abstract class BaseFactory<
       )
     }
 
+    // Sanitize the BSS
+    if (!!output.browser_specific_settings) {
+      switch (this.browser) {
+        case "edge":
+        case "safari":
+          output.browser_specific_settings = {
+            [this.browser]: output.browser_specific_settings[this.browser]
+          }
+          break
+        case "firefox":
+        case "gecko":
+          output.browser_specific_settings = {
+            gecko: output.browser_specific_settings.gecko
+          }
+        default:
+          delete output.browser_specific_settings
+      }
+    }
+
     return this.injectEnv(output)
   }
 
