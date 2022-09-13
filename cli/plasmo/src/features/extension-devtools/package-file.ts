@@ -29,9 +29,9 @@ export const generatePackage = ({
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "1.2.0",
+      "@plasmohq/prettier-plugin-sort-imports": "1.2.2",
       "@types/chrome": "0.0.196",
-      "@types/node": "18.7.14",
+      "@types/node": "18.7.15",
       "@types/react": "18.0.18",
       "@types/react-dom": "18.0.6",
       prettier: "2.7.1",

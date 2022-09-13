@@ -1,4 +1,5 @@
 import spawnAsync from "@expo/spawn-async"
+import { sentenceCase } from "change-case"
 import { existsSync } from "fs"
 import { copy, readJson, writeJson } from "fs-extra"
 import { writeFile } from "fs/promises"
@@ -53,7 +54,8 @@ export class ProjectCreator {
   async createWith(exampleName: string) {
     iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
 
-    const { packageFilePath } = this.commonPath
+    const { packageName, projectDirectory, packageFilePath, gitIgnorePath } =
+      this.commonPath
 
     // locate the tmp directory
     const tempDirectory = temporaryDirectory()
@@ -95,6 +97,9 @@ export class ProjectCreator {
     const packageData = (await readJson(packageFilePath)) as PackageJSON
     delete packageData.contributors
     packageData.author = userInfo().username
+
+    packageData.name = packageName
+    packageData.displayName = sentenceCase(packageName)
 
     vLog(
       "Replace workspace refs with the latest package version from npm registry"
