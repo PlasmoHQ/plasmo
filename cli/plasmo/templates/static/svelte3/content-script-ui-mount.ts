@@ -20,7 +20,7 @@ const createMountContainer = () => {
 
   if (typeof Mount.getOverlayAnchor === "function") {
     const updatePosition = async () => {
-      const anchor = (await Mount.getOverlayAnchor()) as HTMLElement
+      const anchor = await Mount.getOverlayAnchor()
 
       const rect = anchor?.getBoundingClientRect()
 
@@ -35,6 +35,10 @@ const createMountContainer = () => {
 
       container.style.top = `${pos.top}px`
       container.style.left = `${pos.left}px`
+    }
+
+    if (typeof Mount.watchOverlayAnchor === "function") {
+      Mount.watchOverlayAnchor(updatePosition)
     }
 
     updatePosition()

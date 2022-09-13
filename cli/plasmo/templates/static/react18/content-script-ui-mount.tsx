@@ -50,6 +50,10 @@ const MountContainer = () => {
 
     updatePosition()
 
+    if (typeof Mount.watchOverlayAnchor === "function") {
+      Mount.watchOverlayAnchor(updatePosition)
+    }
+
     window.addEventListener("scroll", updatePosition)
 
     return () => window.removeEventListener("scroll", updatePosition)

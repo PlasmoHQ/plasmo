@@ -32,6 +32,10 @@ export type PlasmoGetShadowHostId = Getter<string>
 
 export type PlasmoGetStyle = Getter<HTMLStyleElement>
 
+export type PlasmoWatchOverlayAnchor = (
+  updatePosition: () => Promise<void>
+) => void
+
 export type PlasmoCSUI = {
   default: any
   getStyle: PlasmoGetStyle
@@ -41,6 +45,8 @@ export type PlasmoCSUI = {
   getInlineAnchor: PlasmoGetInlineAnchor
 
   getRootContainer: PlasmoGetRootContainer
+
+  watchOverlayAnchor: PlasmoWatchOverlayAnchor
   mountShadowHost: PlasmoMountShadowHost
   render: PlasmoRender
 }
