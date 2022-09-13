@@ -15,7 +15,7 @@ const mountState = {
   document: document || window.document,
   observer: null as MutationObserver | null,
   shadowHost: null as Element | null,
-
+  // cached anchors:
   inlineAnchor: null as Element | null
 }
 
@@ -112,36 +112,38 @@ const createRootContainer =
     ? Mount.getRootContainer
     : createShadowContainer
 
+const render = async () => {
+  const rootContainer = await createRootContainer()
+  ReactDOM.render(<MountContainer />, rootContainer)
+}
+
+const startObserver = () => {
+  mountState.observer = new MutationObserver(() => {
+    if (!isMounted(mountState.shadowHost)) {
+      const inlineAnchor = Mount.getInlineAnchor()
+      if (!inlineAnchor) {
+        return
+      }
+
+      mountState.inlineAnchor = inlineAnchor
+      render()
+    }
+  })
+
+  mountState.observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  })
+}
+
 window.addEventListener("load", () => {
   if (typeof Mount.render === "function") {
     return Mount.render(createRootContainer, MountContainer)
   }
-
-  const _render = async () => {
-    const rootContainer = await createRootContainer()
-    ReactDOM.render(<MountContainer />, rootContainer)
-  }
-
   if (typeof Mount.getInlineAnchor === "function") {
-    mountState.observer = new MutationObserver(() => {
-      if (!isMounted(mountState.shadowHost)) {
-        const inlineAnchor = Mount.getInlineAnchor()
-        if (!inlineAnchor) {
-          return
-        }
-
-        mountState.inlineAnchor = inlineAnchor
-        _render()
-      }
-    })
-
-    mountState.observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    })
-
+    startObserver()
     return
   }
 
-  _render()
+  render()
 })

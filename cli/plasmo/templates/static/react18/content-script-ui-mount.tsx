@@ -14,7 +14,7 @@ const mountState = {
   document: document || window.document,
   observer: null as MutationObserver | null,
   shadowHost: null as Element | null,
-
+  // cached anchors:
   inlineAnchor: null as Element | null
 }
 
@@ -112,37 +112,43 @@ const createRootContainer =
     ? Mount.getRootContainer
     : createShadowContainer
 
+const render = async () => {
+  const rootContainer = await createRootContainer()
+  const root = createRoot(rootContainer)
+  root.render(<MountContainer />)
+}
+
+const startObserver = () => {
+  mountState.observer = new MutationObserver(() => {
+    // This should be O(1) if shadowHost cached its root.
+    // Otherwise, it's O(n) where n is how deep it's nested within the DOM.
+    if (!isMounted(mountState.shadowHost)) {
+      const inlineAnchor = Mount.getInlineAnchor()
+      if (!inlineAnchor) {
+        return
+      }
+
+      mountState.inlineAnchor = inlineAnchor
+      render()
+    }
+  })
+
+  // Need to watch the subtree for shadowDOM
+  mountState.observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  })
+}
+
 window.addEventListener("load", () => {
   if (typeof Mount.render === "function") {
     return Mount.render(createRootContainer, MountContainer)
   }
 
-  const _render = async () => {
-    const rootContainer = await createRootContainer()
-    const root = createRoot(rootContainer)
-    root.render(<MountContainer />)
-  }
-
   if (typeof Mount.getInlineAnchor === "function") {
-    mountState.observer = new MutationObserver(() => {
-      if (!isMounted(mountState.shadowHost)) {
-        const inlineAnchor = Mount.getInlineAnchor()
-        if (!inlineAnchor) {
-          return
-        }
-
-        mountState.inlineAnchor = inlineAnchor
-        _render()
-      }
-    })
-
-    mountState.observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    })
-
+    startObserver()
     return
   }
 
-  _render()
+  render()
 })
