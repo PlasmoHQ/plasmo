@@ -3,9 +3,9 @@ import type { ManifestContentScript } from "@plasmo/constants/manifest/content-s
 
 export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
 
-type GetT<T> = () => T | Promise<T>
+type Getter<T> = () => T | Promise<T>
 
-type GetHtmlElement = GetT<HTMLElement>
+type GetHtmlElement = Getter<HTMLElement>
 
 export type PlasmoGetRootContainer = GetHtmlElement
 export type PlasmoGetOverlayAnchor = GetHtmlElement
@@ -28,9 +28,9 @@ export type PlasmoRender = (
   MountContainer: () => JSX.Element
 ) => Promise<void> | void
 
-export type PlasmoGetShadowHostId = GetT<string>
+export type PlasmoGetShadowHostId = Getter<string>
 
-export type PlasmoGetStyle = GetT<HTMLStyleElement>
+export type PlasmoGetStyle = Getter<HTMLStyleElement>
 
 export type PlasmoCSUI = {
   default: any
