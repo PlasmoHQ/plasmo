@@ -5,6 +5,6 @@
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",
-    "lib": ["es2022"]
+    "lib": ["es2022", "dom"]
   }
 }
