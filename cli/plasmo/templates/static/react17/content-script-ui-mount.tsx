@@ -119,15 +119,16 @@ const render = async () => {
 
 const startObserver = () => {
   mountState.observer = new MutationObserver(() => {
-    if (!isMounted(mountState.shadowHost)) {
-      const inlineAnchor = Mount.getInlineAnchor()
-      if (!inlineAnchor) {
-        return
-      }
-
-      mountState.inlineAnchor = inlineAnchor
-      render()
+    if (isMounted(mountState.shadowHost)) {
+      return
     }
+    const inlineAnchor = Mount.getInlineAnchor()
+    if (!inlineAnchor) {
+      return
+    }
+
+    mountState.inlineAnchor = inlineAnchor
+    render()
   })
 
   mountState.observer.observe(document.body, {
@@ -138,12 +139,10 @@ const startObserver = () => {
 
 window.addEventListener("load", () => {
   if (typeof Mount.render === "function") {
-    return Mount.render(createRootContainer, MountContainer)
-  }
-  if (typeof Mount.getInlineAnchor === "function") {
+    Mount.render(createRootContainer, MountContainer)
+  } else if (typeof Mount.getInlineAnchor === "function") {
     startObserver()
-    return
+  } else {
+    render()
   }
-
-  render()
 })

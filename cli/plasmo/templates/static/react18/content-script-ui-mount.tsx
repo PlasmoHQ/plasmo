@@ -122,15 +122,16 @@ const startObserver = () => {
   mountState.observer = new MutationObserver(() => {
     // This should be O(1) if shadowHost cached its root.
     // Otherwise, it's O(n) where n is how deep it's nested within the DOM.
-    if (!isMounted(mountState.shadowHost)) {
-      const inlineAnchor = Mount.getInlineAnchor()
-      if (!inlineAnchor) {
-        return
-      }
-
-      mountState.inlineAnchor = inlineAnchor
-      render()
+    if (isMounted(mountState.shadowHost)) {
+      return
     }
+    const inlineAnchor = Mount.getInlineAnchor()
+    if (!inlineAnchor) {
+      return
+    }
+
+    mountState.inlineAnchor = inlineAnchor
+    render()
   })
 
   // Need to watch the subtree for shadowDOM
@@ -142,13 +143,10 @@ const startObserver = () => {
 
 window.addEventListener("load", () => {
   if (typeof Mount.render === "function") {
-    return Mount.render(createRootContainer, MountContainer)
-  }
-
-  if (typeof Mount.getInlineAnchor === "function") {
+    Mount.render(createRootContainer, MountContainer)
+  } else if (typeof Mount.getInlineAnchor === "function") {
     startObserver()
-    return
+  } else {
+    render()
   }
-
-  render()
 })
