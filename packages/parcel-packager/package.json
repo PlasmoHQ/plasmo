@@ -30,6 +30,6 @@
     "@parcel/plugin": "2.7.0",
     "@parcel/types": "2.7.0",
     "@parcel/utils": "2.7.0",
-    "nullthrows": "^1.1.1"
+    "nullthrows": "1.1.1"
   }
 }
