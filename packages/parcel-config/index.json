@@ -5,15 +5,21 @@
   "transformers": {
     "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
 
+    "data-text:*.module.{css,pcss}": [
+      "@parcel/transformer-postcss",
+      "@plasmohq/parcel-transformer-inline-css",
+      "@parcel/transformer-inline-string"
+    ],
+
+    "data-text:*": ["...", "@parcel/transformer-inline-string"],
+    "data-base64:*": ["...", "@parcel/transformer-inline-string"],
+
     "data-env:*": ["@plasmohq/parcel-transformer-inject-env", "..."],
     "data-text-env:*": [
       "@plasmohq/parcel-transformer-inject-env",
       "...",
       "@parcel/transformer-inline-string"
     ],
-
-    "data-text:*": ["...", "@parcel/transformer-inline-string"],
-    "data-base64:*": ["...", "@parcel/transformer-inline-string"],
 
     "raw:*": ["@parcel/transformer-raw"],
     "raw-env:*": [
@@ -36,8 +42,7 @@
     "manifest.json": "@plasmohq/parcel-packager"
   },
   "optimizers": {
-    "data-base64:*": ["...", "@parcel/optimizer-data-url"],
-    "*.css": ["@plasmohq/parcel-optimizer-css"]
+    "data-base64:*": ["...", "@parcel/optimizer-data-url"]
   },
   "runtimes": [
     "@parcel/runtime-js",

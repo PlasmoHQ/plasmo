@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-optimizer-css",
+  "name": "@plasmohq/parcel-transformer-inline-css",
   "version": "0.0.0",
-  "description": "Plasmo Parcel Optimizer for CSS",
+  "description": "Plasmo Parcel Transformer for inline CSS",
   "files": [
     "dist"
   ],
