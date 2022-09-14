@@ -7,12 +7,12 @@ export default new Transformer({
   async transform({ asset, options }) {
     // Normalize the asset's environment so that properties that only affect JS don't cause CSS to be duplicated.
     // For example, with ESModule and CommonJS targets, only a single shared CSS bundle should be produced.
-    let [code, originalMap] = await Promise.all([
+    const [code, originalMap] = await Promise.all([
       asset.getBuffer(),
       asset.getMap()
     ])
 
-    let res = transform({
+    const res = transform({
       filename: relative(options.projectRoot, asset.filePath),
       code,
       cssModules: true,
@@ -24,11 +24,9 @@ export default new Transformer({
 
     if (res.dependencies) {
       for (let dep of res.dependencies) {
-        let loc = dep.loc
-
-        if (originalMap) {
-          loc = remapSourceLocation(loc, originalMap)
-        }
+        const loc = !originalMap
+          ? dep.loc
+          : remapSourceLocation(dep.loc, originalMap)
 
         if (dep.type === "import" && !res.exports) {
           asset.addDependency({
