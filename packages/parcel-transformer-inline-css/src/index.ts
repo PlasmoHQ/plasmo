@@ -1,7 +1,7 @@
 import { transform } from "@parcel/css"
 import { Transformer } from "@parcel/plugin"
 import { remapSourceLocation } from "@parcel/utils"
-import path from "path"
+import { relative } from "path"
 
 export default new Transformer({
   async transform({ asset, options }) {
@@ -13,7 +13,7 @@ export default new Transformer({
     ])
 
     let res = transform({
-      filename: path.relative(options.projectRoot, asset.filePath),
+      filename: relative(options.projectRoot, asset.filePath),
       code,
       cssModules: true,
       analyzeDependencies: asset.meta.hasDependencies !== false,

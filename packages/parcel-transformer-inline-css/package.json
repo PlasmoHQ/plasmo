@@ -27,11 +27,8 @@
   },
   "dependencies": {
     "@parcel/css": "1.14.0",
-    "nullthrows": "1.1.1",
     "@parcel/core": "2.7.0",
-    "@parcel/diagnostic": "2.7.0",
     "@parcel/plugin": "2.7.0",
-    "@parcel/source-map": "2.1.0",
     "@parcel/utils": "2.7.0"
   }
 }
