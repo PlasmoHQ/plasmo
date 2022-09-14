@@ -26,10 +26,11 @@ declare namespace NodeJS {
   }
 }
 
-declare module "*.module.css" {
-  const styles: Record<string, string>
-  export default styles
-}
+declare module "*.module.css"
+declare module "*.module.less"
+declare module "*.module.scss"
+declare module "*.module.sass"
+declare module "*.module.styl"
 
 declare module "url:*" {
   const value: string
