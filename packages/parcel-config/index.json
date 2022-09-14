@@ -36,7 +36,8 @@
     "manifest.json": "@plasmohq/parcel-packager"
   },
   "optimizers": {
-    "data-base64:*": ["...", "@parcel/optimizer-data-url"]
+    "data-base64:*": ["...", "@parcel/optimizer-data-url"],
+    "*.css": ["@plasmohq/parcel-optimizer-css"]
   },
   "runtimes": [
     "@parcel/runtime-js",

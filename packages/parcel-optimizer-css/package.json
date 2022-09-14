@@ -1,0 +1,37 @@
+{
+  "name": "@plasmohq/parcel-optimizer-css",
+  "version": "0.0.0",
+  "description": "Plasmo Parcel Optimizer for CSS",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsup src/index.ts --minify --clean",
+    "dev": "tsup src/index.ts --sourcemap --watch"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "engines": {
+    "parcel": ">= 2.7.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "tsup": "6.2.3"
+  },
+  "dependencies": {
+    "@parcel/css": "1.14.0",
+    "nullthrows": "1.1.1",
+    "@parcel/core": "2.7.0",
+    "@parcel/diagnostic": "2.7.0",
+    "@parcel/plugin": "2.7.0",
+    "@parcel/source-map": "2.1.0",
+    "@parcel/utils": "2.7.0"
+  }
+}
