@@ -17,7 +17,7 @@ async function main() {
   const config = await fse.readJson("package.json")
   const define = {
     "process.env.APP_VERSION": `"${config.version}"`,
-    "process.env.DEV_MODE": watch
+    "process.env.LAB": watch
   }
 
   await build({
