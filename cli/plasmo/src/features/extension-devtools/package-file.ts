@@ -64,11 +64,13 @@ export const resolveWorkspaceToLatestSemver = async (
 
   await Promise.all(
     Object.entries(dependencies).map(async ([key, value]) => {
-      if (value !== "workspace:*") {
-        output[key] = value
-      } else {
+      if (key === "plasmo") {
+        output[key] = process.env.APP_VERSION
+      } else if (value === "workspace:*") {
         const remotePackageData = await getPackageJson(key)
         output[key] = remotePackageData.version
+      } else {
+        output[key] = value
       }
     })
   )
