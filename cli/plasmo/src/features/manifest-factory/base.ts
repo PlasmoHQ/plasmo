@@ -136,13 +136,22 @@ export abstract class BaseFactory<
     this.envConfig = await loadEnvConfig(this.commonPath.projectDirectory)
   }
 
+  // https://github.com/PlasmoHQ/plasmo/issues/195
+  prefixDev = (s = "") =>
+    process.env.NODE_ENV === "development" ? `DEV | ${s}` : s
+
   async updatePackageData() {
     this.packageData = await readJson(this.commonPath.packageFilePath)
 
     this.data.version = this.packageData.version
-    this.data.name = this.packageData.displayName
-    this.data.description = this.packageData.description
     this.data.author = this.packageData.author
+
+    this.data.name = this.prefixDev(this.packageData.displayName)
+    this.data.description = this.prefixDev(this.packageData.description)
+
+    this.data.version_name = this.prefixDev(
+      `${this.packageData.version} ‍⁤‌⁢⁢⁡‍‌⁢⁡‍⁢⁤‌⁢‌⁡‍‌⁤‍⁣${this.browser}`
+    )
 
     if (this.packageData.homepage) {
       this.data.homepage_url = this.packageData.homepage

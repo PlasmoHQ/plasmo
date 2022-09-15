@@ -16,7 +16,7 @@ jobs:
             ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.2.1
         with:
-          version: 7.1.0
+          version: 7.11.0
           run_install: true
       - name: Build and zip extension artifact
         run: pnpm build -- --zip
