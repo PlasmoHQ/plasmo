@@ -137,7 +137,8 @@ export abstract class BaseFactory<
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195
-  prefixDev = (s = "") => `DEV | ${s}`
+  prefixDev = (s = "") =>
+    process.env.NODE_ENV === "development" ? `DEV | ${s}` : s
 
   async updatePackageData() {
     this.packageData = await readJson(this.commonPath.packageFilePath)
@@ -145,15 +146,12 @@ export abstract class BaseFactory<
     this.data.version = this.packageData.version
     this.data.author = this.packageData.author
 
-    this.data.name = this.packageData.displayName
-    this.data.description = this.packageData.description
-    this.data.version_name = `${this.packageData.version} | ${this.browser} | plasmo@${process.env.APP_VERSION}`
+    this.data.name = this.prefixDev(this.packageData.displayName)
+    this.data.description = this.prefixDev(this.packageData.description)
 
-    if (process.env.NODE_ENV === "development") {
-      this.prefixDev(this.data.name)
-      this.prefixDev(this.data.description)
-      this.prefixDev(this.data.version_name)
-    }
+    this.data.version_name = this.prefixDev(
+      `${this.packageData.version} ‍⁤‌⁢⁢⁡‍‌⁢⁡‍⁢⁤‌⁢‌⁡‍‌⁤‍⁣${this.browser}`
+    )
 
     if (this.packageData.homepage) {
       this.data.homepage_url = this.packageData.homepage
