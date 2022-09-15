@@ -91,7 +91,10 @@ export async function generateIcons({
 
       return devProvidedIcon !== undefined
         ? copy(devProvidedIcon, generatedIconPath)
-        : baseIcon.resize({ width, height: width }).toFile(generatedIconPath)
+        : baseIcon
+            .greyscale(process.env.NODE_ENV === "development")
+            .resize({ width, height: width })
+            .toFile(generatedIconPath)
     })
   )
 }
