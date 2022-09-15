@@ -149,8 +149,12 @@ export abstract class BaseFactory<
     this.data.name = this.prefixDev(this.packageData.displayName)
     this.data.description = this.prefixDev(this.packageData.description)
 
+    this.data.plasmo = {
+      version: process.env.APP_VERSION
+    }
+
     this.data.version_name = this.prefixDev(
-      `${this.packageData.version} ‍⁤‌⁢⁢⁡‍‌⁢⁡‍⁢⁤‌⁢‌⁡‍‌⁤‍⁣${this.browser}`
+      `${this.packageData.version} ${this.browser}`
     )
 
     if (this.packageData.homepage) {
