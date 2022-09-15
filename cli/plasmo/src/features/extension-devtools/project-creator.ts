@@ -91,27 +91,30 @@ export class ProjectCreator {
     vLog("Copy example to project directory")
     await Promise.all([
       copy(exampleDirectory, this.commonPath.projectDirectory),
-      this.copyBppWorkflow()
+      !this.isExample && this.copyBppWorkflow()
     ])
 
     const packageData = (await readJson(packageFilePath)) as PackageJSON
-    delete packageData.contributors
-    packageData.author = userInfo().username
 
-    packageData.name = packageName
-    packageData.displayName = sentenceCase(packageName)
+    if (!this.isExample) {
+      delete packageData.contributors
+      packageData.author = userInfo().username
+      packageData.name = packageName
+      packageData.displayName = sentenceCase(packageName)
 
-    vLog(
-      "Replace workspace refs with the latest package version from npm registry"
-    )
-    await Promise.all([
-      (packageData.dependencies = await resolveWorkspaceToLatestSemver(
-        packageData.dependencies
-      )),
-      (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
-        packageData.devDependencies
-      ))
-    ])
+      vLog(
+        "Replace workspace refs with the latest package version from npm registry"
+      )
+
+      await Promise.all([
+        (packageData.dependencies = await resolveWorkspaceToLatestSemver(
+          packageData.dependencies
+        )),
+        (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
+          packageData.devDependencies
+        ))
+      ])
+    }
 
     await writeJson(packageFilePath, packageData, {
       spaces: 2
