@@ -14,7 +14,7 @@ importers:
       '@types/react': 18.0.20
       '@types/react-dom': 18.0.6
       '@types/semver': 7.3.12
-      '@types/sharp': 0.30.5
+      '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
       esbuild: 0.15.7
       eslint: 8.23.1
@@ -35,7 +35,7 @@ importers:
       '@types/react': 18.0.20
       '@types/react-dom': 18.0.6
       '@types/semver': 7.3.12
-      '@types/sharp': 0.30.5
+      '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
       esbuild: 0.15.7
       eslint: 8.23.1
@@ -4844,8 +4844,8 @@ packages:
     resolution: {integrity: sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==}
     dev: true
 
-  /@types/sharp/0.30.5:
-    resolution: {integrity: sha512-EhO29617AIBqxoVtpd1qdBanWpspk/kD2B6qTFRJ31Q23Rdf+DNU1xlHSwtqvwq1vgOqBwq1i38SX+HGCymIQg==}
+  /@types/sharp/0.31.0:
+    resolution: {integrity: sha512-nwivOU101fYInCwdDcH/0/Ru6yIRXOpORx25ynEOc6/IakuCmjOAGpaO5VfUl4QkDtUC6hj+Z2eCQvgXOioknw==}
     dependencies:
       '@types/node': 18.7.18
     dev: true
