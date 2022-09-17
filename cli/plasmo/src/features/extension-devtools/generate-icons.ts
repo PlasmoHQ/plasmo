@@ -66,7 +66,7 @@ export async function generateIcons({
   vLog(`${baseIconPath} found, create resized icons in gen-assets`)
 
   await Promise.all(
-    [128, 48, 32, 16].map((width) => {
+    [128, 64, 48, 32, 16].map((width) => {
       if (iconState.devProvidedIcons[width] === undefined) {
         vLog(`Caching dev provided icon paths for size: ${width}`)
         const devIconPath = getPrioritizedIconPaths(getIconNameVariants(width))
@@ -77,7 +77,10 @@ export async function generateIcons({
 
       const devProvidedIcon = iconState.devProvidedIcons[width].find(existsSync)
 
-      const generatedIconPath = resolve(genAssetsDirectory, `icon${width}.png`)
+      const generatedIconPath = resolve(
+        genAssetsDirectory,
+        `icon${width}.plasmo.png`
+      )
 
       if (process.env.NODE_ENV === "development") {
         if (devProvidedIcon !== undefined) {

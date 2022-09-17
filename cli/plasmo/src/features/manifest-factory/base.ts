@@ -42,6 +42,14 @@ import { definedTraverse } from "~features/helpers/traverse"
 import { Scaffolder } from "./scaffolder"
 import { SupportedUIExt, UILibrary, getUILibrary } from "./ui-library"
 
+export const iconMap = {
+  "16": "./gen-assets/icon16.plasmo.png",
+  "32": "./gen-assets/icon32.plasmo.png",
+  "48": "./gen-assets/icon48.plasmo.png",
+  "64": "./gen-assets/icon64.plasmo.png",
+  "128": "./gen-assets/icon128.plasmo.png"
+}
+
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export abstract class BaseFactory<
@@ -123,12 +131,7 @@ export abstract class BaseFactory<
     this.#browser = browser
     this.#templatePath = getTemplatePath()
     this.data = {}
-    this.data.icons = {
-      "16": "./gen-assets/icon16.png",
-      "32": "./gen-assets/icon32.png",
-      "48": "./gen-assets/icon48.png",
-      "128": "./gen-assets/icon128.png"
-    }
+    this.data.icons = iconMap
     this.#scaffolder = new Scaffolder(this)
   }
 
@@ -149,7 +152,6 @@ export abstract class BaseFactory<
     this.data.name = this.prefixDev(this.packageData.displayName)
 
     this.data.description = this.packageData.description
-    this.data.version_name = `${this.packageData.version} ${this.browser} plasmo`
 
     if (this.packageData.homepage) {
       this.data.homepage_url = this.packageData.homepage
