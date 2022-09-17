@@ -4,7 +4,7 @@ import type { ExtensionManifest, ExtensionManifestV2 } from "@plasmo/constants"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
-import { BaseFactory } from "./base"
+import { BaseFactory, iconMap } from "./base"
 
 export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2> {
   constructor(commonPath: CommonPath, browser: string) {
@@ -12,11 +12,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
     this.data.manifest_version = 2
     this.data.browser_action = {
-      default_icon: {
-        "16": "./gen-assets/icon16.png",
-        "32": "./gen-assets/icon32.png",
-        "48": "./gen-assets/icon48.png"
-      }
+      default_icon: iconMap
     }
   }
 
