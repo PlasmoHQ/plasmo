@@ -1,10 +1,8 @@
 import { copy, ensureDir, existsSync } from "fs-extra"
-import { resolve } from "path"
+import { basename, resolve } from "path"
 import sharp from "sharp"
 
 import { vLog, wLog } from "@plasmo/utils"
-
-import { getMd5RevHash } from "~features/helpers/crypto"
 
 import type { CommonPath } from "./common-path"
 
@@ -64,16 +62,8 @@ export async function generateIcons({
   await ensureDir(genAssetsDirectory)
 
   const baseIcon = sharp(baseIconPath)
-  const baseIconHash = getMd5RevHash(await baseIcon.toBuffer())
-
-  if (iconState.baseIconHash === baseIconHash) {
-    vLog("Icon hash matched, skip icon generation")
-    return
-  }
 
   vLog(`${baseIconPath} found, create resized icons in gen-assets`)
-
-  iconState.baseIconHash = baseIconHash
 
   await Promise.all(
     [128, 48, 32, 16].map((width) => {
@@ -89,12 +79,24 @@ export async function generateIcons({
 
       const generatedIconPath = resolve(genAssetsDirectory, `icon${width}.png`)
 
-      return devProvidedIcon !== undefined
-        ? copy(devProvidedIcon, generatedIconPath)
-        : baseIcon
-            .greyscale(process.env.NODE_ENV === "development")
+      if (process.env.NODE_ENV === "development") {
+        if (devProvidedIcon !== undefined) {
+          if (basename(devProvidedIcon).includes(".development.")) {
+            return copy(devProvidedIcon, generatedIconPath)
+          } else {
+            return sharp(devProvidedIcon).grayscale().toFile(generatedIconPath)
+          }
+        } else {
+          return baseIcon
             .resize({ width, height: width })
+            .greyscale(!basename(baseIconPath).includes(".development."))
             .toFile(generatedIconPath)
+        }
+      } else {
+        return devProvidedIcon !== undefined
+          ? copy(devProvidedIcon, generatedIconPath)
+          : baseIcon.resize({ width, height: width }).toFile(generatedIconPath)
+      }
     })
   )
 }

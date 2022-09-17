@@ -147,15 +147,9 @@ export abstract class BaseFactory<
     this.data.author = this.packageData.author
 
     this.data.name = this.prefixDev(this.packageData.displayName)
-    this.data.description = this.prefixDev(this.packageData.description)
 
-    this.data.plasmo = {
-      version: process.env.APP_VERSION
-    }
-
-    this.data.version_name = this.prefixDev(
-      `${this.packageData.version} ${this.browser}`
-    )
+    this.data.description = this.packageData.description
+    this.data.version_name = `${this.packageData.version} ${this.browser} plasmo`
 
     if (this.packageData.homepage) {
       this.data.homepage_url = this.packageData.homepage
