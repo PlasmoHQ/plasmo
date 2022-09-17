@@ -20,7 +20,9 @@ const mountState = {
 }
 
 const isMounted = (el: Element | null) =>
-  el?.getRootNode({ composed: true }) === mountState.document
+  el?.id
+    ? !!document.getElementById(el.id)
+    : el?.getRootNode({ composed: true }) === mountState.document
 
 const MountContainer = () => {
   const [top, setTop] = React.useState(0)
