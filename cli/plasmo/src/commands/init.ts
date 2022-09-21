@@ -5,33 +5,29 @@ import { cwd } from "process"
 import { hasFlag, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
-import { ProjectCreator } from "~features/extension-devtools/project-creator"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
 import { ensureNonEmptyAndWritable } from "~features/init/ensure-neaw"
-import { fromExistingManifest } from "~features/init/from-existing-manifest"
 import { getRawName } from "~features/init/get-raw-name"
 import { gitInit } from "~features/init/git-init"
 import { installDependencies } from "~features/init/install-dependencies"
 import { printReady } from "~features/init/print-ready"
+import { ProjectCreator } from "~features/init/project-creator"
 
 async function init() {
   printHeader()
-  const currentDirectory = cwd()
-
-  if (await fromExistingManifest(currentDirectory)) {
-    return
-  }
-
-  const rawName = await getRawName()
 
   const isExample = hasFlag("--exp")
+  const rawName = await getRawName()
+
+  const currentDirectory = cwd()
 
   // For resolving project directory
   const projectDirectory = resolve(
     currentDirectory,
     paramCase(rawName) || rawName
   )
+
   vLog("Project directory:", projectDirectory)
 
   const commonPath = getCommonPath(projectDirectory)

@@ -9,6 +9,7 @@ import { temporaryDirectory } from "tempy"
 
 import { hasFlag, iLog, vLog } from "@plasmo/utils"
 
+import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import {
   PackageJSON,
@@ -21,9 +22,12 @@ import {
 } from "~features/extension-devtools/template-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
-import type { CommonPath } from "./common-path"
+import {
+  generatePackageFromManifest,
+  getExistingManifest
+} from "./from-existing-manifest"
 
-const regex = /(?:^--with-)(?:\w+-?)+(?:[^-]$)/
+const withRegex = /(?:^--with-)(?:\w+-?)+(?:[^-]$)/
 
 export class ProjectCreator {
   commonPath: CommonPath
@@ -44,11 +48,42 @@ export class ProjectCreator {
   }
 
   async create() {
-    const withExampleName = process.argv.find((arg) => regex.test(arg))
+    return (
+      (await this.createFromManifest()) ||
+      (await this.createWithExample()) ||
+      (await this.createBlank())
+    )
+  }
 
-    return withExampleName !== undefined
-      ? this.createWith(withExampleName.substring(2))
-      : this.createBlank()
+  async createFromManifest() {
+    const existingData = await getExistingManifest()
+
+    if (existingData === null) {
+      return false
+    }
+
+    await this.copyBlankInitFiles()
+
+    const packageData = await generatePackageFromManifest(
+      this.commonPath,
+      this.packageManager,
+      existingData
+    )
+
+    await writeJson(this.commonPath.packageFilePath, packageData, {
+      spaces: 2
+    })
+
+    return true
+  }
+
+  async createWithExample() {
+    const withExampleName = process.argv.find((arg) => withRegex.test(arg))
+    if (withExampleName === undefined) {
+      return false
+    }
+
+    return this.createWith(withExampleName.substring(2))
   }
 
   async createWith(exampleName: string) {
@@ -118,13 +153,13 @@ export class ProjectCreator {
     await writeJson(packageFilePath, packageData, {
       spaces: 2
     })
+    return true
   }
 
   async createBlank() {
     iLog("Creating new blank project")
     const { packageManager, isExample } = this
-    const { packageName, projectDirectory, packageFilePath, gitIgnorePath } =
-      this.commonPath
+    const { packageName, packageFilePath } = this.commonPath
 
     const packageData = generatePackage({
       name: packageName,
@@ -141,17 +176,26 @@ export class ProjectCreator {
       delete packageData.packageManager
     }
 
-    await writeJson(packageFilePath, packageData, {
-      spaces: 2
-    })
-
     iLog(`Copying template files...`)
     await Promise.all([
-      copy(this.templatePath.initTemplatePath, projectDirectory),
-      !isExample && this.copyBppWorkflow(),
-      writeFile(gitIgnorePath, generateGitIgnore())
+      writeJson(packageFilePath, packageData, {
+        spaces: 2
+      }),
+      this.copyBlankInitFiles()
     ])
+
+    return true
   }
+
+  copyBlankInitFiles = () =>
+    Promise.all([
+      copy(
+        this.templatePath.initTemplatePath,
+        this.commonPath.projectDirectory
+      ),
+      !this.isExample && this.copyBppWorkflow(),
+      writeFile(this.commonPath.gitIgnorePath, generateGitIgnore())
+    ])
 
   async copyBppWorkflow() {
     if (hasFlag("--no-bpp")) {

@@ -1,51 +1,220 @@
+import { Unzipped, strFromU8, unzipSync } from "fflate"
 import { existsSync } from "fs"
 import { readJson } from "fs-extra"
-import { resolve } from "path"
+import { readFile } from "fs/promises"
+import { extname, isAbsolute, resolve } from "path"
+import { cwd } from "process"
 
 import type {
   ExtensionManifest,
   ExtensionManifestV2,
-  ExtensionManifestV3
+  ExtensionManifestV3,
+  ManifestPermission
 } from "@plasmo/constants"
-import { vLog } from "@plasmo/utils"
+import { getFlag, vLog } from "@plasmo/utils"
 
-export const fromExistingManifest = async (currentDirectory: string) => {
-  const manifestPath = resolve(currentDirectory, "manifest.json")
+import type { CommonPath } from "~features/extension-devtools/common-path"
+import {
+  PackageJSON,
+  generatePackage
+} from "~features/extension-devtools/package-file"
+import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
-  if (!existsSync(manifestPath)) {
-    return false
+const getManifestData = async (absPath: string) => {
+  const data = {
+    unzipped: null as Unzipped,
+    isZip: false,
+    manifestData: null as ExtensionManifest
   }
 
-  const manifestData: ExtensionManifest = await readJson(manifestPath)
+  const ext = extname(absPath)
+  if (ext === ".zip") {
+    const fileBuffer = await readFile(absPath)
+    data.unzipped = unzipSync(fileBuffer)
+    data.isZip = true
+    data.manifestData = JSON.parse(strFromU8(data.unzipped["manifest.json"]))
+  } else if (ext === ".json") {
+    data.manifestData = await readJson(absPath)
+  } else {
+    data.manifestData = await readJson(resolve(absPath, "manifest.json"))
+  }
+
+  return data
+}
+
+export const getExistingManifest = async () => {
+  const fromPath = getFlag("--from")
+
+  const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(cwd(), fromPath)
+
+  if (!existsSync(absFromPath)) {
+    return null
+  }
+
+  return await getManifestData(absFromPath)
+}
+
+export const generatePackageFromManifest = async (
+  commonPath: CommonPath,
+  packageManager: PackageManagerInfo,
+  { manifestData }: Awaited<ReturnType<typeof getManifestData>>
+) => {
+  const packageData = generatePackage({
+    name: commonPath.packageName,
+    packageManager
+  }) as PackageJSON
+
+  packageData.version = manifestData.version
+  packageData.displayName = manifestData.name
+  packageData.description = manifestData.description
+
+  if (manifestData?.author) {
+    packageData.author = manifestData.author
+  }
+
+  if (manifestData.homepage_url) {
+    packageData.homepage = manifestData.homepage_url
+  }
+
+  if (manifestData.version_name) {
+    packageData.manifest.version_name = manifestData.version_name
+  }
+
+  if (manifestData.browser_specific_settings) {
+    packageData.manifest.browser_specific_settings =
+      manifestData.browser_specific_settings
+  }
+
+  if (manifestData.default_locale) {
+    vLog("Convert locale")
+    // Copy all locale json files to assets
+  }
+
+  if (manifestData.options_ui) {
+    vLog("Convert options_ui")
+    // Create option.tsx if it doesn't exist
+  }
+
+  if (manifestData.chrome_url_overrides) {
+    vLog("Convert chrome_url_overrides")
+    // Create newtab.tsx if it doesn't exist
+  }
+
+  if (manifestData.icons) {
+    vLog("Convert icons")
+    // Copy the largest icon to icon.png
+  }
+
+  if (manifestData.content_scripts) {
+    vLog("Convert content_scripts")
+    // TODO: Create blank content scripts for each js file, with the appropriate config
+  }
 
   switch (manifestData.manifest_version) {
     case 2:
-      await fromMv2(manifestData)
+      await fromMv2(manifestData, packageData, commonPath)
       break
     case 3:
-      await fromMv3(manifestData)
+      await fromMv3(manifestData, packageData, commonPath)
       break
+    default:
+      throw new Error("Unknown manifest version")
   }
 
-  return true
+  return packageData
 }
 
-async function fromMv2(manifestData: ExtensionManifestV2) {
-  const manifestOverride: Partial<ExtensionManifestV3> = {}
+async function fromMv2(
+  manifestData: ExtensionManifestV2,
+  packageData: PackageJSON,
+  commonPath: CommonPath
+) {
+  if (manifestData.content_security_policy) {
+    vLog("Convert content_security_policy")
+    packageData.manifest.content_security_policy = {
+      extension_pages: manifestData.content_security_policy
+    }
+  }
 
-  vLog("convert content_security_policy")
+  if (manifestData.web_accessible_resources) {
+    vLog("Convert web_accessible_resources")
+    packageData.manifest.web_accessible_resources = [
+      {
+        matches: ["https://*/*"],
+        resources: manifestData.web_accessible_resources
+      }
+    ]
+  }
 
-  vLog("convert web_accessible_resources")
+  if (manifestData.permissions) {
+    vLog("Convert permissions")
+    packageData.manifest.permissions = []
+    packageData.manifest.host_permissions = []
 
-  vLog("convert background")
+    for (const permission of manifestData.permissions) {
+      if (permission.startsWith("http") || permission === "<all_urls>") {
+        packageData.manifest.host_permissions.push(permission)
+      } else {
+        packageData.manifest.permissions.push(permission as ManifestPermission)
+      }
+    }
+  }
 
-  vLog("convert browser_action")
+  if (manifestData.browser_action) {
+    vLog("Convert browser_action")
+    packageData.manifest.action = {
+      default_title: manifestData.browser_action.default_title
+    }
+    // TODO: create popup.tsx
+    // TODO: copy icons
+  }
 
-  vLog("convert permissions")
-
-  vLog("convert content_scripts")
-
-  // manifestData.content_scripts
+  if (manifestData.background) {
+    vLog("Convert background")
+    // TODO: create background.tsx
+  }
 }
 
-async function fromMv3(manifestData: ExtensionManifestV3) {}
+async function fromMv3(
+  manifestData: ExtensionManifestV3,
+  packageData: PackageJSON,
+  commonPath: CommonPath
+) {
+  if (manifestData.content_security_policy) {
+    vLog("Convert content_security_policy")
+    packageData.manifest.content_security_policy = {
+      ...manifestData.content_security_policy
+    }
+  }
+
+  if (manifestData.web_accessible_resources) {
+    vLog("Convert web_accessible_resources")
+    packageData.manifest.web_accessible_resources = [
+      ...manifestData.web_accessible_resources
+    ]
+  }
+
+  if (manifestData.permissions) {
+    vLog("Transfer permissions")
+    packageData.manifest.permissions = [...manifestData.permissions]
+  }
+
+  if (manifestData.host_permissions) {
+    vLog("Transfer host_permissions")
+    packageData.manifest.host_permissions = [...manifestData.host_permissions]
+  }
+
+  if (manifestData.action) {
+    vLog("Convert browser_action")
+    packageData.manifest.action = {
+      default_title: manifestData.action.default_title
+    }
+    // TODO: create popup.tsx
+    // TODO: copy icons
+  }
+
+  if (manifestData.background) {
+    vLog("Convert background")
+    // TODO: create background.tsx
+  }
+}

@@ -82,6 +82,7 @@ importers:
       dotenv: 16.0.2
       dotenv-expand: 9.0.0
       events: 3.3.0
+      fflate: 0.7.3
       get-port: 6.1.2
       got: 12.4.1
       inquirer: 9.1.1
@@ -110,6 +111,7 @@ importers:
       dotenv: 16.0.2
       dotenv-expand: 9.0.0
       events: 3.3.0
+      fflate: 0.7.3
       get-port: 6.1.2
       got: 12.4.1
       inquirer: 9.1.1
@@ -4122,6 +4124,17 @@ packages:
       - '@parcel/core'
     dev: false
 
+  /@parcel/types/2.7.0:
+    resolution: {integrity: sha512-+dhXVUnseTCpJvBTGMp0V6X13z6O/A/+CUtwEpMGZ8XSmZ4Gk44GvaTiBOp0bJpWG4fvCKp+UmC8PYbrDiiziw==}
+    dependencies:
+      '@parcel/cache': 2.7.0_@parcel+core@2.7.0
+      '@parcel/diagnostic': 2.7.0
+      '@parcel/fs': 2.7.0_@parcel+core@2.7.0
+      '@parcel/package-manager': 2.7.0_@parcel+core@2.7.0
+      '@parcel/source-map': 2.1.1
+      '@parcel/workers': 2.7.0_@parcel+core@2.7.0
+      utility-types: 3.10.0
+
   /@parcel/types/2.7.0_@parcel+core@2.7.0:
     resolution: {integrity: sha512-+dhXVUnseTCpJvBTGMp0V6X13z6O/A/+CUtwEpMGZ8XSmZ4Gk44GvaTiBOp0bJpWG4fvCKp+UmC8PYbrDiiziw==}
     dependencies:
@@ -4164,7 +4177,7 @@ packages:
       '@parcel/core': 2.7.0
       '@parcel/diagnostic': 2.7.0
       '@parcel/logger': 2.7.0
-      '@parcel/types': 2.7.0_@parcel+core@2.7.0
+      '@parcel/types': 2.7.0
       '@parcel/utils': 2.7.0
       chrome-trace-event: 1.0.3
       nullthrows: 1.1.1
@@ -6776,6 +6789,10 @@ packages:
     dependencies:
       bser: 2.1.1
     dev: true
+
+  /fflate/0.7.3:
+    resolution: {integrity: sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw==}
+    dev: false
 
   /figures/5.0.0:
     resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}
