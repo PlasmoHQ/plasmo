@@ -2,17 +2,16 @@ import { paramCase } from "change-case"
 import { resolve } from "path"
 import { cwd } from "process"
 
-import { hasFlag, vLog } from "@plasmo/utils"
+import { ensureWritableAndEmpty, hasFlag, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
-import { ensureNonEmptyAndWritable } from "~features/init/ensure-neaw"
-import { getRawName } from "~features/init/get-raw-name"
-import { gitInit } from "~features/init/git-init"
-import { installDependencies } from "~features/init/install-dependencies"
-import { printReady } from "~features/init/print-ready"
-import { ProjectCreator } from "~features/init/project-creator"
+import { ProjectCreator } from "~features/project-creator"
+import { getRawName } from "~features/project-creator/get-raw-name"
+import { gitInit } from "~features/project-creator/git-init"
+import { installDependencies } from "~features/project-creator/install-dependencies"
+import { printReady } from "~features/project-creator/print-ready"
 
 async function init() {
   printHeader()
@@ -38,7 +37,7 @@ async function init() {
     throw new Error("Example extensions must have the `with-` prefix")
   }
 
-  await ensureNonEmptyAndWritable(projectDirectory)
+  await ensureWritableAndEmpty(projectDirectory)
 
   const packageManager = await getPackageManager()
   vLog(
