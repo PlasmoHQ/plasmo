@@ -1,54 +1,33 @@
-import spawnAsync from "@expo/spawn-async"
 import { paramCase } from "change-case"
-import { existsSync } from "fs"
-import { mkdir } from "fs/promises"
-import { createQuestId } from "mnemonic-id"
 import { resolve } from "path"
 import { cwd } from "process"
 
-import {
-  dryRun,
-  getNonFlagArgvs,
-  hasFlag,
-  iLog,
-  isFolderEmpty,
-  isWriteable,
-  sLog,
-  vLog,
-  wLog
-} from "@plasmo/utils"
+import { hasFlag, vLog } from "@plasmo/utils"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import { ProjectCreator } from "~features/extension-devtools/project-creator"
-import { initGitRepoAsync } from "~features/helpers/git"
 import { getPackageManager } from "~features/helpers/package-manager"
 import { printHeader } from "~features/helpers/print"
+import { ensureNonEmptyAndWritable } from "~features/init/ensure-neaw"
+import { fromExistingManifest } from "~features/init/from-existing-manifest"
+import { getRawName } from "~features/init/get-raw-name"
+import { gitInit } from "~features/init/git-init"
+import { installDependencies } from "~features/init/install-dependencies"
+import { printReady } from "~features/init/print-ready"
 
 async function init() {
   printHeader()
+  const currentDirectory = cwd()
 
-  vLog("Prompting for the extension name")
+  if (await fromExistingManifest(currentDirectory)) {
+    return
+  }
 
-  const {
-    default: { prompt }
-  } = await import("inquirer")
-
-  const [rawNameNonInteractive] = getNonFlagArgvs("init")
-  const rawName =
-    rawNameNonInteractive ||
-    (
-      await prompt({
-        name: "rawName",
-        prefix: "🟡",
-        message: "Extension name:",
-        default: createQuestId()
-      })
-    ).rawName
+  const rawName = await getRawName()
 
   const isExample = hasFlag("--exp")
 
   // For resolving project directory
-  const currentDirectory = cwd()
   const projectDirectory = resolve(
     currentDirectory,
     paramCase(rawName) || rawName
@@ -63,22 +42,7 @@ async function init() {
     throw new Error("Example extensions must have the `with-` prefix")
   }
 
-  if (!existsSync(projectDirectory)) {
-    vLog("Directory does not exist, creating...")
-    if (!dryRun) {
-      await mkdir(projectDirectory)
-    }
-  } else {
-    vLog("Directory exists, checking if it is empty")
-
-    if (!(await isFolderEmpty(projectDirectory))) {
-      throw new Error(`Directory ${projectDirectory} is not empty.`)
-    }
-
-    if (!(await isWriteable(projectDirectory))) {
-      throw new Error(`Directory ${projectDirectory} is not accesible.`)
-    }
-  }
+  await ensureNonEmptyAndWritable(projectDirectory)
 
   const packageManager = await getPackageManager()
   vLog(
@@ -88,37 +52,15 @@ async function init() {
   const creator = new ProjectCreator(commonPath, packageManager, isExample)
   await creator.create()
 
-  try {
-    iLog("Installing dependencies...")
-    await spawnAsync(packageManager.name, ["install"], {
-      cwd: projectDirectory,
-      stdio: "inherit"
-    })
-  } catch (error) {
-    wLog(error.message)
-  }
+  await installDependencies(projectDirectory, packageManager)
 
-  if (existsSync(commonPath.gitIgnorePath)) {
-    try {
-      await initGitRepoAsync(projectDirectory)
-    } catch (error) {
-      wLog(error.message)
-    }
-  }
+  await gitInit(commonPath, projectDirectory)
 
-  const { default: chalk } = await import("chalk")
-
-  sLog(
-    "Your extension is ready in: ",
-    chalk.yellowBright(projectDirectory),
-    `\n\n    To start hacking, run:\n\n`,
-    projectDirectory === currentDirectory
-      ? ""
-      : `      cd ${commonPath.packageName}\n`,
-    `      ${packageManager.name} ${
-      packageManager.name === "npm" ? "run dev" : "dev"
-    }\n`,
-    "\n    Visit https://docs.plasmo.com for documentation and more examples."
+  await printReady(
+    projectDirectory,
+    currentDirectory,
+    commonPath,
+    packageManager
   )
 }
 

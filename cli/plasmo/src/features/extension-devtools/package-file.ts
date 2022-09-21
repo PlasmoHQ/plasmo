@@ -2,7 +2,7 @@ import { sentenceCase } from "change-case"
 import { userInfo } from "os"
 import getPackageJson from "package-json"
 
-import type { ExtensionManifest } from "@plasmo/constants"
+import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
@@ -40,7 +40,7 @@ export const generatePackage = ({
     manifest: {
       // permissions: [] as ValidManifestPermission[],
       host_permissions: ["https://*/*"]
-    } as Partial<ExtensionManifest>
+    } as Partial<ExtensionManifestV3>
   }
 
   if (!packageManager || !packageManager.version) {

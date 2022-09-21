@@ -54,8 +54,7 @@ export class ProjectCreator {
   async createWith(exampleName: string) {
     iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
 
-    const { packageName, projectDirectory, packageFilePath, gitIgnorePath } =
-      this.commonPath
+    const { packageName, packageFilePath } = this.commonPath
 
     // locate the tmp directory
     const tempDirectory = temporaryDirectory()

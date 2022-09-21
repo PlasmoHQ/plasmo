@@ -1,12 +1,12 @@
 import { relative } from "path"
 
-import type { ExtensionManifest } from "@plasmo/constants"
+import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
 import { BaseFactory, iconMap } from "./base"
 
-export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifest> {
+export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3> {
   constructor(commonPath: CommonPath, browser: string) {
     super(commonPath, browser)
     this.data.manifest_version = 3
@@ -46,7 +46,9 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifest> {
     ...this.packageData.manifest
   })
 
-  protected resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
+  protected resolveWAR = (
+    war: ExtensionManifestV3["web_accessible_resources"]
+  ) =>
     Promise.all(
       war.map(async ({ resources, matches }) => {
         const resolvedResources = await Promise.all(

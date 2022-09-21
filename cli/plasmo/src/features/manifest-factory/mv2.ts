@@ -1,6 +1,9 @@
 import { relative } from "path"
 
-import type { ExtensionManifest, ExtensionManifestV2 } from "@plasmo/constants"
+import type {
+  ExtensionManifestV2,
+  ExtensionManifestV3
+} from "@plasmo/constants"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
@@ -66,7 +69,9 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
     return output
   }
 
-  protected resolveWAR = (war: ExtensionManifest["web_accessible_resources"]) =>
+  protected resolveWAR = (
+    war: ExtensionManifestV3["web_accessible_resources"]
+  ) =>
     Promise.all(
       war.map(async ({ resources }) => {
         const resolvedResources = await Promise.all(
