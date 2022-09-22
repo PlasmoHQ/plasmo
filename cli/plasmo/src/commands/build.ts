@@ -44,7 +44,7 @@ async function build() {
       },
       distDir: commonPath.distDirectory
     },
-    env: plasmoManifest.publicEnv!.extends(targetData).data
+    env: plasmoManifest.publicEnv.extends(targetData).data
   })
 
   const result = await bundler.run()

@@ -56,7 +56,7 @@ async function dev() {
       host: "localhost",
       port: hmrPort
     },
-    env: plasmoManifest.publicEnv!.extends(targetData).data
+    env: plasmoManifest.publicEnv.extends(targetData).data
   })
 
   const { default: chalk } = await import("chalk")

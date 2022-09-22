@@ -58,9 +58,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#browser
   }
 
-  envConfig?: EnvConfig
+  envConfig!: EnvConfig
   public get publicEnv() {
-    return this.envConfig?.plasmoPublicEnv
+    return this.envConfig.plasmoPublicEnv
   }
 
   #commonPath: CommonPath
@@ -83,8 +83,8 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   #hasher = createHasher({ trim: true, sort: true })
 
-  #hash: string = ""
-  #prevHash: string = ""
+  #hash = ""
+  #prevHash = ""
 
   protected data: Partial<T>
   protected overideManifest: Partial<T> = {}
@@ -121,9 +121,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
   }
 
   get staticScaffoldPath() {
-    return !!this.uiLibrary
-      ? resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
-      : ""
+    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary!.path)
   }
 
   protected constructor(commonPath: CommonPath, browser: string) {
@@ -277,7 +275,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       )
 
       if (
-        this.uiLibrary.name !== "vanilla" &&
+        this.uiLibrary?.name !== "vanilla" &&
         extname(manifestScriptPath) === this.#uiExt
       ) {
         // copy the contents and change the manifest path
