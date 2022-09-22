@@ -48,7 +48,15 @@ export const getProjectPath = (
     resolve(sourceDirectory, moduleName, `index${ext}`)
   ]
 
-  const backgroundIndexList = getIndexList("background")
+  const popupIndexList = getIndexList("popup", uiExt)
+  const optionsIndexList = getIndexList("options", uiExt)
+  const devtoolsIndexList = getIndexList("devtools", uiExt)
+  const newtabIndexList = getIndexList("newtab", uiExt)
+
+  const popupHtmlList = getIndexList("popup", ".html")
+  const optionsHtmlList = getIndexList("options", ".html")
+  const devtoolsHtmlList = getIndexList("devtools", ".html")
+  const newtabHtmlList = getIndexList("newtab", ".html")
 
   const envFileList = [
     resolve(sourceDirectory, ".env"),
@@ -57,22 +65,14 @@ export const getProjectPath = (
     resolve(sourceDirectory, ".env.development.local")
   ]
 
-  const popupHtmlList = getIndexList("popup", ".html")
-  const optionsHtmlList = getIndexList("options", ".html")
-  const devtoolsHtmlList = getIndexList("devtools", ".html")
-  const newtabHtmlList = getIndexList("newtab", ".html")
-
-  const popupIndexList = getIndexList("popup", uiExt)
-  const optionsIndexList = getIndexList("options", uiExt)
-  const devtoolsIndexList = getIndexList("devtools", uiExt)
-  const newtabIndexList = getIndexList("newtab", uiExt)
-
   const contentIndexList = [
     resolve(sourceDirectory, "content.ts"),
     resolve(sourceDirectory, `content.${browserTarget}.ts`),
     resolve(sourceDirectory, `content${uiExt}`),
     resolve(sourceDirectory, `content.${browserTarget}${uiExt}`)
   ]
+
+  const backgroundIndexList = getIndexList("background")
 
   const watchPathReasonMap = {
     [packageFilePath]: WatchReason.PackageJson,
