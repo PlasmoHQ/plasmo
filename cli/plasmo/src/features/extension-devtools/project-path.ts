@@ -48,9 +48,6 @@ export const getProjectPath = (
     resolve(sourceDirectory, moduleName, `index${ext}`)
   ]
 
-  const getOptionalIndexList = (moduleName: string, ext: string | null) =>
-    !!ext ? getIndexList(moduleName, ext) : []
-
   const backgroundIndexList = getIndexList("background")
 
   const envFileList = [
@@ -65,10 +62,10 @@ export const getProjectPath = (
   const devtoolsHtmlList = getIndexList("devtools", ".html")
   const newtabHtmlList = getIndexList("newtab", ".html")
 
-  const popupIndexList = getOptionalIndexList("popup", uiExt)
-  const optionsIndexList = getOptionalIndexList("options", uiExt)
-  const devtoolsIndexList = getOptionalIndexList("devtools", uiExt)
-  const newtabIndexList = getOptionalIndexList("newtab", uiExt)
+  const popupIndexList = getIndexList("popup", uiExt)
+  const optionsIndexList = getIndexList("options", uiExt)
+  const devtoolsIndexList = getIndexList("devtools", uiExt)
+  const newtabIndexList = getIndexList("newtab", uiExt)
 
   const contentIndexList = [
     resolve(sourceDirectory, "content.ts"),
