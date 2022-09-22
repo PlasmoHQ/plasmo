@@ -28,7 +28,6 @@ const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
 // Use this to cache the path resolving result
 const iconState = {
   baseIconPaths: [] as string[],
-  baseIconHash: null as string,
   devProvidedIcons: {} as Record<string, string[]>
 }
 

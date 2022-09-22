@@ -22,9 +22,9 @@ import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
 const getManifestData = async (absPath: string) => {
   const data = {
-    unzipped: null as Unzipped,
+    unzipped: {} as Unzipped,
     isZip: false,
-    manifestData: null as ExtensionManifest
+    manifestData: {} as ExtensionManifest
   }
 
   const ext = extname(absPath)

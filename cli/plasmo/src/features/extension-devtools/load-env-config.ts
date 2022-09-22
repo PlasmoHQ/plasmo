@@ -8,7 +8,7 @@ import { join } from "path"
 
 import { eLog, iLog } from "@plasmo/utils"
 
-export type Env = Record<string, string>
+export type Env = Record<string, string | undefined>
 export type LoadedEnvFiles = Array<{
   path: string
   contents: string
@@ -27,7 +27,7 @@ export class PlasmoPublicEnv {
         },
         {
           NODE_ENV: process.env.NODE_ENV
-        }
+        } as Env
       )
   }
 
@@ -72,31 +72,31 @@ export async function loadEnvConfig(dir: string) {
     // Don't include `.env.local` for `test` environment
     // since normally you expect tests to produce the same
     // results for everyone
-    mode !== "test" && `.env.local`,
+    mode !== "test" ? `.env.local` : "",
     `.env.${mode}`,
     ".env"
   ]
-    .filter(Boolean)
+    .filter((s) => !!s)
     .map((envFile) => [envFile, join(dir, envFile)])
     .filter(
       ([, filePath]) => existsSync(filePath) && statSync(filePath).isFile()
     )
 
-  const envFiles = await Promise.all(
-    dotenvFilePaths.map(async ([envFile, filePath]) => {
-      try {
-        const contents = await readFile(filePath, "utf8")
-        return {
-          path: envFile,
-          contents
-        }
-      } catch (err: any) {
-        if (err.code !== "ENOENT") {
-          eLog(`Failed to load env from ${envFile}`, err)
-        }
+  const envFiles: LoadedEnvFiles = []
+
+  for await (const [envFile, filePath] of dotenvFilePaths) {
+    try {
+      const contents = await readFile(filePath, "utf8")
+      envFiles.push({
+        path: envFile,
+        contents
+      })
+    } catch (err: any) {
+      if (err.code !== "ENOENT") {
+        eLog(`Failed to load env from ${envFile}`, err)
       }
-    })
-  )
+    }
+  }
 
   const combinedEnv = processEnv(envFiles, dir)
 

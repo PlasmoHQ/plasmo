@@ -108,7 +108,7 @@ export class ProjectCreator {
         ],
         { cwd: tempDirectory, ignoreStdio: true }
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error.errno === "ENOENT") {
         throw new Error("Unable to clone example repo. `git` is not in PATH.")
       }

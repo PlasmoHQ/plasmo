@@ -1,6 +1,6 @@
 import { sentenceCase } from "change-case"
 import { userInfo } from "os"
-import getPackageJson from "package-json"
+import getPackageJson, { AbbreviatedVersion } from "package-json"
 
 import type { ExtensionManifestV3 } from "@plasmo/constants"
 
@@ -9,7 +9,7 @@ import type { PackageManagerInfo } from "~features/helpers/package-manager"
 export const generatePackage = ({
   name = "plasmo-extension",
   version = "0.0.0",
-  packageManager = null as PackageManagerInfo
+  packageManager = {} as PackageManagerInfo
 }) => {
   const baseData = {
     name,
@@ -18,7 +18,7 @@ export const generatePackage = ({
     description: "A basic Plasmo extension.",
     author: userInfo().username,
 
-    packageManager: "",
+    packageManager: undefined as string | undefined,
     scripts: {
       dev: "plasmo dev",
       build: "plasmo build"
@@ -60,14 +60,16 @@ export type PackageJSON = ReturnType<typeof generatePackage> & {
 export const resolveWorkspaceToLatestSemver = async (
   dependencies: Record<string, string>
 ) => {
-  const output = {}
+  const output = {} as Record<string, string>
 
   await Promise.all(
     Object.entries(dependencies).map(async ([key, value]) => {
       if (key === "plasmo") {
-        output[key] = process.env.APP_VERSION
+        output[key] = process.env.APP_VERSION as string
       } else if (value === "workspace:*") {
-        const remotePackageData = await getPackageJson(key)
+        const remotePackageData = (await getPackageJson(key, {
+          version: "latest"
+        })) as unknown as AbbreviatedVersion
         output[key] = remotePackageData.version
       } else {
         output[key] = value

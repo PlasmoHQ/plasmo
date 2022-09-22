@@ -12,13 +12,13 @@ const defaultTransformer = (target: any) =>
 export const definedTraverse = (
   target: any,
   transformer = defaultTransformer
-) => {
+): any => {
   if (Array.isArray(target)) {
     return target
       .map((item) => definedTraverse(item, transformer))
       .filter((i) => typeof i !== "undefined")
   } else if (typeof target === "object") {
-    const result = {}
+    const result = {} as any
 
     for (const key in target) {
       if (target.hasOwnProperty(key)) {

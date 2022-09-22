@@ -58,9 +58,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#browser
   }
 
-  envConfig: EnvConfig
+  envConfig?: EnvConfig
   public get publicEnv() {
-    return this.envConfig.plasmoPublicEnv
+    return this.envConfig?.plasmoPublicEnv
   }
 
   #commonPath: CommonPath
@@ -68,7 +68,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#commonPath
   }
 
-  #projectPath: ProjectPath
+  #projectPath!: ProjectPath
   public get projectPath(): ProjectPath {
     return this.#projectPath
   }
@@ -78,18 +78,18 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#templatePath
   }
 
-  #uiExt: SupportedUIExt
+  #uiExt: SupportedUIExt = null
   #extSet = new Set([".ts"])
 
   #hasher = createHasher({ trim: true, sort: true })
 
-  #hash: string
-  #prevHash: string
+  #hash: string = ""
+  #prevHash: string = ""
 
   protected data: Partial<T>
   protected overideManifest: Partial<T> = {}
 
-  protected packageData: PackageJSON
+  protected packageData!: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
   protected copyQueue: Array<[string, string]> = []
@@ -115,13 +115,15 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.packageData.devDependencies
   }
 
-  #cachedUILibrary: UILibrary
+  #cachedUILibrary?: UILibrary
   get uiLibrary() {
     return this.#cachedUILibrary
   }
 
   get staticScaffoldPath() {
-    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
+    return !!this.uiLibrary
+      ? resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
+      : ""
   }
 
   protected constructor(commonPath: CommonPath, browser: string) {
@@ -143,6 +145,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   async updatePackageData() {
     this.packageData = await readJson(this.commonPath.packageFilePath)
+    if (!this.packageData) {
+      throw new Error("Invalid package.json")
+    }
 
     this.data.version = this.packageData.version
     this.data.author = this.packageData.author
@@ -156,7 +161,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     this.data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in this.packageData.dependencies
+      (p) => `@plasmohq/${p}` in (this.packageData?.dependencies || {})
     )
 
     if (this.data.permissions.length === 0) {
@@ -171,32 +176,35 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   #cacheUILibrary = async () => {
     this.#cachedUILibrary = await getUILibrary(this)
-    switch (this.#cachedUILibrary.name) {
-      case "svelte":
-        this.#uiExt = ".svelte"
-        this.#scaffolder.mountExt = ".ts"
-        break
-      case "vue":
-        this.#uiExt = ".vue"
-        this.#scaffolder.mountExt = ".ts"
-        break
-      case "react":
-      default:
-        this.#uiExt = ".tsx"
-        this.#scaffolder.mountExt = ".tsx"
-        break
+    if (this.#cachedUILibrary) {
+      switch (this.#cachedUILibrary.name) {
+        case "svelte":
+          this.#uiExt = ".svelte"
+          this.#scaffolder.mountExt = ".ts"
+          break
+        case "vue":
+          this.#uiExt = ".vue"
+          this.#scaffolder.mountExt = ".ts"
+          break
+        case "react":
+        default:
+          this.#uiExt = ".tsx"
+          this.#scaffolder.mountExt = ".tsx"
+          break
+      }
+
+      this.#extSet.add(this.#uiExt)
     }
 
-    this.#extSet.add(this.#uiExt)
     this.#projectPath = getProjectPath(
       this.commonPath,
-      this.#uiExt,
-      this.#browser
+      this.#browser,
+      this.#uiExt
     )
   }
 
   abstract togglePopup: (enable?: boolean) => this
-  abstract toggleBackground: (path: string, enable?: boolean) => boolean
+  abstract toggleBackground: (path?: string, enable?: boolean) => boolean
 
   toggleOptions = (enable = false) => {
     if (enable) {
@@ -236,7 +244,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this
   }
 
-  toggleContentScript = async (path: string, enable = false) => {
+  toggleContentScript = async (path?: string, enable = false) => {
     if (path === undefined) {
       return false
     }

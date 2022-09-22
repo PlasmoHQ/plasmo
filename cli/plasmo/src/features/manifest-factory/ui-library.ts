@@ -9,17 +9,17 @@ import type { BaseFactory } from "./base"
 
 const supportedUILibraries = ["react", "svelte", "vue"] as const
 
-type SupportedUILibraryName = typeof supportedUILibraries[number]
+type SupportedUILibraryName = typeof supportedUILibraries[number] | null
 
 const supportedUIExt = [".tsx", ".svelte", ".vue"] as const
 
-export type SupportedUIExt = typeof supportedUIExt[number]
+export type SupportedUIExt = typeof supportedUIExt[number] | null
 
 export type UILibrary = {
   name: SupportedUILibraryName
   path: `${SupportedUILibraryName}${number}`
   version: number
-}
+} | null
 
 const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
 
@@ -32,27 +32,29 @@ const getMajorVersion = async (version: string) => {
         const packageJson = await readJson(
           resolve(cwd(), versionData, "package.json")
         )
-        return semver.coerce(packageJson.version).major
+        return semver.coerce(packageJson.version)?.major
     }
   } else {
-    return semver.coerce(version).major
+    return semver.coerce(version)?.major
   }
 }
 
 export const getUILibrary = async (
   plasmoManifest: BaseFactory
 ): Promise<UILibrary> => {
-  const baseLibrary = supportedUILibraries.find(
-    (l) => l in plasmoManifest.dependencies
-  )
+  const dependencies = plasmoManifest.dependencies ?? {}
+
+  const baseLibrary = supportedUILibraries.find((l) => l in dependencies)
 
   if (baseLibrary === undefined) {
-    throw new Error(uiLibraryError)
+    return null
   }
 
-  const majorVersion = await getMajorVersion(
-    plasmoManifest.dependencies[baseLibrary]
-  )
+  const majorVersion = await getMajorVersion(dependencies[baseLibrary])
+
+  if (majorVersion === undefined) {
+    throw new Error(uiLibraryError)
+  }
 
   // React lower than 18 can uses 17 scaffold
   if (baseLibrary === "react" && majorVersion < 18) {

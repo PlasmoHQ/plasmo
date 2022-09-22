@@ -56,7 +56,7 @@ async function dev() {
       host: "localhost",
       port: hmrPort
     },
-    env: plasmoManifest.publicEnv.extends(targetData).data
+    env: plasmoManifest.publicEnv!.extends(targetData).data
   })
 
   const { default: chalk } = await import("chalk")
@@ -64,6 +64,10 @@ async function dev() {
   const bundlerWatcher = await bundler.watch(async (err, event) => {
     if (err) {
       throw err
+    }
+
+    if (event === undefined) {
+      return
     }
 
     if (event.type === "buildSuccess") {

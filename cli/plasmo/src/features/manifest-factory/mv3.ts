@@ -17,14 +17,14 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3>
 
   togglePopup = (enable = false) => {
     if (enable) {
-      this.data.action.default_popup = "./popup.html"
+      this.data.action!.default_popup = "./popup.html"
     } else {
-      delete this.data.action.default_popup
+      delete this.data.action!.default_popup
     }
     return this
   }
 
-  toggleBackground = (path: string, enable = false) => {
+  toggleBackground = (path?: string, enable = false) => {
     if (path === undefined) {
       return false
     }
@@ -43,14 +43,14 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3>
   }
 
   protected prepareOverrideManifest = () => ({
-    ...this.packageData.manifest
+    ...this.packageData!.manifest
   })
 
   protected resolveWAR = (
     war: ExtensionManifestV3["web_accessible_resources"]
   ) =>
     Promise.all(
-      war.map(async ({ resources, matches }) => {
+      war!.map(async ({ resources, matches }) => {
         const resolvedResources = await Promise.all(
           resources.map(
             async (resourcePath) =>
