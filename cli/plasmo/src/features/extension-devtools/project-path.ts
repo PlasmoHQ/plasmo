@@ -70,8 +70,8 @@ export const getProjectPath = (
   const contentIndexList = [
     resolve(sourceDirectory, "content.ts"),
     resolve(sourceDirectory, `content.${browserTarget}.ts`),
-    resolve(sourceDirectory, `content.${uiExt}`),
-    resolve(sourceDirectory, `content.${browserTarget}.${uiExt}`)
+    resolve(sourceDirectory, `content${uiExt}`),
+    resolve(sourceDirectory, `content.${browserTarget}${uiExt}`)
   ]
 
   const watchPathReasonMap = {
