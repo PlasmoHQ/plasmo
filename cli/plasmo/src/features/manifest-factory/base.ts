@@ -19,7 +19,7 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
-import { vLog } from "@plasmo/utils"
+import { assertUnreachable, vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { extractContentScriptMetadata } from "~features/extension-devtools/content-script"
@@ -177,16 +177,22 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     switch (this.#cachedUILibrary.name) {
       case "svelte":
         this.#uiExt = ".svelte"
+        this.#scaffolder.mountExt = ".ts"
         break
       case "vue":
         this.#uiExt = ".vue"
+        this.#scaffolder.mountExt = ".ts"
         break
       case "react":
         this.#uiExt = ".tsx"
         this.#scaffolder.mountExt = ".tsx"
         break
-      default:
+      case "vanilla":
+        this.#uiExt = ".ts"
+        this.#scaffolder.mountExt = ".ts"
         break
+      default:
+        assertUnreachable(this.#cachedUILibrary.name)
     }
 
     this.#extSet.add(this.#uiExt)

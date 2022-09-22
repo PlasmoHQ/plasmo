@@ -78,9 +78,8 @@ export const getProjectPath = (
     [packageFilePath]: WatchReason.PackageJson,
 
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
-    ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
-
     ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
+    ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
 
     ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
