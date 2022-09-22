@@ -15,7 +15,7 @@ import glob from "tiny-glob"
 
 import type {
   ExtensionManifest,
-  ExtensionManifestV2,
+  ExtensionManifestV3,
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
@@ -52,9 +52,7 @@ export const iconMap = {
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
-export abstract class BaseFactory<
-  T extends ExtensionManifest | ExtensionManifestV2 = any
-> {
+export abstract class BaseFactory<T extends ExtensionManifest = any> {
   #browser: string
   get browser() {
     return this.#browser
@@ -421,7 +419,7 @@ export abstract class BaseFactory<
   }
 
   protected abstract resolveWAR: (
-    war: ExtensionManifest["web_accessible_resources"]
+    war: ExtensionManifestV3["web_accessible_resources"]
   ) => Promise<T["web_accessible_resources"]>
 
   protected copyProjectFile = async (

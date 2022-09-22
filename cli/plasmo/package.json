@@ -47,6 +47,7 @@
     "dotenv": "16.0.2",
     "dotenv-expand": "9.0.0",
     "events": "3.3.0",
+    "fflate": "0.7.3",
     "get-port": "6.1.2",
     "got": "12.4.1",
     "inquirer": "9.1.1",
