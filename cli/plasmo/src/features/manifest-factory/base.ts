@@ -78,7 +78,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#templatePath
   }
 
-  #uiExt: SupportedUIExt = null
+  #uiExt: SupportedUIExt = ".ts"
   #extSet = new Set([".ts"])
 
   #hasher = createHasher({ trim: true, sort: true })
@@ -176,25 +176,22 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   #cacheUILibrary = async () => {
     this.#cachedUILibrary = await getUILibrary(this)
-    if (this.#cachedUILibrary) {
-      switch (this.#cachedUILibrary.name) {
-        case "svelte":
-          this.#uiExt = ".svelte"
-          this.#scaffolder.mountExt = ".ts"
-          break
-        case "vue":
-          this.#uiExt = ".vue"
-          this.#scaffolder.mountExt = ".ts"
-          break
-        case "react":
-        default:
-          this.#uiExt = ".tsx"
-          this.#scaffolder.mountExt = ".tsx"
-          break
-      }
-
-      this.#extSet.add(this.#uiExt)
+    switch (this.#cachedUILibrary.name) {
+      case "svelte":
+        this.#uiExt = ".svelte"
+        break
+      case "vue":
+        this.#uiExt = ".vue"
+        break
+      case "react":
+        this.#uiExt = ".tsx"
+        this.#scaffolder.mountExt = ".tsx"
+        break
+      default:
+        break
     }
+
+    this.#extSet.add(this.#uiExt)
 
     this.#projectPath = getProjectPath(
       this.commonPath,
@@ -279,7 +276,10 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         path
       )
 
-      if (extname(manifestScriptPath) === this.#uiExt) {
+      if (
+        this.uiLibrary.name !== "vanilla" &&
+        extname(manifestScriptPath) === this.#uiExt
+      ) {
         // copy the contents and change the manifest path
         const modulePath = join("lab", manifestScriptPath).replace(
           /(^src)[\\/]/,
@@ -291,8 +291,6 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
           this.commonPath.dotPlasmoDirectory,
           await this.#scaffolder.createContentScriptMount(parsedModulePath)
         )
-
-        // vLog(manifestScriptPath)
       }
 
       // Resolve css file paths

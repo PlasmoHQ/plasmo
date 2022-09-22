@@ -72,39 +72,29 @@ export const getProjectPath = (
 
   const contentIndexList = [
     resolve(sourceDirectory, "content.ts"),
-    resolve(sourceDirectory, `content.${browserTarget}.ts`)
+    resolve(sourceDirectory, `content.${browserTarget}.ts`),
+    resolve(sourceDirectory, `content.${uiExt}`),
+    resolve(sourceDirectory, `content.${browserTarget}.${uiExt}`)
   ]
 
   const watchPathReasonMap = {
+    [packageFilePath]: WatchReason.PackageJson,
+
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
     ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
 
-    [packageFilePath]: WatchReason.PackageJson
+    ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
+
+    ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
+    ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
+    ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
+    ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
+
+    ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
+    ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
+    ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
+    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml)
   }
-
-  if (!!uiExt) {
-    contentIndexList.push(resolve(sourceDirectory, `content.${uiExt}`))
-    contentIndexList.push(
-      resolve(sourceDirectory, `content.${browserTarget}.${uiExt}`)
-    )
-
-    Object.assign(watchPathReasonMap, {
-      ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
-      ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
-      ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
-      ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
-
-      ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
-      ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
-      ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
-      ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml)
-    })
-  }
-
-  Object.assign(
-    watchPathReasonMap,
-    getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex)
-  )
 
   const contentsDirectory = resolve(sourceDirectory, "contents")
 

@@ -13,12 +13,12 @@ const supportedMountExt = [".ts", ".tsx"] as const
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
-export type ScaffolderMountExt = typeof supportedMountExt[number]
+export type ScaffolderMountExt = typeof supportedMountExt[number] | null
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
   #plasmoManifest: BaseFactory
 
-  #mountExt?: ScaffolderMountExt
+  #mountExt: ScaffolderMountExt = ".ts"
   public set mountExt(value: ScaffolderMountExt) {
     this.#mountExt = value
   }
@@ -55,10 +55,9 @@ export class Scaffolder {
     )
 
     await Promise.all([
-      this.#mountExt &&
-        this.#cachedGenerate(`index${this.#mountExt}`, uiPageModulePath, {
-          __plasmo_import_module__: indexImport
-        }),
+      this.#cachedGenerate(`index${this.#mountExt}`, uiPageModulePath, {
+        __plasmo_import_module__: indexImport
+      }),
       this.createPageHtml(uiPageName, htmlFile)
     ])
 
@@ -90,10 +89,6 @@ export class Scaffolder {
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
-    if (!this.#mountExt) {
-      return ""
-    }
-
     vLog(`creating content script mount for ${module.dir}`)
     const staticModulePath = resolve(
       this.#plasmoManifest.commonPath.staticDirectory,

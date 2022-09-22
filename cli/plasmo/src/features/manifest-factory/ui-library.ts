@@ -7,19 +7,19 @@ import { fileExists } from "@plasmo/utils"
 
 import type { BaseFactory } from "./base"
 
-const supportedUILibraries = ["react", "svelte", "vue"] as const
+const supportedUILibraries = ["react", "svelte", "vue", "vanilla"] as const
 
-type SupportedUILibraryName = typeof supportedUILibraries[number] | null
+type SupportedUILibraryName = typeof supportedUILibraries[number]
 
-const supportedUIExt = [".tsx", ".svelte", ".vue"] as const
+const supportedUIExt = [".ts", ".tsx", ".svelte", ".vue"] as const
 
-export type SupportedUIExt = typeof supportedUIExt[number] | null
+export type SupportedUIExt = typeof supportedUIExt[number]
 
 export type UILibrary = {
   name: SupportedUILibraryName
-  path: `${SupportedUILibraryName}${number}`
+  path: `${SupportedUILibraryName}${number | ""}`
   version: number
-} | null
+}
 
 const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
 
@@ -47,7 +47,11 @@ export const getUILibrary = async (
   const baseLibrary = supportedUILibraries.find((l) => l in dependencies)
 
   if (baseLibrary === undefined) {
-    return null
+    return {
+      name: "vanilla",
+      path: "vanilla",
+      version: 8427
+    }
   }
 
   const majorVersion = await getMajorVersion(dependencies[baseLibrary])
