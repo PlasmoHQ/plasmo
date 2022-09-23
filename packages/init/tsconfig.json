@@ -1,0 +1,6 @@
+{
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "compilerOptions": {
+    "strict": false
+  }
+}

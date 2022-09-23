@@ -13,11 +13,13 @@ export const getTemplatePath = () => {
   )
 
   const initTemplatePath = resolve(initTemplatePackagePath, "templates")
+  const initEntryPath = resolve(initTemplatePackagePath, "entries")
   const bppYaml = resolve(initTemplatePackagePath, "bpp.yml")
 
   return {
     templatePath,
     initTemplatePath,
+    initEntryPath,
     staticTemplatePath,
     bppYaml
   }

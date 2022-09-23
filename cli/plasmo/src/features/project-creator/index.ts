@@ -4,10 +4,10 @@ import { existsSync } from "fs"
 import { copy, readJson, writeJson } from "fs-extra"
 import { writeFile } from "fs/promises"
 import { userInfo } from "os"
-import { resolve } from "path"
+import { basename, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
-import { hasFlag, iLog, vLog } from "@plasmo/utils"
+import { getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
@@ -187,8 +187,17 @@ export class ProjectCreator {
     return true
   }
 
-  copyBlankInitFiles = () =>
-    Promise.all([
+  async copyBlankInitFiles() {
+    const entry = getFlag("--entry") || "popup"
+
+    const entryFiles = entry
+      .split(" ")
+      .flatMap((e) => [`${e}.ts`, `${e}.tsx`])
+      .map((e) => resolve(this.templatePath.initEntryPath, e))
+      .filter(existsSync)
+      .map((e) => [e, resolve(this.commonPath.projectDirectory, basename(e))])
+
+    await Promise.all([
       copy(
         this.templatePath.initTemplatePath,
         this.commonPath.projectDirectory
@@ -196,6 +205,9 @@ export class ProjectCreator {
       !this.isExample && this.copyBppWorkflow(),
       writeFile(this.commonPath.gitIgnorePath, generateGitIgnore())
     ])
+
+    await Promise.all(entryFiles.map(([src, dest]) => copy(src, dest)))
+  }
 
   async copyBppWorkflow() {
     if (hasFlag("--no-bpp")) {
