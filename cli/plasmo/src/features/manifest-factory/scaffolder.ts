@@ -64,6 +64,24 @@ export class Scaffolder {
     return hasIndex
   }
 
+  generateHtml = async (
+    outputPath = "",
+    scriptMountPath = "",
+    htmlFile = "" as string | false
+  ) => {
+    const templateReplace = {
+      __plasmo_static_index_title__: this.#plasmoManifest.name,
+      __plasmo_static_script__: scriptMountPath
+    }
+
+    return htmlFile
+      ? this.#copyGenerate(htmlFile, outputPath, {
+          ...templateReplace,
+          "</body>": `<div id="root"></div><script src="${scriptMountPath}" type="module"></script></body>`
+        })
+      : this.#cachedGenerate("index.html", outputPath, templateReplace)
+  }
+
   createPageHtml = async (
     uiPageName: ExtensionUIPage,
     htmlFile = "" as string | false
@@ -73,19 +91,31 @@ export class Scaffolder {
       `${uiPageName}.html`
     )
 
-    const templateReplace = {
-      __plasmo_static_index_title__: this.#plasmoManifest.name,
-      __plasmo_static_ui_name__: uiPageName
-    }
+    const scriptMountPath = `./static/${uiPageName}${this.#mountExt}`
 
-    return htmlFile
-      ? this.#copyGenerate(htmlFile, outputHtmlPath, {
-          ...templateReplace,
-          "</body>": `<div id="root"></div><script src="./static/${uiPageName}${
-            this.#mountExt
-          }" type="module"></script></body>`
-        })
-      : this.#cachedGenerate("index.html", outputHtmlPath, templateReplace)
+    return this.generateHtml(outputHtmlPath, scriptMountPath, htmlFile)
+  }
+
+  createTabMount = async (module: ParsedPath) => {
+    vLog(`creating tab mount template for ${module.dir}`)
+    const { staticDirectory } = this.#plasmoManifest.commonPath
+
+    const staticModulePath = resolve(staticDirectory, module.dir)
+    await ensureDir(staticModulePath)
+
+    const tabScriptPath = resolve(
+      staticModulePath,
+      `${module.name}${this.#mountExt}`
+    )
+
+    const tabHtmlPath = resolve(staticModulePath, `${module.name}.html`)
+
+    await Promise.all([
+      this.#cachedGenerate(`index${this.#mountExt}`, tabScriptPath, {
+        __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
+      }),
+      this.generateHtml(tabHtmlPath, `./${module.name}${this.#mountExt}`)
+    ])
   }
 
   createContentScriptMount = async (module: ParsedPath) => {

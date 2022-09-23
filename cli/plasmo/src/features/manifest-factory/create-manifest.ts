@@ -29,8 +29,7 @@ export async function createManifest(
   await manifestData.updateEnv()
   await manifestData.updatePackageData()
 
-  const { contentIndexList, contentsDirectory, backgroundIndexList } =
-    manifestData.projectPath
+  const { contentIndexList, backgroundIndexList } = manifestData.projectPath
 
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
@@ -42,7 +41,8 @@ export async function createManifest(
     manifestData.scaffolder.initTemplateFiles("devtools"),
     manifestData.toggleContentScript(contentIndex, true),
     manifestData.toggleBackground(backgroundIndex, true),
-    manifestData.addContentScriptsDirectory(contentsDirectory)
+    manifestData.addContentScriptsDirectory(),
+    manifestData.addTabsDirectory()
   ])
 
   if (!hasEntrypoints.includes(true)) {

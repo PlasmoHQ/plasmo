@@ -66,11 +66,12 @@ export const handleProjectFile = async (
   reason: WatchReason,
   plasmoManifest: BaseFactory
 ) => {
-  if (reason === WatchReason.None) {
-    return
-  }
+  const enable = type !== "delete"
 
   switch (reason) {
+    case WatchReason.None: {
+      return
+    }
     case WatchReason.EnvFile: {
       wLog("Environment file change detected, please restart the dev server.")
       return
@@ -89,58 +90,51 @@ export const handleProjectFile = async (
       return
     }
     case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(path, type !== "delete")
+      plasmoManifest.toggleBackground(path, enable)
       return
     }
     case WatchReason.ContentsIndex:
     case WatchReason.ContentsDirectory: {
-      await plasmoManifest.toggleContentScript(path, type !== "delete")
+      await plasmoManifest.toggleContentScript(path, enable)
+      return
+    }
+
+    case WatchReason.TabsDirectory: {
+      await plasmoManifest.toggleTab(path, enable)
       return
     }
 
     case WatchReason.PopupIndex: {
-      plasmoManifest.togglePopup(type !== "delete")
+      plasmoManifest.togglePopup(enable)
       return
     }
     case WatchReason.OptionsIndex: {
-      plasmoManifest.toggleOptions(type !== "delete")
+      plasmoManifest.toggleOptions(enable)
       return
     }
     case WatchReason.DevtoolsIndex: {
-      plasmoManifest.toggleDevtools(type !== "delete")
+      plasmoManifest.toggleDevtools(enable)
       return
     }
     case WatchReason.NewtabIndex: {
-      plasmoManifest.toggleNewtab(type !== "delete")
+      plasmoManifest.toggleNewtab(enable)
       return
     }
 
     case WatchReason.PopupHtml: {
-      await plasmoManifest.scaffolder.createPageHtml(
-        "popup",
-        type !== "delete" && path
-      )
+      await plasmoManifest.scaffolder.createPageHtml("popup", enable && path)
       return
     }
     case WatchReason.OptionsHtml: {
-      await plasmoManifest.scaffolder.createPageHtml(
-        "options",
-        type !== "delete" && path
-      )
+      await plasmoManifest.scaffolder.createPageHtml("options", enable && path)
       return
     }
     case WatchReason.DevtoolsHtml: {
-      await plasmoManifest.scaffolder.createPageHtml(
-        "devtools",
-        type !== "delete" && path
-      )
+      await plasmoManifest.scaffolder.createPageHtml("devtools", enable && path)
       return
     }
     case WatchReason.NewtabHtml: {
-      await plasmoManifest.scaffolder.createPageHtml(
-        "newtab",
-        type !== "delete" && path
-      )
+      await plasmoManifest.scaffolder.createPageHtml("newtab", enable && path)
       return
     }
 

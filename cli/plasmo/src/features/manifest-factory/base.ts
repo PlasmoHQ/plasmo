@@ -245,21 +245,21 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this
   }
 
-  toggleContentScript = async (path?: string, enable = false) => {
+  isPathInvalid = (path?: string): path is undefined => {
     if (path === undefined) {
-      return false
+      return true
     }
 
     const ext = extname(path)
 
     if (!this.#extSet.has(ext)) {
-      return false
+      return true
     }
 
     const subExt = getSubExt(path)
     // Ignore if path is browser specific and does not match browser
     if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
-      return false
+      return true
     }
 
     // Ignore if path is browser generic and there is a browser specific path
@@ -267,6 +267,14 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       subExt.length === 0 &&
       existsSync(path.replace(ext, `.${this.#browser}${ext}`))
     ) {
+      return true
+    }
+
+    return false
+  }
+
+  toggleContentScript = async (path?: string, enable = false) => {
+    if (this.isPathInvalid(path)) {
       return false
     }
 
@@ -275,23 +283,17 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       vLog("Adding content script: ", path)
 
-      let manifestScriptPath = relative(
-        this.commonPath.dotPlasmoDirectory,
-        path
-      )
+      let scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
 
       if (
         this.uiLibrary?.name !== "vanilla" &&
-        extname(manifestScriptPath) === this.#uiExt
+        extname(scriptPath) === this.#uiExt
       ) {
         // copy the contents and change the manifest path
-        const modulePath = join("lab", manifestScriptPath).replace(
-          /(^src)[\\/]/,
-          ""
-        )
+        const modulePath = join("lab", scriptPath).replace(/(^src)[\\/]/, "")
 
         const parsedModulePath = parse(modulePath)
-        manifestScriptPath = relative(
+        scriptPath = relative(
           this.commonPath.dotPlasmoDirectory,
           await this.#scaffolder.createContentScriptMount(parsedModulePath)
         )
@@ -309,7 +311,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       const contentScript = this.injectEnv({
         matches: ["<all_urls>"],
-        js: [manifestScriptPath],
+        js: [scriptPath],
         ...(metadata?.config || {})
       })
 
@@ -320,23 +322,50 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return enable
   }
 
-  addContentScriptsDirectory = async (contentsDirectory: string) => {
-    const hasContentsDirectory = existsSync(contentsDirectory)
-    if (!hasContentsDirectory) {
+  addDirectory = async (
+    dPath: string,
+    toggleDynamicPath = this.toggleContentScript
+  ) => {
+    if (!existsSync(dPath)) {
       return false
     }
 
-    return readdir(contentsDirectory, { withFileTypes: true })
+    return readdir(dPath, { withFileTypes: true })
       .then((files) =>
         Promise.all(
           files
             .filter((f) => f.isFile())
-            .map((f) => resolve(contentsDirectory, f.name))
-            .map((filePath) => this.toggleContentScript(filePath, true))
+            .map((f) => resolve(dPath, f.name))
+            .map((filePath) => toggleDynamicPath(filePath, true))
         )
       )
       .then((results) => results.includes(true))
   }
+
+  addContentScriptsDirectory = async (
+    contentsDirectory = this.projectPath.contentsDirectory
+  ) => this.addDirectory(contentsDirectory)
+
+  toggleTab = async (path?: string, enable = false) => {
+    if (this.isPathInvalid(path)) {
+      return false
+    }
+
+    if (enable) {
+      const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
+
+      const modulePath = join("lab", scriptPath).replace(/(^src)[\\/]/, "")
+
+      const parsedModulePath = parse(modulePath)
+
+      await this.#scaffolder.createTabMount(parsedModulePath)
+    }
+
+    return enable
+  }
+
+  addTabsDirectory = async (tabsDirectory = this.projectPath.tabsDirectory) =>
+    this.addDirectory(tabsDirectory, this.toggleTab)
 
   write = (force = false) => {
     this.#prevHash = this.#hash

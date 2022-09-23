@@ -12,6 +12,8 @@ export enum WatchReason {
   PackageJson,
   AssetsDirectory,
 
+  TabsDirectory,
+
   BackgroundIndex,
 
   ContentsIndex,
@@ -93,8 +95,10 @@ export const getProjectPath = (
   }
 
   const contentsDirectory = resolve(sourceDirectory, "contents")
+  const tabsDirectory = resolve(sourceDirectory, "tabs")
 
   const watchDirectoryEntries = [
+    [WatchReason.TabsDirectory, tabsDirectory],
     [WatchReason.ContentsDirectory, contentsDirectory],
     [WatchReason.AssetsDirectory, assetsDirectory]
   ] as Array<DirectoryWatchTuple>
@@ -115,6 +119,8 @@ export const getProjectPath = (
     backgroundIndexList,
     contentIndexList,
     contentsDirectory,
+
+    tabsDirectory,
 
     watchPathReasonMap,
     watchDirectoryEntries,
