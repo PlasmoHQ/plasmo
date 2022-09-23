@@ -74,11 +74,17 @@ async function createShadowContainer() {
   return container
 }
 
-window.addEventListener("load", async () => {
+new MutationObserver(async (_, observer) => {
   const rootContainer =
     typeof Mount.getRootContainer === "function"
       ? await Mount.getRootContainer()
       : await createShadowContainer()
+
+  if (!rootContainer) {
+    return
+  }
+
+  observer.disconnect()
 
   const mountPoint = createMountContainer()
   rootContainer.appendChild(mountPoint)
@@ -86,4 +92,4 @@ window.addEventListener("load", async () => {
   new Mount.default({
     target: mountPoint
   })
-})
+}).observe(document, { childList: true, subtree: true })
