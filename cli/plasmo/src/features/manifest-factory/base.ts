@@ -447,8 +447,8 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
           filesOnly: true
         })
 
-        const filePaths = await Promise.all(files.map(this.copyProjectFile))
-        return filePaths.flat()
+        await Promise.all(files.map(this.copyProjectFile))
+        return inputFilePath
       }
 
       const resourceFilePath = isAbsolute(inputFilePath)
@@ -465,7 +465,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       return toPosix(inputFilePath)
     } catch {
-      return null
+      return inputFilePath
     }
   }
 
