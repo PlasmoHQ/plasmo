@@ -45,6 +45,10 @@ const getManifestData = async (absPath: string) => {
 export const getExistingManifest = async () => {
   const fromPath = getFlag("--from")
 
+  if (!fromPath) {
+    return null
+  }
+
   const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(cwd(), fromPath)
 
   if (!existsSync(absFromPath)) {
