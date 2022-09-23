@@ -13,7 +13,7 @@ const supportedMountExt = [".ts", ".tsx"] as const
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
-export type ScaffolderMountExt = typeof supportedMountExt[number] | null
+export type ScaffolderMountExt = typeof supportedMountExt[number]
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
   #plasmoManifest: BaseFactory
