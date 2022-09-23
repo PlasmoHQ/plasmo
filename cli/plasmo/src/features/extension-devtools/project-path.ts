@@ -34,12 +34,12 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
   paths.reduce((output, path) => {
     output[path] = reason
     return output
-  }, {}) as Record<string, WatchReason>
+  }, {} as Record<string, WatchReason>)
 
 export const getProjectPath = (
   { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,
-  uiExt: SupportedUIExt,
-  browserTarget: string
+  browserTarget: string,
+  uiExt: SupportedUIExt
 ) => {
   const getIndexList = (moduleName: string, ext = ".ts") => [
     resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
@@ -75,6 +75,8 @@ export const getProjectPath = (
   const backgroundIndexList = getIndexList("background")
 
   const watchPathReasonMap = {
+    [packageFilePath]: WatchReason.PackageJson,
+
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
     ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
     ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
@@ -87,9 +89,7 @@ export const getProjectPath = (
     ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
     ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
     ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
-    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml),
-
-    [packageFilePath]: WatchReason.PackageJson
+    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml)
   }
 
   const contentsDirectory = resolve(sourceDirectory, "contents")

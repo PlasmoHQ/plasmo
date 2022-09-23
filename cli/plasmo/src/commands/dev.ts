@@ -66,6 +66,10 @@ async function dev() {
       throw err
     }
 
+    if (event === undefined) {
+      return
+    }
+
     if (event.type === "buildSuccess") {
       iLog(`✨ Extension reloaded in ${event.buildTime}ms!`)
       await plasmoManifest.postBuild()

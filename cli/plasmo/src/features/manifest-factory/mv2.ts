@@ -21,14 +21,14 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
   togglePopup = (enable = false) => {
     if (enable) {
-      this.data.browser_action.default_popup = "./popup.html"
+      this.data.browser_action!.default_popup = "./popup.html"
     } else {
-      delete this.data.browser_action.default_popup
+      delete this.data.browser_action!.default_popup
     }
     return this
   }
 
-  toggleBackground = (path: string, enable = false) => {
+  toggleBackground = (path?: string, enable = false) => {
     if (path === undefined) {
       return false
     }
@@ -63,7 +63,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
 
     if ("content_security_policy" in manifest) {
       output.content_security_policy =
-        manifest.content_security_policy.extension_pages
+        manifest.content_security_policy?.extension_pages
     }
 
     return output
@@ -73,7 +73,7 @@ export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2>
     war: ExtensionManifestV3["web_accessible_resources"]
   ) =>
     Promise.all(
-      war.map(async ({ resources }) => {
+      war!.map(async ({ resources }) => {
         const resolvedResources = await Promise.all(
           resources.map(
             async (resourcePath) =>

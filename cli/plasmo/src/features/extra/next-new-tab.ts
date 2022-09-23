@@ -9,7 +9,7 @@ import type { CommonPath } from "~features/extension-devtools/common-path"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
 
-export const generateNewTabManifest = (packageData = null as PackageJSON) => ({
+export const generateNewTabManifest = (packageData: PackageJSON) => ({
   name: sentenceCase(packageData.name),
   description: packageData.description,
   version: packageData.version,

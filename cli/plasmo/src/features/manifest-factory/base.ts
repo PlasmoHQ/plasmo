@@ -19,7 +19,7 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
-import { vLog } from "@plasmo/utils"
+import { assertUnreachable, vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { extractContentScriptMetadata } from "~features/extension-devtools/content-script"
@@ -58,7 +58,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#browser
   }
 
-  envConfig: EnvConfig
+  envConfig!: EnvConfig
   public get publicEnv() {
     return this.envConfig.plasmoPublicEnv
   }
@@ -68,7 +68,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#commonPath
   }
 
-  #projectPath: ProjectPath
+  #projectPath!: ProjectPath
   public get projectPath(): ProjectPath {
     return this.#projectPath
   }
@@ -78,18 +78,18 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#templatePath
   }
 
-  #uiExt: SupportedUIExt
+  #uiExt: SupportedUIExt = ".ts"
   #extSet = new Set([".ts"])
 
   #hasher = createHasher({ trim: true, sort: true })
 
-  #hash: string
-  #prevHash: string
+  #hash = ""
+  #prevHash = ""
 
   protected data: Partial<T>
   protected overideManifest: Partial<T> = {}
 
-  protected packageData: PackageJSON
+  protected packageData!: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
   protected copyQueue: Array<[string, string]> = []
@@ -115,13 +115,13 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.packageData.devDependencies
   }
 
-  #cachedUILibrary: UILibrary
+  #cachedUILibrary?: UILibrary
   get uiLibrary() {
     return this.#cachedUILibrary
   }
 
   get staticScaffoldPath() {
-    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
+    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary!.path)
   }
 
   protected constructor(commonPath: CommonPath, browser: string) {
@@ -143,6 +143,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   async updatePackageData() {
     this.packageData = await readJson(this.commonPath.packageFilePath)
+    if (!this.packageData) {
+      throw new Error("Invalid package.json")
+    }
 
     this.data.version = this.packageData.version
     this.data.author = this.packageData.author
@@ -156,7 +159,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     this.data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in this.packageData.dependencies
+      (p) => `@plasmohq/${p}` in (this.packageData?.dependencies || {})
     )
 
     if (this.data.permissions.length === 0) {
@@ -181,22 +184,28 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         this.#scaffolder.mountExt = ".ts"
         break
       case "react":
-      default:
         this.#uiExt = ".tsx"
         this.#scaffolder.mountExt = ".tsx"
         break
+      case "vanilla":
+        this.#uiExt = ".ts"
+        this.#scaffolder.mountExt = ".ts"
+        break
+      default:
+        assertUnreachable(this.#cachedUILibrary.name)
     }
 
     this.#extSet.add(this.#uiExt)
+
     this.#projectPath = getProjectPath(
       this.commonPath,
-      this.#uiExt,
-      this.#browser
+      this.#browser,
+      this.#uiExt
     )
   }
 
   abstract togglePopup: (enable?: boolean) => this
-  abstract toggleBackground: (path: string, enable?: boolean) => boolean
+  abstract toggleBackground: (path?: string, enable?: boolean) => boolean
 
   toggleOptions = (enable = false) => {
     if (enable) {
@@ -236,7 +245,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this
   }
 
-  toggleContentScript = async (path: string, enable = false) => {
+  toggleContentScript = async (path?: string, enable = false) => {
     if (path === undefined) {
       return false
     }
@@ -271,7 +280,10 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         path
       )
 
-      if (extname(manifestScriptPath) === this.#uiExt) {
+      if (
+        this.uiLibrary?.name !== "vanilla" &&
+        extname(manifestScriptPath) === this.#uiExt
+      ) {
         // copy the contents and change the manifest path
         const modulePath = join("lab", manifestScriptPath).replace(
           /(^src)[\\/]/,
@@ -283,8 +295,6 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
           this.commonPath.dotPlasmoDirectory,
           await this.#scaffolder.createContentScriptMount(parsedModulePath)
         )
-
-        // vLog(manifestScriptPath)
       }
 
       // Resolve css file paths

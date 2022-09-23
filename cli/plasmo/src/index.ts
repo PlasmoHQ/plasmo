@@ -42,7 +42,7 @@ async function main() {
       vLog("Running default mode")
       await defaultMode()
     }
-  } catch (e) {
+  } catch (e: any) {
     eLog((e as Error).message || ErrorMessage.Unknown)
     aLog(e.stack)
     await exitCountDown(3)

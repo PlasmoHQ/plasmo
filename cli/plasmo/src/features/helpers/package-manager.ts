@@ -13,7 +13,7 @@ export type PackageManagerInfo = {
 
 async function getPMInfo(name: PackageManager): Promise<PackageManagerInfo> {
   const data = await spawnAsync(name, ["--version"])
-  const version = semver.valid(data.stdout.trim())
+  const version = semver.valid(data.stdout.trim()) || undefined
   return { name, version }
 }
 

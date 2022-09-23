@@ -14,7 +14,7 @@ const gitInitAddCommit = async (root: string) => {
     await spawnAsync("git", ["rev-parse", "--is-inside-work-tree"], commonOpt)
     vLog(`${root} is a git repository, bailing ${chalk.bold("git init")}`)
     return false
-  } catch (e) {
+  } catch (e: any) {
     if (e.errno === "ENOENT") {
       throw new Error("Unable to initialize git repo. `git` not in PATH.")
     }
@@ -46,7 +46,7 @@ export async function gitInit(
 
   try {
     return await gitInitAddCommit(root)
-  } catch (error) {
+  } catch (error: any) {
     wLog(error.message)
     return false
   }

@@ -13,12 +13,12 @@ const supportedMountExt = [".ts", ".tsx"] as const
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
-export type ScaffolderMountExt = typeof supportedMountExt[number]
+export type ScaffolderMountExt = typeof supportedMountExt[number] | null
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
   #plasmoManifest: BaseFactory
 
-  #mountExt: ScaffolderMountExt
+  #mountExt: ScaffolderMountExt = ".ts"
   public set mountExt(value: ScaffolderMountExt) {
     this.#mountExt = value
   }
@@ -64,7 +64,10 @@ export class Scaffolder {
     return hasIndex
   }
 
-  createPageHtml = async (uiPageName: ExtensionUIPage, htmlFile = "") => {
+  createPageHtml = async (
+    uiPageName: ExtensionUIPage,
+    htmlFile = "" as string | false
+  ) => {
     const outputHtmlPath = resolve(
       this.#plasmoManifest.commonPath.dotPlasmoDirectory,
       `${uiPageName}.html`

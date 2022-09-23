@@ -14,7 +14,7 @@ export const installDependencies = async (
       cwd: projectDirectory,
       stdio: "inherit"
     })
-  } catch (error) {
+  } catch (error: any) {
     wLog(error.message)
   }
 }
