@@ -1,6 +1,11 @@
 import type { Mapping } from "@mischnic/json-sourcemap"
 import type { FileSystem } from "@parcel/fs"
-import type { HMROptions, MutableAsset, TransformerResult } from "@parcel/types"
+import type {
+  DependencyOptions,
+  HMROptions,
+  MutableAsset,
+  TransformerResult
+} from "@parcel/types"
 import { existsSync } from "fs"
 import { dirname, resolve } from "path"
 
@@ -28,14 +33,21 @@ export const state = {
   _isMV2: false
 }
 
-export const addExtraAssets = async (filePath: string, bundlePath: string) => {
+export const addExtraAssets = async (
+  filePath: string,
+  bundlePath: string,
+  type = "json",
+  dependencies = [] as DependencyOptions[]
+) => {
   state.extraAssets.push({
+    type,
     uniqueKey: bundlePath,
-    type: "json",
     content: await state.asset.fs.readFile(filePath, "utf8"),
-    pipeline: "raw-env",
+    pipeline: type === "json" ? "raw-env" : undefined,
     bundleBehavior: "isolated",
-    isBundleSplittable: false,
+    isBundleSplittable: type !== "json",
+    env: state.asset.env,
+    dependencies,
     meta: {
       bundlePath,
       webextEntry: false

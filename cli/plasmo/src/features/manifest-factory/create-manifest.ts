@@ -5,6 +5,7 @@ import { vLog, wLog } from "@plasmo/utils"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { TargetData } from "~features/extension-devtools/get-target-data"
+import { updateVersionFile } from "~features/framework-update/version-tracker"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
@@ -15,7 +16,7 @@ export async function createManifest(
 ) {
   vLog("Making sure .plasmo exists")
   await ensureDir(commonPath.dotPlasmoDirectory)
-
+  await updateVersionFile(commonPath)
   await generateIcons(commonPath)
 
   vLog("Creating Extension Manifest...")

@@ -78,6 +78,7 @@ export default new Transformer({
       "@plasmohq/parcel-transformer-manifest",
       "Invalid Web Extension manifest"
     )
+
     const { state, getAssets } = initState(
       asset,
       data,

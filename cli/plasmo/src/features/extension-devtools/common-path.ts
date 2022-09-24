@@ -21,6 +21,8 @@ export const getCommonPath = (
 
   const dotPlasmoDirectory = resolve(projectDirectory, dotPlasmo)
 
+  const cacheDirectory = resolve(dotPlasmoDirectory, "cache")
+
   return {
     packageName,
     projectDirectory,
@@ -35,7 +37,10 @@ export const getCommonPath = (
     assetsDirectory: resolve(projectDirectory, "assets"),
 
     dotPlasmoDirectory,
-    cacheDirectory: resolve(dotPlasmoDirectory, "cache"),
+    cacheDirectory,
+
+    plasmoVersionFilePath: resolve(cacheDirectory, "plasmo.version.json"),
+
     staticDirectory: resolve(dotPlasmoDirectory, "static"),
     genAssetsDirectory: resolve(dotPlasmoDirectory, "gen-assets"),
     entryManifestPath: resolve(

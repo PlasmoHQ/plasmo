@@ -14,10 +14,10 @@ export default new Namer({
       ) {
         return "manifest.json"
       }
+    }
 
-      if (typeof mainEntry.meta?.bundlePath === "string") {
-        return mainEntry.meta.bundlePath
-      }
+    if (typeof mainEntry.meta?.bundlePath === "string") {
+      return mainEntry.meta.bundlePath
     }
 
     return null

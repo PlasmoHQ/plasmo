@@ -98,9 +98,9 @@ export class Scaffolder {
 
   createTabMount = async (module: ParsedPath) => {
     vLog(`creating tab mount template for ${module.dir}`)
-    const { staticDirectory } = this.#plasmoManifest.commonPath
+    const { dotPlasmoDirectory } = this.#plasmoManifest.commonPath
 
-    const staticModulePath = resolve(staticDirectory, module.dir)
+    const staticModulePath = resolve(dotPlasmoDirectory, module.dir)
     await ensureDir(staticModulePath)
 
     const tabScriptPath = resolve(
