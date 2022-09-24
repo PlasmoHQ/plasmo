@@ -3,7 +3,7 @@ import { ReconnectingWebSocket } from "@plasmo/utils/websocket"
 
 import type { HMRMessage, HmrData } from "./types"
 
-const hmrData = JSON.parse(`__plasmo_hmr_data__`) as HmrData
+const hmrData = JSON.parse(`"__plasmo_hmr_data__"`) as HmrData
 
 function getHostname() {
   return (

@@ -4,7 +4,6 @@ import { vLog, wLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
-import { generateLocales } from "~features/extension-devtools/generate-locales"
 import type { TargetData } from "~features/extension-devtools/get-target-data"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
@@ -18,7 +17,6 @@ export async function createManifest(
   await ensureDir(commonPath.dotPlasmoDirectory)
 
   await generateIcons(commonPath)
-  await generateLocales(commonPath)
 
   vLog("Creating Extension Manifest...")
   const manifestData =

@@ -1,64 +1,53 @@
-import ThrowableDiagnostic, {
-  getJSONSourceLocation,
-  md
-} from "@parcel/diagnostic"
-import path from "path"
+import { resolve } from "path"
 
-import { state } from "./state"
+import { wLog } from "@plasmo/utils/logging"
+
+import { addExtraAssets, state } from "./state"
 
 export async function handleLocale() {
-  const { program, ptrs, asset, assetDir, filePath } = state
+  const { program, asset, assetsDir } = state
 
   if (!program.default_locale) {
     return
   }
 
-  const locales = path.join(assetDir, "_locales")
-  const err = !(await asset.fs.exists(locales))
-    ? "key"
-    : !(await asset.fs.exists(
-        path.join(locales, program.default_locale, "messages.json")
-      ))
-    ? "value"
-    : null
+  const localesDir = resolve(assetsDir, "_locales")
 
-  if (err) {
-    throw new ThrowableDiagnostic({
-      diagnostic: [
-        {
-          message: "Invalid Web Extension manifest",
-          origin: "@plasmohq/parcel-transformer-manifest",
-          codeFrames: [
-            {
-              filePath,
-              codeHighlights: [
-                {
-                  ...getJSONSourceLocation(ptrs["/default_locale"], err),
-                  message: md([
-                    `Localization ${
-                      err === "value"
-                        ? "file for " + program.default_locale
-                        : "directory"
-                    } does not exist: ${path.relative(
-                      assetDir,
-                      path.join(locales, program.default_locale)
-                    )}`
-                  ])
-                }
-              ]
-            }
-          ]
-        }
-      ]
+  const localeDirExist = await asset.fs.exists(localesDir)
+
+  if (!localeDirExist) {
+    return
+  }
+
+  const localeEntries = await asset.fs.readdir(localesDir)
+
+  if (localeEntries.length === 0) {
+    return
+  }
+
+  if (!program.default_locale) {
+    wLog(`default_locale not set, fallback to ${localeEntries[0]}`)
+    program.default_locale = localeEntries[0]
+  }
+
+  const defaultLocaleMessageExists = await asset.fs.exists(
+    resolve(localesDir, program.default_locale, "messages.json")
+  )
+
+  if (!defaultLocaleMessageExists) {
+    wLog("Default locale message.json not found, skipping locale!")
+    delete program.default_locale
+    return
+  }
+
+  await Promise.all(
+    localeEntries.map(async (locale) => {
+      const localeFilePath = resolve(localesDir, locale, "messages.json")
+      if (await asset.fs.exists(localeFilePath)) {
+        const bundlePath = `_locales/${locale}/messages.json`
+
+        await addExtraAssets(localeFilePath, bundlePath)
+      }
     })
-  }
-
-  for (const locale of await asset.fs.readdir(locales)) {
-    if (await asset.fs.exists(path.join(locales, locale, "messages.json"))) {
-      asset.addURLDependency(`_locales/${locale}/messages.json`, {
-        needsStableName: true,
-        pipeline: "raw"
-      })
-    }
-  }
+  )
 }

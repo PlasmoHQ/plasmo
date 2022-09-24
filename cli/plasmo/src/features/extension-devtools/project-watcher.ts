@@ -6,7 +6,6 @@ import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 import type { BaseFactory } from "~features/manifest-factory/base"
 
 import { generateIcons } from "./generate-icons"
-import { generateLocales } from "./generate-locales"
 import { WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
@@ -79,7 +78,6 @@ export const handleProjectFile = async (
     case WatchReason.AssetsDirectory: {
       iLog("Assets directory changed, update dynamic assets")
       await generateIcons(plasmoManifest.commonPath)
-      await generateLocales(plasmoManifest.commonPath)
       return
     }
     case WatchReason.PackageJson: {

@@ -32,7 +32,7 @@ export default new Runtime({
     return {
       filePath: __filename,
       code: hmrRuntimeCode.replace(
-        `__plasmo_hmr_data__`,
+        `"__plasmo_hmr_data__"`, // double quote to escape
         JSON.stringify(hmrData)
       ),
       isEntry: true,

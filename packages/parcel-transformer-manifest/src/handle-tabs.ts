@@ -1,37 +1,18 @@
-import { checkMV2, state } from "./state"
+import { resolve } from "path"
+
+import { state } from "./state"
 
 export async function handleTabs() {
-  const { program, filePath, ptrs, asset } = state
+  const { filePath, asset, staticDir } = state
 
-  const isMV2 = checkMV2(program)
+  const tabsDir = resolve(staticDir, "tabs")
 
-  // const browserActionName = isMV2 ? "browser_action" : "action"
+  const tabsDirExists = await asset.fs.exists(tabsDir)
 
-  // const browserAction = isMV2 ? program.browser_action : program.action
-
-  // if (!browserAction) {
-  //   return
-  // }
-
-  // if (browserAction.theme_icons) {
-  //   browserAction.theme_icons = browserAction.theme_icons.map(
-  //     (themeIcon, themeIndex) => {
-  //       for (const k of ["light", "dark"]) {
-  //         const loc = getJSONSourceLocation(
-  //           ptrs[`/${browserActionName}/theme_icons/${themeIndex}/${k}`],
-  //           "value"
-  //         )
-
-  //         themeIcon[k] = asset.addURLDependency(themeIcon[k], {
-  //           loc: {
-  //             ...loc,
-  //             filePath
-  //           }
-  //         })
-  //       }
-
-  //       return themeIcon
-  //     }
-  //   )
-  // }
+  // asset.addURLDependency("../runtime/default-bg.js", {
+  //   resolveFrom: __filename,
+  //   env: {
+  //     context: "service-worker"
+  //   }
+  // })
 }

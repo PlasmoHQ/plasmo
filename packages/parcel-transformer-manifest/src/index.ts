@@ -16,6 +16,7 @@ import { handleDeclarativeNetRequest } from "./handle-declarative-net-request"
 import { handleDeepLOC } from "./handle-deep-loc"
 import { handleDictionaries } from "./handle-dictionaries"
 import { handleLocale } from "./handle-locale"
+import { handleTabs } from "./handle-tabs"
 import { normalizeManifest } from "./normalize-manifest"
 import { MV2Schema, MV3Schema } from "./schema"
 import { initState } from "./state"
@@ -24,6 +25,7 @@ async function collectDependencies() {
   normalizeManifest()
 
   await Promise.all([
+    handleTabs(),
     handleLocale(),
     handleAction(),
     handleDeclarativeNetRequest()
@@ -76,10 +78,18 @@ export default new Transformer({
       "@plasmohq/parcel-transformer-manifest",
       "Invalid Web Extension manifest"
     )
-    initState(asset, data, parsed.pointers, options.hmrOptions)
+    const { state, getAssets } = initState(
+      asset,
+      data,
+      parsed.pointers,
+      options.hmrOptions
+    )
+
     await collectDependencies()
-    asset.setCode(JSON.stringify(data, null, 2))
-    asset.meta.webextEntry = true
-    return [asset]
+
+    state.asset.setCode(JSON.stringify(data, null, 2))
+    state.asset.meta.webextEntry = true
+
+    return getAssets()
   }
 })

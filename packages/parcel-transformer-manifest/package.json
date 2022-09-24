@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
+    "@plasmo/utils": "workspace:*",
     "tsup": "6.2.3"
   },
   "dependencies": {

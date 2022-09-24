@@ -1434,6 +1434,7 @@ importers:
       '@parcel/types': 2.7.0
       '@parcel/utils': 2.7.0
       '@plasmo/config': workspace:*
+      '@plasmo/utils': workspace:*
       content-security-policy-parser: 0.4.1
       json-schema-to-ts: 2.5.5
       nullthrows: 1.1.1
@@ -1451,6 +1452,7 @@ importers:
       nullthrows: 1.1.1
     devDependencies:
       '@plasmo/config': link:../config
+      '@plasmo/utils': link:../utils
       tsup: 6.2.3
 
   packages/parcel-transformer-svelte3:
