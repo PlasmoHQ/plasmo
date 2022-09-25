@@ -7,10 +7,6 @@ import { addExtraAssets, state } from "./state"
 export async function handleLocale() {
   const { program, asset, assetsDir } = state
 
-  if (!program.default_locale) {
-    return
-  }
-
   const localesDir = resolve(assetsDir, "_locales")
 
   const localeDirExist = await asset.fs.exists(localesDir)
