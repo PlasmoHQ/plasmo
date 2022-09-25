@@ -6,17 +6,17 @@ import * as RawMount from "__plasmo_mount_content_script__"
 
 import * as ReactDOM from "react-dom"
 
-import type { PlasmoCSUI } from "../../../src/type"
+import type { PlasmoCSUI, PlasmoCSUIMountState } from "../../../src/type"
 
 // Escape parcel's static analyzer
 const Mount = RawMount as PlasmoCSUI
 
-const mountState = {
+const mountState: PlasmoCSUIMountState = {
   document: document || window.document,
-  observer: null as MutationObserver | null,
-  shadowHost: null as Element | null,
+  observer: null,
+  shadowHost: null,
   // cached anchors:
-  inlineAnchor: null as Element | null
+  inlineAnchor: null
 }
 
 const isMounted = (el: Element | null) =>
@@ -93,7 +93,12 @@ async function createShadowContainer() {
     shadowHost.id = await Mount.getShadowHostId()
   }
 
-  const shadowRoot = shadowHost.attachShadow({ mode: "open" })
+  const shadowRoot =
+    typeof Mount.createShadowRoot === "function"
+      ? await Mount.createShadowRoot(shadowHost)
+      : shadowHost.attachShadow({ mode: "open" })
+
+  mountState.shadowHost = shadowHost
 
   if (typeof Mount.mountShadowHost === "function") {
     await Mount.mountShadowHost(mountState)
@@ -102,8 +107,6 @@ async function createShadowContainer() {
   } else {
     document.body.insertAdjacentElement("beforebegin", shadowHost)
   }
-
-  mountState.shadowHost = shadowHost
 
   if (typeof Mount.getStyle === "function") {
     shadowRoot.appendChild(await Mount.getStyle())
