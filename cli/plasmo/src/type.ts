@@ -3,7 +3,9 @@ import type { ManifestContentScript } from "@plasmo/constants/manifest/content-s
 
 export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
 
-type Getter<T> = () => T | Promise<T>
+type Async<T> = Promise<T> | T
+
+type Getter<T> = () => Async<T>
 
 type GetHtmlElement = Getter<HTMLElement>
 
@@ -21,12 +23,12 @@ export type PlasmoCSUIMountState = {
 
 export type PlasmoMountShadowHost = (
   mountState: PlasmoCSUIMountState
-) => Promise<void> | void
+) => Async<void>
 
 export type PlasmoRender = (
   createRootContainer: GetHtmlElement,
-  MountContainer: () => JSX.Element
-) => Promise<void> | void
+  MountContainer: () => JSX.Element | HTMLElement
+) => Async<void>
 
 export type PlasmoGetShadowHostId = Getter<string>
 
@@ -35,6 +37,10 @@ export type PlasmoGetStyle = Getter<HTMLStyleElement>
 export type PlasmoWatchOverlayAnchor = (
   updatePosition: () => Promise<void>
 ) => void
+
+export type PlasmoCreateShadowRoot = (
+  shadowHost: HTMLDivElement
+) => Async<ShadowRoot>
 
 export type PlasmoCSUI = {
   default: any
@@ -46,6 +52,7 @@ export type PlasmoCSUI = {
 
   getRootContainer: PlasmoGetRootContainer
 
+  createShadowRoot: PlasmoCreateShadowRoot
   watchOverlayAnchor: PlasmoWatchOverlayAnchor
   mountShadowHost: PlasmoMountShadowHost
   render: PlasmoRender
