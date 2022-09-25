@@ -7,13 +7,17 @@ import { Namer } from "@parcel/plugin"
 export default new Namer({
   name({ bundle }) {
     const mainEntry = bundle.getMainEntry()
-    if (bundle.type === "json") {
-      if (
-        mainEntry.filePath.endsWith(".plasmo.manifest.json") &&
-        mainEntry.meta?.webextEntry
-      ) {
-        return "manifest.json"
-      }
+
+    if (!mainEntry) {
+      return null
+    }
+
+    if (
+      bundle.type === "json" &&
+      mainEntry.filePath.endsWith(".plasmo.manifest.json") &&
+      mainEntry.meta?.webextEntry
+    ) {
+      return "manifest.json"
     }
 
     if (typeof mainEntry.meta?.bundlePath === "string") {
