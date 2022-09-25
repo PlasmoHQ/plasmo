@@ -90,7 +90,6 @@ export default new Transformer({
 
     state.asset.setCode(JSON.stringify(data, null, 2))
     state.asset.meta.webextEntry = true
-
     return getAssets()
   }
 })

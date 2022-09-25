@@ -4,14 +4,18 @@ import { wLog } from "@plasmo/utils/logging"
 
 import { addExtraAssets, state } from "./state"
 
+let warned = false
+
 export async function handleLocale() {
-  const { program, asset, assetsDir } = state
+  const { program, asset, assetsDir, projectDir } = state
 
-  const localesDir = resolve(assetsDir, "_locales")
+  const localesDir = [
+    resolve(projectDir, "locales"),
+    resolve(assetsDir, "locales"),
+    resolve(assetsDir, "_locales")
+  ].find((dir) => asset.fs.existsSync(dir))
 
-  const localeDirExist = await asset.fs.exists(localesDir)
-
-  if (!localeDirExist) {
+  if (!localesDir) {
     return
   }
 
@@ -22,8 +26,11 @@ export async function handleLocale() {
   }
 
   if (!program.default_locale) {
-    wLog(`default_locale not set, fallback to ${localeEntries[0]}`)
     program.default_locale = localeEntries[0]
+    if (!warned) {
+      warned = true
+      wLog(`default_locale not set, fallback to ${localeEntries[0]}`)
+    }
   }
 
   const defaultLocaleMessageExists = await asset.fs.exists(
@@ -41,7 +48,7 @@ export async function handleLocale() {
       const localeFilePath = resolve(localesDir, locale, "messages.json")
       if (await asset.fs.exists(localeFilePath)) {
         const bundlePath = `_locales/${locale}/messages.json`
-
+        state.asset.invalidateOnFileChange(localeFilePath)
         await addExtraAssets(localeFilePath, bundlePath)
       }
     })
