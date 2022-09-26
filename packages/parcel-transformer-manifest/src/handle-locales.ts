@@ -1,12 +1,12 @@
 import { resolve } from "path"
 
-import { wLog } from "@plasmo/utils/logging"
+import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { addExtraAssets, state } from "./state"
 
 let warned = false
 
-export async function handleLocale() {
+export async function handleLocales() {
   const { program, asset, assetsDir, projectDir } = state
 
   const localesDir = [
@@ -22,6 +22,7 @@ export async function handleLocale() {
   const localeEntries = await asset.fs.readdir(localesDir)
 
   if (localeEntries.length === 0) {
+    vLog("No locale found, skipping")
     return
   }
 
@@ -45,6 +46,7 @@ export async function handleLocale() {
 
   await Promise.all(
     localeEntries.map(async (locale) => {
+      vLog(`Adding locale ${locale}`)
       const localeFilePath = resolve(localesDir, locale, "messages.json")
       if (await asset.fs.exists(localeFilePath)) {
         const bundlePath = `_locales/${locale}/messages.json`

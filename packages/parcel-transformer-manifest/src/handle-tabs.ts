@@ -1,5 +1,7 @@
 import { resolve } from "path"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { state } from "./state"
 
 export async function handleTabs() {
@@ -20,6 +22,7 @@ export async function handleTabs() {
   const tabsEntries = await asset.fs.readdir(srcTabsDir)
 
   if (tabsEntries.length === 0) {
+    vLog(`No tab found in ${srcTabsDir}, skipping`)
     return
   }
 
@@ -37,6 +40,7 @@ export async function handleTabs() {
         (await asset.fs.exists(entryPath)) &&
         (await asset.fs.exists(srcEntryPath))
       ) {
+        vLog(`Adding tab ${entry}`)
         asset.addURLDependency(`tabs/${htmlEntry}`, {
           needsStableName: true
         })

@@ -28,7 +28,7 @@ export class Scaffolder {
   }
 
   initTemplateFiles = async (uiPageName: ExtensionUIPage) => {
-    vLog(`creating static templates for ${uiPageName}`)
+    vLog(`Creating static templates for ${uiPageName}`)
 
     const indexList = this.#plasmoManifest.projectPath[`${uiPageName}IndexList`]
     const htmlList = this.#plasmoManifest.projectPath[`${uiPageName}HtmlList`]
@@ -97,7 +97,7 @@ export class Scaffolder {
   }
 
   createTabMount = async (module: ParsedPath) => {
-    vLog(`creating tab mount template for ${module.dir}`)
+    vLog(`Creating tab mount template for ${module.dir}`)
     const { dotPlasmoDirectory } = this.#plasmoManifest.commonPath
 
     const staticModulePath = resolve(dotPlasmoDirectory, module.dir)
@@ -119,7 +119,7 @@ export class Scaffolder {
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
-    vLog(`creating content script mount for ${module.dir}`)
+    vLog(`Creating content script mount for ${module.dir}`)
     const staticModulePath = resolve(
       this.#plasmoManifest.commonPath.staticDirectory,
       module.dir

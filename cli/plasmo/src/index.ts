@@ -3,7 +3,7 @@ import { argv, exit, versions } from "process"
 import semver from "semver"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
-import { aLog, eLog, exitCountDown, vLog } from "@plasmo/utils"
+import { aLog, eLog, exitCountDown, vLog, verbose } from "@plasmo/utils"
 
 import { ValidCommand, runMap, validCommandSet } from "~commands"
 import { printHeader, printHelp } from "~features/helpers/print"
@@ -26,6 +26,8 @@ async function main() {
     if (semver.major(versions.node) < 16) {
       throw new Error("Node version must be >= 16")
     }
+
+    process.env.VERBOSE = verbose ? "true" : "false"
 
     // Setting startup policy/daemon
     const mode = argv.find((arg) =>

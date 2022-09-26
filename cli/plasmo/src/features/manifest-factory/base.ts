@@ -323,19 +323,19 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
   }
 
   addDirectory = async (
-    dPath: string,
+    path: string,
     toggleDynamicPath = this.toggleContentScript
   ) => {
-    if (!existsSync(dPath)) {
+    if (!existsSync(path)) {
       return false
     }
 
-    return readdir(dPath, { withFileTypes: true })
+    return readdir(path, { withFileTypes: true })
       .then((files) =>
         Promise.all(
           files
             .filter((f) => f.isFile())
-            .map((f) => resolve(dPath, f.name))
+            .map((f) => resolve(path, f.name))
             .map((filePath) => toggleDynamicPath(filePath, true))
         )
       )
