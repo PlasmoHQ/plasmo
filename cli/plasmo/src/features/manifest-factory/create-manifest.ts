@@ -14,12 +14,13 @@ export async function createManifest(
   commonPath: CommonPath,
   { browser, manifestVersion }: TargetData
 ) {
-  vLog("Making sure .plasmo exists")
+  vLog(`Ensure exists: ${commonPath.dotPlasmoDirectory}`)
   await ensureDir(commonPath.dotPlasmoDirectory)
+
   await updateVersionFile(commonPath)
   await generateIcons(commonPath)
 
-  vLog("Creating Extension Manifest...")
+  vLog("Creating Manifest Factory...")
   const manifestData =
     manifestVersion === "mv3"
       ? new PlasmoExtensionManifestMV3(commonPath, browser)

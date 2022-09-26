@@ -1,6 +1,8 @@
 import { getJSONSourceLocation } from "@parcel/diagnostic"
 import { extname } from "path"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { state } from "./state"
 
 const DEEP_LOCS = [
@@ -43,6 +45,8 @@ export const handleDeepLOC = () => {
 
     const obj = programPtr[lastLoc]
 
+    vLog(`Adding ${lastLoc}`)
+
     if (typeof obj === "string") {
       const ext = extname(obj)
       programPtr[lastLoc] = asset.addURLDependency(obj, {
@@ -52,7 +56,7 @@ export const handleDeepLOC = () => {
           ...getJSONSourceLocation(ptrs[location], "value")
         },
         needsStableName: ext === ".html",
-        pipeline: ext === ".json" ? "raw" : undefined
+        pipeline: ext === ".json" ? "raw-env" : undefined
       })
     } else {
       for (const k of Object.keys(obj)) {
@@ -64,7 +68,7 @@ export const handleDeepLOC = () => {
             ...getJSONSourceLocation(ptrs[location + "/" + k], "value")
           },
           needsStableName: ext === ".html",
-          pipeline: ext === ".json" ? "raw" : undefined
+          pipeline: ext === ".json" ? "raw-env" : undefined
         })
       }
     }

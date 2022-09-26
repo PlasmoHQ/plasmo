@@ -16,7 +16,7 @@ export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
   const { knownPathSet, watchPathReasonMap, watchDirectoryEntries } =
     plasmoManifest.projectPath
 
-  vLog("Initialized watch set:", knownPathSet)
+  vLog("Watching the following files:", knownPathSet)
 
   const getWatchReason = (path: string) => {
     // Quick track processing files already inside watch set
@@ -65,7 +65,7 @@ export const handleProjectFile = async (
   reason: WatchReason,
   plasmoManifest: BaseFactory
 ) => {
-  const enable = type !== "delete"
+  const isEnabled = type !== "delete"
 
   switch (reason) {
     case WatchReason.None: {
@@ -88,51 +88,60 @@ export const handleProjectFile = async (
       return
     }
     case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(path, enable)
+      plasmoManifest.toggleBackground(path, isEnabled)
       return
     }
     case WatchReason.ContentsIndex:
     case WatchReason.ContentsDirectory: {
-      await plasmoManifest.toggleContentScript(path, enable)
+      await plasmoManifest.toggleContentScript(path, isEnabled)
       return
     }
 
     case WatchReason.TabsDirectory: {
-      await plasmoManifest.toggleTab(path, enable)
+      await plasmoManifest.toggleTab(path, isEnabled)
       return
     }
 
     case WatchReason.PopupIndex: {
-      plasmoManifest.togglePopup(enable)
+      plasmoManifest.togglePopup(isEnabled)
       return
     }
     case WatchReason.OptionsIndex: {
-      plasmoManifest.toggleOptions(enable)
+      plasmoManifest.toggleOptions(isEnabled)
       return
     }
     case WatchReason.DevtoolsIndex: {
-      plasmoManifest.toggleDevtools(enable)
+      plasmoManifest.toggleDevtools(isEnabled)
       return
     }
     case WatchReason.NewtabIndex: {
-      plasmoManifest.toggleNewtab(enable)
+      plasmoManifest.toggleNewtab(isEnabled)
       return
     }
 
     case WatchReason.PopupHtml: {
-      await plasmoManifest.scaffolder.createPageHtml("popup", enable && path)
+      await plasmoManifest.scaffolder.createPageHtml("popup", isEnabled && path)
       return
     }
     case WatchReason.OptionsHtml: {
-      await plasmoManifest.scaffolder.createPageHtml("options", enable && path)
+      await plasmoManifest.scaffolder.createPageHtml(
+        "options",
+        isEnabled && path
+      )
       return
     }
     case WatchReason.DevtoolsHtml: {
-      await plasmoManifest.scaffolder.createPageHtml("devtools", enable && path)
+      await plasmoManifest.scaffolder.createPageHtml(
+        "devtools",
+        isEnabled && path
+      )
       return
     }
     case WatchReason.NewtabHtml: {
-      await plasmoManifest.scaffolder.createPageHtml("newtab", enable && path)
+      await plasmoManifest.scaffolder.createPageHtml(
+        "newtab",
+        isEnabled && path
+      )
       return
     }
 
