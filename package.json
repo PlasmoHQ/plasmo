@@ -29,25 +29,25 @@
     "@types/archiver": "5.3.1",
     "@types/fs-extra": "9.0.13",
     "@types/inquirer": "9.0.1",
-    "@types/node": "18.7.18",
+    "@types/node": "18.7.22",
     "@types/node-rsa": "1.1.1",
-    "@types/react": "18.0.20",
+    "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/semver": "7.3.12",
     "@types/sharp": "0.31.0",
     "@types/uuid": "8.3.4",
-    "esbuild": "0.15.7",
-    "eslint": "8.23.1",
+    "esbuild": "0.15.9",
+    "eslint": "8.24.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-react": "7.31.8",
     "fs-extra": "10.1.0",
     "prettier": "2.7.1",
     "tsup": "6.2.3",
-    "turbo": "1.4.7"
+    "turbo": "1.5.3"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.12.1"
+  "packageManager": "pnpm@7.12.2"
 }
