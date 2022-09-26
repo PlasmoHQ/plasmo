@@ -9,13 +9,16 @@ import { parse } from "@mischnic/json-sourcemap"
 import { Transformer } from "@parcel/plugin"
 import { validateSchema } from "@parcel/utils"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { handleAction } from "./handle-action"
 import { handleBackground } from "./handle-background"
 import { handleContentScripts } from "./handle-content-scripts"
 import { handleDeclarativeNetRequest } from "./handle-declarative-net-request"
 import { handleDeepLOC } from "./handle-deep-loc"
 import { handleDictionaries } from "./handle-dictionaries"
-import { handleLocale } from "./handle-locale"
+import { handleLocales } from "./handle-locales"
+import { handleTabs } from "./handle-tabs"
 import { normalizeManifest } from "./normalize-manifest"
 import { MV2Schema, MV3Schema } from "./schema"
 import { initState } from "./state"
@@ -24,7 +27,8 @@ async function collectDependencies() {
   normalizeManifest()
 
   await Promise.all([
-    handleLocale(),
+    handleTabs(),
+    handleLocales(),
     handleAction(),
     handleDeclarativeNetRequest()
   ])
@@ -37,6 +41,7 @@ async function collectDependencies() {
 
 export default new Transformer({
   async transform({ asset, options }) {
+    vLog("@plasmohq/parcel-transformer-manifest")
     // Set environment to browser, since web extensions are always used in
     // browsers, and because it avoids delegating extra config to the user
     asset.setEnvironment({
@@ -76,10 +81,18 @@ export default new Transformer({
       "@plasmohq/parcel-transformer-manifest",
       "Invalid Web Extension manifest"
     )
-    initState(asset, data, parsed.pointers, options.hmrOptions)
+
+    const { state, getAssets } = initState(
+      asset,
+      data,
+      parsed.pointers,
+      options.hmrOptions
+    )
+
     await collectDependencies()
-    asset.setCode(JSON.stringify(data, null, 2))
-    asset.meta.webextEntry = true
-    return [asset]
+
+    state.asset.setCode(JSON.stringify(data, null, 2))
+    state.asset.meta.webextEntry = true
+    return getAssets()
   }
 })

@@ -1,6 +1,8 @@
 import { getJSONSourceLocation } from "@parcel/diagnostic"
 import { extname } from "path"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { state } from "./state"
 
 const DEEP_LOCS = [
@@ -22,7 +24,7 @@ const DEEP_LOCS = [
   ["theme", "images", "theme_frame"],
   ["theme", "images", "additional_backgrounds"],
   ["user_scripts", "api_script"]
-] as const
+]
 
 export const handleDeepLOC = () => {
   const { program, filePath, ptrs, asset } = state
@@ -32,14 +34,18 @@ export const handleDeepLOC = () => {
   ).filter(([_, location]) => !!ptrs[location])
 
   for (const [loc, location] of relevantLocs) {
-    let programPtr: any = program
+    const lastIndex = loc.length - 1
+    const lastLoc = loc[lastIndex]
 
-    for (let i = 0; i < loc.length - 1; ++i) {
-      programPtr = programPtr[loc[i]]
-    }
+    // Reduce it right before the last loc
+    const programPtr = loc.reduce(
+      (acc, key, index) => (index === lastIndex ? acc : acc[key]),
+      program
+    )
 
-    const lastLoc = loc[loc.length - 1]
     const obj = programPtr[lastLoc]
+
+    vLog(`Adding ${lastLoc}`)
 
     if (typeof obj === "string") {
       const ext = extname(obj)
@@ -50,7 +56,7 @@ export const handleDeepLOC = () => {
           ...getJSONSourceLocation(ptrs[location], "value")
         },
         needsStableName: ext === ".html",
-        pipeline: ext === ".json" ? "raw" : undefined
+        pipeline: ext === ".json" ? "raw-env" : undefined
       })
     } else {
       for (const k of Object.keys(obj)) {
@@ -62,7 +68,7 @@ export const handleDeepLOC = () => {
             ...getJSONSourceLocation(ptrs[location + "/" + k], "value")
           },
           needsStableName: ext === ".html",
-          pipeline: ext === ".json" ? "raw" : undefined
+          pipeline: ext === ".json" ? "raw-env" : undefined
         })
       }
     }

@@ -57,17 +57,15 @@ export async function generateIcons({
     return
   }
 
-  vLog("Make sure generated assets directory exists")
   await ensureDir(genAssetsDirectory)
 
   const baseIcon = sharp(baseIconPath)
 
-  vLog(`${baseIconPath} found, create resized icons in gen-assets`)
+  vLog(`${baseIconPath} found, creating resized icons`)
 
   await Promise.all(
     [128, 64, 48, 32, 16].map((width) => {
       if (iconState.devProvidedIcons[width] === undefined) {
-        vLog(`Caching dev provided icon paths for size: ${width}`)
         const devIconPath = getPrioritizedIconPaths(getIconNameVariants(width))
         iconState.devProvidedIcons[width] = devIconPath.map((name) =>
           resolve(assetsDirectory, name)

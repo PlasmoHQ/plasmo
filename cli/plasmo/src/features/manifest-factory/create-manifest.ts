@@ -4,8 +4,8 @@ import { vLog, wLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
-import { generateLocales } from "~features/extension-devtools/generate-locales"
 import type { TargetData } from "~features/extension-devtools/get-target-data"
+import { updateVersionFile } from "~features/framework-update/version-tracker"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
@@ -14,13 +14,13 @@ export async function createManifest(
   commonPath: CommonPath,
   { browser, manifestVersion }: TargetData
 ) {
-  vLog("Making sure .plasmo exists")
+  vLog(`Ensure exists: ${commonPath.dotPlasmoDirectory}`)
   await ensureDir(commonPath.dotPlasmoDirectory)
 
+  await updateVersionFile(commonPath)
   await generateIcons(commonPath)
-  await generateLocales(commonPath)
 
-  vLog("Creating Extension Manifest...")
+  vLog("Creating Manifest Factory...")
   const manifestData =
     manifestVersion === "mv3"
       ? new PlasmoExtensionManifestMV3(commonPath, browser)
@@ -29,8 +29,7 @@ export async function createManifest(
   await manifestData.updateEnv()
   await manifestData.updatePackageData()
 
-  const { contentIndexList, contentsDirectory, backgroundIndexList } =
-    manifestData.projectPath
+  const { contentIndexList, backgroundIndexList } = manifestData.projectPath
 
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
@@ -42,7 +41,8 @@ export async function createManifest(
     manifestData.scaffolder.initTemplateFiles("devtools"),
     manifestData.toggleContentScript(contentIndex, true),
     manifestData.toggleBackground(backgroundIndex, true),
-    manifestData.addContentScriptsDirectory(contentsDirectory)
+    manifestData.addContentScriptsDirectory(),
+    manifestData.addTabsDirectory()
   ])
 
   if (!hasEntrypoints.includes(true)) {

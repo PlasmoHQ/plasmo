@@ -6,7 +6,6 @@ import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
 import type { BaseFactory } from "~features/manifest-factory/base"
 
 import { generateIcons } from "./generate-icons"
-import { generateLocales } from "./generate-locales"
 import { WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
@@ -17,7 +16,7 @@ export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
   const { knownPathSet, watchPathReasonMap, watchDirectoryEntries } =
     plasmoManifest.projectPath
 
-  vLog("Initialized watch set:", knownPathSet)
+  vLog("Watching the following files:", knownPathSet)
 
   const getWatchReason = (path: string) => {
     // Quick track processing files already inside watch set
@@ -66,11 +65,12 @@ export const handleProjectFile = async (
   reason: WatchReason,
   plasmoManifest: BaseFactory
 ) => {
-  if (reason === WatchReason.None) {
-    return
-  }
+  const isEnabled = type !== "delete"
 
   switch (reason) {
+    case WatchReason.None: {
+      return
+    }
     case WatchReason.EnvFile: {
       wLog("Environment file change detected, please restart the dev server.")
       return
@@ -78,7 +78,6 @@ export const handleProjectFile = async (
     case WatchReason.AssetsDirectory: {
       iLog("Assets directory changed, update dynamic assets")
       await generateIcons(plasmoManifest.commonPath)
-      await generateLocales(plasmoManifest.commonPath)
       return
     }
     case WatchReason.PackageJson: {
@@ -89,57 +88,59 @@ export const handleProjectFile = async (
       return
     }
     case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(path, type !== "delete")
+      plasmoManifest.toggleBackground(path, isEnabled)
       return
     }
     case WatchReason.ContentsIndex:
     case WatchReason.ContentsDirectory: {
-      await plasmoManifest.toggleContentScript(path, type !== "delete")
+      await plasmoManifest.toggleContentScript(path, isEnabled)
+      return
+    }
+
+    case WatchReason.TabsDirectory: {
+      await plasmoManifest.toggleTab(path, isEnabled)
       return
     }
 
     case WatchReason.PopupIndex: {
-      plasmoManifest.togglePopup(type !== "delete")
+      plasmoManifest.togglePopup(isEnabled)
       return
     }
     case WatchReason.OptionsIndex: {
-      plasmoManifest.toggleOptions(type !== "delete")
+      plasmoManifest.toggleOptions(isEnabled)
       return
     }
     case WatchReason.DevtoolsIndex: {
-      plasmoManifest.toggleDevtools(type !== "delete")
+      plasmoManifest.toggleDevtools(isEnabled)
       return
     }
     case WatchReason.NewtabIndex: {
-      plasmoManifest.toggleNewtab(type !== "delete")
+      plasmoManifest.toggleNewtab(isEnabled)
       return
     }
 
     case WatchReason.PopupHtml: {
-      await plasmoManifest.scaffolder.createPageHtml(
-        "popup",
-        type !== "delete" && path
-      )
+      await plasmoManifest.scaffolder.createPageHtml("popup", isEnabled && path)
       return
     }
     case WatchReason.OptionsHtml: {
       await plasmoManifest.scaffolder.createPageHtml(
         "options",
-        type !== "delete" && path
+        isEnabled && path
       )
       return
     }
     case WatchReason.DevtoolsHtml: {
       await plasmoManifest.scaffolder.createPageHtml(
         "devtools",
-        type !== "delete" && path
+        isEnabled && path
       )
       return
     }
     case WatchReason.NewtabHtml: {
       await plasmoManifest.scaffolder.createPageHtml(
         "newtab",
-        type !== "delete" && path
+        isEnabled && path
       )
       return
     }
