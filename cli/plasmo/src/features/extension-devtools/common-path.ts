@@ -1,30 +1,30 @@
-import { existsSync } from "fs";
-import { basename, resolve } from "path";
-import { cwd } from "process";
+import { existsSync } from "fs"
+import { basename, resolve } from "path"
+import { cwd } from "process"
 
 export const getCommonPath = (
   projectDirectory = cwd(),
   target = "chrome-mv3",
   dotPlasmo = ".plasmo"
 ) => {
-  const packageName = basename(projectDirectory);
+  const packageName = basename(projectDirectory)
 
   const srcPath = resolve(
     projectDirectory,
     process.env.PLASMO_SRC_PATH || "src"
-  );
+  )
 
-  const buildDirectory = resolve(projectDirectory, "build");
+  const buildDirectory = resolve(projectDirectory, "build")
 
   const distDirectoryName = `${target}-${
     process.env.NODE_ENV === "production" ? "prod" : "dev"
-  }`;
+  }`
 
-  const distDirectory = resolve(buildDirectory, distDirectoryName);
+  const distDirectory = resolve(buildDirectory, distDirectoryName)
 
-  const dotPlasmoDirectory = resolve(projectDirectory, dotPlasmo);
+  const dotPlasmoDirectory = resolve(projectDirectory, dotPlasmo)
 
-  const cacheDirectory = resolve(dotPlasmoDirectory, "cache");
+  const cacheDirectory = resolve(dotPlasmoDirectory, "cache")
 
   return {
     packageName,
@@ -49,8 +49,8 @@ export const getCommonPath = (
     entryManifestPath: resolve(
       dotPlasmoDirectory,
       `${target}.plasmo.manifest.json`
-    ),
-  };
-};
+    )
+  }
+}
 
-export type CommonPath = ReturnType<typeof getCommonPath>;
+export type CommonPath = ReturnType<typeof getCommonPath>
