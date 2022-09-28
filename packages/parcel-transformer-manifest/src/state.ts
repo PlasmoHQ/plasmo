@@ -72,7 +72,7 @@ export const initState = (
   state.staticDir = resolve(state.dotPlasmoDir, "static")
   state.projectDir = resolve(state.dotPlasmoDir, "..")
 
-  const srcDir = resolve(state.projectDir, "src")
+  const srcDir = resolve(state.projectDir, process.env.PLASMO_SRC_PATH || "src")
   state.srcDir = existsSync(srcDir) ? srcDir : state.projectDir
 
   state.assetsDir = resolve(state.projectDir, "assets")

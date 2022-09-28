@@ -31,7 +31,7 @@ export const initializeState = async (opts: ResolverOptions) => {
   }
 
   if (state.hasSrc === null) {
-    state.srcDir = resolve(opts.options.cacheDir, "..", "..", "..", "src")
+    state.srcDir = resolve(opts.options.cacheDir, "..", "..", "..", process.env.PLASMO_SRC_PATH || "src")
     state.hasSrc = existsSync(state.srcDir)
 
     state.srcDir = state.hasSrc ? state.srcDir : resolve(state.srcDir, "..")
