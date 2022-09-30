@@ -2,6 +2,8 @@ import { existsSync } from "fs"
 import { basename, resolve } from "path"
 import { cwd } from "process"
 
+import { getFlag } from "@plasmo/utils"
+
 export const getCommonPath = (
   projectDirectory = cwd(),
   target = "chrome-mv3",
@@ -11,7 +13,10 @@ export const getCommonPath = (
 
   const srcPath = resolve(projectDirectory, "src")
 
-  const buildDirectory = resolve(projectDirectory, "build")
+  const buildDirectory = resolve(
+    projectDirectory,
+    getFlag("--build-dir") || "build"
+  )
 
   const distDirectoryName = `${target}-${
     process.env.NODE_ENV === "production" ? "prod" : "dev"
