@@ -15,7 +15,7 @@ const {
   isVariableStatement
 } = typescript
 
-export const extractContentScriptMetadata = async (path: string) => {
+export const extractContentScriptConfig = async (path: string) => {
   try {
     const sourceContent = await readFile(path, "utf8")
 

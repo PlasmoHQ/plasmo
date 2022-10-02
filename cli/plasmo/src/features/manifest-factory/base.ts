@@ -22,7 +22,7 @@ import type {
 import { assertUnreachable, vLog } from "@plasmo/utils"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
-import { extractContentScriptMetadata } from "~features/extension-devtools/content-script"
+import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
 import {
   EnvConfig,
   loadEnvConfig
@@ -279,7 +279,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     if (enable) {
-      const metadata = await extractContentScriptMetadata(path)
+      const metadata = await extractContentScriptConfig(path)
 
       vLog("Adding content script: ", path)
 
