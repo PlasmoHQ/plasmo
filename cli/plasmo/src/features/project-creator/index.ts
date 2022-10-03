@@ -4,7 +4,7 @@ import { existsSync } from "fs"
 import { copy, readJson, writeJson } from "fs-extra"
 import { writeFile } from "fs/promises"
 import { userInfo } from "os"
-import { basename, resolve } from "path"
+import { resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
 import { getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
@@ -191,11 +191,15 @@ export class ProjectCreator {
     const entry = getFlag("--entry") || "popup"
 
     const entryFiles = entry
-      .split(" ")
+      .split(new RegExp(",|\\s"))
       .flatMap((e) => [`${e}.ts`, `${e}.tsx`])
-      .map((e) => resolve(this.templatePath.initEntryPath, e))
-      .filter(existsSync)
-      .map((e) => [e, resolve(this.commonPath.projectDirectory, basename(e))])
+      .map((e) => [
+        resolve(this.templatePath.initEntryPath, e),
+        resolve(this.commonPath.projectDirectory, e)
+      ])
+      .filter(([entryPath]) => existsSync(entryPath))
+
+    vLog("Using the following entry files: ", entryFiles)
 
     await Promise.all([
       copy(
