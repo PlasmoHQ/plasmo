@@ -11,7 +11,14 @@ export const getCommonPath = (
 ) => {
   const packageName = basename(projectDirectory)
 
-  const srcPath = resolve(projectDirectory, "src")
+  process.env.PLASMO_SRC_PATH =
+    getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
+
+  const srcDirectory = resolve(projectDirectory, process.env.PLASMO_SRC_PATH)
+
+  process.env.PLASMO_SRC_DIR = existsSync(srcDirectory)
+    ? srcDirectory
+    : projectDirectory
 
   const buildDirectory = resolve(
     projectDirectory,
@@ -36,7 +43,7 @@ export const getCommonPath = (
     distDirectory,
     distDirectoryName,
 
-    sourceDirectory: existsSync(srcPath) ? srcPath : projectDirectory,
+    sourceDirectory: process.env.PLASMO_SRC_DIR,
     packageFilePath: resolve(projectDirectory, "package.json"),
     gitIgnorePath: resolve(projectDirectory, ".gitignore"),
     assetsDirectory: resolve(projectDirectory, "assets"),
