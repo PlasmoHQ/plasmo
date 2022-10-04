@@ -2,7 +2,7 @@ import { statSync } from "fs"
 import { extname, resolve } from "path"
 
 import {
-  ResolverOptions,
+  ResolverProps,
   ResolverResult,
   relevantExtensionList,
   relevantExtensionSet,
@@ -12,7 +12,7 @@ import {
 export async function handleTildeSrc({
   specifier,
   dependency
-}: ResolverOptions): Promise<ResolverResult> {
+}: ResolverProps): Promise<ResolverResult> {
   if (specifier[0] !== "~") {
     return null
   }

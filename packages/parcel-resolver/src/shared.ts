@@ -17,7 +17,7 @@ type ResolveFx = ConstructorParameters<typeof Resolver>[0]["resolve"]
 
 export type ResolverResult = ReturnType<ResolveFx>
 
-export type ResolverOptions = Parameters<ResolveFx>[0]
+export type ResolverProps = Parameters<ResolveFx>[0]
 
 export const state = {
   got: null as Got,
@@ -25,17 +25,18 @@ export const state = {
   srcDir: null as string
 }
 
-export const initializeState = async (opts: ResolverOptions) => {
+export const initializeState = async (props: ResolverProps) => {
   if (state.got === null) {
     state.got = (await import("got")).default
   }
 
   if (state.hasSrc === null) {
     state.srcDir = resolve(
-      opts.options.cacheDir,
+      props.options.cacheDir,
       "../../..",
       process.env.PLASMO_SRC_PATH || "src"
     )
+
     state.hasSrc = existsSync(state.srcDir)
 
     state.srcDir = state.hasSrc ? state.srcDir : resolve(state.srcDir, "..")

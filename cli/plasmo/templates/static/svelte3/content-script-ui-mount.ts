@@ -135,12 +135,10 @@ const startObserver = () => {
   })
 }
 
-window.addEventListener("load", () => {
-  if (typeof Mount.render === "function") {
-    Mount.render(createRootContainer, createMountContainer)
-  } else if (typeof Mount.getInlineAnchor === "function") {
-    startObserver()
-  } else {
-    render()
-  }
-})
+if (typeof Mount.render === "function") {
+  Mount.render(createRootContainer, createMountContainer)
+} else if (typeof Mount.getInlineAnchor === "function") {
+  startObserver()
+} else {
+  render()
+}

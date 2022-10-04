@@ -2,7 +2,7 @@ import { hashString } from "@parcel/hash"
 import { resolve } from "path"
 
 import {
-  ResolverOptions,
+  ResolverProps,
   ResolverResult,
   relevantExtensionList,
   state
@@ -20,7 +20,7 @@ export async function handleRemoteCaching({
   specifier,
   dependency,
   options
-}: ResolverOptions): Promise<ResolverResult> {
+}: ResolverProps): Promise<ResolverResult> {
   if (!specifier.startsWith("https://")) {
     return null
   }

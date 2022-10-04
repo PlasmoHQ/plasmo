@@ -6,10 +6,17 @@
  * MIT License
  */
 import { Packager } from "@parcel/plugin"
-import type { Asset, NamedBundle } from "@parcel/types"
-import { relativeBundlePath, replaceURLReferences } from "@parcel/utils"
+import type { Asset } from "@parcel/types"
+import { replaceURLReferences } from "@parcel/utils"
 import assert from "assert"
-import nullthrows from "nullthrows"
+
+import type { ExtensionManifest } from "@plasmo/constants"
+
+import {
+  appendMv2Wars,
+  appendMv3Wars,
+  getWarsFromContentScripts
+} from "./get-web-accessible-resources"
 
 export default new Packager({
   async package({ bundle, bundleGraph, options }) {
@@ -27,78 +34,24 @@ export default new Packager({
     )
     const [manifestAsset] = manifestEntryAssets
 
-    const relPath = (b: NamedBundle): string =>
-      relativeBundlePath(bundle, b, {
-        leadingDotSlash: false
-      })
-
-    const manifest = JSON.parse(await manifestAsset.getCode())
-    const deps = manifestAsset.getDependencies()
-    const war = []
-
-    const isMV2 = manifest.manifest_version === 2
-
-    for (const contentScript of manifest.content_scripts || []) {
-      const srcBundles = deps
-        .filter(
-          (d) =>
-            contentScript.js?.includes(d.id) ||
-            contentScript.css?.includes(d.id)
-        )
-        .map((d) => nullthrows(bundleGraph.getReferencedBundle(d, bundle)))
-      contentScript.css = [
-        ...new Set(
-          (contentScript.css || []).concat(
-            srcBundles
-              .flatMap((b) => bundleGraph.getReferencedBundles(b))
-              .filter((b) => b.type == "css")
-              .map(relPath)
-          )
-        )
-      ]
-      const resources = srcBundles
-        .flatMap((b) => {
-          const children: NamedBundle[] = []
-          const siblings = bundleGraph.getReferencedBundles(b)
-          bundleGraph.traverseBundles((child) => {
-            if (b !== child && !siblings.includes(child)) {
-              children.push(child)
-            }
-          }, b)
-          return children
-        })
-        .map(relPath)
-
-      if (resources.length > 0) {
-        war.push({
-          matches: contentScript.matches.map((match) => {
-            if (/^(((http|ws)s?)|ftp|\*):\/\//.test(match)) {
-              let pathIndex = match.indexOf("/", match.indexOf("://") + 3)
-              // Avoids creating additional errors in invalid match URLs
-              if (pathIndex === -1) pathIndex = match.length
-              return match.slice(0, pathIndex) + "/*"
-            }
-
-            return match
-          }),
-          resources
-        })
-      }
-    }
-
-    if (!isMV2 && options.hmrOptions) {
-      war.push({
-        matches: ["<all_urls>"],
-        resources: ["__parcel_hmr_proxy__"]
-      })
-    }
-
-    const warResult = (manifest.web_accessible_resources || []).concat(
-      isMV2 ? [...new Set(war.flatMap((entry) => entry.resources))] : war
+    const manifest: ExtensionManifest = JSON.parse(
+      await manifestAsset.getCode()
     )
 
-    if (warResult.length > 0) {
-      manifest.web_accessible_resources = warResult
+    const dependencies = manifestAsset.getDependencies()
+
+    const wars = getWarsFromContentScripts(
+      bundle,
+      bundleGraph,
+      dependencies,
+      manifest.content_scripts
+    )
+
+    if (manifest.manifest_version === 2) {
+      appendMv2Wars(manifest, wars, options)
+    } else {
+      appendMv3Wars(manifest, wars, options)
+      delete manifest.background?.type
     }
 
     const { contents } = replaceURLReferences({
