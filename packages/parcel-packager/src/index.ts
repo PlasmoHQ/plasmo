@@ -51,7 +51,7 @@ export default new Packager({
       appendMv2Wars(manifest, wars, options)
     } else {
       appendMv3Wars(manifest, wars, options)
-      delete manifest.background.type
+      delete manifest.background?.type
     }
 
     const { contents } = replaceURLReferences({
