@@ -1,10 +1,9 @@
 {
-  "name": "@plasmohq/parcel-transformer-manifest",
-  "version": "0.6.0",
-  "description": "Plasmo Parcel Transformer for Web Extension Manifest",
+  "name": "@plasmohq/parcel-transformer-lab",
+  "version": "0.0.1",
+  "description": "Plasmo Parcel Transformer Laboratory - a way to experiment with how the transformer works",
   "files": [
-    "dist",
-    "runtime"
+    "dist"
   ],
   "main": "dist/index.js",
   "scripts": {
@@ -28,15 +27,11 @@
     "tsup": "6.2.3"
   },
   "dependencies": {
-    "@mischnic/json-sourcemap": "0.1.0",
     "@parcel/core": "2.7.0",
     "@parcel/diagnostic": "2.7.0",
     "@parcel/fs": "2.7.0",
     "@parcel/plugin": "2.7.0",
     "@parcel/types": "2.7.0",
-    "@parcel/utils": "2.7.0",
-    "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.5.5",
-    "nullthrows": "1.1.1"
+    "@parcel/utils": "2.7.0"
   }
 }
