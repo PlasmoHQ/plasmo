@@ -3,12 +3,12 @@ import { createApp } from "vue"
 
 // prettier-sort-ignore
 // @ts-ignore
-import * as RawMount from "__plasmo_mount_content_script__"
+import RawMount from "__plasmo_mount_content_script__"
 
 import type { PlasmoCSUI, PlasmoCSUIMountState } from "../../../src/type"
 
 // Escape parcel's static analyzer
-const Mount = RawMount as PlasmoCSUI
+const Mount = RawMount.plasmo as PlasmoCSUI
 
 const mountState: PlasmoCSUIMountState = {
   document: document || window.document,
@@ -113,7 +113,7 @@ const render = async () => {
   const mountPoint = createMountContainer()
   rootContainer.appendChild(mountPoint)
 
-  const app = createApp(Mount.default)
+  const app = createApp(RawMount)
   app.mount(mountPoint)
 }
 
@@ -137,12 +137,10 @@ const startObserver = () => {
   })
 }
 
-window.addEventListener("load", () => {
-  if (typeof Mount.render === "function") {
-    Mount.render(createRootContainer, createMountContainer)
-  } else if (typeof Mount.getInlineAnchor === "function") {
-    startObserver()
-  } else {
-    render()
-  }
-})
+if (typeof Mount.render === "function") {
+  Mount.render(createRootContainer, createMountContainer)
+} else if (typeof Mount.getInlineAnchor === "function") {
+  startObserver()
+} else {
+  render()
+}

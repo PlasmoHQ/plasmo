@@ -89,24 +89,21 @@ function handleMV3Background(program: MV3Data) {
       `http://${hmrOptions?.host || "localhost"}`
     )
     // Sandbox allows eval by default
-    if (csp.sandbox) csp.sandbox = cspPatchHMR(csp.sandbox)
+    if (csp.sandbox) {
+      csp.sandbox = cspPatchHMR(csp.sandbox)
+    }
     program.content_security_policy = csp
 
     if (needRuntimeBG) {
       if (!program.background) {
-        program.background = {} as any
-      }
-
-      if (!program.background.service_worker) {
-        program.background.service_worker = asset.addURLDependency(
-          "../runtime/default-bg.js",
-          {
+        program.background = {
+          service_worker: asset.addURLDependency("../runtime/default-bg.js", {
             resolveFrom: __filename,
             env: {
               context: "service-worker"
             }
-          }
-        )
+          })
+        }
       }
 
       asset.meta.webextBGInsert = program.background.service_worker
