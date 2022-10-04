@@ -2,6 +2,8 @@ import { existsSync } from "fs"
 import { basename, resolve } from "path"
 import { cwd } from "process"
 
+import { getFlag } from "@plasmo/utils"
+
 export const getCommonPath = (
   projectDirectory = cwd(),
   target = "chrome-mv3",
@@ -9,10 +11,14 @@ export const getCommonPath = (
 ) => {
   const packageName = basename(projectDirectory)
 
-  const srcPath = resolve(
-    projectDirectory,
-    process.env.PLASMO_SRC_PATH || "src"
-  )
+  process.env.PLASMO_SRC_PATH =
+    getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
+
+  const srcDirectory = resolve(projectDirectory, process.env.PLASMO_SRC_PATH)
+
+  process.env.PLASMO_SRC_DIR = existsSync(srcDirectory)
+    ? srcDirectory
+    : projectDirectory
 
   const buildDirectory = resolve(projectDirectory, "build")
 
@@ -34,7 +40,7 @@ export const getCommonPath = (
     distDirectory,
     distDirectoryName,
 
-    sourceDirectory: existsSync(srcPath) ? srcPath : projectDirectory,
+    sourceDirectory: process.env.PLASMO_SRC_DIR,
     packageFilePath: resolve(projectDirectory, "package.json"),
     gitIgnorePath: resolve(projectDirectory, ".gitignore"),
     assetsDirectory: resolve(projectDirectory, "assets"),

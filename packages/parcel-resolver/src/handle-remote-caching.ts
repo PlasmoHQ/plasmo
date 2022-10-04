@@ -38,7 +38,7 @@ export async function handleRemoteCaching({
     )
   )
 
-  const fileType = "js"
+  const fileType = target.searchParams.get("plasmo-ext") || "js"
 
   try {
     const code = (await state.got(target.toString()).text()) as string

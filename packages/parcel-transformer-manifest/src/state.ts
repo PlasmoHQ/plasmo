@@ -6,7 +6,6 @@ import type {
   MutableAsset,
   TransformerResult
 } from "@parcel/types"
-import { existsSync } from "fs"
 import { dirname, resolve } from "path"
 
 import type { MV2Data, ManifestData } from "./schema"
@@ -72,13 +71,9 @@ export const initState = (
   state.staticDir = resolve(state.dotPlasmoDir, "static")
   state.projectDir = resolve(state.dotPlasmoDir, "..")
 
-  const srcDir = resolve(
-    state.projectDir,
-    process.env.PLASMO_SRC_PATH || "src"
-  )
-  state.srcDir = existsSync(srcDir) ? srcDir : state.projectDir
-
   state.assetsDir = resolve(state.projectDir, "assets")
+
+  state.srcDir = process.env.PLASMO_SRC_DIR
 
   state.ptrs = ptrs
   state.asset = asset
