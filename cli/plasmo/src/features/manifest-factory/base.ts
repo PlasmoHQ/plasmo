@@ -1,4 +1,12 @@
-import { copy, existsSync, pathExists, readJson, writeJson } from "fs-extra"
+import { ok } from "assert"
+import {
+  copy,
+  ensureDir,
+  existsSync,
+  pathExists,
+  readJson,
+  writeJson
+} from "fs-extra"
 import { readdir } from "fs/promises"
 import createHasher from "node-object-hash"
 import {
@@ -11,18 +19,25 @@ import {
   relative,
   resolve
 } from "path"
+import { cwd } from "process"
 import glob from "tiny-glob"
 
 import type {
+  ChromeUrlOverrideType,
   ExtensionManifest,
   ExtensionManifestV3,
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
-import { assertUnreachable, vLog } from "@plasmo/utils"
+import { assertTruthy, vLog } from "@plasmo/utils"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
+import {
+  CommonPath,
+  getCommonPath
+} from "~features/extension-devtools/common-path"
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
+import { generateIcons } from "~features/extension-devtools/generate-icons"
+import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import {
   EnvConfig,
   loadEnvConfig
@@ -36,11 +51,12 @@ import {
   TemplatePath,
   getTemplatePath
 } from "~features/extension-devtools/template-path"
+import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { getSubExt, toPosix } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
-import { SupportedUIExt, UILibrary, getUILibrary } from "./ui-library"
+import { UiExtMap, UiLibrary, getUiExtMap, getUiLibrary } from "./ui-library"
 
 export const iconMap = {
   "16": "./gen-assets/icon16.plasmo.png",
@@ -53,24 +69,19 @@ export const iconMap = {
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export abstract class BaseFactory<T extends ExtensionManifest = any> {
-  #browser: string
+  #bundleConfig: PlasmoBundleConfig
   get browser() {
-    return this.#browser
+    return this.#bundleConfig.browser
   }
 
-  envConfig!: EnvConfig
-  public get publicEnv() {
-    return this.envConfig.plasmoPublicEnv
-  }
-
-  #commonPath: CommonPath
+  #commonPath?: CommonPath
   public get commonPath(): CommonPath {
-    return this.#commonPath
+    return assertTruthy(this.#commonPath)
   }
 
-  #projectPath!: ProjectPath
+  #projectPath?: ProjectPath
   public get projectPath(): ProjectPath {
-    return this.#projectPath
+    return assertTruthy(this.#projectPath)
   }
 
   #templatePath: TemplatePath
@@ -78,18 +89,48 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this.#templatePath
   }
 
-  #uiExt: SupportedUIExt = ".ts"
+  #envConfig?: EnvConfig
+
+  public get combinedEnv() {
+    ok(this.#envConfig)
+    return this.#envConfig.combinedEnv
+  }
+
+  public get publicEnv() {
+    ok(this.#envConfig)
+    return this.#envConfig.plasmoPublicEnv
+  }
+
   #extSet = new Set([".ts"])
+  #uiLibraryData?: {
+    uiLibrary: UiLibrary
+    uiExtMap: UiExtMap
+  }
+
+  get uiLibrary() {
+    ok(this.#uiLibraryData)
+    return this.#uiLibraryData.uiLibrary
+  }
+
+  get mountExt() {
+    ok(this.#uiLibraryData)
+    return this.#uiLibraryData.uiExtMap.mountExt
+  }
+
+  get uiExt() {
+    ok(this.#uiLibraryData)
+    return this.#uiLibraryData.uiExtMap.uiExt
+  }
 
   #hasher = createHasher({ trim: true, sort: true })
 
   #hash = ""
   #prevHash = ""
 
-  protected data: Partial<T>
+  protected data: Partial<T> = {}
   protected overideManifest: Partial<T> = {}
 
-  protected packageData!: PackageJSON
+  protected packageData?: PackageJSON
   protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
   protected copyQueue: Array<[string, string]> = []
@@ -104,37 +145,50 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
   }
 
   get name() {
+    ok(this.packageData)
     return this.packageData.displayName
   }
 
   get dependencies() {
+    ok(this.packageData)
     return this.packageData.dependencies
   }
 
   get devDependencies() {
+    ok(this.packageData)
     return this.packageData.devDependencies
   }
 
-  #cachedUILibrary?: UILibrary
-  get uiLibrary() {
-    return this.#cachedUILibrary
-  }
-
   get staticScaffoldPath() {
-    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary!.path)
+    ok(this.uiLibrary)
+    return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(commonPath: CommonPath, browser: string) {
-    this.#commonPath = commonPath
-    this.#browser = browser
-    this.#templatePath = getTemplatePath()
-    this.data = {}
+  protected constructor(bundleConfig: PlasmoBundleConfig) {
     this.data.icons = iconMap
+    this.#bundleConfig = bundleConfig
+    this.#templatePath = getTemplatePath()
     this.#scaffolder = new Scaffolder(this)
   }
 
-  async updateEnv() {
-    this.envConfig = await loadEnvConfig(this.commonPath.projectDirectory)
+  async startup() {
+    await this.updateEnv(cwd())
+
+    vLog(`Ensure exists: ${this.commonPath.dotPlasmoDirectory}`)
+    await ensureDir(this.commonPath.dotPlasmoDirectory)
+    await updateVersionFile(this.commonPath)
+    await generateIcons(this.commonPath)
+
+    await this.updatePackageData()
+  }
+
+  async postBuild() {
+    await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
+  }
+
+  async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
+    this.#envConfig = await loadEnvConfig(envRootDirectory)
+    this.#commonPath = getCommonPath(envRootDirectory, this.#bundleConfig)
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195
@@ -162,45 +216,27 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       (p) => `@plasmohq/${p}` in (this.packageData?.dependencies || {})
     )
 
-    if (this.data.permissions.length === 0) {
-      delete this.data.permissions
-    }
-
     await Promise.all([
       (this.overideManifest = await this.#getOverrideManifest()),
-      await this.#cacheUILibrary()
+      await this.#cacheUiLibrary()
     ])
   }
 
-  #cacheUILibrary = async () => {
-    this.#cachedUILibrary = await getUILibrary(this)
-    switch (this.#cachedUILibrary.name) {
-      case "svelte":
-        this.#uiExt = ".svelte"
-        this.#scaffolder.mountExt = ".ts"
-        break
-      case "vue":
-        this.#uiExt = ".vue"
-        this.#scaffolder.mountExt = ".ts"
-        break
-      case "react":
-        this.#uiExt = ".tsx"
-        this.#scaffolder.mountExt = ".tsx"
-        break
-      case "vanilla":
-        this.#uiExt = ".ts"
-        this.#scaffolder.mountExt = ".ts"
-        break
-      default:
-        assertUnreachable(this.#cachedUILibrary.name)
+  #cacheUiLibrary = async () => {
+    const uiLibrary = await getUiLibrary(this)
+    const uiExtMap = getUiExtMap(uiLibrary.name)
+
+    this.#uiLibraryData = {
+      uiLibrary,
+      uiExtMap
     }
 
-    this.#extSet.add(this.#uiExt)
+    this.#extSet.add(this.uiExt)
 
     this.#projectPath = getProjectPath(
       this.commonPath,
-      this.#browser,
-      this.#uiExt
+      this.browser,
+      this.uiExt
     )
   }
 
@@ -219,10 +255,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return this
   }
 
-  toggleOverrides = (
-    page: keyof ExtensionManifest["chrome_url_overrides"],
-    enable = false
-  ) => {
+  toggleOverrides = (page: ChromeUrlOverrideType, enable = false) => {
     if (enable) {
       this.data.chrome_url_overrides = {
         ...this.data.chrome_url_overrides,
@@ -258,14 +291,14 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
     const subExt = getSubExt(path)
     // Ignore if path is browser specific and does not match browser
-    if (subExt.length > 0 && subExt !== `.${this.#browser}`) {
+    if (subExt.length > 0 && subExt !== `.${this.browser}`) {
       return true
     }
 
     // Ignore if path is browser generic and there is a browser specific path
     if (
       subExt.length === 0 &&
-      existsSync(path.replace(ext, `.${this.#browser}${ext}`))
+      existsSync(path.replace(ext, `.${this.browser}${ext}`))
     ) {
       return true
     }
@@ -287,7 +320,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       if (
         this.uiLibrary?.name !== "vanilla" &&
-        extname(scriptPath) === this.#uiExt
+        extname(scriptPath) === this.uiExt
       ) {
         // copy the contents and change the manifest path
         const modulePath = join("lab", scriptPath).replace(/(^src)[\\/]/, "")
@@ -388,19 +421,35 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       ...this.data
     }
 
-    const { options_ui, permissions, content_scripts, ...overide } =
-      this.overideManifest
+    const {
+      options_ui: overrideOptionUi,
+      permissions: overridePermissions,
+      content_scripts: overrideContentScripts,
+      ...overide
+    } = this.overideManifest as T
 
-    if (typeof options_ui?.open_in_tab === "boolean" && base.options_ui?.page) {
-      base.options_ui.open_in_tab = options_ui.open_in_tab
+    if (
+      typeof overrideOptionUi?.open_in_tab === "boolean" &&
+      base.options_ui?.page
+    ) {
+      base.options_ui.open_in_tab = overrideOptionUi.open_in_tab
     }
 
-    base.permissions = [...(base.permissions || []), ...(permissions || [])]
+    base.permissions = [
+      ...new Set([
+        ...base.permissions!,
+        ...((overridePermissions as any) || [])
+      ])
+    ]
+
+    if (base.permissions?.length === 0) {
+      delete base.permissions
+    }
 
     // Populate content_scripts
     base.content_scripts = [
       ...Array.from(this.contentScriptMap.values()),
-      ...(content_scripts || [])
+      ...(overrideContentScripts! || [])
     ]
 
     if (base.content_scripts.length === 0) {
@@ -424,7 +473,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
     const output = await this.prepareOverrideManifest()
 
-    if (output.web_accessible_resources?.length > 0) {
+    if ((output.web_accessible_resources?.length || 0) > 0) {
       output.web_accessible_resources = await this.resolveWAR(
         this.packageData.manifest.web_accessible_resources
       )
@@ -451,10 +500,6 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     return this.injectEnv(output)
-  }
-
-  async postBuild() {
-    await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
   }
 
   protected abstract resolveWAR: (
@@ -523,11 +568,11 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       }
 
       if (!!value.match(/^\$(\w+)$/)) {
-        return this.envConfig.combinedEnv[value.substring(1)] || undefined
+        return this.combinedEnv[value.substring(1)] || undefined
       } else {
         return value.replace(
           /\$(\w+)/gm,
-          (envKey) => this.envConfig.combinedEnv[envKey.substring(1)] || envKey
+          (envKey) => this.combinedEnv[envKey.substring(1)] || envKey
         )
       }
     })

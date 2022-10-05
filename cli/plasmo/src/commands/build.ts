@@ -1,11 +1,9 @@
 import { createWriteStream } from "fs"
 import { resolve } from "path"
-import { cwd } from "process"
 
 import { getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
 
-import { getCommonPath } from "~features/extension-devtools/common-path"
-import { getTargetData } from "~features/extension-devtools/get-target-data"
+import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { nextNewTab } from "~features/extra/next-new-tab"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
@@ -18,20 +16,21 @@ async function build() {
 
   const [internalCmd] = getNonFlagArgvs("build")
 
-  const targetData = getTargetData()
-
-  const commonPath = getCommonPath(cwd(), targetData.target)
-
   if (internalCmd === "next-new-tab") {
-    await nextNewTab(commonPath)
+    await nextNewTab()
     return
   }
 
   iLog("Prepare to bundle the extension...")
 
-  const plasmoManifest = await createManifest(commonPath, targetData)
+  const bundleConfig = getBundleConfig()
 
-  const bundler = await createParcelBuilder(commonPath, {
+  const plasmoManifest = await createManifest(bundleConfig)
+
+  const { distDirectory, buildDirectory, distDirectoryName } =
+    plasmoManifest.commonPath
+
+  const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
     mode: "production",
     shouldDisableCache: true,
     shouldContentHash: false,
@@ -42,9 +41,9 @@ async function build() {
       engines: {
         browsers: ["last 1 Chrome version"]
       },
-      distDir: commonPath.distDirectory
+      distDir: distDirectory
     },
-    env: plasmoManifest.publicEnv.extends(targetData).data
+    env: plasmoManifest.publicEnv.extends(bundleConfig).data
   })
 
   const result = await bundler.run()
@@ -58,10 +57,7 @@ async function build() {
       zlib: { level: 9 }
     })
 
-    const zipFilePath = resolve(
-      commonPath.buildDirectory,
-      `${commonPath.distDirectoryName}.zip`
-    )
+    const zipFilePath = resolve(buildDirectory, `${distDirectoryName}.zip`)
 
     const output = createWriteStream(zipFilePath)
     output.on("close", () => {
@@ -70,7 +66,7 @@ async function build() {
 
     zip.pipe(output)
 
-    zip.directory(commonPath.distDirectory, "")
+    zip.directory(distDirectory, "")
 
     await zip.finalize()
   }

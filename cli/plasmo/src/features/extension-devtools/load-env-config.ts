@@ -48,13 +48,18 @@ function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
         parsed: dotenv.parse(envFile.contents)
       })
 
-      if (result.parsed) {
+      if (!!result.parsed) {
         iLog(`Loaded env from ${join(dir || "", envFile.path)}`)
-      }
+        const resultData = result.parsed || {}
 
-      for (const key of Object.keys(result.parsed || {})) {
-        if (typeof parsed[key] === "undefined") {
-          parsed[key] = result.parsed?.[key]!
+        for (const key of Object.keys(resultData)) {
+          if (typeof parsed[key] === "undefined") {
+            parsed[key] = resultData[key]
+
+            if (key.startsWith("PLASMO_")) {
+              process.env[key] = resultData[key]
+            }
+          }
         }
       }
     } catch (err) {

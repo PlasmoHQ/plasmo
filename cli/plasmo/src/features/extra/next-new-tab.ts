@@ -5,7 +5,7 @@ import { resolve } from "path"
 
 import { fileExists, sLog, vLog } from "@plasmo/utils"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
+import { getCommonPath } from "~features/extension-devtools/common-path"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import { stripUnderscore } from "~features/extension-devtools/strip-underscore"
 
@@ -19,8 +19,8 @@ export const generateNewTabManifest = (packageData: PackageJSON) => ({
   }
 })
 
-export const nextNewTab = async (commonPath: CommonPath) => {
-  const { projectDirectory, packageFilePath } = commonPath
+export const nextNewTab = async () => {
+  const { projectDirectory, packageFilePath } = getCommonPath()
 
   vLog("Creating a Plasmo + Nextjs based new tab extension")
   const out = resolve(projectDirectory, "out")

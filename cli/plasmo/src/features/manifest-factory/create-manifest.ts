@@ -1,48 +1,35 @@
-import { ensureDir, existsSync } from "fs-extra"
+import { existsSync } from "fs-extra"
 
 import { vLog, wLog } from "@plasmo/utils"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
-import { generateIcons } from "~features/extension-devtools/generate-icons"
-import type { TargetData } from "~features/extension-devtools/get-target-data"
-import { updateVersionFile } from "~features/framework-update/version-tracker"
+import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
 
-export async function createManifest(
-  commonPath: CommonPath,
-  { browser, manifestVersion }: TargetData
-) {
-  vLog(`Ensure exists: ${commonPath.dotPlasmoDirectory}`)
-  await ensureDir(commonPath.dotPlasmoDirectory)
-
-  await updateVersionFile(commonPath)
-  await generateIcons(commonPath)
-
+export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   vLog("Creating Manifest Factory...")
-  const manifestData =
-    manifestVersion === "mv3"
-      ? new PlasmoExtensionManifestMV3(commonPath, browser)
-      : new PlasmoExtensionManifestMV2(commonPath, browser)
+  const plasmoManifest =
+    bundleConfig.manifestVersion === "mv3"
+      ? new PlasmoExtensionManifestMV3(bundleConfig)
+      : new PlasmoExtensionManifestMV2(bundleConfig)
 
-  await manifestData.updateEnv()
-  await manifestData.updatePackageData()
+  await plasmoManifest.startup()
 
-  const { contentIndexList, backgroundIndexList } = manifestData.projectPath
+  const { contentIndexList, backgroundIndexList } = plasmoManifest.projectPath
 
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
   const hasEntrypoints = await Promise.all([
-    manifestData.scaffolder.initTemplateFiles("popup"),
-    manifestData.scaffolder.initTemplateFiles("options"),
-    manifestData.scaffolder.initTemplateFiles("newtab"),
-    manifestData.scaffolder.initTemplateFiles("devtools"),
-    manifestData.toggleContentScript(contentIndex, true),
-    manifestData.toggleBackground(backgroundIndex, true),
-    manifestData.addContentScriptsDirectory(),
-    manifestData.addTabsDirectory()
+    plasmoManifest.scaffolder.initTemplateFiles("popup"),
+    plasmoManifest.scaffolder.initTemplateFiles("options"),
+    plasmoManifest.scaffolder.initTemplateFiles("newtab"),
+    plasmoManifest.scaffolder.initTemplateFiles("devtools"),
+    plasmoManifest.toggleContentScript(contentIndex, true),
+    plasmoManifest.toggleBackground(backgroundIndex, true),
+    plasmoManifest.addContentScriptsDirectory(),
+    plasmoManifest.addTabsDirectory()
   ])
 
   if (!hasEntrypoints.includes(true)) {
@@ -53,13 +40,13 @@ export async function createManifest(
 
   const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
 
-  manifestData
+  plasmoManifest
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
     .toggleDevtools(hasDevtools)
     .toggleNewtab(hasNewtab)
 
-  await manifestData.write(true)
+  await plasmoManifest.write(true)
 
-  return manifestData
+  return plasmoManifest
 }
