@@ -103,7 +103,8 @@ export function appendMv3Wars(
   }
 
   if (wars.length > 0) {
-    manifest.web_accessible_resources =
-      manifest.web_accessible_resources.concat(wars)
+    manifest.web_accessible_resources = (
+      manifest.web_accessible_resources || []
+    ).concat(wars)
   }
 }
