@@ -101,7 +101,10 @@ export function appendMv3Wars(
       resources: ["__parcel_hmr_proxy__"]
     })
   }
+
   if (wars.length > 0) {
-    manifest.web_accessible_resources = wars
+    manifest.web_accessible_resources = (
+      manifest.web_accessible_resources || []
+    ).concat(wars)
   }
 }

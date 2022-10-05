@@ -40,7 +40,7 @@ export async function gitInit(
   commonPath: CommonPath,
   root: string
 ): Promise<boolean> {
-  if (existsSync(commonPath.gitIgnorePath)) {
+  if (!existsSync(commonPath.gitIgnorePath)) {
     return false
   }
 
