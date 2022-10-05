@@ -1,6 +1,6 @@
 import { resolve } from "path"
 
-import type { SupportedUIExt } from "~features/manifest-factory/ui-library"
+import type { SupportedUiExt } from "~features/manifest-factory/ui-library"
 
 import type { CommonPath } from "./common-path"
 
@@ -41,7 +41,7 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
 export const getProjectPath = (
   { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,
   browserTarget: string,
-  uiExt: SupportedUIExt
+  uiExt: SupportedUiExt
 ) => {
   const getIndexList = (moduleName: string, ext = ".ts") => [
     resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),

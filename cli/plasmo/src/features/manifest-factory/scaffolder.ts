@@ -9,18 +9,22 @@ import { toPosix } from "~features/helpers/path"
 
 import type { BaseFactory } from "./base"
 
-const supportedMountExt = [".ts", ".tsx"] as const
-
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
-export type ScaffolderMountExt = typeof supportedMountExt[number]
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
   #plasmoManifest: BaseFactory
 
-  #mountExt: ScaffolderMountExt = ".ts"
-  public set mountExt(value: ScaffolderMountExt) {
-    this.#mountExt = value
+  get projectPath() {
+    return this.#plasmoManifest.projectPath
+  }
+
+  get commonPath() {
+    return this.#plasmoManifest.commonPath
+  }
+
+  get mountExt() {
+    return this.#plasmoManifest.mountExt
   }
 
   constructor(plasmoManifest: BaseFactory) {
@@ -30,13 +34,13 @@ export class Scaffolder {
   initTemplateFiles = async (uiPageName: ExtensionUIPage) => {
     vLog(`Creating static templates for ${uiPageName}`)
 
-    const indexList = this.#plasmoManifest.projectPath[`${uiPageName}IndexList`]
-    const htmlList = this.#plasmoManifest.projectPath[`${uiPageName}HtmlList`]
+    const indexList = this.projectPath[`${uiPageName}IndexList`]
+    const htmlList = this.projectPath[`${uiPageName}HtmlList`]
 
     const indexFile = indexList.find(existsSync)
     const htmlFile = htmlList.find(existsSync)
 
-    const { staticDirectory } = this.#plasmoManifest.commonPath
+    const { staticDirectory } = this.commonPath
 
     // Generate the static diretory
     await ensureDir(staticDirectory)
@@ -51,11 +55,11 @@ export class Scaffolder {
 
     const uiPageModulePath = resolve(
       staticDirectory,
-      `${uiPageName}${this.#mountExt}`
+      `${uiPageName}${this.mountExt}`
     )
 
     await Promise.all([
-      this.#cachedGenerate(`index${this.#mountExt}`, uiPageModulePath, {
+      this.#cachedGenerate(`index${this.mountExt}`, uiPageModulePath, {
         __plasmo_import_module__: indexImport
       }),
       this.createPageHtml(uiPageName, htmlFile)
@@ -87,41 +91,41 @@ export class Scaffolder {
     htmlFile = "" as string | false
   ) => {
     const outputHtmlPath = resolve(
-      this.#plasmoManifest.commonPath.dotPlasmoDirectory,
+      this.commonPath.dotPlasmoDirectory,
       `${uiPageName}.html`
     )
 
-    const scriptMountPath = `./static/${uiPageName}${this.#mountExt}`
+    const scriptMountPath = `./static/${uiPageName}${this.mountExt}`
 
     return this.generateHtml(outputHtmlPath, scriptMountPath, htmlFile)
   }
 
   createTabMount = async (module: ParsedPath) => {
     vLog(`Creating tab mount template for ${module.dir}`)
-    const { dotPlasmoDirectory } = this.#plasmoManifest.commonPath
+    const { dotPlasmoDirectory } = this.commonPath
 
     const staticModulePath = resolve(dotPlasmoDirectory, module.dir)
     await ensureDir(staticModulePath)
 
     const tabScriptPath = resolve(
       staticModulePath,
-      `${module.name}${this.#mountExt}`
+      `${module.name}${this.mountExt}`
     )
 
     const tabHtmlPath = resolve(staticModulePath, `${module.name}.html`)
 
     await Promise.all([
-      this.#cachedGenerate(`index${this.#mountExt}`, tabScriptPath, {
+      this.#cachedGenerate(`index${this.mountExt}`, tabScriptPath, {
         __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
       }),
-      this.generateHtml(tabHtmlPath, `./${module.name}${this.#mountExt}`)
+      this.generateHtml(tabHtmlPath, `./${module.name}${this.mountExt}`)
     ])
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
     vLog(`Creating content script mount for ${module.dir}`)
     const staticModulePath = resolve(
-      this.#plasmoManifest.commonPath.staticDirectory,
+      this.commonPath.staticDirectory,
       module.dir
     )
 
@@ -129,12 +133,12 @@ export class Scaffolder {
 
     const staticContentPath = resolve(
       staticModulePath,
-      `${module.name}${this.#mountExt}`
+      `${module.name}${this.mountExt}`
     )
 
     // Can pass metadata to check config for type of mount as well?
     await this.#cachedGenerate(
-      `content-script-ui-mount${this.#mountExt}`,
+      `content-script-ui-mount${this.mountExt}`,
       staticContentPath,
       {
         __plasmo_mount_content_script__: `~${toPosix(

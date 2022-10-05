@@ -5,13 +5,13 @@ import type {
   ExtensionManifestV3
 } from "@plasmo/constants"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
+import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
 import { BaseFactory, iconMap } from "./base"
 
 export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2> {
-  constructor(commonPath: CommonPath, browser: string) {
-    super(commonPath, browser)
+  constructor(bundleConfig: PlasmoBundleConfig) {
+    super(bundleConfig)
 
     this.data.manifest_version = 2
     this.data.browser_action = {

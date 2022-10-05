@@ -15,9 +15,10 @@ export const updateVersionFile = async (commonPath: CommonPath) => {
   } else {
     const cachedVersion = await readJson(plasmoVersionFilePath)
     const semverCachedVersion = semver.coerce(cachedVersion.version)
-    const semverCurrentVersion = semver.coerce(process.env.APP_VERSION)
+    const semverCurrentVersion = semver.coerce(process.env.APP_VERSION)!
 
     if (
+      !semverCachedVersion ||
       semverCachedVersion.major < semverCurrentVersion.major ||
       (semverCachedVersion.major === semverCurrentVersion.major &&
         semverCachedVersion.minor < semverCurrentVersion.minor)

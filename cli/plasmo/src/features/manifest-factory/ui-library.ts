@@ -3,22 +3,31 @@ import { resolve } from "path"
 import { cwd } from "process"
 import semver from "semver"
 
-import { fileExists } from "@plasmo/utils"
+import { assertUnreachable, fileExists } from "@plasmo/utils"
 
 import type { BaseFactory } from "./base"
 
-const supportedUILibraries = ["react", "svelte", "vue", "vanilla"] as const
+const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
-type SupportedUILibraryName = typeof supportedUILibraries[number]
+type SupportedUiLibraryName = typeof supportedUiLibraries[number]
 
-const supportedUIExt = [".ts", ".tsx", ".svelte", ".vue"] as const
+const supportedUiExt = [".ts", ".tsx", ".svelte", ".vue"] as const
 
-export type SupportedUIExt = typeof supportedUIExt[number]
+export type SupportedUiExt = typeof supportedUiExt[number]
 
-export type UILibrary = {
-  name: SupportedUILibraryName
-  path: `${SupportedUILibraryName}${number | ""}`
+export type UiLibrary = {
+  name: SupportedUiLibraryName
+  path: `${SupportedUiLibraryName}${number | ""}`
   version: number
+}
+
+const supportedMountExt = [".ts", ".tsx"] as const
+
+export type ScaffolderMountExt = typeof supportedMountExt[number]
+
+export type UiExtMap = {
+  uiExt: SupportedUiExt
+  mountExt: SupportedUiExt
 }
 
 const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
@@ -39,12 +48,12 @@ const getMajorVersion = async (version: string) => {
   }
 }
 
-export const getUILibrary = async (
+export const getUiLibrary = async (
   plasmoManifest: BaseFactory
-): Promise<UILibrary> => {
+): Promise<UiLibrary> => {
   const dependencies = plasmoManifest.dependencies ?? {}
 
-  const baseLibrary = supportedUILibraries.find((l) => l in dependencies)
+  const baseLibrary = supportedUiLibraries.find((l) => l in dependencies)
 
   if (baseLibrary === undefined) {
     return {
@@ -84,5 +93,34 @@ export const getUILibrary = async (
     name: baseLibrary,
     path: uiLibraryPath,
     version: majorVersion
+  }
+}
+
+export const getUiExtMap = (
+  uiLibraryName: SupportedUiLibraryName
+): UiExtMap => {
+  switch (uiLibraryName) {
+    case "svelte":
+      return {
+        uiExt: ".svelte",
+        mountExt: ".ts"
+      }
+    case "vue":
+      return {
+        uiExt: ".vue",
+        mountExt: ".ts"
+      }
+    case "react":
+      return {
+        uiExt: ".tsx",
+        mountExt: ".tsx"
+      }
+    case "vanilla":
+      return {
+        uiExt: ".ts",
+        mountExt: ".ts"
+      }
+    default:
+      assertUnreachable(uiLibraryName)
   }
 }

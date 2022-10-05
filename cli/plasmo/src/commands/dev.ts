@@ -1,9 +1,6 @@
-import { cwd } from "process"
-
 import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
 
-import { getCommonPath } from "~features/extension-devtools/common-path"
-import { getTargetData } from "~features/extension-devtools/get-target-data"
+import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
@@ -14,21 +11,16 @@ async function dev() {
 
   process.env.NODE_ENV = "development"
 
-  const isImpulse = hasFlag("--impulse")
-
   const rawServePort = getFlag("--serve-port") || "1012"
   const rawHmrPort = getFlag("--hmr-port") || "1815"
 
   iLog("Starting the extension development server...")
 
-  const targetData = getTargetData()
-  const commonPath = getCommonPath(cwd(), targetData.target)
+  const bundleConfig = getBundleConfig()
 
-  const plasmoManifest = await createManifest(commonPath, targetData)
+  const plasmoManifest = await createManifest(bundleConfig)
 
-  const projectWatcher = isImpulse
-    ? null
-    : await createProjectWatcher(plasmoManifest)
+  const projectWatcher = await createProjectWatcher(plasmoManifest)
 
   const { default: getPort } = await import("get-port")
 
@@ -39,14 +31,14 @@ async function dev() {
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
 
-  const bundler = await createParcelBuilder(commonPath, {
+  const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
     logLevel: "verbose",
     defaultTargetOptions: {
       sourceMaps: !hasFlag("--no-source-maps"),
       engines: {
         browsers: ["last 1 Chrome version"]
       },
-      distDir: commonPath.distDirectory
+      distDir: plasmoManifest.commonPath.distDirectory
     },
     serveOptions: {
       host: "localhost",
@@ -56,7 +48,7 @@ async function dev() {
       host: "localhost",
       port: hmrPort
     },
-    env: plasmoManifest.publicEnv.extends(targetData).data
+    env: plasmoManifest.publicEnv.extends(bundleConfig).data
   })
 
   const { default: chalk } = await import("chalk")

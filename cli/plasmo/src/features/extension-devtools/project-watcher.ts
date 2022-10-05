@@ -1,7 +1,7 @@
 import { Event, subscribe } from "@parcel/watcher"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
-import { assertUnreachable, iLog, vLog, wLog } from "@plasmo/utils"
+import { assertUnreachable, hasFlag, iLog, vLog, wLog } from "@plasmo/utils"
 
 import type { BaseFactory } from "~features/manifest-factory/base"
 
@@ -11,6 +11,10 @@ import { WatchReason } from "./project-path"
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
 
 export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
+  if (hasFlag("--impulse")) {
+    return null
+  }
+
   const { default: isPathInside } = await import("is-path-inside")
 
   const { knownPathSet, watchPathReasonMap, watchDirectoryEntries } =

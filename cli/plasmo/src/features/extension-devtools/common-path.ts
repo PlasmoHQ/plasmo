@@ -4,9 +4,11 @@ import { cwd } from "process"
 
 import { getFlag } from "@plasmo/utils"
 
+import { getBundleConfig } from "./get-bundle-config"
+
 export const getCommonPath = (
   projectDirectory = cwd(),
-  target = "chrome-mv3",
+  { target } = getBundleConfig(),
   dotPlasmo = ".plasmo"
 ) => {
   const packageName = basename(projectDirectory)
@@ -20,10 +22,15 @@ export const getCommonPath = (
     ? srcDirectory
     : projectDirectory
 
+  process.env.PLASMO_BUILD_PATH =
+    getFlag("--build-path") || process.env.PLASMO_BUILD_PATH || "build"
+
   const buildDirectory = resolve(
     projectDirectory,
-    getFlag("--build-dir") || "build"
+    process.env.PLASMO_BUILD_PATH
   )
+
+  process.env.PLASMO_BUILD_DIR = buildDirectory
 
   const distDirectoryName = `${target}-${
     process.env.NODE_ENV === "production" ? "prod" : "dev"
