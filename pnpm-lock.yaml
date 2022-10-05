@@ -1285,6 +1285,7 @@ importers:
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0
       '@parcel/runtime-js': 2.7.0
+      '@parcel/runtime-react-refresh': 2.7.0
       '@parcel/runtime-webextension': 2.7.0
       '@parcel/source-map': 2.1.1
       '@parcel/transformer-css': 2.7.0
@@ -1310,6 +1311,7 @@ importers:
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0_@parcel+core@2.7.0
       '@parcel/runtime-js': 2.7.0_@parcel+core@2.7.0
+      '@parcel/runtime-react-refresh': 2.7.0_@parcel+core@2.7.0
       '@parcel/runtime-webextension': 2.7.0_@parcel+core@2.7.0
       '@parcel/source-map': 2.1.1
       '@parcel/transformer-css': 2.7.0_@parcel+core@2.7.0
