@@ -15,9 +15,23 @@ const [pageRuntime, scriptRuntime, backgroundServiceRuntime] = [
 )
 
 export default new Runtime({
-  async loadConfig({ config, options }) {
-    const pkg = await config.getPackage()
-    const hasReact = !!pkg.dependencies.react || !!pkg.devDependencies.react
+  async loadConfig({ config }) {
+    const pkg =
+      (await config.getPackage()) ||
+      (await config
+        .getConfigFrom<{
+          dependencies: Record<string, string>
+          devDependencies: Record<string, string>
+        }>(
+          join(process.env.PLASMO_SRC_DIR, "lab"), // parcel only look up
+          ["package.json"],
+          {
+            exclude: true
+          }
+        )
+        .then((cfg) => cfg?.contents))
+
+    const hasReact = !!pkg?.dependencies?.react || !!pkg?.devDependencies?.react
 
     return {
       hasReact
@@ -25,7 +39,7 @@ export default new Runtime({
   },
 
   apply({ bundle, options, config, bundleGraph }) {
-    if (bundle.name == "manifest.json") {
+    if (bundle.name === "manifest.json") {
       const asset = bundle.getMainEntry()
       if (asset?.meta.webextEntry !== true) {
         return
