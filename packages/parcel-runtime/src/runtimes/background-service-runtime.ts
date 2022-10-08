@@ -3,6 +3,13 @@ import type { BackgroundMessage } from "../types"
 import "./0-patch-module"
 
 import { extCtx, runtimeData } from "./0-patch-module"
+import { injectHmrSocket } from "./hmr"
+
+const parent = module.bundle.parent
+
+if (!parent || !parent.isParcelRequire) {
+  injectHmrSocket()
+}
 
 async function runtimeMessageHandler(msg: BackgroundMessage) {
   if (msg.__plasmo_full_reload__) {
