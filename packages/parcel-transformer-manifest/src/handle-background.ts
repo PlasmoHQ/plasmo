@@ -16,8 +16,10 @@ export const handleBackground = () => {
   }
 }
 
+const defaultBackgroundScriptPath = "../runtime/plasmo-default-background.ts"
+
 function handleMV2Background(program: MV2Data) {
-  const { hot, asset, filePath, ptrs, needRuntimeBG } = state
+  const { hot, asset, filePath, ptrs } = state
 
   if (program.background?.page) {
     program.background.page = asset.addURLDependency(program.background.page, {
@@ -27,10 +29,14 @@ function handleMV2Background(program: MV2Data) {
         ...getJSONSourceLocation(ptrs["/background/page"], "value")
       }
     })
+  }
 
-    if (needRuntimeBG) {
-      asset.meta.webextBGInsert = program.background.page
-    }
+  if (program.background?.scripts) {
+    program.background.scripts = program.background.scripts.map((bgScript) =>
+      asset.addURLDependency(bgScript, {
+        bundleBehavior: "isolated"
+      })
+    )
   }
 
   if (hot) {
@@ -39,30 +45,20 @@ function handleMV2Background(program: MV2Data) {
       program.content_security_policy
     )
 
-    if (needRuntimeBG && !program.background?.page) {
-      if (!program.background) {
-        program.background = {}
-      }
-
-      if (!program.background.scripts) {
-        program.background.scripts = []
-      }
-
-      if (program.background.scripts.length == 0) {
-        program.background.scripts.push(
-          asset.addURLDependency("../runtime/default-bg.js", {
-            resolveFrom: __filename
-          })
-        )
-      }
-
-      asset.meta.webextBGInsert = program.background.scripts[0]
+    if (!program.background?.scripts) {
+      program.background.scripts = []
     }
+
+    program.background.scripts.push(
+      asset.addURLDependency(defaultBackgroundScriptPath, {
+        resolveFrom: __filename
+      })
+    )
   }
 }
 
 function handleMV3Background(program: MV3Data) {
-  const { hot, asset, filePath, ptrs, needRuntimeBG, hmrOptions } = state
+  const { hot, asset, filePath, ptrs, hmrOptions } = state
 
   if (program.background?.service_worker) {
     program.background.service_worker = asset.addURLDependency(
@@ -75,7 +71,7 @@ function handleMV3Background(program: MV3Data) {
         },
         env: {
           context: "service-worker",
-          sourceType: program.background.type == "module" ? "module" : "script"
+          sourceType: program.background.type === "module" ? "module" : "script"
         }
       }
     )
@@ -94,19 +90,15 @@ function handleMV3Background(program: MV3Data) {
     }
     program.content_security_policy = csp
 
-    if (needRuntimeBG) {
-      if (!program.background) {
-        program.background = {
-          service_worker: asset.addURLDependency("../runtime/default-bg.js", {
-            resolveFrom: __filename,
-            env: {
-              context: "service-worker"
-            }
-          })
-        }
+    if (!program.background) {
+      program.background = {
+        service_worker: asset.addURLDependency(defaultBackgroundScriptPath, {
+          resolveFrom: __filename,
+          env: {
+            context: "service-worker"
+          }
+        })
       }
-
-      asset.meta.webextBGInsert = program.background.service_worker
     }
   }
 }

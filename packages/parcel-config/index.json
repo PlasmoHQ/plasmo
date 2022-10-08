@@ -47,6 +47,6 @@
   "runtimes": [
     "@parcel/runtime-js",
     "@plasmohq/parcel-runtime",
-    "@parcel/runtime-webextension"
+    "@parcel/runtime-service-worker"
   ]
 }

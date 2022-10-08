@@ -29,13 +29,13 @@ export const generatePackage = ({
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "1.2.2",
-      "@types/chrome": "0.0.196",
-      "@types/node": "18.7.15",
-      "@types/react": "18.0.18",
+      "@plasmohq/prettier-plugin-sort-imports": "3.5.2",
+      "@types/chrome": "0.0.197",
+      "@types/node": "18.8.1",
+      "@types/react": "18.0.21",
       "@types/react-dom": "18.0.6",
       prettier: "2.7.1",
-      typescript: "4.8.2"
+      typescript: "4.8.4"
     } as Record<string, string>,
     manifest: {
       // permissions: [] as ValidManifestPermission[],

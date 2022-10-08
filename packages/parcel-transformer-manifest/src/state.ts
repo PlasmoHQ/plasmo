@@ -25,7 +25,6 @@ export const state = {
   ptrs: null as Record<string, Mapping>,
   asset: null as MutableAsset,
   hmrOptions: null as HMROptions,
-  needRuntimeBG: false,
 
   extraAssets: [] as TransformerResult[],
 
