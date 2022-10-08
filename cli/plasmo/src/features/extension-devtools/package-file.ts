@@ -31,7 +31,7 @@ export const generatePackage = ({
     devDependencies: {
       "@plasmohq/prettier-plugin-sort-imports": "3.5.2",
       "@types/chrome": "0.0.197",
-      "@types/node": "18.8.1",
+      "@types/node": "18.8.3",
       "@types/react": "18.0.21",
       "@types/react-dom": "18.0.6",
       prettier: "2.7.1",
