@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-inline-css",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "Plasmo Parcel Transformer for inline CSS",
   "files": [
     "dist"
