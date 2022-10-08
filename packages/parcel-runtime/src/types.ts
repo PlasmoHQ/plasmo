@@ -1,10 +1,13 @@
 declare global {
   const __parcel__import__: Function
   const __parcel__importScripts__: Function
-  const ServiceWorkerGlobalScope: any
+  interface Window {
+    $RefreshReg$: any
+    $RefreshSig$: any
+  }
 
   interface NodeModule {
-    bundle: ParcelRequire
+    bundle: ParcelBundle
   }
 }
 
@@ -19,28 +22,34 @@ interface ParcelModule {
     _disposeCallbacks: Array<(arg0: unknown) => void>
   }
 }
-export interface ParcelRequire {
+export interface ParcelBundle {
   (arg0: string): unknown
   cache: Record<string, ParcelModule>
   hotData: unknown
   Module: any
-  parent: ParcelRequire | null | undefined
+  parent: ParcelBundle | null | undefined
   isParcelRequire: true
   modules: Record<
     string,
     [(...args: Array<any>) => any, Record<string, string>]
   >
   HMR_BUNDLE_ID: string
-  root: ParcelRequire
+  root: ParcelBundle
 }
 
-export type HmrData = {
-  host: string
-  port: number
-  secure: boolean
-  bundleId: string
+export type RuntimeData = {
+  isReact: boolean
+  isBackground: boolean
+  isContentScript: boolean
 
+  host?: string
+  port?: number
+
+  secure: boolean
   serverPort?: number
+
+  bundleId: string
+  envHash: string
 }
 
 export type HmrAsset = {
@@ -52,6 +61,7 @@ export type HmrAsset = {
   outputFormat: string
   depsByBundle: Record<string, Record<string, string>>
 }
+
 export type HmrMessage =
   | {
       type: "update"
@@ -66,3 +76,8 @@ export type HmrMessage =
         }>
       }
     }
+
+export type BackgroundMessage = {
+  __plasmo_full_reload__?: boolean
+  __plasmo_check_active__?: boolean
+}

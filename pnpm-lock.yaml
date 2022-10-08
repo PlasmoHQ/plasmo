@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 overrides:
   '@parcel/source-map': 2.1.1
+  react-refresh: 0.14.0
 
 importers:
 
@@ -1285,8 +1286,7 @@ importers:
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0
       '@parcel/runtime-js': 2.7.0
-      '@parcel/runtime-react-refresh': 2.7.0
-      '@parcel/runtime-webextension': 2.7.0
+      '@parcel/runtime-service-worker': 2.7.0
       '@parcel/source-map': 2.1.1
       '@parcel/transformer-css': 2.7.0
       '@parcel/transformer-graphql': 2.7.0
@@ -1311,8 +1311,7 @@ importers:
       '@parcel/core': 2.7.0
       '@parcel/optimizer-data-url': 2.7.0_@parcel+core@2.7.0
       '@parcel/runtime-js': 2.7.0_@parcel+core@2.7.0
-      '@parcel/runtime-react-refresh': 2.7.0_@parcel+core@2.7.0
-      '@parcel/runtime-webextension': 2.7.0_@parcel+core@2.7.0
+      '@parcel/runtime-service-worker': 2.7.0_@parcel+core@2.7.0
       '@parcel/source-map': 2.1.1
       '@parcel/transformer-css': 2.7.0_@parcel+core@2.7.0
       '@parcel/transformer-graphql': 2.7.0_@parcel+core@2.7.0
@@ -1395,16 +1394,16 @@ importers:
       '@plasmo/config': workspace:*
       '@plasmo/utils': workspace:*
       '@types/chrome': 0.0.197
-      reconnecting-websocket: 4.4.0
+      react-refresh: 0.14.0
       tsup: 6.2.3
     dependencies:
       '@parcel/core': 2.7.0
       '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
+      react-refresh: 0.14.0
     devDependencies:
       '@plasmo/config': link:../config
       '@plasmo/utils': link:../utils
       '@types/chrome': 0.0.197
-      reconnecting-websocket: 4.4.0
       tsup: 6.2.3
 
   packages/parcel-transformer-inject-env:
@@ -3936,7 +3935,7 @@ packages:
       '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
       '@parcel/utils': 2.7.0
       react-error-overlay: 6.0.9
-      react-refresh: 0.9.0
+      react-refresh: 0.14.0
     transitivePeerDependencies:
       - '@parcel/core'
 
@@ -3949,17 +3948,6 @@ packages:
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
-
-  /@parcel/runtime-webextension/2.7.0_@parcel+core@2.7.0:
-    resolution: {integrity: sha512-+2gGOOR3HUJGdsr/tUsJjs9tvlOsp2rTgGKt77+s1lqU/DYxh/n6KCSy+7a2DYtnBtZxE6LQhX6g/p4C2hkmMg==}
-    engines: {node: '>= 12.0.0', parcel: ^2.7.0}
-    dependencies:
-      '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
-      '@parcel/utils': 2.7.0
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
 
   /@parcel/source-map/2.1.1:
     resolution: {integrity: sha512-Ejx1P/mj+kMjQb8/y5XxDUn4reGdr+WyKYloBljpppUy8gs42T+BNoEOuRYqDVdgPc6NxduzIDoJS9pOFfV5Ew==}
@@ -4126,7 +4114,7 @@ packages:
     dependencies:
       '@parcel/plugin': 2.7.0_@parcel+core@2.7.0
       '@parcel/utils': 2.7.0
-      react-refresh: 0.9.0
+      react-refresh: 0.14.0
     transitivePeerDependencies:
       - '@parcel/core'
 
@@ -10184,8 +10172,8 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
-  /react-refresh/0.9.0:
-    resolution: {integrity: sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==}
+  /react-refresh/0.14.0:
+    resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
 
   /react-router-dom/6.4.1_biqbaboplfbrettd7655fr4n2y:
@@ -10278,10 +10266,6 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
-
-  /reconnecting-websocket/4.4.0:
-    resolution: {integrity: sha512-D2E33ceRPga0NvTDhJmphEgJ7FUYF0v4lr1ki0csq06OdlxKfugGzN0dSkxM/NfqCxYELK4KcaTOUOjTV6Dcng==}
-    dev: true
 
   /redux-persist-webextension-storage/1.0.2:
     resolution: {integrity: sha512-WGiK6sNIMLtvZaWqDOZF7Yzz53LOx5YzE9I2bwjZeACtp6+VvfyP57J5czXtTSe9KVSTTPlLmX96jS4agYfwsQ==}

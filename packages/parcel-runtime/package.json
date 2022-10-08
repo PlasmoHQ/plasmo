@@ -1,15 +1,23 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
+  "tsup": {
+    "entry": {
+      "index": "src/index.ts",
+      "page-runtime": "src/runtimes/page-runtime.ts",
+      "script-runtime": "src/runtimes/script-runtime.ts",
+      "background-service-runtime": "src/runtimes/background-service-runtime.ts"
+    }
+  },
   "scripts": {
     "prepublishOnly": "pnpm build",
-    "build": "tsup src/index.ts src/hmr-runtime.ts --minify --clean",
-    "dev": "tsup src/index.ts src/hmr-runtime.ts --sourcemap --watch"
+    "build": "tsup --minify --clean",
+    "dev": "tsup --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -25,10 +33,10 @@
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "@types/chrome": "0.0.197",
-    "reconnecting-websocket": "4.4.0",
     "tsup": "6.2.3"
   },
   "dependencies": {
+    "react-refresh": "0.14.0",
     "@parcel/core": "2.7.0",
     "@parcel/plugin": "2.7.0"
   }

@@ -25,7 +25,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@parcel/source-map": "2.1.1"
+      "@parcel/source-map": "2.1.1",
+      "react-refresh": "0.14.0"
     }
   },
   "devDependencies": {
@@ -54,5 +55,5 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.12.2"
+  "packageManager": "pnpm@7.13.2"
 }
