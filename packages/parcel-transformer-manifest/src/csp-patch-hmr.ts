@@ -6,7 +6,7 @@ export function cspPatchHMR(
 ) {
   let defaultSrc = "'self'"
 
-  if (insert == null) {
+  if (insert === null) {
     insert = "'unsafe-eval'"
     defaultSrc = "'self' blob: filesystem:"
   }

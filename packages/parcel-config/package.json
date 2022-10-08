@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.12.1",
+  "version": "0.16.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "@parcel/core": "2.7.0",
     "@parcel/optimizer-data-url": "2.7.0",
     "@parcel/runtime-js": "2.7.0",
-    "@parcel/runtime-webextension": "2.7.0",
+    "@parcel/runtime-service-worker": "2.7.0",
     "@parcel/source-map": "2.1.1",
     "@parcel/transformer-css": "2.7.0",
     "@parcel/transformer-graphql": "2.7.0",
