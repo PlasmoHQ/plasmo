@@ -58,12 +58,15 @@ export default new Runtime({
     const entryFilePath = bundle.getMainEntry().filePath
 
     const isPlasmo = entryFilePath.includes(".plasmo")
-    const isBackground = entryFilePath.endsWith("background.ts")
+
+    const isBackground =
+      entryFilePath.startsWith(
+        join(process.env.PLASMO_SRC_DIR, "background")
+      ) || entryFilePath.endsWith("plasmo-default-background.ts")
 
     const isPlasmoSrc =
       isPlasmo ||
       isBackground ||
-      entryFilePath.startsWith(join(process.env.PLASMO_SRC_DIR, "contents")) ||
       entryFilePath.startsWith(join(process.env.PLASMO_SRC_DIR, "content"))
 
     if (!isPlasmoSrc) {
