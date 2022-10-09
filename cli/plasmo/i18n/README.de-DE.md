@@ -39,7 +39,7 @@ Das [Plasmo](https://www.plasmo.com/) Framework ist ein SDK zum Erstellen von Br
 - Direkte Unterstützung von [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
 - [Deklarative Entwicklung mit automatischer Erzeugung von "manifest.json" (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
 - Automatisches Neuladen
-- [`.env*` Datei-Unterstützung](https://docs.plasmo.com/workflows/env)
+- [`.env*` Datei-Unterstützung](https://docs.plasmo.com/browser-extension/env)
 - [Bundling von externen Skripten](https://docs.plasmo.com/workflows/remote-code) (z.B. für gtag4)
 - Automatisierte Bereitstellung (über [BPP](https://docs.plasmo.com/workflows/submit))
 - Und viel, viel mehr! 🚀
@@ -51,8 +51,6 @@ Das [Plasmo](https://www.plasmo.com/) Framework ist ein SDK zum Erstellen von Br
 - (Stark empfohlen) [pnpm](https://pnpm.io/)
 
 ## Beispiele
-
-
 
 Wir haben Beispiele, die zeigen, wie man Plasmo mit [Firebase-Authentifizierung](https://github.com/PlasmoHQ/examples/tree/main/with-firebase-auth), [Redux](https://github.com/PlasmoHQ/examples/tree/main/with-redux), [Supabase-Authentifizierung](https://github.com/PlasmoHQ/examples/tree/main/with-supabase), [Tailwind](https://github.com/PlasmoHQ/examples/tree/main/with-tailwindcss) und vielen anderen verwenden kann. Um sie auszuprobieren, [besuche unser Beispiel-Repository](https://github.com/PlasmoHQ/examples).
 
@@ -97,7 +95,7 @@ ext-dir
 ...
 ```
 
-Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem du dieser Anleitung folgst](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
+Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem du dieser Anleitung folgst](https://docs.plasmo.com/customization/src). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
 
 ## Community
 

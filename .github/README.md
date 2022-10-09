@@ -1,1 +1,1 @@
-../cli/plasmo/readme.md
+../cli/plasmo/README.md

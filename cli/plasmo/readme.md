@@ -38,11 +38,13 @@ The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser exte
 
 - First-class [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) Support
 - [Declarative development](https://docs.plasmo.com/#where-is-the-manifestjson-file)
-- Live-reloading
-- [`.env*` files](https://docs.plasmo.com/workflows/env)
-- [Remote code bundling](https://docs.plasmo.com/workflows/remote-code) (e.g for gtag4)
-- Targetting [multiple browser and manifest pairs](https://docs.plasmo.com/workflows#--target-flag)
-- Automated deployment (via [BPP](https://docs.plasmo.com/workflows/submit))
+- [Content Scripts UI](https://docs.plasmo.com/csui)
+- [Tab Pages](https://docs.plasmo.com/browser-extension/tab-pages)
+- Live-reloading + React HMR
+- [`.env*` files](https://docs.plasmo.com/browser-extension/env)
+- Targeting [multiple browser and manifest pairs](https://docs.plasmo.com/workflows/build#with-specific-target)
+- [Remote code bundling](https://docs.plasmo.com/browser-extension/remote-code) (e.g for gtag4)
+- [Automated deployment via BPP](https://docs.plasmo.com/workflows/submit)
 - Optional support for [Svelte](https://github.com/PlasmoHQ/with-svelte) and [Vue](https://github.com/PlasmoHQ/with-vue)
 - And many, many more! 🚀
 
@@ -97,7 +99,7 @@ ext-dir
 ...
 ```
 
-Finally, you can also avoid putting source code in your root directory by putting them in a `src` sub-directory, [following this guide](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Note that `assets` and other config files will still need to be in the root directory.
+Finally, you can also avoid putting source code in your root directory by putting them in a `src` sub-directory, [following this guide](https://docs.plasmo.com/customization/src). Note that `assets` and other config files will still need to be in the root directory.
 
 ## Community
 

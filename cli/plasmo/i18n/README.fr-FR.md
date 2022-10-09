@@ -39,10 +39,12 @@ Le [Plasmo](https://www.plasmo.com/) Framework est un SDK pour la création d'ex
 - Prise en charge de [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) de première classe
 - [Développement déclaratif avec création automatique de "manifest.json" (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
 - Chargement en temps réel
-- [Fichiers `.env*`](https://docs.plasmo.com/workflows/env)
-- [Regroupement de codes distants](https://docs.plasmo.com/workflows/remote-code) (par exemple pour gtag4)
-- Cibler [plusieurs paires de navigateurs et de manifestes](https://docs.plasmo.com/workflows#--target-flag)
-- Déploiement automatisé (via [BPP](https://docs.plasmo.com/workflows/submit))
+- [Content Scripts UI](https://docs.plasmo.com/csui)
+- [Fichiers `.env*`](https://docs.plasmo.com/browser-extension/env)
+- [Regroupement de codes distants](https://docs.plasmo.com/browser-extension/remote-code) (par exemple pour gtag4)
+- Cibler [plusieurs paires de navigateurs et de manifestes](https://docs.plasmo.com/workflows/build#with-specific-target)
+- [Déploiement automatisé via BPP](https://docs.plasmo.com/workflows/submit)
+- [Svelte](https://github.com/PlasmoHQ/with-svelte) ou [Vue](https://github.com/PlasmoHQ/with-vue)
 - Et beaucoup, beaucoup plus! 🚀
 
 ## Configuration requise
@@ -96,7 +98,7 @@ ext-dir
 ...
 ```
 
-Enfin, vous pouvez aussi éviter de placer le code source dans votre répertoire racine en le plaçant dans un sous-répertoire `src`, [en suivant ce guide](https://docs.plasmo.com/customization#using-src-directory-for-source-code). Notez que `assets` et les autres fichiers de configuration devront toujours être dans le répertoire racine.
+Enfin, vous pouvez aussi éviter de placer le code source dans votre répertoire racine en le plaçant dans un sous-répertoire `src`, [en suivant ce guide](https://docs.plasmo.com/customization/src). Notez que `assets` et les autres fichiers de configuration devront toujours être dans le répertoire racine.
 
 ## Communauté
 
