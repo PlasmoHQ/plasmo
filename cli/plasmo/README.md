@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="License" href="/cli/plasmo/license">
+  <a aria-label="License" href="/cli/plasmo/LICENSE">
     <img alt="See License" src="https://img.shields.io/npm/l/plasmo"/>
   </a>
   <a aria-label="NPM" href="https://www.npmjs.com/package/plasmo">
@@ -117,4 +117,4 @@ Plasmo is currently alpha software, and some things might change from version to
 
 # License
 
-[MIT](./license) ⭐ [Plasmo](https://www.plasmo.com)
+[MIT](https://github.com/PlasmoHQ/plasmo/blob/main/LICENSE) ⭐ [Plasmo](https://www.plasmo.com)

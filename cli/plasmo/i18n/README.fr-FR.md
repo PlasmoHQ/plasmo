@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="License" href="/cli/plasmo/license">
+  <a aria-label="License" href="/cli/plasmo/LICENSE">
     <img alt="License anzeigen" src="https://img.shields.io/npm/l/plasmo"/>
   </a>
   <a aria-label="NPM" href="https://www.npmjs.com/package/plasmo">
@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/readme.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | French | <a href="/cli/plasmo/i18n/README.fr-FR.md">Deutsch</a>
+  <a href="/cli/plasmo/README.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | French | <a href="/cli/plasmo/i18n/README.fr-FR.md">Deutsch</a>
 </p>
 
 # Plasmo Framework
@@ -116,4 +116,4 @@ Plasmo est actuellement un logiciel alpha, et certaines choses peuvent changer d
 
 # License
 
-[MIT](./license) ⭐ [Plasmo](https://www.plasmo.com)
+[MIT](https://github.com/PlasmoHQ/plasmo/blob/main/LICENSE) ⭐ [Plasmo](https://www.plasmo.com)
