@@ -45,6 +45,10 @@ function handleMV2Background(program: MV2Data) {
       program.content_security_policy
     )
 
+    if (!program.background) {
+      program.background = {}
+    }
+
     if (!program.background?.scripts) {
       program.background.scripts = []
     }
