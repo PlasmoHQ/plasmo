@@ -32,8 +32,7 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3>
     if (enable) {
       const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
       this.data.background = {
-        service_worker: scriptPath,
-        type: "module"
+        service_worker: scriptPath
       }
     } else {
       delete this.data.background

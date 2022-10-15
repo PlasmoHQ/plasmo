@@ -45,6 +45,10 @@ function handleMV2Background(program: MV2Data) {
       program.content_security_policy
     )
 
+    if (!program.background) {
+      program.background = {}
+    }
+
     if (!program.background?.scripts) {
       program.background.scripts = []
     }
@@ -70,11 +74,15 @@ function handleMV3Background(program: MV3Data) {
           ...getJSONSourceLocation(ptrs["/background/service_worker"], "value")
         },
         env: {
-          context: "service-worker",
-          sourceType: program.background.type === "module" ? "module" : "script"
+          context: "service-worker"
         }
       }
     )
+
+    // Since we bundle everything, and sw import is static (not async), we can ignore type module.
+    if (!!program.background.type) {
+      delete program.background.type
+    }
   }
 
   if (hot) {

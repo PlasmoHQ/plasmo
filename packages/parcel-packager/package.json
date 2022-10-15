@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-packager",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "Plasmo Parcel Packager for Web Extension Manifest",
   "files": [
     "dist"
