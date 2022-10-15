@@ -1,10 +1,20 @@
 {
   "extends": "@plasmo/config/ts/cli.json",
-  "include": ["src/**/*.ts", "./index.d.ts"],
-  "exclude": ["dist", "node_modules", "templates"],
+  "include": [
+    "src/**/*.ts",
+    "./index.d.ts",
+    "templates/**/*.ts",
+    "templates/**/*.tsx"
+  ],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",
-    "lib": ["es2022", "dom"]
+    "lib": ["es2022", "dom"],
+    "jsx": "preserve",
+    "paths": {
+      "~*": ["./src/*"],
+      "@plasmo-static-common/*": ["./templates/static/common/*"]
+    }
   }
 }

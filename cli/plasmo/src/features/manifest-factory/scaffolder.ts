@@ -1,5 +1,5 @@
 import { existsSync } from "fs"
-import { ensureDir } from "fs-extra"
+import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
@@ -31,7 +31,33 @@ export class Scaffolder {
     this.#plasmoManifest = plasmoManifest
   }
 
-  initTemplateFiles = async (uiPageName: ExtensionUIPage) => {
+  async init() {
+    const [_, ...uiPagesResult] = await Promise.all([
+      this.#copyStaticCommon(),
+      this.#initUiPageTemplate("popup"),
+      this.#initUiPageTemplate("options"),
+      this.#initUiPageTemplate("newtab"),
+      this.#initUiPageTemplate("devtools")
+    ])
+
+    return uiPagesResult
+  }
+
+  #copyStaticCommon = async () => {
+    const templateCommonDirectory = resolve(
+      this.#plasmoManifest.templatePath.staticTemplatePath,
+      "common"
+    )
+
+    const staticCommonDirectory = resolve(
+      this.commonPath.staticDirectory,
+      "common"
+    )
+
+    return copy(templateCommonDirectory, staticCommonDirectory)
+  }
+
+  #initUiPageTemplate = async (uiPageName: ExtensionUIPage) => {
     vLog(`Creating static templates for ${uiPageName}`)
 
     const indexList = this.projectPath[`${uiPageName}IndexList`]

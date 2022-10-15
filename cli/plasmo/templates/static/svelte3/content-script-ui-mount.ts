@@ -2,7 +2,7 @@
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
-import type { PlasmoCSUI, PlasmoCSUIMountState } from "../../../src/type"
+import type { PlasmoCSUI, PlasmoCSUIMountState } from "~type"
 
 // Escape parcel's static analyzer
 const Mount = RawMount as PlasmoCSUI

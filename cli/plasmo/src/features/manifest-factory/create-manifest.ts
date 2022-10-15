@@ -21,21 +21,18 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
 
-  const hasEntrypoints = await Promise.all([
-    plasmoManifest.scaffolder.initTemplateFiles("popup"),
-    plasmoManifest.scaffolder.initTemplateFiles("options"),
-    plasmoManifest.scaffolder.initTemplateFiles("newtab"),
-    plasmoManifest.scaffolder.initTemplateFiles("devtools"),
+  const initResults = await Promise.all([
+    plasmoManifest.scaffolder.init(),
     plasmoManifest.toggleContentScript(contentIndex, true),
     plasmoManifest.toggleBackground(backgroundIndex, true),
     plasmoManifest.addContentScriptsDirectory(),
     plasmoManifest.addTabsDirectory()
   ])
 
+  const hasEntrypoints = initResults.flat()
+
   if (!hasEntrypoints.includes(true)) {
-    wLog(
-      "Unable to find any entrypoints. You may end up with an empty extension..."
-    )
+    wLog("Unable to find any entry files, the extension might be empty")
   }
 
   const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
@@ -43,8 +40,8 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   plasmoManifest
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
-    .toggleDevtools(hasDevtools)
     .toggleNewtab(hasNewtab)
+    .toggleDevtools(hasDevtools)
 
   await plasmoManifest.write(true)
 

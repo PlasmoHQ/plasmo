@@ -1,31 +1,28 @@
-import { statSync } from "fs"
 import { extname, resolve } from "path"
 
 import {
   ResolverProps,
   ResolverResult,
   relevantExtensionList,
-  relevantExtensionSet,
   resolveSourceIndex
 } from "./shared"
 
-export async function handleTildeSrc({
+export async function handleAbsoluteRoot({
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
-  if (specifier[0] !== "~") {
+  if (specifier[0] !== "/") {
     return null
   }
 
   const absoluteBaseFile = resolve(
-    process.env.PLASMO_SRC_DIR,
+    process.env.PLASMO_PROJECT_DIR,
     specifier.slice(1)
   )
 
   const importExt = extname(absoluteBaseFile)
 
-  // TODO: Potentially resolve other type of files (less import etc...) that Parcel doesn't account for
-  if (importExt.length > 0 && relevantExtensionSet.has(importExt as any)) {
+  if (importExt.length > 0) {
     return {
       filePath: absoluteBaseFile
     }
@@ -33,14 +30,10 @@ export async function handleTildeSrc({
 
   const parentExt = extname(dependency.resolveFrom)
 
-  // console.log(`tildeSrc: resolveFrom: ${dependency.resolveFrom}`)
-
   const checkingExts = [
     parentExt,
     ...relevantExtensionList.filter((ext) => ext !== parentExt)
   ]
-
-  // console.log(`tildeSrc: ${potentialFiles}`)
 
   return resolveSourceIndex(absoluteBaseFile, checkingExts)
 }

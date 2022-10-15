@@ -5,7 +5,7 @@ import { createApp } from "vue"
 // @ts-ignore
 import RawMount from "__plasmo_mount_content_script__"
 
-import type { PlasmoCSUI, PlasmoCSUIMountState } from "../../../src/type"
+import type { PlasmoCSUI, PlasmoCSUIMountState } from "~type"
 
 // Escape parcel's static analyzer
 const Mount = RawMount.plasmo as PlasmoCSUI

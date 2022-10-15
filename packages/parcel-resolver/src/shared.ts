@@ -1,5 +1,7 @@
 import type { Resolver } from "@parcel/plugin"
+import { statSync } from "fs-extra"
 import type { Got } from "got"
+import { resolve } from "path"
 
 export const relevantExtensionList = [
   ".ts",
@@ -19,13 +21,40 @@ export type ResolverProps = Parameters<ResolveFx>[0]
 
 export const state = {
   got: null as Got,
-  srcDir: null as string
+  dotPlasmoDirectory: null as string
 }
 
 export const initializeState = async (props: ResolverProps) => {
   if (state.got === null) {
     state.got = (await import("got")).default
   }
+  if (!state.dotPlasmoDirectory) {
+    state.dotPlasmoDirectory = resolve(
+      process.env.PLASMO_PROJECT_DIR,
+      ".plasmo"
+    )
+  }
+}
 
-  state.srcDir = process.env.PLASMO_SRC_DIR
+/**
+ * Look for source code file (crawl index)
+ */
+export const resolveSourceIndex = async (
+  absoluteBaseFile: string,
+  checkingExts = relevantExtensionList as readonly string[]
+) => {
+  const potentialFiles = checkingExts.flatMap((ext) => [
+    `${absoluteBaseFile}${ext}`,
+    resolve(absoluteBaseFile, `index${ext}`)
+  ])
+
+  for (const file of potentialFiles) {
+    try {
+      if (statSync(file).isFile()) {
+        return { filePath: file }
+      }
+    } catch {}
+  }
+
+  return null
 }

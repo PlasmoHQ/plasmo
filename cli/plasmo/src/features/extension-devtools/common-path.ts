@@ -8,9 +8,10 @@ import { getBundleConfig } from "./get-bundle-config"
 
 export const getCommonPath = (
   projectDirectory = cwd(),
-  { target } = getBundleConfig(),
-  dotPlasmo = ".plasmo"
+  { target } = getBundleConfig()
 ) => {
+  process.env.PLASMO_PROJECT_DIR = projectDirectory
+
   const packageName = basename(projectDirectory)
 
   process.env.PLASMO_SRC_PATH =
@@ -38,7 +39,7 @@ export const getCommonPath = (
 
   const distDirectory = resolve(buildDirectory, distDirectoryName)
 
-  const dotPlasmoDirectory = resolve(projectDirectory, dotPlasmo)
+  const dotPlasmoDirectory = resolve(projectDirectory, ".plasmo")
 
   const cacheDirectory = resolve(dotPlasmoDirectory, "cache")
 
