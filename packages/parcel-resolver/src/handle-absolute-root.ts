@@ -1,4 +1,4 @@
-import { extname, resolve } from "path"
+import { extname, isAbsolute, resolve } from "path"
 
 import {
   ResolverProps,
@@ -11,7 +11,7 @@ export async function handleAbsoluteRoot({
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
-  if (specifier[0] !== "/") {
+  if (specifier[0] !== "/" || isAbsolute(specifier)) {
     return null
   }
 
