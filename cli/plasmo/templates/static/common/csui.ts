@@ -1,23 +1,14 @@
 import type { PlasmoCSUI, PlasmoCSUIAnchor, PlasmoCSUIMountState } from "~type"
 
-export const mountState: PlasmoCSUIMountState = {
-  document: document || window.document,
-  observer: null,
-
-  isMounting: false,
-  isMutated: false,
-
-  hostSet: new Set(),
-  hostMap: new WeakMap()
-}
-
-export const isMounted = (el: Element | null) =>
-  el?.id
-    ? !!document.getElementById(el.id)
-    : el?.getRootNode({ composed: true }) === mountState.document
-
-async function createShadowRoot(anchor: PlasmoCSUIAnchor, Mount: PlasmoCSUI) {
+async function createShadowRoot(
+  anchor: PlasmoCSUIAnchor,
+  Mount: PlasmoCSUI,
+  mountState?: PlasmoCSUIMountState
+) {
   const shadowHost = document.createElement("div")
+
+  mountState?.hostSet.add(shadowHost)
+  mountState?.hostMap.set(shadowHost, anchor)
 
   if (typeof Mount.getShadowHostId === "function") {
     shadowHost.id = await Mount.getShadowHostId(anchor)
@@ -32,7 +23,7 @@ async function createShadowRoot(anchor: PlasmoCSUIAnchor, Mount: PlasmoCSUI) {
     await Mount.mountShadowHost({
       shadowHost,
       anchor,
-      observer: mountState.observer
+      observer: mountState?.observer
     })
   } else if (anchor.type === "inline") {
     anchor.element.insertAdjacentElement("afterend", shadowHost)
@@ -44,33 +35,44 @@ async function createShadowRoot(anchor: PlasmoCSUIAnchor, Mount: PlasmoCSUI) {
     shadowRoot.appendChild(await Mount.getStyle(anchor))
   }
 
-  mountState.hostSet.add(shadowHost)
-  mountState.hostMap.set(shadowHost, anchor)
-
   return shadowRoot
 }
 
 export async function createShadowContainer(
   anchor: PlasmoCSUIAnchor,
-  Mount: PlasmoCSUI
+  Mount: PlasmoCSUI,
+  mountState?: PlasmoCSUIMountState
 ) {
-  const shadowRoot = await createShadowRoot(anchor, Mount)
+  const shadowRoot = await createShadowRoot(anchor, Mount, mountState)
 
   const container = document.createElement("div")
   container.id = "plasmo-shadow-container"
   container.style.cssText = `
-        z-index: 2147483647;
-        position: ${anchor.type === "inline" ? "relative" : "absolute"};
-      `
+    z-index: 2147483647;
+    position: ${anchor.type === "inline" ? "relative" : "absolute"};
+  `
 
   shadowRoot.appendChild(container)
   return container
 }
 
-export function createAnchorObserver(
-  Mount: PlasmoCSUI,
-  render: (anchor?: PlasmoCSUIAnchor) => void
-) {
+export function createAnchorObserver(Mount: PlasmoCSUI) {
+  const mountState: PlasmoCSUIMountState = {
+    document: document || window.document,
+    observer: null,
+
+    isMounting: false,
+    isMutated: false,
+
+    hostSet: new Set(),
+    hostMap: new WeakMap()
+  }
+
+  const isMounted = (el: Element | null) =>
+    el?.id
+      ? !!document.getElementById(el.id)
+      : el?.getRootNode({ composed: true }) === mountState.document
+
   const hasInlineAnchor = typeof Mount.getInlineAnchor === "function"
   const hasOverlayAnchor = typeof Mount.getOverlayAnchor === "function"
 
@@ -87,11 +89,11 @@ export function createAnchorObserver(
     return null
   }
 
-  async function mountAnchors() {
+  async function mountAnchors(render: (anchor?: PlasmoCSUIAnchor) => void) {
     mountState.isMounting = true
 
-    const mountedOverlayAnchorSet = new WeakSet()
     const mountedInlineAnchorSet = new WeakSet()
+    const mountedOverlayAnchorSet = new WeakSet()
 
     // Go through mounted sets and check if they are still mounted
     for (const el of mountState.hostSet) {
@@ -167,18 +169,18 @@ export function createAnchorObserver(
 
     if (mountState.isMutated) {
       mountState.isMutated = false
-      await mountAnchors()
+      await mountAnchors(render)
     }
     mountState.isMounting = false
   }
 
-  const start = () => {
+  const start = (render: (anchor?: PlasmoCSUIAnchor) => void) => {
     mountState.observer = new MutationObserver(() => {
       if (mountState.isMounting) {
         mountState.isMutated = true
         return
       }
-      mountAnchors()
+      mountAnchors(render)
     })
 
     // Need to watch the subtree for shadowDOM
@@ -189,6 +191,7 @@ export function createAnchorObserver(
   }
 
   return {
-    start
+    start,
+    mountState
   }
 }

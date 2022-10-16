@@ -1,3 +1,9 @@
+// prettier-sort-ignore
+import {
+  createAnchorObserver,
+  createShadowContainer
+} from "@plasmo-static-common/csui"
+
 import React from "react"
 import { createRoot } from "react-dom/client"
 
@@ -5,12 +11,7 @@ import { createRoot } from "react-dom/client"
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
-import {
-  createAnchorObserver,
-  createShadowContainer
-} from "@plasmo-static-common/csui"
-
-import type { PlasmoCSUI, PlasmoCSUIAnchor } from "~type"
+import type { PlasmoCSUI, PlasmoCSUIAnchor, PlasmoCSUIMountState } from "~type"
 
 // Escape parcel's static analyzer
 const Mount = RawMount as PlasmoCSUI
@@ -63,14 +64,12 @@ const MountContainer = (props: any) => {
   )
 }
 
-async function getRootContainer(anchor: PlasmoCSUIAnchor) {
-  return createShadowContainer(anchor, Mount)
-}
+const observer = createAnchorObserver(Mount)
 
-const createRootContainer =
+const createRootContainer = (anchor: PlasmoCSUIAnchor) =>
   typeof Mount.getRootContainer === "function"
-    ? Mount.getRootContainer
-    : getRootContainer
+    ? Mount.getRootContainer(anchor, observer?.mountState)
+    : createShadowContainer(anchor, Mount, observer?.mountState)
 
 const render =
   typeof Mount.render === "function"
@@ -83,10 +82,8 @@ const render =
         root.render(<MountContainer anchor={anchor} />)
       }
 
-const observer = createAnchorObserver(Mount, render)
-
 if (!!observer) {
-  observer.start()
+  observer.start(render)
 } else {
   render()
 }

@@ -3,6 +3,7 @@ import { resolve } from "path"
 import {
   ResolverProps,
   ResolverResult,
+  relevantExtensionList,
   resolveSourceIndex,
   state
 } from "./shared"

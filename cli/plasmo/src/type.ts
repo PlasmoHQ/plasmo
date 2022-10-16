@@ -14,7 +14,10 @@ export type PlasmoCSUIAnchor = {
   type: "overlay" | "inline"
 }
 
-export type PlasmoGetRootContainer = Getter<HTMLElement, PlasmoCSUIAnchor>
+export type PlasmoGetRootContainer = (
+  anchor: PlasmoCSUIAnchor,
+  mountState: PlasmoCSUIMountState
+) => Async<HTMLElement>
 
 export type PlasmoGetOverlayAnchor = GetHtmlElement
 export type PlasmoGetOverlayAnchorList = Getter<NodeList>
