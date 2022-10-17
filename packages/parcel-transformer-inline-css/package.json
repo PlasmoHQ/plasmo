@@ -23,11 +23,11 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.2.3"
+    "tsup": "6.3.0"
   },
   "dependencies": {
-    "@parcel/css": "1.14.0",
     "@parcel/core": "2.7.0",
+    "@parcel/css": "1.14.0",
     "@parcel/plugin": "2.7.0",
     "@parcel/utils": "2.7.0"
   }

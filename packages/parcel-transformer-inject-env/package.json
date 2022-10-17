@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.2.3"
+    "tsup": "6.3.0"
   },
   "dependencies": {
     "@parcel/core": "2.7.0",
