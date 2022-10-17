@@ -7,23 +7,16 @@ type Async<T> = Promise<T> | T
 
 type Getter<T, P = any> = (props?: P) => Async<T>
 
-type GetHtmlElement = Getter<HTMLElement>
+type GetElement = Getter<Element>
 
 export type PlasmoCSUIAnchor = {
   element: Element
   type: "overlay" | "inline"
 }
 
-export type PlasmoGetRootContainer = (
-  anchor: PlasmoCSUIAnchor,
-  mountState: PlasmoCSUIMountState
-) => Async<HTMLElement>
-
-export type PlasmoGetOverlayAnchor = GetHtmlElement
-export type PlasmoGetOverlayAnchorList = Getter<NodeList>
-
-export type PlasmoGetInlineAnchor = GetHtmlElement
-export type PlasmoGetInlineAnchorList = Getter<NodeList>
+export type PlasmoCSUIProps = {
+  anchor?: PlasmoCSUIAnchor
+}
 
 export type PlasmoCSUIMountState = {
   document: Document
@@ -42,25 +35,42 @@ export type PlasmoCSUIMountState = {
   hostMap: WeakMap<Element, PlasmoCSUIAnchor>
 }
 
-export type PlasmoMountShadowHost = (props: {
-  observer: MutationObserver | null
-  shadowHost: Element
-  anchor: PlasmoCSUIAnchor
-}) => Async<void>
+export type PlasmoGetRootContainer = (
+  props: {
+    mountState?: PlasmoCSUIMountState
+  } & PlasmoCSUIProps
+) => Async<Element>
+
+export type PlasmoGetOverlayAnchor = GetElement
+export type PlasmoGetOverlayAnchorList = Getter<NodeList>
+
+export type PlasmoGetInlineAnchor = GetElement
+export type PlasmoGetInlineAnchorList = Getter<NodeList>
+
+export type PlasmoMountShadowHost = (
+  props: {
+    observer: MutationObserver | null
+    shadowHost: Element
+  } & PlasmoCSUIProps
+) => Async<void>
 
 export type PlasmoRender<PT = any> = (
-  createRootContainer?: PlasmoGetRootContainer,
-  MountContainer?: (_props: PT) => JSX.Element | HTMLElement,
-  anchor?: PlasmoCSUIAnchor
+  props: {
+    createRootContainer?: (p: PlasmoCSUIAnchor) => Async<Element>
+    CSUIContainer?: (p: PT) => JSX.Element | Element
+  } & PlasmoCSUIProps
 ) => Async<void>
 
 export type PlasmoGetShadowHostId = Getter<string, PlasmoCSUIAnchor>
 
 export type PlasmoGetStyle = Getter<HTMLStyleElement, PlasmoCSUIAnchor>
 
+/**
+ * @return a cleanup unwatch function that will be run when unmounted
+ */
 export type PlasmoWatchOverlayAnchor = (
   updatePosition: () => Promise<void>
-) => void
+) => () => void
 
 export type PlasmoCreateShadowRoot = (
   shadowHost: HTMLDivElement

@@ -1,23 +1,52 @@
 import type { PlasmoCSUI, PlasmoCSUIAnchor, PlasmoCSUIMountState } from "~type"
 
-async function createShadowRoot(
-  anchor: PlasmoCSUIAnchor,
+async function createShadowDOM(
   Mount: PlasmoCSUI,
   mountState?: PlasmoCSUIMountState
 ) {
   const shadowHost = document.createElement("div")
 
   mountState?.hostSet.add(shadowHost)
-  mountState?.hostMap.set(shadowHost, anchor)
-
-  if (typeof Mount.getShadowHostId === "function") {
-    shadowHost.id = await Mount.getShadowHostId(anchor)
-  }
 
   const shadowRoot =
     typeof Mount.createShadowRoot === "function"
       ? await Mount.createShadowRoot(shadowHost)
       : shadowHost.attachShadow({ mode: "open" })
+
+  const shadowContainer = document.createElement("div")
+
+  shadowContainer.id = "plasmo-shadow-container"
+  shadowContainer.style.zIndex = "2147483647"
+
+  shadowRoot.appendChild(shadowContainer)
+
+  return {
+    shadowContainer,
+    shadowRoot,
+    shadowHost
+  }
+}
+
+export type PlasmoCSUIShadowDOM = Awaited<ReturnType<typeof createShadowDOM>>
+
+async function injectAnchor(
+  { shadowContainer, shadowHost, shadowRoot }: PlasmoCSUIShadowDOM,
+  anchor: PlasmoCSUIAnchor,
+  Mount: PlasmoCSUI,
+  mountState?: PlasmoCSUIMountState
+) {
+  shadowContainer.style.position =
+    anchor.type === "inline" ? "relative" : "absolute"
+
+  if (typeof Mount.getStyle === "function") {
+    shadowRoot.prepend(await Mount.getStyle(anchor))
+  }
+
+  mountState?.hostMap.set(shadowHost, anchor)
+
+  if (typeof Mount.getShadowHostId === "function") {
+    shadowHost.id = await Mount.getShadowHostId(anchor)
+  }
 
   if (typeof Mount.mountShadowHost === "function") {
     await Mount.mountShadowHost({
@@ -30,12 +59,6 @@ async function createShadowRoot(
   } else {
     document.body.insertAdjacentElement("beforebegin", shadowHost)
   }
-
-  if (typeof Mount.getStyle === "function") {
-    shadowRoot.appendChild(await Mount.getStyle(anchor))
-  }
-
-  return shadowRoot
 }
 
 export async function createShadowContainer(
@@ -43,17 +66,11 @@ export async function createShadowContainer(
   Mount: PlasmoCSUI,
   mountState?: PlasmoCSUIMountState
 ) {
-  const shadowRoot = await createShadowRoot(anchor, Mount, mountState)
+  const shadowDOM = await createShadowDOM(Mount, mountState)
 
-  const container = document.createElement("div")
-  container.id = "plasmo-shadow-container"
-  container.style.cssText = `
-    z-index: 2147483647;
-    position: ${anchor.type === "inline" ? "relative" : "absolute"};
-  `
+  await injectAnchor(shadowDOM, anchor, Mount, mountState)
 
-  shadowRoot.appendChild(container)
-  return container
+  return shadowDOM.shadowContainer
 }
 
 export function createAnchorObserver(Mount: PlasmoCSUI) {
@@ -111,61 +128,59 @@ export function createAnchorObserver(Mount: PlasmoCSUI) {
       }
     }
 
-    if (hasInlineAnchor) {
-      const inlineAnchor = await Mount.getInlineAnchor()
-      if (inlineAnchor && !mountedInlineAnchorSet.has(inlineAnchor)) {
-        render({
-          type: "inline",
-          element: inlineAnchor
-        })
-      }
+    const [inlineAnchor, inlineAnchorList, overlayAnchor, overlayAnchorList] =
+      await Promise.all([
+        hasInlineAnchor ? Mount.getInlineAnchor() : null,
+        hasInlineAnchorList ? Mount.getInlineAnchorList() : null,
+        hasOverlayAnchor ? Mount.getOverlayAnchor() : null,
+        hasOverlayAnchorList ? Mount.getOverlayAnchorList() : null
+      ])
+
+    const renderList: PlasmoCSUIAnchor[] = []
+
+    if (!!inlineAnchor && !mountedInlineAnchorSet.has(inlineAnchor)) {
+      renderList.push({
+        element: inlineAnchor,
+        type: "inline"
+      })
     }
 
-    if (hasInlineAnchorList) {
-      const inlineAnchorList = await Mount.getInlineAnchorList()
-
-      if (inlineAnchorList!.length > 0) {
-        inlineAnchorList!.forEach((inlineAnchor) => {
-          if (
-            inlineAnchor instanceof HTMLElement &&
-            !mountedInlineAnchorSet.has(inlineAnchor)
-          ) {
-            render({
-              element: inlineAnchor,
-              type: "inline"
-            })
-          }
-        })
-      }
+    if (!!overlayAnchor && !mountedOverlayAnchorSet.has(overlayAnchor)) {
+      renderList.push({
+        element: overlayAnchor,
+        type: "overlay"
+      })
     }
 
-    if (hasOverlayAnchor) {
-      const overlayAnchor = await Mount.getOverlayAnchor()
-      if (overlayAnchor && !mountedOverlayAnchorSet.has(overlayAnchor)) {
-        render({
-          element: overlayAnchor,
-          type: "overlay"
-        })
-      }
+    if ((inlineAnchorList?.length || 0) > 0) {
+      inlineAnchorList.forEach((inlineAnchor) => {
+        if (
+          inlineAnchor instanceof Element &&
+          !mountedInlineAnchorSet.has(inlineAnchor)
+        ) {
+          renderList.push({
+            element: inlineAnchor,
+            type: "inline"
+          })
+        }
+      })
     }
 
-    if (hasOverlayAnchorList) {
-      const overlayAnchorList = await Mount.getOverlayAnchorList()
-
-      if (overlayAnchorList!.length > 0) {
-        overlayAnchorList!.forEach((overlayAnchor) => {
-          if (
-            overlayAnchor instanceof HTMLElement &&
-            !mountedOverlayAnchorSet.has(overlayAnchor)
-          ) {
-            render({
-              element: overlayAnchor,
-              type: "overlay"
-            })
-          }
-        })
-      }
+    if ((overlayAnchorList?.length || 0) > 0) {
+      overlayAnchorList.forEach((overlayAnchor) => {
+        if (
+          overlayAnchor instanceof Element &&
+          !mountedOverlayAnchorSet.has(overlayAnchor)
+        ) {
+          renderList.push({
+            element: overlayAnchor,
+            type: "overlay"
+          })
+        }
+      })
     }
+
+    await Promise.all(renderList.map(render))
 
     if (mountState.isMutated) {
       mountState.isMutated = false
