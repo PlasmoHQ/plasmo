@@ -32,7 +32,7 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   const hasEntrypoints = initResults.flat()
 
   if (!hasEntrypoints.includes(true)) {
-    wLog("Unable to find any entry files, the extension might be empty")
+    wLog("Unable to find any entry files. The extension might be empty")
   }
 
   const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
