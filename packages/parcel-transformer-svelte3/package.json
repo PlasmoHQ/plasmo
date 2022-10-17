@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "svelte": "3.50.1",
-    "tsup": "6.2.3"
+    "svelte": "3.52.0",
+    "tsup": "6.3.0"
   },
   "dependencies": {
     "@parcel/core": "2.7.0",
