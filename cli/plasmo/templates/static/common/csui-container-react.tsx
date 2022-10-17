@@ -1,12 +1,8 @@
 import React from "react"
 
-import type { PlasmoCSUIAnchor, PlasmoWatchOverlayAnchor } from "~type"
+import type { PlasmoCSUIContainerProps } from "~type"
 
-export const CSUIContainer = (props: {
-  anchor: PlasmoCSUIAnchor
-  children?: React.ReactNode
-  watchOverlayAnchor?: PlasmoWatchOverlayAnchor
-}) => {
+export const OverlayCSUIContainer = (props: PlasmoCSUIContainerProps) => {
   const [top, setTop] = React.useState(0)
   const [left, setLeft] = React.useState(0)
 
@@ -45,10 +41,11 @@ export const CSUIContainer = (props: {
 
   return (
     <div
-      id="plasmo-mount-container"
+      id={props.id}
+      className="plasmo-csui-container"
       style={{
         display: "flex",
-        position: "relative",
+        position: "absolute",
         top,
         left
       }}>
@@ -56,3 +53,17 @@ export const CSUIContainer = (props: {
     </div>
   )
 }
+
+export const InlineCSUIContainer = (props: PlasmoCSUIContainerProps) => (
+  <div
+    id="plasmo-inline"
+    className="plasmo-csui-container"
+    style={{
+      display: "flex",
+      position: "relative",
+      top: 0,
+      left: 0
+    }}>
+    {props.children}
+  </div>
+)

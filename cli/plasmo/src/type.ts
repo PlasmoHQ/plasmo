@@ -33,6 +33,11 @@ export type PlasmoCSUIMountState = {
    * Used to add more metadata to the host Set
    */
   hostMap: WeakMap<Element, PlasmoCSUIAnchor>
+
+  /**
+   * Used to align overlay anchor with elements on the page
+   */
+  overlayTargetList: Element[]
 }
 
 export type PlasmoGetRootContainer = (
@@ -54,13 +59,6 @@ export type PlasmoMountShadowHost = (
   } & PlasmoCSUIProps
 ) => Async<void>
 
-export type PlasmoRender<PT = any> = (
-  props: {
-    createRootContainer?: (p: PlasmoCSUIAnchor) => Async<Element>
-    CSUIContainer?: (p: PT) => JSX.Element | Element
-  } & PlasmoCSUIProps
-) => Async<void>
-
 export type PlasmoGetShadowHostId = Getter<string, PlasmoCSUIAnchor>
 
 export type PlasmoGetStyle = Getter<HTMLStyleElement, PlasmoCSUIAnchor>
@@ -72,9 +70,22 @@ export type PlasmoWatchOverlayAnchor = (
   updatePosition: () => Promise<void>
 ) => () => void
 
+export type PlasmoCSUIContainerProps = {
+  id?: string
+  children?: React.ReactNode
+  watchOverlayAnchor?: PlasmoWatchOverlayAnchor
+} & PlasmoCSUIProps
+
 export type PlasmoCreateShadowRoot = (
-  shadowHost: HTMLDivElement
+  shadowHost: HTMLElement
 ) => Async<ShadowRoot>
+
+export type PlasmoRender = (
+  props: {
+    createRootContainer?: (p: PlasmoCSUIAnchor) => Async<Element>
+    CSUIContainer?: (p: PlasmoCSUIContainerProps) => JSX.Element | Element
+  } & PlasmoCSUIProps
+) => Async<void>
 
 export type PlasmoCSUI = {
   default: any
