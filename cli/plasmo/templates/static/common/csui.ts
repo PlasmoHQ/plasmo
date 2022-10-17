@@ -1,4 +1,9 @@
-import type { PlasmoCSUI, PlasmoCSUIAnchor, PlasmoCSUIMountState } from "~type"
+import type {
+  PlasmoCSUI,
+  PlasmoCSUIAnchor,
+  PlasmoCSUIContainer,
+  PlasmoCSUIMountState
+} from "~type"
 
 async function createShadowDOM(Mount: PlasmoCSUI) {
   const shadowHost = document.createElement("plasmo-csui")
@@ -26,9 +31,9 @@ async function createShadowDOM(Mount: PlasmoCSUI) {
 export type PlasmoCSUIShadowDOM = Awaited<ReturnType<typeof createShadowDOM>>
 
 async function injectAnchor(
-  { shadowHost, shadowRoot }: PlasmoCSUIShadowDOM,
-  anchor: PlasmoCSUIAnchor,
   Mount: PlasmoCSUI,
+  anchor: PlasmoCSUIAnchor,
+  { shadowHost, shadowRoot }: PlasmoCSUIShadowDOM,
   mountState?: PlasmoCSUIMountState
 ) {
   if (typeof Mount.getStyle === "function") {
@@ -53,8 +58,8 @@ async function injectAnchor(
 }
 
 export async function createShadowContainer(
-  anchor: PlasmoCSUIAnchor,
   Mount: PlasmoCSUI,
+  anchor: PlasmoCSUIAnchor,
   mountState?: PlasmoCSUIMountState
 ) {
   const shadowDom = await createShadowDOM(Mount)
@@ -62,7 +67,7 @@ export async function createShadowContainer(
   mountState?.hostSet.add(shadowDom.shadowHost)
   mountState?.hostMap.set(shadowDom.shadowHost, anchor)
 
-  await injectAnchor(shadowDom, anchor, Mount, mountState)
+  await injectAnchor(Mount, anchor, shadowDom, mountState)
 
   return shadowDom.shadowContainer
 }
@@ -250,5 +255,36 @@ export function createAnchorObserver(Mount: PlasmoCSUI) {
   return {
     start,
     mountState
+  }
+}
+
+export const createRender = (
+  Mount: PlasmoCSUI,
+  containers: [PlasmoCSUIContainer, PlasmoCSUIContainer],
+  mountState?: PlasmoCSUIMountState,
+  renderFx?: (anchor: PlasmoCSUIAnchor, rootContainer: Element) => Promise<void>
+) => {
+  const createRootContainer = (anchor: PlasmoCSUIAnchor) =>
+    typeof Mount.getRootContainer === "function"
+      ? Mount.getRootContainer({
+          anchor,
+          mountState
+        })
+      : createShadowContainer(Mount, anchor, mountState)
+
+  if (typeof Mount.render === "function") {
+    return (anchor: PlasmoCSUIAnchor) =>
+      Mount.render(
+        {
+          anchor,
+          createRootContainer
+        },
+        ...containers
+      )
+  }
+
+  return async (anchor: PlasmoCSUIAnchor) => {
+    const rootContainer = await createRootContainer(anchor)
+    return renderFx(anchor, rootContainer)
   }
 }

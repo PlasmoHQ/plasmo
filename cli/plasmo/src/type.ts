@@ -76,6 +76,10 @@ export type PlasmoCSUIContainerProps = {
   watchOverlayAnchor?: PlasmoWatchOverlayAnchor
 } & PlasmoCSUIProps
 
+export type PlasmoCSUIContainer = (
+  p: PlasmoCSUIContainerProps
+) => JSX.Element | Element
+
 export type PlasmoCreateShadowRoot = (
   shadowHost: HTMLElement
 ) => Async<ShadowRoot>
@@ -83,8 +87,9 @@ export type PlasmoCreateShadowRoot = (
 export type PlasmoRender = (
   props: {
     createRootContainer?: (p: PlasmoCSUIAnchor) => Async<Element>
-    CSUIContainer?: (p: PlasmoCSUIContainerProps) => JSX.Element | Element
-  } & PlasmoCSUIProps
+  } & PlasmoCSUIProps,
+  InlineCSUIContainer?: PlasmoCSUIContainer,
+  OverlayCSUIContainer?: PlasmoCSUIContainer
 ) => Async<void>
 
 export type PlasmoCSUI = {

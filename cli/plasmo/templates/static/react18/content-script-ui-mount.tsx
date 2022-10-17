@@ -1,7 +1,4 @@
-import {
-  createAnchorObserver,
-  createShadowContainer
-} from "@plasmo-static-common/csui"
+import { createAnchorObserver, createRender } from "@plasmo-static-common/csui"
 import {
   InlineCSUIContainer,
   OverlayCSUIContainer
@@ -20,55 +17,51 @@ const Mount = RawMount as PlasmoCSUI
 
 const observer = createAnchorObserver(Mount)
 
-const createRootContainer = (anchor: PlasmoCSUIAnchor) =>
-  typeof Mount.getRootContainer === "function"
-    ? Mount.getRootContainer({
-        anchor,
-        mountState: observer?.mountState
-      })
-    : createShadowContainer(anchor, Mount, observer?.mountState)
-
-const render =
-  typeof Mount.render === "function"
-    ? (anchor: PlasmoCSUIAnchor) =>
-        Mount.render({
-          anchor,
-          createRootContainer,
-          CSUIContainer: OverlayCSUIContainer
-        })
-    : async (anchor: PlasmoCSUIAnchor) => {
-        const rootContainer = await createRootContainer(anchor)
-        const root = createRoot(rootContainer)
-
-        if (anchor.type === "overlay") {
-          root.render(
-            <>
-              {observer.mountState.overlayTargetList.map((target, i) => {
-                const id = `plasmo-overlay-${i}`
-                const innerAnchor: PlasmoCSUIAnchor = {
-                  element: target,
-                  type: "overlay"
-                }
-                return (
-                  <OverlayCSUIContainer
-                    id={id}
-                    key={id}
-                    anchor={innerAnchor}
-                    watchOverlayAnchor={Mount.watchOverlayAnchor}>
-                    <RawMount.default anchor={innerAnchor} />
-                  </OverlayCSUIContainer>
-                )
-              })}
-            </>
-          )
-        } else {
-          root.render(
-            <InlineCSUIContainer anchor={anchor}>
-              <RawMount.default anchor={anchor} />
-            </InlineCSUIContainer>
-          )
-        }
+const render = createRender(
+  Mount,
+  [InlineCSUIContainer, OverlayCSUIContainer],
+  observer?.mountState,
+  async (anchor, rootContainer) => {
+    const root = createRoot(rootContainer)
+    switch (anchor.type) {
+      case "inline": {
+        root.render(
+          <InlineCSUIContainer anchor={anchor}>
+            <RawMount.default anchor={anchor} />
+          </InlineCSUIContainer>
+        )
+        break
       }
+      case "overlay": {
+        const targetList = observer.mountState?.overlayTargetList || [
+          anchor.element
+        ]
+
+        root.render(
+          <>
+            {targetList.map((target, i) => {
+              const id = `plasmo-overlay-${i}`
+              const innerAnchor: PlasmoCSUIAnchor = {
+                element: target,
+                type: "overlay"
+              }
+              return (
+                <OverlayCSUIContainer
+                  id={id}
+                  key={id}
+                  anchor={innerAnchor}
+                  watchOverlayAnchor={Mount.watchOverlayAnchor}>
+                  <RawMount.default anchor={innerAnchor} />
+                </OverlayCSUIContainer>
+              )
+            })}
+          </>
+        )
+        break
+      }
+    }
+  }
+)
 
 if (!!observer) {
   observer.start(render)
