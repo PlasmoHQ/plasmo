@@ -33,7 +33,7 @@ const render = createRender(
         break
       }
       case "overlay": {
-        const targetList = observer.mountState?.overlayTargetList || [
+        const targetList = observer?.mountState.overlayTargetList || [
           anchor.element
         ]
 
