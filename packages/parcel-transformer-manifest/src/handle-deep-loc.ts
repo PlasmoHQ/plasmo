@@ -17,7 +17,6 @@ const DEEP_LOCS = [
   ["chrome_url_overrides"],
   ["devtools_page"],
   ["options_ui", "page"],
-  ["sandbox", "pages"],
   ["sidebar_action", "default_icon"],
   ["sidebar_action", "default_panel"],
   ["storage", "managed_schema"],

@@ -16,18 +16,23 @@ export enum WatchReason {
 
   BackgroundIndex,
 
-  ContentsIndex,
-  ContentsDirectory,
+  ContentScriptIndex,
+  ContentScriptsDirectory,
 
   NewtabIndex,
-  DevtoolsIndex,
-  PopupIndex,
-  OptionsIndex,
-
   NewtabHtml,
+
+  DevtoolsIndex,
   DevtoolsHtml,
+
+  PopupIndex,
   PopupHtml,
-  OptionsHtml
+
+  OptionsIndex,
+  OptionsHtml,
+
+  SandboxIndex,
+  SandboxesDirectory
 }
 
 type DirectoryWatchTuple = [WatchReason, string]
@@ -43,6 +48,19 @@ export const getProjectPath = (
   browserTarget: string,
   uiExt: SupportedUiExt
 ) => {
+  /**
+   * only pointing to 1 particular file path
+   */
+  const getModuleList = (moduleName: string) => [
+    resolve(sourceDirectory, `${moduleName}.ts`),
+    resolve(sourceDirectory, `${moduleName}.${browserTarget}.ts`),
+    resolve(sourceDirectory, `${moduleName}${uiExt}`),
+    resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
+  ]
+
+  /**
+   * crawl index, and only care about one extension
+   */
   const getIndexList = (moduleName: string, ext = ".ts") => [
     resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
     resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
@@ -67,20 +85,19 @@ export const getProjectPath = (
     resolve(sourceDirectory, ".env.development.local")
   ]
 
-  const contentIndexList = [
-    resolve(sourceDirectory, "content.ts"),
-    resolve(sourceDirectory, `content.${browserTarget}.ts`),
-    resolve(sourceDirectory, `content${uiExt}`),
-    resolve(sourceDirectory, `content.${browserTarget}${uiExt}`)
-  ]
-
   const backgroundIndexList = getIndexList("background")
+
+  const contentIndexList = getModuleList("content")
+  const sandboxIndexList = getModuleList("sandbox")
 
   const watchPathReasonMap = {
     [packageFilePath]: WatchReason.PackageJson,
 
     ...getWatchReasonMap(envFileList, WatchReason.EnvFile),
-    ...getWatchReasonMap(contentIndexList, WatchReason.ContentsIndex),
+
+    ...getWatchReasonMap(contentIndexList, WatchReason.ContentScriptIndex),
+    ...getWatchReasonMap(sandboxIndexList, WatchReason.SandboxIndex),
+
     ...getWatchReasonMap(backgroundIndexList, WatchReason.BackgroundIndex),
 
     ...getWatchReasonMap(popupIndexList, WatchReason.PopupIndex),
@@ -95,11 +112,13 @@ export const getProjectPath = (
   }
 
   const contentsDirectory = resolve(sourceDirectory, "contents")
+  const sandboxesDirectory = resolve(sourceDirectory, "sandboxes")
   const tabsDirectory = resolve(sourceDirectory, "tabs")
 
   const watchDirectoryEntries = [
+    [WatchReason.SandboxesDirectory, sandboxesDirectory],
     [WatchReason.TabsDirectory, tabsDirectory],
-    [WatchReason.ContentsDirectory, contentsDirectory],
+    [WatchReason.ContentScriptsDirectory, contentsDirectory],
     [WatchReason.AssetsDirectory, assetsDirectory]
   ] as Array<DirectoryWatchTuple>
 
@@ -107,18 +126,24 @@ export const getProjectPath = (
 
   return {
     popupIndexList,
-    optionsIndexList,
-    devtoolsIndexList,
-    newtabIndexList,
-
     popupHtmlList,
+
+    optionsIndexList,
     optionsHtmlList,
+
+    devtoolsIndexList,
     devtoolsHtmlList,
+
+    newtabIndexList,
     newtabHtmlList,
 
     backgroundIndexList,
+
     contentIndexList,
     contentsDirectory,
+
+    sandboxIndexList,
+    sandboxesDirectory,
 
     tabsDirectory,
 

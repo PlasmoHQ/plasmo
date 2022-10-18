@@ -8,6 +8,7 @@ import { vLog } from "@plasmo/utils"
 import { toPosix } from "~features/helpers/path"
 
 import type { BaseFactory } from "./base"
+import { isSupportedUiExt } from "./ui-library"
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
@@ -126,26 +127,38 @@ export class Scaffolder {
     return this.generateHtml(outputHtmlPath, scriptMountPath, htmlFile)
   }
 
-  createTabMount = async (module: ParsedPath) => {
-    vLog(`Creating tab mount template for ${module.dir}`)
+  createPageMount = async (module: ParsedPath) => {
+    vLog(`Creating page mount template for ${module.dir}`)
     const { dotPlasmoDirectory } = this.commonPath
 
     const staticModulePath = resolve(dotPlasmoDirectory, module.dir)
+    const htmlPath = resolve(staticModulePath, `${module.name}.html`)
     await ensureDir(staticModulePath)
 
-    const tabScriptPath = resolve(
-      staticModulePath,
-      `${module.name}${this.mountExt}`
-    )
+    const isUiExt = isSupportedUiExt(module.ext)
 
-    const tabHtmlPath = resolve(staticModulePath, `${module.name}.html`)
+    if (isUiExt) {
+      const scriptPath = resolve(
+        staticModulePath,
+        `${module.name}${this.mountExt}`
+      )
 
-    await Promise.all([
-      this.#cachedGenerate(`index${this.mountExt}`, tabScriptPath, {
-        __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
-      }),
-      this.generateHtml(tabHtmlPath, `./${module.name}${this.mountExt}`)
-    ])
+      await Promise.all([
+        this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
+          __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
+        }),
+        this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
+      ])
+    } else {
+      await Promise.all([
+        this.generateHtml(
+          htmlPath,
+          `~${toPosix(join(module.dir, module.name))}${module.ext}`
+        )
+      ])
+    }
+
+    return htmlPath
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
