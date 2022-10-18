@@ -25,7 +25,7 @@ if (!parent || !parent.isParcelRequire) {
         hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle)
     )
     // script-runtime cannot HMR, skipping this update cycle
-    if (canHmr || document.hidden) {
+    if (canHmr) {
       return
     }
 
