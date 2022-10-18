@@ -59,8 +59,6 @@ export async function handleSandboxes() {
     )
   }
 
-  vLog({ sandboxPages })
-
   await Promise.all(
     sandboxPages.map(async ([entry, htmlEntry]) => {
       const srcEntryPath = resolve(srcSandboxesDir, entry)
