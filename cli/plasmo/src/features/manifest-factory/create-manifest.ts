@@ -16,7 +16,12 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
 
   await plasmoManifest.startup()
 
-  const { contentIndexList, backgroundIndexList } = plasmoManifest.projectPath
+  const {
+    contentIndexList,
+    backgroundIndexList,
+    tabsDirectory,
+    sandboxesDirectory
+  } = plasmoManifest.projectPath
 
   const contentIndex = contentIndexList.find(existsSync)
   const backgroundIndex = backgroundIndexList.find(existsSync)
@@ -26,7 +31,9 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     plasmoManifest.toggleContentScript(contentIndex, true),
     plasmoManifest.toggleBackground(backgroundIndex, true),
     plasmoManifest.addContentScriptsDirectory(),
-    plasmoManifest.addTabsDirectory()
+
+    plasmoManifest.addPagesDirectory(tabsDirectory),
+    plasmoManifest.addPagesDirectory(sandboxesDirectory)
   ])
 
   const hasEntrypoints = initResults.flat()

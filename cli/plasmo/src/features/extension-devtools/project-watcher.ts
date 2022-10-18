@@ -95,14 +95,16 @@ export const handleProjectFile = async (
       plasmoManifest.toggleBackground(path, isEnabled)
       return
     }
-    case WatchReason.ContentsIndex:
-    case WatchReason.ContentsDirectory: {
+    case WatchReason.ContentScriptIndex:
+    case WatchReason.ContentScriptsDirectory: {
       await plasmoManifest.toggleContentScript(path, isEnabled)
       return
     }
 
+    case WatchReason.SandboxIndex:
+    case WatchReason.SandboxesDirectory:
     case WatchReason.TabsDirectory: {
-      await plasmoManifest.toggleTab(path, isEnabled)
+      await plasmoManifest.togglePage(path, isEnabled)
       return
     }
 

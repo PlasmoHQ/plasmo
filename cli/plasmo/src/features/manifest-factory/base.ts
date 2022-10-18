@@ -357,7 +357,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   addDirectory = async (
     path: string,
-    toggleDynamicPath = this.toggleContentScript
+    toggleDynamicPath: typeof this.toggleContentScript
   ) => {
     if (!existsSync(path)) {
       return false
@@ -377,9 +377,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   addContentScriptsDirectory = async (
     contentsDirectory = this.projectPath.contentsDirectory
-  ) => this.addDirectory(contentsDirectory)
+  ) => this.addDirectory(contentsDirectory, this.toggleContentScript)
 
-  toggleTab = async (path?: string, enable = false) => {
+  togglePage = async (path?: string, enable = false) => {
     if (this.isPathInvalid(path)) {
       return false
     }
@@ -391,14 +391,16 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(modulePath)
 
-      await this.#scaffolder.createTabMount(parsedModulePath)
+      await this.#scaffolder.createPageMount(parsedModulePath)
     }
+
+    this.#hash = ""
 
     return enable
   }
 
-  addTabsDirectory = async (tabsDirectory = this.projectPath.tabsDirectory) =>
-    this.addDirectory(tabsDirectory, this.toggleTab)
+  addPagesDirectory = async (directory: string) =>
+    this.addDirectory(directory, this.togglePage)
 
   write = (force = false) => {
     this.#prevHash = this.#hash

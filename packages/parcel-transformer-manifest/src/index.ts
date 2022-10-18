@@ -18,6 +18,7 @@ import { handleDeclarativeNetRequest } from "./handle-declarative-net-request"
 import { handleDeepLOC } from "./handle-deep-loc"
 import { handleDictionaries } from "./handle-dictionaries"
 import { handleLocales } from "./handle-locales"
+import { handleSandboxes } from "./handle-sandboxes"
 import { handleTabs } from "./handle-tabs"
 import { normalizeManifest } from "./normalize-manifest"
 import { MV2Schema, MV3Schema } from "./schema"
@@ -28,6 +29,7 @@ async function collectDependencies() {
 
   await Promise.all([
     handleTabs(),
+    handleSandboxes(),
     handleLocales(),
     handleAction(),
     handleDeclarativeNetRequest()

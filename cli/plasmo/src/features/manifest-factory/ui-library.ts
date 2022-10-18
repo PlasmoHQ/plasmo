@@ -11,9 +11,14 @@ const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
 type SupportedUiLibraryName = typeof supportedUiLibraries[number]
 
-const supportedUiExt = [".ts", ".tsx", ".svelte", ".vue"] as const
+const supportedUiExt = [".tsx", ".svelte", ".vue"] as const
 
 export type SupportedUiExt = typeof supportedUiExt[number]
+
+const supportedUiExtSet = new Set(supportedUiExt)
+
+export const isSupportedUiExt = (ext: string): ext is SupportedUiExt =>
+  supportedUiExtSet.has(ext as SupportedUiExt)
 
 export type UiLibrary = {
   name: SupportedUiLibraryName
@@ -27,7 +32,7 @@ export type ScaffolderMountExt = typeof supportedMountExt[number]
 
 export type UiExtMap = {
   uiExt: SupportedUiExt
-  mountExt: SupportedUiExt
+  mountExt: ScaffolderMountExt
 }
 
 const uiLibraryError = `No supported UI library found.  You can file an RFC for a new UI Library here: https://github.com/PlasmoHQ/plasmo/issues`
@@ -117,7 +122,7 @@ export const getUiExtMap = (
       }
     case "vanilla":
       return {
-        uiExt: ".ts",
+        uiExt: ".tsx",
         mountExt: ".ts"
       }
     default:
