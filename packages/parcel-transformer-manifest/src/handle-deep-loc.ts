@@ -13,7 +13,6 @@ const DEEP_LOCS = [
   ["page_action", "default_popup"],
   ["action", "default_icon"],
   ["action", "default_popup"],
-  ["background", "scripts"],
   ["chrome_url_overrides"],
   ["devtools_page"],
   ["options_ui", "page"],
