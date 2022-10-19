@@ -19,15 +19,21 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   const {
     contentIndexList,
     backgroundIndexList,
+    sandboxIndexList,
     tabsDirectory,
     sandboxesDirectory
   } = plasmoManifest.projectPath
 
-  const contentIndex = contentIndexList.find(existsSync)
-  const backgroundIndex = backgroundIndexList.find(existsSync)
+  const [contentIndex, backgroundIndex, sandboxIndex] = [
+    contentIndexList,
+    backgroundIndexList,
+    sandboxIndexList
+  ].map((l) => l.find(existsSync))
 
   const initResults = await Promise.all([
     plasmoManifest.scaffolder.init(),
+    plasmoManifest.togglePage(sandboxIndex, true),
+
     plasmoManifest.toggleContentScript(contentIndex, true),
     plasmoManifest.toggleBackground(backgroundIndex, true),
     plasmoManifest.addContentScriptsDirectory(),
