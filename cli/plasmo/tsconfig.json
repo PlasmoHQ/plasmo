@@ -3,8 +3,8 @@
   "include": [
     "src/**/*.ts",
     "./index.d.ts",
-    "templates/**/*.ts",
-    "templates/**/*.tsx"
+    "templates/static/**/*.ts",
+    "templates/static/**/*.tsx"
   ],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {

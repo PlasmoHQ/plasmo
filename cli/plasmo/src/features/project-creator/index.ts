@@ -30,22 +30,13 @@ import {
 const withRegex = /(?:^--with-)(?:\w+-?)+(?:[^-]$)/
 
 export class ProjectCreator {
-  commonPath: CommonPath
-  templatePath: TemplatePath
-  packageManager: PackageManagerInfo
-  isExample = false
+  templatePath = getTemplatePath()
 
   constructor(
-    _commonPath: CommonPath,
-    _packageManager: PackageManagerInfo,
-    _isExample = false
-  ) {
-    this.commonPath = _commonPath
-    this.packageManager = _packageManager
-    this.isExample = _isExample
-
-    this.templatePath = getTemplatePath()
-  }
+    public commonPath: CommonPath,
+    public packageManager: PackageManagerInfo,
+    public isExample = false
+  ) {}
 
   async create() {
     return (
