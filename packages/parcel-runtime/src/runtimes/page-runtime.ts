@@ -33,12 +33,16 @@ if (!parent || !parent.isParcelRequire) {
           window.dispatchEvent(new CustomEvent("parcelhmraccept"))
         }
 
-        await hmrApplyUpdates(assets)
+        try {
+          await hmrApplyUpdates(assets)
 
-        for (const [asset, id] of hmrState.assetsToAccept) {
-          if (!hmrState.acceptedAssets[id]) {
-            hmrAcceptRun(asset, id)
+          for (const [asset, id] of hmrState.assetsToAccept) {
+            if (!hmrState.acceptedAssets[id]) {
+              hmrAcceptRun(asset, id)
+            }
           }
+        } catch {
+          await triggerReload()
         }
       }
     } else {

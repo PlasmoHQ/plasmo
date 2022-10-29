@@ -28,7 +28,7 @@ extCtx.runtime.onConnect.addListener(function (port) {
 })
 
 if (extCtx.runtime.getManifest().manifest_version === 3) {
-  const proxyLoc = extCtx.runtime.getURL("/__parcel_hmr_proxy__?url=")
+  const proxyLoc = extCtx.runtime.getURL("/__plasmo_hmr_proxy__?url=")
 
   addEventListener("fetch", function (evt: FetchEvent) {
     const reqUrl = evt.request.url
@@ -39,12 +39,20 @@ if (extCtx.runtime.getManifest().manifest_version === 3) {
         url.port === `${runtimeData.port}`
       ) {
         evt.respondWith(
-          fetch(url).then(function (res) {
-            return new Response(res.body, {
-              headers: {
-                "Content-Type": res.headers.get("Content-Type")
-              }
-            })
+          fetch(url).then(
+            (res) =>
+              new Response(res.body, {
+                headers: {
+                  "Content-Type": res.headers.get("Content-Type")
+                }
+              })
+          )
+        )
+      } else {
+        evt.respondWith(
+          new Response("Plasmo HMR", {
+            status: 200,
+            statusText: "Testing"
           })
         )
       }

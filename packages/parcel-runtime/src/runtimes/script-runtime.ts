@@ -15,6 +15,8 @@ if (!parent || !parent.isParcelRequire) {
       (asset) => asset.envHash === runtimeData.envHash
     )
 
+    // console.log({ assets })
+
     if (assets.length === 0) {
       return
     }
@@ -24,10 +26,32 @@ if (!parent || !parent.isParcelRequire) {
         asset.type === "js" &&
         hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle)
     )
-    // script-runtime cannot HMR, skipping this update cycle
+
+    // console.log({ runtimeData, module })
+
     if (canHmr) {
       return
     }
+
+    // script-runtime cannot HMR, skipping this update cycle
+    // if (runtimeData.isReact) {
+    //   if (
+    //     typeof globalThis.window !== "undefined" &&
+    //     typeof CustomEvent !== "undefined"
+    //   ) {
+    //     window.dispatchEvent(new CustomEvent("parcelhmraccept"))
+    //   }
+
+    //   try {
+    //     await hmrApplyUpdates(assets)
+    //     for (const [asset, id] of hmrState.assetsToAccept) {
+    //       if (!hmrState.acceptedAssets[id]) {
+    //         hmrAcceptRun(asset, id)
+    //       }
+    //     }
+    //     return
+    //   } catch {}
+    // }
 
     scriptPort.postMessage({
       __plasmo_full_reload__: true
@@ -36,3 +60,7 @@ if (!parent || !parent.isParcelRequire) {
     globalThis.location?.reload?.()
   })
 }
+
+// if (runtimeData.isReact) {
+//   injectReactRefresh()
+// }
