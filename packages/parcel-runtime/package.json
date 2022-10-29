@@ -32,7 +32,7 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@types/chrome": "0.0.198",
+    "@types/chrome": "0.0.200",
     "tsup": "6.3.0"
   },
   "dependencies": {
