@@ -96,7 +96,7 @@ export default new Runtime({
     const isContentScript =
       dirname(entryFilePath).endsWith("contents") || entryBasename === "content"
 
-    vLog("Injecting runtime for ", bundle.displayName, entryFilePath)
+    vLog("Injecting runtime for ", bundle.displayName, bundle.id, entryFilePath)
 
     const runtimeData: RuntimeData = {
       isContentScript,
@@ -104,8 +104,11 @@ export default new Runtime({
       isReact,
 
       ...options.hmrOptions,
+      entryFilePath: String.raw`${entryFilePath}`,
       bundleId: bundle.id,
       envHash: bundle.env.id,
+
+      verbose: process.env.VERBOSE,
 
       secure: !!(options.serveOptions && options.serveOptions.https),
       serverPort: options.serveOptions && options.serveOptions.port
@@ -120,7 +123,7 @@ export default new Runtime({
     return {
       filePath: __filename,
       code: runtimeCode.replace(
-        `"__plasmo_runtime_data__"`, // double quote to escape
+        `__plasmo_runtime_data__`, // double quote to escape
         JSON.stringify(runtimeData)
       ),
       isEntry: true,

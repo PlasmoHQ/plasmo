@@ -3,12 +3,12 @@ import type { BackgroundMessage } from "../types"
 import "./0-patch-module"
 
 import { extCtx, runtimeData } from "./0-patch-module"
-import { injectHmrSocket } from "./hmr"
+import { injectSocket } from "./inject-socket"
 
 const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
-  injectHmrSocket()
+  injectSocket()
 }
 
 async function runtimeMessageHandler(msg: BackgroundMessage) {

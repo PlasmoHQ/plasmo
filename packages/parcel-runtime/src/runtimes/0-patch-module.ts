@@ -1,10 +1,16 @@
 import type { BackgroundMessage, ExtensionApi, RuntimeData } from "../types"
 
-export const runtimeData = JSON.parse(
-  `"__plasmo_runtime_data__"`
-) as RuntimeData
+// @ts-ignore
+export const runtimeData = __plasmo_runtime_data__ as RuntimeData
 
 module.bundle.HMR_BUNDLE_ID = runtimeData.bundleId
+
+globalThis.process = {
+  argv: [],
+  env: {
+    VERBOSE: runtimeData.verbose
+  }
+} as any
 
 const OldModule = module.bundle.Module
 

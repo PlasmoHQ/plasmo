@@ -48,6 +48,9 @@ export type RuntimeData = {
   secure: boolean
   serverPort?: number
 
+  verbose: "true" | "false"
+
+  entryFilePath: string
   bundleId: string
   envHash: string
 }

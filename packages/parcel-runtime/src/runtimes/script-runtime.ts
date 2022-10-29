@@ -1,66 +1,38 @@
+import { vLog } from "@plasmo/utils/logging"
+
 import { runtimeData } from "./0-patch-module"
-import { injectHmrSocket } from "./hmr"
-import { hmrAcceptCheck } from "./hmr-check"
+import { isDependencyOfBundle } from "./hmr-check"
+import { injectSocket } from "./inject-socket"
 
-const parent = module.bundle.parent
+const scriptPort = chrome.runtime.connect({
+  name: `__plasmo_runtime_script_${module.id}__`
+})
 
-if (!parent || !parent.isParcelRequire) {
-  const scriptPort = chrome.runtime.connect({
-    name: `__plasmo_runtime_script_${module.id}__`
-  })
+injectSocket(async (updatedAssets) => {
+  // make sure it's relevant to this script
+  const assets = updatedAssets.filter(
+    (asset) => asset.envHash === runtimeData.envHash
+  )
 
-  injectHmrSocket(async (updatedAssets) => {
-    // make sure it's relevant to this script
-    const assets = updatedAssets.filter(
-      (asset) => asset.envHash === runtimeData.envHash
-    )
+  vLog({ module, runtimeData, updatedAssets, assets })
 
-    // console.log({ assets })
+  if (assets.length === 0) {
+    return
+  }
 
-    if (assets.length === 0) {
-      return
-    }
+  const shouldReload = assets.every((asset) =>
+    isDependencyOfBundle(module.bundle, asset.id)
+  )
 
-    const canHmr = assets.every(
-      (asset) =>
-        asset.type === "js" &&
-        hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle)
-    )
+  vLog({ shouldReload })
 
-    // console.log({ runtimeData, module })
-
-    if (canHmr) {
-      return
-    }
-
-    // script-runtime cannot HMR, skipping this update cycle
-    // if (runtimeData.isReact) {
-    //   if (
-    //     typeof globalThis.window !== "undefined" &&
-    //     typeof CustomEvent !== "undefined"
-    //   ) {
-    //     window.dispatchEvent(new CustomEvent("parcelhmraccept"))
-    //   }
-
-    //   try {
-    //     await hmrApplyUpdates(assets)
-    //     for (const [asset, id] of hmrState.assetsToAccept) {
-    //       if (!hmrState.acceptedAssets[id]) {
-    //         hmrAcceptRun(asset, id)
-    //       }
-    //     }
-    //     return
-    //   } catch {}
-    // }
-
-    scriptPort.postMessage({
-      __plasmo_full_reload__: true
-    })
+  if (shouldReload) {
+    try {
+      scriptPort.postMessage({
+        __plasmo_full_reload__: true
+      })
+    } catch {}
 
     globalThis.location?.reload?.()
-  })
-}
-
-// if (runtimeData.isReact) {
-//   injectReactRefresh()
-// }
+  }
+})
