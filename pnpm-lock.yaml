@@ -832,7 +832,7 @@ importers:
   examples/with-react-query:
     specifiers:
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
-      '@tanstack/react-query': 4.13.0
+      '@tanstack/react-query': 4.13.4
       '@types/chrome': 0.0.200
       '@types/node': 18.11.7
       '@types/react': 18.0.24
@@ -843,7 +843,7 @@ importers:
       react-dom: 18.2.0
       typescript: 4.8.4
     dependencies:
-      '@tanstack/react-query': 4.13.0_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.13.4_biqbaboplfbrettd7655fr4n2y
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4587,12 +4587,12 @@ packages:
       tailwindcss: 3.2.1_postcss@8.4.18
     dev: false
 
-  /@tanstack/query-core/4.13.0:
-    resolution: {integrity: sha512-PzmLQcEgC4rl2OzkiPHYPC9O79DFcMGaKsOzDEP+U4PJ+tbkcEP+Z+FQDlfvX8mCwYC7UNH7hXrQ5EdkGlJjVg==}
+  /@tanstack/query-core/4.13.4:
+    resolution: {integrity: sha512-DMIy6tgGehYoRUFyoR186+pQspOicyZNSGvBWxPc2CinHjWOQ7DPnGr9zmn/kE9xK4Zd3GXd25Nj3X20+TF6Lw==}
     dev: false
 
-  /@tanstack/react-query/4.13.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-dI/5hJ/pGQ74P5hxBLC9h6K0/Cap2T3k0ZjjjFLBCNnohDYgl7LNmMopzrRzBHk2mMjf2hgXHIzcKNG8GOZ5hg==}
+  /@tanstack/react-query/4.13.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-OHkUulPorHDiWNcUrcSUNxedeZ28z9kCKRG3JY+aJ8dFH/o4fixtac4ys0lwCP/n/VL1XMPnu+/CXEhbXHyJZA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4603,7 +4603,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.13.0
+      '@tanstack/query-core': 4.13.4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
