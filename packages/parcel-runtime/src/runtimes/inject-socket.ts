@@ -9,7 +9,7 @@ import {
   triggerReload
 } from "./0-patch-module"
 
-export function injectHmrSocket(
+export function injectSocket(
   onUpdate?: (assets: Array<HmrAsset>) => Promise<void>
 ) {
   if (typeof globalThis.WebSocket === "undefined") {
@@ -72,10 +72,14 @@ export function injectHmrSocket(
   }
 
   ws.onopen = function () {
-    iLog("[plasmo/parcel-runtime]: Connected to HMR server")
+    iLog(
+      `[plasmo/parcel-runtime]: Connected to HMR server for ${runtimeData.entryFilePath}`
+    )
   }
 
   ws.onclose = function () {
-    wLog("[plasmo/parcel-runtime]: Connection to the HMR server is closed.")
+    wLog(
+      `[plasmo/parcel-runtime]: Connection to the HMR server is closed for ${runtimeData.entryFilePath}`
+    )
   }
 }
