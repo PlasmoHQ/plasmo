@@ -14,23 +14,20 @@ type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
 export class Scaffolder {
   #scaffoldCache = {} as Record<string, string>
-  #plasmoManifest: BaseFactory
 
   get projectPath() {
-    return this.#plasmoManifest.projectPath
+    return this.plasmoManifest.projectPath
   }
 
   get commonPath() {
-    return this.#plasmoManifest.commonPath
+    return this.plasmoManifest.commonPath
   }
 
   get mountExt() {
-    return this.#plasmoManifest.mountExt
+    return this.plasmoManifest.mountExt
   }
 
-  constructor(plasmoManifest: BaseFactory) {
-    this.#plasmoManifest = plasmoManifest
-  }
+  constructor(private plasmoManifest: BaseFactory) {}
 
   async init() {
     const [_, ...uiPagesResult] = await Promise.all([
@@ -46,7 +43,7 @@ export class Scaffolder {
 
   #copyStaticCommon = async () => {
     const templateCommonDirectory = resolve(
-      this.#plasmoManifest.templatePath.staticTemplatePath,
+      this.plasmoManifest.templatePath.staticTemplatePath,
       "common"
     )
 
@@ -101,7 +98,7 @@ export class Scaffolder {
     htmlFile = "" as string | false
   ) => {
     const templateReplace = {
-      __plasmo_static_index_title__: this.#plasmoManifest.name,
+      __plasmo_static_index_title__: this.plasmoManifest.name,
       __plasmo_static_script__: scriptMountPath
     }
 
@@ -218,7 +215,7 @@ export class Scaffolder {
   ) => {
     if (!this.#scaffoldCache[fileName]) {
       this.#scaffoldCache[fileName] = await readFile(
-        resolve(this.#plasmoManifest.staticScaffoldPath, fileName),
+        resolve(this.plasmoManifest.staticScaffoldPath, fileName),
         "utf8"
       )
     }

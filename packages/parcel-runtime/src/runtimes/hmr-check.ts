@@ -105,3 +105,12 @@ function hmrAcceptCheckOne(
 
   return !cached || (cached.hot && cached.hot._acceptCallbacks.length)
 }
+
+export function isDependencyOfBundle(bundle: ParcelBundle, id: string) {
+  const { modules } = bundle
+  if (!modules) {
+    return false
+  }
+
+  return !!modules[id]
+}

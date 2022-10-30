@@ -6,7 +6,7 @@ export function hmrDownload(asset: HmrAsset) {
   if (asset.type === "js") {
     if (typeof document !== "undefined") {
       const script = document.createElement("script")
-      script.src = asset.url + "?t=" + Date.now()
+      script.src = asset.url
       if (asset.outputFormat === "esmodule") {
         script.type = "module"
       }
@@ -40,7 +40,7 @@ export async function hmrApplyUpdates(assets: Array<HmrAsset>) {
     : await Promise.all(
         assets.map((asset) => {
           asset.url = extCtx.runtime.getURL(
-            "/__parcel_hmr_proxy__?url=" +
+            "/__plasmo_hmr_proxy__?url=" +
               encodeURIComponent(asset.url + "?t=" + Date.now())
           )
           return hmrDownload(asset)

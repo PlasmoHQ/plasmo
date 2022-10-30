@@ -1,16 +1,16 @@
 import { vLog } from "@plasmo/utils/logging"
 
 import { runtimeData, triggerReload } from "./0-patch-module"
-import { injectHmrSocket } from "./hmr"
 import { hmrAcceptCheck, hmrState, resetHmrState } from "./hmr-check"
 import { hmrAcceptRun, hmrApplyUpdates } from "./hmr-utils"
+import { injectSocket } from "./inject-socket"
 import { injectReactRefresh } from "./react-refresh"
 
 const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
   vLog("Injecting HMR socket")
-  injectHmrSocket(async (updatedAssets) => {
+  injectSocket(async (updatedAssets) => {
     if (runtimeData.isReact) {
       resetHmrState()
       // Is an extension page, can try to hot reload
@@ -33,12 +33,16 @@ if (!parent || !parent.isParcelRequire) {
           window.dispatchEvent(new CustomEvent("parcelhmraccept"))
         }
 
-        await hmrApplyUpdates(assets)
+        try {
+          await hmrApplyUpdates(assets)
 
-        for (const [asset, id] of hmrState.assetsToAccept) {
-          if (!hmrState.acceptedAssets[id]) {
-            hmrAcceptRun(asset, id)
+          for (const [asset, id] of hmrState.assetsToAccept) {
+            if (!hmrState.acceptedAssets[id]) {
+              hmrAcceptRun(asset, id)
+            }
           }
+        } catch {
+          await triggerReload()
         }
       }
     } else {

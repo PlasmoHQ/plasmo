@@ -98,7 +98,7 @@ export function appendMv3Wars(
   if (options.hmrOptions) {
     wars.push({
       matches: ["<all_urls>"],
-      resources: ["__parcel_hmr_proxy__"]
+      resources: ["__plasmo_hmr_proxy__"]
     })
   }
 
