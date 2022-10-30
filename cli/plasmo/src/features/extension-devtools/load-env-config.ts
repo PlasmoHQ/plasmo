@@ -6,7 +6,7 @@ import { existsSync, statSync } from "fs"
 import { readFile } from "fs/promises"
 import { join } from "path"
 
-import { eLog, iLog } from "@plasmo/utils"
+import { eLog, iLog, tag } from "@plasmo/utils"
 
 export type Env = Record<string, string | undefined>
 export type LoadedEnvFiles = Array<{
@@ -79,6 +79,7 @@ export async function loadEnvConfig(dir: string) {
     // results for everyone
     mode !== "test" ? `.env.local` : "",
     `.env.${mode}`,
+    ...(tag ? [`.env.${mode}.${tag}`, `.env.${tag}`]:[]),
     ".env"
   ]
     .filter((s) => !!s)

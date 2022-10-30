@@ -2,7 +2,7 @@ import { existsSync } from "fs"
 import { basename, resolve } from "path"
 import { cwd } from "process"
 
-import { getFlag } from "@plasmo/utils"
+import { getFlag, tag } from "@plasmo/utils"
 
 import { getBundleConfig } from "./get-bundle-config"
 
@@ -35,7 +35,7 @@ export const getCommonPath = (
 
   const distDirectoryName = `${target}-${
     process.env.NODE_ENV === "production" ? "prod" : "dev"
-  }`
+  }${tag ? '-' + tag : ''}`
 
   const distDirectory = resolve(buildDirectory, distDirectoryName)
 

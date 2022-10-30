@@ -2,7 +2,7 @@ import { copy, ensureDir, existsSync } from "fs-extra"
 import { basename, resolve } from "path"
 import sharp from "sharp"
 
-import { vLog, wLog } from "@plasmo/utils"
+import { eLog, tag, vLog, wLog } from "@plasmo/utils"
 
 import type { CommonPath } from "./common-path"
 
@@ -19,10 +19,18 @@ const baseIconNames = [
   ...getIconNameVariants(1024)
 ]
 
-// We pick env based icon first, then plain icon
+const taggedIcons = (name: string) => [`${name}.${tag}.png`, `${name}.${process.env.NODE_ENV}.${tag}.png`]
+
+/**
+ * We pick icon in this order
+ * 1. tag based icon
+ * 2. env and tag based icon
+ * 3. plain icon
+ * 
+ * */ 
 const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
   iconNames
-    .map((name) => [`${name}.${process.env.NODE_ENV}.png`, `${name}.png`])
+    .map((name) => [...(tag?taggedIcons(name):[]), `${name}.${process.env.NODE_ENV}.png`, `${name}.png`])
     .flat()
 
 // Use this to cache the path resolving result
@@ -73,7 +81,6 @@ export async function generateIcons({
       }
 
       const devProvidedIcon = iconState.devProvidedIcons[width].find(existsSync)
-
       const generatedIconPath = resolve(
         genAssetsDirectory,
         `icon${width}.plasmo.png`
@@ -81,7 +88,7 @@ export async function generateIcons({
 
       if (process.env.NODE_ENV === "development") {
         if (devProvidedIcon !== undefined) {
-          if (basename(devProvidedIcon).includes(".development.")) {
+          if (basename(devProvidedIcon).includes(".development.") || (tag && basename(devProvidedIcon).includes(tag))) {
             return copy(devProvidedIcon, generatedIconPath)
           } else {
             return sharp(devProvidedIcon).grayscale().toFile(generatedIconPath)
