@@ -1,7 +1,7 @@
 {
   "extends": "@parcel/config-default",
   "bundler": "@plasmohq/parcel-bundler",
-  "resolvers": ["@plasmohq/parcel-resolver", "..."],
+  "resolvers": ["@plasmohq/parcel-resolver", "...", "parcel-resolver-tspaths"],
   "transformers": {
     "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
 
