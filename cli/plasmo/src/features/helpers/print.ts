@@ -1,4 +1,4 @@
-import { aLog, cLog } from "@plasmo/utils"
+import { cLog } from "@plasmo/utils"
 
 import { validCommandList } from "~commands"
 import { flagHelp } from "~features/helpers/flag"
