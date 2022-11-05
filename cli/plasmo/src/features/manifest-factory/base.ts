@@ -69,25 +69,21 @@ export const iconMap = {
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export abstract class BaseFactory<T extends ExtensionManifest = any> {
-  #bundleConfig: PlasmoBundleConfig
   get browser() {
-    return this.#bundleConfig.browser
+    return this.bundleConfig.browser
   }
 
   #commonPath?: CommonPath
-  public get commonPath(): CommonPath {
+  public get commonPath() {
     return assertTruthy(this.#commonPath)
   }
 
   #projectPath?: ProjectPath
-  public get projectPath(): ProjectPath {
+  public get projectPath() {
     return assertTruthy(this.#projectPath)
   }
 
-  #templatePath: TemplatePath
-  public get templatePath(): TemplatePath {
-    return this.#templatePath
-  }
+  readonly templatePath = getTemplatePath()
 
   #envConfig?: EnvConfig
 
@@ -135,10 +131,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   protected copyQueue: Array<[string, string]> = []
 
-  #scaffolder: Scaffolder
-  get scaffolder() {
-    return this.#scaffolder
-  }
+  readonly scaffolder = new Scaffolder(this)
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -164,11 +157,8 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(bundleConfig: PlasmoBundleConfig) {
+  protected constructor(private bundleConfig: PlasmoBundleConfig) {
     this.data.icons = iconMap
-    this.#bundleConfig = bundleConfig
-    this.#templatePath = getTemplatePath()
-    this.#scaffolder = new Scaffolder(this)
   }
 
   async startup() {
@@ -188,7 +178,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
     this.#envConfig = await loadEnvConfig(envRootDirectory)
-    this.#commonPath = getCommonPath(envRootDirectory, this.#bundleConfig)
+    this.#commonPath = getCommonPath(envRootDirectory)
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195
@@ -328,7 +318,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         const parsedModulePath = parse(modulePath)
         scriptPath = relative(
           this.commonPath.dotPlasmoDirectory,
-          await this.#scaffolder.createContentScriptMount(parsedModulePath)
+          await this.scaffolder.createContentScriptMount(parsedModulePath)
         )
       }
 
@@ -391,7 +381,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(modulePath)
 
-      await this.#scaffolder.createPageMount(parsedModulePath)
+      await this.scaffolder.createPageMount(parsedModulePath)
     }
 
     this.#hash = ""

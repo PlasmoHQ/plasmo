@@ -4,6 +4,8 @@ import sharp from "sharp"
 
 import { vLog, wLog } from "@plasmo/utils"
 
+import { flagMap } from "~features/helpers/flag"
+
 import type { CommonPath } from "./common-path"
 
 const getIconNameVariants = (size = 512 as string | number, name = "icon") => [
@@ -19,10 +21,21 @@ const baseIconNames = [
   ...getIconNameVariants(1024)
 ]
 
-// We pick env based icon first, then plain icon
+/**
+ * We pick icon in this order
+ * 1. tag based icon
+ * 2. env and tag based icon
+ * 3. plain icon
+ *
+ * */
 const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
   iconNames
-    .map((name) => [`${name}.${process.env.NODE_ENV}.png`, `${name}.png`])
+    .map((name) => [
+      `${name}.${flagMap.tag}.${process.env.NODE_ENV}.png`,
+      `${name}.${process.env.NODE_ENV}.png`,
+      `${name}.${flagMap.tag}.png`,
+      `${name}.png`
+    ])
     .flat()
 
 // Use this to cache the path resolving result
@@ -73,7 +86,6 @@ export async function generateIcons({
       }
 
       const devProvidedIcon = iconState.devProvidedIcons[width].find(existsSync)
-
       const generatedIconPath = resolve(
         genAssetsDirectory,
         `icon${width}.plasmo.png`
