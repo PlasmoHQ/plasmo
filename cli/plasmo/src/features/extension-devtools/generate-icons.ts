@@ -2,7 +2,9 @@ import { copy, ensureDir, existsSync } from "fs-extra"
 import { basename, resolve } from "path"
 import sharp from "sharp"
 
-import { eLog, tag, vLog, wLog } from "@plasmo/utils"
+import { vLog, wLog } from "@plasmo/utils"
+
+import { flagMap } from "~features/helpers/flag"
 
 import type { CommonPath } from "./common-path"
 
@@ -19,18 +21,21 @@ const baseIconNames = [
   ...getIconNameVariants(1024)
 ]
 
-const taggedIcons = (name: string) => [`${name}.${tag}.png`, `${name}.${process.env.NODE_ENV}.${tag}.png`]
-
 /**
  * We pick icon in this order
  * 1. tag based icon
  * 2. env and tag based icon
  * 3. plain icon
- * 
- * */ 
+ *
+ * */
 const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
   iconNames
-    .map((name) => [...(tag?taggedIcons(name):[]), `${name}.${process.env.NODE_ENV}.png`, `${name}.png`])
+    .map((name) => [
+      `${name}.${flagMap.tag}.${process.env.NODE_ENV}.png`,
+      `${name}.${process.env.NODE_ENV}.png`,
+      `${name}.${flagMap.tag}.png`,
+      `${name}.png`
+    ])
     .flat()
 
 // Use this to cache the path resolving result
@@ -88,7 +93,7 @@ export async function generateIcons({
 
       if (process.env.NODE_ENV === "development") {
         if (devProvidedIcon !== undefined) {
-          if (basename(devProvidedIcon).includes(".development.") || (tag && basename(devProvidedIcon).includes(tag))) {
+          if (basename(devProvidedIcon).includes(".development.")) {
             return copy(devProvidedIcon, generatedIconPath)
           } else {
             return sharp(devProvidedIcon).grayscale().toFile(generatedIconPath)

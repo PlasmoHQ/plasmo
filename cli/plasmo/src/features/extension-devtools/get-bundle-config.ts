@@ -1,13 +1,14 @@
-import { paramCase } from "change-case"
-
-import { getFlag } from "@plasmo/utils"
+import { flagMap } from "~features/helpers/flag"
 
 export const getBundleConfig = () => {
-  const target = paramCase(getFlag("--target") || "chrome-mv3")
+  const target = flagMap.target
 
   const [browser, manifestVersion] = target.split("-")
 
+  const tag = flagMap.tag
+
   return {
+    tag,
     target,
     browser,
     manifestVersion
