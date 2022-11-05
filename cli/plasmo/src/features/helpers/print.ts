@@ -1,11 +1,16 @@
 import { cLog } from "@plasmo/utils"
 
 import { validCommandList } from "~commands"
+import { flagHelp } from "~features/helpers/flag"
 
 export const printHeader = () => {
   console.log(`🟣 Plasmo v${process.env.APP_VERSION}`)
 
-  console.log("🟠 The browser extension development framework.")
+  console.log("🔴 The Browser Extension Framework")
 }
 
-export const printHelp = () => cLog("🟡 MODES", validCommandList.join(" | "))
+export const printHelp = () => {
+  cLog("🟠 CMDS", validCommandList.join(" | "))
+
+  cLog("🟡 OPTS", flagHelp)
+}
