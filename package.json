@@ -5,7 +5,6 @@
     "cli/*",
     "packages/*",
     "templates/*",
-    "extensions/*",
     "examples/*"
   ],
   "scripts": {
