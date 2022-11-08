@@ -1,6 +1,6 @@
 import { paramCase } from "change-case"
 
-import { flagsHelp as baseFlagHelp, getFlag } from "@plasmo/utils"
+import { getFlag } from "@plasmo/utils"
 
 const srcPath = getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
 
@@ -10,9 +10,7 @@ const buildPath =
 const tag =
   getFlag("--tag") ||
   process.env.PLASMO_TAG ||
-  process.env.NODE_ENV === "production"
-    ? "prod"
-    : "dev"
+  (process.env.NODE_ENV === "production" ? "prod" : "dev")
 
 const target = paramCase(
   getFlag("--target") || process.env.PLASMO_TARGET || "chrome-mv3"
