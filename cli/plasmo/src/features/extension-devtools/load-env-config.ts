@@ -8,6 +8,7 @@ import { join } from "path"
 
 import { eLog, iLog } from "@plasmo/utils"
 
+import { browser } from "~features/extension-devtools/get-bundle-config"
 import { flagMap } from "~features/helpers/flag"
 
 export type Env = Record<string, string | undefined>
@@ -73,16 +74,23 @@ function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
 }
 
 export async function loadEnvConfig(dir: string) {
-  const mode = process.env.NODE_ENV
+  const nodeEnv = process.env.NODE_ENV
+
   const dotenvFilePaths = [
+    flagMap.envPath,
+
+    `.env.${browser}.local`,
     `.env.${flagMap.tag}.local`,
-    `.env.${mode}.local`,
+    `.env.${nodeEnv}.local`,
+
     // Don't include `.env.local` for `test` environment
     // since normally you expect tests to produce the same
     // results for everyone
-    mode !== "test" ? `.env.local` : "",
+    nodeEnv !== "test" ? `.env.local` : "",
+
+    `.env.${browser}`,
     `.env.${flagMap.tag}`,
-    `.env.${mode}`,
+    `.env.${nodeEnv}`,
     ".env"
   ]
     .filter((s) => !!s)

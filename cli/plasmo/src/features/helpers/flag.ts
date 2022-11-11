@@ -18,12 +18,15 @@ const target = paramCase(
 
 const entry = getFlag("--entry") || "popup"
 
+const envPath = getFlag("--env")
+
 export const flagMap = {
   tag,
   srcPath,
   buildPath,
   target,
-  entry
+  entry,
+  envPath
 }
 
 export const flagHelp = `
@@ -40,4 +43,5 @@ export const flagHelp = `
       --src-path [path]           set the source path relative to project root (default: src)
       --build-path [path]         set the build path relative to project root (default: build)
       --entry                     entry point name (default: popup)
+      --env                       relative path to top-level env file
 `
