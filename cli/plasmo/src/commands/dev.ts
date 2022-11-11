@@ -63,7 +63,7 @@ async function dev() {
     }
 
     if (event.type === "buildSuccess") {
-      aLog(`✨ Extension re-packaged in ${event.buildTime}ms!`)
+      aLog(`Extension re-packaged in ${event.buildTime}ms! 🚀`)
       await plasmoManifest.postBuild()
     } else if (event.type === "buildFailure") {
       event.diagnostics.forEach((diagnostic) => {
