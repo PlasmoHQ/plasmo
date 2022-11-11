@@ -1,6 +1,6 @@
 import type { Resolver } from "@parcel/plugin"
 import type { ResolveResult } from "@parcel/types"
-import { statSync } from "fs-extra"
+import { statSync } from "fs"
 import type { Got } from "got"
 import { resolve } from "path"
 

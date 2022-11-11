@@ -1,4 +1,3 @@
-import { statSync } from "fs"
 import { extname, resolve } from "path"
 
 import {
