@@ -57,14 +57,12 @@ To develop locally:
 1. Start developing and watch for code changes:
 
    ```
-   pnpm dev
+   pnpm dev:cli
    ```
 
 ## Developing with your local version of Plasmo
 
-There are two options to develop with your local version of the codebase:
-
-### Set as local dependency in package.json
+### As global link
 
 1. Link `plasmo` to your local registry:
 
@@ -95,6 +93,8 @@ pnpm build
 
 Any files that require attention for reading should be `UPPER_CASE`. Examples:
 
+- README.md
+- LICENSE
 - SECURITY.md
 - CONTRIBUTING.md
 
