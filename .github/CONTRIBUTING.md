@@ -10,7 +10,7 @@ To contribute to [our examples](https://github.com/PlasmoHQ/examples/), please s
    git clone git@github.com:<org>/plasmo.git --recurse-submodules
    ```
 
-   **NOTE:** Replace `<org>` with your GitHub username.
+   **NOTE:** Replace `<org>` with your GitHub username or organization.
 
 1. Work on your fork's `main` branch, then [open a PR](https://github.com/PlasmoHQ/plasmo/compare). Please ensure the PR name follows the naming convention:
 
@@ -33,18 +33,6 @@ The development branch is `main`, and this is the branch that all pull
 requests should be made against.
 
 To develop locally:
-
-1. Clone the repository together with its submodules:
-
-   ```bash
-   git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
-   ```
-
-1. Checkout the `main` branch:
-
-   ```
-   git checkout main
-   ```
 
 1. Install [pnpm](https://pnpm.io/)
 1. Install the dependencies with:
