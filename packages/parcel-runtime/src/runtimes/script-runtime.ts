@@ -1,8 +1,8 @@
 import { vLog } from "@plasmo/utils/logging"
 
-import { runtimeData } from "./0-patch-module"
-import { isDependencyOfBundle } from "./hmr-check"
-import { injectSocket } from "./inject-socket"
+import { runtimeData } from "../utils/0-patch-module"
+import { isDependencyOfBundle } from "../utils/hmr-check"
+import { injectSocket } from "../utils/inject-socket"
 
 const scriptPort = chrome.runtime.connect({
   name: `__plasmo_runtime_script_${module.id}__`

@@ -6,14 +6,6 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "tsup": {
-    "entry": {
-      "index": "src/index.ts",
-      "page-runtime": "src/runtimes/page-runtime.ts",
-      "script-runtime": "src/runtimes/script-runtime.ts",
-      "background-service-runtime": "src/runtimes/background-service-runtime.ts"
-    }
-  },
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup --minify --clean",

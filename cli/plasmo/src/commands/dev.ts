@@ -95,7 +95,7 @@ async function dev() {
         })
       })
     }
-    process.env.PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED = "true"
+    process.env.__PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED = "true"
   })
 
   const cleanup = () => {

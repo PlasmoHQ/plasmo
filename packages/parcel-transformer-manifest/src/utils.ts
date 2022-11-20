@@ -30,7 +30,7 @@ export const addExtraAssets = async (
 }
 
 export const wLogOnce = (msg: string) => {
-  if (!!process.env.PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED) {
+  if (!!process.env.__PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED) {
     return
   }
   wLog(msg)
