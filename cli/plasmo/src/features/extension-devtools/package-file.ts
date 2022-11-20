@@ -21,7 +21,8 @@ export const generatePackage = ({
     packageManager: undefined as string | undefined,
     scripts: {
       dev: "plasmo dev",
-      build: "plasmo build"
+      build: "plasmo build",
+      package: "plasmo package"
     },
     dependencies: {
       plasmo: process.env.APP_VERSION,

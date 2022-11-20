@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver-post",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Plasmo Parcel Resolver Post-processing",
   "files": [
     "dist"
@@ -26,12 +26,12 @@
     "@plasmo/utils": "workspace:*"
   },
   "dependencies": {
-    "@parcel/core": "2.7.0",
-    "@parcel/utils": "2.7.0",
-    "@parcel/types": "2.7.0",
-    "@parcel/hash": "2.7.0",
-    "@parcel/plugin": "2.7.0",
-    "typescript": "4.8.4",
-    "tsup": "6.3.0"
+    "@parcel/core": "2.8.0",
+    "@parcel/hash": "2.8.0",
+    "@parcel/plugin": "2.8.0",
+    "@parcel/types": "2.8.0",
+    "@parcel/utils": "2.8.0",
+    "tsup": "6.5.0",
+    "typescript": "4.9.3"
   }
 }
