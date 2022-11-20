@@ -2,7 +2,7 @@ import { copy, ensureDir, existsSync } from "fs-extra"
 import { basename, resolve } from "path"
 import sharp from "sharp"
 
-import { vLog, wLog } from "@plasmo/utils"
+import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { flagMap } from "~features/helpers/flag"
 

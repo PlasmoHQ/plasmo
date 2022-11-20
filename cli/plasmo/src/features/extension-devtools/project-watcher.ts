@@ -1,7 +1,9 @@
 import { Event, subscribe } from "@parcel/watcher"
 
-import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants"
-import { assertUnreachable, hasFlag, iLog, vLog, wLog } from "@plasmo/utils"
+import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants/misc"
+import { assertUnreachable } from "@plasmo/utils/assert"
+import { hasFlag } from "@plasmo/utils/flags"
+import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import type { BaseFactory } from "~features/manifest-factory/base"
 

@@ -1,4 +1,5 @@
-import { aLog, eLog, getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
+import { getFlag, hasFlag } from "@plasmo/utils/flags"
+import { aLog, eLog, iLog, vLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
@@ -94,6 +95,7 @@ async function dev() {
         })
       })
     }
+    process.env.PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED = "true"
   })
 
   const cleanup = () => {

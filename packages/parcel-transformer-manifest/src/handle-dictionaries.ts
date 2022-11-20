@@ -1,10 +1,10 @@
 import ThrowableDiagnostic, { getJSONSourceLocation } from "@parcel/diagnostic"
 import path from "path"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 export function handleDictionaries() {
-  const { program, ptrs, filePath, asset } = state
+  const { program, ptrs, filePath, asset } = getState()
   if (!program.dictionaries) {
     return
   }

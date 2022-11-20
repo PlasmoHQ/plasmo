@@ -3,7 +3,7 @@ import type { Node, VariableDeclaration } from "typescript"
 import typescript from "typescript"
 
 import type { ManifestContentScript } from "@plasmo/constants"
-import { eLog, vLog } from "@plasmo/utils"
+import { eLog, vLog } from "@plasmo/utils/logging"
 
 import { parseAst } from "./parse-ast"
 

@@ -3,7 +3,8 @@ import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 import { mkdir } from "fs/promises"
 import { resolve } from "path"
 
-import { fileExists, sLog, vLog } from "@plasmo/utils"
+import { fileExists } from "@plasmo/utils/fs"
+import { sLog, vLog } from "@plasmo/utils/logging"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
 import type { PackageJSON } from "~features/extension-devtools/package-file"

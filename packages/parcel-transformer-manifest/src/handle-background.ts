@@ -2,11 +2,10 @@ import { getJSONSourceLocation } from "@parcel/diagnostic"
 
 import { cspPatchHMR } from "./csp-patch-hmr"
 import type { MV2Data, MV3Data } from "./schema"
-import { checkMV2, state } from "./state"
+import { checkMV2, getState } from "./state"
 
 export const handleBackground = () => {
-  const { program } = state
-
+  const { program } = getState()
   const isMV2 = checkMV2(program)
 
   if (isMV2) {
@@ -19,8 +18,7 @@ export const handleBackground = () => {
 const defaultBackgroundScriptPath = "../runtime/plasmo-default-background.ts"
 
 function handleMV2Background(program: MV2Data) {
-  const { hot, asset, filePath, ptrs } = state
-
+  const { hot, asset, filePath, ptrs } = getState()
   if (program.background?.page) {
     program.background.page = asset.addURLDependency(program.background.page, {
       bundleBehavior: "isolated",
@@ -62,8 +60,7 @@ function handleMV2Background(program: MV2Data) {
 }
 
 function handleMV3Background(program: MV3Data) {
-  const { hot, asset, filePath, ptrs, hmrOptions } = state
-
+  const { hot, asset, filePath, ptrs, hmrOptions } = getState()
   if (program.background?.service_worker) {
     program.background.service_worker = asset.addURLDependency(
       program.background.service_worker,

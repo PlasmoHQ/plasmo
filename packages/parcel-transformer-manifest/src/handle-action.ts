@@ -1,10 +1,9 @@
 import { getJSONSourceLocation } from "@parcel/diagnostic"
 
-import { checkMV2, state } from "./state"
+import { checkMV2, getState } from "./state"
 
 export async function handleAction() {
-  const { program, filePath, ptrs, asset } = state
-
+  const { program, filePath, ptrs, asset } = getState()
   const isMV2 = checkMV2(program)
 
   const browserActionName = isMV2 ? "browser_action" : "action"

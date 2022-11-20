@@ -3,7 +3,9 @@ import { argv, exit, versions } from "process"
 import semver from "semver"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
-import { aLog, eLog, exitCountDown, vLog, verbose } from "@plasmo/utils"
+import { verbose } from "@plasmo/utils/flags"
+import { aLog, eLog, vLog } from "@plasmo/utils/logging"
+import { exitCountDown } from "@plasmo/utils/wait"
 
 import { ValidCommand, runMap, validCommandSet } from "~commands"
 import { printHeader, printHelp } from "~features/helpers/print"

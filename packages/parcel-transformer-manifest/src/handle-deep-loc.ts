@@ -3,7 +3,7 @@ import { extname } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 const DEEP_LOCS = [
   ["icons"],
@@ -25,8 +25,7 @@ const DEEP_LOCS = [
 ]
 
 export const handleDeepLOC = () => {
-  const { program, filePath, ptrs, asset } = state
-
+  const { program, filePath, ptrs, asset } = getState()
   const relevantLocs = DEEP_LOCS.map(
     (loc) => [loc, "/" + loc.join("/")] as const
   ).filter(([_, location]) => !!ptrs[location])

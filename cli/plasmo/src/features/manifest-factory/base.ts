@@ -29,7 +29,9 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
-import { assertTruthy, vLog } from "@plasmo/utils"
+import { assertTruthy } from "@plasmo/utils/assert"
+import { injectEnv } from "@plasmo/utils/env"
+import { vLog } from "@plasmo/utils/logging"
 
 import {
   CommonPath,
@@ -203,7 +205,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     this.data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in (this.packageData?.dependencies || {})
+      (p) => `@plasmohq/${p}` in (this.packageData.dependencies || {})
     )
 
     await Promise.all([
@@ -332,7 +334,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         )
       }
 
-      const contentScript = this.injectEnv({
+      const contentScript = this.injectEnvToObj({
         matches: ["<all_urls>"],
         js: [scriptPath],
         ...(metadata?.config || {})
@@ -428,10 +430,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     base.permissions = [
-      ...new Set([
-        ...base.permissions!,
-        ...((overridePermissions as any) || [])
-      ])
+      ...new Set([...base.permissions!, ...(overridePermissions || [])])
     ]
 
     if (base.permissions?.length === 0) {
@@ -491,7 +490,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       }
     }
 
-    return this.injectEnv(output)
+    return this.injectEnvToObj(output)
   }
 
   protected abstract resolveWAR: (
@@ -553,7 +552,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
   }
 
-  protected injectEnv = <T = any, O = T>(target: T): O =>
+  protected injectEnvToObj = <T = any, O = T>(target: T): O =>
     definedTraverse(target, (value) => {
       if (typeof value !== "string") {
         return value
@@ -562,10 +561,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       if (!!value.match(/^\$(\w+)$/)) {
         return this.combinedEnv[value.substring(1)] || undefined
       } else {
-        return value.replace(
-          /\$(\w+)/gm,
-          (envKey) => this.combinedEnv[envKey.substring(1)] || envKey
-        )
+        return injectEnv(value, this.combinedEnv)
       }
     })
 }

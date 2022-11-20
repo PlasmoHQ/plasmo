@@ -1,10 +1,9 @@
 import { getJSONSourceLocation } from "@parcel/diagnostic"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 export function handleContentScripts() {
-  const { program, asset, filePath, ptrs } = state
-
+  const { program, asset, filePath, ptrs } = getState()
   if (!program.content_scripts) {
     return
   }
