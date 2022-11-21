@@ -1189,6 +1189,7 @@ importers:
     specifiers:
       '@parcel/core': 2.8.0
       '@parcel/diagnostic': 2.8.0
+      '@parcel/graph': 2.8.0
       '@parcel/hash': 2.8.0
       '@parcel/plugin': 2.8.0
       '@parcel/types': 2.8.0
@@ -1199,6 +1200,7 @@ importers:
     dependencies:
       '@parcel/core': 2.8.0
       '@parcel/diagnostic': 2.8.0
+      '@parcel/graph': 2.8.0
       '@parcel/hash': 2.8.0
       '@parcel/plugin': 2.8.0_@parcel+core@2.8.0
       '@parcel/utils': 2.8.0
