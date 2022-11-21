@@ -1,7 +1,9 @@
 import { createWriteStream } from "fs"
 import { resolve } from "path"
 
-import { getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
+import { getNonFlagArgvs } from "@plasmo/utils/argv"
+import { hasFlag } from "@plasmo/utils/flags"
+import { iLog, sLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { nextNewTab } from "~features/extra/next-new-tab"

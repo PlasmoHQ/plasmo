@@ -6,7 +6,7 @@ import { existsSync, statSync } from "fs"
 import { readFile } from "fs/promises"
 import { join } from "path"
 
-import { eLog, iLog } from "@plasmo/utils"
+import { eLog, iLog } from "@plasmo/utils/logging"
 
 import { browser } from "~features/extension-devtools/get-bundle-config"
 import { flagMap } from "~features/helpers/flag"
@@ -17,12 +17,15 @@ export type LoadedEnvFiles = Array<{
   contents: string
 }>
 
+export const EMBED_ENV_PREFIX = "PLASMO_"
+export const PUBLIC_ENV_PREFIX = "PLASMO_PUBLIC_"
+
 export class PlasmoPublicEnv {
   data: Env
 
   constructor(_env: Env) {
     this.data = Object.keys(_env)
-      .filter((k) => k.startsWith("PLASMO_PUBLIC_"))
+      .filter((k) => k.startsWith(PUBLIC_ENV_PREFIX))
       .reduce(
         (env, key) => {
           env[key] = _env[key]
@@ -59,7 +62,7 @@ function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
           if (typeof parsed[key] === "undefined") {
             parsed[key] = resultData[key]
 
-            if (key.startsWith("PLASMO_")) {
+            if (key.startsWith(EMBED_ENV_PREFIX)) {
               process.env[key] = resultData[key]
             }
           }

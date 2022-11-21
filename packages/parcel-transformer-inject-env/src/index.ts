@@ -1,15 +1,12 @@
 import { Transformer } from "@parcel/plugin"
 
-const envRegex = /\$(PLASMO_PUBLIC_[\w+]+)/gm
+import { injectEnv } from "@plasmo/utils/env"
 
 export default new Transformer({
   async transform({ asset, options }) {
     const code = await asset.getCode()
 
-    const injectedCode = code.replace(
-      envRegex,
-      (match, g1) => options.env[g1] || match
-    )
+    const injectedCode = injectEnv(code, options.env)
 
     asset.setCode(injectedCode)
 

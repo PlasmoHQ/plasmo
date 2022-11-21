@@ -11,7 +11,7 @@ const [pageRuntime, scriptRuntime, backgroundServiceRuntime] = [
   "script-runtime",
   "background-service-runtime"
 ].map((runtimeName) =>
-  fs.readFileSync(path.join(__dirname, `./${runtimeName}.js`), "utf8")
+  fs.readFileSync(path.join(__dirname, `./runtimes/${runtimeName}.js`), "utf8")
 )
 
 export default new Runtime({

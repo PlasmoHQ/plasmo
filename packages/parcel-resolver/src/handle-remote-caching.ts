@@ -1,6 +1,8 @@
 import { hashString } from "@parcel/hash"
 import { resolve } from "path"
 
+import { injectEnv } from "@plasmo/utils/env"
+
 import {
   ResolverProps,
   ResolverResult,
@@ -30,13 +32,7 @@ export async function handleRemoteCaching({
   ) {
     return null
   }
-
-  const target = new URL(
-    specifier.replace(
-      /\$(\w+)/gm,
-      (envKey) => process.env[envKey.substring(1)] || envKey
-    )
-  )
+  const target = new URL(injectEnv(specifier))
 
   const fileType = target.searchParams.get("plasmo-ext") || "js"
 

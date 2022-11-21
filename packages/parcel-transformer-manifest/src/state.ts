@@ -1,88 +1,57 @@
 import type { Mapping } from "@mischnic/json-sourcemap"
-import type { FileSystem } from "@parcel/fs"
 import type {
-  DependencyOptions,
-  HMROptions,
   MutableAsset,
+  PluginOptions,
   TransformerResult
 } from "@parcel/types"
 import { dirname, resolve } from "path"
 
 import type { MV2Data, ManifestData } from "./schema"
 
-export const state = {
-  program: null as ManifestData,
-  hot: false,
-  fs: null as FileSystem,
+type ExtraAsset = TransformerResult
 
-  filePath: "",
-  dotPlasmoDir: "",
-  staticDir: "",
-  projectDir: "",
-  srcDir: "",
-  assetsDir: "",
-
-  ptrs: null as Record<string, Mapping>,
-  asset: null as MutableAsset,
-  hmrOptions: null as HMROptions,
-
-  extraAssets: [] as TransformerResult[],
-
-  _isMV2: false
-}
-
-export const addExtraAssets = async (
-  filePath: string,
-  bundlePath: string,
-  type = "json",
-  dependencies = [] as DependencyOptions[]
-) => {
-  state.extraAssets.push({
-    type,
-    uniqueKey: bundlePath,
-    content: await state.asset.fs.readFile(filePath, "utf8"),
-    pipeline: type === "json" ? "raw-env" : undefined,
-    bundleBehavior: "isolated",
-    isBundleSplittable: type !== "json",
-    env: state.asset.env,
-    dependencies,
-    meta: {
-      bundlePath,
-      webextEntry: false
-    }
-  })
-}
-
-export const initState = (
+export const storeState = (
   asset: MutableAsset,
   program: ManifestData,
-  ptrs: Record<string, any>,
-  hmrOptions: HMROptions | null | undefined
+  ptrs: Record<string, Mapping>,
+  options: PluginOptions
 ) => {
-  state.program = program
-  state.hmrOptions = hmrOptions
-  state.hot = Boolean(hmrOptions)
-  state.fs = asset.fs
-  state.filePath = asset.filePath
-
-  state.dotPlasmoDir = dirname(asset.filePath)
-
-  state.staticDir = resolve(state.dotPlasmoDir, "static")
-  state.projectDir = resolve(state.dotPlasmoDir, "..")
-
-  state.assetsDir = resolve(state.projectDir, "assets")
-
-  state.srcDir = process.env.PLASMO_SRC_DIR
-
-  state.ptrs = ptrs
-  state.asset = asset
-
-  state._isMV2 = program.manifest_version === 2
+  const base = {
+    extraAssets: [] as ExtraAsset[],
+    program,
+    hmrOptions: options.hmrOptions,
+    hot: Boolean(options.hmrOptions),
+    fs: asset.fs,
+    filePath: asset.filePath,
+    ptrs,
+    asset,
+    env: options.env,
+    _isMV2: program.manifest_version === 2
+  }
+  const dotPlasmoDir = dirname(asset.filePath)
+  const projectDir = resolve(dotPlasmoDir, "..")
+  const assetsDir = resolve(projectDir, "assets")
 
   return {
-    state,
-    getAssets: () => [...state.extraAssets, asset]
+    ...base,
+    srcDir: process.env.PLASMO_SRC_DIR,
+    dotPlasmoDir,
+    projectDir,
+    assetsDir,
+    getAssets: () => [...base.extraAssets, asset]
   }
+}
+
+type StateParams = Parameters<typeof storeState>
+
+type State = Partial<Awaited<ReturnType<typeof storeState>>>
+
+let state: State = {}
+
+export const getState = () => state
+
+export const initState = async (...props: StateParams) => {
+  state = storeState(...props)
 }
 
 export const checkMV2 = (program: ManifestData): program is MV2Data =>

@@ -3,7 +3,8 @@ import { resolve } from "path"
 import { cwd } from "process"
 import semver from "semver"
 
-import { assertUnreachable, fileExists } from "@plasmo/utils"
+import { assertUnreachable } from "@plasmo/utils/assert"
+import { fileExists } from "@plasmo/utils/fs"
 
 import type { BaseFactory } from "./base"
 

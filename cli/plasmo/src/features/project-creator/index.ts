@@ -7,7 +7,8 @@ import { userInfo } from "os"
 import { resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
-import { getFlag, hasFlag, iLog, vLog } from "@plasmo/utils"
+import { getFlag, hasFlag } from "@plasmo/utils/flags"
+import { iLog, vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"

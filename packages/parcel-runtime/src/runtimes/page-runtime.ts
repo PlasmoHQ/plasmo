@@ -1,10 +1,10 @@
 import { vLog } from "@plasmo/utils/logging"
 
-import { runtimeData, triggerReload } from "./0-patch-module"
-import { hmrAcceptCheck, hmrState, resetHmrState } from "./hmr-check"
-import { hmrAcceptRun, hmrApplyUpdates } from "./hmr-utils"
-import { injectSocket } from "./inject-socket"
-import { injectReactRefresh } from "./react-refresh"
+import { runtimeData, triggerReload } from "../utils/0-patch-module"
+import { hmrAcceptCheck, hmrState, resetHmrState } from "../utils/hmr-check"
+import { hmrAcceptRun, hmrApplyUpdates } from "../utils/hmr-utils"
+import { injectSocket } from "../utils/inject-socket"
+import { injectReactRefresh } from "../utils/react-refresh"
 
 const parent = module.bundle.parent
 

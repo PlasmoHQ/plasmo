@@ -1,7 +1,7 @@
 import spawnAsync, { SpawnOptions } from "@expo/spawn-async"
 import { existsSync } from "fs-extra"
 
-import { iLog, vLog, wLog } from "@plasmo/utils"
+import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 

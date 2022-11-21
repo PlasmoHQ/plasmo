@@ -1,6 +1,6 @@
 import spawnAsync from "@expo/spawn-async"
 
-import { iLog, wLog } from "@plasmo/utils"
+import { iLog, wLog } from "@plasmo/utils/logging"
 
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 

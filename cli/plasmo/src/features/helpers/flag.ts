@@ -1,6 +1,6 @@
 import { paramCase } from "change-case"
 
-import { getFlag } from "@plasmo/utils"
+import { getFlag } from "@plasmo/utils/flags"
 
 const srcPath = getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
 

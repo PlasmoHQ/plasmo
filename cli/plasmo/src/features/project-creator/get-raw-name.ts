@@ -1,6 +1,7 @@
 import { createQuestId } from "mnemonic-id"
 
-import { getNonFlagArgvs, vLog } from "@plasmo/utils"
+import { getNonFlagArgvs } from "@plasmo/utils/argv"
+import { vLog } from "@plasmo/utils/logging"
 
 export const getRawName = async () => {
   const [rawNameNonInteractive] = getNonFlagArgvs("init")

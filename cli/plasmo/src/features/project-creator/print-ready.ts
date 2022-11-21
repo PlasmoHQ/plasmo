@@ -1,4 +1,4 @@
-import { sLog } from "@plasmo/utils"
+import { sLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"

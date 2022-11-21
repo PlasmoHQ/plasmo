@@ -1,4 +1,4 @@
-import { iLog } from "@plasmo/utils"
+import { iLog } from "@plasmo/utils/logging"
 
 const defaultTransformer = (target: any) =>
   iLog({
@@ -16,14 +16,14 @@ export const definedTraverse = (
   if (Array.isArray(target)) {
     return target
       .map((item) => definedTraverse(item, transformer))
-      .filter((i) => typeof i !== "undefined")
+      .filter((i) => i !== undefined)
   } else if (typeof target === "object") {
     const result = {} as any
 
     for (const key in target) {
       if (target.hasOwnProperty(key)) {
         result[key] = definedTraverse(target[key], transformer)
-        if (typeof result[key] === "undefined") {
+        if (result[key] === undefined) {
           delete result[key]
         }
       }

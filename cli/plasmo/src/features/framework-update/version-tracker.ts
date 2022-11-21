@@ -2,7 +2,7 @@ import { existsSync } from "fs"
 import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
 import semver from "semver"
 
-import { wLog } from "@plasmo/utils"
+import { wLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 

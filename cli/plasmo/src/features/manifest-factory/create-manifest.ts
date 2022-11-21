@@ -1,6 +1,6 @@
 import { existsSync } from "fs-extra"
 
-import { vLog, wLog } from "@plasmo/utils"
+import { vLog, wLog } from "@plasmo/utils/logging"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 

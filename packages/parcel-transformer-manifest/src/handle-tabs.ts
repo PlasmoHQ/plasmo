@@ -2,11 +2,10 @@ import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 export async function handleTabs() {
-  const { asset, dotPlasmoDir, srcDir } = state
-
+  const { asset, dotPlasmoDir, srcDir } = getState()
   const srcTabsDir = resolve(srcDir, "tabs")
   const dotTabsDir = resolve(dotPlasmoDir, "tabs")
 

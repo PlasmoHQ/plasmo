@@ -1,9 +1,9 @@
 import type { BackgroundMessage } from "../types"
 
-import "./0-patch-module"
+import "../utils/0-patch-module"
 
-import { extCtx, runtimeData } from "./0-patch-module"
-import { injectSocket } from "./inject-socket"
+import { extCtx, runtimeData } from "../utils/0-patch-module"
+import { injectSocket } from "../utils/inject-socket"
 
 const parent = module.bundle.parent
 

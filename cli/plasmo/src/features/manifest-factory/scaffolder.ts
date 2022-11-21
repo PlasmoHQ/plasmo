@@ -3,7 +3,7 @@ import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
-import { vLog } from "@plasmo/utils"
+import { vLog } from "@plasmo/utils/logging"
 
 import { toPosix } from "~features/helpers/path"
 
