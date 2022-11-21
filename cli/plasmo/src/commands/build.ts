@@ -10,6 +10,7 @@ import { nextNewTab } from "~features/extra/next-new-tab"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
+import { zipBundle } from "~features/manifest-factory/zip"
 
 async function build() {
   printHeader()
@@ -29,8 +30,7 @@ async function build() {
 
   const plasmoManifest = await createManifest(bundleConfig)
 
-  const { distDirectory, buildDirectory, distDirectoryName } =
-    plasmoManifest.commonPath
+  const { distDirectory } = plasmoManifest.commonPath
 
   const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
     mode: "production",
@@ -54,23 +54,7 @@ async function build() {
   await plasmoManifest.postBuild()
 
   if (hasFlag("--zip")) {
-    const { default: archiver } = await import("archiver")
-    const zip = archiver("zip", {
-      zlib: { level: 9 }
-    })
-
-    const zipFilePath = resolve(buildDirectory, `${distDirectoryName}.zip`)
-
-    const output = createWriteStream(zipFilePath)
-    output.on("close", () => {
-      iLog(`Zip Package size: ${zip.pointer()} bytes`)
-    })
-
-    zip.pipe(output)
-
-    zip.directory(distDirectory, "")
-
-    await zip.finalize()
+    await zipBundle(plasmoManifest.commonPath)
   }
 }
 
