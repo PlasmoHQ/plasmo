@@ -1,6 +1,3 @@
-import { createWriteStream } from "fs"
-import { resolve } from "path"
-
 import { getNonFlagArgvs } from "@plasmo/utils/argv"
 import { hasFlag } from "@plasmo/utils/flags"
 import { iLog, sLog } from "@plasmo/utils/logging"

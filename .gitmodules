@@ -6,10 +6,6 @@
 	path = packages/puro
 	url = git@github.com:PlasmoHQ/puro.git
 	branch = main
-[submodule "templates/qtt"]
-	path = templates/qtt
-	url = git@github.com:PlasmoHQ/qtt.git
-	branch = main
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token
 	url = git@github.com:PlasmoHQ/gcp-refresh-token.git

@@ -20,12 +20,12 @@ importers:
       '@types/semver': 7.3.13
       '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
-      esbuild: 0.15.14
+      esbuild: 0.15.15
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-react: 7.31.11
       fs-extra: 10.1.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       tsup: 6.5.0
       turbo: 1.6.3
     devDependencies:
@@ -41,12 +41,12 @@ importers:
       '@types/semver': 7.3.13
       '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
-      esbuild: 0.15.14
+      esbuild: 0.15.15
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0_eslint@8.28.0
       eslint-plugin-react: 7.31.11_eslint@8.28.0
       fs-extra: 10.1.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       tsup: 6.5.0
       turbo: 1.6.3
 
@@ -141,14 +141,14 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      antd: 5.0.0
+      antd: 5.0.1
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
     dependencies:
-      antd: 5.0.0_biqbaboplfbrettd7655fr4n2y
+      antd: 5.0.1_biqbaboplfbrettd7655fr4n2y
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -158,7 +158,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-background:
@@ -172,7 +172,7 @@ importers:
       buffer: 6.0.3
       events: 3.3.0
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       process: 0.11.10
       stream-browserify: 3.0.0
       typescript: 4.9.3
@@ -189,7 +189,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-content-script:
@@ -200,7 +200,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -214,7 +214,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-content-scripts-ui:
@@ -225,7 +225,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -239,7 +239,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-css-modules:
@@ -250,7 +250,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -264,7 +264,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-devtools:
@@ -275,7 +275,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -289,7 +289,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-emotion:
@@ -304,7 +304,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -322,7 +322,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-env:
@@ -333,7 +333,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -347,7 +347,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-firebase-auth:
@@ -359,7 +359,7 @@ importers:
       '@types/react-dom': 18.0.9
       firebase: 9.14.0
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -374,7 +374,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-firebase-fcm:
@@ -387,7 +387,7 @@ importers:
       '@types/react-dom': 18.0.9
       firebase: 9.14.0
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -403,7 +403,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-google-analytics:
@@ -414,7 +414,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -428,7 +428,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-inbox-sdk:
@@ -441,7 +441,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -457,7 +457,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-jest:
@@ -472,9 +472,9 @@ importers:
       '@types/react-dom': 18.0.9
       jest: 29.3.1
       jest-environment-jsdom: 29.3.1
-      jest-webextension-mock: 3.7.22
+      jest-webextension-mock: 3.8.0
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       ts-jest: 29.0.3
@@ -494,8 +494,8 @@ importers:
       '@types/react-dom': 18.0.9
       jest: 29.3.1_@types+node@18.11.9
       jest-environment-jsdom: 29.3.1
-      jest-webextension-mock: 3.7.22
-      prettier: 2.7.1
+      jest-webextension-mock: 3.8.0
+      prettier: 2.8.0
       ts-jest: 29.0.3_wcjxlcwfjvs73rqh2tjbxyoefa
       typescript: 4.9.3
 
@@ -508,7 +508,7 @@ importers:
       '@types/react-dom': 18.0.9
       jotai: 1.10.0
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -523,7 +523,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-locales-i18n:
@@ -534,7 +534,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -548,7 +548,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-main-world-content-script-injection:
@@ -559,7 +559,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -573,7 +573,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-many-content-scripts:
@@ -584,7 +584,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -598,7 +598,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-many-targets:
@@ -610,7 +610,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -625,7 +625,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-mui:
@@ -634,14 +634,14 @@ importers:
       '@emotion/cache': 11.10.5
       '@emotion/react': 11.10.5
       '@emotion/styled': 11.10.5
-      '@mui/material': 5.10.14
+      '@mui/material': 5.10.15
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -649,7 +649,7 @@ importers:
       '@emotion/cache': 11.10.5
       '@emotion/react': 11.10.5_cuziicjcvwawlf5iuhzacuhqcy
       '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
-      '@mui/material': 5.10.14_thp4wrxo45nyllusrnt46mid4u
+      '@mui/material': 5.10.15_thp4wrxo45nyllusrnt46mid4u
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -660,7 +660,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-multiple-tailwindcss:
@@ -674,7 +674,7 @@ importers:
       plasmo: workspace:*
       postcss: 8.4.19
       postcss-multiple-tailwind: 1.0.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       tailwindcss: 3.2.4
@@ -693,7 +693,7 @@ importers:
       autoprefixer: 10.4.13_postcss@8.4.19
       postcss: 8.4.19
       postcss-multiple-tailwind: 1.0.1_me3eicvovseuwi73d2pz2ggw4a
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-newtab:
@@ -704,7 +704,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -718,7 +718,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-nextjs:
@@ -731,7 +731,7 @@ importers:
       '@types/react-dom': 18.0.9
       next: 13.0.4
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -747,7 +747,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-options-ui:
@@ -758,7 +758,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -772,7 +772,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-permission-ui:
@@ -784,7 +784,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -799,7 +799,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-popup:
@@ -810,7 +810,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -824,7 +824,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-react-query:
@@ -836,7 +836,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -851,7 +851,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-react-router:
@@ -862,7 +862,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       react-router-dom: 6.4.3
@@ -878,7 +878,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-redux:
@@ -893,7 +893,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       react-redux: 8.0.5
@@ -919,7 +919,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-src:
@@ -930,7 +930,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -944,7 +944,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-storage:
@@ -956,7 +956,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -971,7 +971,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-stripe:
@@ -985,7 +985,7 @@ importers:
       google-auth-library: 8.7.0
       next: 13.0.4
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       puro: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
@@ -1008,24 +1008,24 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-supabase:
     specifiers:
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
-      '@supabase/supabase-js': 2.1.0
+      '@supabase/supabase-js': 2.1.1
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
     dependencies:
-      '@supabase/supabase-js': 2.1.0
+      '@supabase/supabase-js': 2.1.1
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1035,7 +1035,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-svelte:
@@ -1044,7 +1044,7 @@ importers:
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       svelte: 3.53.1
       svelte-preprocess: 4.10.7
       typescript: 4.9.3
@@ -1056,7 +1056,7 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-tailwindcss:
@@ -1070,7 +1070,7 @@ importers:
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
       postcss: 8.4.19
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       tailwindcss: 3.2.4
@@ -1089,7 +1089,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       postcss: 8.4.19
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-vue:
@@ -1098,7 +1098,7 @@ importers:
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
       vue: 3.2.45
     dependencies:
@@ -1108,7 +1108,7 @@ importers:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   examples/with-web-accessible-resources:
@@ -1119,7 +1119,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       plasmo: workspace:*
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 4.9.3
@@ -1133,7 +1133,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.9.3
 
   packages/config:
@@ -1161,7 +1161,7 @@ importers:
       google-auth-library: 8.7.0
       jest: 29.3.1
       open: 8.4.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       ts-jest: ^29.0.3
       tsup: 6.5.0
       typescript: 4.9.3
@@ -1177,7 +1177,7 @@ importers:
       '@types/node': 18.11.9
       cross-env: 7.0.3
       jest: 29.3.1_@types+node@18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       ts-jest: 29.0.3_wcjxlcwfjvs73rqh2tjbxyoefa
       tsup: 6.5.0_typescript@4.9.3
       typescript: 4.9.3
@@ -1189,6 +1189,7 @@ importers:
     specifiers:
       '@parcel/core': 2.8.0
       '@parcel/diagnostic': 2.8.0
+      '@parcel/graph': 2.8.0
       '@parcel/hash': 2.8.0
       '@parcel/plugin': 2.8.0
       '@parcel/types': 2.8.0
@@ -1199,6 +1200,7 @@ importers:
     dependencies:
       '@parcel/core': 2.8.0
       '@parcel/diagnostic': 2.8.0
+      '@parcel/graph': 2.8.0
       '@parcel/hash': 2.8.0
       '@parcel/plugin': 2.8.0_@parcel+core@2.8.0
       '@parcel/utils': 2.8.0
@@ -1478,7 +1480,7 @@ importers:
       '@plasmo/config': workspace:*
       '@plasmo/utils': workspace:*
       content-security-policy-parser: 0.4.1
-      json-schema-to-ts: 2.6.0
+      json-schema-to-ts: 2.6.1
       nullthrows: 1.1.1
       tsup: 6.5.0
     dependencies:
@@ -1490,7 +1492,7 @@ importers:
       '@parcel/types': 2.8.0_@parcel+core@2.8.0
       '@parcel/utils': 2.8.0
       content-security-policy-parser: 0.4.1
-      json-schema-to-ts: 2.6.0
+      json-schema-to-ts: 2.6.1
       nullthrows: 1.1.1
     devDependencies:
       '@plasmo/config': link:../config
@@ -1559,7 +1561,7 @@ importers:
       '@types/react': 18.0.25
       cross-env: 7.0.3
       jest: 29.3.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       ts-jest: 29.0.3
       tsup: 6.5.0
@@ -1573,7 +1575,7 @@ importers:
       '@types/react': 18.0.25
       cross-env: 7.0.3
       jest: 29.3.1_@types+node@18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       ts-jest: 29.0.3_wcjxlcwfjvs73rqh2tjbxyoefa
       tsup: 6.5.0_typescript@4.9.3
@@ -1592,7 +1594,7 @@ importers:
       javascript-natural-sort: 0.7.1
       lodash.clone: 4.5.0
       lodash.isequal: 4.5.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       tsup: 6.5.0
       typescript: 4.9.3
     dependencies:
@@ -1608,7 +1610,7 @@ importers:
       '@types/lodash.clone': 4.5.7
       '@types/lodash.isequal': 4.5.6
       '@types/node': 18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       tsup: 6.5.0_typescript@4.9.3
       typescript: 4.9.3
 
@@ -1621,7 +1623,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       jest: 29.3.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       ts-jest: 29.0.3
       tsup: 6.5.0
@@ -1634,7 +1636,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       jest: 29.3.1_@types+node@18.11.9
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       ts-jest: 29.0.3_wcjxlcwfjvs73rqh2tjbxyoefa
       tsup: 6.5.0_typescript@4.9.3
@@ -1650,7 +1652,7 @@ importers:
       cross-spawn: 7.0.3
       minimatch: 5.1.0
       pidtree: 0.6.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       read-pkg: 7.1.0
       shell-quote: 1.7.4
       tsup: 6.5.0
@@ -1667,7 +1669,7 @@ importers:
       '@types/minimatch': 5.1.2
       '@types/node': 18.11.9
       '@types/shell-quote': 1.7.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       tsup: 6.5.0_typescript@4.9.3
       typescript: 4.9.3
 
@@ -1685,7 +1687,7 @@ importers:
       cross-env: 7.0.3
       jest: 29.3.1
       jest-environment-jsdom: 29.3.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       rimraf: 3.0.2
@@ -1708,7 +1710,7 @@ importers:
       cross-env: 7.0.3
       jest: 29.3.1_@types+node@18.11.9
       jest-environment-jsdom: 29.3.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       rimraf: 3.0.2
@@ -1729,7 +1731,7 @@ importers:
       jest: 29.3.1
       jest-environment-jsdom: 29.3.1
       node-object-hash: 2.3.10
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       rimraf: 3.0.2
@@ -1749,7 +1751,7 @@ importers:
       cross-env: 7.0.3
       jest: 29.3.1_@types+node@18.11.9
       jest-environment-jsdom: 29.3.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       rimraf: 3.0.2
@@ -1762,32 +1764,6 @@ importers:
       '@plasmo/config': workspace:*
     devDependencies:
       '@plasmo/config': link:../config
-
-  templates/qtt:
-    specifiers:
-      '@jest/globals': 29.3.1
-      '@jest/types': 29.3.1
-      '@plasmohq/prettier-plugin-sort-imports': workspace:*
-      '@plasmohq/rps': workspace:*
-      '@types/node': 18.11.9
-      cross-env: 7.0.3
-      jest: 29.3.1
-      prettier: 2.7.1
-      ts-jest: 29.0.3
-      tsup: 6.5.0
-      typescript: 4.9.3
-    devDependencies:
-      '@jest/globals': 29.3.1
-      '@jest/types': 29.3.1
-      '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
-      '@plasmohq/rps': link:../../packages/rps
-      '@types/node': 18.11.9
-      cross-env: 7.0.3
-      jest: 29.3.1_@types+node@18.11.9
-      prettier: 2.7.1
-      ts-jest: 29.0.3_wcjxlcwfjvs73rqh2tjbxyoefa
-      tsup: 6.5.0_typescript@4.9.3
-      typescript: 4.9.3
 
 packages:
 
@@ -1804,8 +1780,8 @@ packages:
       '@ctrl/tinycolor': 3.4.1
     dev: false
 
-  /@ant-design/cssinjs/0.0.0-alpha.60_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-EQlU5f20flZMQ9XDbR/RL5MhQedgkHXR6o4pfbe6cMv0YMXK/jv669++N8msC7ZoNnGf2OxbmGRkvVS0OqG3iw==}
+  /@ant-design/cssinjs/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-MXrr59WU03RMK2Zlp1zjJzevC8bqNiK4Hkv/WUEounBH35qirbx83DbY2ASkVSn6pdEGI9lCF2LS4oVytDOauQ==}
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
@@ -2343,12 +2319,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@esbuild/android-arm/0.15.15:
+    resolution: {integrity: sha512-JJjZjJi2eBL01QJuWjfCdZxcIgot+VoK6Fq7eKF9w4YHm9hwl7nhBR1o2Wnt/WcANk5l9SkpvrldW1PLuXxcbw==}
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@esbuild/linux-loong64/0.15.14:
     resolution: {integrity: sha512-eQi9rosGNVQFJyJWV0HCA5WZae/qWIQME7s8/j8DMvnylfBv62Pbu+zJ2eUDqNf2O4u3WB+OEXyfkpBoe194sg==}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
+    optional: true
+
+  /@esbuild/linux-loong64/0.15.15:
+    resolution: {integrity: sha512-lhz6UNPMDXUhtXSulw8XlFAtSYO26WmHQnCi2Lg2p+/TMiJKNLtZCYUxV4wG6rZMzXmr8InGpNwk+DLT2Hm0PA==}
+    engines: {node: '>=12'}
+    cpu: [loong64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /@eslint/eslintrc/1.3.3:
@@ -3270,8 +3264,8 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@mui/base/5.0.0-alpha.106_2zx2umvpluuhvlq44va5bta2da:
-    resolution: {integrity: sha512-xJQQtwPCPwr6hGWTBdvDwHYwExn3Bw7nPQkN8Fuz8kHpZqoMVWQvvaFS557AIkkI2AFLV3DxVIMjbCvrIntBWg==}
+  /@mui/base/5.0.0-alpha.107_2zx2umvpluuhvlq44va5bta2da:
+    resolution: {integrity: sha512-HX/BD8CSe+Y/dpbZ5aKJScJhKQ/Hw6du2yd68Upv2cO67bwixyZ64h3aNcdDu7RQzI7nrZQm0JykffP1Orgq0g==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
@@ -3284,7 +3278,7 @@ packages:
       '@babel/runtime': 7.20.1
       '@emotion/is-prop-valid': 1.2.0
       '@mui/types': 7.2.1_@types+react@18.0.25
-      '@mui/utils': 5.10.14_react@18.2.0
+      '@mui/utils': 5.10.15_react@18.2.0
       '@popperjs/core': 2.11.6
       '@types/react': 18.0.25
       clsx: 1.2.1
@@ -3294,12 +3288,12 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@mui/core-downloads-tracker/5.10.14:
-    resolution: {integrity: sha512-qLgIJNOR9Dre8JiZ/neVzOf4jf88J6YtOkQqugtMrleLjbfRVUSS4LWl9CSOjNq76quYdmYWnSDgfQqOooT2cQ==}
+  /@mui/core-downloads-tracker/5.10.15:
+    resolution: {integrity: sha512-xFcS0LpdF0Q1qJrrNsYUv9PU+ovvhCEPTOMw2jcpEFtl3CA87dLpvztORR5oE2UBFjWF7qLQLOwboQU1+xC7Cw==}
     dev: false
 
-  /@mui/material/5.10.14_thp4wrxo45nyllusrnt46mid4u:
-    resolution: {integrity: sha512-HWzKVAykePMx54WtxVwZyL1W4k3xlHYIqwMw0CaXAvgB3UE9yjABZuuGr8vG5Z6CSNWamzd+s1x8u7pQPFl9og==}
+  /@mui/material/5.10.15_thp4wrxo45nyllusrnt46mid4u:
+    resolution: {integrity: sha512-OqoHfUtVMppFHgk2M95j+pR8MWfLKhzSdz4aKEfIpFrHIHbYang+oY7Iy/exX+vqpZSEGHgHQ0cGX0hGTGx9cg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
@@ -3318,11 +3312,11 @@ packages:
       '@babel/runtime': 7.20.1
       '@emotion/react': 11.10.5_cuziicjcvwawlf5iuhzacuhqcy
       '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
-      '@mui/base': 5.0.0-alpha.106_2zx2umvpluuhvlq44va5bta2da
-      '@mui/core-downloads-tracker': 5.10.14
-      '@mui/system': 5.10.14_v64nlmo6pkqfmpmxge6otzlg54
+      '@mui/base': 5.0.0-alpha.107_2zx2umvpluuhvlq44va5bta2da
+      '@mui/core-downloads-tracker': 5.10.15
+      '@mui/system': 5.10.15_v64nlmo6pkqfmpmxge6otzlg54
       '@mui/types': 7.2.1_@types+react@18.0.25
-      '@mui/utils': 5.10.14_react@18.2.0
+      '@mui/utils': 5.10.15_react@18.2.0
       '@types/react': 18.0.25
       '@types/react-transition-group': 4.4.5
       clsx: 1.2.1
@@ -3334,8 +3328,8 @@ packages:
       react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@mui/private-theming/5.10.14_fan5qbzahqtxlm5dzefqlqx5ia:
-    resolution: {integrity: sha512-3aIBe8WK65CwAPDY8nB11hYnzE1CZMymi76UnaFrA/DdGDwl5Y8F6uB+StKrkVmsqF1po7Mp2odqVkHj320gXw==}
+  /@mui/private-theming/5.10.15_fan5qbzahqtxlm5dzefqlqx5ia:
+    resolution: {integrity: sha512-l7CsUj5kYdYz118/JHSvZZTYE9WnIWwln0td5jYATnYw9cNX4ygD6AkKOUYZ1Jitp1YLJqcO8jCP9E5/Nql9IQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
@@ -3345,7 +3339,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.20.1
-      '@mui/utils': 5.10.14_react@18.2.0
+      '@mui/utils': 5.10.15_react@18.2.0
       '@types/react': 18.0.25
       prop-types: 15.8.1
       react: 18.2.0
@@ -3373,8 +3367,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mui/system/5.10.14_v64nlmo6pkqfmpmxge6otzlg54:
-    resolution: {integrity: sha512-2de7XCjRb1j8Od0Stmo0LwFMLpOMNT4wzfINuExXI1TVSuyxXIXUxiC5FEgJW3GMvf/a7SUR8VOiMoKlKWzukw==}
+  /@mui/system/5.10.15_v64nlmo6pkqfmpmxge6otzlg54:
+    resolution: {integrity: sha512-WZmgmpYTMXAaD++QetaaM/miwhNh1JJY1dH7MJH/3Fuv3r3gnhfzE6A55lDqWxkQmlWUO2DCn/cnNZ0FkSdZUg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
@@ -3392,10 +3386,10 @@ packages:
       '@babel/runtime': 7.20.1
       '@emotion/react': 11.10.5_cuziicjcvwawlf5iuhzacuhqcy
       '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
-      '@mui/private-theming': 5.10.14_fan5qbzahqtxlm5dzefqlqx5ia
+      '@mui/private-theming': 5.10.15_fan5qbzahqtxlm5dzefqlqx5ia
       '@mui/styled-engine': 5.10.14_dovxhg2tvkkxkdnqyoum6wzcxm
       '@mui/types': 7.2.1_@types+react@18.0.25
-      '@mui/utils': 5.10.14_react@18.2.0
+      '@mui/utils': 5.10.15_react@18.2.0
       '@types/react': 18.0.25
       clsx: 1.2.1
       csstype: 3.1.1
@@ -3414,8 +3408,8 @@ packages:
       '@types/react': 18.0.25
     dev: false
 
-  /@mui/utils/5.10.14_react@18.2.0:
-    resolution: {integrity: sha512-12p59+wDZpA++XVJmKwqsZmrA1nmUQ5d0a1yQWtcDjxNyER1EDzozYN/db+FY2i5ceQh2TynPTEwGms2mXDwFg==}
+  /@mui/utils/5.10.15_react@18.2.0:
+    resolution: {integrity: sha512-6AW4MLBUijJi31hxx+6utTJM2q/4hbO+QiMdtwM+f4Iy+BfFnh/elhb08apxNYLfuugPnXXpkDmzEjg+8uDU9g==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0
@@ -4564,8 +4558,8 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js/2.3.0:
-    resolution: {integrity: sha512-e50w8LkfbxtI2SJxUbuQNM7pN+Yu3HYkvCLsidwBgivTdcoFOkhFodwLvWSVdeaxY1mH6Gm66RiKeUMn1+BAow==}
+  /@supabase/gotrue-js/2.3.1:
+    resolution: {integrity: sha512-txYVDrKAFXxT4nyVGnW3M9Oid4u3Xe/Na+wTEzwU+IBuPUEz72ZBHNKo6HBKlZNpnlGtgCSciYhH8qFkZYGV3g==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -4597,11 +4591,11 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/supabase-js/2.1.0:
-    resolution: {integrity: sha512-hODrAUDSC6RV6EhwuSMyhaQCF32gij0EBTceuDR+8suJsg7XcyUG0fYgeYecWIvt0nz61xAMY6E+Ywb0tJaAng==}
+  /@supabase/supabase-js/2.1.1:
+    resolution: {integrity: sha512-6uBz31zrYfXkb5f2lzSHtncLWDQG5LvuH/OrmIAJqnjvliyd1pXMCGn/03xTfnflbjMolbOva+XMrydkyIMDfQ==}
     dependencies:
       '@supabase/functions-js': 2.0.0
-      '@supabase/gotrue-js': 2.3.0
+      '@supabase/gotrue-js': 2.3.1
       '@supabase/postgrest-js': 1.1.0
       '@supabase/realtime-js': 2.1.0
       '@supabase/storage-js': 2.0.0
@@ -5185,14 +5179,14 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /antd/5.0.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-3IGHXl3KokGrkYIk2P2fQytDloTmdw9vgMHJzFsusBrAEnRXoN8oSWrN/N6D7f5hWqRusSaAIlPTsYSIcPHFrQ==}
+  /antd/5.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-t+YqAWW2smxdQsxTTtNHt9nErESnCS/pcuze4EgPNOi5M++fv7wXBhmk1ZJgxNTDKKxoy134H9vL1ZFq3cWpgQ==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
       '@ant-design/colors': 6.0.0
-      '@ant-design/cssinjs': 0.0.0-alpha.60_biqbaboplfbrettd7655fr4n2y
+      '@ant-design/cssinjs': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@ant-design/icons': 4.8.0_biqbaboplfbrettd7655fr4n2y
       '@ant-design/react-slick': 0.29.2_react@18.2.0
       '@babel/runtime': 7.20.1
@@ -5217,18 +5211,18 @@ packages:
       rc-motion: 2.6.2_biqbaboplfbrettd7655fr4n2y
       rc-notification: 5.0.0-alpha.9_biqbaboplfbrettd7655fr4n2y
       rc-pagination: 3.2.0_biqbaboplfbrettd7655fr4n2y
-      rc-picker: 3.0.0-4_biqbaboplfbrettd7655fr4n2y
+      rc-picker: 3.1.1_hk4it2saoa6yurflmehlixyvbq
       rc-progress: 3.4.1_biqbaboplfbrettd7655fr4n2y
       rc-rate: 2.9.2_biqbaboplfbrettd7655fr4n2y
       rc-resize-observer: 1.2.0_biqbaboplfbrettd7655fr4n2y
       rc-segmented: 2.1.0_biqbaboplfbrettd7655fr4n2y
-      rc-select: 14.1.13_biqbaboplfbrettd7655fr4n2y
+      rc-select: 14.1.14_biqbaboplfbrettd7655fr4n2y
       rc-slider: 10.0.1_biqbaboplfbrettd7655fr4n2y
       rc-steps: 6.0.0-alpha.2_biqbaboplfbrettd7655fr4n2y
       rc-switch: 4.0.0_biqbaboplfbrettd7655fr4n2y
       rc-table: 7.26.0_biqbaboplfbrettd7655fr4n2y
       rc-tabs: 12.3.0_biqbaboplfbrettd7655fr4n2y
-      rc-textarea: 0.4.6_biqbaboplfbrettd7655fr4n2y
+      rc-textarea: 0.4.7_biqbaboplfbrettd7655fr4n2y
       rc-tooltip: 5.2.2_biqbaboplfbrettd7655fr4n2y
       rc-tree: 5.7.1_biqbaboplfbrettd7655fr4n2y
       rc-tree-select: 5.5.5_biqbaboplfbrettd7655fr4n2y
@@ -5239,6 +5233,9 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       scroll-into-view-if-needed: 2.2.29
       shallowequal: 1.1.0
+    transitivePeerDependencies:
+      - date-fns
+      - moment
     dev: false
 
   /any-promise/1.3.0:
@@ -6204,11 +6201,6 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /date-fns/2.29.3:
-    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
-    engines: {node: '>=0.11'}
-    dev: false
-
   /dayjs/1.11.6:
     resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
     dev: false
@@ -6618,12 +6610,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-android-64/0.15.15:
+    resolution: {integrity: sha512-F+WjjQxO+JQOva3tJWNdVjouFMLK6R6i5gjDvgUthLYJnIZJsp1HlF523k73hELY20WPyEO8xcz7aaYBVkeg5Q==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-android-arm64/0.15.14:
     resolution: {integrity: sha512-/QnxRVxsR2Vtf3XottAHj7hENAMW2wCs6S+OZcAbc/8nlhbAL/bCQRCVD78VtI5mdwqWkVi3wMqM94kScQCgqg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    optional: true
+
+  /esbuild-android-arm64/0.15.15:
+    resolution: {integrity: sha512-attlyhD6Y22jNyQ0fIIQ7mnPvDWKw7k6FKnsXlBvQE6s3z6s6cuEHcSgoirquQc7TmZgVCK5fD/2uxmRN+ZpcQ==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.15.14:
@@ -6634,12 +6644,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-darwin-64/0.15.15:
+    resolution: {integrity: sha512-ohZtF8W1SHJ4JWldsPVdk8st0r9ExbAOSrBOh5L+Mq47i696GVwv1ab/KlmbUoikSTNoXEhDzVpxUR/WIO19FQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-darwin-arm64/0.15.14:
     resolution: {integrity: sha512-KgGP+y77GszfYJgceO0Wi/PiRtYo5y2Xo9rhBUpxTPaBgWDJ14gqYN0+NMbu+qC2fykxXaipHxN4Scaj9tUS1A==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    optional: true
+
+  /esbuild-darwin-arm64/0.15.15:
+    resolution: {integrity: sha512-P8jOZ5zshCNIuGn+9KehKs/cq5uIniC+BeCykvdVhx/rBXSxmtj3CUIKZz4sDCuESMbitK54drf/2QX9QHG5Ag==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.15.14:
@@ -6650,12 +6678,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-freebsd-64/0.15.15:
+    resolution: {integrity: sha512-KkTg+AmDXz1IvA9S1gt8dE24C8Thx0X5oM0KGF322DuP+P3evwTL9YyusHAWNsh4qLsR80nvBr/EIYs29VSwuA==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-freebsd-arm64/0.15.14:
     resolution: {integrity: sha512-8XH96sOQ4b1LhMlO10eEWOjEngmZ2oyw3pW4o8kvBcpF6pULr56eeYVP5radtgw54g3T8nKHDHYEI5AItvskZg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    optional: true
+
+  /esbuild-freebsd-arm64/0.15.15:
+    resolution: {integrity: sha512-FUcML0DRsuyqCMfAC+HoeAqvWxMeq0qXvclZZ/lt2kLU6XBnDA5uKTLUd379WYEyVD4KKFctqWd9tTuk8C/96g==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.15.14:
@@ -6666,12 +6712,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-linux-32/0.15.15:
+    resolution: {integrity: sha512-q28Qn5pZgHNqug02aTkzw5sW9OklSo96b5nm17Mq0pDXrdTBcQ+M6Q9A1B+dalFeynunwh/pvfrNucjzwDXj+Q==}
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-64/0.15.14:
     resolution: {integrity: sha512-ONySx3U0wAJOJuxGUlXBWxVKFVpWv88JEv0NZ6NlHknmDd1yCbf4AEdClSgLrqKQDXYywmw4gYDvdLsS6z0hcw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    optional: true
+
+  /esbuild-linux-64/0.15.15:
+    resolution: {integrity: sha512-217KPmWMirkf8liO+fj2qrPwbIbhNTGNVtvqI1TnOWJgcMjUWvd677Gq3fTzXEjilkx2yWypVnTswM2KbXgoAg==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.15.14:
@@ -6682,12 +6746,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-linux-arm/0.15.15:
+    resolution: {integrity: sha512-RYVW9o2yN8yM7SB1yaWr378CwrjvGCyGybX3SdzPHpikUHkME2AP55Ma20uNwkNyY2eSYFX9D55kDrfQmQBR4w==}
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-arm64/0.15.14:
     resolution: {integrity: sha512-kle2Ov6a1e5AjlHlMQl1e+c4myGTeggrRzArQFmWp6O6JoqqB9hT+B28EW4tjFWgV/NxUq46pWYpgaWXsXRPAg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    optional: true
+
+  /esbuild-linux-arm64/0.15.15:
+    resolution: {integrity: sha512-/ltmNFs0FivZkYsTzAsXIfLQX38lFnwJTWCJts0IbCqWZQe+jjj0vYBNbI0kmXLb3y5NljiM5USVAO1NVkdh2g==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.15.14:
@@ -6698,12 +6780,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-linux-mips64le/0.15.15:
+    resolution: {integrity: sha512-PksEPb321/28GFFxtvL33yVPfnMZihxkEv5zME2zapXGp7fA1X2jYeiTUK+9tJ/EGgcNWuwvtawPxJG7Mmn86A==}
+    engines: {node: '>=12'}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-ppc64le/0.15.14:
     resolution: {integrity: sha512-2NzH+iuzMDA+jjtPjuIz/OhRDf8tzbQ1tRZJI//aT25o1HKc0reMMXxKIYq/8nSHXiJSnYV4ODzTiv45s+h73w==}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    optional: true
+
+  /esbuild-linux-ppc64le/0.15.15:
+    resolution: {integrity: sha512-ek8gJBEIhcpGI327eAZigBOHl58QqrJrYYIZBWQCnH3UnXoeWMrMZLeeZL8BI2XMBhP+sQ6ERctD5X+ajL/AIA==}
+    engines: {node: '>=12'}
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-riscv64/0.15.14:
@@ -6714,12 +6814,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-linux-riscv64/0.15.15:
+    resolution: {integrity: sha512-H5ilTZb33/GnUBrZMNJtBk7/OXzDHDXjIzoLXHSutwwsLxSNaLxzAaMoDGDd/keZoS+GDBqNVxdCkpuiRW4OSw==}
+    engines: {node: '>=12'}
+    cpu: [riscv64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-s390x/0.15.14:
     resolution: {integrity: sha512-+KVHEUshX5n6VP6Vp/AKv9fZIl5kr2ph8EUFmQUJnDpHwcfTSn2AQgYYm0HTBR2Mr4d0Wlr0FxF/Cs5pbFgiOw==}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
+    optional: true
+
+  /esbuild-linux-s390x/0.15.15:
+    resolution: {integrity: sha512-jKaLUg78mua3rrtrkpv4Or2dNTJU7bgHN4bEjT4OX4GR7nLBSA9dfJezQouTxMmIW7opwEC5/iR9mpC18utnxQ==}
+    engines: {node: '>=12'}
+    cpu: [s390x]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.15.14:
@@ -6730,12 +6848,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-netbsd-64/0.15.15:
+    resolution: {integrity: sha512-aOvmF/UkjFuW6F36HbIlImJTTx45KUCHJndtKo+KdP8Dhq3mgLRKW9+6Ircpm8bX/RcS3zZMMmaBLkvGY06Gvw==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-openbsd-64/0.15.14:
     resolution: {integrity: sha512-rREQBIlMibBetgr2E9Lywt2Qxv2ZdpmYahR4IUlAQ1Efv/A5gYdO0/VIN3iowDbCNTLxp0bb57Vf0LFcffD6kA==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    optional: true
+
+  /esbuild-openbsd-64/0.15.15:
+    resolution: {integrity: sha512-HFFX+WYedx1w2yJ1VyR1Dfo8zyYGQZf1cA69bLdrHzu9svj6KH6ZLK0k3A1/LFPhcEY9idSOhsB2UyU0tHPxgQ==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-sunos-64/0.15.14:
@@ -6746,12 +6882,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-sunos-64/0.15.15:
+    resolution: {integrity: sha512-jOPBudffG4HN8yJXcK9rib/ZTFoTA5pvIKbRrt3IKAGMq1EpBi4xoVoSRrq/0d4OgZLaQbmkHp8RO9eZIn5atA==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-windows-32/0.15.14:
     resolution: {integrity: sha512-pHBWrcA+/oLgvViuG9FO3kNPO635gkoVrRQwe6ZY1S0jdET07xe2toUvQoJQ8KT3/OkxqUasIty5hpuKFLD+eg==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    optional: true
+
+  /esbuild-windows-32/0.15.15:
+    resolution: {integrity: sha512-MDkJ3QkjnCetKF0fKxCyYNBnOq6dmidcwstBVeMtXSgGYTy8XSwBeIE4+HuKiSsG6I/mXEb++px3IGSmTN0XiA==}
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-64/0.15.14:
@@ -6762,12 +6916,30 @@ packages:
     requiresBuild: true
     optional: true
 
+  /esbuild-windows-64/0.15.15:
+    resolution: {integrity: sha512-xaAUIB2qllE888SsMU3j9nrqyLbkqqkpQyWVkfwSil6BBPgcPk3zOFitTTncEKCLTQy3XV9RuH7PDj3aJDljWA==}
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-windows-arm64/0.15.14:
     resolution: {integrity: sha512-KW9W4psdZceaS9A7Jsgl4WialOznSURvqX/oHZk3gOP7KbjtHLSsnmSvNdzagGJfxbAe30UVGXRe8q8nDsOSQw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    optional: true
+
+  /esbuild-windows-arm64/0.15.15:
+    resolution: {integrity: sha512-ttuoCYCIJAFx4UUKKWYnFdrVpoXa3+3WWkXVI6s09U+YjhnyM5h96ewTq/WgQj9LFSIlABQvadHSOQyAVjW5xQ==}
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild/0.15.14:
@@ -6798,6 +6970,36 @@ packages:
       esbuild-windows-32: 0.15.14
       esbuild-windows-64: 0.15.14
       esbuild-windows-arm64: 0.15.14
+
+  /esbuild/0.15.15:
+    resolution: {integrity: sha512-TEw/lwK4Zzld9x3FedV6jy8onOUHqcEX3ADFk4k+gzPUwrxn8nWV62tH0udo8jOtjFodlEfc4ypsqX3e+WWO6w==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@esbuild/android-arm': 0.15.15
+      '@esbuild/linux-loong64': 0.15.15
+      esbuild-android-64: 0.15.15
+      esbuild-android-arm64: 0.15.15
+      esbuild-darwin-64: 0.15.15
+      esbuild-darwin-arm64: 0.15.15
+      esbuild-freebsd-64: 0.15.15
+      esbuild-freebsd-arm64: 0.15.15
+      esbuild-linux-32: 0.15.15
+      esbuild-linux-64: 0.15.15
+      esbuild-linux-arm: 0.15.15
+      esbuild-linux-arm64: 0.15.15
+      esbuild-linux-mips64le: 0.15.15
+      esbuild-linux-ppc64le: 0.15.15
+      esbuild-linux-riscv64: 0.15.15
+      esbuild-linux-s390x: 0.15.15
+      esbuild-netbsd-64: 0.15.15
+      esbuild-openbsd-64: 0.15.15
+      esbuild-sunos-64: 0.15.15
+      esbuild-windows-32: 0.15.15
+      esbuild-windows-64: 0.15.15
+      esbuild-windows-arm64: 0.15.15
+    dev: true
 
   /escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -8427,8 +8629,8 @@ packages:
       string-length: 4.0.2
     dev: true
 
-  /jest-webextension-mock/3.7.22:
-    resolution: {integrity: sha512-ai0S49FU9FjUqtXOpkVj26WGc3Lsh6lBPkQABKtKoLUoR60Z42XBBFyNykaZpWRRfIPxprrahLsedPNAVDkJ3w==}
+  /jest-webextension-mock/3.8.0:
+    resolution: {integrity: sha512-jlk2Aqz38TSu7nJ7CGSH4Nn8zYte4jXgByPzv6F0Ss5llWzrIGJNACPfZ6P4VPMC7h70ON8Cjq5qGugwphHigw==}
     dev: true
 
   /jest-worker/29.3.1:
@@ -8586,9 +8788,11 @@ packages:
   /json-parse-even-better-errors/2.3.1:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
 
-  /json-schema-to-ts/2.6.0:
-    resolution: {integrity: sha512-j6x2ZFCN3exmGAaGusxZYB2mvgpy8I8UkkNmN1H6zlq+3mdBwSQMIsB5iAltGlBLWG4aPTYqeIkit4okTI0s7g==}
+  /json-schema-to-ts/2.6.1:
+    resolution: {integrity: sha512-SQ/L0BBDxYzd7AiF7WK5oKTF/3Y007XRH6Ss4ZQUfnBEtsbLmtG0GDiPw831eNzcF5WYqdUtbxS1NSb8hBu6Tg==}
+    engines: {node: ^16.10.0}
     dependencies:
+      '@babel/runtime': 7.20.1
       '@types/json-schema': 7.0.11
       ts-algebra: 1.1.1
       ts-toolbelt: 9.6.0
@@ -9185,10 +9389,6 @@ packages:
 
   /mnemonic-id/3.2.7:
     resolution: {integrity: sha512-kysx9gAGbvrzuFYxKkcRjnsg/NK61ovJOV4F1cHTRl9T5leg+bo6WI0pWIvOFh1Z/yDL0cjA5R3EEGPPLDv/XA==}
-    dev: false
-
-  /moment/2.29.4:
-    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
 
   /ms/2.0.0:
@@ -9885,8 +10085,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -10076,7 +10276,7 @@ packages:
       '@babel/runtime': 7.20.1
       array-tree-filter: 2.1.0
       classnames: 2.3.2
-      rc-select: 14.1.13_biqbaboplfbrettd7655fr4n2y
+      rc-select: 14.1.14_biqbaboplfbrettd7655fr4n2y
       rc-tree: 5.7.1_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.24.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -10218,7 +10418,7 @@ packages:
       '@babel/runtime': 7.20.1
       classnames: 2.3.2
       rc-menu: 9.7.2_biqbaboplfbrettd7655fr4n2y
-      rc-textarea: 0.4.6_biqbaboplfbrettd7655fr4n2y
+      rc-textarea: 0.4.7_biqbaboplfbrettd7655fr4n2y
       rc-trigger: 5.3.3_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.24.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -10296,18 +10496,26 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /rc-picker/3.0.0-4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-2otFBRBCACE/cubgLgkhtuo+M6AAuYssgjQmRmD+g/R+RDPQVV0MZTRDYhy6YOmlK8yj+gUc73YfUEYhfecBZw==}
+  /rc-picker/3.1.1_hk4it2saoa6yurflmehlixyvbq:
+    resolution: {integrity: sha512-Z61U2upedvnMJ0SafnGF89tyiQd421lYrkZCTZmywOcJpC4zKieuVmsGD/uHnlx4gMtcwooVWNCuVezomNtk8g==}
     engines: {node: '>=8.x'}
     peerDependencies:
+      date-fns: '>= 2.x'
+      dayjs: '>= 1.x'
+      moment: '>= 2.x'
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
+    peerDependenciesMeta:
+      date-fns:
+        optional: true
+      dayjs:
+        optional: true
+      moment:
+        optional: true
     dependencies:
       '@babel/runtime': 7.20.1
       classnames: 2.3.2
-      date-fns: 2.29.3
       dayjs: 1.11.6
-      moment: 2.29.4
       rc-trigger: 5.3.3_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.24.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -10370,8 +10578,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /rc-select/14.1.13_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-WMEsC3gTwA1dbzWOdVIXDmWyidYNLq68AwvvUlRROw790uGUly0/vmqDozXrIr0QvN/A3CEULx12o+WtLCAefg==}
+  /rc-select/14.1.14_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-QARbPioNxyrwUzMaXep0Lx6dSyGSvtBqDOTiMwR9H0UZSvz50oYt9Vn7AZiF/8MR+SOwYtybbT6sIMcN+Xvcwg==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '*'
@@ -10464,8 +10672,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /rc-textarea/0.4.6_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-HEKCu8nouXXayqYelQnhQm8fdH7v92pAQvfVCz+jhIPv2PHTyBxVrmoZJMn3B8cU+wdyuvRGkshngO3/TzBn4w==}
+  /rc-textarea/0.4.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-IQPd1CDI3mnMlkFyzt2O4gQ2lxUsnBAeJEoZGJnkkXgORNqyM9qovdrCj9NzcRfpHgLdzaEbU3AmobNFGUznwQ==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -10500,7 +10708,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.1
       classnames: 2.3.2
-      rc-select: 14.1.13_biqbaboplfbrettd7655fr4n2y
+      rc-select: 14.1.14_biqbaboplfbrettd7655fr4n2y
       rc-tree: 5.7.1_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.24.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0

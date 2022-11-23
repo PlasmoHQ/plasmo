@@ -2,31 +2,37 @@ import { paramCase } from "change-case"
 
 import { getFlag } from "@plasmo/utils/flags"
 
-const srcPath = getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
+export const getFlagMap = () => {
+  const srcPath = getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
 
-const buildPath =
-  getFlag("--build-path") || process.env.PLASMO_BUILD_PATH || "build"
+  const buildPath =
+    getFlag("--build-path") || process.env.PLASMO_BUILD_PATH || "build"
 
-const tag =
-  getFlag("--tag") ||
-  process.env.PLASMO_TAG ||
-  (process.env.NODE_ENV === "production" ? "prod" : "dev")
+  const tag =
+    getFlag("--tag") ||
+    process.env.PLASMO_TAG ||
+    (process.env.NODE_ENV === "production" ? "prod" : "dev")
 
-const target = paramCase(
-  getFlag("--target") || process.env.PLASMO_TARGET || "chrome-mv3"
-)
+  const target = paramCase(
+    getFlag("--target") || process.env.PLASMO_TARGET || "chrome-mv3"
+  )
 
-const entry = getFlag("--entry") || "popup"
+  const [browser, manifestVersion] = target.split("-")
 
-const envPath = getFlag("--env")
+  const entry = getFlag("--entry") || "popup"
 
-export const flagMap = {
-  tag,
-  srcPath,
-  buildPath,
-  target,
-  entry,
-  envPath
+  const envPath = getFlag("--env")
+
+  return {
+    browser,
+    manifestVersion,
+    tag,
+    srcPath,
+    buildPath,
+    target,
+    entry,
+    envPath
+  }
 }
 
 export const flagHelp = `

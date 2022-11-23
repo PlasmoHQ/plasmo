@@ -8,8 +8,7 @@ import { join } from "path"
 
 import { eLog, iLog } from "@plasmo/utils/logging"
 
-import { browser } from "~features/extension-devtools/get-bundle-config"
-import { flagMap } from "~features/helpers/flag"
+import { getFlagMap } from "~features/helpers/flag"
 
 export type Env = Record<string, string | undefined>
 export type LoadedEnvFiles = Array<{
@@ -78,11 +77,12 @@ function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
 
 export async function loadEnvConfig(dir: string) {
   const nodeEnv = process.env.NODE_ENV
+  const flagMap = getFlagMap()
 
   const dotenvFilePaths = [
     flagMap.envPath,
 
-    `.env.${browser}.local`,
+    `.env.${flagMap.browser}.local`,
     `.env.${flagMap.tag}.local`,
     `.env.${nodeEnv}.local`,
 
@@ -91,7 +91,7 @@ export async function loadEnvConfig(dir: string) {
     // results for everyone
     nodeEnv !== "test" ? `.env.local` : "",
 
-    `.env.${browser}`,
+    `.env.${flagMap.browser}`,
     `.env.${flagMap.tag}`,
     `.env.${nodeEnv}`,
     ".env"

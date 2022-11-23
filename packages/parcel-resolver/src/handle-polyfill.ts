@@ -15,6 +15,7 @@ export async function handlePolyfill({
   }
 
   return {
-    filePath: join(__dirname, "polyfills", `${specifier}.js`)
+    filePath: join(__dirname, "polyfills", `${specifier}.js`),
+    priority: "sync"
   }
 }
