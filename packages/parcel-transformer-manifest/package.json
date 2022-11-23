@@ -36,7 +36,7 @@
     "@parcel/types": "2.8.0",
     "@parcel/utils": "2.8.0",
     "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.6.0",
+    "json-schema-to-ts": "2.6.1",
     "nullthrows": "1.1.1"
   }
 }

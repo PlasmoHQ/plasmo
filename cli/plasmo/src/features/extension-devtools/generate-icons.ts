@@ -4,7 +4,7 @@ import sharp from "sharp"
 
 import { vLog, wLog } from "@plasmo/utils/logging"
 
-import { flagMap } from "~features/helpers/flag"
+import { getFlagMap } from "~features/helpers/flag"
 
 import type { CommonPath } from "./common-path"
 
@@ -28,8 +28,10 @@ const baseIconNames = [
  * 3. plain icon
  *
  * */
-const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
-  iconNames
+const getPrioritizedIconPaths = (iconNames = baseIconNames) => {
+  const flagMap = getFlagMap()
+
+  return iconNames
     .map((name) => [
       `${name}.${flagMap.tag}.${process.env.NODE_ENV}.png`,
       `${name}.${process.env.NODE_ENV}.png`,
@@ -37,7 +39,7 @@ const getPrioritizedIconPaths = (iconNames = baseIconNames) =>
       `${name}.png`
     ])
     .flat()
-
+}
 // Use this to cache the path resolving result
 const iconState = {
   baseIconPaths: [] as string[],
