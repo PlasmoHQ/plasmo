@@ -1,3 +1,0 @@
-# Templates
-
-GitHub project templates.
