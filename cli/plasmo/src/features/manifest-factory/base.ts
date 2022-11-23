@@ -49,10 +49,7 @@ import {
   ProjectPath,
   getProjectPath
 } from "~features/extension-devtools/project-path"
-import {
-  TemplatePath,
-  getTemplatePath
-} from "~features/extension-devtools/template-path"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { getSubExt, toPosix } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"

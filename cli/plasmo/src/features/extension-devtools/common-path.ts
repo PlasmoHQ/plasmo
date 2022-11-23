@@ -2,9 +2,11 @@ import { existsSync } from "fs"
 import { basename, resolve } from "path"
 import { cwd } from "process"
 
-import { flagMap } from "~features/helpers/flag"
+import { getFlagMap } from "~features/helpers/flag"
 
 export const getCommonPath = (projectDirectory = cwd()) => {
+  const flagMap = getFlagMap()
+
   process.env.PLASMO_PROJECT_DIR = projectDirectory
 
   const packageName = basename(projectDirectory)

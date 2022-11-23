@@ -4,7 +4,6 @@
   "workspaces": [
     "cli/*",
     "packages/*",
-    "templates/*",
     "examples/*"
   ],
   "scripts": {
