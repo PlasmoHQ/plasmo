@@ -517,7 +517,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         ? inputFilePath
         : resolve(this.commonPath.projectDirectory, inputFilePath)
 
-      if (!pathExists(resourceFilePath)) {
+      const canCopy = await pathExists(resourceFilePath)
+
+      if (!canCopy) {
         return inputFilePath
       }
 
