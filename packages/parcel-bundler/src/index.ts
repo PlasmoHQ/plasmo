@@ -8,6 +8,8 @@
 
 import { Bundler } from "@parcel/plugin"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { createIdealGraph } from "./create-ideal-graph"
 import { decorateLegacyGraph } from "./decorate-legacy-graph"
 import { getEntryByTarget } from "./get-entry-by-target"
@@ -39,6 +41,7 @@ export default new Bundler({
   },
 
   bundle({ bundleGraph, config }) {
+    vLog("@plasmohq/parcel-bundler")
     let targetMap = getEntryByTarget(bundleGraph) // Organize entries by target output folder/ distDir
 
     let graphs = []

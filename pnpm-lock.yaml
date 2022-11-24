@@ -1195,6 +1195,7 @@ importers:
       '@parcel/types': 2.8.0
       '@parcel/utils': 2.8.0
       '@plasmo/config': workspace:*
+      '@plasmo/utils': workspace:*
       nullthrows: 1.1.1
       tsup: 6.5.0
     dependencies:
@@ -1208,6 +1209,7 @@ importers:
     devDependencies:
       '@parcel/types': 2.8.0_@parcel+core@2.8.0
       '@plasmo/config': link:../config
+      '@plasmo/utils': link:../utils
       tsup: 6.5.0
 
   packages/parcel-config:
@@ -1289,6 +1291,7 @@ importers:
       '@parcel/utils': 2.8.0
       '@plasmo/config': workspace:*
       '@plasmo/constants': workspace:*
+      '@plasmo/utils': workspace:*
       nullthrows: 1.1.1
       tsup: 6.5.0
     dependencies:
@@ -1300,6 +1303,7 @@ importers:
     devDependencies:
       '@plasmo/config': link:../config
       '@plasmo/constants': link:../constants
+      '@plasmo/utils': link:../utils
       tsup: 6.5.0
 
   packages/parcel-resolver:
