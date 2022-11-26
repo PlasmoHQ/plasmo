@@ -15,6 +15,7 @@ export enum WatchReason {
   TabsDirectory,
 
   BackgroundIndex,
+  BackgroundMessagesDirectory,
 
   ContentScriptIndex,
   ContentScriptsDirectory,
@@ -114,11 +115,17 @@ export const getProjectPath = (
   const contentsDirectory = resolve(sourceDirectory, "contents")
   const sandboxesDirectory = resolve(sourceDirectory, "sandboxes")
   const tabsDirectory = resolve(sourceDirectory, "tabs")
+  const backgroundMessagesDirectory = resolve(
+    sourceDirectory,
+    "background",
+    "messages"
+  )
 
   const watchDirectoryEntries = [
     [WatchReason.SandboxesDirectory, sandboxesDirectory],
     [WatchReason.TabsDirectory, tabsDirectory],
     [WatchReason.ContentScriptsDirectory, contentsDirectory],
+    [WatchReason.BackgroundMessagesDirectory, backgroundMessagesDirectory],
     [WatchReason.AssetsDirectory, assetsDirectory]
   ] as Array<DirectoryWatchTuple>
 
@@ -138,6 +145,7 @@ export const getProjectPath = (
     newtabHtmlList,
 
     backgroundIndexList,
+    backgroundMessagesDirectory,
 
     contentIndexList,
     contentsDirectory,
