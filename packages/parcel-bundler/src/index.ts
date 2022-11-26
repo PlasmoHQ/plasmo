@@ -15,8 +15,8 @@ import { decorateLegacyGraph } from "./decorate-legacy-graph"
 import { getEntryByTarget } from "./get-entry-by-target"
 
 const EXTENSION_OPTIONS = {
-  minBundles: 10000000,
-  minBundleSize: 3000,
+  minBundles: 1_000_000_000,
+  minBundleSize: 1_000_000,
   maxParallelRequests: 20
 }
 
