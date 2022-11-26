@@ -630,6 +630,7 @@ importers:
 
   examples/with-messaging:
     specifiers:
+      '@plasmohq/messaging': workspace:*
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
@@ -641,6 +642,7 @@ importers:
       react-dom: 18.2.0
       typescript: 4.9.3
     dependencies:
+      '@plasmohq/messaging': link:../../packages/messaging
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
