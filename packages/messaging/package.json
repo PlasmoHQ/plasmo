@@ -59,7 +59,7 @@
   },
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:compile": "tsup --watch --sourcemap",
+    "dev:compile": "tsup --watch --sourcemap --dts-resolve",
     "dev:test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "build": "tsup --dts-resolve --minify --clean",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",

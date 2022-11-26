@@ -1,10 +1,8 @@
-export type PlasmoMessageRequest<T> = {
-  name: string
-  body: T
-}
+export type { PlasmoMessaging, EventName, Metadata } from "./types"
 
-export type PlasmoMessageHandler<RequestBody = any, ResponseBody = any> = (
-  request: PlasmoMessageRequest<RequestBody>,
-  sender: chrome.runtime.MessageSender,
-  sendResponse: (response: ResponseBody) => void
-) => void | Promise<void>
+export type OriginContext =
+  | "background"
+  | "extension-page"
+  | "sandbox-page"
+  | "content-script"
+  | "window"
