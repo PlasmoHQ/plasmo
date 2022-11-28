@@ -1,21 +1,46 @@
 export interface Metadata {}
 
 export type EventName = keyof Metadata
+
+export type InternalSignal = "__PLASMO_MESSAGING_PING__"
+
 export namespace PlasmoMessaging {
-  export type Request<T = any> = {
+  export type Request<TBody = any> = {
     name: EventName
-    body: T
+    relayId?: string
+    body?: TBody
+  }
+
+  export type InternalRequest = {
+    __internal: InternalSignal
   }
 
   export type Handler<RequestBody = any, ResponseBody = any> = (
-    request: Request<RequestBody>,
+    request: Request<RequestBody> | InternalRequest,
     sender: chrome.runtime.MessageSender,
-    sendResponse: (response: ResponseBody) => void
+    sendResponse: (responseBody: ResponseBody) => void
   ) => void | Promise<void> | boolean
 
-  export type Hook = (eventName: EventName) => {
-    send<RequestBody = any, ResponseBody = any>(
-      body?: RequestBody
+  export interface SendFx {
+    <RequestBody = any, ResponseBody = any>(
+      request: Request<RequestBody> | InternalRequest
     ): Promise<ResponseBody>
   }
+
+  export interface RelayFx {
+    <RequestBody = any>(
+      request: Request<RequestBody> | InternalRequest
+    ): () => void
+  }
+
+  export type Hook = () => {
+    send: SendFx
+  }
 }
+
+export type OriginContext =
+  | "background"
+  | "extension-page"
+  | "sandbox-page"
+  | "content-script"
+  | "window"

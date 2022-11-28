@@ -34,6 +34,8 @@ const createEntryCode = (
 ) => `// @ts-nocheck
 ${importSection}
 
+globalThis.__plasmoInternalPortMap = new Map()
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.name) {
     ${switchCaseSection}
@@ -85,6 +87,11 @@ const addMessagingDeclaration = async (commonPath: CommonPath) => {
 
 export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
   try {
+    // check if package.json has messaging API
+    if (!("@plasmohq/messaging" in plasmoManifest.dependencies)) {
+      throw new Error("@plasmohq/messaging not found in dependencies")
+    }
+
     const codeList = await getMessagingEventList(plasmoManifest)
 
     if (codeList.length === 0) {

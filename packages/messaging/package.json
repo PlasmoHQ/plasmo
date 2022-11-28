@@ -3,40 +3,32 @@
   "version": "0.0.0",
   "description": "Safely communicate accross your extension",
   "type": "module",
-  "module": "./src/index.ts",
-  "types": "./src/index.ts",
-  "publishConfig": {
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-      "./hook": {
-        "import": "./dist/hook.js",
-        "require": "./dist/hook.cjs",
-        "types": "./dist/hook.d.ts"
-      },
-      ".": {
-        "import": "./dist/index.js",
-        "require": "./dist/index.cjs",
-        "types": "./dist/index.d.ts"
-      }
-    }
-  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./hook": {
-      "import": "./src/hook.ts",
-      "require": "./src/hook.ts",
-      "types": "./src/hook.ts"
+      "import": "./dist/hook.js",
+      "require": "./dist/hook.cjs",
+      "types": "./dist/hook.d.ts"
+    },
+    "./background": {
+      "import": "./dist/background.js",
+      "require": "./dist/background.cjs",
+      "types": "./dist/background.d.ts"
     },
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts",
-      "types": "./src/index.ts"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "hook": [
         "./dist/hook.d.ts"
+      ],
+      "background": [
+        "./dist/background.d.ts"
       ]
     }
   },
@@ -46,6 +38,7 @@
   "tsup": {
     "entry": [
       "src/index.ts",
+      "src/background.ts",
       "src/hook.ts"
     ],
     "format": [

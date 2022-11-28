@@ -632,10 +632,12 @@ importers:
     specifiers:
       '@plasmohq/messaging': workspace:*
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/rps': workspace:*
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
+      next: 13.0.4
       plasmo: workspace:*
       prettier: 2.7.1
       react: 18.2.0
@@ -643,11 +645,13 @@ importers:
       typescript: 4.9.3
     dependencies:
       '@plasmohq/messaging': link:../../packages/messaging
+      next: 13.0.4_biqbaboplfbrettd7655fr4n2y
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
+      '@plasmohq/rps': link:../../packages/rps
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
       '@types/react': 18.0.25
@@ -751,6 +755,7 @@ importers:
   examples/with-nextjs:
     specifiers:
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@plasmohq/rps': workspace:*
       '@plasmohq/storage': workspace:*
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
@@ -769,6 +774,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
+      '@plasmohq/rps': link:../../packages/rps
       '@plasmohq/storage': link:../../packages/storage
       '@types/chrome': 0.0.202
       '@types/node': 18.11.9
