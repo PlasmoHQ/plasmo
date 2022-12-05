@@ -20,6 +20,7 @@ importers:
       '@types/semver': 7.3.13
       '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
+      '@types/ws': 8.5.3
       esbuild: 0.15.15
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0
@@ -41,6 +42,7 @@ importers:
       '@types/semver': 7.3.13
       '@types/sharp': 0.31.0
       '@types/uuid': 8.3.4
+      '@types/ws': 8.5.3
       esbuild: 0.15.15
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0_eslint@8.28.0
@@ -628,6 +630,31 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       prettier: 2.8.0
+      typescript: 4.9.3
+
+  examples/with-messaging:
+    specifiers:
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@types/chrome': 0.0.202
+      '@types/node': 18.11.9
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      plasmo: workspace:*
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      typescript: 4.9.3
+    dependencies:
+      plasmo: link:../../cli/plasmo
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
+      '@types/chrome': 0.0.202
+      '@types/node': 18.11.9
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      prettier: 2.7.1
       typescript: 4.9.3
 
   examples/with-mui:
@@ -4986,6 +5013,12 @@ packages:
 
   /@types/webextension-polyfill/0.9.1:
     resolution: {integrity: sha512-6aNzPIhqKlAV9t06nwSH3/veAceYE2dS2RVFZI8V1+UXHqsFNB6cRwxNmheiBvEGRc45E/gyZNzH0xAYIC27KA==}
+    dev: true
+
+  /@types/ws/8.5.3:
+    resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
+    dependencies:
+      '@types/node': 18.11.9
     dev: true
 
   /@types/yargs-parser/21.0.0:
@@ -10085,6 +10118,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /prettier/2.8.0:

@@ -16,19 +16,11 @@ const state = {
 injectSocket(async (updatedAssets, buildReady = false) => {
   state.buildReady ||= buildReady
 
-  const assets = updatedAssets.filter(
-    (asset) => asset.envHash === runtimeData.envHash
-  )
+  vLog({ module, runtimeData, updatedAssets })
 
-  vLog({ module, runtimeData, updatedAssets, assets })
-
-  const shouldReload = assets.some((asset) =>
-    isDependencyOfBundle(module.bundle, asset.id)
-  )
-
-  vLog({ shouldReload })
-
-  state.hmrRequestedReload ||= shouldReload
+  state.hmrRequestedReload ||= updatedAssets
+    .filter((asset) => asset.envHash === runtimeData.envHash)
+    .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
   if (state.hmrRequestedReload && state.buildReady) {
     try {

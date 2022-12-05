@@ -9,6 +9,12 @@ import {
   triggerReload
 } from "./0-patch-module"
 
+function wsErrorHandler(e: ErrorEvent) {
+  if (typeof e.message === "string") {
+    eLog("[plasmo/parcel-runtime]: " + e.message)
+  }
+}
+
 export function injectSocket(
   onUpdate?: (assets: Array<HmrAsset>, buildReady?: boolean) => Promise<void>
 ) {
@@ -32,12 +38,12 @@ export function injectSocket(
   }
 
   // WebSocket will automatically reconnect if the connection is lost. (i.e. restarting `plasmo dev`)
-  const ws = new WebSocket(`${protocol}://${hostname}:${port}/`)
-  const wsBuilder = new WebSocket(
-    `${protocol}://${hostname}:${parseInt(port as string) + 1}/`
-  )
 
-  wsBuilder.onmessage = async function (event) {
+  const baseWsUri = `${protocol}://${hostname}`
+  const hmrWs = new WebSocket(`${baseWsUri}:${port}/`)
+  const builderWs = new WebSocket(`${baseWsUri}:${Number(port) + 1}/`)
+
+  builderWs.onmessage = async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
     if (data.type === "build_ready") {
       await onUpdate?.([], true)
@@ -45,25 +51,9 @@ export function injectSocket(
     }
   }
 
-  wsBuilder.onerror = function (e: ErrorEvent) {
-    if (typeof e.message === "string") {
-      eLog("[plasmo/build-watcher]: " + e.message)
-    }
-  }
+  builderWs.onerror = wsErrorHandler
 
-  wsBuilder.onopen = function () {
-    iLog(
-      `[plasmo/build-watcher]: Connected to HMR server for ${runtimeData.entryFilePath}`
-    )
-  }
-
-  wsBuilder.onclose = function () {
-    wLog(
-      `[plasmo/build-watcher]: Connection to the HMR server is closed for ${runtimeData.entryFilePath}`
-    )
-  }
-
-  ws.onmessage = async function (event) {
+  hmrWs.onmessage = async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
 
     if (data.type === "update") {
@@ -94,19 +84,15 @@ export function injectSocket(
     }
   }
 
-  ws.onerror = function (e: ErrorEvent) {
-    if (typeof e.message === "string") {
-      eLog("[plasmo/parcel-runtime]: " + e.message)
-    }
-  }
+  hmrWs.onerror = wsErrorHandler
 
-  ws.onopen = function () {
+  hmrWs.onopen = function () {
     iLog(
       `[plasmo/parcel-runtime]: Connected to HMR server for ${runtimeData.entryFilePath}`
     )
   }
 
-  ws.onclose = function () {
+  hmrWs.onclose = function () {
     wLog(
       `[plasmo/parcel-runtime]: Connection to the HMR server is closed for ${runtimeData.entryFilePath}`
     )
