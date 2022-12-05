@@ -8,31 +8,26 @@ const scriptPort = chrome.runtime.connect({
   name: `__plasmo_runtime_script_${module.id}__`
 })
 
-injectSocket(async (updatedAssets) => {
-  // make sure it's relevant to this script
-  const assets = updatedAssets.filter(
-    (asset) => asset.envHash === runtimeData.envHash
-  )
+const state = {
+  buildReady: false,
+  hmrRequestedReload: false
+}
 
-  vLog({ module, runtimeData, updatedAssets, assets })
+injectSocket(async (updatedAssets, buildReady = false) => {
+  state.buildReady ||= buildReady
 
-  if (assets.length === 0) {
-    return
-  }
+  vLog({ module, runtimeData, updatedAssets })
 
-  const shouldReload = assets.every((asset) =>
-    isDependencyOfBundle(module.bundle, asset.id)
-  )
+  state.hmrRequestedReload ||= updatedAssets
+    .filter((asset) => asset.envHash === runtimeData.envHash)
+    .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
-  vLog({ shouldReload })
-
-  if (shouldReload) {
+  if (state.hmrRequestedReload && state.buildReady) {
     try {
       scriptPort.postMessage({
         __plasmo_full_reload__: true
       })
     } catch {}
-
     globalThis.location?.reload?.()
   }
 })
