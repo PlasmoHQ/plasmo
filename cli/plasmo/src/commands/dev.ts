@@ -1,6 +1,7 @@
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
 import { aLog, eLog, iLog, vLog } from "@plasmo/utils/logging"
 
+import { createBuildWatcher } from "~features/extension-devtools/build-watcher"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
@@ -98,8 +99,11 @@ async function dev() {
     process.env.__PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED = "true"
   })
 
+  const buildWatcher = await createBuildWatcher(plasmoManifest, hmrPort)
+
   const cleanup = () => {
     projectWatcher?.unsubscribe()
+    buildWatcher.unsubscribe()
     bundlerWatcher.unsubscribe()
   }
 
