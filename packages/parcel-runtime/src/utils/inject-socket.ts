@@ -10,7 +10,7 @@ import {
 } from "./0-patch-module"
 
 export function injectSocket(
-  onUpdate?: (assets: Array<HmrAsset>) => Promise<void>
+  onUpdate?: (assets: Array<HmrAsset>, buildReady?: boolean) => Promise<void>
 ) {
   if (typeof globalThis.WebSocket === "undefined") {
     return
@@ -33,6 +33,35 @@ export function injectSocket(
 
   // WebSocket will automatically reconnect if the connection is lost. (i.e. restarting `plasmo dev`)
   const ws = new WebSocket(`${protocol}://${hostname}:${port}/`)
+  const wsBuilder = new WebSocket(
+    `${protocol}://${hostname}:${parseInt(port as string) + 1}/`
+  )
+
+  wsBuilder.onmessage = async function (event) {
+    const data = JSON.parse(event.data) as HmrMessage
+    if (data.type === "build_ready") {
+      await onUpdate?.([], true)
+      return
+    }
+  }
+
+  wsBuilder.onerror = function (e: ErrorEvent) {
+    if (typeof e.message === "string") {
+      eLog("[plasmo/build-watcher]: " + e.message)
+    }
+  }
+
+  wsBuilder.onopen = function () {
+    iLog(
+      `[plasmo/build-watcher]: Connected to HMR server for ${runtimeData.entryFilePath}`
+    )
+  }
+
+  wsBuilder.onclose = function () {
+    wLog(
+      `[plasmo/build-watcher]: Connection to the HMR server is closed for ${runtimeData.entryFilePath}`
+    )
+  }
 
   ws.onmessage = async function (event) {
     const data = JSON.parse(event.data) as HmrMessage

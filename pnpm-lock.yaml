@@ -100,6 +100,7 @@ importers:
       tempy: 3.0.0
       tiny-glob: 0.2.9
       typescript: 4.9.3
+      ws: 8.11.0
     dependencies:
       '@expo/spawn-async': 1.7.0
       '@parcel/core': 2.8.0
@@ -129,6 +130,7 @@ importers:
       tempy: 3.0.0
       tiny-glob: 0.2.9
       typescript: 4.9.3
+      ws: 8.11.0
     devDependencies:
       '@plasmo/config': link:../../packages/config
       '@plasmo/constants': link:../../packages/constants
