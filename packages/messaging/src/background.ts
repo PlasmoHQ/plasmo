@@ -1,9 +1,9 @@
-import type { EventName, PlasmoMessaging } from "./types"
+import type { PlasmoMessaging, PortName } from "./types"
 
-export const getPortMap = (): Map<EventName, chrome.runtime.Port> =>
+export const getPortMap = (): Map<PortName, chrome.runtime.Port> =>
   globalThis.__plasmoInternalPortMap
 
-export const getPort = (name: EventName): chrome.runtime.Port => {
+export const getPort = (name: PortName): chrome.runtime.Port => {
   const portMap = getPortMap()
   const port = portMap.get(name)
   if (!port) {
@@ -14,10 +14,11 @@ export const getPort = (name: EventName): chrome.runtime.Port => {
 
 chrome.runtime.onMessage.addListener(
   (request: PlasmoMessaging.InternalRequest, _sender, sendResponse) => {
-    switch (request.__internal) {
-      case "__PLASMO_MESSAGING_PING__":
+    switch (request.__PLASMO_INTERNAL_SIGNAL__) {
+      case "__PLASMO_MESSAGING_PING__": {
         sendResponse(true)
         break
+      }
     }
 
     return true
