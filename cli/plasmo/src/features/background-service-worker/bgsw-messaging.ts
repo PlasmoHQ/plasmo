@@ -1,4 +1,5 @@
 import { camelCase } from "change-case"
+import { existsSync } from "fs"
 import { readJson, writeJson } from "fs-extra"
 import { readdir, writeFile } from "fs/promises"
 import { join, resolve } from "path"
@@ -7,13 +8,16 @@ import glob from "tiny-glob"
 import { wLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
+import { getMd5RevHash } from "~features/helpers/crypto"
 import { toPosix } from "~features/helpers/path"
 import type { BaseFactory } from "~features/manifest-factory/base"
 
 const MESSAGING_DECLARATION_FILENAME = `messaging.d.ts`
 const MESSAGING_DECLARATION_FILEPATH = `.plasmo/${MESSAGING_DECLARATION_FILENAME}`
 
-const state = {}
+const state = {
+  md5Hash: ""
+}
 
 const createDeclarationCode = (messages: string[], ports: string[]) => `
 import "@plasmohq/messaging"
@@ -40,45 +44,51 @@ declare module "@plasmohq/messaging" {
 // TODO: cache these?
 const createEntryCode = (
   importSection: string,
-  switchCaseSection: string
+  switchCaseSection: string,
+  portSection: string
 ) => `// @ts-nocheck
-${importSection}
-
 globalThis.__plasmoInternalPortMap = new Map()
+
+${importSection}
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.name) {
     ${switchCaseSection}
+    default:
+      break
   }
 
   return true
 })
+
+${portSection}
 `
 
 const getHandlerList = async (
   plasmoManifest: BaseFactory,
   dirName: "messages" | "ports"
 ) => {
-  const handleDir = join(
+  const handlerDir = join(
     plasmoManifest.projectPath.backgroundDirectory,
     dirName
   )
 
   const handlerFileList = await glob("**/*.ts", {
-    cwd: handleDir,
+    cwd: handlerDir,
     filesOnly: true
   })
 
   return handlerFileList.map((filePath) => {
-    const importPath = toPosix(filePath)
-    const handlerName = importPath.slice(0, -3)
-    const importName = camelCase(handlerName)
+    const posixFilePath = toPosix(filePath)
+    const handlerName = posixFilePath.slice(0, -3)
+    const importPath = `${dirName}/${handlerName}`
+    const importName = camelCase(importPath)
 
     return {
       importName,
       name: handlerName,
       declaration: `"${handlerName}" : {}`,
-      importCode: `import { handler as ${importName} } from "~background/${dirName}/${handlerName}"`
+      importCode: `import { handler as ${importName} } from "~background/${importPath}"`
     }
   })
 }
@@ -102,8 +112,22 @@ const getCaseCode = (
   caseName: string,
   importName: string
 ) => `case "${caseName}":
-  ${importName}(request, sender, sendResponse)
+  ${importName}(request, ({
+    sender,
+    send: sendResponse,
+  }))
   break`
+
+const getPortCode = (portName: string, importName: string) =>
+  `const ${importName}Port = chrome.runtime.connect({ name: "${portName}" })
+${importName}Port.onMessage.addListener((message) => {
+  ${importName}(message, ({
+    port: ${importName}Port,
+    send: (response) => {
+      ${importName}Port.postMessage(response)
+    },
+  }))
+})`
 
 export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
   try {
@@ -118,22 +142,33 @@ export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
       getHandlerList(plasmoManifest, "ports")
     ])
 
-    // if (messageHandlerList.length === 0 && portHandlerList.length === 0) {
-    //   // cleanup all the handlers?
-
-    //   return
-    // }
-
-    const entryCode = createEntryCode(
-      messageHandlerList.map((code) => code.importCode).join("\n"),
-      messageHandlerList
-        .map((code) => getCaseCode(code.name, code.importName))
-        .join("\n")
-    )
+    if (messageHandlerList.length === 0 && portHandlerList.length === 0) {
+      return false
+    }
 
     const declarationCode = createDeclarationCode(
       messageHandlerList.map(({ declaration }) => declaration),
       portHandlerList.map(({ declaration }) => declaration)
+    )
+
+    const declarationMd5Hash = getMd5RevHash(Buffer.from(declarationCode))
+
+    if (state.md5Hash === declarationMd5Hash) {
+      return true
+    }
+
+    state.md5Hash = declarationMd5Hash
+
+    const entryCode = createEntryCode(
+      [...messageHandlerList, ...portHandlerList]
+        .map((code) => code.importCode)
+        .join("\n"),
+      messageHandlerList
+        .map((code) => getCaseCode(code.name, code.importName))
+        .join("\n"),
+      portHandlerList
+        .map((code) => getPortCode(code.name, code.importName))
+        .join("\n")
     )
 
     await Promise.all([
