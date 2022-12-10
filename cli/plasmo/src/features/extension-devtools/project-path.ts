@@ -126,6 +126,20 @@ export const getProjectPath = (
 
   const knownPathSet = new Set(Object.keys(watchPathReasonMap))
 
+  const entryFileSet = new Set([
+    ...backgroundIndexList,
+    ...contentIndexList,
+    ...sandboxIndexList,
+    ...popupIndexList,
+    ...optionsIndexList,
+    ...devtoolsIndexList,
+    ...newtabIndexList
+  ])
+
+  const isEntryPath = (path: string) =>
+    entryFileSet.has(path) ||
+    watchDirectoryEntries.some(([_, dir]) => path.startsWith(dir))
+
   return {
     popupIndexList,
     popupHtmlList,
@@ -152,6 +166,8 @@ export const getProjectPath = (
 
     watchPathReasonMap,
     watchDirectoryEntries,
+
+    isEntryPath,
     knownPathSet
   }
 }
