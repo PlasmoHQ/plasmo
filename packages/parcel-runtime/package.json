@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
@@ -28,8 +28,8 @@
     "tsup": "6.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.0",
-    "@parcel/plugin": "2.8.0",
+    "@parcel/core": "2.8.1",
+    "@parcel/plugin": "2.8.1",
     "react-refresh": "0.14.0"
   }
 }
