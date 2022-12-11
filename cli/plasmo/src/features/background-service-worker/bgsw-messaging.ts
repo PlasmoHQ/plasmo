@@ -1,45 +1,22 @@
 import { camelCase } from "change-case"
 import { existsSync } from "fs"
-import { readJson, writeJson } from "fs-extra"
-import { readdir, writeFile } from "fs/promises"
+import { writeFile } from "fs/promises"
 import { join, resolve } from "path"
 import glob from "tiny-glob"
 
-import { wLog } from "@plasmo/utils/logging"
+import { vLog, wLog } from "@plasmo/utils/logging"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
+import {
+  addMessagingDeclaration,
+  createDeclarationCode
+} from "~features/background-service-worker/bgsw-messaging-declaration"
 import { getMd5RevHash } from "~features/helpers/crypto"
 import { toPosix } from "~features/helpers/path"
 import type { BaseFactory } from "~features/manifest-factory/base"
 
-const MESSAGING_DECLARATION_FILENAME = `messaging.d.ts`
-const MESSAGING_DECLARATION_FILEPATH = `.plasmo/${MESSAGING_DECLARATION_FILENAME}`
-
 const state = {
   md5Hash: ""
 }
-
-const createDeclarationCode = (messages: string[], ports: string[]) => `
-import "@plasmohq/messaging"
-
-interface MmMetadata {
-\t${messages.join("\n\t")}
-}
-
-interface MpMetadata {
-\t${ports.join("\n\t")}
-}
-
-declare module "@plasmohq/messaging/hook" {
-  interface MessagesMetadata extends MmMetadata {}
-  interface PortsMetadata extends MpMetadata {}
-}
-
-declare module "@plasmohq/messaging" {
-  interface MessagesMetadata extends MessagingMessagesMetadata {}
-  interface PortsMetadata extends MpMetadata {}
-}
-`
 
 // TODO: cache these?
 const createEntryCode = (
@@ -61,7 +38,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true
 })
 
-${portSection}
+chrome.runtime.onConnect.addListener(function(port) {
+  globalThis.__plasmoInternalPortMap.set(port.name, port)
+  port.onMessage.addListener(function(request) {
+    switch (port.name) {
+      ${portSection}
+      default:
+        break
+    }
+  })
+})
+
 `
 
 const getHandlerList = async (
@@ -72,6 +59,10 @@ const getHandlerList = async (
     plasmoManifest.projectPath.backgroundDirectory,
     dirName
   )
+
+  if (!existsSync(handlerDir)) {
+    return []
+  }
 
   const handlerFileList = await glob("**/*.ts", {
     cwd: handlerDir,
@@ -93,41 +84,23 @@ const getHandlerList = async (
   })
 }
 
-const addMessagingDeclaration = async (commonPath: CommonPath) => {
-  const tsconfigFilePath = resolve(commonPath.projectDirectory, "tsconfig.json")
-
-  const tsconfig = await readJson(tsconfigFilePath)
-  const includeSet = new Set(tsconfig.include)
-
-  if (includeSet.has(MESSAGING_DECLARATION_FILEPATH)) {
-    return
-  }
-
-  tsconfig.include = [MESSAGING_DECLARATION_FILEPATH, ...includeSet]
-
-  await writeJson(tsconfigFilePath, tsconfig, { spaces: 2 })
-}
-
-const getCaseCode = (
-  caseName: string,
-  importName: string
-) => `case "${caseName}":
-  ${importName}(request, ({
+const getMessageCode = (name: string, importName: string) => `case "${name}":
+  ${importName}({
     sender,
-    send: sendResponse,
-  }))
+    ...request
+  }, {
+    send: (p) => sendResponse(p)
+  })
   break`
 
-const getPortCode = (portName: string, importName: string) =>
-  `const ${importName}Port = chrome.runtime.connect({ name: "${portName}" })
-${importName}Port.onMessage.addListener((message) => {
-  ${importName}(message, ({
-    port: ${importName}Port,
-    send: (response) => {
-      ${importName}Port.postMessage(response)
-    },
-  }))
-})`
+const getPortCode = (name: string, importName: string) => `case "${name}":
+  ${importName}({
+    port,
+    ...request
+  }, {
+    send: (p) => port.postMessage(p)
+  })
+  break`
 
 export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
   try {
@@ -141,6 +114,8 @@ export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
       getHandlerList(plasmoManifest, "messages"),
       getHandlerList(plasmoManifest, "ports")
     ])
+
+    vLog({ messageHandlerList, portHandlerList })
 
     if (messageHandlerList.length === 0 && portHandlerList.length === 0) {
       return false
@@ -164,7 +139,7 @@ export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
         .map((code) => code.importCode)
         .join("\n"),
       messageHandlerList
-        .map((code) => getCaseCode(code.name, code.importName))
+        .map((code) => getMessageCode(code.name, code.importName))
         .join("\n"),
       portHandlerList
         .map((code) => getPortCode(code.name, code.importName))
@@ -180,18 +155,12 @@ export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
         ),
         entryCode
       ),
-      writeFile(
-        resolve(
-          plasmoManifest.commonPath.dotPlasmoDirectory,
-          MESSAGING_DECLARATION_FILENAME
-        ),
-        declarationCode
-      ),
-      addMessagingDeclaration(plasmoManifest.commonPath)
+      addMessagingDeclaration(plasmoManifest.commonPath, declarationCode)
     ])
 
     return true
-  } catch {
+  } catch (e) {
+    vLog(e.message)
     return false
   }
 }

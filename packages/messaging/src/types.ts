@@ -9,6 +9,10 @@ export type InternalSignal = "__PLASMO_MESSAGING_PING__"
 export namespace PlasmoMessaging {
   export type Request<TName = any, TBody = any> = {
     name: TName
+
+    port?: chrome.runtime.Port
+    sender?: chrome.runtime.MessageSender
+
     body?: TBody
     tabId?: number
     relayId?: string
@@ -19,10 +23,7 @@ export namespace PlasmoMessaging {
   }
 
   export type Response<TBody = any> = {
-    sender?: chrome.runtime.MessageSender
-    port?: chrome.runtime.Port
-    json: (body: TBody) => void
-    send: (body: string) => void
+    send: (body: TBody) => void
   }
 
   export type InternalHandler = (request: InternalRequest) => void
@@ -43,12 +44,26 @@ export namespace PlasmoMessaging {
     ): Promise<ResponseBody>
   }
 
+  export type RelayFxOnMessage<RequestBody> = (
+    payload: Request<MessageName, RequestBody>
+  ) => void
+
   export interface RelayFx {
-    <RequestBody = any>(request: Request<MessageName, RequestBody>): () => void
+    <RequestBody = any>(
+      request: Request<MessageName, RequestBody>,
+      onMessage?: RelayFxOnMessage<RequestBody>
+    ): () => void
   }
 
-  export type Hook = () => {
+  export type MessageHook = () => {
     send: SendFx
+  }
+
+  export interface PortHook {
+    <TRequestBody = Record<string, any>, TResponseBody = any>(name: PortName): {
+      data: TResponseBody
+      send: (payload: TRequestBody) => void
+    }
   }
 }
 

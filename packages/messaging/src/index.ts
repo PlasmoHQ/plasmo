@@ -5,6 +5,7 @@ export type { MessageName, MessagesMetadata, PlasmoMessaging } from "./types"
 
 /**
  * Should only be called from CS or Ext Pages
+ * TODO: Add a framework runtime check, using a global varaible
  */
 export const sendToBackground: PlasmoMessaging.SendFx = (req) =>
   new Promise((resolve, reject) => {
@@ -39,14 +40,17 @@ export const sendToActiveContentScript: PlasmoMessaging.SendFx = (req) =>
  * This relay should get be called inside a CS it listen to a specific eventName
  * Then it relay it back to bgsw, to which it resend the data back
  */
-export const messageRelay: PlasmoMessaging.RelayFx = (req) => {
+export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
   const messageHandler = async (event: MessageEvent) => {
     if (isSameTarget(event, req) && !event.data.relayed) {
-      const backgroundResponse = await sendToBackground({
+      const relayPayload = {
         name: req.name,
         relayId: req.relayId,
         body: event.data.body
-      })
+      }
+
+      onMessage?.(relayPayload)
+      const backgroundResponse = await sendToBackground(relayPayload)
 
       window.postMessage({
         name: req.name,
@@ -61,7 +65,7 @@ export const messageRelay: PlasmoMessaging.RelayFx = (req) => {
   return () => window.removeEventListener("message", messageHandler)
 }
 
-export const sendThroughRelay: PlasmoMessaging.SendFx = (req) =>
+export const sendViaRelay: PlasmoMessaging.SendFx = (req) =>
   new Promise((resolve, _reject) => {
     window.postMessage(req)
 

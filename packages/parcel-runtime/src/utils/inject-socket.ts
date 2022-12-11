@@ -1,4 +1,4 @@
-import { eLog, iLog, wLog } from "@plasmo/utils/logging"
+import { eLog, iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
 import {
@@ -9,21 +9,8 @@ import {
   triggerReload
 } from "./0-patch-module"
 
-function wsErrorHandler(e: ErrorEvent) {
-  if (typeof e.message === "string") {
-    eLog("[plasmo/parcel-runtime]: " + e.message)
-  }
-}
-
-export function injectSocket(
-  onUpdate?: (assets: Array<HmrAsset>, buildReady?: boolean) => Promise<void>
-) {
-  if (typeof globalThis.WebSocket === "undefined") {
-    return
-  }
-
+function getBaseSocketUri(port = getPort()) {
   const hostname = getHostname()
-  const port = getPort()
   const protocol =
     runtimeData.secure ||
     (location.protocol === "https:" &&
@@ -37,32 +24,47 @@ export function injectSocket(
     location.reload()
   }
 
-  // WebSocket will automatically reconnect if the connection is lost. (i.e. restarting `plasmo dev`)
+  return `${protocol}://${hostname}:${port}/`
+}
 
-  const baseWsUri = `${protocol}://${hostname}`
-  const hmrWs = new WebSocket(`${baseWsUri}:${port}/`)
-  const builderWs = new WebSocket(`${baseWsUri}:${Number(port) + 1}/`)
+function wsErrorHandler(e: ErrorEvent) {
+  if (typeof e.message === "string") {
+    eLog("[plasmo/parcel-runtime]: " + e.message)
+  }
+}
+
+export function injectBuilderSocket(onUpdate?: () => Promise<void>) {
+  if (typeof globalThis.WebSocket === "undefined") {
+    return
+  }
+
+  const builderWs = new WebSocket(getBaseSocketUri(Number(getPort()) + 1))
 
   builderWs.onmessage = async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
     if (data.type === "build_ready") {
-      await onUpdate?.([], true)
+      await onUpdate()
       return
     }
   }
 
   builderWs.onerror = wsErrorHandler
+}
+
+export function injectHmrSocket(
+  onUpdate: (assets: Array<HmrAsset>) => Promise<void>
+) {
+  if (typeof globalThis.WebSocket === "undefined") {
+    return
+  }
+
+  const hmrWs = new WebSocket(getBaseSocketUri())
 
   hmrWs.onmessage = async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
 
     if (data.type === "update") {
-      if (data.assets.some((e) => e.type === "json")) {
-        // Manifest changed
-        await triggerReload(true)
-      } else if (typeof onUpdate === "function") {
-        await onUpdate(data.assets)
-      }
+      await onUpdate(data.assets)
     }
 
     if (data.type === "error") {

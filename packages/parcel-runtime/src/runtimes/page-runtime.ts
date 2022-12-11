@@ -3,14 +3,14 @@ import { vLog } from "@plasmo/utils/logging"
 import { runtimeData, triggerReload } from "../utils/0-patch-module"
 import { hmrAcceptCheck, hmrState, resetHmrState } from "../utils/hmr-check"
 import { hmrAcceptRun, hmrApplyUpdates } from "../utils/hmr-utils"
-import { injectSocket } from "../utils/inject-socket"
+import { injectHmrSocket } from "../utils/inject-socket"
 import { injectReactRefresh } from "../utils/react-refresh"
 
 const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
-  vLog("Injecting HMR socket")
-  injectSocket(async (updatedAssets) => {
+  injectHmrSocket(async (updatedAssets) => {
+    vLog("Page runtime - On HMR Update")
     if (runtimeData.isReact) {
       resetHmrState()
       // Is an extension page, can try to hot reload
