@@ -7,9 +7,9 @@ import { vLog } from "@plasmo/utils/logging"
 import { PlasmoRuntime, RuntimeData, plasmoRuntimeList } from "./types"
 
 const devRuntimeMap = plasmoRuntimeList.reduce(
-  (p, c) => ({
-    ...p,
-    [c]: fs.readFileSync(path.join(__dirname, `./runtimes/${c}.js`), "utf8")
+  (accumulatedRuntimeMap, currentRuntime) => ({
+    ...accumulatedRuntimeMap,
+    [currentRuntime]: fs.readFileSync(path.join(__dirname, `./runtimes/${currentRuntime}.js`), "utf8")
   }),
   {} as Record<PlasmoRuntime, string>
 )

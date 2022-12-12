@@ -17,7 +17,7 @@ const _signalActiveCS: PlasmoMessaging.SendFx<InternalSignal> =
   sendToActiveContentScript
 
 /**
- * Used in a tab page or sandbox page to send message to background.
+ * Used in an extension page or sandbox page to send message to background.
  */
 export const usePageMessaging: PlasmoMessaging.MessageHook = () => {
   const [isReady, setIsReady] = useState(false)
