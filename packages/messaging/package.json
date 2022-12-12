@@ -1,7 +1,7 @@
 {
   "name": "@plasmohq/messaging",
   "version": "0.0.0",
-  "description": "Safely communicate accross your extension",
+  "description": "Type-safe, zero-config messaging library for modern browser extensions",
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
