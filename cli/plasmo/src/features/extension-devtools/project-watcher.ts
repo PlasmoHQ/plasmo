@@ -94,7 +94,7 @@ export const handleProjectFile = async (
       await plasmoManifest.updatePackageData()
       return
     }
-    case WatchReason.BackgroundMessagesDirectory:
+    case WatchReason.BackgroundDirectory:
     case WatchReason.BackgroundIndex: {
       await updateBgswEntry(plasmoManifest)
       return

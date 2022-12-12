@@ -11,6 +11,11 @@
       "require": "./dist/hook.cjs",
       "types": "./dist/hook.d.ts"
     },
+    "./port": {
+      "import": "./dist/port.js",
+      "require": "./dist/port.cjs",
+      "types": "./dist/port.d.ts"
+    },
     "./background": {
       "import": "./dist/background.js",
       "require": "./dist/background.cjs",
@@ -27,6 +32,9 @@
       "hook": [
         "./dist/hook.d.ts"
       ],
+      "port": [
+        "./dist/port.d.ts"
+      ],
       "background": [
         "./dist/background.d.ts"
       ]
@@ -38,6 +46,7 @@
   "tsup": {
     "entry": [
       "src/index.ts",
+      "src/port.ts",
       "src/background.ts",
       "src/hook.ts"
     ],

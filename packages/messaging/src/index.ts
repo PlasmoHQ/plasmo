@@ -1,13 +1,14 @@
 import type { PlasmoMessaging } from "./types"
 import { getActiveTab, isSameOrigin as isSameTarget } from "./utils"
 
-export type { PlasmoMessaging, EventName, Metadata } from "./types"
+export type { MessageName, MessagesMetadata, PlasmoMessaging } from "./types"
 
 /**
  * Should only be called from CS or Ext Pages
+ * TODO: Add a framework runtime check, using a global varaible
  */
 export const sendToBackground: PlasmoMessaging.SendFx = (req) =>
-  new Promise((resolve, reject) =>
+  new Promise((resolve, reject) => {
     chrome.runtime.sendMessage(req, (res) => {
       if (chrome.runtime.lastError) {
         reject(chrome.runtime.lastError)
@@ -15,16 +16,17 @@ export const sendToBackground: PlasmoMessaging.SendFx = (req) =>
         resolve(res)
       }
     })
-  )
+  })
 
 /**
- * Send to CS from Ext Pages to CS
+ * Send to CS from Ext Pages
  */
-export const sendToContentScript: PlasmoMessaging.SendFx = (req) =>
+export const sendToActiveContentScript: PlasmoMessaging.SendFx = (req) =>
   new Promise(async (resolve, reject) => {
-    const tab = await getActiveTab()
+    const tabId =
+      typeof req.tabId === "number" ? req.tabId : (await getActiveTab()).id
 
-    chrome.tabs.sendMessage(tab.id, req, (res) => {
+    chrome.tabs.sendMessage(tabId, req, (res) => {
       if (chrome.runtime.lastError) {
         reject(chrome.runtime.lastError)
       } else {
@@ -38,14 +40,17 @@ export const sendToContentScript: PlasmoMessaging.SendFx = (req) =>
  * This relay should get be called inside a CS it listen to a specific eventName
  * Then it relay it back to bgsw, to which it resend the data back
  */
-export const relay: PlasmoMessaging.RelayFx = (req) => {
+export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
   const messageHandler = async (event: MessageEvent) => {
     if (isSameTarget(event, req) && !event.data.relayed) {
-      const backgroundResponse = await sendToBackground({
+      const relayPayload = {
         name: req.name,
         relayId: req.relayId,
         body: event.data.body
-      })
+      }
+
+      onMessage?.(relayPayload)
+      const backgroundResponse = await sendToBackground(relayPayload)
 
       window.postMessage({
         name: req.name,
@@ -60,8 +65,8 @@ export const relay: PlasmoMessaging.RelayFx = (req) => {
   return () => window.removeEventListener("message", messageHandler)
 }
 
-export const sendThroughRelay: PlasmoMessaging.SendFx = (req) =>
-  new Promise((resolve, reject) => {
+export const sendViaRelay: PlasmoMessaging.SendFx = (req) =>
+  new Promise((resolve, _reject) => {
     window.postMessage(req)
 
     // Maybe do a timeout and reject?

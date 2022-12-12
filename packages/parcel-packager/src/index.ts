@@ -11,6 +11,7 @@ import { replaceURLReferences } from "@parcel/utils"
 import assert from "assert"
 
 import type { ExtensionManifest } from "@plasmo/constants"
+import { vLog } from "@plasmo/utils/logging"
 
 import {
   appendMv2Wars,
@@ -20,6 +21,7 @@ import {
 
 export default new Packager({
   async package({ bundle, bundleGraph, options }) {
+    vLog("@plasmohq/parcel-packager")
     const assets: Asset[] = []
     bundle.traverseAssets((asset) => {
       assets.push(asset)

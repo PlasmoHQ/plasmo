@@ -205,10 +205,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       (p) => `@plasmohq/${p}` in (this.packageData.dependencies || {})
     )
 
-    await Promise.all([
-      (this.overideManifest = await this.#getOverrideManifest()),
-      await this.#cacheUiLibrary()
-    ])
+    await this.#cacheUiLibrary()
+
+    this.overideManifest = await this.#getOverrideManifest()
   }
 
   #cacheUiLibrary = async () => {
@@ -517,7 +516,9 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         ? inputFilePath
         : resolve(this.commonPath.projectDirectory, inputFilePath)
 
-      const canCopy = await pathExists(resourceFilePath)
+      const canCopy =
+        !this.projectPath.isEntryPath(resourceFilePath) &&
+        (await pathExists(resourceFilePath))
 
       if (!canCopy) {
         return inputFilePath
