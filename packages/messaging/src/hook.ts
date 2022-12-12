@@ -69,7 +69,7 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
 }
 
 /**
- * Perhaps add a way to detect if this hook is beign used inside CS?
+ * TODO: Perhaps add a way to detect if this hook is being used inside CS?
  */
 export function useMessageRelay<TRequestBody = any>(
   name: MessageName,
