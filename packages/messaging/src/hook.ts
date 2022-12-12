@@ -24,7 +24,7 @@ export const usePageMessaging: PlasmoMessaging.MessageHook = () => {
 
   useEffect(() => {
     async function init() {
-      // Send something to contentscript to make sure it's ready before we establish comms
+      // Send a ping to the content script to make sure it's ready before we establish communications
       await _signalActiveCS({ name: "__PLASMO_MESSAGING_PING__" })
 
       const tab = await getActiveTab()
