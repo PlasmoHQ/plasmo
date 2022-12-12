@@ -36,7 +36,7 @@ export const sendToActiveContentScript: PlasmoMessaging.SendFx = (req) =>
   })
 
 /**
- * From a webpage, send data to a CS, which get to bgsw via window message
+ * From a webpage, send data to a cs, which gets to a bgsw via a window message
  * This relay should get be called inside a CS it listen to a specific eventName
  * Then it relay it back to bgsw, to which it resend the data back
  */
