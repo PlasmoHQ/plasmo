@@ -24,15 +24,10 @@ export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3>
     return this
   }
 
-  toggleBackground = (path?: string, enable = false) => {
-    if (path === undefined) {
-      return false
-    }
-
+  toggleBackground = (enable = false) => {
     if (enable) {
-      const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
       this.data.background = {
-        service_worker: scriptPath
+        service_worker: "./static/background/index.ts"
       }
     } else {
       delete this.data.background

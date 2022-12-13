@@ -229,7 +229,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
   }
 
   abstract togglePopup: (enable?: boolean) => this
-  abstract toggleBackground: (path?: string, enable?: boolean) => boolean
+  abstract toggleBackground: (enable?: boolean) => boolean
 
   toggleOptions = (enable = false) => {
     if (enable) {

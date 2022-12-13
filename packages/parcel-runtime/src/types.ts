@@ -1,3 +1,10 @@
+export const plasmoRuntimeList = [
+  "page-runtime",
+  "script-runtime",
+  "background-service-runtime"
+] as const
+
+export type PlasmoRuntime = typeof plasmoRuntimeList[number]
 declare global {
   const __parcel__import__: Function
   const __parcel__importScripts__: Function
@@ -41,6 +48,8 @@ export type RuntimeData = {
   isReact: boolean
   isBackground: boolean
   isContentScript: boolean
+
+  runtimes: PlasmoRuntime[]
 
   host?: string
   port?: number

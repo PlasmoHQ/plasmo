@@ -5,6 +5,7 @@ import { assertUnreachable } from "@plasmo/utils/assert"
 import { hasFlag } from "@plasmo/utils/flags"
 import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
+import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
 import type { BaseFactory } from "~features/manifest-factory/base"
 
 import { generateIcons } from "./generate-icons"
@@ -93,8 +94,9 @@ export const handleProjectFile = async (
       await plasmoManifest.updatePackageData()
       return
     }
+    case WatchReason.BackgroundDirectory:
     case WatchReason.BackgroundIndex: {
-      plasmoManifest.toggleBackground(path, isEnabled)
+      await updateBgswEntry(plasmoManifest)
       return
     }
     case WatchReason.ContentScriptIndex:

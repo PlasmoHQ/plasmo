@@ -226,15 +226,4 @@ export class Scaffolder {
       replaceMap
     )
   }
-
-  #mirrorGenerate = async (
-    fileName: string,
-    staticModulePath: string,
-    replaceMap: Record<string, string>
-  ) =>
-    this.#cachedGenerate(
-      fileName,
-      resolve(staticModulePath, fileName),
-      replaceMap
-    )
 }

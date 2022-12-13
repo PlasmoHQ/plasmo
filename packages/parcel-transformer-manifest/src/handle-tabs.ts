@@ -40,7 +40,8 @@ export async function handleTabs() {
         (await asset.fs.exists(srcEntryPath))
       ) {
         vLog(`Adding tab ${entry}`)
-        asset.addURLDependency(`tabs/${htmlEntry}`, {
+        asset.addURLDependency(`./tabs/${htmlEntry}`, {
+          bundleBehavior: "isolated",
           needsStableName: true
         })
       }
