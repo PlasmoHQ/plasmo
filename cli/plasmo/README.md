@@ -64,7 +64,7 @@ Check out the [documentation](https://docs.plasmo.com/) to get a more in-depth v
 
 ## Browser Extensions Book
 
-For a more in-depth view into how browser extensions work, we highly recommend Matt Frisbie's new book ["Building Browser Extensions"](https://buildingbrowserextensions.com/plasmo)
+For a more in-depth view into how browser extensions work, and how to develop them, we highly recommend Matt Frisbie's new book ["Building Browser Extensions"](https://buildingbrowserextensions.com/plasmo)
 
 ## Usage
 
