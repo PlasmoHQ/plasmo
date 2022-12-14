@@ -1,12 +1,9 @@
-import { paramCase } from "change-case"
-
-import { getFlag } from "@plasmo/utils"
+import { getFlagMap } from "~features/helpers/flag"
 
 export const getBundleConfig = () => {
-  const target = paramCase(getFlag("--target") || "chrome-mv3")
-
+  const flagMap = getFlagMap()
+  const { target, tag } = flagMap
   const [browser, manifestVersion] = target.split("-")
-
   const engines = {
     browsers:
       manifestVersion === "mv2" && browser !== "firefox"
@@ -14,7 +11,9 @@ export const getBundleConfig = () => {
         : ["last 1 Chrome version"]
   }
 
+  // Potential runtime config here
   return {
+    tag,
     target,
     browser,
     manifestVersion,

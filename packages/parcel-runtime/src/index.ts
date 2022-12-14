@@ -4,14 +4,14 @@ import path, { basename, dirname, join } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import type { RuntimeData } from "./types"
+import { PlasmoRuntime, RuntimeData, plasmoRuntimeList } from "./types"
 
-const [pageRuntime, scriptRuntime, backgroundServiceRuntime] = [
-  "page-runtime",
-  "script-runtime",
-  "background-service-runtime"
-].map((runtimeName) =>
-  fs.readFileSync(path.join(__dirname, `./${runtimeName}.js`), "utf8")
+const devRuntimeMap = plasmoRuntimeList.reduce(
+  (accumulatedRuntimeMap, currentRuntime) => ({
+    ...accumulatedRuntimeMap,
+    [currentRuntime]: fs.readFileSync(path.join(__dirname, `./runtimes/${currentRuntime}.js`), "utf8")
+  }),
+  {} as Record<PlasmoRuntime, string>
 )
 
 export default new Runtime({
@@ -23,7 +23,7 @@ export default new Runtime({
           dependencies: Record<string, string>
           devDependencies: Record<string, string>
         }>(
-          join(process.env.PLASMO_SRC_DIR, "lab"), // parcel only look up
+          join(process.env.PLASMO_PROJECT_DIR, "lab"), // parcel only look up
           ["package.json"],
           {
             exclude: true
@@ -76,7 +76,9 @@ export default new Runtime({
     const isBackground =
       entryFilePath.startsWith(
         join(process.env.PLASMO_SRC_DIR, "background")
-      ) || entryFilePath.endsWith("plasmo-default-background.ts")
+      ) ||
+      entryFilePath.endsWith(join("static", "background", "index.ts")) ||
+      entryFilePath.endsWith("plasmo-default-background.ts")
 
     const isPlasmoSrc =
       isPlasmo ||
@@ -96,12 +98,28 @@ export default new Runtime({
     const isContentScript =
       dirname(entryFilePath).endsWith("contents") || entryBasename === "content"
 
-    vLog("Injecting runtime for ", bundle.displayName, bundle.id, entryFilePath)
+    // TODO: add production runtimes
+    const devRuntime: PlasmoRuntime = isBackground
+      ? "background-service-runtime"
+      : isContentScript
+      ? "script-runtime"
+      : "page-runtime"
+
+    vLog(
+      "Injecting <<",
+      devRuntime,
+      ">> for",
+      bundle.displayName,
+      bundle.id,
+      entryFilePath
+    )
 
     const runtimeData: RuntimeData = {
       isContentScript,
       isBackground,
       isReact,
+
+      runtimes: [devRuntime],
 
       ...options.hmrOptions,
       entryFilePath: String.raw`${entryFilePath}`,
@@ -114,18 +132,14 @@ export default new Runtime({
       serverPort: options.serveOptions && options.serveOptions.port
     }
 
-    const runtimeCode = isBackground
-      ? backgroundServiceRuntime
-      : isContentScript
-      ? scriptRuntime
-      : pageRuntime
+    const code = devRuntimeMap[devRuntime].replace(
+      `__plasmo_runtime_data__`, // double quote to escape
+      JSON.stringify(runtimeData)
+    )
 
     return {
       filePath: __filename,
-      code: runtimeCode.replace(
-        `__plasmo_runtime_data__`, // double quote to escape
-        JSON.stringify(runtimeData)
-      ),
+      code,
       isEntry: true,
       env: {
         sourceType: "module"

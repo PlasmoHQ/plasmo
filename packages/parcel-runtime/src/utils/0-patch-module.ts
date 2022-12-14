@@ -1,3 +1,5 @@
+import { vLog } from "@plasmo/utils/logging"
+
 import type { BackgroundMessage, ExtensionApi, RuntimeData } from "../types"
 
 // @ts-ignore
@@ -37,6 +39,7 @@ export const extCtx: ExtensionApi =
 
 export async function triggerReload(fullReload = false) {
   if (fullReload) {
+    vLog("Triggering full reload")
     extCtx.runtime.sendMessage<BackgroundMessage>({
       __plasmo_full_reload__: true
     })

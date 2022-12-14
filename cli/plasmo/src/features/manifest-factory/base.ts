@@ -29,7 +29,9 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
-import { assertTruthy, vLog } from "@plasmo/utils"
+import { assertTruthy } from "@plasmo/utils/assert"
+import { injectEnv } from "@plasmo/utils/env"
+import { vLog } from "@plasmo/utils/logging"
 
 import {
   CommonPath,
@@ -47,10 +49,7 @@ import {
   ProjectPath,
   getProjectPath
 } from "~features/extension-devtools/project-path"
-import {
-  TemplatePath,
-  getTemplatePath
-} from "~features/extension-devtools/template-path"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { getSubExt, toPosix } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
@@ -69,25 +68,21 @@ export const iconMap = {
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
 export abstract class BaseFactory<T extends ExtensionManifest = any> {
-  #bundleConfig: PlasmoBundleConfig
   get browser() {
-    return this.#bundleConfig.browser
+    return this.bundleConfig.browser
   }
 
   #commonPath?: CommonPath
-  public get commonPath(): CommonPath {
+  public get commonPath() {
     return assertTruthy(this.#commonPath)
   }
 
   #projectPath?: ProjectPath
-  public get projectPath(): ProjectPath {
+  public get projectPath() {
     return assertTruthy(this.#projectPath)
   }
 
-  #templatePath: TemplatePath
-  public get templatePath(): TemplatePath {
-    return this.#templatePath
-  }
+  readonly templatePath = getTemplatePath()
 
   #envConfig?: EnvConfig
 
@@ -135,10 +130,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   protected copyQueue: Array<[string, string]> = []
 
-  #scaffolder: Scaffolder
-  get scaffolder() {
-    return this.#scaffolder
-  }
+  readonly scaffolder = new Scaffolder(this)
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -164,11 +156,8 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(bundleConfig: PlasmoBundleConfig) {
+  protected constructor(private bundleConfig: PlasmoBundleConfig) {
     this.data.icons = iconMap
-    this.#bundleConfig = bundleConfig
-    this.#templatePath = getTemplatePath()
-    this.#scaffolder = new Scaffolder(this)
   }
 
   async startup() {
@@ -188,7 +177,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
   async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
     this.#envConfig = await loadEnvConfig(envRootDirectory)
-    this.#commonPath = getCommonPath(envRootDirectory, this.#bundleConfig)
+    this.#commonPath = getCommonPath(envRootDirectory)
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195
@@ -213,13 +202,12 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     this.data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in (this.packageData?.dependencies || {})
+      (p) => `@plasmohq/${p}` in (this.packageData.dependencies || {})
     )
 
-    await Promise.all([
-      (this.overideManifest = await this.#getOverrideManifest()),
-      await this.#cacheUiLibrary()
-    ])
+    await this.#cacheUiLibrary()
+
+    this.overideManifest = await this.#getOverrideManifest()
   }
 
   #cacheUiLibrary = async () => {
@@ -241,7 +229,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
   }
 
   abstract togglePopup: (enable?: boolean) => this
-  abstract toggleBackground: (path?: string, enable?: boolean) => boolean
+  abstract toggleBackground: (enable?: boolean) => boolean
 
   toggleOptions = (enable = false) => {
     if (enable) {
@@ -328,7 +316,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         const parsedModulePath = parse(modulePath)
         scriptPath = relative(
           this.commonPath.dotPlasmoDirectory,
-          await this.#scaffolder.createContentScriptMount(parsedModulePath)
+          await this.scaffolder.createContentScriptMount(parsedModulePath)
         )
       }
 
@@ -342,7 +330,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         )
       }
 
-      const contentScript = this.injectEnv({
+      const contentScript = this.injectEnvToObj({
         matches: ["<all_urls>"],
         js: [scriptPath],
         ...(metadata?.config || {})
@@ -391,7 +379,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(modulePath)
 
-      await this.#scaffolder.createPageMount(parsedModulePath)
+      await this.scaffolder.createPageMount(parsedModulePath)
     }
 
     this.#hash = ""
@@ -438,10 +426,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
 
     base.permissions = [
-      ...new Set([
-        ...base.permissions!,
-        ...((overridePermissions as any) || [])
-      ])
+      ...new Set([...base.permissions!, ...(overridePermissions || [])])
     ]
 
     if (base.permissions?.length === 0) {
@@ -501,7 +486,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       }
     }
 
-    return this.injectEnv(output)
+    return this.injectEnvToObj(output)
   }
 
   protected abstract resolveWAR: (
@@ -531,7 +516,11 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
         ? inputFilePath
         : resolve(this.commonPath.projectDirectory, inputFilePath)
 
-      if (!pathExists(resourceFilePath)) {
+      const canCopy =
+        !this.projectPath.isEntryPath(resourceFilePath) &&
+        (await pathExists(resourceFilePath))
+
+      if (!canCopy) {
         return inputFilePath
       }
 
@@ -563,7 +552,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     }
   }
 
-  protected injectEnv = <T = any, O = T>(target: T): O =>
+  protected injectEnvToObj = <T = any, O = T>(target: T): O =>
     definedTraverse(target, (value) => {
       if (typeof value !== "string") {
         return value
@@ -572,10 +561,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
       if (!!value.match(/^\$(\w+)$/)) {
         return this.combinedEnv[value.substring(1)] || undefined
       } else {
-        return value.replace(
-          /\$(\w+)/gm,
-          (envKey) => this.combinedEnv[envKey.substring(1)] || envKey
-        )
+        return injectEnv(value, this.combinedEnv)
       }
     })
 }

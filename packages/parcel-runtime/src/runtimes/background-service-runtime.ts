@@ -1,14 +1,33 @@
+import { vLog } from "@plasmo/utils/logging"
+
 import type { BackgroundMessage } from "../types"
 
-import "./0-patch-module"
+import "../utils/0-patch-module"
 
-import { extCtx, runtimeData } from "./0-patch-module"
-import { injectSocket } from "./inject-socket"
+import { extCtx, runtimeData } from "../utils/0-patch-module"
+import { injectHmrSocket } from "../utils/inject-socket"
 
 const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
-  injectSocket()
+  injectHmrSocket(async (updatedAssets) => {
+    const manifestChange = updatedAssets.find((e) => e.type === "json")
+    if (!manifestChange) {
+      return
+    }
+
+    const changedIdSet = new Set(updatedAssets.map((e) => e.id))
+
+    const deps = Object.values(manifestChange.depsByBundle)
+      .map((o) => Object.values(o))
+      .flat()
+
+    const shouldReload = deps.every((dep) => changedIdSet.has(dep))
+
+    if (shouldReload) {
+      extCtx.runtime.reload()
+    }
+  })
 }
 
 async function runtimeMessageHandler(msg: BackgroundMessage) {

@@ -6,6 +6,7 @@ export const runMap = {
   init: () => import("./init"),
   dev: () => import("./dev"),
   build: () => import("./build"),
+  package: () => import("./package"),
   //#endif
 
   version: () => import("./version"),

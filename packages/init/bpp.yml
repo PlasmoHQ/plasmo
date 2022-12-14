@@ -14,9 +14,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7.11.0
+          version: latest
           run_install: true
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3.4.1
@@ -24,9 +24,9 @@ jobs:
           node-version: 16.x
           cache: "pnpm"
       - name: Build and zip extension artifact
-        run: pnpm build -- --zip
+        run: pnpm package
       - name: Browser Platform Publish
-        uses: PlasmoHQ/bpp@v2
+        uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
           artifact: build/chrome-mv3-prod.zip

@@ -1,10 +1,9 @@
 import { getJSONSourceLocation } from "@parcel/diagnostic"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 export async function handleDeclarativeNetRequest() {
-  const { program, filePath, ptrs, asset } = state
-
+  const { program, filePath, ptrs, asset } = getState()
   if (!program.declarative_net_request) {
     return
   }

@@ -21,7 +21,8 @@ export const generatePackage = ({
     packageManager: undefined as string | undefined,
     scripts: {
       dev: "plasmo dev",
-      build: "plasmo build"
+      build: "plasmo build",
+      package: "plasmo package"
     },
     dependencies: {
       plasmo: process.env.APP_VERSION,
@@ -29,13 +30,13 @@ export const generatePackage = ({
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "3.5.2",
-      "@types/chrome": "0.0.197",
-      "@types/node": "18.8.3",
-      "@types/react": "18.0.21",
-      "@types/react-dom": "18.0.6",
+      "@plasmohq/prettier-plugin-sort-imports": "3.6.0",
+      "@types/chrome": "0.0.202",
+      "@types/node": "18.11.9",
+      "@types/react": "18.0.25",
+      "@types/react-dom": "18.0.9",
       prettier: "2.7.1",
-      typescript: "4.8.4"
+      typescript: "4.9.3"
     } as Record<string, string>,
     manifest: {
       // permissions: [] as ValidManifestPermission[],

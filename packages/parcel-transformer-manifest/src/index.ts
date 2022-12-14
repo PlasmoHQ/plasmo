@@ -22,7 +22,7 @@ import { handleSandboxes } from "./handle-sandboxes"
 import { handleTabs } from "./handle-tabs"
 import { normalizeManifest } from "./normalize-manifest"
 import { MV2Schema, MV3Schema } from "./schema"
-import { initState } from "./state"
+import { getState, initState } from "./state"
 
 async function collectDependencies() {
   normalizeManifest()
@@ -84,17 +84,14 @@ export default new Transformer({
       "Invalid Web Extension manifest"
     )
 
-    const { state, getAssets } = initState(
-      asset,
-      data,
-      parsed.pointers,
-      options.hmrOptions
-    )
+    await initState(asset, data, parsed.pointers, options)
+
+    const state = getState()
 
     await collectDependencies()
 
     state.asset.setCode(JSON.stringify(data, null, 2))
     state.asset.meta.webextEntry = true
-    return getAssets()
+    return state.getAssets()
   }
 })

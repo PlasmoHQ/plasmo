@@ -3,8 +3,9 @@ import { version } from "plasmo/package.json"
 import init from "plasmo/src/commands/init"
 import { argv, exit } from "process"
 
-import { ErrorMessage } from "@plasmo/constants"
-import { aLog, eLog, exitCountDown } from "@plasmo/utils"
+import { ErrorMessage } from "@plasmo/constants/error"
+import { aLog, eLog } from "@plasmo/utils/logging"
+import { exitCountDown } from "@plasmo/utils/wait"
 
 process.env.APP_VERSION = version
 

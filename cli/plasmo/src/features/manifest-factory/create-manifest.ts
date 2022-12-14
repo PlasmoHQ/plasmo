@@ -1,7 +1,8 @@
 import { existsSync } from "fs-extra"
 
-import { vLog, wLog } from "@plasmo/utils"
+import { vLog, wLog } from "@plasmo/utils/logging"
 
+import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
@@ -18,24 +19,22 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
 
   const {
     contentIndexList,
-    backgroundIndexList,
     sandboxIndexList,
     tabsDirectory,
     sandboxesDirectory
   } = plasmoManifest.projectPath
 
-  const [contentIndex, backgroundIndex, sandboxIndex] = [
-    contentIndexList,
-    backgroundIndexList,
-    sandboxIndexList
-  ].map((l) => l.find(existsSync))
+  const [contentIndex, sandboxIndex] = [contentIndexList, sandboxIndexList].map(
+    (l) => l.find(existsSync)
+  )
 
   const initResults = await Promise.all([
     plasmoManifest.scaffolder.init(),
     plasmoManifest.togglePage(sandboxIndex, true),
 
+    updateBgswEntry(plasmoManifest),
+
     plasmoManifest.toggleContentScript(contentIndex, true),
-    plasmoManifest.toggleBackground(backgroundIndex, true),
     plasmoManifest.addContentScriptsDirectory(),
 
     plasmoManifest.addPagesDirectory(tabsDirectory),

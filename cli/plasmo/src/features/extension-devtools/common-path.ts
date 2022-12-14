@@ -2,40 +2,30 @@ import { existsSync } from "fs"
 import { basename, resolve } from "path"
 import { cwd } from "process"
 
-import { getFlag } from "@plasmo/utils"
+import { getFlagMap } from "~features/helpers/flag"
 
-import { getBundleConfig } from "./get-bundle-config"
+export const getCommonPath = (projectDirectory = cwd()) => {
+  const flagMap = getFlagMap()
 
-export const getCommonPath = (
-  projectDirectory = cwd(),
-  { target } = getBundleConfig()
-) => {
   process.env.PLASMO_PROJECT_DIR = projectDirectory
 
   const packageName = basename(projectDirectory)
 
-  process.env.PLASMO_SRC_PATH =
-    getFlag("--src-path") || process.env.PLASMO_SRC_PATH || "src"
+  process.env.PLASMO_SRC_PATH = flagMap.srcPath
 
-  const srcDirectory = resolve(projectDirectory, process.env.PLASMO_SRC_PATH)
+  const srcDirectory = resolve(projectDirectory, flagMap.srcPath)
 
   process.env.PLASMO_SRC_DIR = existsSync(srcDirectory)
     ? srcDirectory
     : projectDirectory
 
-  process.env.PLASMO_BUILD_PATH =
-    getFlag("--build-path") || process.env.PLASMO_BUILD_PATH || "build"
+  process.env.PLASMO_BUILD_PATH = flagMap.buildPath
 
-  const buildDirectory = resolve(
-    projectDirectory,
-    process.env.PLASMO_BUILD_PATH
-  )
+  const buildDirectory = resolve(projectDirectory, flagMap.buildPath)
 
   process.env.PLASMO_BUILD_DIR = buildDirectory
 
-  const distDirectoryName = `${target}-${
-    process.env.NODE_ENV === "production" ? "prod" : "dev"
-  }`
+  const distDirectoryName = `${flagMap.target}-${flagMap.tag}`
 
   const distDirectory = resolve(buildDirectory, distDirectoryName)
 
@@ -65,7 +55,7 @@ export const getCommonPath = (
     genAssetsDirectory: resolve(dotPlasmoDirectory, "gen-assets"),
     entryManifestPath: resolve(
       dotPlasmoDirectory,
-      `${target}.plasmo.manifest.json`
+      `${flagMap.target}.plasmo.manifest.json`
     )
   }
 }

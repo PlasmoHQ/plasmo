@@ -1,13 +1,13 @@
-import { createWriteStream } from "fs"
-import { resolve } from "path"
-
-import { getNonFlagArgvs, hasFlag, iLog, sLog } from "@plasmo/utils"
+import { getNonFlagArgvs } from "@plasmo/utils/argv"
+import { hasFlag } from "@plasmo/utils/flags"
+import { iLog, sLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { nextNewTab } from "~features/extra/next-new-tab"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
+import { zipBundle } from "~features/manifest-factory/zip"
 
 async function build() {
   printHeader()
@@ -27,8 +27,7 @@ async function build() {
 
   const plasmoManifest = await createManifest(bundleConfig)
 
-  const { distDirectory, buildDirectory, distDirectoryName } =
-    plasmoManifest.commonPath
+  const { distDirectory } = plasmoManifest.commonPath
 
   const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
     mode: "production",
@@ -50,23 +49,7 @@ async function build() {
   await plasmoManifest.postBuild()
 
   if (hasFlag("--zip")) {
-    const { default: archiver } = await import("archiver")
-    const zip = archiver("zip", {
-      zlib: { level: 9 }
-    })
-
-    const zipFilePath = resolve(buildDirectory, `${distDirectoryName}.zip`)
-
-    const output = createWriteStream(zipFilePath)
-    output.on("close", () => {
-      iLog(`Zip Package size: ${zip.pointer()} bytes`)
-    })
-
-    zip.pipe(output)
-
-    zip.directory(distDirectory, "")
-
-    await zip.finalize()
+    await zipBundle(plasmoManifest.commonPath)
   }
 }
 

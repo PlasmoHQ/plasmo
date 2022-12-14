@@ -23,6 +23,8 @@ declare namespace NodeJS {
 
     PLASMO_TARGET:
       | `${ProcessEnv["PLASMO_BROWSER"]}-${ProcessEnv["PLASMO_MANIFEST_VERSION"]}`
+
+    PLASMO_TAG: string
   }
 }
 
@@ -31,6 +33,7 @@ declare module "*.module.less"
 declare module "*.module.scss"
 declare module "*.module.sass"
 declare module "*.module.styl"
+declare module "*.module.pcss"
 
 declare module "url:*" {
   const value: string

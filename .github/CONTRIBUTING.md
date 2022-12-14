@@ -10,7 +10,7 @@ To contribute to [our examples](https://github.com/PlasmoHQ/examples/), please s
    git clone git@github.com:<org>/plasmo.git --recurse-submodules
    ```
 
-   **NOTE:** Replace `<org>` with your GitHub username.
+   **NOTE:** Replace `<org>` with your GitHub username or organization.
 
 1. Work on your fork's `main` branch, then [open a PR](https://github.com/PlasmoHQ/plasmo/compare). Please ensure the PR name follows the naming convention:
 
@@ -22,9 +22,8 @@ To contribute to [our examples](https://github.com/PlasmoHQ/examples/), please s
 
 When you add an example to the [examples](https://github.com/PlasmoHQ/examples/) repository:
 
-- Use `pnpm dlx plasmo init --exp` to create the example.
+- Use `pnpm create plasmo --exp` to create the example.
 - The name of the example should have a `with-*` prefix.
-- Change plasmo in `package.json` to point to `workspace:*` instead of `latest`.
 - To add additional notes, add a `## Notes` section at the start of the generated readme.
 - Your PR should be pointed to the [examples project](https://github.com/PlasmoHQ/examples/).
 
@@ -34,18 +33,6 @@ The development branch is `main`, and this is the branch that all pull
 requests should be made against.
 
 To develop locally:
-
-1. Clone the repository together with its submodules:
-
-   ```bash
-   git clone git@github.com:PlasmoHQ/plasmo.git --recurse-submodules
-   ```
-
-1. Checkout the `main` branch:
-
-   ```
-   git checkout main
-   ```
 
 1. Install [pnpm](https://pnpm.io/)
 1. Install the dependencies with:
@@ -57,14 +44,12 @@ To develop locally:
 1. Start developing and watch for code changes:
 
    ```
-   pnpm dev
+   pnpm dev:cli
    ```
 
 ## Developing with your local version of Plasmo
 
-There are two options to develop with your local version of the codebase:
-
-### Set as local dependency in package.json
+### As global link
 
 1. Link `plasmo` to your local registry:
 
@@ -95,6 +80,8 @@ pnpm build
 
 Any files that require attention for reading should be `UPPER_CASE`. Examples:
 
+- README.md
+- LICENSE
 - SECURITY.md
 - CONTRIBUTING.md
 

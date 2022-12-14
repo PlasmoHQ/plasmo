@@ -2,11 +2,10 @@ import { resolve } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { state } from "./state"
+import { getState } from "./state"
 
 export async function handleSandboxes() {
-  const { asset, srcDir, dotPlasmoDir, program } = state
-
+  const { asset, srcDir, dotPlasmoDir, program } = getState()
   const srcPaths = ["sandboxes", "sandbox.ts", "sandbox.tsx"].map((file) =>
     resolve(srcDir, file)
   )

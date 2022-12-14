@@ -15,6 +15,7 @@ export enum WatchReason {
   TabsDirectory,
 
   BackgroundIndex,
+  BackgroundDirectory,
 
   ContentScriptIndex,
   ContentScriptsDirectory,
@@ -114,15 +115,30 @@ export const getProjectPath = (
   const contentsDirectory = resolve(sourceDirectory, "contents")
   const sandboxesDirectory = resolve(sourceDirectory, "sandboxes")
   const tabsDirectory = resolve(sourceDirectory, "tabs")
-
+  const backgroundDirectory = resolve(sourceDirectory, "background")
   const watchDirectoryEntries = [
     [WatchReason.SandboxesDirectory, sandboxesDirectory],
     [WatchReason.TabsDirectory, tabsDirectory],
     [WatchReason.ContentScriptsDirectory, contentsDirectory],
+    [WatchReason.BackgroundDirectory, backgroundDirectory],
     [WatchReason.AssetsDirectory, assetsDirectory]
   ] as Array<DirectoryWatchTuple>
 
   const knownPathSet = new Set(Object.keys(watchPathReasonMap))
+
+  const entryFileSet = new Set([
+    ...backgroundIndexList,
+    ...contentIndexList,
+    ...sandboxIndexList,
+    ...popupIndexList,
+    ...optionsIndexList,
+    ...devtoolsIndexList,
+    ...newtabIndexList
+  ])
+
+  const isEntryPath = (path: string) =>
+    entryFileSet.has(path) ||
+    watchDirectoryEntries.some(([_, dir]) => path.startsWith(dir))
 
   return {
     popupIndexList,
@@ -138,6 +154,7 @@ export const getProjectPath = (
     newtabHtmlList,
 
     backgroundIndexList,
+    backgroundDirectory,
 
     contentIndexList,
     contentsDirectory,
@@ -149,6 +166,8 @@ export const getProjectPath = (
 
     watchPathReasonMap,
     watchDirectoryEntries,
+
+    isEntryPath,
     knownPathSet
   }
 }

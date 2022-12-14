@@ -1,19 +1,11 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.11.0",
+  "version": "0.14.0",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
-  "tsup": {
-    "entry": {
-      "index": "src/index.ts",
-      "page-runtime": "src/runtimes/page-runtime.ts",
-      "script-runtime": "src/runtimes/script-runtime.ts",
-      "background-service-runtime": "src/runtimes/background-service-runtime.ts"
-    }
-  },
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup --minify --clean",
@@ -32,12 +24,12 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@types/chrome": "0.0.200",
-    "tsup": "6.3.0"
+    "@types/chrome": "0.0.202",
+    "tsup": "6.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.7.0",
-    "@parcel/plugin": "2.7.0",
+    "@parcel/core": "2.8.1",
+    "@parcel/plugin": "2.8.1",
     "react-refresh": "0.14.0"
   }
 }

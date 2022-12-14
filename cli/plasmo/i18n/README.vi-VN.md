@@ -37,13 +37,13 @@
 ## Tính năng
 
 - [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
-- [Tự động hóa `manifest.json` với MV3](https://docs.plasmo.com/#where-is-the-manifestjson-file)
+- [Tự động hóa `manifest.json` với MV3](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
 - Tự động reload trình duyệt
-- [`.env*` file](https://docs.plasmo.com/browser-extension/env)
+- [`.env*` file](https://docs.plasmo.com/framework/env)
 - [Content Scripts UI](https://docs.plasmo.com/csui)
-- [Gói mã nguồn online](https://docs.plasmo.com/workflows/remote-code) (e.g for gtag4)
-- [Tự động xuất bản với BPP](https://docs.plasmo.com/workflows/submit)
-- [Tạo extension cho mọi trình duyệt](https://docs.plasmo.com/workflows/build#with-specific-target)
+- [Gói mã nguồn online](https://docs.plasmo.com/framework/workflows/remote-code) (e.g for gtag4)
+- [Tự động xuất bản với BPP](https://docs.plasmo.com/framework/workflows/submit)
+- [Tạo extension cho mọi trình duyệt](https://docs.plasmo.com/framework/workflows/build#with-specific-target)
 - Dùng với [Svelte](https://github.com/PlasmoHQ/with-svelte) hoặc [Vue](https://github.com/PlasmoHQ/with-vue)
 - Và nhiều hơn nữa! 🚀
 
@@ -98,7 +98,7 @@ ext-dir
 ...
 ```
 
-Cuối cùng, bạn cũng có thể tránh đặt mã nguồn vào thư mục gốc của mình bằng cách đặt chúng vào thư mục con `src`, [làm theo hướng dẫn này](https://docs.plasmo.com/customization/src). Lưu ý, thư mục `assets` và các tệp config vẫn cần phải ở trong thư mục gốc.
+Cuối cùng, bạn cũng có thể tránh đặt mã nguồn vào thư mục gốc của mình bằng cách đặt chúng vào thư mục con `src`, [làm theo hướng dẫn này](https://docs.plasmo.com/framework/customization/src). Lưu ý, thư mục `assets` và các tệp config vẫn cần phải ở trong thư mục gốc.
 
 ## Cộng đồng
 

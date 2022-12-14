@@ -11,7 +11,8 @@ import type {
   ExtensionManifestV3,
   ManifestPermission
 } from "@plasmo/constants"
-import { getFlag, vLog } from "@plasmo/utils"
+import { getFlag } from "@plasmo/utils/flags"
+import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import {
