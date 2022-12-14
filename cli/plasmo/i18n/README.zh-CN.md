@@ -37,11 +37,11 @@
 ## 特性
 
 - 对 [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) 的一等支持
-- [声明式开发，自动生成 `manifest.json` (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
+- [声明式开发，自动生成 `manifest.json` (MV3)](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
 - 热重载
-- [`.env*` 文件](https://docs.plasmo.com/browser-extension/env)
-- [远程代码打包](https://docs.plasmo.com/workflows/remote-code) (例如：使用 gtag4 )
-- 自动部署 (通过 [BPP](https://docs.plasmo.com/workflows/submit))
+- [`.env*` 文件](https://docs.plasmo.com/framework/env)
+- [远程代码打包](https://docs.plasmo.com/framework/workflows/remote-code) (例如：使用 gtag4 )
+- 自动部署 (通过 [BPP](https://docs.plasmo.com/framework/workflows/submit))
 - 还有更多! 🚀
 
 ## 系统要求
@@ -95,7 +95,7 @@ ext-dir
 ...
 ```
 
-此外，您也能够将代码放到 `src` 子目录，而不将它们放到根目录，请[参阅该指南](https://docs.plasmo.com/customization/src)。注意 `assets` 和其他配置文件仍须在根目录下。
+此外，您也能够将代码放到 `src` 子目录，而不将它们放到根目录，请[参阅该指南](https://docs.plasmo.com/framework/customization/src)。注意 `assets` 和其他配置文件仍须在根目录下。
 
 ## 社区
 

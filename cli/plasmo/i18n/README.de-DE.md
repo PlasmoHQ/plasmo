@@ -37,11 +37,11 @@ Das [Plasmo](https://www.plasmo.com/) Framework ist ein SDK zum Erstellen von Br
 ## Features
 
 - Direkte Unterstützung von [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
-- [Deklarative Entwicklung mit automatischer Erzeugung von "manifest.json" (MV3)](https://docs.plasmo.com/#where-is-the-manifestjson-file)
+- [Deklarative Entwicklung mit automatischer Erzeugung von "manifest.json" (MV3)](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
 - Automatisches Neuladen
-- [`.env*` Datei-Unterstützung](https://docs.plasmo.com/browser-extension/env)
-- [Bundling von externen Skripten](https://docs.plasmo.com/workflows/remote-code) (z.B. für gtag4)
-- Automatisierte Bereitstellung (über [BPP](https://docs.plasmo.com/workflows/submit))
+- [`.env*` Datei-Unterstützung](https://docs.plasmo.com/framework/env)
+- [Bundling von externen Skripten](https://docs.plasmo.com/framework/workflows/remote-code) (z.B. für gtag4)
+- Automatisierte Bereitstellung (über [BPP](https://docs.plasmo.com/framework/workflows/submit))
 - Und viel, viel mehr! 🚀
 
 ## Systemanforderungen
@@ -95,7 +95,7 @@ ext-dir
 ...
 ```
 
-Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem du dieser Anleitung folgst](https://docs.plasmo.com/customization/src). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
+Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen, wenn du sie in das Unterverzeichnis `src` legen, [indem du dieser Anleitung folgst](https://docs.plasmo.com/framework/customization/src). Beachte, dass `assets` und andere Konfigurationsdateien immer noch im Hauptverzeichnis liegen müssen.
 
 ## Community
 
