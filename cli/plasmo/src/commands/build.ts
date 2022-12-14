@@ -38,9 +38,7 @@ async function build() {
       shouldOptimize: true,
       shouldScopeHoist: true,
       sourceMaps: hasFlag("--source-maps"),
-      engines: {
-        browsers: ["last 1 Chrome version"]
-      },
+      engines: bundleConfig.engines,
       distDir: distDirectory
     },
     env: plasmoManifest.publicEnv.extends(bundleConfig).data
