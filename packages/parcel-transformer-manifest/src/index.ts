@@ -65,7 +65,9 @@ export default new Transformer({
         asset.env.outputFormat === "commonjs"
           ? "global"
           : asset.env.outputFormat,
-      engines: asset.env.engines,
+      engines: {
+        browsers: asset.env.engines.browsers
+      },
       sourceMap: asset.env.sourceMap && {
         ...asset.env.sourceMap,
         ...sourceMapConfig
