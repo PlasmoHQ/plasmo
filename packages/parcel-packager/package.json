@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-packager",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Plasmo Parcel Packager for Web Extension Manifest",
   "files": [
     "dist"
@@ -28,10 +28,10 @@
     "tsup": "6.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.1",
-    "@parcel/plugin": "2.8.1",
-    "@parcel/types": "2.8.1",
-    "@parcel/utils": "2.8.1",
+    "@parcel/core": "2.8.2",
+    "@parcel/plugin": "2.8.2",
+    "@parcel/types": "2.8.2",
+    "@parcel/utils": "2.8.2",
     "nullthrows": "1.1.1"
   }
 }

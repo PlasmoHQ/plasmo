@@ -16,8 +16,7 @@ const commonConfig = {
 async function main() {
   const config = await fse.readJson("package.json")
   const define = {
-    "process.env.APP_VERSION": `"${config.version}"`,
-    "process.env.LAB": watch
+    "process.env.APP_VERSION": `"${config.version}"`
   }
 
   await build({
