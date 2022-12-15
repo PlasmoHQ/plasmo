@@ -104,12 +104,6 @@ const getPortCode = (name: string, importName: string) => `case "${name}":
 
 export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
   try {
-    // check if package.json has messaging API
-    if (!("@plasmohq/messaging" in plasmoManifest.dependencies)) {
-      wLog("@plasmohq/messaging is not installed, skipping messaging API")
-      return
-    }
-
     const [messageHandlerList, portHandlerList] = await Promise.all([
       getHandlerList(plasmoManifest, "messages"),
       getHandlerList(plasmoManifest, "ports")
@@ -118,6 +112,12 @@ export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
     vLog({ messageHandlerList, portHandlerList })
 
     if (messageHandlerList.length === 0 && portHandlerList.length === 0) {
+      return false
+    }
+
+    // check if package.json has messaging API
+    if (!("@plasmohq/messaging" in plasmoManifest.dependencies)) {
+      wLog("@plasmohq/messaging is not installed, skipping messaging API")
       return false
     }
 
