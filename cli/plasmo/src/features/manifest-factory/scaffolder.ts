@@ -7,7 +7,7 @@ import { vLog } from "@plasmo/utils/logging"
 
 import { toPosix } from "~features/helpers/path"
 
-import type { BaseFactory } from "./base"
+import type { PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
@@ -27,7 +27,7 @@ export class Scaffolder {
     return this.plasmoManifest.mountExt
   }
 
-  constructor(private plasmoManifest: BaseFactory) {}
+  constructor(private plasmoManifest: PlasmoManifest) {}
 
   async init() {
     const [_, ...uiPagesResult] = await Promise.all([

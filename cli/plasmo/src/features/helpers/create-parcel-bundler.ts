@@ -6,7 +6,7 @@ import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
 
-import type { CommonPath } from "~features/extension-devtools/common-path"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 import { getPackageManager } from "./package-manager"
 
@@ -19,8 +19,8 @@ const PackageInstallerMap = {
 }
 
 export const createParcelBuilder = async (
-  commonPath: CommonPath,
-  options: ParcelOptions
+  { commonPath, bundleConfig, publicEnv }: PlasmoManifest,
+  { defaultTargetOptions, ...options }: ParcelOptions
 ) => {
   await emptyDir(commonPath.distDirectory)
 
@@ -48,6 +48,14 @@ export const createParcelBuilder = async (
 
   await writeJson(runConfig, configJson)
 
+  const engines = {
+    browsers:
+      bundleConfig.manifestVersion === "mv2" &&
+      bundleConfig.browser !== "firefox"
+        ? ["IE 11"]
+        : ["last 1 Chrome version"]
+  }
+
   const bundler = new Parcel({
     inputFS,
     packageManager,
@@ -55,6 +63,15 @@ export const createParcelBuilder = async (
     cacheDir: resolve(commonPath.cacheDirectory, "parcel"),
     config: runConfig,
     shouldAutoInstall: true,
+
+    env: publicEnv.extends(bundleConfig).data,
+
+    defaultTargetOptions: {
+      ...defaultTargetOptions,
+      engines,
+      distDir: commonPath.distDirectory
+    },
+
     ...options
   })
 

@@ -67,7 +67,7 @@ export const iconMap = {
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
-export abstract class BaseFactory<T extends ExtensionManifest = any> {
+export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   get browser() {
     return this.bundleConfig.browser
   }
@@ -156,7 +156,7 @@ export abstract class BaseFactory<T extends ExtensionManifest = any> {
     return resolve(this.templatePath.staticTemplatePath, this.uiLibrary.path)
   }
 
-  protected constructor(private bundleConfig: PlasmoBundleConfig) {
+  protected constructor(public bundleConfig: PlasmoBundleConfig) {
     this.data.icons = iconMap
   }
 

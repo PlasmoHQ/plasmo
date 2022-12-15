@@ -27,19 +27,15 @@ async function build() {
 
   const plasmoManifest = await createManifest(bundleConfig)
 
-  const { distDirectory } = plasmoManifest.commonPath
-
-  const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
+  const bundler = await createParcelBuilder(plasmoManifest, {
     mode: "production",
     shouldDisableCache: true,
     shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
       shouldScopeHoist: true,
-      sourceMaps: hasFlag("--source-maps"),
-      distDir: distDirectory
-    },
-    env: plasmoManifest.publicEnv.extends(bundleConfig).data
+      sourceMaps: hasFlag("--source-maps")
+    }
   })
 
   const result = await bundler.run()

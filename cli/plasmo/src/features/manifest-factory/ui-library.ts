@@ -6,7 +6,7 @@ import semver from "semver"
 import { assertUnreachable } from "@plasmo/utils/assert"
 import { fileExists } from "@plasmo/utils/fs"
 
-import type { BaseFactory } from "./base"
+import type { PlasmoManifest } from "./base"
 
 const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
@@ -55,7 +55,7 @@ const getMajorVersion = async (version: string) => {
 }
 
 export const getUiLibrary = async (
-  plasmoManifest: BaseFactory
+  plasmoManifest: PlasmoManifest
 ): Promise<UiLibrary> => {
   const dependencies = plasmoManifest.dependencies ?? {}
 

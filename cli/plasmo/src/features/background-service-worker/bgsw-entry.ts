@@ -3,11 +3,11 @@ import { writeFile } from "fs/promises"
 import { relative, resolve } from "path"
 
 import { toPosix } from "~features/helpers/path"
-import type { BaseFactory } from "~features/manifest-factory/base"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 export const createBgswEntry = async (
   { indexFilePath = "", withMessaging = false },
-  plasmoManifest: BaseFactory
+  plasmoManifest: PlasmoManifest
 ) => {
   const bgswStaticDirectory = resolve(
     plasmoManifest.commonPath.staticDirectory,

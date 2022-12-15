@@ -4,9 +4,9 @@ import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { BaseFactory, iconMap } from "./base"
+import { PlasmoManifest, iconMap } from "./base"
 
-export class PlasmoExtensionManifestMV3 extends BaseFactory<ExtensionManifestV3> {
+export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifestV3> {
   constructor(bundleConfig: PlasmoBundleConfig) {
     super(bundleConfig)
     this.data.manifest_version = 3

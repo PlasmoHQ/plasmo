@@ -12,7 +12,7 @@ import {
 } from "~features/background-service-worker/bgsw-messaging-declaration"
 import { getMd5RevHash } from "~features/helpers/crypto"
 import { toPosix } from "~features/helpers/path"
-import type { BaseFactory } from "~features/manifest-factory/base"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 const state = {
   md5Hash: ""
@@ -52,7 +52,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 `
 
 const getHandlerList = async (
-  plasmoManifest: BaseFactory,
+  plasmoManifest: PlasmoManifest,
   dirName: "messages" | "ports"
 ) => {
   const handlerDir = join(
@@ -102,7 +102,7 @@ const getPortCode = (name: string, importName: string) => `case "${name}":
   })
   break`
 
-export const createBgswMessaging = async (plasmoManifest: BaseFactory) => {
+export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
   try {
     // check if package.json has messaging API
     if (!("@plasmohq/messaging" in plasmoManifest.dependencies)) {
