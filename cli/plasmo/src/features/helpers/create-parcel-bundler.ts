@@ -1,8 +1,10 @@
 import { Parcel } from "@parcel/core"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
-import { emptyDir, readJson } from "fs-extra"
-import { resolve } from "path"
+import { emptyDir, readJson, writeJson } from "fs-extra"
+import { dirname, join, resolve } from "path"
+
+import { hasFlag } from "@plasmo/utils/flags"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
@@ -35,16 +37,23 @@ export const createParcelBuilder = async (
   )
 
   const baseConfig = require.resolve("@plasmohq/parcel-config")
+
+  const runConfig = join(dirname(baseConfig), "run.json")
+
   const configJson = await readJson(baseConfig)
 
-  console.log(configJson)
+  if (hasFlag("--bundle-buddy")) {
+    configJson.reporters = ["...", "@parcel/reporter-bundle-buddy"]
+  }
+
+  await writeJson(runConfig, configJson)
 
   const bundler = new Parcel({
     inputFS,
     packageManager,
     entries: commonPath.entryManifestPath,
     cacheDir: resolve(commonPath.cacheDirectory, "parcel"),
-    config: require.resolve("@plasmohq/parcel-config"),
+    config: runConfig,
     shouldAutoInstall: true,
     ...options
   })
