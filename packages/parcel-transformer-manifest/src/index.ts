@@ -48,6 +48,17 @@ export default new Transformer({
     // Set environment to browser, since web extensions are always used in
     // browsers, and because it avoids delegating extra config to the user
 
+    console.log(options.env.PLASMO_MANIFEST_VERSION)
+    console.log(options.env.PLASMO_BROWSER)
+
+    const engines = {
+      browsers:
+        options.env.PLASMO_MANIFEST_VERSION === "mv2" &&
+        options.env.PLASMO_BROWSER !== "firefox"
+          ? ["IE 11"]
+          : ["last 1 Chrome version"]
+    }
+
     const sourceMapConfig: TargetSourceMapOptions =
       options.mode === "development"
         ? {
@@ -65,9 +76,7 @@ export default new Transformer({
         asset.env.outputFormat === "commonjs"
           ? "global"
           : asset.env.outputFormat,
-      engines: {
-        browsers: asset.env.engines.browsers
-      },
+      engines,
       sourceMap: asset.env.sourceMap && {
         ...asset.env.sourceMap,
         ...sourceMapConfig
