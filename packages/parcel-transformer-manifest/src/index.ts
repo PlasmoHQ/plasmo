@@ -48,9 +48,6 @@ export default new Transformer({
     // Set environment to browser, since web extensions are always used in
     // browsers, and because it avoids delegating extra config to the user
 
-    console.log(options.env.PLASMO_MANIFEST_VERSION)
-    console.log(options.env.PLASMO_BROWSER)
-
     const engines = {
       browsers:
         options.env.PLASMO_MANIFEST_VERSION === "mv2" &&
