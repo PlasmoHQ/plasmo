@@ -53,7 +53,7 @@ async function injectAnchor(
   } else if (anchor.type === "inline") {
     anchor.element.insertAdjacentElement("afterend", shadowHost)
   } else {
-    document.documentElement.appendChild(shadowHost)
+    document.documentElement.prepend(shadowHost)
   }
 }
 
