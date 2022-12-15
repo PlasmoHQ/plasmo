@@ -33,14 +33,10 @@ async function dev() {
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
 
-  const bundler = await createParcelBuilder(plasmoManifest.commonPath, {
+  const bundler = await createParcelBuilder(plasmoManifest, {
     logLevel: "verbose",
     defaultTargetOptions: {
-      sourceMaps: !hasFlag("--no-source-maps"),
-      engines: {
-        browsers: ["last 1 Chrome version"]
-      },
-      distDir: plasmoManifest.commonPath.distDirectory
+      sourceMaps: !hasFlag("--no-source-maps")
     },
     serveOptions: {
       host: "localhost",
@@ -49,8 +45,7 @@ async function dev() {
     hmrOptions: {
       host: "localhost",
       port: hmrPort
-    },
-    env: plasmoManifest.publicEnv.extends(bundleConfig).data
+    }
   })
 
   const { default: chalk } = await import("chalk")

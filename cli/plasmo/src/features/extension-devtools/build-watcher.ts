@@ -3,12 +3,12 @@ import { WebSocket, WebSocketServer } from "ws"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants/misc"
 
-import type { BaseFactory } from "~features/manifest-factory/base"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 const payload = JSON.stringify({ type: "build_ready" })
 
 export const createBuildWatcher = async (
-  plasmoManifest: BaseFactory,
+  plasmoManifest: PlasmoManifest,
   hmrPort: number
 ) => {
   const wss = new WebSocketServer({ port: hmrPort + 1 })

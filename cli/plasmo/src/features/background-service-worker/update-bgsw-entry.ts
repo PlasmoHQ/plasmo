@@ -2,9 +2,9 @@ import { existsSync } from "fs"
 
 import { createBgswEntry } from "~features/background-service-worker/bgsw-entry"
 import { createBgswMessaging } from "~features/background-service-worker/bgsw-messaging"
-import type { BaseFactory } from "~features/manifest-factory/base"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
-export const updateBgswEntry = async (plasmoManifest: BaseFactory) => {
+export const updateBgswEntry = async (plasmoManifest: PlasmoManifest) => {
   const bgswIndex =
     plasmoManifest.projectPath.backgroundIndexList.find(existsSync)
 

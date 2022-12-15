@@ -6,14 +6,14 @@ import { hasFlag } from "@plasmo/utils/flags"
 import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
-import type { BaseFactory } from "~features/manifest-factory/base"
+import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 import { generateIcons } from "./generate-icons"
 import { WatchReason } from "./project-path"
 
 const ignore = ["node_modules", "build", ".plasmo", "coverage", ".git"]
 
-export const createProjectWatcher = async (plasmoManifest: BaseFactory) => {
+export const createProjectWatcher = async (plasmoManifest: PlasmoManifest) => {
   if (hasFlag("--impulse")) {
     return null
   }
@@ -70,7 +70,7 @@ export const handleProjectFile = async (
   type: Event["type"],
   path: string,
   reason: WatchReason,
-  plasmoManifest: BaseFactory
+  plasmoManifest: PlasmoManifest
 ) => {
   const isEnabled = type !== "delete"
 

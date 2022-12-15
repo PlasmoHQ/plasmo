@@ -7,9 +7,9 @@ import type {
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { BaseFactory, iconMap } from "./base"
+import { PlasmoManifest, iconMap } from "./base"
 
-export class PlasmoExtensionManifestMV2 extends BaseFactory<ExtensionManifestV2> {
+export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifestV2> {
   constructor(bundleConfig: PlasmoBundleConfig) {
     super(bundleConfig)
 
