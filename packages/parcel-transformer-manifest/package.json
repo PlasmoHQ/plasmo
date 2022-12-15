@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-manifest",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Plasmo Parcel Transformer for Web Extension Manifest",
   "files": [
     "dist",
@@ -29,14 +29,14 @@
   },
   "dependencies": {
     "@mischnic/json-sourcemap": "0.1.0",
-    "@parcel/core": "2.8.1",
-    "@parcel/diagnostic": "2.8.1",
-    "@parcel/fs": "2.8.1",
-    "@parcel/plugin": "2.8.1",
-    "@parcel/types": "2.8.1",
-    "@parcel/utils": "2.8.1",
+    "@parcel/core": "2.8.2",
+    "@parcel/diagnostic": "2.8.2",
+    "@parcel/fs": "2.8.2",
+    "@parcel/plugin": "2.8.2",
+    "@parcel/types": "2.8.2",
+    "@parcel/utils": "2.8.2",
     "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.6.1",
+    "json-schema-to-ts": "2.6.2",
     "nullthrows": "1.1.1"
   }
 }

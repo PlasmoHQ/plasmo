@@ -1,7 +1,7 @@
 import { Parcel } from "@parcel/core"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
-import { emptyDir } from "fs-extra"
+import { emptyDir, readJson } from "fs-extra"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -33,6 +33,11 @@ export const createParcelBuilder = async (
     commonPath.projectDirectory,
     new PackageInstaller()
   )
+
+  const baseConfig = require.resolve("@plasmohq/parcel-config")
+  const configJson = await readJson(baseConfig)
+
+  console.log(configJson)
 
   const bundler = new Parcel({
     inputFS,
