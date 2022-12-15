@@ -53,7 +53,7 @@ async function injectAnchor(
   } else if (anchor.type === "inline") {
     anchor.element.insertAdjacentElement("afterend", shadowHost)
   } else {
-    document.body.insertAdjacentElement("beforebegin", shadowHost)
+    document.documentElement.appendChild(shadowHost)
   }
 }
 
@@ -215,7 +215,7 @@ export function createAnchorObserver(Mount: PlasmoCSUI) {
       mountState.overlayTargetList = overlayTargetList
       if (!overlayHost) {
         renderList.push({
-          element: document.body,
+          element: document.documentElement,
           type: "overlay"
         })
       } else {
@@ -246,7 +246,7 @@ export function createAnchorObserver(Mount: PlasmoCSUI) {
     })
 
     // Need to watch the subtree for shadowDOM
-    mountState.observer.observe(document.body, {
+    mountState.observer.observe(document.documentElement, {
       childList: true,
       subtree: true
     })
