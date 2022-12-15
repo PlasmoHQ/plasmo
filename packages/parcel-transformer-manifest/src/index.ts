@@ -7,6 +7,7 @@
  */
 import { parse } from "@mischnic/json-sourcemap"
 import { Transformer } from "@parcel/plugin"
+import type { TargetSourceMapOptions } from "@parcel/types"
 import { validateSchema } from "@parcel/utils"
 
 import { vLog } from "@plasmo/utils/logging"
@@ -46,6 +47,18 @@ export default new Transformer({
     vLog("@plasmohq/parcel-transformer-manifest")
     // Set environment to browser, since web extensions are always used in
     // browsers, and because it avoids delegating extra config to the user
+
+    const sourceMapConfig: TargetSourceMapOptions =
+      options.mode === "development"
+        ? {
+            inline: true,
+            inlineSources: true
+          }
+        : {
+            inline: false,
+            inlineSources: false
+          }
+
     asset.setEnvironment({
       context: "browser",
       outputFormat:
@@ -57,8 +70,7 @@ export default new Transformer({
       },
       sourceMap: asset.env.sourceMap && {
         ...asset.env.sourceMap,
-        inline: true,
-        inlineSources: true
+        ...sourceMapConfig
       },
       includeNodeModules: asset.env.includeNodeModules,
       sourceType: asset.env.sourceType,
