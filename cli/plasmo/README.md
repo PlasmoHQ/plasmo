@@ -62,6 +62,10 @@ We have examples showcasing how one can use Plasmo with [Firebase Authentication
 
 Check out the [documentation](https://docs.plasmo.com/) to get a more in-depth view into the Plasmo Framework.
 
+## Browser Extensions Book
+
+For a more in-depth view into how browser extensions work, and how to develop them, we highly recommend Matt Frisbie's new book ["Building Browser Extensions"](https://buildingbrowserextensions.com/plasmo)
+
 ## Usage
 
 ```
