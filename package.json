@@ -11,7 +11,7 @@
     "build": "turbo run build",
     "build:cli": "turbo run build --filter=plasmo",
     "build:packages": "turbo run build --filter \"./packages/**\"",
-    "build:examples": "pnpm --filter \"./examples/**\" --parallel -r build",
+    "build:examples": "pnpm --filter \"./examples/**\" -r build",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish",
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
