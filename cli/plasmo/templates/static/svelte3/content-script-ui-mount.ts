@@ -68,7 +68,7 @@ if (!!observer) {
   observer.start(render)
 } else {
   render({
-    element: document.body,
+    element: document.documentElement,
     type: "overlay"
   })
 }
