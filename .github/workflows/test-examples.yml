@@ -20,8 +20,26 @@ jobs:
       - uses: actions/checkout@master
         with:
           submodules: "recursive"
-      - name: "Install package manager"
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: "latest"
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: "Build local version of Plasmo"
         run: |
           pnpm i --no-frozen-lockfile
@@ -29,6 +47,7 @@ jobs:
           pnpm i
           pnpm run build:cli
           pnpm i
+
       - name: "Go to each example and try to build it"
         run: |
           pnpm run build:examples
