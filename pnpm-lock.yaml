@@ -1392,6 +1392,7 @@ importers:
       '@parcel/types': 2.8.2
       '@plasmo/config': workspace:*
       '@plasmo/utils': workspace:*
+      '@plasmohq/rps': workspace:*
       assert: 2.0.0
       browserify-zlib: 0.2.0
       buffer: 6.0.3
@@ -1428,6 +1429,7 @@ importers:
     devDependencies:
       '@plasmo/config': link:../config
       '@plasmo/utils': link:../utils
+      '@plasmohq/rps': link:../rps
       assert: 2.0.0
       browserify-zlib: 0.2.0
       buffer: 6.0.3
