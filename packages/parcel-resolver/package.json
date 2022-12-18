@@ -1,15 +1,18 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "pnpm build",
-    "build": "tsup --minify --clean",
-    "dev": "tsup --watch"
+    "dev": "run-s build:polyfills dev:resolver",
+    "dev:resolver": "tsup --watch src/index.ts",
+    "build": "run-s build:*",
+    "build:resolver": "tsup src/index.ts --minify --clean",
+    "build:polyfills": "node index.mjs",
+    "prepublishOnly": "pnpm build"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -43,6 +46,8 @@
     "string_decoder": "1.3.0",
     "timers": "0.1.1",
     "timers-browserify": "2.0.12",
+    "esbuild": "0.16.8",
+    "tiny-glob": "0.2.9",
     "tsup": "6.5.0",
     "tty-browserify": "0.0.1",
     "url": "0.11.0",
