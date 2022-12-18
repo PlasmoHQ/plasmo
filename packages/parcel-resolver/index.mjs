@@ -14,6 +14,7 @@ async function main() {
     sourcemap: false,
 
     platform: "browser",
+    format: "cjs",
     target: ["chrome74", "safari11"],
 
     alias: {
