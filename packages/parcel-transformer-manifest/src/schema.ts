@@ -2,7 +2,7 @@ import type { FromSchema } from "json-schema-to-ts"
 
 const validateVersion = (ver: string): string | null | undefined => {
   const parts = ver.split(".")
-  if (parts.length > 4) return "Extension versions to have at most three dots"
+  if (parts.length > 4) return "Extension versions to have at most four dots"
 
   if (
     parts.some((part) => {
