@@ -113,7 +113,13 @@ Our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) applies to all Plasmo commun
 
 ## Contributing
 
-Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) to learn more.
+Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) to learn more.  
+
+[Contributors](https://github.com/PlasmoHQ/plasmo/graphs/contributors) are the future of plasmo!  
+
+<a href="https://github.com/PlasmoHQ/plasmo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />
+</a>
 
 ## Disclaimer
 
