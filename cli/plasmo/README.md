@@ -117,7 +117,7 @@ Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob
 
 A big thanks to all of our amazing [contributors](https://github.com/PlasmoHQ/plasmo/graphs/contributors) ❤️
 
- You could be here, too!```
+ You could be here, too!
 
 <a href="https://github.com/PlasmoHQ/plasmo/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />
