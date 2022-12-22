@@ -68,8 +68,6 @@ export const createParcelBuilder = async (
 
     defaultTargetOptions: {
       ...defaultTargetOptions,
-      shouldOptimize: true,
-      shouldScopeHoist: true,
       engines,
       distDir: commonPath.distDirectory
     },

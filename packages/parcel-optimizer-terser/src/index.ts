@@ -10,18 +10,20 @@ import { Optimizer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
 import { blobToString } from "@parcel/utils"
 import nullthrows from "nullthrows"
-import path from "path"
+import { extname, join, relative } from "path"
 import { MinifyOptions, minify } from "terser"
+
+import { toUtf8 } from "./to-utf8"
 
 export default new Optimizer({
   async loadConfig({ config, options }) {
     const userConfig = await config.getConfigFrom<MinifyOptions>(
-      path.join(options.projectRoot, "index"),
+      join(options.projectRoot, "index"),
       [".terserrc", ".terserrc.js", ".terserrc.cjs"]
     )
 
     if (userConfig) {
-      const isJs = path.extname(userConfig.filePath) === ".js"
+      const isJs = extname(userConfig.filePath) === ".js"
 
       if (isJs) {
         config.invalidateOnStartup()
@@ -39,48 +41,49 @@ export default new Optimizer({
     options,
     getSourceMapReference
   }) {
+    const code = (await blobToString(contents)) as string
+
     if (!bundle.env.shouldOptimize) {
       return {
-        contents,
+        contents: toUtf8(code),
         map
       }
     }
 
-    const code = await blobToString(contents)
     const originalMap = map ? await map.stringify({}) : null
     const config: MinifyOptions = {
-      ...userConfig,
       format: {
         ...format,
         ascii_only: true
       },
       sourceMap: bundle.env.sourceMap
-        ? {
-            filename: path.relative(
+        ? ({
+            filename: relative(
               options.projectRoot,
-              path.join(bundle.target.distDir, bundle.name)
+              join(bundle.target.distDir, bundle.name)
             ),
-            content: originalMap as string
-          }
+            asObject: true,
+            content: originalMap
+          } as any)
         : false,
       toplevel:
         bundle.env.outputFormat === "esmodule" ||
         bundle.env.outputFormat === "commonjs",
-      module: bundle.env.outputFormat === "esmodule"
+      module: bundle.env.outputFormat === "esmodule",
+      ...userConfig
     }
 
     const result = await minify(code, config)
 
-    let sourceMap = null
-    let minifiedContents = nullthrows(result.code)
+    let minifiedContents: string = nullthrows(result.code)
 
-    const resultMap = result.map
+    let sourceMap = null
+    let resultMap = result.map
 
     if (resultMap && typeof resultMap !== "string") {
-      const sourceMap = new SourceMap(options.projectRoot)
+      sourceMap = new SourceMap(options.projectRoot)
       sourceMap.addVLQMap(resultMap)
       const sourcemapReference = await getSourceMapReference(sourceMap)
-
       if (sourcemapReference) {
         minifiedContents += `\n//# sourceMappingURL=${sourcemapReference}\n`
       }

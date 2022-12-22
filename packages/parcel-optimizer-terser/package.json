@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-terser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Plasmo Terser Optimizer for Extension",
   "files": [
     "dist"
@@ -28,10 +28,9 @@
   },
   "dependencies": {
     "@parcel/core": "2.8.2",
-    "@parcel/diagnostic": "2.8.2",
     "@parcel/plugin": "2.8.2",
-    "@parcel/source-map": "2.1.1",
     "@parcel/utils": "2.8.2",
+    "@parcel/source-map": "2.1.1",
     "nullthrows": "1.1.1",
     "terser": "5.16.1"
   }

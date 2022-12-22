@@ -30,7 +30,10 @@ async function build() {
   const bundler = await createParcelBuilder(plasmoManifest, {
     mode: "production",
     shouldDisableCache: true,
+    shouldContentHash: false,
     defaultTargetOptions: {
+      shouldOptimize: true,
+      shouldScopeHoist: true,
       sourceMaps: hasFlag("--source-maps")
     }
   })

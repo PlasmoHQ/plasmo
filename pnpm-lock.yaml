@@ -1368,7 +1368,6 @@ importers:
   packages/parcel-optimizer-terser:
     specifiers:
       '@parcel/core': 2.8.2
-      '@parcel/diagnostic': 2.8.2
       '@parcel/plugin': 2.8.2
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.8.2
@@ -1379,7 +1378,6 @@ importers:
       tsup: 6.5.0
     dependencies:
       '@parcel/core': 2.8.2
-      '@parcel/diagnostic': 2.8.2
       '@parcel/plugin': 2.8.2_@parcel+core@2.8.2
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.8.2
