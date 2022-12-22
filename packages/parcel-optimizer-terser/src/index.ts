@@ -28,14 +28,14 @@ export default new Optimizer({
       }
     }
 
-    return userConfig?.contents
+    return userConfig?.contents || {}
   },
 
   async optimize({
     contents,
     map,
     bundle,
-    config: { format, ...userConfig },
+    config: { format = {}, ...userConfig },
     options,
     getSourceMapReference
   }) {
