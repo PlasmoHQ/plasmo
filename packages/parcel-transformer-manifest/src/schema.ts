@@ -1,8 +1,8 @@
 import type { FromSchema } from "json-schema-to-ts"
 
-const validateVersion = (ver: string): string | null | undefined => {
+const validateBrowserVersion = (ver: string): string | null | undefined => {
   const parts = ver.split(".")
-  if (parts.length > 4) return "Extension versions to have at most four dots"
+  if (parts.length > 4) return "Browser versions to have at most four dots"
 
   if (
     parts.some((part) => {
@@ -10,7 +10,20 @@ const validateVersion = (ver: string): string | null | undefined => {
       return !isNaN(num) && num < 0 && num > 65536
     })
   )
-    return "Extension versions must be dot-separated integers between 0 and 65535"
+    return "Browser versions must be dot-separated integers between 0 and 65535"
+}
+
+const validateSemver = (ver: string): string | null | undefined => {
+  const parts = ver.split(".")
+  if (parts.length > 3) return "Semantic versions to have at most three dots"
+
+  if (
+    parts.some((part) => {
+      const num = Number(part)
+      return !isNaN(num) && num < 0 && num > 65536
+    })
+  )
+    return "Semantic versions must be dot-separated integers between 0 and 65535"
 }
 
 const stringSchema = {
@@ -87,7 +100,7 @@ const commonProps = {
   name: stringSchema,
   version: {
     type: "string",
-    __validate: validateVersion
+    __validate: validateSemver
   },
   default_locale: stringSchema,
   description: stringSchema,
@@ -261,7 +274,7 @@ const commonProps = {
   key: stringSchema,
   minimum_chrome_version: {
     type: "string",
-    __validate: validateVersion
+    __validate: validateBrowserVersion
   },
   // No NaCl modules because deprecated
   oauth2: {
