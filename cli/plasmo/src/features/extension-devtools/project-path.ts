@@ -136,9 +136,7 @@ export const getProjectPath = (
     ...newtabIndexList
   ])
 
-  const isEntryPath = (path: string) =>
-    entryFileSet.has(path) ||
-    watchDirectoryEntries.some(([_, dir]) => path.startsWith(dir))
+  const isEntryPath = (path: string) => entryFileSet.has(path)
 
   return {
     popupIndexList,
