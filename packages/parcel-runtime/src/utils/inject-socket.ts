@@ -1,13 +1,7 @@
 import { eLog, iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
-import {
-  extCtx,
-  getHostname,
-  getPort,
-  runtimeData,
-  triggerReload
-} from "./0-patch-module"
+import { extCtx, getHostname, getPort, runtimeData } from "./0-patch-module"
 
 function getBaseSocketUri(port = getPort()) {
   const hostname = getHostname()

@@ -15,7 +15,7 @@ const state = {
 
 function consolidateUpdate() {
   if (state.hmrRequestedReload && state.buildReady) {
-    vLog("Script Runtime - on should reload")
+    vLog("Script Runtime - reloading")
     try {
       scriptPort.postMessage({
         __plasmo_full_reload__: true

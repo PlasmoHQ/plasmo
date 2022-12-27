@@ -5,28 +5,50 @@ import type { BackgroundMessage } from "../types"
 import "../utils/0-patch-module"
 
 import { extCtx, runtimeData } from "../utils/0-patch-module"
-import { injectHmrSocket } from "../utils/inject-socket"
+import { isDependencyOfBundle } from "../utils/hmr-check"
+import { injectBuilderSocket, injectHmrSocket } from "../utils/inject-socket"
 
 const parent = module.bundle.parent
 
+const state = {
+  buildReady: false,
+  hmrRequestedReload: false
+}
+
+function consolidateUpdate() {
+  if (state.hmrRequestedReload && state.buildReady) {
+    vLog("BGSW Runtime - reloading")
+    extCtx.runtime.reload()
+  }
+}
+
+injectBuilderSocket(async () => {
+  vLog("BGSW Runtime - on build repackaged")
+  state.buildReady ||= true
+  consolidateUpdate()
+})
+
 if (!parent || !parent.isParcelRequire) {
   injectHmrSocket(async (updatedAssets) => {
+    vLog("Background Service Runtime - On HMR Update")
+
+    state.hmrRequestedReload ||= updatedAssets
+      .filter((asset) => asset.envHash === runtimeData.envHash)
+      .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
+
     const manifestChange = updatedAssets.find((e) => e.type === "json")
-    if (!manifestChange) {
-      return
+
+    if (!!manifestChange) {
+      const changedIdSet = new Set(updatedAssets.map((e) => e.id))
+
+      const deps = Object.values(manifestChange.depsByBundle)
+        .map((o) => Object.values(o))
+        .flat()
+
+      state.hmrRequestedReload ||= deps.every((dep) => changedIdSet.has(dep))
     }
 
-    const changedIdSet = new Set(updatedAssets.map((e) => e.id))
-
-    const deps = Object.values(manifestChange.depsByBundle)
-      .map((o) => Object.values(o))
-      .flat()
-
-    const shouldReload = deps.every((dep) => changedIdSet.has(dep))
-
-    if (shouldReload) {
-      extCtx.runtime.reload()
-    }
+    consolidateUpdate()
   })
 }
 
@@ -41,8 +63,17 @@ async function runtimeMessageHandler(msg: BackgroundMessage) {
 extCtx.runtime.onMessage.addListener(runtimeMessageHandler)
 
 extCtx.runtime.onConnect.addListener(function (port) {
-  if (port.name.startsWith("__plasmo_runtime_")) {
-    port.onMessage.addListener(runtimeMessageHandler)
+  if (port.name.startsWith("__plasmo_runtime_script_")) {
+    port.onMessage.addListener((msg, p) => {
+      if (msg.__plasmo_full_reload__) {
+        try {
+          extCtx.runtime.reload()
+        } catch {
+        } finally {
+          // Maybe CSUI should not call BGSW, but BGSW tell it file changed instead for the DOM reload.
+        }
+      }
+    })
   }
 })
 
