@@ -1,30 +1,9 @@
 import type { FromSchema } from "json-schema-to-ts"
 
-const validateBrowserVersion = (ver: string): string | null | undefined => {
-  const parts = ver.split(".")
-  if (parts.length > 4) return "Browser versions to have at most four dots"
-
-  if (
-    parts.some((part) => {
-      const num = Number(part)
-      return !isNaN(num) && num < 0 && num > 65536
-    })
-  )
-    return "Browser versions must be dot-separated integers between 0 and 65535"
-}
-
-const validateSemver = (ver: string): string | null | undefined => {
-  const parts = ver.split(".")
-  if (parts.length > 3) return "Semantic versions to have at most three dots"
-
-  if (
-    parts.some((part) => {
-      const num = Number(part)
-      return !isNaN(num) && num < 0 && num > 65536
-    })
-  )
-    return "Semantic versions must be dot-separated integers between 0 and 65535"
-}
+import {
+  validateBrowserVersion,
+  validateSemanticVersion
+} from "./validate-version"
 
 const stringSchema = {
   type: "string"
@@ -100,7 +79,7 @@ const commonProps = {
   name: stringSchema,
   version: {
     type: "string",
-    __validate: validateSemver
+    __validate: validateSemanticVersion
   },
   default_locale: stringSchema,
   description: stringSchema,
