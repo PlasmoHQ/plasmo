@@ -47,7 +47,7 @@ const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
 export const getProjectPath = (
   { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,
   browserTarget: string,
-  uiExt: SupportedUiExt
+  uiExts: SupportedUiExt[]
 ) => {
   /**
    * only pointing to 1 particular file path
@@ -55,29 +55,36 @@ export const getProjectPath = (
   const getModuleList = (moduleName: string) => [
     resolve(sourceDirectory, `${moduleName}.ts`),
     resolve(sourceDirectory, `${moduleName}.${browserTarget}.ts`),
-    resolve(sourceDirectory, `${moduleName}${uiExt}`),
-    resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
+    ...uiExts
+      .map((uiExt) => [
+        resolve(sourceDirectory, `${moduleName}${uiExt}`),
+        resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
+      ])
+      .flat()
   ]
 
   /**
    * crawl index, and only care about one extension
    */
-  const getIndexList = (moduleName: string, ext = ".ts") => [
-    resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
-    resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
-    resolve(sourceDirectory, `${moduleName}${ext}`),
-    resolve(sourceDirectory, moduleName, `index${ext}`)
-  ]
+  const getIndexList = (moduleName: string, exts = [".ts"]) =>
+    exts
+      .map((ext) => [
+        resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
+        resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
+        resolve(sourceDirectory, `${moduleName}${ext}`),
+        resolve(sourceDirectory, moduleName, `index${ext}`)
+      ])
+      .flat()
 
-  const popupIndexList = getIndexList("popup", uiExt)
-  const optionsIndexList = getIndexList("options", uiExt)
-  const devtoolsIndexList = getIndexList("devtools", uiExt)
-  const newtabIndexList = getIndexList("newtab", uiExt)
+  const popupIndexList = getIndexList("popup", uiExts)
+  const optionsIndexList = getIndexList("options", uiExts)
+  const devtoolsIndexList = getIndexList("devtools", uiExts)
+  const newtabIndexList = getIndexList("newtab", uiExts)
 
-  const popupHtmlList = getIndexList("popup", ".html")
-  const optionsHtmlList = getIndexList("options", ".html")
-  const devtoolsHtmlList = getIndexList("devtools", ".html")
-  const newtabHtmlList = getIndexList("newtab", ".html")
+  const popupHtmlList = getIndexList("popup", [".html"])
+  const optionsHtmlList = getIndexList("options", [".html"])
+  const devtoolsHtmlList = getIndexList("devtools", [".html"])
+  const newtabHtmlList = getIndexList("newtab", [".html"])
 
   const envFileList = [
     resolve(sourceDirectory, ".env"),
