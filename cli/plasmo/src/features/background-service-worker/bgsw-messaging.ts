@@ -1,6 +1,6 @@
 import { camelCase } from "change-case"
 import { existsSync } from "fs"
-import { writeFile } from "fs/promises"
+import { outputFile } from "fs-extra"
 import { join, resolve } from "path"
 import glob from "tiny-glob"
 
@@ -147,7 +147,7 @@ export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
     )
 
     await Promise.all([
-      writeFile(
+      outputFile(
         resolve(
           plasmoManifest.commonPath.staticDirectory,
           "background",
