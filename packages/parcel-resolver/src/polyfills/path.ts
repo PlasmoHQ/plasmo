@@ -1,1 +1,3 @@
-export * from "path-browserify"
+import path from "path-browserify"
+
+export default path

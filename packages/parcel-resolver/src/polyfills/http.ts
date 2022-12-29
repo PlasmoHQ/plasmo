@@ -1,1 +1,3 @@
-export * from "stream-http"
+import http from "stream-http"
+
+export default http

@@ -1,1 +1,3 @@
-export * from "console-browserify"
+import console from "console-browserify"
+
+export default console

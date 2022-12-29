@@ -1,1 +1,3 @@
-export * from "vm-browserify"
+import vm from "vm-browserify"
+
+export default vm

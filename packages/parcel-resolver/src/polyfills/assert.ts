@@ -1,1 +1,3 @@
-export * from "assert/build/assert"
+import assert from "assert"
+
+export default assert

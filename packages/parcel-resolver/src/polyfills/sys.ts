@@ -1,1 +1,3 @@
-export * from "util/util"
+import Sys from "util"
+
+export default Sys

@@ -1,1 +1,3 @@
-export * from "browserify-zlib"
+import zlib from "browserify-zlib"
+
+export default zlib

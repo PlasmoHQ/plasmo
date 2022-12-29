@@ -1,1 +1,3 @@
-export * from "https-browserify"
+import https from "https-browserify"
+
+export default https

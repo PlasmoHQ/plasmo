@@ -1,1 +1,3 @@
-export * from "crypto-browserify"
+import crypto from "crypto-browserify"
+
+export default crypto

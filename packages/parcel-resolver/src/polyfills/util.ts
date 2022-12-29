@@ -1,1 +1,3 @@
-export * from "util/util"
+import Util from "util"
+
+export default Util

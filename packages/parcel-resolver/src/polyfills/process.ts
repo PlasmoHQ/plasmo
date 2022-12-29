@@ -1,1 +1,3 @@
-export * from "process/browser"
+import process from "process/browser"
+
+export default process

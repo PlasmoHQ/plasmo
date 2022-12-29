@@ -1,1 +1,3 @@
-export * from "events/events"
+import events from "events/events"
+
+export default events

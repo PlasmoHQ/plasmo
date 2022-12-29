@@ -1,1 +1,3 @@
-export * from "os-browserify/browser"
+import os from "os-browserify/browser"
+
+export default os

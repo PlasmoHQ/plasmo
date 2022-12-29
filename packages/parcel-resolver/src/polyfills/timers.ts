@@ -1,1 +1,3 @@
-export * from "timers-browserify"
+import timers from "timers-browserify"
+
+export default timers

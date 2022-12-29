@@ -1,1 +1,3 @@
-export * from "punycode/punycode.es6"
+import punycode from "punycode/punycode.es6"
+
+export default punycode
