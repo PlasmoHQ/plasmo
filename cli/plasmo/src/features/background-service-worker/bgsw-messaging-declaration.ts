@@ -1,5 +1,4 @@
-import { readJson, writeJson } from "fs-extra"
-import { writeFile } from "fs/promises"
+import { outputFile, outputJson, readJson } from "fs-extra"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -19,7 +18,7 @@ const addMessagingDeclarationConfig = async (commonPath: CommonPath) => {
 
   tsconfig.include = [MESSAGING_DECLARATION_FILEPATH, ...includeSet]
 
-  await writeJson(tsconfigFilePath, tsconfig, { spaces: 2 })
+  await outputJson(tsconfigFilePath, tsconfig, { spaces: 2 })
 }
 
 export const addMessagingDeclaration = (
@@ -27,7 +26,7 @@ export const addMessagingDeclaration = (
   declarationCode: string
 ) =>
   Promise.all([
-    writeFile(
+    outputFile(
       resolve(commonPath.dotPlasmoDirectory, MESSAGING_DECLARATION_FILENAME),
       declarationCode
     ),
