@@ -94,5 +94,9 @@ export type HmrMessage =
 
 export type BackgroundMessage = {
   __plasmo_full_reload__?: boolean
-  __plasmo_check_active__?: boolean
+  __plasmo_build_updated__?: boolean
+
+  __plasmo_cs_ping__?: boolean
+  __plasmo_cs_reload__?: boolean
+  __plasmo_cs_changed__?: boolean
 }

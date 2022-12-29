@@ -51,6 +51,8 @@ export const createProjectWatcher = async (plasmoManifest: PlasmoManifest) => {
         throw err
       }
 
+      // vLog(events)
+
       await Promise.all(
         events.map(({ path, type }) =>
           handleProjectFile(type, path, getWatchReason(path), plasmoManifest)
