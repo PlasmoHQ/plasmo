@@ -1,13 +1,7 @@
-import { eLog, iLog, vLog, wLog } from "@plasmo/utils/logging"
+import { eLog, iLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
-import {
-  extCtx,
-  getHostname,
-  getPort,
-  runtimeData,
-  triggerReload
-} from "./0-patch-module"
+import { extCtx, getHostname, getPort, runtimeData } from "./0-patch-module"
 
 function getBaseSocketUri(port = getPort()) {
   const hostname = getHostname()
@@ -21,7 +15,7 @@ function getBaseSocketUri(port = getPort()) {
   // If there's an error it's probably because of a race
   // between this content script and the extension reloading
   if (extCtx?.runtime?.lastError) {
-    location.reload()
+    globalThis?.location?.reload?.()
   }
 
   return `${protocol}://${hostname}:${port}/`
@@ -40,15 +34,17 @@ export function injectBuilderSocket(onUpdate?: () => Promise<void>) {
 
   const builderWs = new WebSocket(getBaseSocketUri(Number(getPort()) + 1))
 
-  builderWs.onmessage = async function (event) {
+  builderWs.addEventListener("message", async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
     if (data.type === "build_ready") {
       await onUpdate()
       return
     }
-  }
+  })
 
-  builderWs.onerror = wsErrorHandler
+  builderWs.addEventListener("error", wsErrorHandler)
+
+  return builderWs
 }
 
 export function injectHmrSocket(
@@ -60,7 +56,7 @@ export function injectHmrSocket(
 
   const hmrWs = new WebSocket(getBaseSocketUri())
 
-  hmrWs.onmessage = async function (event) {
+  hmrWs.addEventListener("message", async function (event) {
     const data = JSON.parse(event.data) as HmrMessage
 
     if (data.type === "update") {
@@ -84,19 +80,21 @@ export function injectHmrSocket(
         )
       }
     }
-  }
+  })
 
-  hmrWs.onerror = wsErrorHandler
+  hmrWs.addEventListener("error", wsErrorHandler)
 
-  hmrWs.onopen = function () {
+  hmrWs.addEventListener("open", () => {
     iLog(
       `[plasmo/parcel-runtime]: Connected to HMR server for ${runtimeData.entryFilePath}`
     )
-  }
+  })
 
-  hmrWs.onclose = function () {
+  hmrWs.addEventListener("close", () => {
     wLog(
       `[plasmo/parcel-runtime]: Connection to the HMR server is closed for ${runtimeData.entryFilePath}`
     )
-  }
+  })
+
+  return hmrWs
 }

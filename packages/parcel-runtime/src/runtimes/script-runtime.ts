@@ -1,35 +1,66 @@
+/**
+ * Copyright (c) 2022 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * MIT License
+ *
+ * Port refreshing code is based on https://github.com/crxjs/chrome-extension-tools/blob/main/packages/vite-plugin/src/client/es/hmr-client-worker.ts#L88
+ *  MIT License
+ * Copyright (c) 2019 jacksteamdev
+ */
+
 import { vLog } from "@plasmo/utils/logging"
 
+import type { BackgroundMessage } from "../types"
 import { runtimeData } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
-import { injectBuilderSocket, injectHmrSocket } from "../utils/inject-socket"
+import { injectHmrSocket } from "../utils/inject-socket"
 
-const scriptPort = chrome.runtime.connect({
-  name: `__plasmo_runtime_script_${module.id}__`
-})
+const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
+let scriptPort: chrome.runtime.Port
 
-const state = {
-  buildReady: false,
-  hmrRequestedReload: false
+function reloadPort() {
+  scriptPort?.disconnect()
+  scriptPort = chrome.runtime.connect({
+    name: PORT_NAME
+  })
+
+  scriptPort.onDisconnect.addListener(() => {
+    consolidateUpdate()
+  })
+
+  scriptPort.onMessage.addListener((msg: BackgroundMessage) => {
+    if (
+      msg.__plasmo_cs_reload__ // bgsw reloaded, all context gone
+    ) {
+      consolidateUpdate()
+      return
+    }
+  })
 }
 
 function consolidateUpdate() {
-  if (state.hmrRequestedReload && state.buildReady) {
-    vLog("Script Runtime - on should reload")
-    try {
-      scriptPort.postMessage({
-        __plasmo_full_reload__: true
-      })
-    } catch {}
-    globalThis.location?.reload?.()
-  }
+  vLog("Script Runtime - reloading")
+  globalThis.location?.reload?.()
 }
 
-injectBuilderSocket(async () => {
-  vLog("Script runtime - on build repackaged")
-  state.buildReady ||= true
-  consolidateUpdate()
-})
+function setupPort() {
+  setInterval(() => {
+    try {
+      scriptPort?.postMessage({ __plasmo_cs_ping__: true })
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.message.includes("Extension context invalidated.")
+      ) {
+        consolidateUpdate()
+      } else throw error
+    }
+  }, 4_700)
+
+  setInterval(reloadPort, 240_000)
+  reloadPort()
+}
+
+setupPort()
 
 injectHmrSocket(async (updatedAssets) => {
   vLog("Script runtime - on updated assets", {
@@ -38,9 +69,11 @@ injectHmrSocket(async (updatedAssets) => {
     updatedAssets
   })
 
-  state.hmrRequestedReload ||= updatedAssets
+  const isChanged = updatedAssets
     .filter((asset) => asset.envHash === runtimeData.envHash)
     .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
-  consolidateUpdate()
+  scriptPort.postMessage({
+    __plasmo_cs_changed__: isChanged
+  } as BackgroundMessage)
 })

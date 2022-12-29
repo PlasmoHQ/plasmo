@@ -7,6 +7,10 @@ import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 const payload = JSON.stringify({ type: "build_ready" })
 
+const DEBOUNCE_TIME = 740
+
+let buildDebounceTimer: NodeJS.Timeout
+
 export const createBuildWatcher = async (
   plasmoManifest: PlasmoManifest,
   hmrPort: number
@@ -19,11 +23,15 @@ export const createBuildWatcher = async (
         throw err
       }
 
-      wss.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-          client.send(payload)
+      clearTimeout(buildDebounceTimer)
+      buildDebounceTimer = setTimeout(() => {
+        for (const client of wss.clients) {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(payload)
+          }
         }
-      })
+        clearTimeout(buildDebounceTimer)
+      }, DEBOUNCE_TIME)
     },
     {
       backend: PARCEL_WATCHER_BACKEND
