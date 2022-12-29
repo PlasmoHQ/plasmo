@@ -16,9 +16,12 @@ import { extendSourceMap } from "./source-map"
 
 export default new Transformer({
   async loadConfig({ config, options }) {
-    const conf = await config.getConfig([".svelterc", "svelte.config.js"], {
-      packageKey: "svelte"
-    })
+    const conf = await config.getConfig(
+      [".svelterc", "svelte.config.js", "svelte.config.cjs"],
+      {
+        packageKey: "svelte"
+      }
+    )
 
     let contents = {} as any
     if (conf && typeof conf.contents === "object") {
