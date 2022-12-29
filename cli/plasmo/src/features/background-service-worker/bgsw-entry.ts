@@ -1,5 +1,4 @@
-import { ensureDir } from "fs-extra"
-import { writeFile } from "fs/promises"
+import { ensureDir, outputFile } from "fs-extra"
 import { relative, resolve } from "path"
 
 import { toPosix } from "~features/helpers/path"
@@ -25,5 +24,5 @@ export const createBgswEntry = async (
     .join("\n")
 
   await ensureDir(bgswStaticDirectory)
-  await writeFile(bgswEntryFilePath, bgswCode)
+  await outputFile(bgswEntryFilePath, bgswCode)
 }
