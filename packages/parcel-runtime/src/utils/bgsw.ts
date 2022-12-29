@@ -5,7 +5,7 @@ const devServer = `${
 }://${getHostname()}:${getPort()}/`
 
 export async function pollingDevServer(delay = 1470) {
-  while (8) {
+  while (true) {
     try {
       await fetch(devServer)
       break

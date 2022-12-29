@@ -57,6 +57,7 @@ if (!parent || !parent.isParcelRequire) {
   })
 
   hmrSocket.addEventListener("open", () => {
+    // Send a ping event to the HMR server every 24 seconds to keep the connection alive
     const interval = setInterval(() => hmrSocket.send("ping"), 24_000)
     hmrSocket.addEventListener("close", () => clearInterval(interval))
   })
@@ -83,7 +84,7 @@ extCtx.runtime.onConnect.addListener(function (port) {
 
     port.onMessage.addListener(function (msg: BackgroundMessage) {
       if (msg.__plasmo_cs_changed__) {
-        vLog("BGSW Runtime - on CS code changed")
+        vLog("BGSW Runtime - On CS code changed")
         state.csCodeChanged ||= true
         consolidateUpdate()
       }
@@ -95,7 +96,7 @@ extCtx.runtime.onMessage.addListener(function runtimeMessageHandler(
   msg: BackgroundMessage
 ) {
   if (msg.__plasmo_full_reload__) {
-    vLog("BGSW Runtime - on top-level code changed")
+    vLog("BGSW Runtime - On top-level code changed")
     consolidateUpdate(true)
   }
 
