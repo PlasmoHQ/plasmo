@@ -69,7 +69,7 @@ if (!parent || !parent.isParcelRequire) {
 
 injectBuilderSocket(async () => {
   vLog("BGSW Runtime - On Build Repackaged")
-  // maybe we should wait for a bit until determine if the build is trully ready
+  // maybe we should wait for a bit until we determine if the build is truly ready
   state.buildReady ||= true
   consolidateUpdate()
 })
