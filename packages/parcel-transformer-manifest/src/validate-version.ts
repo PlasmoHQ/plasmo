@@ -1,7 +1,10 @@
+const MIN_VERSION = 0
+const MAX_VERSION = 65535
+
 const isInvalidVersion = (parts: string[]) =>
   parts.some((part) => {
     const num = Number(part)
-    return !isNaN(num) && num < 0 && num > 65536
+    return !isNaN(num) && num < MIN_VERSION && num > MAX_VERSION + 1
   })
 
 const validateVersion = (ver: string, maxSize = 3, name = "Browser") => {
@@ -11,7 +14,7 @@ const validateVersion = (ver: string, maxSize = 3, name = "Browser") => {
   }
 
   if (isInvalidVersion(parts)) {
-    return `${name} versions must be dot-separated integers between 0 and 65535`
+    return `${name} versions must be dot-separated integers between ${MIN_VERSION} and ${MAX_VERSION}`
   }
 
   return undefined
