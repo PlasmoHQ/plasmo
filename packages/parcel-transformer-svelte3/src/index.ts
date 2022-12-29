@@ -26,7 +26,7 @@ export default new Transformer({
     let contents = {} as any
     if (conf && typeof conf.contents === "object") {
       contents = conf.contents
-      if (conf.filePath.endsWith(".js")) {
+      if (conf.filePath.endsWith(".js") || conf.filePath.endsWith(".cjs")) {
         config.invalidateOnStartup()
       }
     }
