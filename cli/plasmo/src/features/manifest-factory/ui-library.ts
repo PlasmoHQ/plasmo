@@ -12,7 +12,7 @@ const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
 type SupportedUiLibraryName = typeof supportedUiLibraries[number]
 
-const supportedUiExt = [".tsx", ".svelte", ".vue"] as const
+const supportedUiExt = [".tsx", ".svelte", ".vue", ".jsx"] as const
 
 export type SupportedUiExt = typeof supportedUiExt[number]
 
@@ -32,7 +32,7 @@ const supportedMountExt = [".ts", ".tsx"] as const
 export type ScaffolderMountExt = typeof supportedMountExt[number]
 
 export type UiExtMap = {
-  uiExt: SupportedUiExt
+  uiExts: SupportedUiExt[]
   mountExt: ScaffolderMountExt
 }
 
@@ -108,22 +108,22 @@ export const getUiExtMap = (
   switch (uiLibraryName) {
     case "svelte":
       return {
-        uiExt: ".svelte",
+        uiExts: [".svelte"],
         mountExt: ".ts"
       }
     case "vue":
       return {
-        uiExt: ".vue",
+        uiExts: [".vue"],
         mountExt: ".ts"
       }
     case "react":
       return {
-        uiExt: ".tsx",
+        uiExts: [".tsx", ".jsx"],
         mountExt: ".tsx"
       }
     case "vanilla":
       return {
-        uiExt: ".tsx",
+        uiExts: [".tsx", ".jsx"],
         mountExt: ".ts"
       }
     default:
