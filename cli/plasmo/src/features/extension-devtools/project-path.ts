@@ -55,26 +55,22 @@ export const getProjectPath = (
   const getModuleList = (moduleName: string) => [
     resolve(sourceDirectory, `${moduleName}.ts`),
     resolve(sourceDirectory, `${moduleName}.${browserTarget}.ts`),
-    ...uiExts
-      .map((uiExt) => [
-        resolve(sourceDirectory, `${moduleName}${uiExt}`),
-        resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
-      ])
-      .flat()
+    ...uiExts.flatMap((uiExt) => [
+      resolve(sourceDirectory, `${moduleName}${uiExt}`),
+      resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
+    ])
   ]
 
   /**
    * crawl index, and only care about one extension
    */
   const getIndexList = (moduleName: string, exts = [".ts"]) =>
-    exts
-      .map((ext) => [
-        resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
-        resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
-        resolve(sourceDirectory, `${moduleName}${ext}`),
-        resolve(sourceDirectory, moduleName, `index${ext}`)
-      ])
-      .flat()
+    exts.flatMap((ext) => [
+      resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
+      resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
+      resolve(sourceDirectory, `${moduleName}${ext}`),
+      resolve(sourceDirectory, moduleName, `index${ext}`)
+    ])
 
   const popupIndexList = getIndexList("popup", uiExts)
   const optionsIndexList = getIndexList("options", uiExts)
