@@ -35,6 +35,7 @@ async function dev() {
 
   const bundler = await createParcelBuilder(plasmoManifest, {
     logLevel: "verbose",
+    shouldBundleIncrementally: true,
     defaultTargetOptions: {
       sourceMaps: !hasFlag("--no-source-maps")
     },

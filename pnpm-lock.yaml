@@ -1334,6 +1334,7 @@ importers:
       '@parcel/transformer-worklet': 2.8.2
       '@plasmohq/parcel-bundler': workspace:*
       '@plasmohq/parcel-namer-manifest': workspace:*
+      '@plasmohq/parcel-optimizer-terser': workspace:*
       '@plasmohq/parcel-packager': workspace:*
       '@plasmohq/parcel-resolver': workspace:*
       '@plasmohq/parcel-resolver-post': workspace:*
@@ -1361,6 +1362,7 @@ importers:
       '@parcel/transformer-worklet': 2.8.2_@parcel+core@2.8.2
       '@plasmohq/parcel-bundler': link:../parcel-bundler
       '@plasmohq/parcel-namer-manifest': link:../parcel-namer-manifest
+      '@plasmohq/parcel-optimizer-terser': link:../parcel-optimizer-terser
       '@plasmohq/parcel-packager': link:../parcel-packager
       '@plasmohq/parcel-resolver': link:../parcel-resolver
       '@plasmohq/parcel-resolver-post': link:../parcel-resolver-post
@@ -1386,6 +1388,29 @@ importers:
       '@parcel/utils': 2.8.2
     devDependencies:
       '@plasmo/config': link:../config
+      tsup: 6.5.0
+
+  packages/parcel-optimizer-terser:
+    specifiers:
+      '@parcel/core': 2.8.2
+      '@parcel/plugin': 2.8.2
+      '@parcel/source-map': 2.1.1
+      '@parcel/utils': 2.8.2
+      '@plasmo/config': workspace:*
+      '@plasmo/utils': workspace:*
+      nullthrows: 1.1.1
+      terser: 5.16.1
+      tsup: 6.5.0
+    dependencies:
+      '@parcel/core': 2.8.2
+      '@parcel/plugin': 2.8.2_@parcel+core@2.8.2
+      '@parcel/source-map': 2.1.1
+      '@parcel/utils': 2.8.2
+      nullthrows: 1.1.1
+      terser: 5.16.1
+    devDependencies:
+      '@plasmo/config': link:../config
+      '@plasmo/utils': link:../utils
       tsup: 6.5.0
 
   packages/parcel-packager:
@@ -7917,7 +7942,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.2.12
-      ignore: 5.2.0
+      ignore: 5.2.1
       merge2: 1.4.1
       slash: 3.0.0
 
@@ -8200,14 +8225,9 @@ packages:
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
 
-  /ignore/5.2.0:
-    resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
-    engines: {node: '>= 4'}
-
   /ignore/5.2.1:
     resolution: {integrity: sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==}
     engines: {node: '>= 4'}
-    dev: true
 
   /image-size/0.5.5:
     resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
