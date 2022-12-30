@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-terser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plasmo Terser Optimizer for Extension",
   "files": [
     "dist"
