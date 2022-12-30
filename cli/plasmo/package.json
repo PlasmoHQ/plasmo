@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.60.3-lab.3",
+  "version": "0.61.0",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
