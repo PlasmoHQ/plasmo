@@ -45,7 +45,7 @@ export default new Optimizer({
 
     if (!bundle.env.shouldOptimize) {
       return {
-        contents: Buffer.from(code).toString("ascii"),
+        contents: toUtf8(code),
         map
       }
     }
