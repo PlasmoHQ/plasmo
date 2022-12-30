@@ -97,6 +97,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   }
 
   #extSet = new Set([".ts"])
+  #uiExtSet = new Set()
+
   #uiLibraryData?: {
     uiLibrary: UiLibrary
     uiExtMap: UiExtMap
@@ -219,6 +221,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       uiExtMap
     }
 
+    this.#uiExtSet = new Set(uiExtMap.uiExts)
     this.uiExts.forEach((uiExt) => {
       this.#extSet.add(uiExt)
     })
@@ -307,11 +310,11 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       vLog("Adding content script: ", path)
 
       let scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
+      const scriptExt = extname(scriptPath)
 
-      if (
-        this.uiLibrary?.name !== "vanilla" &&
-        this.uiExts.some((ext) => ext === extname(scriptPath))
-      ) {
+      const isCsui = this.#uiExtSet.has(scriptExt)
+
+      if (this.uiLibrary?.name !== "vanilla" && isCsui) {
         // copy the contents and change the manifest path
         const modulePath = join("lab", scriptPath).replace(/(^src)[\\/]/, "")
 

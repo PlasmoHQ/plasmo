@@ -12,7 +12,7 @@ const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
 type SupportedUiLibraryName = typeof supportedUiLibraries[number]
 
-const supportedUiExt = [".tsx", ".svelte", ".vue", ".js", ".jsx"] as const
+const supportedUiExt = [".tsx", ".svelte", ".vue", ".jsx"] as const
 
 export type SupportedUiExt = typeof supportedUiExt[number]
 
@@ -118,12 +118,12 @@ export const getUiExtMap = (
       }
     case "react":
       return {
-        uiExts: [".tsx", ".js", ".jsx"],
+        uiExts: [".tsx", ".jsx"],
         mountExt: ".tsx"
       }
     case "vanilla":
       return {
-        uiExts: [".tsx", ".js", ".jsx"],
+        uiExts: [".tsx", ".jsx"],
         mountExt: ".ts"
       }
     default:
