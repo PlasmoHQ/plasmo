@@ -1,4 +1,4 @@
-import util from "util"
+import util from "util/util"
 
-export * from "util"
+export * from "util/util"
 export default util
