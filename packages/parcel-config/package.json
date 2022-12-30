@@ -25,6 +25,7 @@
     "@parcel/transformer-worklet": "2.8.2",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-namer-manifest": "workspace:*",
+    "@plasmohq/parcel-optimizer-terser": "workspace:*",
     "@plasmohq/parcel-packager": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-resolver-post": "workspace:*",

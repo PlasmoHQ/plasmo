@@ -89,7 +89,7 @@ export const getProjectPath = (
     resolve(sourceDirectory, ".env.development.local")
   ]
 
-  const backgroundIndexList = getIndexList("background")
+  const backgroundIndexList = getIndexList("background", [".ts", ".js"])
 
   const contentIndexList = getModuleList("content")
   const sandboxIndexList = getModuleList("sandbox")
