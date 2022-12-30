@@ -1,3 +1,4 @@
-import Tty from "tty-browserify"
+import tty from "tty-browserify"
 
-export default Tty
+export * from "tty-browserify"
+export default tty

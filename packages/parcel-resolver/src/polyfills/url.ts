@@ -1,3 +1,4 @@
-import Url from "url"
+import url from "url"
 
-export default Url
+export * from "url"
+export default url

@@ -1,3 +1,4 @@
-import StringEncoder from "string_decoder"
+import stringDecoder from "string_decoder/lib/string_decoder"
 
-export default StringEncoder
+export * from "string_decoder/lib/string_decoder"
+export default stringDecoder
