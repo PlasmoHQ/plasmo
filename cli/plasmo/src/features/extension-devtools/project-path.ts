@@ -53,8 +53,10 @@ export const getProjectPath = (
    * only pointing to 1 particular file path
    */
   const getModuleList = (moduleName: string) => [
-    resolve(sourceDirectory, `${moduleName}.ts`),
-    resolve(sourceDirectory, `${moduleName}.${browserTarget}.ts`),
+    ...[".js", ".ts"].flatMap((ext) => [
+      resolve(sourceDirectory, `${moduleName}${ext}`),
+      resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`)
+    ]),
     ...uiExts.flatMap((uiExt) => [
       resolve(sourceDirectory, `${moduleName}${uiExt}`),
       resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
