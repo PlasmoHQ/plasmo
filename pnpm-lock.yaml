@@ -1344,6 +1344,7 @@ importers:
       '@plasmohq/parcel-transformer-manifest': workspace:*
       '@plasmohq/parcel-transformer-svelte3': workspace:*
       '@plasmohq/parcel-transformer-vue3': workspace:*
+      react-refresh: 0.14.0
     dependencies:
       '@parcel/config-default': 2.8.2_@parcel+core@2.8.2
       '@parcel/core': 2.8.2
@@ -1372,6 +1373,7 @@ importers:
       '@plasmohq/parcel-transformer-manifest': link:../parcel-transformer-manifest
       '@plasmohq/parcel-transformer-svelte3': link:../parcel-transformer-svelte3
       '@plasmohq/parcel-transformer-vue3': link:../parcel-transformer-vue3
+      react-refresh: 0.14.0
 
   packages/parcel-namer-manifest:
     specifiers:
