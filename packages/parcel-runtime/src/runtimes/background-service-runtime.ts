@@ -5,7 +5,7 @@ import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
 import { extCtx, runtimeData } from "../utils/0-patch-module"
-import { pollingDevServer, proxyHmr } from "../utils/bgsw"
+import { pollingDevServer } from "../utils/bgsw"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectBuilderSocket, injectHmrSocket } from "../utils/inject-socket"
 
@@ -102,5 +102,3 @@ extCtx.runtime.onMessage.addListener(function runtimeMessageHandler(
 
   return true
 })
-
-proxyHmr()
