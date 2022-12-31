@@ -18,7 +18,7 @@
     "publish:cli:canary": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag canary",
     "### version script usage example": "pnpm v:cli patch",
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version",
-    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version",
+    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version --git-tag-version false --commit-hooks false",
     "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version"
   },
   "pnpm": {
