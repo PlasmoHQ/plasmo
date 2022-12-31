@@ -52,19 +52,16 @@ export const getProjectPath = (
   /**
    * only pointing to 1 particular file path
    */
-  const getModuleList = (moduleName: string) => [
-    resolve(sourceDirectory, `${moduleName}.ts`),
-    resolve(sourceDirectory, `${moduleName}.${browserTarget}.ts`),
-    ...uiExts.flatMap((uiExt) => [
-      resolve(sourceDirectory, `${moduleName}${uiExt}`),
-      resolve(sourceDirectory, `${moduleName}.${browserTarget}${uiExt}`)
+  const getModuleList = (moduleName: string) =>
+    [".ts", ...uiExts, ".js"].flatMap((ext) => [
+      resolve(sourceDirectory, `${moduleName}${ext}`),
+      resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`)
     ])
-  ]
 
   /**
    * crawl index, and only care about one extension
    */
-  const getIndexList = (moduleName: string, exts = [".ts"]) =>
+  const getIndexList = (moduleName: string, exts = [".ts", ".js"]) =>
     exts.flatMap((ext) => [
       resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
       resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
@@ -89,7 +86,7 @@ export const getProjectPath = (
     resolve(sourceDirectory, ".env.development.local")
   ]
 
-  const backgroundIndexList = getIndexList("background", [".ts", ".js"])
+  const backgroundIndexList = getIndexList("background")
 
   const contentIndexList = getModuleList("content")
   const sandboxIndexList = getModuleList("sandbox")
