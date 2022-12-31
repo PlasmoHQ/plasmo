@@ -1,7 +1,8 @@
 import { ensureDir, outputFile } from "fs-extra"
 import { relative, resolve } from "path"
 
-import { toPosix } from "~features/helpers/path"
+import { toPosix } from "@plasmo/utils/path"
+
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 export const createBgswEntry = async (

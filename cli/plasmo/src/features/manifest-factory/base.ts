@@ -32,6 +32,7 @@ import type {
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
 import { vLog } from "@plasmo/utils/logging"
+import { getSubExt, toPosix } from "@plasmo/utils/path"
 
 import {
   CommonPath,
@@ -51,7 +52,6 @@ import {
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
-import { getSubExt, toPosix } from "~features/helpers/path"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
