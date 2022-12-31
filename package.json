@@ -15,11 +15,7 @@
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish",
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
-    "publish:cli:canary": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag canary",
-    "### version script usage example": "pnpm v:cli patch",
-    "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version",
-    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version --git-tag-version false --commit-hooks false",
-    "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version"
+    "publish:cli:canary": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag canary"
   },
   "pnpm": {
     "overrides": {
@@ -28,6 +24,7 @@
     }
   },
   "devDependencies": {
+    "@changesets/cli": "2.26.0",
     "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
     "@plasmohq/rps": "workspace:*",
     "@types/archiver": "5.3.1",
