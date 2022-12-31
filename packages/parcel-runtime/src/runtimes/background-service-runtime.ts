@@ -64,7 +64,7 @@ if (!parent || !parent.isParcelRequire) {
 
   hmrSocket.addEventListener("close", async () => {
     await pollingDevServer()
-    consolidateUpdate()
+    consolidateUpdate(true)
   })
 }
 

@@ -1,7 +1,7 @@
 import { Parcel } from "@parcel/core"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
-import { emptyDir, readJson, writeJson } from "fs-extra"
+import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
 import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
@@ -22,7 +22,11 @@ export const createParcelBuilder = async (
   { commonPath, bundleConfig, publicEnv }: PlasmoManifest,
   { defaultTargetOptions, ...options }: ParcelOptions
 ) => {
-  await emptyDir(commonPath.distDirectory)
+  if (options.mode === "production") {
+    await emptyDir(commonPath.distDirectory)
+  } else {
+    await ensureDir(commonPath.distDirectory)
+  }
 
   const pmInfo = await getPackageManager()
 
