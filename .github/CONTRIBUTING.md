@@ -66,6 +66,12 @@ To develop locally:
    plasmo build
    ```
 
+3. To revert the linking later on:
+
+   ```sh
+   pnpm rm -g plasmo
+   ```
+
 ## Building
 
 You can build the project, including all type definitions, with:
