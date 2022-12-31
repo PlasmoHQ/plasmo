@@ -2,7 +2,10 @@ import type { Resolver } from "@parcel/plugin"
 import type { ResolveResult } from "@parcel/types"
 import { statSync } from "fs"
 import type { Got } from "got"
-import { resolve } from "path"
+import { join, resolve } from "path"
+import glob from "tiny-glob"
+
+import { toPosix } from "@plasmo/utils/path"
 
 export const relevantExtensionList = [
   ".ts",
@@ -22,7 +25,8 @@ export type ResolverProps = Parameters<ResolveFx>[0]
 
 export const state = {
   got: null as Got,
-  dotPlasmoDirectory: null as string
+  dotPlasmoDirectory: null as string,
+  polyfillMap: null as Map<string, string>
 }
 
 export const initializeState = async (props: ResolverProps) => {
@@ -33,6 +37,22 @@ export const initializeState = async (props: ResolverProps) => {
     state.dotPlasmoDirectory = resolve(
       process.env.PLASMO_PROJECT_DIR,
       ".plasmo"
+    )
+  }
+
+  if (!state.polyfillMap) {
+    const polyfillsDirectory = join(__dirname, "polyfills")
+
+    const polyfillHandlers = await glob("**/*.js", {
+      cwd: polyfillsDirectory,
+      filesOnly: true
+    })
+
+    state.polyfillMap = new Map(
+      polyfillHandlers.map((handler) => [
+        toPosix(handler.slice(0, -3)),
+        join(polyfillsDirectory, handler)
+      ])
     )
   }
 }

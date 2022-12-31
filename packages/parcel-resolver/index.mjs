@@ -1,29 +1,47 @@
 import { build } from "esbuild"
 import glob from "tiny-glob"
 
-async function main() {
-  const entryPoints = await glob("./src/polyfills/**/*.ts", {
+const commonConfig = {
+  bundle: true,
+  minify: true,
+
+  platform: "browser",
+  format: "cjs",
+  target: ["chrome74", "safari11"],
+  outdir: "dist/polyfills"
+}
+
+async function buildProdPolyfills() {
+  const prodPolyfills = await glob("./src/polyfills/**/*.ts", {
     filesOnly: true
   })
 
   await build({
-    entryPoints,
-
-    bundle: true,
-    minify: true,
-    sourcemap: false,
-
-    platform: "browser",
-    format: "cjs",
-    target: ["chrome74", "safari11"],
-
+    ...commonConfig,
+    entryPoints: prodPolyfills,
     alias: {
       stream: "stream-browserify",
       http: "stream-http"
-    },
-
-    outdir: "dist/polyfills"
+    }
   })
+}
+
+async function buildDevPolyfills() {
+  const devPolyfills = await glob("./src/dev-polyfills/**/*.ts", {
+    filesOnly: true
+  })
+
+  await build({
+    ...commonConfig,
+    entryPoints: devPolyfills,
+    define: {
+      "process.env.NODE_ENV": "'development'"
+    }
+  })
+}
+
+async function main() {
+  await Promise.all([buildProdPolyfills(), buildDevPolyfills()])
 }
 
 main()

@@ -5,13 +5,13 @@ import { join, resolve } from "path"
 import glob from "tiny-glob"
 
 import { vLog, wLog } from "@plasmo/utils/logging"
+import { toPosix } from "@plasmo/utils/path"
 
 import {
   addMessagingDeclaration,
   createDeclarationCode
 } from "~features/background-service-worker/bgsw-messaging-declaration"
 import { getMd5RevHash } from "~features/helpers/crypto"
-import { toPosix } from "~features/helpers/path"
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 const state = {

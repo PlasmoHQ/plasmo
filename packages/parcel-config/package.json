@@ -1,20 +1,12 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.28.3",
+  "version": "0.28.6",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "main": "index.json",
-  "overrides": {
-    "@parcel/runtime-react-refresh": {
-      "react-refresh": "$react-refresh"
-    },
-    "@parcel/transformer-react-refresh-wrap": {
-      "react-refresh": "$react-refresh"
-    }
-  },
   "dependencies": {
     "@parcel/config-default": "2.8.2",
     "@parcel/core": "2.8.2",
@@ -42,7 +34,6 @@
     "@plasmohq/parcel-transformer-inline-css": "workspace:*",
     "@plasmohq/parcel-transformer-manifest": "workspace:*",
     "@plasmohq/parcel-transformer-svelte3": "workspace:*",
-    "@plasmohq/parcel-transformer-vue3": "workspace:*",
-    "react-refresh": "0.14.0"
+    "@plasmohq/parcel-transformer-vue3": "workspace:*"
   }
 }
