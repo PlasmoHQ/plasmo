@@ -420,8 +420,16 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       options_ui: overrideOptionUi,
       permissions: overridePermissions,
       content_scripts: overrideContentScripts,
+      background: overrideBackground,
       ...overide
     } = this.overideManifest as T
+
+    if (this.bundleConfig.manifestVersion === "mv2") {
+      base.background = {
+        ...base.background,
+        ...overrideBackground
+      }
+    }
 
     if (
       typeof overrideOptionUi?.open_in_tab === "boolean" &&
