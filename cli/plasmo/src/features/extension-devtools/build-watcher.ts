@@ -11,6 +11,8 @@ const DEBOUNCE_TIME = 740
 
 let buildDebounceTimer: NodeJS.Timeout
 
+let hasPrematureBuild = false
+
 export const createBuildWatcher = async (
   plasmoManifest: PlasmoManifest,
   hmrPort: number
@@ -23,14 +25,21 @@ export const createBuildWatcher = async (
         throw err
       }
 
+      if (!hasPrematureBuild) {
+        hasPrematureBuild = true
+        return
+      }
+
       clearTimeout(buildDebounceTimer)
       buildDebounceTimer = setTimeout(() => {
+        clearTimeout(buildDebounceTimer)
+
         for (const client of wss.clients) {
           if (client.readyState === WebSocket.OPEN) {
             client.send(payload)
           }
         }
-        clearTimeout(buildDebounceTimer)
+        hasPrematureBuild = false
       }, DEBOUNCE_TIME)
     },
     {
