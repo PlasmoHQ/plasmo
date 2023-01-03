@@ -96,7 +96,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     return this.#envConfig.plasmoPublicEnv
   }
 
-  #extSet = new Set([".ts"])
+  #extSet = new Set([".ts", ".js"])
   #uiExtSet = new Set()
 
   #uiLibraryData?: {
