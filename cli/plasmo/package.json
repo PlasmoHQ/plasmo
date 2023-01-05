@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.61.2",
+  "version": "0.61.3-lab.1",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -53,6 +53,7 @@
     "got": "12.5.3",
     "inquirer": "9.1.4",
     "is-path-inside": "4.0.0",
+    "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
     "node-object-hash": "2.3.10",
     "package-json": "8.1.0",

@@ -1,4 +1,6 @@
-import { outputFile, outputJson, readJson } from "fs-extra"
+import { outputFile } from "fs-extra"
+import { readFile } from "fs/promises"
+import json5 from "json5"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -9,7 +11,8 @@ const MESSAGING_DECLARATION_FILEPATH = `.plasmo/${MESSAGING_DECLARATION_FILENAME
 const addMessagingDeclarationConfig = async (commonPath: CommonPath) => {
   const tsconfigFilePath = resolve(commonPath.projectDirectory, "tsconfig.json")
 
-  const tsconfig = await readJson(tsconfigFilePath)
+  const tsconfigFile = await readFile(tsconfigFilePath, "utf8")
+  const tsconfig = json5.parse(tsconfigFile)
   const includeSet = new Set(tsconfig.include)
 
   if (includeSet.has(MESSAGING_DECLARATION_FILEPATH)) {
@@ -18,7 +21,7 @@ const addMessagingDeclarationConfig = async (commonPath: CommonPath) => {
 
   tsconfig.include = [MESSAGING_DECLARATION_FILEPATH, ...includeSet]
 
-  await outputJson(tsconfigFilePath, tsconfig, { spaces: 2 })
+  await outputFile(tsconfigFilePath, json5.stringify(tsconfig, null, 2))
 }
 
 export const addMessagingDeclaration = (
