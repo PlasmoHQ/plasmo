@@ -1,4 +1,4 @@
-import { outputFile } from "fs-extra"
+import { outputFile, outputJson } from "fs-extra"
 import { readFile } from "fs/promises"
 import json5 from "json5"
 import { resolve } from "path"
@@ -21,7 +21,9 @@ const addMessagingDeclarationConfig = async (commonPath: CommonPath) => {
 
   tsconfig.include = [MESSAGING_DECLARATION_FILEPATH, ...includeSet]
 
-  await outputFile(tsconfigFilePath, json5.stringify(tsconfig, null, 2))
+  await outputJson(tsconfigFilePath, tsconfig, {
+    spaces: 2
+  })
 }
 
 export const addMessagingDeclaration = (
