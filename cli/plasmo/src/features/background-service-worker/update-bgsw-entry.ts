@@ -10,17 +10,17 @@ export const updateBgswEntry = async (plasmoManifest: PlasmoManifest) => {
 
   const withMessaging = await createBgswMessaging(plasmoManifest)
 
-  if (!bgswIndex && !withMessaging) {
-    return plasmoManifest.toggleBackground(false)
+  const hasBgsw = Boolean(bgswIndex || withMessaging)
+
+  if (hasBgsw) {
+    await createBgswEntry(
+      {
+        indexFilePath: bgswIndex,
+        withMessaging
+      },
+      plasmoManifest
+    )
   }
 
-  await createBgswEntry(
-    {
-      indexFilePath: bgswIndex,
-      withMessaging
-    },
-    plasmoManifest
-  )
-
-  return plasmoManifest.toggleBackground(true)
+  return plasmoManifest.toggleBackground(hasBgsw)
 }
