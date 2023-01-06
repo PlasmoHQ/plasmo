@@ -66,9 +66,7 @@ export function injectHmrSocket(
     if (data.type === "error") {
       // Log parcel errors to console
       for (const ansiDiagnostic of data.diagnostics.ansi) {
-        const stack = ansiDiagnostic.codeframe
-          ? ansiDiagnostic.codeframe
-          : ansiDiagnostic.stack
+        const stack = ansiDiagnostic.codeframe || ansiDiagnostic.stack
 
         wLog(
           "[plasmo/parcel-runtime]: " +
