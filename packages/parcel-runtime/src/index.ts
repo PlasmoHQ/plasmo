@@ -9,27 +9,28 @@ import { PlasmoRuntime, RuntimeData, plasmoRuntimeList } from "./types"
 const devRuntimeMap = plasmoRuntimeList.reduce(
   (accumulatedRuntimeMap, currentRuntime) => ({
     ...accumulatedRuntimeMap,
-    [currentRuntime]: fs.readFileSync(path.join(__dirname, `./runtimes/${currentRuntime}.js`), "utf8")
+    [currentRuntime]: fs.readFileSync(
+      path.join(__dirname, `./runtimes/${currentRuntime}.js`),
+      "utf8"
+    )
   }),
   {} as Record<PlasmoRuntime, string>
 )
 
 export default new Runtime({
   async loadConfig({ config }) {
-    const pkg =
-      (await config.getPackage()) ||
-      (await config
-        .getConfigFrom<{
-          dependencies: Record<string, string>
-          devDependencies: Record<string, string>
-        }>(
-          join(process.env.PLASMO_PROJECT_DIR, "lab"), // parcel only look up
-          ["package.json"],
-          {
-            exclude: true
-          }
-        )
-        .then((cfg) => cfg?.contents))
+    const pkg = await config
+      .getConfigFrom<{
+        dependencies: Record<string, string>
+        devDependencies: Record<string, string>
+      }>(
+        join(process.env.PLASMO_PROJECT_DIR, "lab"), // parcel only look up
+        ["package.json"],
+        {
+          exclude: true
+        }
+      )
+      .then((cfg) => cfg?.contents)
 
     const hasReact = !!pkg?.dependencies?.react || !!pkg?.devDependencies?.react
 

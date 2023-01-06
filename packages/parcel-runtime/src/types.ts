@@ -45,9 +45,9 @@ export interface ParcelBundle {
 }
 
 export type RuntimeData = {
-  isReact: boolean
-  isBackground: boolean
   isContentScript: boolean
+  isBackground: boolean
+  isReact: boolean
 
   runtimes: PlasmoRuntime[]
 
