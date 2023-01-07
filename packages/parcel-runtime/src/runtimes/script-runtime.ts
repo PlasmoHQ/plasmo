@@ -17,6 +17,11 @@ import { injectHmrSocket } from "../utils/inject-socket"
 const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
 let scriptPort: chrome.runtime.Port
 
+function consolidateUpdate() {
+  vLog("Script Runtime - reloading")
+  globalThis.location?.reload?.()
+}
+
 function reloadPort() {
   scriptPort?.disconnect()
   scriptPort = chrome.runtime.connect({
@@ -35,11 +40,6 @@ function reloadPort() {
       return
     }
   })
-}
-
-function consolidateUpdate() {
-  vLog("Script Runtime - reloading")
-  globalThis.location?.reload?.()
 }
 
 function setupPort() {

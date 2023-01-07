@@ -41,7 +41,7 @@
     "@types/sharp": "0.31.1",
     "@types/uuid": "9.0.0",
     "@types/ws": "8.5.4",
-    "esbuild": "0.16.13",
+    "esbuild": "0.16.14",
     "eslint": "8.31.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-react": "7.31.11",
