@@ -1,7 +1,7 @@
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
 import { aLog, eLog, iLog, vLog } from "@plasmo/utils/logging"
 
-import { createBuildWatcher } from "~features/extension-devtools/build-watcher"
+import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
@@ -51,6 +51,7 @@ async function dev() {
 
   const { default: chalk } = await import("chalk")
 
+  const buildWatcher = await createBuildSocket(hmrPort)
   const bundlerWatcher = await bundler.watch(async (err, event) => {
     if (err) {
       throw err
@@ -62,7 +63,10 @@ async function dev() {
 
     if (event.type === "buildSuccess") {
       aLog(`Extension re-packaged in ${chalk.bold(event.buildTime)}ms! 🚀`)
+
       await plasmoManifest.postBuild()
+
+      buildWatcher.triggerReload()
     } else if (event.type === "buildFailure") {
       event.diagnostics.forEach((diagnostic) => {
         eLog(chalk.redBright(diagnostic.message))
@@ -95,11 +99,8 @@ async function dev() {
     process.env.__PLASMO_FRAMEWORK_INTERNAL_WATCHER_STARTED = "true"
   })
 
-  const buildWatcher = await createBuildWatcher(plasmoManifest, hmrPort)
-
   const cleanup = () => {
     projectWatcher?.unsubscribe()
-    buildWatcher.unsubscribe()
     bundlerWatcher.unsubscribe()
   }
 
