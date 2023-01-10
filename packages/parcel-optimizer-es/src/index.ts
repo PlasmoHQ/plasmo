@@ -51,11 +51,14 @@ export default new Optimizer({
     }
 
     const originalMap = map ? await map.stringify({}) : null
+
+    console.log(`>>>>>>>>>>> TERSER CONFIG: ${bundle.env.outputFormat}`)
+
     const config: MinifyOptions = {
-      format: {
-        ...format,
-        ascii_only: true
-      },
+      // format: {
+      //   ...format,
+      //   ascii_only: true
+      // },
       sourceMap: bundle.env.sourceMap
         ? ({
             filename: relative(
