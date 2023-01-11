@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.61.5",
+  "version": "0.61.6",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -63,7 +63,7 @@
     "tempy": "3.0.0",
     "tiny-glob": "0.2.9",
     "typescript": "4.9.4",
-    "ws": "8.11.0"
+    "ws": "8.12.0"
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
