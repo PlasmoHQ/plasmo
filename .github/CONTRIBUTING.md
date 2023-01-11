@@ -114,15 +114,14 @@ Directory and source file should use `kebab-case`, unless required by tooling. E
 
 ## For Core Maintainers / Admin
 
-Plasmo has 3 deployed environments:
+Plasmo has 2 deployed environments:
 
 | env name | purpose        | requirement           |
 | -------- | -------------- | --------------------- |
-| canary   | For WIP test   | Admin deploy directly |
-| staging  | For beta test  | Merge to `main`       |
+| lab      | For WIP test   | Admin deploy directly |
 | latest   | Stable release | Merge to `stable`     |
 
-Reviewer approves and merges PRs to `main` branch -> deploys to `staging`
+Reviewer approves and merges PRs to `main` branch -> deploys to `latest`
 
 > NOTE: Please make sure to use the `Squash and Merge` strategy
 
@@ -139,20 +138,15 @@ For `hotfix`, the workflow is:
 
    `FFFF` is an issue number
 
-1. Admin reviews, approves and merges `hotfix-FFFF` to `stable` -> deploys to `latest`
-1. Admin update `main` with `stable` -> deploys to `staging`
-
-For `latest` deployment:
-
-1. Admin merges `main` PR into `stable` branch -> deploys to `latest`
+1. Admin reviews, approves and merges `hotfix-FFFF` to `main` -> deploys to `latest`
 
 ### Merge strategy
 
-| From       | To       | Strategy         | Deploy to |
-| ---------- | -------- | ---------------- | --------- |
-| `feat-*`   | `main`   | Squash and Merge | staging   |
-| `main`     | `stable` | Merge commit     | latest    |
-| `hotfix-*` | `stable` | Squash and Merge | latest    |
-| `stable`   | `main`   | Update/Merge     | staging   |
+1. Admin review PR
+1. If the rough idea is good, code owner season the PR or guide the author to make it better
+1. Merge and deploy following the table below:
 
-This is inspired by the [git flows workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+| From       | To     | Strategy         | Deploy to |
+| ---------- | ------ | ---------------- | --------- |
+| `feat-*`   | `main` | Squash and Merge | latest    |
+| `hotfix-*` | `main` | Squash and Merge | latest    |
