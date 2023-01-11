@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.61.4-lab.0",
+  "version": "0.61.7-lab.0",
   "description": "The Plasmo Platform CLI",
   "main": "dist/index.js",
   "types": "dist/type.d.ts",
@@ -38,7 +38,7 @@
     "@parcel/core": "2.8.2",
     "@parcel/fs": "2.8.2",
     "@parcel/package-manager": "2.8.2",
-    "@parcel/watcher": "2.0.7",
+    "@parcel/watcher": "2.1.0",
     "@plasmohq/init": "workspace:*",
     "@plasmohq/parcel-config": "workspace:*",
     "archiver": "5.3.1",
@@ -63,7 +63,7 @@
     "tempy": "3.0.0",
     "tiny-glob": "0.2.9",
     "typescript": "4.9.4",
-    "ws": "8.11.0"
+    "ws": "8.12.0"
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",

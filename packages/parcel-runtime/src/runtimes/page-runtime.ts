@@ -46,6 +46,7 @@ if (!parent || !parent.isParcelRequire) {
         }
       }
     } else {
+      vLog("Page runtime - Reloading")
       await triggerReload()
     }
   })

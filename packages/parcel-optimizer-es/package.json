@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-optimizer-terser",
-  "version": "0.0.4",
-  "description": "Plasmo Terser Optimizer for Extension",
+  "name": "@plasmohq/parcel-optimizer-es",
+  "version": "0.0.0",
+  "description": "Plasmo ECMAScript Optimizer for Extension",
   "files": [
     "dist"
   ],
@@ -31,7 +31,7 @@
     "@parcel/plugin": "2.8.2",
     "@parcel/utils": "2.8.2",
     "@parcel/source-map": "2.1.1",
-    "nullthrows": "1.1.1",
-    "terser": "5.16.1"
+    "esbuild": "0.16.16",
+    "nullthrows": "1.1.1"
   }
 }

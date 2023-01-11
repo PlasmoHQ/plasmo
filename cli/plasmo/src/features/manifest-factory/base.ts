@@ -132,7 +132,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   protected copyQueue: Array<[string, string]> = []
 
-  readonly scaffolder = new Scaffolder(this)
+  readonly scaffolder: Scaffolder
 
   get changed() {
     return this.#hash !== this.#prevHash
@@ -160,6 +160,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   protected constructor(public bundleConfig: PlasmoBundleConfig) {
     this.data.icons = iconMap
+    this.scaffolder = new Scaffolder(this)
   }
 
   async startup() {

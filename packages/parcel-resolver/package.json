@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
@@ -31,17 +31,18 @@
     "assert": "2.0.0",
     "browserify-zlib": "0.2.0",
     "buffer": "6.0.3",
+    "crc-32": "1.2.2",
     "console-browserify": "1.2.0",
     "constants-browserify": "1.0.0",
     "crypto-browserify": "3.12.0",
     "domain-browser": "4.22.0",
-    "esbuild": "0.16.13",
+    "esbuild": "0.16.16",
     "events": "3.3.0",
     "https-browserify": "1.0.0",
     "os-browserify": "0.3.0",
     "path-browserify": "1.0.1",
     "process": "0.11.10",
-    "punycode": "2.1.1",
+    "punycode": "2.2.0",
     "querystring-es3": "0.2.1",
     "react-refresh": "0.14.0",
     "stream-browserify": "3.0.0",

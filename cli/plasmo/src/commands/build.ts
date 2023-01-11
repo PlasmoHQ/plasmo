@@ -33,8 +33,7 @@ async function build() {
     shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
-      shouldScopeHoist: true,
-      sourceMaps: hasFlag("--source-maps")
+      shouldScopeHoist: true
     }
   })
 

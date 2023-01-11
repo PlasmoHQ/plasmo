@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.28.7",
+  "version": "0.29.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "@parcel/transformer-worklet": "2.8.2",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-namer-manifest": "workspace:*",
-    "@plasmohq/parcel-optimizer-terser": "workspace:*",
+    "@plasmohq/parcel-optimizer-es": "workspace:*",
     "@plasmohq/parcel-packager": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-resolver-post": "workspace:*",
