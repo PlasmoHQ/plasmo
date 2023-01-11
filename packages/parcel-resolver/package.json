@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
@@ -31,6 +31,7 @@
     "assert": "2.0.0",
     "browserify-zlib": "0.2.0",
     "buffer": "6.0.3",
+    "crc-32": "1.2.2",
     "console-browserify": "1.2.0",
     "constants-browserify": "1.0.0",
     "crypto-browserify": "3.12.0",

@@ -1479,6 +1479,7 @@ importers:
       buffer: 6.0.3
       console-browserify: 1.2.0
       constants-browserify: 1.0.0
+      crc-32: 1.2.2
       crypto-browserify: 3.12.0
       domain-browser: 4.22.0
       esbuild: 0.16.16
@@ -1518,6 +1519,7 @@ importers:
       buffer: 6.0.3
       console-browserify: 1.2.0
       constants-browserify: 1.0.0
+      crc-32: 1.2.2
       crypto-browserify: 3.12.0
       domain-browser: 4.22.0
       esbuild: 0.16.16
@@ -6458,7 +6460,6 @@ packages:
     resolution: {integrity: sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==}
     engines: {node: '>=0.8'}
     hasBin: true
-    dev: false
 
   /crc32-stream/4.0.2:
     resolution: {integrity: sha512-DxFZ/Hk473b/muq1VJ///PMNLj0ZMnzye9thBpmjpJKCc5eMgB95aK8zCGrGfQ90cWo561Te6HK9D+j4KPdM6w==}
