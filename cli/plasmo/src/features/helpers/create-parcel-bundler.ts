@@ -20,13 +20,25 @@ const PackageInstallerMap = {
 
 export const createParcelBuilder = async (
   { commonPath, bundleConfig, publicEnv }: PlasmoManifest,
-  { defaultTargetOptions, ...options }: ParcelOptions
+  { defaultTargetOptions = {}, ...options }: ParcelOptions
 ) => {
-  if (options.mode === "production") {
+  const isProd = options.mode === "production"
+
+  if (isProd) {
     await emptyDir(commonPath.distDirectory)
   } else {
     await ensureDir(commonPath.distDirectory)
   }
+
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS = isProd
+    ? hasFlag("--inline-source-maps")
+      ? "inline"
+      : hasFlag("--source-maps")
+      ? "external"
+      : "none"
+    : hasFlag("--no-source-maps")
+    ? "none"
+    : "inline"
 
   const pmInfo = await getPackageManager()
 
@@ -73,6 +85,8 @@ export const createParcelBuilder = async (
     defaultTargetOptions: {
       ...defaultTargetOptions,
       engines,
+      sourceMaps:
+        process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS !== "none",
       distDir: commonPath.distDirectory
     },
 

@@ -42,22 +42,31 @@ async function collectDependencies() {
   handleBackground()
 }
 
+const getSourceMapConfig = (): TargetSourceMapOptions => {
+  switch (process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS) {
+    case "inline": {
+      return {
+        inline: true,
+        inlineSources: true
+      }
+    }
+    case "external": {
+      return {
+        inline: false,
+        inlineSources: false
+      }
+    }
+    default: {
+      return undefined
+    }
+  }
+}
+
 export default new Transformer({
   async transform({ asset, options }) {
     vLog("@plasmohq/parcel-transformer-manifest")
     // Set environment to browser, since web extensions are always used in
     // browsers, and because it avoids delegating extra config to the user
-
-    const sourceMapConfig: TargetSourceMapOptions =
-      options.mode === "development"
-        ? {
-            inline: true,
-            inlineSources: true
-          }
-        : {
-            inline: false,
-            inlineSources: false
-          }
 
     asset.setEnvironment({
       context: "browser",
@@ -68,10 +77,7 @@ export default new Transformer({
       engines: {
         browsers: asset.env.engines.browsers
       },
-      sourceMap: asset.env.sourceMap && {
-        ...asset.env.sourceMap,
-        ...sourceMapConfig
-      },
+      sourceMap: asset.env.sourceMap && getSourceMapConfig(),
       includeNodeModules: asset.env.includeNodeModules,
       sourceType: asset.env.sourceType,
       isLibrary: asset.env.isLibrary,
