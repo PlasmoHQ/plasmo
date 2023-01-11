@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "run-s build:polyfills dev:resolver",
-    "dev:resolver": "tsup --watch src/index.ts",
+    "dev:resolver": "tsup src/index.ts --watch",
     "build": "run-s build:*",
     "build:resolver": "tsup src/index.ts --minify --clean",
     "build:polyfills": "node index.mjs",
