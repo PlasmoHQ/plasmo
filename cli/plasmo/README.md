@@ -125,13 +125,13 @@ Feel free to join the fun and send a PR!
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />
 </a>
 
-### Plasmo Example
+### [Plasmo Examples](https://github.com/PlasmoHQ/examples)
 
 <a href="https://github.com/PlasmoHQ/examples/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/examples" />
 </a>
 
-### Plasmo Storage
+### [Plasmo Storage](https://github.com/PlasmoHQ/storage)
 
 <a href="https://github.com/PlasmoHQ/storage/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/storage" />
