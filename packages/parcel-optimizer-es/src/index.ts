@@ -32,8 +32,11 @@ export default new Optimizer({
       join(bundle.target.distDir, bundle.name)
     )
 
-    // Use terser for prod sourcemaps
-    if (process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS !== "none") {
+    // Use terser for prod sourcemaps OR no-hoist build
+    if (
+      process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS !== "none" ||
+      !bundle.env.shouldScopeHoist
+    ) {
       const originalMap = map ? await map.stringify({}) : null
       const config: MinifyOptions = {
         format: {
