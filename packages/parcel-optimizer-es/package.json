@@ -32,6 +32,7 @@
     "@parcel/utils": "2.8.2",
     "@parcel/source-map": "2.1.1",
     "esbuild": "0.16.16",
+    "terser": "5.16.1",
     "nullthrows": "1.1.1"
   }
 }

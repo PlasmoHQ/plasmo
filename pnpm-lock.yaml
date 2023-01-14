@@ -1437,6 +1437,7 @@ importers:
       '@plasmo/utils': workspace:*
       esbuild: 0.16.16
       nullthrows: 1.1.1
+      terser: 5.16.1
       tsup: 6.5.0
     dependencies:
       '@parcel/core': 2.8.2
@@ -1445,6 +1446,7 @@ importers:
       '@parcel/utils': 2.8.2
       esbuild: 0.16.16
       nullthrows: 1.1.1
+      terser: 5.16.1
     devDependencies:
       '@plasmo/config': link:../config
       '@plasmo/utils': link:../utils
