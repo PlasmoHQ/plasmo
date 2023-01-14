@@ -137,6 +137,12 @@ Feel free to join the fun and send a PR!
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/storage" />
 </a>
 
+### [Browser Platform Publisher](https://github.com/PlasmoHQ/bpp)
+
+<a href="https://github.com/PlasmoHQ/bpp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PlasmoHQ/bpp" />
+</a>
+
 ## Disclaimer
 
 Plasmo is currently alpha software, and some things might change from version to version, so please be mindful and use it at your own risk.
