@@ -105,6 +105,9 @@ ext-dir
 
 Finally, you can also avoid putting source code in your root directory by putting them in a `src` sub-directory, [following this guide](https://docs.plasmo.com/framework/customization/src). Note that `assets` and other config files will still need to be in the root directory.
 
+## Supported Browsers
+
+To see a list of supported browser targets, [please refer to our documentation here](https://docs.plasmo.com/framework/workflows/faq#what-are-the-officially-supported-browser-targets).
 ## Community
 
 The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d). This is the appropriate channel to get help with using the Plasmo Framework.
