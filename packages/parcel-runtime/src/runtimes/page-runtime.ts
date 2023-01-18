@@ -18,7 +18,7 @@ if (!parent || !parent.isParcelRequire) {
         (asset) => asset.envHash === runtimeData.envHash
       )
 
-      const canHmr = assets.every(
+      const canHmr = assets.some(
         (asset) =>
           asset.type === "css" ||
           (asset.type === "js" &&
@@ -42,7 +42,7 @@ if (!parent || !parent.isParcelRequire) {
             }
           }
         } catch {
-          await triggerReload()
+          await triggerReload(true)
         }
       }
     } else {

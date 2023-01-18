@@ -104,7 +104,7 @@ export class Scaffolder {
     return htmlFile
       ? this.#copyGenerate(htmlFile, outputPath, {
           ...templateReplace,
-          "</body>": `<div id="root"></div><script src="${scriptMountPath}" type="module"></script></body>`
+          "</body>": `<div id="__plasmo"></div><script src="${scriptMountPath}" type="module"></script></body>`
         })
       : this.#cachedGenerate("index.html", outputPath, templateReplace)
   }
