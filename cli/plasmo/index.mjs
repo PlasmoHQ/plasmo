@@ -1,6 +1,6 @@
 import { build, context } from "esbuild"
 import fse from "fs-extra"
-import { argv } from "process"
+import { argv, exit } from "process"
 
 const watch = argv.includes("-w")
 
@@ -35,10 +35,13 @@ async function main() {
 
   if (watch) {
     const ctx = await context(opts)
-    ctx.watch()
+    await ctx.watch()
   } else {
     await build(opts)
   }
 }
 
 main()
+
+process.on("SIGINT", () => exit(0))
+process.on("SIGTERM", () => exit(0))
