@@ -4,17 +4,17 @@ import { cwd } from "process"
 import semver from "semver"
 
 import { assertUnreachable } from "@plasmo/utils/assert"
-import { fileExists } from "@plasmo/utils/fs"
+import { isFileOk } from "@plasmo/utils/fs"
 
 import type { PlasmoManifest } from "./base"
 
 const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
-type SupportedUiLibraryName = typeof supportedUiLibraries[number]
+type SupportedUiLibraryName = (typeof supportedUiLibraries)[number]
 
 const supportedUiExt = [".tsx", ".svelte", ".vue", ".jsx"] as const
 
-export type SupportedUiExt = typeof supportedUiExt[number]
+export type SupportedUiExt = (typeof supportedUiExt)[number]
 
 const supportedUiExtSet = new Set(supportedUiExt)
 
@@ -29,7 +29,7 @@ export type UiLibrary = {
 
 const supportedMountExt = [".ts", ".tsx"] as const
 
-export type ScaffolderMountExt = typeof supportedMountExt[number]
+export type ScaffolderMountExt = (typeof supportedMountExt)[number]
 
 export type UiExtMap = {
   uiExts: SupportedUiExt[]
@@ -91,7 +91,7 @@ export const getUiLibrary = async (
     uiLibraryPath
   )
 
-  if (!(await fileExists(staticPath))) {
+  if (!(await isFileOk(staticPath))) {
     throw new Error(uiLibraryError)
   }
 

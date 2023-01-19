@@ -2,6 +2,7 @@ import { emptyDir, ensureDir } from "fs-extra"
 import { lstat } from "fs/promises"
 import { resolve } from "path"
 
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -20,18 +21,25 @@ export async function cleanupLargeCache(commonPath: CommonPath) {
     "parcel",
     "data.mdb"
   )
+
+  const hasCache = await isFileOk(parcelCacheDbFilePath)
+
+  if (!hasCache) {
+    return
+  }
+
   const cacheDbFileSize = (await lstat(parcelCacheDbFilePath, { bigint: true }))
     .size
 
   // get size in MB
-  const sizeInMB = cacheDbFileSize / 1024n ** 2n
-  const sizeInGB = Number(sizeInMB) / 1024
+  const sizeInMb = cacheDbFileSize / 1024n ** 2n
+  const sizeInGb = Number(sizeInMb) / 1024
 
-  // TODO: calculate the limit based on some heuristic around the size of the project instead of a fixed value
-  const cacheLimit = 1.47
+  // TODO: calculate the limit based on some heuristic around the size of the project instead of a fixed value.
+  const cacheLimitGb = 1.47
 
-  if (sizeInGB > cacheLimit) {
-    vLog(`Busting large build cache, size: ${sizeInGB.toFixed(2)}GB`)
+  if (sizeInGb > cacheLimitGb) {
+    vLog(`Busting large build cache, size: ${sizeInGb.toFixed(2)}GB`)
     await cleanupDotPlasmo(commonPath)
   }
 }
