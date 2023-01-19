@@ -1,8 +1,9 @@
-import { existsSync } from "fs"
 import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
+import { find } from "@plasmo/utils/array"
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
@@ -63,8 +64,9 @@ export class Scaffolder {
     const indexList = this.projectPath[`${uiPageName}IndexList`]
     const htmlList = this.projectPath[`${uiPageName}HtmlList`]
 
-    const indexFile = indexList.find(existsSync)
-    const htmlFile = htmlList.find(existsSync)
+    const [indexFile, htmlFile] = await Promise.all(
+      [indexList, htmlList].map((l) => find(l, isFileOk))
+    )
 
     const { staticDirectory } = this.commonPath
 

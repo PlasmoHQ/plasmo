@@ -441,7 +441,7 @@ importers:
 
   examples/with-inbox-sdk:
     specifiers:
-      '@inboxsdk/core': 0.2.26
+      '@inboxsdk/core': 0.2.27
       '@plasmohq/prettier-plugin-sort-imports': workspace:*
       '@types/chrome': 0.0.209
       '@types/inboxsdk': 2.0.9
@@ -454,7 +454,7 @@ importers:
       react-dom: 18.2.0
       typescript: 4.9.4
     dependencies:
-      '@inboxsdk/core': 0.2.26
+      '@inboxsdk/core': 0.2.27
       plasmo: link:../../cli/plasmo
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3246,8 +3246,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@inboxsdk/core/0.2.26:
-    resolution: {integrity: sha512-EUyrMni+0Jpj1tVxZpX/l3IJ6D3uoAaVexET5QpAyk/6Zuk+Xqfw5iBtx/0v921iKQrQnmDtABUNwOE2OUvoDw==}
+  /@inboxsdk/core/0.2.27:
+    resolution: {integrity: sha512-HLMq3MXo3IOVJcfO2Af1II+wvmvP3M6p7p7gguBIw2N7t4UhmraYE527I4e0sb9DcOS1SQrFM6Vp9wTc+pl4mg==}
     dependencies:
       '@types/kefir': 3.8.7
       '@types/node': 18.11.18
