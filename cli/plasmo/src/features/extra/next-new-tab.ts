@@ -62,7 +62,7 @@ export const nextNewTab = async () => {
   }
 
   await mkdir(extensionDirectory)
-  await copy(out, extensionDirectory, { recursive: true })
+  await copy(out, extensionDirectory)
   vLog("Extension created at:", extensionDirectory)
 
   await stripUnderscore(extensionDirectory)

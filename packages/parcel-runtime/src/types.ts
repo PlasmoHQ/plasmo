@@ -4,7 +4,7 @@ export const plasmoRuntimeList = [
   "background-service-runtime"
 ] as const
 
-export type PlasmoRuntime = typeof plasmoRuntimeList[number]
+export type PlasmoRuntime = (typeof plasmoRuntimeList)[number]
 declare global {
   const __parcel__import__: Function
   const __parcel__importScripts__: Function
@@ -32,7 +32,7 @@ interface ParcelModule {
 export interface ParcelBundle {
   (arg0: string): unknown
   cache: Record<string, ParcelModule>
-  hotData: unknown
+  hotData: Record<string, any>
   Module: any
   parent: ParcelBundle | null | undefined
   isParcelRequire: true
@@ -43,6 +43,8 @@ export interface ParcelBundle {
   HMR_BUNDLE_ID: string
   root: ParcelBundle
 }
+
+export type ParcelAsset = [ParcelBundle, string]
 
 export type RuntimeData = {
   isContentScript: boolean

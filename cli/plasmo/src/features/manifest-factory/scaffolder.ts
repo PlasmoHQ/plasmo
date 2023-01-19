@@ -6,13 +6,16 @@ import { ParsedPath, join, relative, resolve } from "path"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
+import { getMd5RevHash } from "~features/helpers/crypto"
+
 import type { PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
 export class Scaffolder {
-  #scaffoldCache = {} as Record<string, string>
+  #templateCache = {} as Record<string, string>
+  #outputHashCache = {} as Record<string, string>
 
   get projectPath() {
     return this.plasmoManifest.projectPath
@@ -133,28 +136,35 @@ export class Scaffolder {
 
     const isUiExt = isSupportedUiExt(module.ext)
 
-    if (isUiExt) {
-      const scriptPath = resolve(
-        staticModulePath,
-        `${module.name}${this.mountExt}`
-      )
+    const scriptPath = resolve(
+      staticModulePath,
+      `${module.name}${this.mountExt}`
+    )
 
-      await Promise.all([
-        this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
-          __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
-        }),
-        this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
-      ])
-    } else {
-      await Promise.all([
-        this.generateHtml(
-          htmlPath,
-          `~${toPosix(join(module.dir, module.name))}${module.ext}`
-        )
-      ])
+    const generateResult = await Promise.all(
+      isUiExt
+        ? [
+            this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
+              __plasmo_import_module__: `~${toPosix(
+                join(module.dir, module.name)
+              )}`
+            }),
+            this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
+          ]
+        : [
+            this.generateHtml(
+              htmlPath,
+              `~${toPosix(join(module.dir, module.name))}${module.ext}`
+            )
+          ]
+    )
+
+    const fileWritten = generateResult.reduce((acc, curr) => acc && curr)
+
+    return {
+      htmlPath,
+      fileWritten
     }
-
-    return htmlPath
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
@@ -185,6 +195,9 @@ export class Scaffolder {
     return staticContentPath
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #generate = async (
     templateContent: string,
     outputFilePath: string,
@@ -195,7 +208,14 @@ export class Scaffolder {
       templateContent
     )
 
+    const hash = getMd5RevHash(Buffer.from(finalScaffold))
+    if (this.#outputHashCache[outputFilePath] === hash) {
+      return false
+    }
+
+    this.#outputHashCache[outputFilePath] = hash
     await writeFile(outputFilePath, finalScaffold)
+    return true
   }
 
   #copyGenerate = async (
@@ -204,7 +224,8 @@ export class Scaffolder {
     replaceMap: Record<string, string>
   ) => {
     const templateContent = await readFile(filePath, "utf8")
-    await this.#generate(templateContent, outputFilePath, replaceMap)
+
+    return this.#generate(templateContent, outputFilePath, replaceMap)
   }
 
   #cachedGenerate = async (
@@ -212,15 +233,13 @@ export class Scaffolder {
     outputFilePath: string,
     replaceMap: Record<string, string>
   ) => {
-    if (!this.#scaffoldCache[fileName]) {
-      this.#scaffoldCache[fileName] = await readFile(
-        resolve(this.plasmoManifest.staticScaffoldPath, fileName),
-        "utf8"
-      )
-    }
+    this.#templateCache[fileName] ||= await readFile(
+      resolve(this.plasmoManifest.staticScaffoldPath, fileName),
+      "utf8"
+    )
 
-    await this.#generate(
-      this.#scaffoldCache[fileName],
+    return this.#generate(
+      this.#templateCache[fileName],
       outputFilePath,
       replaceMap
     )

@@ -27,10 +27,10 @@
     "tsup": "6.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.2",
-    "@parcel/diagnostic": "2.8.2",
-    "@parcel/plugin": "2.8.2",
+    "@parcel/core": "2.8.3",
+    "@parcel/diagnostic": "2.8.3",
+    "@parcel/plugin": "2.8.3",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.8.2"
+    "@parcel/utils": "2.8.3"
   }
 }
