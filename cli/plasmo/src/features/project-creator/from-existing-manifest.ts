@@ -1,8 +1,7 @@
 import { Unzipped, strFromU8, unzipSync } from "fflate"
 import { readJson } from "fs-extra"
 import { readFile } from "fs/promises"
-import { extname, isAbsolute, resolve } from "path"
-import { cwd } from "process"
+import { extname } from "path"
 
 import type {
   ExtensionManifest,
@@ -10,8 +9,6 @@ import type {
   ExtensionManifestV3,
   ManifestPermission
 } from "@plasmo/constants"
-import { getFlag } from "@plasmo/utils/flags"
-import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -21,7 +18,7 @@ import {
 } from "~features/extension-devtools/package-file"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
-const getManifestData = async (absPath: string) => {
+export const getManifestData = async (absPath: string) => {
   const data = {
     unzipped: {} as Unzipped,
     isZip: false,
@@ -37,26 +34,10 @@ const getManifestData = async (absPath: string) => {
   } else if (ext === ".json") {
     data.manifestData = await readJson(absPath)
   } else {
-    data.manifestData = await readJson(resolve(absPath, "manifest.json"))
+    return null
   }
 
   return data
-}
-
-export const getExistingManifest = async () => {
-  const fromPath = getFlag("--from")
-
-  if (!fromPath) {
-    return null
-  }
-
-  const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(cwd(), fromPath)
-
-  if (!(await isFileOk(absFromPath))) {
-    return null
-  }
-
-  return await getManifestData(absFromPath)
 }
 
 export const generatePackageFromManifest = async (
