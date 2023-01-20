@@ -1,13 +1,15 @@
 import spawnAsync from "@expo/spawn-async"
 import { sentenceCase } from "change-case"
 import { existsSync } from "fs"
-import { copy, readJson, writeJson } from "fs-extra"
-import { writeFile } from "fs/promises"
+import { copy, outputJson, readJson } from "fs-extra"
+import { lstat, readFile, writeFile } from "fs/promises"
+import ignore from "ignore"
 import { userInfo } from "os"
-import { resolve } from "path"
+import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
+import { isFileOk } from "@plasmo/utils/fs"
 import { iLog, vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -17,15 +19,12 @@ import {
   generatePackage,
   resolveWorkspaceToLatestSemver
 } from "~features/extension-devtools/package-file"
-import {
-  TemplatePath,
-  getTemplatePath
-} from "~features/extension-devtools/template-path"
+import { getTemplatePath } from "~features/extension-devtools/template-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
 import {
   generatePackageFromManifest,
-  getExistingManifest
+  getManifestData
 } from "./from-existing-manifest"
 
 const withRegex = /(?:^--with-)(?:\w+-?)+(?:[^-]$)/
@@ -41,15 +40,55 @@ export class ProjectCreator {
 
   async create() {
     return (
-      (await this.createFromManifest()) ||
-      (await this.createWithExample()) ||
+      (await this.createFrom()) ||
+      (await this.createWith()) ||
       (await this.createBlank())
     )
   }
 
-  async createFromManifest() {
-    const existingData = await getExistingManifest()
+  async createFrom() {
+    const fromPath = getFlag("--from")
 
+    if (!fromPath) {
+      return false
+    }
+
+    const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(fromPath)
+    try {
+      const fromStats = await lstat(absFromPath)
+      if (fromStats.isFile()) {
+        return await this.createFromManifest(absFromPath)
+      } else if (fromStats.isDirectory()) {
+        return await this.createFromLocalTemplate(absFromPath)
+      } else {
+        return false
+      }
+    } catch {
+      return false
+    }
+  }
+
+  async createFromLocalTemplate(absFromPath: string) {
+    const ig = ignore().add(["node_modules", ".git", ".env*"])
+
+    const gitIgnorePath = join(absFromPath, ".gitignore")
+    const hasGitIgnore = await isFileOk(gitIgnorePath)
+
+    if (hasGitIgnore) {
+      const gitIgnoreData = await readFile(gitIgnorePath, "utf-8")
+      ig.add(gitIgnoreData)
+    }
+
+    await copy(absFromPath, this.commonPath.projectDirectory, {
+      filter: (src) =>
+        src === absFromPath || !ig.ignores(relative(absFromPath, src))
+    })
+
+    return true
+  }
+
+  async createFromManifest(absFromPath: string) {
+    const existingData = await getManifestData(absFromPath)
     if (existingData === null) {
       return false
     }
@@ -62,23 +101,23 @@ export class ProjectCreator {
       existingData
     )
 
-    await writeJson(this.commonPath.packageFilePath, packageData, {
+    await outputJson(this.commonPath.packageFilePath, packageData, {
       spaces: 2
     })
 
     return true
   }
 
-  async createWithExample() {
+  async createWith() {
     const withExampleName = process.argv.find((arg) => withRegex.test(arg))
     if (withExampleName === undefined) {
       return false
     }
 
-    return this.createWith(withExampleName.substring(2))
+    return this.createWithExample(withExampleName.substring(2))
   }
 
-  async createWith(exampleName: string) {
+  async createWithExample(exampleName: string) {
     iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
 
     const { packageName, packageFilePath } = this.commonPath
@@ -142,7 +181,7 @@ export class ProjectCreator {
       ])
     }
 
-    await writeJson(packageFilePath, packageData, {
+    await outputJson(packageFilePath, packageData, {
       spaces: 2
     })
     return true
@@ -170,7 +209,7 @@ export class ProjectCreator {
 
     iLog(`Copying template files...`)
     await Promise.all([
-      writeJson(packageFilePath, packageData, {
+      outputJson(packageFilePath, packageData, {
         spaces: 2
       }),
       this.copyBlankInitFiles()

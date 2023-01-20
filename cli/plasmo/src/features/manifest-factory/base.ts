@@ -1,4 +1,5 @@
 import { ok } from "assert"
+import glob from "fast-glob"
 import {
   copy,
   ensureDir,
@@ -20,7 +21,6 @@ import {
   resolve
 } from "path"
 import { cwd } from "process"
-import glob from "tiny-glob"
 
 import type {
   ChromeUrlOverrideType,
@@ -528,7 +528,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         // Handling glob...
         const files = await glob(inputFilePath, {
           cwd: this.commonPath.projectDirectory,
-          filesOnly: true
+          onlyFiles: true
         })
 
         await Promise.all(files.map(this.copyProjectFile))
