@@ -5,14 +5,14 @@ import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
-import { cleanupDotPlasmo } from "~features/extra/cache-busting"
+import { cleanUpDotPlasmo } from "~features/extra/cache-busting"
 
 export const updateVersionFile = async (commonPath: CommonPath) => {
   const { plasmoVersionFilePath } = commonPath
 
   if (!(await isFileOk(plasmoVersionFilePath))) {
     vLog("Plasmo version file not found, busting cache...")
-    await cleanupDotPlasmo(commonPath)
+    await cleanUpDotPlasmo(commonPath)
   } else {
     const cachedVersion = await readJson(plasmoVersionFilePath)
     const semverCachedVersion = semver.coerce(cachedVersion.version)
@@ -25,7 +25,7 @@ export const updateVersionFile = async (commonPath: CommonPath) => {
         semverCachedVersion.minor < semverCurrentVersion.minor)
     ) {
       vLog("Plasmo version outdated, busting cache...")
-      await cleanupDotPlasmo(commonPath)
+      await cleanUpDotPlasmo(commonPath)
     }
   }
 

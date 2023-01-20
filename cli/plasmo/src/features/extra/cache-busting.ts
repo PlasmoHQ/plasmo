@@ -7,7 +7,7 @@ import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
-export async function cleanupDotPlasmo({
+export async function cleanUpDotPlasmo({
   dotPlasmoDirectory,
   cacheDirectory
 }: CommonPath) {
@@ -15,7 +15,7 @@ export async function cleanupDotPlasmo({
   await ensureDir(cacheDirectory)
 }
 
-export async function cleanupLargeCache(commonPath: CommonPath) {
+export async function cleanUpLargeCache(commonPath: CommonPath) {
   const parcelCacheDbFilePath = resolve(
     commonPath.cacheDirectory,
     "parcel",
@@ -31,15 +31,14 @@ export async function cleanupLargeCache(commonPath: CommonPath) {
   const cacheDbFileSize = (await lstat(parcelCacheDbFilePath, { bigint: true }))
     .size
 
-  // get size in MB
-  const sizeInMb = cacheDbFileSize / 1024n ** 2n
-  const sizeInGb = Number(sizeInMb) / 1024
+  const sizeInMB = cacheDbFileSize / 1024n ** 2n
+  const sizeInGB = Number(sizeInMB) / 1024
 
   // TODO: calculate the limit based on some heuristic around the size of the project instead of a fixed value.
-  const cacheLimitGb = 1.47
+  const cacheLimitGB = 1.47
 
-  if (sizeInGb > cacheLimitGb) {
-    vLog(`Busting large build cache, size: ${sizeInGb.toFixed(2)}GB`)
-    await cleanupDotPlasmo(commonPath)
+  if (sizeInGB > cacheLimitGB) {
+    vLog(`Busting large build cache, size: ${sizeInGB.toFixed(2)}GB`)
+    await cleanUpDotPlasmo(commonPath)
   }
 }

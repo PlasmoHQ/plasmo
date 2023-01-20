@@ -18,7 +18,6 @@ if (!parent || !parent.isParcelRequire) {
         (asset) => asset.envHash === runtimeData.envHash
       )
 
-      // Some quirky shit happening here:
       const canHmr = assets.some(
         (asset) =>
           asset.type === "css" ||

@@ -114,6 +114,9 @@ export class Scaffolder {
       : this.#cachedGenerate("index.html", outputPath, templateReplace)
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   createPageHtml = async (
     uiPageName: ExtensionUIPage,
     htmlFile = "" as string | false
@@ -143,7 +146,7 @@ export class Scaffolder {
       `${module.name}${this.mountExt}`
     )
 
-    const generateResult = await Promise.all(
+    const generateResultList = await Promise.all(
       isUiExt
         ? [
             this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
@@ -161,11 +164,9 @@ export class Scaffolder {
           ]
     )
 
-    const fileWritten = generateResult.reduce((acc, curr) => acc && curr)
-
     return {
       htmlPath,
-      fileWritten
+      wereFilesWritten: generateResultList.some((r) => r)
     }
   }
 
@@ -220,6 +221,9 @@ export class Scaffolder {
     return true
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #copyGenerate = async (
     filePath: string,
     outputFilePath: string,
@@ -230,6 +234,9 @@ export class Scaffolder {
     return this.#generate(templateContent, outputFilePath, replaceMap)
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #cachedGenerate = async (
     fileName: string,
     outputFilePath: string,

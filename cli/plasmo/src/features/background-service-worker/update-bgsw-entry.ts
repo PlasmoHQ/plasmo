@@ -6,19 +6,19 @@ import { createBgswMessaging } from "~features/background-service-worker/bgsw-me
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 export const updateBgswEntry = async (plasmoManifest: PlasmoManifest) => {
-  const bgswIndex = await find(
+  const bgswIndexFilePath = await find(
     plasmoManifest.projectPath.backgroundIndexList,
     isFileOk
   )
 
   const withMessaging = await createBgswMessaging(plasmoManifest)
 
-  const hasBgsw = Boolean(bgswIndex || withMessaging)
+  const hasBgsw = Boolean(bgswIndexFilePath || withMessaging)
 
   if (hasBgsw) {
     await createBgswEntry(
       {
-        indexFilePath: bgswIndex,
+        indexFilePath: bgswIndexFilePath,
         withMessaging
       },
       plasmoManifest

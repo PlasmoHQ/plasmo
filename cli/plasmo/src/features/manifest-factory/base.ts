@@ -51,7 +51,7 @@ import {
   getProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
-import { cleanupLargeCache } from "~features/extra/cache-busting"
+import { cleanUpLargeCache } from "~features/extra/cache-busting"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
 
@@ -169,7 +169,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     vLog(`Ensure exists: ${this.commonPath.dotPlasmoDirectory}`)
     await ensureDir(this.commonPath.dotPlasmoDirectory)
-    await cleanupLargeCache(this.commonPath)
+    await cleanUpLargeCache(this.commonPath)
     await updateVersionFile(this.commonPath)
     await generateIcons(this.commonPath)
 
@@ -387,12 +387,12 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(modulePath)
 
-      const { fileWritten } = await this.scaffolder.createPageMount(
+      const { wereFilesWritten } = await this.scaffolder.createPageMount(
         parsedModulePath
       )
 
       // if enabled, and the template file was written, invalidate hash!
-      if (fileWritten) {
+      if (wereFilesWritten) {
         this.#hash = ""
       }
     } else {

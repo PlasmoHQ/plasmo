@@ -22,14 +22,14 @@ export function getParents(
   }
 
   let parents = []
-  let k: string, d: string, dep: string
+  let modId: string, depId: string, dep: string
 
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d]
+  for (modId in modules) {
+    for (depId in modules[modId][1]) {
+      dep = modules[modId][1][depId]
 
       if (dep === id || (Array.isArray(dep) && dep[dep.length - 1] === id)) {
-        parents.push([bundle, k])
+        parents.push([bundle, modId])
       }
     }
   }
