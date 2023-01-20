@@ -2,12 +2,14 @@ import spawnAsync from "@expo/spawn-async"
 import { sentenceCase } from "change-case"
 import { existsSync } from "fs"
 import { copy, outputJson, readJson } from "fs-extra"
-import { lstat, writeFile } from "fs/promises"
+import { lstat, readFile, writeFile } from "fs/promises"
+import ignore from "ignore"
 import { userInfo } from "os"
-import { isAbsolute, resolve } from "path"
+import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
+import { isFileOk } from "@plasmo/utils/fs"
 import { iLog, vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -67,10 +69,22 @@ export class ProjectCreator {
   }
 
   async createFromLocalTemplate(absFromPath: string) {
-    console.log({ absFromPath })
-    console.log(this.commonPath)
+    const ig = ignore().add(["node_modules", ".git", ".env*"])
 
-    return false
+    const gitIgnorePath = join(absFromPath, ".gitignore")
+    const hasGitIgnore = await isFileOk(gitIgnorePath)
+
+    if (hasGitIgnore) {
+      const gitIgnoreData = await readFile(gitIgnorePath, "utf-8")
+      ig.add(gitIgnoreData)
+    }
+
+    await copy(absFromPath, this.commonPath.projectDirectory, {
+      filter: (src) =>
+        src === absFromPath || !ig.ignores(relative(absFromPath, src))
+    })
+
+    return true
   }
 
   async createFromManifest(absFromPath: string) {

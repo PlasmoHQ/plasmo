@@ -61,7 +61,7 @@
     "@parcel/hash": "2.8.3",
     "@parcel/plugin": "2.8.3",
     "@parcel/types": "2.8.3",
-    "got": "12.5.3",
-    "tiny-glob": "0.2.9"
+    "fast-glob": "3.2.12",
+    "got": "12.5.3"
   }
 }
