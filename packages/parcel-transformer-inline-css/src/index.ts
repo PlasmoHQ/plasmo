@@ -1,7 +1,17 @@
-import { transform } from "@parcel/css"
+/**
+ * Copyright (c) 2022 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * MIT License
+ *
+ * Based on: https://github.com/parcel-bundler/parcel/blob/7023c08b7e99a9b8fd3c04995e4ef7ca92dee5c1/packages/transformers/css/src/CSSTransformer.js
+ * MIT License
+ */
+
 import { Transformer } from "@parcel/plugin"
 import { remapSourceLocation } from "@parcel/utils"
+import { transform } from "lightningcss"
 import { relative } from "path"
+
+import { getTargets } from "./get-tagets"
 
 export default new Transformer({
   async transform({ asset, options }) {
@@ -12,8 +22,11 @@ export default new Transformer({
       asset.getMap()
     ])
 
+    const targets = getTargets(asset.env.engines.browsers)
+
     const res = transform({
       filename: relative(options.projectRoot, asset.filePath),
+      targets,
       code,
       cssModules: true,
       analyzeDependencies: asset.meta.hasDependencies !== false,

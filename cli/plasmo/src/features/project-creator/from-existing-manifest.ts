@@ -1,5 +1,4 @@
 import { Unzipped, strFromU8, unzipSync } from "fflate"
-import { existsSync } from "fs"
 import { readJson } from "fs-extra"
 import { readFile } from "fs/promises"
 import { extname, isAbsolute, resolve } from "path"
@@ -12,6 +11,7 @@ import type {
   ManifestPermission
 } from "@plasmo/constants"
 import { getFlag } from "@plasmo/utils/flags"
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -52,7 +52,7 @@ export const getExistingManifest = async () => {
 
   const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(cwd(), fromPath)
 
-  if (!existsSync(absFromPath)) {
+  if (!(await isFileOk(absFromPath))) {
     return null
   }
 

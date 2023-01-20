@@ -9,6 +9,13 @@
   "transformers": {
     "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
 
+    "react:*.svg": ["...", "@parcel/transformer-svg-react"],
+    "react:*.{js,mjs,jsm,jsx,es6,cjs,ts,tsx}": [
+      "@parcel/transformer-babel",
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap"
+    ],
+
     "data-text:*.module.{css,pcss}": [
       "@parcel/transformer-postcss",
       "@plasmohq/parcel-transformer-inline-css",

@@ -1,31 +1,32 @@
-import type { ParcelBundle } from "../types"
+import type { ParcelAsset, ParcelBundle } from "../types"
 
 export const hmrState = {
   checkedAssets: {} as Record<string, boolean>,
-  acceptedAssets: {} as Record<string, boolean>,
-  assetsToAccept: [] as Array<[ParcelBundle, string]>
+  assetsToDispose: [] as Array<ParcelAsset>,
+  assetsToAccept: [] as Array<ParcelAsset>
 }
 
 export const resetHmrState = () => {
   hmrState.checkedAssets = {}
-  hmrState.acceptedAssets = {}
+  hmrState.assetsToDispose = []
   hmrState.assetsToAccept = []
 }
 
 export function getParents(
   bundle: ParcelBundle,
   id: string
-): Array<[ParcelBundle, string]> {
+): Array<ParcelAsset> {
   const { modules } = bundle
   if (!modules) {
     return []
   }
 
   let parents = []
+  let modId: string, depId: string, dep: string
 
-  for (const modId in modules) {
-    for (const depId in modules[modId][1]) {
-      const dep = modules[modId][1][depId]
+  for (modId in modules) {
+    for (depId in modules[modId][1]) {
+      dep = modules[modId][1][depId]
 
       if (dep === id || (Array.isArray(dep) && dep[dep.length - 1] === id)) {
         parents.push([bundle, modId])
@@ -50,8 +51,10 @@ export function hmrAcceptCheck(
   }
 
   // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
-  let parents = getParents(module.bundle.root, id)
+  const parents = getParents(module.bundle.root, id)
+
   let accepted = false
+
   while (parents.length > 0) {
     const [parentAsset, parentId] = parents.shift()
     const canHmr = hmrAcceptCheckOne(parentAsset, parentId, null)
@@ -99,11 +102,16 @@ function hmrAcceptCheckOne(
 
   hmrState.checkedAssets[id] = true
 
-  var cached = bundle.cache[id]
+  const cached = bundle.cache[id]
 
-  hmrState.assetsToAccept.push([bundle, id])
+  hmrState.assetsToDispose.push([bundle, id])
 
-  return !cached || (cached.hot && cached.hot._acceptCallbacks.length)
+  if (!cached || (cached.hot && cached.hot._acceptCallbacks.length)) {
+    hmrState.assetsToAccept.push([bundle, id])
+    return true
+  }
+
+  return false
 }
 
 export function isDependencyOfBundle(bundle: ParcelBundle, id: string) {

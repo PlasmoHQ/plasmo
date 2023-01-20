@@ -1,10 +1,13 @@
-import { existsSync } from "fs"
 import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
+import { find } from "@plasmo/utils/array"
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
+
+import { getMd5RevHash } from "~features/helpers/crypto"
 
 import type { PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
@@ -12,7 +15,8 @@ import { isSupportedUiExt } from "./ui-library"
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
 
 export class Scaffolder {
-  #scaffoldCache = {} as Record<string, string>
+  #templateCache = {} as Record<string, string>
+  #outputHashCache = {} as Record<string, string>
 
   get projectPath() {
     return this.plasmoManifest.projectPath
@@ -60,8 +64,9 @@ export class Scaffolder {
     const indexList = this.projectPath[`${uiPageName}IndexList`]
     const htmlList = this.projectPath[`${uiPageName}HtmlList`]
 
-    const indexFile = indexList.find(existsSync)
-    const htmlFile = htmlList.find(existsSync)
+    const [indexFile, htmlFile] = await Promise.all(
+      [indexList, htmlList].map((l) => find(l, isFileOk))
+    )
 
     const { staticDirectory } = this.commonPath
 
@@ -104,11 +109,14 @@ export class Scaffolder {
     return htmlFile
       ? this.#copyGenerate(htmlFile, outputPath, {
           ...templateReplace,
-          "</body>": `<div id="root"></div><script src="${scriptMountPath}" type="module"></script></body>`
+          "</body>": `<div id="__plasmo"></div><script src="${scriptMountPath}" type="module"></script></body>`
         })
       : this.#cachedGenerate("index.html", outputPath, templateReplace)
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   createPageHtml = async (
     uiPageName: ExtensionUIPage,
     htmlFile = "" as string | false
@@ -133,28 +141,33 @@ export class Scaffolder {
 
     const isUiExt = isSupportedUiExt(module.ext)
 
-    if (isUiExt) {
-      const scriptPath = resolve(
-        staticModulePath,
-        `${module.name}${this.mountExt}`
-      )
+    const scriptPath = resolve(
+      staticModulePath,
+      `${module.name}${this.mountExt}`
+    )
 
-      await Promise.all([
-        this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
-          __plasmo_import_module__: `~${toPosix(join(module.dir, module.name))}`
-        }),
-        this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
-      ])
-    } else {
-      await Promise.all([
-        this.generateHtml(
-          htmlPath,
-          `~${toPosix(join(module.dir, module.name))}${module.ext}`
-        )
-      ])
+    const generateResultList = await Promise.all(
+      isUiExt
+        ? [
+            this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
+              __plasmo_import_module__: `~${toPosix(
+                join(module.dir, module.name)
+              )}`
+            }),
+            this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
+          ]
+        : [
+            this.generateHtml(
+              htmlPath,
+              `~${toPosix(join(module.dir, module.name))}${module.ext}`
+            )
+          ]
+    )
+
+    return {
+      htmlPath,
+      wereFilesWritten: generateResultList.some((r) => r)
     }
-
-    return htmlPath
   }
 
   createContentScriptMount = async (module: ParsedPath) => {
@@ -185,6 +198,9 @@ export class Scaffolder {
     return staticContentPath
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #generate = async (
     templateContent: string,
     outputFilePath: string,
@@ -195,32 +211,44 @@ export class Scaffolder {
       templateContent
     )
 
+    const hash = getMd5RevHash(Buffer.from(finalScaffold))
+    if (this.#outputHashCache[outputFilePath] === hash) {
+      return false
+    }
+
+    this.#outputHashCache[outputFilePath] = hash
     await writeFile(outputFilePath, finalScaffold)
+    return true
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #copyGenerate = async (
     filePath: string,
     outputFilePath: string,
     replaceMap: Record<string, string>
   ) => {
     const templateContent = await readFile(filePath, "utf8")
-    await this.#generate(templateContent, outputFilePath, replaceMap)
+
+    return this.#generate(templateContent, outputFilePath, replaceMap)
   }
 
+  /**
+   * @return true if file was written, false if cache hit
+   */
   #cachedGenerate = async (
     fileName: string,
     outputFilePath: string,
     replaceMap: Record<string, string>
   ) => {
-    if (!this.#scaffoldCache[fileName]) {
-      this.#scaffoldCache[fileName] = await readFile(
-        resolve(this.plasmoManifest.staticScaffoldPath, fileName),
-        "utf8"
-      )
-    }
+    this.#templateCache[fileName] ||= await readFile(
+      resolve(this.plasmoManifest.staticScaffoldPath, fileName),
+      "utf8"
+    )
 
-    await this.#generate(
-      this.#scaffoldCache[fileName],
+    return this.#generate(
+      this.#templateCache[fileName],
       outputFilePath,
       replaceMap
     )

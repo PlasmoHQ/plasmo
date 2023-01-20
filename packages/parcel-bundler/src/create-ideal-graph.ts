@@ -427,6 +427,12 @@ export function createIdealGraph(
       let asset = node.value
 
       if (asset.bundleBehavior != null || root.type !== asset.type) {
+        if (root.type !== asset.type && !bundleRoots.has(asset)) {
+          // A type may not necessarily be a bundleRoot since we've merged at this point
+          // So we must add that asset in as an island at the very least
+          reachableRoots.addNodeByContentKeyIfNeeded(node.value.id, node.value)
+        }
+
         actions.skipChildren()
         return
       }
@@ -615,8 +621,9 @@ export function createIdealGraph(
       if (
         entries.has(a) ||
         !a.isBundleSplittable ||
-        getBundleFromBundleRoot(a).needsStableName ||
-        getBundleFromBundleRoot(a).bundleBehavior === "isolated"
+        (bundleRoots.get(a) &&
+          (getBundleFromBundleRoot(a).needsStableName ||
+            getBundleFromBundleRoot(a).bundleBehavior === "isolated"))
       ) {
         reachableEntries.push(a)
       } else {
@@ -871,13 +878,6 @@ export function createIdealGraph(
     bundleRoots.delete(bundleRoot)
     bundles.delete(bundleRoot.id)
 
-    if (reachableRoots.hasContentKey(bundleRoot.id)) {
-      reachableRoots.replaceNodeIdsConnectedTo(
-        reachableRoots.getNodeIdByContentKey(bundleRoot.id),
-        []
-      )
-    }
-
     if (bundleRootGraph.hasContentKey(bundleRoot.id)) {
       bundleRootGraph.removeNode(
         bundleRootGraph.getNodeIdByContentKey(bundleRoot.id)
@@ -912,14 +912,23 @@ export function createIdealGraph(
     let a = nullthrows(bundleGraph.getNode(mainNodeId))
     let b = nullthrows(bundleGraph.getNode(otherNodeId))
     invariant(a !== "root" && b !== "root")
-    let bundleRootB = nullthrows(b.mainEntryAsset)
-    let mainBundleRoot = nullthrows(a.mainEntryAsset)
-
-    for (let asset of a.assets) {
-      b.assets.add(asset)
+    const bundleRootB = nullthrows(b.mainEntryAsset)
+    const mainBundleRoot = nullthrows(a.mainEntryAsset)
+    const bundleGroupOfMain = nullthrows(bundleRoots.get(mainBundleRoot))[1]
+    // If our merging bundle is already a combination of bundles, all previous root assets must be updated as well
+    for (let movingAsset of b.assets) {
+      if (movingAsset === bundleRootB) continue
+      if (bundleRoots.has(movingAsset)) {
+        bundleRoots.set(movingAsset, [mainNodeId, bundleGroupOfMain])
+        bundles.set(movingAsset.id, mainNodeId)
+      }
+      replaceAssetReference(movingAsset, b, a)
     }
 
-    a.assets = b.assets
+    for (let asset of b.assets) {
+      a.assets.add(asset)
+      a.size += asset.stats.size
+    }
 
     for (let depId of dependencyBundleGraph.getNodeIdsConnectedTo(
       dependencyBundleGraph.getNodeIdByContentKey(String(otherNodeId)),
@@ -939,11 +948,27 @@ export function createIdealGraph(
     for (let nodeId of bundleGraph.getNodeIdsConnectedTo(otherNodeId)) {
       bundleGraph.addEdge(nodeId, mainNodeId)
     }
-
+    replaceAssetReference(bundleRootB, b, a)
     deleteBundle(bundleRootB)
-    let bundleGroupOfMain = nullthrows(bundleRoots.get(mainBundleRoot))[1]
     bundleRoots.set(bundleRootB, [mainNodeId, bundleGroupOfMain])
     bundles.set(bundleRootB.id, mainNodeId)
+    bundleRoots.delete(bundleRootB)
+    bundles.delete(bundleRootB.id)
+  }
+
+  function replaceAssetReference(
+    bundleRoot: BundleRoot,
+    toReplace: Bundle,
+    replaceWith: Bundle
+  ): void {
+    let replaceAssetReference = assetReference.get(bundleRoot).map((entry) => {
+      let bundle = entry[1]
+      if (bundle == toReplace) {
+        return [entry[0], replaceWith]
+      }
+      return entry
+    })
+    assetReference.set(bundleRoot, replaceAssetReference)
   }
 
   function getBundleFromBundleRoot(bundleRoot: BundleRoot): Bundle {

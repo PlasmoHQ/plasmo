@@ -14,14 +14,13 @@
     "build:examples": "pnpm --filter \"./examples/**\" -r build",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
-    "publish:packages:lab": "pnpm --filter \"./packages/**\" publish --no-git-checks --tag lab",
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
     "publish:cli:lab": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag lab",
-    "publish:lab": "run-s publish:packages:lab publish:cli:lab",
+    "publish:lab": "run-s publish:packages publish:cli:lab",
     "### version script usage example": "pnpm v:cli patch",
-    "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version",
-    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version",
-    "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version"
+    "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "pnpm": {
     "overrides": {
@@ -37,18 +36,18 @@
     "@types/inquirer": "9.0.3",
     "@types/node": "18.11.18",
     "@types/node-rsa": "1.1.1",
-    "@types/react": "18.0.26",
+    "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "@types/semver": "7.3.13",
     "@types/sharp": "0.31.1",
     "@types/uuid": "9.0.0",
     "@types/ws": "8.5.4",
-    "esbuild": "0.16.16",
-    "eslint": "8.31.0",
+    "esbuild": "0.17.3",
+    "eslint": "8.32.0",
     "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-react": "7.32.0",
+    "eslint-plugin-react": "7.32.1",
     "fs-extra": "11.1.0",
-    "prettier": "2.8.2",
+    "prettier": "2.8.3",
     "tsup": "6.5.0",
     "turbo": "1.7.0"
   },
@@ -56,5 +55,5 @@
     "npm": ">=7.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.21.0"
+  "packageManager": "pnpm@7.25.0"
 }

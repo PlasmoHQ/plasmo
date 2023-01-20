@@ -1,17 +1,18 @@
-import { existsSync } from "fs"
-import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
+import { readJson, writeJson } from "fs-extra"
 import semver from "semver"
 
-import { wLog } from "@plasmo/utils/logging"
+import { isFileOk } from "@plasmo/utils/fs"
+import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
+import { cleanUpDotPlasmo } from "~features/extra/cache-busting"
 
 export const updateVersionFile = async (commonPath: CommonPath) => {
   const { plasmoVersionFilePath } = commonPath
 
-  if (!existsSync(plasmoVersionFilePath)) {
-    wLog("Plasmo version file not found, busting cache...")
-    await cleanupDotPlasmo(commonPath)
+  if (!(await isFileOk(plasmoVersionFilePath))) {
+    vLog("Plasmo version file not found, busting cache...")
+    await cleanUpDotPlasmo(commonPath)
   } else {
     const cachedVersion = await readJson(plasmoVersionFilePath)
     const semverCachedVersion = semver.coerce(cachedVersion.version)
@@ -23,18 +24,10 @@ export const updateVersionFile = async (commonPath: CommonPath) => {
       (semverCachedVersion.major === semverCurrentVersion.major &&
         semverCachedVersion.minor < semverCurrentVersion.minor)
     ) {
-      wLog("Plasmo version outdated, busting cache...")
-      await cleanupDotPlasmo(commonPath)
+      vLog("Plasmo version outdated, busting cache...")
+      await cleanUpDotPlasmo(commonPath)
     }
   }
 
   await writeJson(plasmoVersionFilePath, { version: process.env.APP_VERSION })
-}
-
-async function cleanupDotPlasmo({
-  dotPlasmoDirectory,
-  cacheDirectory
-}: CommonPath) {
-  await emptyDir(dotPlasmoDirectory)
-  await ensureDir(cacheDirectory)
 }

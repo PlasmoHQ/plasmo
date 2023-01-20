@@ -33,7 +33,7 @@ async function build() {
     shouldContentHash: false,
     defaultTargetOptions: {
       shouldOptimize: true,
-      shouldScopeHoist: true
+      shouldScopeHoist: !hasFlag("--no-hoist")
     }
   })
 
