@@ -4,5 +4,5 @@ import { createApp } from "vue"
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(Component.default)
-  app.mount("#root")
+  app.mount("#__plasmo")
 })

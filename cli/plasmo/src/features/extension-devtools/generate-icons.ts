@@ -1,7 +1,9 @@
-import { copy, ensureDir, existsSync } from "fs-extra"
+import { copy, ensureDir } from "fs-extra"
 import { basename, resolve } from "path"
 import sharp from "sharp"
 
+import { find } from "@plasmo/utils/array"
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { getFlagMap } from "~features/helpers/flag"
@@ -65,7 +67,7 @@ export async function generateIcons({
     )
   }
 
-  const baseIconPath = iconState.baseIconPaths.find(existsSync)
+  const baseIconPath = await find(iconState.baseIconPaths, isFileOk)
 
   if (baseIconPath === undefined) {
     wLog("No icon found in assets directory")
@@ -79,7 +81,7 @@ export async function generateIcons({
   vLog(`${baseIconPath} found, creating resized icons`)
 
   await Promise.all(
-    [128, 64, 48, 32, 16].map((width) => {
+    [128, 64, 48, 32, 16].map(async (width) => {
       if (iconState.devProvidedIcons[width] === undefined) {
         const devIconPath = getPrioritizedIconPaths(getIconNameVariants(width))
         iconState.devProvidedIcons[width] = devIconPath.map((name) =>
@@ -87,7 +89,11 @@ export async function generateIcons({
         )
       }
 
-      const devProvidedIcon = iconState.devProvidedIcons[width].find(existsSync)
+      const devProvidedIcon = await find(
+        iconState.devProvidedIcons[width],
+        isFileOk
+      )
+
       const generatedIconPath = resolve(
         genAssetsDirectory,
         `icon${width}.plasmo.png`
