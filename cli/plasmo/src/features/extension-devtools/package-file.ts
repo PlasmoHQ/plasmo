@@ -8,7 +8,7 @@ import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
 export const generatePackage = ({
   name = "plasmo-extension",
-  version = "0.0.0",
+  version = "0.0.1",
   packageManager = {} as PackageManagerInfo
 }) => {
   const baseData = {
