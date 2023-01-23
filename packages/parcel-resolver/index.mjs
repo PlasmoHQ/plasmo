@@ -3,7 +3,7 @@ import glob from "fast-glob"
 
 const commonConfig = {
   bundle: true,
-  minify: true,
+  // minify: true,
 
   platform: "browser",
   format: "cjs",

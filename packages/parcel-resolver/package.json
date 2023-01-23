@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver",
-  "version": "0.10.3",
+  "version": "0.11.0",
   "description": "Plasmo Parcel Resolver",
   "files": [
     "dist"
@@ -29,8 +29,8 @@
     "@plasmo/utils": "workspace:*",
     "@plasmohq/rps": "workspace:*",
     "assert": "2.0.0",
-    "browserify-zlib": "0.2.0",
     "buffer": "6.0.3",
+    "browserify-zlib": "0.2.0",
     "console-browserify": "1.2.0",
     "constants-browserify": "1.0.0",
     "crc-32": "1.2.2",
@@ -48,7 +48,6 @@
     "stream-browserify": "3.0.0",
     "stream-http": "3.2.0",
     "string_decoder": "1.3.0",
-    "timers": "0.1.1",
     "timers-browserify": "2.0.12",
     "tsup": "6.5.0",
     "tty-browserify": "0.0.1",
@@ -62,6 +61,7 @@
     "@parcel/plugin": "2.8.3",
     "@parcel/types": "2.8.3",
     "fast-glob": "3.2.12",
+    "fs-extra": "11.1.0",
     "got": "12.5.3"
   }
 }
