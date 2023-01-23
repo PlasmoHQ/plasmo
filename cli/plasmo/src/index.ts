@@ -48,7 +48,7 @@ async function main() {
     }
   } catch (e: any) {
     eLog((e as Error).message || ErrorMessage.Unknown)
-    aLog(e.stack)
+    vLog(e.stack)
     await exitCountDown(3)
     exit(1)
   }

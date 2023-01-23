@@ -2,7 +2,7 @@ import { vLog } from "@plasmo/utils/logging"
 
 import { runtimeData, triggerReload } from "../utils/0-patch-module"
 import { hmrAcceptCheck, hmrState, resetHmrState } from "../utils/hmr-check"
-import { hmrAcceptRun, hmrApplyUpdates } from "../utils/hmr-utils"
+import { hmrAccept, hmrApplyUpdates, hmrDispose } from "../utils/hmr-utils"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { injectReactRefresh } from "../utils/react-refresh"
 
@@ -18,7 +18,7 @@ if (!parent || !parent.isParcelRequire) {
         (asset) => asset.envHash === runtimeData.envHash
       )
 
-      const canHmr = assets.every(
+      const canHmr = assets.some(
         (asset) =>
           asset.type === "css" ||
           (asset.type === "js" &&
@@ -26,23 +26,34 @@ if (!parent || !parent.isParcelRequire) {
       )
 
       if (canHmr) {
-        if (
-          typeof globalThis.window !== "undefined" &&
-          typeof CustomEvent !== "undefined"
-        ) {
-          window.dispatchEvent(new CustomEvent("parcelhmraccept"))
-        }
-
         try {
           await hmrApplyUpdates(assets)
 
-          for (const [asset, id] of hmrState.assetsToAccept) {
-            if (!hmrState.acceptedAssets[id]) {
-              hmrAcceptRun(asset, id)
+          // Dispose all old assets.
+          const disposedAssets = {} as Record<string, boolean>
+
+          for (const [asset, id] of hmrState.assetsToDispose) {
+            if (!disposedAssets[id]) {
+              hmrDispose(asset, id)
+              disposedAssets[id] = true
             }
           }
-        } catch {
-          await triggerReload()
+
+          const acceptedAssets = {} as Record<string, boolean>
+
+          for (let i = 0; i < hmrState.assetsToAccept.length; i++) {
+            const [asset, id] = hmrState.assetsToAccept[i]
+            if (!acceptedAssets[id]) {
+              hmrAccept(asset, id)
+              acceptedAssets[id] = true
+            }
+          }
+        } catch (e) {
+          if (runtimeData.verbose === "true") {
+            console.trace(e)
+            alert(JSON.stringify(e))
+          }
+          await triggerReload(true)
         }
       }
     } else {

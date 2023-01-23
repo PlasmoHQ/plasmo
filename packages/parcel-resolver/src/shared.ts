@@ -1,9 +1,9 @@
 import type { Resolver } from "@parcel/plugin"
 import type { ResolveResult } from "@parcel/types"
+import glob from "fast-glob"
 import { statSync } from "fs"
 import type { Got } from "got"
 import { join, resolve } from "path"
-import glob from "tiny-glob"
 
 import { toPosix } from "@plasmo/utils/path"
 
@@ -45,7 +45,7 @@ export const initializeState = async (props: ResolverProps) => {
 
     const polyfillHandlers = await glob("**/*.js", {
       cwd: polyfillsDirectory,
-      filesOnly: true
+      onlyFiles: true
     })
 
     state.polyfillMap = new Map(

@@ -1,11 +1,11 @@
-import { build } from "esbuild"
+import { build, context } from "esbuild"
 import fse from "fs-extra"
-import { argv } from "process"
+import { argv, exit } from "process"
 
 const watch = argv.includes("-w")
 
+/** @type import('esbuild').BuildOptions */
 const commonConfig = {
-  watch,
   sourcemap: watch ? "inline" : false,
   minify: !watch,
   logLevel: watch ? "info" : "warning",
@@ -19,7 +19,8 @@ async function main() {
     "process.env.APP_VERSION": `"${config.version}"`
   }
 
-  await build({
+  /** @type import('esbuild').BuildOptions */
+  const opts = {
     ...commonConfig,
     entryPoints: ["src/index.ts"],
     external: Object.keys(config.dependencies),
@@ -30,7 +31,17 @@ async function main() {
       js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
     },
     outfile: "dist/index.js"
-  })
+  }
+
+  if (watch) {
+    const ctx = await context(opts)
+    await ctx.watch()
+  } else {
+    await build(opts)
+  }
 }
 
 main()
+
+process.on("SIGINT", () => exit(0))
+process.on("SIGTERM", () => exit(0))

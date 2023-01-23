@@ -1,18 +1,24 @@
-import type { HmrAsset, ParcelBundle } from "../types"
+import type { HmrAsset, ParcelAsset, ParcelBundle } from "../types"
 import { extCtx, getHostname, getPort } from "./0-patch-module"
 import { getParents, hmrState } from "./hmr-check"
 
 export function hmrDownload(asset: HmrAsset) {
   if (asset.type === "js") {
     if (typeof document !== "undefined") {
-      const script = document.createElement("script")
-      script.src = asset.url
-      if (asset.outputFormat === "esmodule") {
-        script.type = "module"
-      }
       return new Promise<HTMLScriptElement>((resolve, reject) => {
-        script.onload = () => resolve(script)
-        script.onerror = reject
+        const script = document.createElement("script")
+        script.src = `${asset.url}?t=${Date.now()}`
+
+        if (asset.outputFormat === "esmodule") {
+          script.type = "module"
+        }
+
+        script.addEventListener("load", () => resolve(script))
+
+        script.addEventListener("error", () =>
+          reject(new Error(`Failed to download asset: ${asset.id}`))
+        )
+
         document.head?.appendChild(script)
       })
     }
@@ -35,17 +41,17 @@ export async function hmrApplyUpdates(assets: Array<HmrAsset>) {
   // we only do it if needed (currently just Safari).
   // https://bugs.webkit.org/show_bug.cgi?id=137297
   // This path is also taken if a CSP disallows eval.
-  const scriptsToRemove = supportsSourceURL
-    ? []
-    : await Promise.all(
-        assets.map((asset) => {
-          asset.url = extCtx.runtime.getURL(
-            "/__plasmo_hmr_proxy__?url=" +
-              encodeURIComponent(asset.url + "?t=" + Date.now())
-          )
-          return hmrDownload(asset)
-        })
-      )
+
+  assets.forEach((asset) => {
+    asset.url = extCtx.runtime.getURL(
+      "/__plasmo_hmr_proxy__?url=" +
+        encodeURIComponent(`${asset.url}?t=${Date.now()}`)
+    )
+  })
+
+  const scriptsToRemove = await Promise.all(
+    supportsSourceURL ? [] : assets.map(hmrDownload)
+  )
 
   try {
     assets.forEach(function (asset) {
@@ -86,28 +92,30 @@ function reloadCSS() {
   }
 
   cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]')
+    const links = document.querySelectorAll('link[rel="stylesheet"]')
     for (var i = 0; i < links.length; i++) {
-      // $FlowFixMe[incompatible-type]
-      var href /*: string */ = links[i].getAttribute("href")
-      var hostname = getHostname()
-      var servedFromHMRServer =
+      const href = links[i].getAttribute("href")
+      const hostname = getHostname()
+
+      const servedFromHmrServer =
         hostname === "localhost"
           ? new RegExp(
               "^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()
             ).test(href)
           : href.indexOf(hostname + ":" + getPort())
-      var absolute =
+
+      const absolute =
         /^https?:\/\//i.test(href) &&
         href.indexOf(location.origin) !== 0 &&
-        !servedFromHMRServer
+        !servedFromHmrServer
+
       if (!absolute) {
         updateLink(links[i])
       }
     }
 
     cssTimeout = null
-  }, 50)
+  }, 47)
 }
 
 function hmrApply(bundle: ParcelBundle, asset: HmrAsset) {
@@ -182,32 +190,43 @@ function hmrDelete(bundle: ParcelBundle, id: string) {
   }
 }
 
-export function hmrAcceptRun(bundle: ParcelBundle, id: string) {
-  let cached = bundle.cache[id]
-  bundle.hotData = {}
+export function hmrDispose(bundle: ParcelBundle, id: string) {
+  const cached = bundle.cache[id]
+  bundle.hotData[id] = {}
   if (cached && cached.hot) {
-    cached.hot.data = bundle.hotData
+    cached.hot.data = bundle.hotData[id]
   }
 
   if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
     cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData)
+      cb(bundle.hotData[id])
     })
   }
 
   delete bundle.cache[id]
+}
 
+export function hmrAccept(bundle: ParcelBundle, id: string) {
+  // Execute the module
   bundle(id)
 
-  cached = bundle.cache[id]
+  const cached = bundle.cache[id]
 
   if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
     const parents = getParents(module.bundle.root, id)
-
     cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb(() => parents)
+      const assetsToAlsoAccept: ParcelAsset[] = cb(() => parents)
+
+      if (assetsToAlsoAccept && assetsToAlsoAccept.length) {
+        assetsToAlsoAccept.forEach(([extraAsset, extraAssetId]) => {
+          hmrDispose(extraAsset, extraAssetId)
+        })
+
+        hmrState.assetsToAccept.push.apply(
+          hmrState.assetsToAccept,
+          assetsToAlsoAccept
+        )
+      }
     })
   }
-
-  hmrState.acceptedAssets[id] = true
 }
