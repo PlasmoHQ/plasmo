@@ -52,6 +52,7 @@ import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { cleanUpLargeCache } from "~features/extra/cache-busting"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
+import { outputIndexDeclaration } from "~features/helpers/tsconfig"
 
 import { Scaffolder } from "./scaffolder"
 import { UiExtMap, UiLibrary, getUiExtMap, getUiLibrary } from "./ui-library"
@@ -162,14 +163,22 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     this.scaffolder = new Scaffolder(this)
   }
 
+  private async initEnv(envRootDirectory = cwd()) {
+    this.#envConfig = await loadEnvConfig(envRootDirectory)
+    this.#commonPath = getCommonPath(envRootDirectory)
+  }
+
   async startup() {
-    await this.updateEnv(cwd())
+    await this.initEnv()
 
     vLog(`Ensure exists: ${this.commonPath.dotPlasmoDirectory}`)
     await ensureDir(this.commonPath.dotPlasmoDirectory)
     await cleanUpLargeCache(this.commonPath)
     await updateVersionFile(this.commonPath)
     await generateIcons(this.commonPath)
+
+    await outputIndexDeclaration(this.commonPath)
+    await this.updateEnv()
 
     await this.updatePackageData()
   }
@@ -178,10 +187,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
   }
 
-  async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
-    this.#envConfig = await loadEnvConfig(envRootDirectory)
-    this.#commonPath = getCommonPath(envRootDirectory)
-
+  async updateEnv() {
+    await this.initEnv(this.commonPath.projectDirectory)
     await outputEnvDeclaration(this)
   }
 

@@ -2,22 +2,19 @@ import { outputFile } from "fs-extra"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
-import { addDeclarationConfig } from "~features/helpers/tsconfig"
 
-export const MESSAGING_DECLARATION_FILENAME = `messaging.d.ts`
-const MESSAGING_DECLARATION_FILEPATH = `.plasmo/${MESSAGING_DECLARATION_FILENAME}`
+export const MESSAGING_DECLARATION = `messaging`
 
-export const addMessagingDeclaration = (
+const MESSAGING_DECLARATION_FILENAME = `${MESSAGING_DECLARATION}.d.ts`
+
+export const outputMessagingDeclaration = (
   commonPath: CommonPath,
   declarationCode: string
 ) =>
-  Promise.all([
-    outputFile(
-      resolve(commonPath.dotPlasmoDirectory, MESSAGING_DECLARATION_FILENAME),
-      declarationCode
-    ),
-    addDeclarationConfig(commonPath, MESSAGING_DECLARATION_FILEPATH)
-  ])
+  outputFile(
+    resolve(commonPath.dotPlasmoDirectory, MESSAGING_DECLARATION_FILENAME),
+    declarationCode
+  )
 
 export const createDeclarationCode = (messages: string[], ports: string[]) => `
 import "@plasmohq/messaging"

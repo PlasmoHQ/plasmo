@@ -1,6 +1,6 @@
 import spawnAsync, { SpawnOptions } from "@expo/spawn-async"
 
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -40,7 +40,7 @@ export async function gitInit(
   commonPath: CommonPath,
   root: string
 ): Promise<boolean> {
-  if (!(await isFileOk(commonPath.gitIgnorePath))) {
+  if (!(await isAccessible(commonPath.gitIgnorePath))) {
     return false
   }
 

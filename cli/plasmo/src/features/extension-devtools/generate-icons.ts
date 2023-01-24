@@ -3,7 +3,7 @@ import { basename, resolve } from "path"
 import sharp from "sharp"
 
 import { find } from "@plasmo/utils/array"
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { getFlagMap } from "~features/helpers/flag"
@@ -67,7 +67,7 @@ export async function generateIcons({
     )
   }
 
-  const baseIconPath = await find(iconState.baseIconPaths, isFileOk)
+  const baseIconPath = await find(iconState.baseIconPaths, isAccessible)
 
   if (baseIconPath === undefined) {
     wLog("No icon found in assets directory")
@@ -91,7 +91,7 @@ export async function generateIcons({
 
       const devProvidedIcon = await find(
         iconState.devProvidedIcons[width],
-        isFileOk
+        isAccessible
       )
 
       const generatedIconPath = resolve(

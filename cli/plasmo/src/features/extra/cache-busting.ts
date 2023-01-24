@@ -2,7 +2,7 @@ import { emptyDir, ensureDir } from "fs-extra"
 import { lstat } from "fs/promises"
 import { resolve } from "path"
 
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -22,7 +22,7 @@ export async function cleanUpLargeCache(commonPath: CommonPath) {
     "data.mdb"
   )
 
-  const hasCache = await isFileOk(parcelCacheDbFilePath)
+  const hasCache = await isAccessible(parcelCacheDbFilePath)
 
   if (!hasCache) {
     return

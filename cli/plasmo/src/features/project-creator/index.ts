@@ -9,7 +9,7 @@ import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { iLog, vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -72,7 +72,7 @@ export class ProjectCreator {
     const ig = ignore().add(["node_modules", ".git", ".env*"])
 
     const gitIgnorePath = join(absFromPath, ".gitignore")
-    const hasGitIgnore = await isFileOk(gitIgnorePath)
+    const hasGitIgnore = await isAccessible(gitIgnorePath)
 
     if (hasGitIgnore) {
       const gitIgnoreData = await readFile(gitIgnorePath, "utf-8")

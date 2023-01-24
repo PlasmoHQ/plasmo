@@ -1,7 +1,7 @@
 import { readJson, writeJson } from "fs-extra"
 import semver from "semver"
 
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
@@ -10,7 +10,7 @@ import { cleanUpDotPlasmo } from "~features/extra/cache-busting"
 export const updateVersionFile = async (commonPath: CommonPath) => {
   const { plasmoVersionFilePath } = commonPath
 
-  if (!(await isFileOk(plasmoVersionFilePath))) {
+  if (!(await isAccessible(plasmoVersionFilePath))) {
     vLog("Plasmo version file not found, busting cache...")
     await cleanUpDotPlasmo(commonPath)
   } else {
