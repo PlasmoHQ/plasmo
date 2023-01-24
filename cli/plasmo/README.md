@@ -105,6 +105,9 @@ ext-dir
 
 Finally, you can also avoid putting source code in your root directory by putting them in a `src` sub-directory, [following this guide](https://docs.plasmo.com/framework/customization/src). Note that `assets` and other config files will still need to be in the root directory.
 
+## Supported Browsers
+
+To see a list of supported browser targets, [please refer to our documentation here](https://docs.plasmo.com/framework/workflows/faq#what-are-the-officially-supported-browser-targets).
 ## Community
 
 The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d). This is the appropriate channel to get help with using the Plasmo Framework.
@@ -125,16 +128,22 @@ Feel free to join the fun and send a PR!
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />
 </a>
 
-### Plasmo Example
+### [Plasmo Examples](https://github.com/PlasmoHQ/examples)
 
 <a href="https://github.com/PlasmoHQ/examples/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/examples" />
 </a>
 
-### Plasmo Storage
+### [Plasmo Storage](https://github.com/PlasmoHQ/storage)
 
 <a href="https://github.com/PlasmoHQ/storage/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/storage" />
+</a>
+
+### [Browser Platform Publisher](https://github.com/PlasmoHQ/bpp)
+
+<a href="https://github.com/PlasmoHQ/bpp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PlasmoHQ/bpp" />
 </a>
 
 ## Disclaimer

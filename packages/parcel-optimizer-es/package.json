@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-es",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Plasmo ECMAScript Optimizer for Extension",
   "files": [
     "dist"
@@ -14,7 +14,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
   "engines": {
-    "parcel": ">= 2.7.0"
+    "parcel": ">= 2.8.0"
   },
   "license": "MIT",
   "repository": {
@@ -27,11 +27,12 @@
     "tsup": "6.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.2",
-    "@parcel/plugin": "2.8.2",
-    "@parcel/utils": "2.8.2",
+    "@parcel/core": "2.8.3",
+    "@parcel/plugin": "2.8.3",
     "@parcel/source-map": "2.1.1",
-    "esbuild": "0.16.16",
-    "nullthrows": "1.1.1"
+    "@parcel/utils": "2.8.3",
+    "esbuild": "0.17.3",
+    "nullthrows": "1.1.1",
+    "terser": "5.16.1"
   }
 }

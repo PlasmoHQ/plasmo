@@ -1,9 +1,9 @@
 import { camelCase } from "change-case"
-import { existsSync } from "fs"
+import glob from "fast-glob"
 import { outputFile } from "fs-extra"
 import { join, resolve } from "path"
-import glob from "tiny-glob"
 
+import { isWriteable } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
@@ -60,13 +60,13 @@ const getHandlerList = async (
     dirName
   )
 
-  if (!existsSync(handlerDir)) {
+  if (!(await isWriteable(handlerDir))) {
     return []
   }
 
   const handlerFileList = await glob("**/*.ts", {
     cwd: handlerDir,
-    filesOnly: true
+    onlyFiles: true
   })
 
   return handlerFileList.map((filePath) => {

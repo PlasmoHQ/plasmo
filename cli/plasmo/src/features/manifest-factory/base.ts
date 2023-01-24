@@ -1,4 +1,5 @@
 import { ok } from "assert"
+import glob from "fast-glob"
 import {
   copy,
   ensureDir,
@@ -20,7 +21,6 @@ import {
   resolve
 } from "path"
 import { cwd } from "process"
-import glob from "tiny-glob"
 
 import type {
   ChromeUrlOverrideType,
@@ -51,6 +51,7 @@ import {
   getProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
+import { cleanUpLargeCache } from "~features/extra/cache-busting"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
 
@@ -168,6 +169,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     vLog(`Ensure exists: ${this.commonPath.dotPlasmoDirectory}`)
     await ensureDir(this.commonPath.dotPlasmoDirectory)
+    await cleanUpLargeCache(this.commonPath)
     await updateVersionFile(this.commonPath)
     await generateIcons(this.commonPath)
 
@@ -385,10 +387,17 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(modulePath)
 
-      await this.scaffolder.createPageMount(parsedModulePath)
-    }
+      const { wereFilesWritten } = await this.scaffolder.createPageMount(
+        parsedModulePath
+      )
 
-    this.#hash = ""
+      // if enabled, and the template file was written, invalidate hash!
+      if (wereFilesWritten) {
+        this.#hash = ""
+      }
+    } else {
+      this.#hash = ""
+    }
 
     return enable
   }
@@ -519,7 +528,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         // Handling glob...
         const files = await glob(inputFilePath, {
           cwd: this.commonPath.projectDirectory,
-          filesOnly: true
+          onlyFiles: true
         })
 
         await Promise.all(files.map(this.copyProjectFile))

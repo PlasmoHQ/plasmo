@@ -8,9 +8,11 @@
 
 import { Optimizer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
-import { blobToString, normalizePath } from "@parcel/utils"
+import { blobToString } from "@parcel/utils"
 import { transform } from "esbuild"
+import nullthrows from "nullthrows"
 import { join, relative } from "path"
+import { MinifyOptions, minify } from "terser"
 
 import { toUtf8 } from "./to-utf8"
 
@@ -30,37 +32,63 @@ export default new Optimizer({
       join(bundle.target.distDir, bundle.name)
     )
 
-    if (map) {
-      let vlqMappings = await map.stringify({
-        file: normalizePath(relativeBundlePath + ".map"),
-        format: "inline"
-      })
-      code += `\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${vlqMappings}`
-    }
-
-    let { code: esOutput, map: esSourceMap } = await transform(code, {
-      sourcemap: "external",
-      sourcefile: relativeBundlePath,
-      minify: true,
-      treeShaking: true,
-      format: "esm"
-    })
-
-    let sourcemap = null
-    if (esSourceMap) {
-      sourcemap = new SourceMap(options.projectRoot)
-      let parsedMap = JSON.parse(esSourceMap)
-      sourcemap.addVLQMap(parsedMap)
-
-      let sourcemapReference = await getSourceMapReference(sourcemap)
-      if (sourcemapReference) {
-        esOutput += `\n//# sourceMappingURL=${sourcemapReference}\n`
+    // Use terser for prod sourcemaps OR no-hoist build
+    if (
+      process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS !== "none" ||
+      !bundle.env.shouldScopeHoist
+    ) {
+      const originalMap = map ? await map.stringify({}) : null
+      const config: MinifyOptions = {
+        format: {
+          ascii_only: true
+        },
+        sourceMap: bundle.env.sourceMap
+          ? ({
+              filename: relativeBundlePath,
+              asObject: true,
+              content: originalMap
+            } as any)
+          : false,
+        toplevel:
+          bundle.env.outputFormat === "esmodule" ||
+          bundle.env.outputFormat === "commonjs",
+        module: bundle.env.outputFormat === "esmodule"
       }
-    }
 
-    return {
-      contents: esOutput,
-      map: sourcemap || map
+      const result = await minify(code, config)
+
+      let minifiedContents: string = nullthrows(result.code)
+
+      let sourceMap = null
+      let resultMap = result.map
+
+      if (resultMap && typeof resultMap !== "string") {
+        sourceMap = new SourceMap(options.projectRoot)
+        sourceMap.addVLQMap(resultMap)
+        const sourcemapReference = await getSourceMapReference(sourceMap)
+        if (sourcemapReference) {
+          minifiedContents += `\n//# sourceMappingURL=${sourcemapReference}\n`
+        }
+      }
+
+      return {
+        contents: minifiedContents,
+        map: sourceMap
+      }
+    } else {
+      // ESBUILD full throttle, no sourcemap
+      const { code: esOutput } = await transform(code, {
+        sourcemap: false,
+        sourcefile: relativeBundlePath,
+        minify: true,
+        treeShaking: true,
+        format: "esm"
+      })
+
+      return {
+        contents: esOutput,
+        map: null
+      }
     }
   }
 })

@@ -16,10 +16,10 @@ globalThis.process = {
 
 const OldModule = module.bundle.Module
 
-function Module(moduleName) {
+function Module(moduleName: string) {
   OldModule.call(this, moduleName)
   this.hot = {
-    data: module.bundle.hotData,
+    data: module.bundle.hotData[moduleName],
     _acceptCallbacks: [],
     _disposeCallbacks: [],
     accept: function (fn) {
@@ -29,10 +29,11 @@ function Module(moduleName) {
       this._disposeCallbacks.push(fn)
     }
   }
-  module.bundle.hotData = undefined
+  module.bundle.hotData[moduleName] = undefined
 }
 
 module.bundle.Module = Module
+module.bundle.hotData = {}
 
 export const extCtx: ExtensionApi =
   globalThis.chrome || globalThis.browser || null
@@ -51,10 +52,13 @@ export async function triggerReload(fullReload = false) {
 }
 
 export function getHostname() {
-  return (
-    runtimeData.host ||
-    (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost")
-  )
+  if (!runtimeData.host || runtimeData.host === "0.0.0.0") {
+    return location.protocol.indexOf("http") === 0
+      ? location.hostname
+      : "localhost"
+  }
+
+  return runtimeData.host
 }
 
 export function getPort() {

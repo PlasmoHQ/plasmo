@@ -1,5 +1,5 @@
-import { existsSync } from "fs-extra"
-
+import { find } from "@plasmo/utils/array"
+import { isFileOk } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
@@ -24,8 +24,8 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     sandboxesDirectory
   } = plasmoManifest.projectPath
 
-  const [contentIndex, sandboxIndex] = [contentIndexList, sandboxIndexList].map(
-    (l) => l.find(existsSync)
+  const [contentIndex, sandboxIndex] = await Promise.all(
+    [contentIndexList, sandboxIndexList].map((l) => find(l, isFileOk))
   )
 
   const initResults = await Promise.all([

@@ -1,5 +1,5 @@
 import { build } from "esbuild"
-import glob from "tiny-glob"
+import glob from "fast-glob"
 
 const commonConfig = {
   bundle: true,
@@ -13,7 +13,7 @@ const commonConfig = {
 
 async function buildProdPolyfills() {
   const prodPolyfills = await glob("./src/polyfills/**/*.ts", {
-    filesOnly: true
+    onlyFiles: true
   })
 
   await build({
@@ -28,7 +28,7 @@ async function buildProdPolyfills() {
 
 async function buildDevPolyfills() {
   const devPolyfills = await glob("./src/dev-polyfills/**/*.ts", {
-    filesOnly: true
+    onlyFiles: true
   })
 
   await build({

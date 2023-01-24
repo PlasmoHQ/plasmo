@@ -3,7 +3,7 @@ import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 import { mkdir } from "fs/promises"
 import { resolve } from "path"
 
-import { fileExists } from "@plasmo/utils/fs"
+import { isFileOk } from "@plasmo/utils/fs"
 import { sLog, vLog } from "@plasmo/utils/logging"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
@@ -28,7 +28,7 @@ export const nextNewTab = async () => {
 
   const { default: chalk } = await import("chalk")
 
-  if (!(await fileExists(out))) {
+  if (!(await isFileOk(out))) {
     throw new Error(
       `${chalk.bold(
         "out"
@@ -41,7 +41,7 @@ export const nextNewTab = async () => {
   const packageData: PackageJSON = await readJson(packageFilePath)
 
   const extensionDirectory = resolve(projectDirectory, "extension")
-  if (await fileExists(extensionDirectory)) {
+  if (await isFileOk(extensionDirectory)) {
     const {
       default: { prompt }
     } = await import("inquirer")
@@ -62,7 +62,7 @@ export const nextNewTab = async () => {
   }
 
   await mkdir(extensionDirectory)
-  await copy(out, extensionDirectory, { recursive: true })
+  await copy(out, extensionDirectory)
   vLog("Extension created at:", extensionDirectory)
 
   await stripUnderscore(extensionDirectory)
