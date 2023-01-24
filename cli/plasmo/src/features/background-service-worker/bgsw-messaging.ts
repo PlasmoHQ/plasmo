@@ -79,7 +79,7 @@ const getHandlerList = async (
       importName,
       name: handlerName,
       declaration: `"${handlerName}" : {}`,
-      importCode: `import { handler as ${importName} } from "~background/${importPath}"`
+      importCode: `import { default as ${importName} } from "~background/${importPath}"`
     }
   })
 }

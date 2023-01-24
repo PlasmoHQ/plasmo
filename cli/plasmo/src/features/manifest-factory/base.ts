@@ -34,6 +34,8 @@ import { injectEnv } from "@plasmo/utils/env"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
+import { EnvConfig, loadEnvConfig } from "~features/env/env-config"
+import { outputEnvDeclaration } from "~features/env/env-declaration"
 import {
   CommonPath,
   getCommonPath
@@ -41,10 +43,6 @@ import {
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
-import {
-  EnvConfig,
-  loadEnvConfig
-} from "~features/extension-devtools/load-env-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
   ProjectPath,
@@ -183,6 +181,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
     this.#envConfig = await loadEnvConfig(envRootDirectory)
     this.#commonPath = getCommonPath(envRootDirectory)
+
+    await outputEnvDeclaration(this)
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195

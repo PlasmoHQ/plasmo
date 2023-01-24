@@ -25,22 +25,19 @@ export class PlasmoPublicEnv {
   constructor(_env: Env) {
     this.data = Object.keys(_env)
       .filter((k) => k.startsWith(PUBLIC_ENV_PREFIX))
-      .reduce(
-        (env, key) => {
-          env[key] = _env[key]
-          return env
-        },
-        {
-          NODE_ENV: process.env.NODE_ENV
-        } as Env
-      )
+      .reduce((env, key) => {
+        env[key] = _env[key]
+        return env
+      }, {} as Env)
   }
 
   extends(rawData: Env) {
+    const clone = new PlasmoPublicEnv({ ...this.data })
+    clone.data["NODE_ENV"] = process.env.NODE_ENV
     Object.entries(rawData).forEach(([key, value]) => {
-      this.data[`PLASMO_${constantCase(key)}`] = value
+      clone.data[`PLASMO_${constantCase(key)}`] = value
     })
-    return this
+    return clone
   }
 }
 
