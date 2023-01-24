@@ -3,7 +3,7 @@ import { resolve } from "path"
 
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
-export const PROCESS_ENV_DECLARATION = `process.env`
+export const PROCESS_ENV_DECLARATION = `process.env` as const
 const PROCESS_ENV_DECLARATION_FILENAME = `${PROCESS_ENV_DECLARATION}.d.ts`
 
 const createDeclarationCode = (envKeys: string[]) => `

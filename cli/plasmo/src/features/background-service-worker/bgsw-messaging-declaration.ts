@@ -3,7 +3,7 @@ import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
-export const MESSAGING_DECLARATION = `messaging`
+export const MESSAGING_DECLARATION = `messaging` as const
 
 const MESSAGING_DECLARATION_FILENAME = `${MESSAGING_DECLARATION}.d.ts`
 

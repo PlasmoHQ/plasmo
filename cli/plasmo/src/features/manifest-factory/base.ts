@@ -49,10 +49,10 @@ import {
   getProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
+import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
 import { cleanUpLargeCache } from "~features/extra/cache-busting"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
-import { outputIndexDeclaration } from "~features/helpers/tsconfig"
 
 import { Scaffolder } from "./scaffolder"
 import { UiExtMap, UiLibrary, getUiExtMap, getUiLibrary } from "./ui-library"

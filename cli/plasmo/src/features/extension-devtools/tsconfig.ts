@@ -3,11 +3,13 @@ import { readFile } from "fs/promises"
 import json5 from "json5"
 import { resolve } from "path"
 
+import { MESSAGING_DECLARATION } from "~features/background-service-worker/bgsw-messaging-declaration"
+import { PROCESS_ENV_DECLARATION } from "~features/env/env-declaration"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
 const DECLARATION_FILEPATH = `.plasmo/index.d.ts`
 
-const INDEX_DECLARATION = ["process.env", "messaging"]
+const INDEX_DECLARATION_CODE = [PROCESS_ENV_DECLARATION, MESSAGING_DECLARATION]
   .map((e) => `import "./${e}"`)
   .join("\n")
 
@@ -39,7 +41,7 @@ export const outputIndexDeclaration = async (commonPath: CommonPath) => {
   )
 
   await Promise.all([
-    outputFile(declarationFilePath, INDEX_DECLARATION),
+    outputFile(declarationFilePath, INDEX_DECLARATION_CODE),
     addDeclarationConfig(commonPath, DECLARATION_FILEPATH)
   ])
 }
