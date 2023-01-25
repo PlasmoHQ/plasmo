@@ -1,6 +1,6 @@
 import { resolve } from "path"
 
-import { isFileOk } from "@plasmo/utils/fs"
+import { isReadable } from "@plasmo/utils/fs"
 
 import { ResolverProps, ResolverResult, state } from "./shared"
 
@@ -13,7 +13,7 @@ export async function handleAlias({
 
   const absPath = resolve(state.aliasMap.get(specifier))
 
-  const hasLocalAlias = await isFileOk(absPath)
+  const hasLocalAlias = await isReadable(absPath)
 
   if (!hasLocalAlias) {
     return null
