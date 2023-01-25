@@ -2,6 +2,7 @@ import type { Resolver } from "@parcel/plugin"
 import type { ResolveResult } from "@parcel/types"
 import glob from "fast-glob"
 import { statSync } from "fs"
+import { readJson } from "fs-extra"
 import type { Got } from "got"
 import { join, resolve } from "path"
 
@@ -26,7 +27,8 @@ export type ResolverProps = Parameters<ResolveFx>[0]
 export const state = {
   got: null as Got,
   dotPlasmoDirectory: null as string,
-  polyfillMap: null as Map<string, string>
+  polyfillMap: null as Map<string, string>,
+  aliasMap: null as Map<string, string>
 }
 
 export const initializeState = async (props: ResolverProps) => {
@@ -54,6 +56,14 @@ export const initializeState = async (props: ResolverProps) => {
         join(polyfillsDirectory, handler)
       ])
     )
+  }
+
+  if (!state.aliasMap) {
+    const packageJson = await readJson(
+      resolve(process.env.PLASMO_PROJECT_DIR, "package.json")
+    )
+
+    state.aliasMap = new Map(Object.entries(packageJson.alias || {}))
   }
 }
 
