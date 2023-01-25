@@ -8,8 +8,8 @@ import { vLog, wLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
 import {
-  addMessagingDeclaration,
-  createDeclarationCode
+  createDeclarationCode,
+  outputMessagingDeclaration
 } from "~features/background-service-worker/bgsw-messaging-declaration"
 import { getMd5RevHash } from "~features/helpers/crypto"
 import type { PlasmoManifest } from "~features/manifest-factory/base"
@@ -79,7 +79,7 @@ const getHandlerList = async (
       importName,
       name: handlerName,
       declaration: `"${handlerName}" : {}`,
-      importCode: `import { handler as ${importName} } from "~background/${importPath}"`
+      importCode: `import { default as ${importName} } from "~background/${importPath}"`
     }
   })
 }
@@ -155,7 +155,7 @@ export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
         ),
         entryCode
       ),
-      addMessagingDeclaration(plasmoManifest.commonPath, declarationCode)
+      outputMessagingDeclaration(plasmoManifest.commonPath, declarationCode)
     ])
 
     return true

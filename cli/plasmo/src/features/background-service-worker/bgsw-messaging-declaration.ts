@@ -1,42 +1,20 @@
-import { outputFile, outputJson } from "fs-extra"
-import { readFile } from "fs/promises"
-import json5 from "json5"
+import { outputFile } from "fs-extra"
 import { resolve } from "path"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 
-export const MESSAGING_DECLARATION_FILENAME = `messaging.d.ts`
-const MESSAGING_DECLARATION_FILEPATH = `.plasmo/${MESSAGING_DECLARATION_FILENAME}`
+export const MESSAGING_DECLARATION = `messaging` as const
 
-const addMessagingDeclarationConfig = async (commonPath: CommonPath) => {
-  const tsconfigFilePath = resolve(commonPath.projectDirectory, "tsconfig.json")
+const MESSAGING_DECLARATION_FILENAME = `${MESSAGING_DECLARATION}.d.ts`
 
-  const tsconfigFile = await readFile(tsconfigFilePath, "utf8")
-  const tsconfig = json5.parse(tsconfigFile)
-  const includeSet = new Set(tsconfig.include)
-
-  if (includeSet.has(MESSAGING_DECLARATION_FILEPATH)) {
-    return
-  }
-
-  tsconfig.include = [MESSAGING_DECLARATION_FILEPATH, ...includeSet]
-
-  await outputJson(tsconfigFilePath, tsconfig, {
-    spaces: 2
-  })
-}
-
-export const addMessagingDeclaration = (
+export const outputMessagingDeclaration = (
   commonPath: CommonPath,
   declarationCode: string
 ) =>
-  Promise.all([
-    outputFile(
-      resolve(commonPath.dotPlasmoDirectory, MESSAGING_DECLARATION_FILENAME),
-      declarationCode
-    ),
-    addMessagingDeclarationConfig(commonPath)
-  ])
+  outputFile(
+    resolve(commonPath.dotPlasmoDirectory, MESSAGING_DECLARATION_FILENAME),
+    declarationCode
+  )
 
 export const createDeclarationCode = (messages: string[], ports: string[]) => `
 import "@plasmohq/messaging"

@@ -1,5 +1,6 @@
 import { resolve } from "path"
 
+import { getEnvFileNames } from "~features/env/env-config"
 import type { SupportedUiExt } from "~features/manifest-factory/ui-library"
 
 import type { CommonPath } from "./common-path"
@@ -79,12 +80,7 @@ export const getProjectPath = (
   const devtoolsHtmlList = getIndexList("devtools", [".html"])
   const newtabHtmlList = getIndexList("newtab", [".html"])
 
-  const envFileList = [
-    resolve(sourceDirectory, ".env"),
-    resolve(sourceDirectory, ".env.local"),
-    resolve(sourceDirectory, ".env.development"),
-    resolve(sourceDirectory, ".env.development.local")
-  ]
+  const envFileList = getEnvFileNames().map((f) => resolve(sourceDirectory, f))
 
   const backgroundIndexList = getIndexList("background")
 

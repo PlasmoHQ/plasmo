@@ -4,7 +4,7 @@ import { cwd } from "process"
 import semver from "semver"
 
 import { assertUnreachable } from "@plasmo/utils/assert"
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 
 import type { PlasmoManifest } from "./base"
 
@@ -91,7 +91,7 @@ export const getUiLibrary = async (
     uiLibraryPath
   )
 
-  if (!(await isFileOk(staticPath))) {
+  if (!(await isAccessible(staticPath))) {
     throw new Error(uiLibraryError)
   }
 

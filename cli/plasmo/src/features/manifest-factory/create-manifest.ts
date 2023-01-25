@@ -1,9 +1,11 @@
 import { find } from "@plasmo/utils/array"
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
+import { outputEnvDeclaration } from "~features/env/env-declaration"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
+import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
@@ -25,7 +27,7 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
   } = plasmoManifest.projectPath
 
   const [contentIndex, sandboxIndex] = await Promise.all(
-    [contentIndexList, sandboxIndexList].map((l) => find(l, isFileOk))
+    [contentIndexList, sandboxIndexList].map((l) => find(l, isAccessible))
   )
 
   const initResults = await Promise.all([

@@ -3,7 +3,7 @@ import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
 import { find } from "@plasmo/utils/array"
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
@@ -65,7 +65,7 @@ export class Scaffolder {
     const htmlList = this.projectPath[`${uiPageName}HtmlList`]
 
     const [indexFile, htmlFile] = await Promise.all(
-      [indexList, htmlList].map((l) => find(l, isFileOk))
+      [indexList, htmlList].map((l) => find(l, isAccessible))
     )
 
     const { staticDirectory } = this.commonPath

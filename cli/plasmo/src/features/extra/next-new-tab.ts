@@ -3,7 +3,7 @@ import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 import { mkdir } from "fs/promises"
 import { resolve } from "path"
 
-import { isFileOk } from "@plasmo/utils/fs"
+import { isAccessible } from "@plasmo/utils/fs"
 import { sLog, vLog } from "@plasmo/utils/logging"
 
 import { getCommonPath } from "~features/extension-devtools/common-path"
@@ -28,7 +28,7 @@ export const nextNewTab = async () => {
 
   const { default: chalk } = await import("chalk")
 
-  if (!(await isFileOk(out))) {
+  if (!(await isAccessible(out))) {
     throw new Error(
       `${chalk.bold(
         "out"
@@ -41,7 +41,7 @@ export const nextNewTab = async () => {
   const packageData: PackageJSON = await readJson(packageFilePath)
 
   const extensionDirectory = resolve(projectDirectory, "extension")
-  if (await isFileOk(extensionDirectory)) {
+  if (await isAccessible(extensionDirectory)) {
     const {
       default: { prompt }
     } = await import("inquirer")

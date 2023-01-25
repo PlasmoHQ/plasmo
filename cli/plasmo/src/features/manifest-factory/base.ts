@@ -34,6 +34,8 @@ import { injectEnv } from "@plasmo/utils/env"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
+import { EnvConfig, loadEnvConfig } from "~features/env/env-config"
+import { outputEnvDeclaration } from "~features/env/env-declaration"
 import {
   CommonPath,
   getCommonPath
@@ -41,16 +43,13 @@ import {
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
-import {
-  EnvConfig,
-  loadEnvConfig
-} from "~features/extension-devtools/load-env-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
   ProjectPath,
   getProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
+import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
 import { cleanUpLargeCache } from "~features/extra/cache-busting"
 import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
@@ -164,14 +163,22 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     this.scaffolder = new Scaffolder(this)
   }
 
+  private async initEnv(envRootDirectory = cwd()) {
+    this.#envConfig = await loadEnvConfig(envRootDirectory)
+    this.#commonPath = getCommonPath(envRootDirectory)
+  }
+
   async startup() {
-    await this.updateEnv(cwd())
+    await this.initEnv()
 
     vLog(`Ensure exists: ${this.commonPath.dotPlasmoDirectory}`)
     await ensureDir(this.commonPath.dotPlasmoDirectory)
     await cleanUpLargeCache(this.commonPath)
     await updateVersionFile(this.commonPath)
     await generateIcons(this.commonPath)
+
+    await outputIndexDeclaration(this.commonPath)
+    await this.updateEnv()
 
     await this.updatePackageData()
   }
@@ -180,9 +187,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
   }
 
-  async updateEnv(envRootDirectory = this.commonPath.projectDirectory) {
-    this.#envConfig = await loadEnvConfig(envRootDirectory)
-    this.#commonPath = getCommonPath(envRootDirectory)
+  async updateEnv() {
+    await this.initEnv(this.commonPath.projectDirectory)
+    await outputEnvDeclaration(this)
   }
 
   // https://github.com/PlasmoHQ/plasmo/issues/195
