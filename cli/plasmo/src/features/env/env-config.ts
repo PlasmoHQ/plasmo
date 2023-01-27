@@ -2,17 +2,17 @@
 import { constantCase } from "change-case"
 import dotenv from "dotenv"
 import { expand as dotenvExpand } from "dotenv-expand"
-import { existsSync, statSync } from "fs"
 import { readFile } from "fs/promises"
-import { join } from "path"
+import { join, resolve } from "path"
 
+import { isFile, isReadable } from "@plasmo/utils/fs"
 import { eLog, iLog } from "@plasmo/utils/logging"
 
 import { getFlagMap } from "~features/helpers/flag"
 
 export type Env = Record<string, string | undefined>
-export type LoadedEnvFiles = Array<{
-  path: string
+type LoadedEnvFiles = Array<{
+  filePath: string
   contents: string
 }>
 
@@ -25,36 +25,33 @@ export class PlasmoPublicEnv {
   constructor(_env: Env) {
     this.data = Object.keys(_env)
       .filter((k) => k.startsWith(PUBLIC_ENV_PREFIX))
-      .reduce(
-        (env, key) => {
-          env[key] = _env[key]
-          return env
-        },
-        {
-          NODE_ENV: process.env.NODE_ENV
-        } as Env
-      )
+      .reduce((env, key) => {
+        env[key] = _env[key]
+        return env
+      }, {} as Env)
   }
 
   extends(rawData: Env) {
+    const clone = new PlasmoPublicEnv({ ...this.data })
+    clone.data["NODE_ENV"] = process.env.NODE_ENV
     Object.entries(rawData).forEach(([key, value]) => {
-      this.data[`PLASMO_${constantCase(key)}`] = value
+      clone.data[`PLASMO_${constantCase(key)}`] = value
     })
-    return this
+    return clone
   }
 }
 
-function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
+function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   const parsed: dotenv.DotenvParseOutput = {}
 
-  for (const envFile of loadedEnvFiles) {
+  for (const { contents, filePath } of loadedEnvFiles) {
     try {
       const result = dotenvExpand({
-        parsed: dotenv.parse(envFile.contents)
+        parsed: dotenv.parse(contents)
       })
 
       if (!!result.parsed) {
-        iLog(`Loaded env from ${join(dir || "", envFile.path)}`)
+        iLog(`Loaded env from ${filePath}`)
         const resultData = result.parsed || {}
 
         for (const key of Object.keys(resultData)) {
@@ -68,18 +65,17 @@ function processEnv(loadedEnvFiles: LoadedEnvFiles, dir?: string) {
         }
       }
     } catch (err) {
-      eLog(`Failed to load env from ${join(dir || "", envFile.path)}`, err)
+      eLog(`Failed to load env from ${join(filePath)}`, err)
     }
   }
 
   return parsed
 }
 
-export async function loadEnvConfig(dir: string) {
+export const getEnvFileNames = () => {
   const nodeEnv = process.env.NODE_ENV
   const flagMap = getFlagMap()
-
-  const dotenvFilePaths = [
+  return [
     flagMap.envPath,
 
     `.env.${flagMap.browser}.local`,
@@ -95,30 +91,32 @@ export async function loadEnvConfig(dir: string) {
     `.env.${flagMap.tag}`,
     `.env.${nodeEnv}`,
     ".env"
-  ]
-    .filter((s) => !!s)
-    .map((envFile) => [envFile, join(dir, envFile)])
-    .filter(
-      ([, filePath]) => existsSync(filePath) && statSync(filePath).isFile()
-    )
+  ].filter((s) => !!s)
+}
 
-  const envFiles: LoadedEnvFiles = []
+export async function loadEnvConfig(dir: string) {
+  const allDotEnvEntries = await Promise.all(
+    getEnvFileNames()
+      .map((envFile) => resolve(dir, envFile))
+      .map(
+        async (filePath) =>
+          [
+            filePath,
+            (await isFile(filePath)) && (await isReadable(filePath))
+          ] as const
+      )
+  )
 
-  for await (const [envFile, filePath] of dotenvFilePaths) {
-    try {
-      const contents = await readFile(filePath, "utf8")
-      envFiles.push({
-        path: envFile,
-        contents
-      })
-    } catch (err: any) {
-      if (err.code !== "ENOENT") {
-        eLog(`Failed to load env from ${envFile}`, err)
-      }
-    }
-  }
+  const envFiles: LoadedEnvFiles = await Promise.all(
+    allDotEnvEntries
+      .filter(([, isValid]) => isValid)
+      .map(async ([filePath]) => ({
+        filePath,
+        contents: await readFile(filePath, "utf8")
+      }))
+  )
 
-  const combinedEnv = processEnv(envFiles, dir)
+  const combinedEnv = cascadeEnv(envFiles)
 
   const plasmoPublicEnv = new PlasmoPublicEnv(combinedEnv)
 

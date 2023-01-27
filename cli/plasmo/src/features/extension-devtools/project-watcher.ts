@@ -80,6 +80,7 @@ export const handleProjectFile = async (
     }
     case WatchReason.EnvFile: {
       wLog("Environment file change detected, please restart the dev server.")
+      await plasmoManifest.updateEnv()
       return
     }
     case WatchReason.AssetsDirectory: {

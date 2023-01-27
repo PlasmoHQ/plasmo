@@ -4,7 +4,7 @@ import semver from "semver"
 
 import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
 import { verbose } from "@plasmo/utils/flags"
-import { aLog, eLog, vLog } from "@plasmo/utils/logging"
+import { eLog, vLog } from "@plasmo/utils/logging"
 import { exitCountDown } from "@plasmo/utils/wait"
 
 import { ValidCommand, runMap, validCommandSet } from "~commands"
@@ -48,7 +48,7 @@ async function main() {
     }
   } catch (e: any) {
     eLog((e as Error).message || ErrorMessage.Unknown)
-    aLog(e.stack)
+    vLog(e.stack)
     await exitCountDown(3)
     exit(1)
   }
