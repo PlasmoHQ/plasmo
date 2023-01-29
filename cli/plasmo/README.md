@@ -34,19 +34,22 @@ The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser exte
 
 ![CLI Demo](https://www.plasmo.com/assets/plasmo-cli-demo.gif)
 
-## Features
+## Highlighted Features
 
 - First-class [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) Support
-- [Declarative development](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
+- [Declarative Development](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
 - [Content Scripts UI](https://docs.plasmo.com/csui)
 - [Tab Pages](https://docs.plasmo.com/framework/tab-pages)
 - Live-reloading + React HMR
 - [`.env*` files](https://docs.plasmo.com/framework/env)
+- [Storage API](https://docs.plasmo.com/framework/storage)
+- [Messaging API](https://docs.plasmo.com/framework/messaging)
+- [Remote code bundling](https://docs.plasmo.com/framework/remote-code) (e.g., for Google Analytics)
 - Targeting [multiple browser and manifest pairs](https://docs.plasmo.com/framework/workflows/build#with-specific-target)
-- [Remote code bundling](https://docs.plasmo.com/framework/remote-code) (e.g for gtag4)
 - [Automated deployment via BPP](https://docs.plasmo.com/framework/workflows/submit)
 - Optional support for [Svelte](https://github.com/PlasmoHQ/with-svelte) and [Vue](https://github.com/PlasmoHQ/with-vue)
-- And many, many more! 🚀
+
+And many, many more! 🚀
 
 ## System Requirements
 
@@ -88,7 +91,7 @@ You can also organize these files in their own directories:
 ```
 ext-dir
 ├───assets
-|   └───icon512.png
+|   └───icon.png
 ├───popup
 |   ├───index.tsx
 |   └───button.tsx
@@ -108,6 +111,7 @@ Finally, you can also avoid putting source code in your root directory by puttin
 ## Supported Browsers
 
 To see a list of supported browser targets, [please refer to our documentation here](https://docs.plasmo.com/framework/workflows/faq#what-are-the-officially-supported-browser-targets).
+
 ## Community
 
 The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d). This is the appropriate channel to get help with using the Plasmo Framework.
