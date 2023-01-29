@@ -1,5 +1,5 @@
-import { getFlag, hasFlag } from "@plasmo/utils/flags"
-import { aLog, eLog, iLog, vLog } from "@plasmo/utils/logging"
+import { getFlag } from "@plasmo/utils/flags"
+import { eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
 
 import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
@@ -59,7 +59,7 @@ async function dev() {
     }
 
     if (event.type === "buildSuccess") {
-      aLog(`Extension re-packaged in ${chalk.bold(event.buildTime)}ms! 🚀`)
+      sLog(`Extension re-packaged in ${chalk.bold(event.buildTime)}ms! 🚀`)
 
       await plasmoManifest.postBuild()
 

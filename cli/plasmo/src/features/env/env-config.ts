@@ -3,21 +3,23 @@ import { constantCase } from "change-case"
 import dotenv from "dotenv"
 import { expand as dotenvExpand } from "dotenv-expand"
 import { readFile } from "fs/promises"
-import { join, resolve } from "path"
+import { resolve } from "path"
 
 import { isFile, isReadable } from "@plasmo/utils/fs"
-import { eLog, iLog } from "@plasmo/utils/logging"
+import { eLog, iLog, vLog } from "@plasmo/utils/logging"
 
 import { getFlagMap } from "~features/helpers/flag"
 
 export type Env = Record<string, string | undefined>
 type LoadedEnvFiles = Array<{
-  filePath: string
+  name: string
   contents: string
 }>
 
-export const EMBED_ENV_PREFIX = "PLASMO_"
+export const INTERNAL_ENV_PREFIX = "PLASMO_"
 export const PUBLIC_ENV_PREFIX = "PLASMO_PUBLIC_"
+
+const envFileSet = new Set<string>()
 
 export class PlasmoPublicEnv {
   data: Env
@@ -32,10 +34,11 @@ export class PlasmoPublicEnv {
   }
 
   extends(rawData: Env) {
+    iLog("Loaded environment variables from:", [...envFileSet])
     const clone = new PlasmoPublicEnv({ ...this.data })
     clone.data["NODE_ENV"] = process.env.NODE_ENV
     Object.entries(rawData).forEach(([key, value]) => {
-      clone.data[`PLASMO_${constantCase(key)}`] = value
+      clone.data[`${INTERNAL_ENV_PREFIX}${constantCase(key)}`] = value
     })
     return clone
   }
@@ -44,28 +47,30 @@ export class PlasmoPublicEnv {
 function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   const parsed: dotenv.DotenvParseOutput = {}
 
-  for (const { contents, filePath } of loadedEnvFiles) {
+  for (const { contents, name } of loadedEnvFiles) {
     try {
+      envFileSet.add(name)
       const result = dotenvExpand({
         parsed: dotenv.parse(contents)
       })
 
       if (!!result.parsed) {
-        iLog(`Loaded env from ${filePath}`)
+        vLog(`Loaded env from ${name}`)
         const resultData = result.parsed || {}
 
-        for (const key of Object.keys(resultData)) {
-          if (typeof parsed[key] === "undefined") {
-            parsed[key] = resultData[key]
+        for (const envKey of Object.keys(resultData)) {
+          if (typeof parsed[envKey] === "undefined") {
+            parsed[envKey] = resultData[envKey]
 
-            if (key.startsWith(EMBED_ENV_PREFIX)) {
-              process.env[key] = resultData[key]
+            // Pass through internal env variables
+            if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
+              process.env[envKey] = resultData[envKey]
             }
           }
         }
       }
     } catch (err) {
-      eLog(`Failed to load env from ${join(filePath)}`, err)
+      eLog(`Failed to load env from ${name}`, err)
     }
   }
 
@@ -97,10 +102,11 @@ export const getEnvFileNames = () => {
 export async function loadEnvConfig(dir: string) {
   const allDotEnvEntries = await Promise.all(
     getEnvFileNames()
-      .map((envFile) => resolve(dir, envFile))
+      .map((envFile) => [envFile, resolve(dir, envFile)])
       .map(
-        async (filePath) =>
+        async ([envFile, filePath]) =>
           [
+            envFile,
             filePath,
             (await isFile(filePath)) && (await isReadable(filePath))
           ] as const
@@ -109,9 +115,9 @@ export async function loadEnvConfig(dir: string) {
 
   const envFiles: LoadedEnvFiles = await Promise.all(
     allDotEnvEntries
-      .filter(([, isValid]) => isValid)
-      .map(async ([filePath]) => ({
-        filePath,
+      .filter(([, , isValid]) => isValid)
+      .map(async ([envFile, filePath]) => ({
+        name: envFile,
         contents: await readFile(filePath, "utf8")
       }))
   )

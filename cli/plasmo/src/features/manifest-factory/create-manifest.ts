@@ -3,9 +3,7 @@ import { isAccessible } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
 import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
-import { outputEnvDeclaration } from "~features/env/env-declaration"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
-import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
 import { PlasmoExtensionManifestMV3 } from "./mv3"
