@@ -2,15 +2,13 @@
 import { argv, exit, versions } from "process"
 import semver from "semver"
 
-import { ErrorMessage, ManifestContentScript } from "@plasmo/constants"
+import { ErrorMessage } from "@plasmo/constants/error"
 import { verbose } from "@plasmo/utils/flags"
 import { eLog, vLog } from "@plasmo/utils/logging"
 import { exitCountDown } from "@plasmo/utils/wait"
 
 import { ValidCommand, runMap, validCommandSet } from "~commands"
 import { printHeader, printHelp } from "~features/helpers/print"
-
-export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
 
 async function defaultMode() {
   printHeader()

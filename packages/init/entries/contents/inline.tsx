@@ -1,6 +1,6 @@
-import type { PlasmoContentScript, PlasmoGetInlineAnchor } from "plasmo"
+import type { PlasmoCSConfig, PlasmoGetInlineAnchor } from "plasmo"
 
-export const config: PlasmoContentScript = {
+export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"]
 }
 

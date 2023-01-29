@@ -1,6 +1,6 @@
-import type { PlasmoContentScript, PlasmoGetOverlayAnchor } from "plasmo"
+import type { PlasmoCSConfig, PlasmoGetOverlayAnchor } from "plasmo"
 
-export const config: PlasmoContentScript = {
+export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"]
 }
 

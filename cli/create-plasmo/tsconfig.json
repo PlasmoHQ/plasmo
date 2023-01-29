@@ -1,6 +1,6 @@
 {
   "extends": "@plasmo/config/ts/cli.json",
-  "include": ["src/**/*.ts", "./index.d.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["dist", "node_modules", "templates"],
   "compilerOptions": {
     "outDir": "dist",
