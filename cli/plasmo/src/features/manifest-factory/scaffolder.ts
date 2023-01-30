@@ -3,7 +3,7 @@ import { readFile, writeFile } from "fs/promises"
 import { ParsedPath, join, relative, resolve } from "path"
 
 import { find } from "@plasmo/utils/array"
-import { isAccessible } from "@plasmo/utils/fs"
+import { isAccessible, isFile } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
@@ -99,15 +99,17 @@ export class Scaffolder {
   generateHtml = async (
     outputPath = "",
     scriptMountPath = "",
-    htmlFile = "" as string | false
+    overridePath = ""
   ) => {
     const templateReplace = {
       __plasmo_static_index_title__: this.plasmoManifest.name,
       __plasmo_static_script__: scriptMountPath
     }
 
-    return htmlFile
-      ? this.#copyGenerate(htmlFile, outputPath, {
+    const hasOverride = await isFile(overridePath)
+
+    return hasOverride
+      ? this.#copyGenerate(overridePath, outputPath, {
           ...templateReplace,
           "</body>": `<div id="__plasmo"></div><script src="${scriptMountPath}" type="module"></script></body>`
         })
@@ -117,10 +119,7 @@ export class Scaffolder {
   /**
    * @return true if file was written, false if cache hit
    */
-  createPageHtml = async (
-    uiPageName: ExtensionUIPage,
-    htmlFile = "" as string | false
-  ) => {
+  createPageHtml = async (uiPageName: ExtensionUIPage, htmlFile = "") => {
     const outputHtmlPath = resolve(
       this.commonPath.dotPlasmoDirectory,
       `${uiPageName}.html`
@@ -133,17 +132,25 @@ export class Scaffolder {
 
   createPageMount = async (module: ParsedPath) => {
     vLog(`Creating page mount template for ${module.dir}`)
-    const { dotPlasmoDirectory } = this.commonPath
 
-    const staticModulePath = resolve(dotPlasmoDirectory, module.dir)
+    const staticModulePath = resolve(
+      this.commonPath.dotPlasmoDirectory,
+      module.dir
+    )
     const htmlPath = resolve(staticModulePath, `${module.name}.html`)
-    await ensureDir(staticModulePath)
 
+    await ensureDir(staticModulePath)
     const isUiExt = isSupportedUiExt(module.ext)
 
     const scriptPath = resolve(
       staticModulePath,
       `${module.name}${this.mountExt}`
+    )
+
+    const overrideHtmlPath = resolve(
+      this.commonPath.sourceDirectory,
+      module.dir,
+      `${module.name}.html`
     )
 
     const generateResultList = await Promise.all(
@@ -154,12 +161,17 @@ export class Scaffolder {
                 join(module.dir, module.name)
               )}`
             }),
-            this.generateHtml(htmlPath, `./${module.name}${this.mountExt}`)
+            this.generateHtml(
+              htmlPath,
+              `./${module.name}${this.mountExt}`,
+              overrideHtmlPath
+            )
           ]
         : [
             this.generateHtml(
               htmlPath,
-              `~${toPosix(join(module.dir, module.name))}${module.ext}`
+              `~${toPosix(join(module.dir, module.name))}${module.ext}`,
+              overrideHtmlPath
             )
           ]
     )
