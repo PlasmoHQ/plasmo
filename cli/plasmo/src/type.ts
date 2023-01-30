@@ -1,7 +1,12 @@
 // See https://www.plasmo.com/engineering/log/2022.04#update-2022.04.23
 import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
 
-export type PlasmoContentScript = Omit<Partial<ManifestContentScript>, "js">
+export type PlasmoCSConfig = Omit<Partial<ManifestContentScript>, "js">
+
+/**
+ * @deprecated use **PlasmoCSConfig** instead
+ */
+export type PlasmoContentScript = PlasmoCSConfig
 
 type Async<T> = Promise<T> | T
 
