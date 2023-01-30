@@ -31,6 +31,7 @@ import type {
 } from "@plasmo/constants"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
+import { isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
@@ -184,7 +185,13 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   }
 
   async postBuild() {
-    await Promise.all(this.copyQueue.map(([src, dest]) => copy(src, dest)))
+    await Promise.all(
+      this.copyQueue.map(async ([src, dest]) => {
+        if (!(await isReadable(dest))) {
+          await copy(src, dest)
+        }
+      })
+    )
   }
 
   async updateEnv() {
