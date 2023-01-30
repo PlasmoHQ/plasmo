@@ -47,24 +47,36 @@ export const usePageMessaging: PlasmoMessaging.MessageHook = () => {
 }
 
 export const usePort: PlasmoMessaging.PortHook = (name) => {
-  const port = useRef(getPort(name))
+  const portRef = useRef<chrome.runtime.Port>()
   const [data, setData] = useState()
 
   useEffect(() => {
-    const messageHandler = (msg) => {
+    if (!name) {
+      return null
+    }
+
+    const port = getPort(name)
+
+    function messageHandler(msg) {
       setData(msg)
     }
 
-    port.current.onMessage.addListener(messageHandler)
+    port.onMessage.addListener(messageHandler)
 
+    portRef.current = port
     return () => {
-      port.current.onMessage.removeListener(messageHandler)
+      port.onMessage.removeListener(messageHandler)
     }
-  }, [])
+  }, [name])
 
   return {
     data,
-    send: port.current.postMessage
+    send: (body) => {
+      portRef.current.postMessage({
+        name,
+        body
+      })
+    }
   }
 }
 
