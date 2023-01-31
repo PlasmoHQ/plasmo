@@ -45,10 +45,10 @@ export const generatePackageFromManifest = async (
   packageManager: PackageManagerInfo,
   { manifestData }: Awaited<ReturnType<typeof getManifestData>>
 ) => {
-  const packageData = generatePackage({
+  const packageData = await generatePackage({
     name: commonPath.packageName,
     packageManager
-  }) as PackageJSON
+  })
 
   packageData.version = manifestData.version
   packageData.displayName = manifestData.name

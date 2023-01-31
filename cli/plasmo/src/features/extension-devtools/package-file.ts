@@ -6,7 +6,7 @@ import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
 
-export const generatePackage = ({
+const _generatePackage = async ({
   name = "plasmo-extension",
   version = "0.0.1",
   packageManager = {} as PackageManagerInfo
@@ -25,12 +25,12 @@ export const generatePackage = ({
       package: "plasmo package"
     },
     dependencies: {
-      plasmo: process.env.APP_VERSION,
+      plasmo: "workspace:*",
       react: "18.2.0",
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+      "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
       "@types/chrome": "0.0.210",
       "@types/node": "18.11.18",
       "@types/react": "18.0.27",
@@ -53,10 +53,15 @@ export const generatePackage = ({
   return baseData
 }
 
-export type PackageJSON = ReturnType<typeof generatePackage> & {
+export type PackageJSON = Awaited<ReturnType<typeof _generatePackage>> & {
   homepage?: string
   contributors?: string[]
 }
+
+type GenerateArgs = Parameters<typeof _generatePackage>[0]
+
+export const generatePackage = async (p: GenerateArgs) =>
+  (await _generatePackage(p)) as PackageJSON
 
 export const resolveWorkspaceToLatestSemver = async (
   dependencies: Record<string, string>
@@ -68,10 +73,14 @@ export const resolveWorkspaceToLatestSemver = async (
       if (key === "plasmo") {
         output[key] = process.env.APP_VERSION as string
       } else if (value === "workspace:*") {
-        const remotePackageData = (await getPackageJson(key, {
-          version: "latest"
-        })) as unknown as AbbreviatedVersion
-        output[key] = remotePackageData.version
+        try {
+          const remotePackageData = (await getPackageJson(key, {
+            version: "latest"
+          })) as unknown as AbbreviatedVersion
+          output[key] = remotePackageData.version
+        } catch {
+          output[key] = value
+        }
       } else {
         output[key] = value
       }
