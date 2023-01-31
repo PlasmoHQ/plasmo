@@ -88,10 +88,9 @@ export class ProjectCreator {
       this.copyBppWorkflow()
     ])
 
-    await this.preparePackageData({
-      replaceAuthor: !this.isExample,
-      replaceWorkspaceRef: !this.isExample
-    })
+    const packageData = await readJson(this.commonPath.packageFilePath)
+
+    await this.outputPackageData(packageData)
 
     return true
   }
@@ -110,9 +109,7 @@ export class ProjectCreator {
       existingData
     )
 
-    await outputJson(this.commonPath.packageFilePath, packageData, {
-      spaces: 2
-    })
+    await this.outputPackageData(packageData)
 
     return true
   }
@@ -166,33 +163,54 @@ export class ProjectCreator {
       this.copyBppWorkflow()
     ])
 
-    await this.preparePackageData({
-      replaceAuthor: !this.isExample,
-      replaceWorkspaceRef: !this.isExample
-    })
+    const packageData = await readJson(this.commonPath.packageFilePath)
+    await this.outputPackageData(packageData)
 
     return true
   }
 
-  async preparePackageData({
-    replaceAuthor = false,
-    replaceWorkspaceRef = false
-  } = {}) {
+  async createBlank() {
+    iLog("Creating new blank project")
+
+    const packageData = await generatePackage({
+      name: this.commonPath.packageName,
+      packageManager: this.isExample ? undefined : this.packageManager
+    })
+
+    iLog(`Copying template files...`)
+    await Promise.all([
+      this.outputPackageData(packageData),
+      this.copyBlankInitFiles()
+    ])
+
+    return true
+  }
+
+  async outputPackageData(packageData: PackageJSON) {
     const { packageName, packageFilePath } = this.commonPath
-    const packageData = (await readJson(packageFilePath)) as PackageJSON
 
     packageData.name = packageName
     packageData.displayName = sentenceCase(packageName)
 
-    if (replaceAuthor) {
+    packageData.description = await quickPrompt(
+      "Extension description:",
+      packageData.description
+    )
+
+    if (this.isExample) {
+      delete packageData.packageManager
+      packageData.contributors = [
+        await quickPrompt("Contributor name:", userInfo().username)
+      ]
+      packageData.author = "Plasmo Corp. <foss@plasmo.com>"
+    } else {
       delete packageData.contributors
       packageData.author = await quickPrompt("Auhor name:", userInfo().username)
-    }
 
-    if (replaceWorkspaceRef) {
       vLog(
         "Replace workspace refs with the latest package version from npm registry"
       )
+
       await Promise.all([
         (packageData.dependencies = await resolveWorkspaceToLatestSemver(
           packageData.dependencies
@@ -206,37 +224,6 @@ export class ProjectCreator {
     await outputJson(packageFilePath, packageData, {
       spaces: 2
     })
-  }
-
-  async createBlank() {
-    iLog("Creating new blank project")
-    const { packageManager, isExample } = this
-    const { packageName, packageFilePath } = this.commonPath
-
-    const packageData = await generatePackage({
-      name: packageName,
-      packageManager
-    })
-
-    if (isExample) {
-      packageData.dependencies["plasmo"] = "workspace:*"
-      packageData.devDependencies["@plasmohq/prettier-plugin-sort-imports"] =
-        "workspace:*"
-      packageData.contributors = [packageData.author]
-      packageData.author = "Plasmo Corp. <foss@plasmo.com>"
-
-      delete packageData.packageManager
-    }
-
-    iLog(`Copying template files...`)
-    await Promise.all([
-      outputJson(packageFilePath, packageData, {
-        spaces: 2
-      }),
-      this.copyBlankInitFiles()
-    ])
-
-    return true
   }
 
   async copyBlankInitFiles() {

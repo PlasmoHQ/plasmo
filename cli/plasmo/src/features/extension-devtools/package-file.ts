@@ -5,7 +5,6 @@ import getPackageJson, { AbbreviatedVersion } from "package-json"
 import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
-import { quickPrompt } from "~features/helpers/prompt"
 
 const _generatePackage = async ({
   name = "plasmo-extension",
@@ -17,7 +16,7 @@ const _generatePackage = async ({
     displayName: sentenceCase(name),
     version,
     description: "A basic Plasmo extension.",
-    author: await quickPrompt("Auhor name:", userInfo().username),
+    author: userInfo().username,
 
     packageManager: undefined as string | undefined,
     scripts: {
@@ -26,12 +25,12 @@ const _generatePackage = async ({
       package: "plasmo package"
     },
     dependencies: {
-      plasmo: process.env.APP_VERSION,
+      plasmo: "workspace:*",
       react: "18.2.0",
       "react-dom": "18.2.0"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+      "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
       "@types/chrome": "0.0.210",
       "@types/node": "18.11.18",
       "@types/react": "18.0.27",
