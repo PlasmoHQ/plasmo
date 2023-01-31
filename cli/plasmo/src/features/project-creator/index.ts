@@ -21,6 +21,7 @@ import {
 } from "~features/extension-devtools/package-file"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
+import { quickPrompt } from "~features/helpers/prompt"
 
 import {
   generatePackageFromManifest,
@@ -79,9 +80,17 @@ export class ProjectCreator {
       ig.add(gitIgnoreData)
     }
 
-    await copy(absFromPath, this.commonPath.projectDirectory, {
-      filter: (src) =>
-        src === absFromPath || !ig.ignores(relative(absFromPath, src))
+    await Promise.all([
+      copy(absFromPath, this.commonPath.projectDirectory, {
+        filter: (src) =>
+          src === absFromPath || !ig.ignores(relative(absFromPath, src))
+      }),
+      this.copyBppWorkflow()
+    ])
+
+    await this.preparePackageData({
+      replaceAuthor: !this.isExample,
+      replaceWorkspaceRef: !this.isExample
     })
 
     return true
@@ -120,8 +129,6 @@ export class ProjectCreator {
   async createWithExample(exampleName: string) {
     iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
 
-    const { packageName, packageFilePath } = this.commonPath
-
     // locate the tmp directory
     const tempDirectory = temporaryDirectory()
     vLog(`Download examples to temporary directory: ${tempDirectory}`)
@@ -156,21 +163,36 @@ export class ProjectCreator {
     vLog("Copy example to project directory")
     await Promise.all([
       copy(exampleDirectory, this.commonPath.projectDirectory),
-      !this.isExample && this.copyBppWorkflow()
+      this.copyBppWorkflow()
     ])
 
+    await this.preparePackageData({
+      replaceAuthor: !this.isExample,
+      replaceWorkspaceRef: !this.isExample
+    })
+
+    return true
+  }
+
+  async preparePackageData({
+    replaceAuthor = false,
+    replaceWorkspaceRef = false
+  } = {}) {
+    const { packageName, packageFilePath } = this.commonPath
     const packageData = (await readJson(packageFilePath)) as PackageJSON
 
-    if (!this.isExample) {
-      delete packageData.contributors
-      packageData.author = userInfo().username
-      packageData.name = packageName
-      packageData.displayName = sentenceCase(packageName)
+    packageData.name = packageName
+    packageData.displayName = sentenceCase(packageName)
 
+    if (replaceAuthor) {
+      delete packageData.contributors
+      packageData.author = await quickPrompt("Auhor name:", userInfo().username)
+    }
+
+    if (replaceWorkspaceRef) {
       vLog(
         "Replace workspace refs with the latest package version from npm registry"
       )
-
       await Promise.all([
         (packageData.dependencies = await resolveWorkspaceToLatestSemver(
           packageData.dependencies
@@ -184,7 +206,6 @@ export class ProjectCreator {
     await outputJson(packageFilePath, packageData, {
       spaces: 2
     })
-    return true
   }
 
   async createBlank() {
@@ -192,10 +213,10 @@ export class ProjectCreator {
     const { packageManager, isExample } = this
     const { packageName, packageFilePath } = this.commonPath
 
-    const packageData = generatePackage({
+    const packageData = await generatePackage({
       name: packageName,
       packageManager
-    }) as PackageJSON
+    })
 
     if (isExample) {
       packageData.dependencies["plasmo"] = "workspace:*"
@@ -237,7 +258,7 @@ export class ProjectCreator {
         this.templatePath.initTemplatePath,
         this.commonPath.projectDirectory
       ),
-      !this.isExample && this.copyBppWorkflow(),
+      this.copyBppWorkflow(),
       writeFile(this.commonPath.gitIgnorePath, generateGitIgnore())
     ])
 
@@ -245,7 +266,7 @@ export class ProjectCreator {
   }
 
   async copyBppWorkflow() {
-    if (hasFlag("--no-bpp")) {
+    if (this.isExample || hasFlag("--no-bpp")) {
       return
     }
 
