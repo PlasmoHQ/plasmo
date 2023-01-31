@@ -73,10 +73,14 @@ export const resolveWorkspaceToLatestSemver = async (
       if (key === "plasmo") {
         output[key] = process.env.APP_VERSION as string
       } else if (value === "workspace:*") {
-        const remotePackageData = (await getPackageJson(key, {
-          version: "latest"
-        })) as unknown as AbbreviatedVersion
-        output[key] = remotePackageData.version
+        try {
+          const remotePackageData = (await getPackageJson(key, {
+            version: "latest"
+          })) as unknown as AbbreviatedVersion
+          output[key] = remotePackageData.version
+        } catch {
+          output[key] = value
+        }
       } else {
         output[key] = value
       }

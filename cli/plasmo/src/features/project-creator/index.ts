@@ -4,7 +4,6 @@ import { existsSync } from "fs"
 import { copy, outputJson, readJson } from "fs-extra"
 import { lstat, readFile, writeFile } from "fs/promises"
 import ignore from "ignore"
-import { userInfo } from "os"
 import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
@@ -55,16 +54,13 @@ export class ProjectCreator {
     }
 
     const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(fromPath)
-    try {
-      const fromStats = await lstat(absFromPath)
-      if (fromStats.isFile()) {
-        return await this.createFromManifest(absFromPath)
-      } else if (fromStats.isDirectory()) {
-        return await this.createFromLocalTemplate(absFromPath)
-      } else {
-        return false
-      }
-    } catch {
+    const fromStats = await lstat(absFromPath)
+
+    if (fromStats.isFile()) {
+      return await this.createFromManifest(absFromPath)
+    } else if (fromStats.isDirectory()) {
+      return await this.createFromLocalTemplate(absFromPath)
+    } else {
       return false
     }
   }
@@ -80,18 +76,16 @@ export class ProjectCreator {
       ig.add(gitIgnoreData)
     }
 
-    await Promise.all([
-      copy(absFromPath, this.commonPath.projectDirectory, {
-        filter: (src) =>
-          src === absFromPath || !ig.ignores(relative(absFromPath, src))
-      }),
-      this.copyBppWorkflow()
-    ])
+    await copy(absFromPath, this.commonPath.projectDirectory, {
+      filter: (src) =>
+        src === absFromPath || !ig.ignores(relative(absFromPath, src))
+    })
 
     const packageData = await readJson(this.commonPath.packageFilePath)
 
     await this.outputPackageData(packageData)
 
+    iLog(`Creating new project from ${absFromPath}`)
     return true
   }
 
@@ -109,7 +103,7 @@ export class ProjectCreator {
       existingData
     )
 
-    await this.outputPackageData(packageData)
+    await this.outputPackageData(packageData, { resolveWorkspaceRefs: true })
 
     return true
   }
@@ -124,8 +118,6 @@ export class ProjectCreator {
   }
 
   async createWithExample(exampleName: string) {
-    iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
-
     // locate the tmp directory
     const tempDirectory = temporaryDirectory()
     vLog(`Download examples to temporary directory: ${tempDirectory}`)
@@ -164,29 +156,32 @@ export class ProjectCreator {
     ])
 
     const packageData = await readJson(this.commonPath.packageFilePath)
-    await this.outputPackageData(packageData)
+    await this.outputPackageData(packageData, { resolveWorkspaceRefs: true })
 
+    iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
     return true
   }
 
   async createBlank() {
-    iLog("Creating new blank project")
-
     const packageData = await generatePackage({
       name: this.commonPath.packageName,
       packageManager: this.isExample ? undefined : this.packageManager
     })
 
-    iLog(`Copying template files...`)
+    vLog(`Copying template files...`)
     await Promise.all([
-      this.outputPackageData(packageData),
+      this.outputPackageData(packageData, { resolveWorkspaceRefs: true }),
       this.copyBlankInitFiles()
     ])
 
+    iLog("Creating new blank project")
     return true
   }
 
-  async outputPackageData(packageData: PackageJSON) {
+  private async outputPackageData(
+    packageData: PackageJSON,
+    { resolveWorkspaceRefs = false } = {}
+  ) {
     const { packageName, packageFilePath } = this.commonPath
 
     packageData.name = packageName
@@ -200,25 +195,26 @@ export class ProjectCreator {
     if (this.isExample) {
       delete packageData.packageManager
       packageData.contributors = [
-        await quickPrompt("Contributor name:", userInfo().username)
+        await quickPrompt("Contributor name:", packageData.author)
       ]
       packageData.author = "Plasmo Corp. <foss@plasmo.com>"
     } else {
       delete packageData.contributors
-      packageData.author = await quickPrompt("Auhor name:", userInfo().username)
+      packageData.author = await quickPrompt("Auhor name:", packageData.author)
 
-      vLog(
-        "Replace workspace refs with the latest package version from npm registry"
-      )
-
-      await Promise.all([
-        (packageData.dependencies = await resolveWorkspaceToLatestSemver(
-          packageData.dependencies
-        )),
-        (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
-          packageData.devDependencies
-        ))
-      ])
+      if (resolveWorkspaceRefs) {
+        vLog(
+          "Replace workspace refs with the latest package version from npm registry"
+        )
+        await Promise.all([
+          (packageData.dependencies = await resolveWorkspaceToLatestSemver(
+            packageData.dependencies
+          )),
+          (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
+            packageData.devDependencies
+          ))
+        ])
+      }
     }
 
     await outputJson(packageFilePath, packageData, {
@@ -257,7 +253,7 @@ export class ProjectCreator {
       return
     }
 
-    iLog(`Copying BPP workflow...`)
+    vLog(`Copying BPP workflow...`)
     const bppSubmitWorkflowYamlPath = resolve(
       this.commonPath.projectDirectory,
       ".github",
