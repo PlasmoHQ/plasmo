@@ -27,11 +27,6 @@ interface MpMetadata {
 \t${ports.join("\n\t")}
 }
 
-declare module "@plasmohq/messaging/hook" {
-  interface MessagesMetadata extends MmMetadata {}
-  interface PortsMetadata extends MpMetadata {}
-}
-
 declare module "@plasmohq/messaging" {
   interface MessagesMetadata extends MmMetadata {}
   interface PortsMetadata extends MpMetadata {}

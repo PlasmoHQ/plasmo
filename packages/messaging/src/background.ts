@@ -1,4 +1,4 @@
-import type { PlasmoMessaging, PortName } from "./types"
+import type { PlasmoMessaging, PortName } from "./index"
 
 export const getPortMap = (): Map<PortName, chrome.runtime.Port> =>
   globalThis.__plasmoInternalPortMap
