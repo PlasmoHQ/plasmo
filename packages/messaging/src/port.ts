@@ -1,4 +1,4 @@
-import type { PortName } from "./types"
+import type { PortName } from "./index"
 
 const portMap = new Map<PortName, chrome.runtime.Port>()
 

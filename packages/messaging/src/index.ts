@@ -1,7 +1,13 @@
 import type { PlasmoMessaging } from "./types"
 import { getActiveTab, isSameOrigin as isSameTarget } from "./utils"
 
-export type { MessageName, MessagesMetadata, PlasmoMessaging } from "./types"
+export type {
+  PlasmoMessaging,
+  MessageName,
+  PortName,
+  PortsMetadata,
+  MessagesMetadata
+} from "./types"
 
 /**
  * Should only be called from CS or Ext Pages
