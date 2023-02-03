@@ -11,6 +11,11 @@
       "require": "./dist/hook.cjs",
       "types": "./dist/hook.d.ts"
     },
+    "./relay": {
+      "import": "./dist/relay.js",
+      "require": "./dist/relay.cjs",
+      "types": "./dist/relay.d.ts"
+    },
     "./port": {
       "import": "./dist/port.js",
       "require": "./dist/port.cjs",
@@ -32,6 +37,9 @@
       "hook": [
         "./dist/hook.d.ts"
       ],
+      "relay": [
+        "./dist/relay.d.ts"
+      ],
       "port": [
         "./dist/port.d.ts"
       ],
@@ -47,6 +55,7 @@
     "entry": [
       "src/index.ts",
       "src/port.ts",
+      "src/relay.ts",
       "src/background.ts",
       "src/hook.ts"
     ],
