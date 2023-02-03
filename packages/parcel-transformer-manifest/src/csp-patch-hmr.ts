@@ -1,15 +1,13 @@
 import parseCSP from "content-security-policy-parser"
 
+const DEFAULT_INSERT = "'unsafe-eval'"
+
 export function cspPatchHMR(
   policy: string | null | undefined,
-  insert?: string
+  insert = DEFAULT_INSERT
 ) {
-  let defaultSrc = "'self'"
-
-  if (insert === null) {
-    insert = "'unsafe-eval'"
-    defaultSrc = "'self' blob: filesystem:"
-  }
+  const defaultSrc =
+    insert === DEFAULT_INSERT ? "'self' blob: filesystem:" : "'self'"
 
   if (policy) {
     const csp = parseCSP(policy)
