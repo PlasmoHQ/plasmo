@@ -4,7 +4,6 @@ import { existsSync } from "fs"
 import { copy, outputJson, readJson } from "fs-extra"
 import { lstat, readFile, writeFile } from "fs/promises"
 import ignore from "ignore"
-import { userInfo } from "os"
 import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
@@ -21,6 +20,7 @@ import {
 } from "~features/extension-devtools/package-file"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
+import { quickPrompt } from "~features/helpers/prompt"
 
 import {
   generatePackageFromManifest,
@@ -54,16 +54,13 @@ export class ProjectCreator {
     }
 
     const absFromPath = isAbsolute(fromPath) ? fromPath : resolve(fromPath)
-    try {
-      const fromStats = await lstat(absFromPath)
-      if (fromStats.isFile()) {
-        return await this.createFromManifest(absFromPath)
-      } else if (fromStats.isDirectory()) {
-        return await this.createFromLocalTemplate(absFromPath)
-      } else {
-        return false
-      }
-    } catch {
+    const fromStats = await lstat(absFromPath)
+
+    if (fromStats.isFile()) {
+      return await this.createFromManifest(absFromPath)
+    } else if (fromStats.isDirectory()) {
+      return await this.createFromLocalTemplate(absFromPath)
+    } else {
       return false
     }
   }
@@ -84,6 +81,11 @@ export class ProjectCreator {
         src === absFromPath || !ig.ignores(relative(absFromPath, src))
     })
 
+    const packageData = await readJson(this.commonPath.packageFilePath)
+
+    await this.outputPackageData(packageData)
+
+    iLog(`Creating new project from ${absFromPath}`)
     return true
   }
 
@@ -101,9 +103,7 @@ export class ProjectCreator {
       existingData
     )
 
-    await outputJson(this.commonPath.packageFilePath, packageData, {
-      spaces: 2
-    })
+    await this.outputPackageData(packageData, { resolveWorkspaceRefs: true })
 
     return true
   }
@@ -118,10 +118,6 @@ export class ProjectCreator {
   }
 
   async createWithExample(exampleName: string) {
-    iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
-
-    const { packageName, packageFilePath } = this.commonPath
-
     // locate the tmp directory
     const tempDirectory = temporaryDirectory()
     vLog(`Download examples to temporary directory: ${tempDirectory}`)
@@ -156,66 +152,74 @@ export class ProjectCreator {
     vLog("Copy example to project directory")
     await Promise.all([
       copy(exampleDirectory, this.commonPath.projectDirectory),
-      !this.isExample && this.copyBppWorkflow()
+      this.copyBppWorkflow()
     ])
 
-    const packageData = (await readJson(packageFilePath)) as PackageJSON
+    const packageData = await readJson(this.commonPath.packageFilePath)
+    await this.outputPackageData(packageData, { resolveWorkspaceRefs: true })
 
-    if (!this.isExample) {
+    iLog(`Creating new project ${exampleName.split("-").join(" ")}`)
+    return true
+  }
+
+  async createBlank() {
+    const packageData = await generatePackage({
+      name: this.commonPath.packageName,
+      packageManager: this.isExample ? undefined : this.packageManager
+    })
+
+    vLog(`Copying template files...`)
+    await Promise.all([
+      this.outputPackageData(packageData, { resolveWorkspaceRefs: true }),
+      this.copyBlankInitFiles()
+    ])
+
+    iLog("Creating new blank project")
+    return true
+  }
+
+  private async outputPackageData(
+    packageData: PackageJSON,
+    { resolveWorkspaceRefs = false } = {}
+  ) {
+    const { packageName, packageFilePath } = this.commonPath
+
+    packageData.name = packageName
+    packageData.displayName = sentenceCase(packageName)
+
+    packageData.description = await quickPrompt(
+      "Extension description:",
+      packageData.description
+    )
+
+    if (this.isExample) {
+      delete packageData.packageManager
+      packageData.contributors = [
+        await quickPrompt("Contributor name:", packageData.author)
+      ]
+      packageData.author = "Plasmo Corp. <foss@plasmo.com>"
+    } else {
       delete packageData.contributors
-      packageData.author = userInfo().username
-      packageData.name = packageName
-      packageData.displayName = sentenceCase(packageName)
+      packageData.author = await quickPrompt("Auhor name:", packageData.author)
 
-      vLog(
-        "Replace workspace refs with the latest package version from npm registry"
-      )
-
-      await Promise.all([
-        (packageData.dependencies = await resolveWorkspaceToLatestSemver(
-          packageData.dependencies
-        )),
-        (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
-          packageData.devDependencies
-        ))
-      ])
+      if (resolveWorkspaceRefs) {
+        vLog(
+          "Replace workspace refs with the latest package version from npm registry"
+        )
+        await Promise.all([
+          (packageData.dependencies = await resolveWorkspaceToLatestSemver(
+            packageData.dependencies
+          )),
+          (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
+            packageData.devDependencies
+          ))
+        ])
+      }
     }
 
     await outputJson(packageFilePath, packageData, {
       spaces: 2
     })
-    return true
-  }
-
-  async createBlank() {
-    iLog("Creating new blank project")
-    const { packageManager, isExample } = this
-    const { packageName, packageFilePath } = this.commonPath
-
-    const packageData = generatePackage({
-      name: packageName,
-      packageManager
-    }) as PackageJSON
-
-    if (isExample) {
-      packageData.dependencies["plasmo"] = "workspace:*"
-      packageData.devDependencies["@plasmohq/prettier-plugin-sort-imports"] =
-        "workspace:*"
-      packageData.contributors = [packageData.author]
-      packageData.author = "Plasmo Corp. <foss@plasmo.com>"
-
-      delete packageData.packageManager
-    }
-
-    iLog(`Copying template files...`)
-    await Promise.all([
-      outputJson(packageFilePath, packageData, {
-        spaces: 2
-      }),
-      this.copyBlankInitFiles()
-    ])
-
-    return true
   }
 
   async copyBlankInitFiles() {
@@ -237,7 +241,7 @@ export class ProjectCreator {
         this.templatePath.initTemplatePath,
         this.commonPath.projectDirectory
       ),
-      !this.isExample && this.copyBppWorkflow(),
+      this.copyBppWorkflow(),
       writeFile(this.commonPath.gitIgnorePath, generateGitIgnore())
     ])
 
@@ -245,11 +249,11 @@ export class ProjectCreator {
   }
 
   async copyBppWorkflow() {
-    if (hasFlag("--no-bpp")) {
+    if (this.isExample || hasFlag("--no-bpp")) {
       return
     }
 
-    iLog(`Copying BPP workflow...`)
+    vLog(`Copying BPP workflow...`)
     const bppSubmitWorkflowYamlPath = resolve(
       this.commonPath.projectDirectory,
       ".github",

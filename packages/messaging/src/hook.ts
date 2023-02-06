@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 
-import { relay, sendToActiveContentScript, sendToBackground } from "./index"
+import {
+  type MessageName,
+  type PlasmoMessaging,
+  relay,
+  sendToActiveContentScript,
+  sendToBackground
+} from "./index"
 import { getPort } from "./port"
-import type { InternalSignal, MessageName, PlasmoMessaging } from "./types"
+import type { InternalSignal } from "./types"
 import { getActiveTab } from "./utils"
-
-export type {
-  PlasmoMessaging,
-  MessageName,
-  PortName,
-  PortsMetadata,
-  MessagesMetadata
-} from "./types"
 
 const _signalActiveCS: PlasmoMessaging.SendFx<InternalSignal> =
   sendToActiveContentScript

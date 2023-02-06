@@ -1,4 +1,4 @@
-import type { PlasmoMessaging } from "./types"
+import type { PlasmoMessaging } from "./index"
 
 export const getActiveTab = async () => {
   const [tab] = await chrome.tabs.query({
