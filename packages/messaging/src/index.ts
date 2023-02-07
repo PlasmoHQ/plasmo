@@ -1,5 +1,5 @@
 import { relay as rawRelay, sendViaRelay as rawSendViaRelay } from "./relay"
-import type { PlasmoMessaging } from "./types"
+import type { MessageName, PlasmoMessaging } from "./types"
 import { getActiveTab } from "./utils"
 
 export type {
@@ -56,11 +56,14 @@ export const relayMessage: PlasmoMessaging.MessageRelayFx = (req) =>
   rawRelay(req, sendToBackground)
 
 /**
- * @deprecated use `relayMessage` instead
+ * @deprecated Migrated to `relayMessage`
  */
 export const relay = relayMessage
 
+export const sendToBackgroundViaRelay: PlasmoMessaging.SendFx<MessageName> =
+  rawSendViaRelay
+
 /**
- * @deprecated use `sendViaRelay` from "@plasmohq/messaging/relay"
+ * @deprecated Migrated to `sendToBackgroundViaRelay`
  */
-export const sendViaRelay = rawSendViaRelay
+export const sendViaRelay = sendToBackgroundViaRelay

@@ -38,7 +38,7 @@ export namespace PlasmoMessaging {
     response: Response<ResponseBody>
   ) => void | Promise<void> | boolean
 
-  export interface SendFx<TName = MessageName> {
+  export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
       request: Request<TName, RequestBody>
     ): Promise<ResponseBody>
@@ -58,7 +58,7 @@ export namespace PlasmoMessaging {
   }
 
   export type MessageHook = () => {
-    send: SendFx
+    send: SendFx<MessageName>
   }
 
   export interface PortHook {
