@@ -472,7 +472,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     // Populate content_scripts
     base.content_scripts = [
-      ...Array.from(this.contentScriptMap.values()),
+      ...Array.from(this.contentScriptMap.values()).filter(
+        (s) => s.world !== "MAIN" // TODO: Remove this when Chrome natively supports mainworld for CS
+      ),
       ...(overrideContentScripts! || [])
     ]
 

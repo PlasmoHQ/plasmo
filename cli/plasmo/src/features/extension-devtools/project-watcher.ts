@@ -97,7 +97,7 @@ export const handleProjectFile = async (
     }
     case WatchReason.BackgroundDirectory:
     case WatchReason.BackgroundIndex: {
-      await updateBgswEntry(plasmoManifest)
+      await updateBgswEntry(plasmoManifest) // TODO: Make this a soft-check instead of a file-write ops
       return
     }
     case WatchReason.ContentScriptIndex:
