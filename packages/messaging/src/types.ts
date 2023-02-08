@@ -38,25 +38,27 @@ export namespace PlasmoMessaging {
     response: Response<ResponseBody>
   ) => void | Promise<void> | boolean
 
-  export interface SendFx<TName = MessageName> {
+  export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
       request: Request<TName, RequestBody>
     ): Promise<ResponseBody>
   }
 
-  export type RelayFxOnMessage<RequestBody> = (
-    payload: Request<MessageName, RequestBody>
-  ) => void
-
   export interface RelayFx {
-    <RequestBody = any>(
-      request: Request<MessageName, RequestBody>,
-      onMessage?: RelayFxOnMessage<RequestBody>
+    <RelayName = any, RequestBody = any, ResponseBody = any>(
+      request: Request<RelayName, RequestBody>,
+      onMessage?: (
+        request: Request<RelayName, RequestBody>
+      ) => Promise<ResponseBody>
     ): () => void
   }
 
+  export interface MessageRelayFx {
+    <RequestBody = any>(request: Request<MessageName, RequestBody>): () => void
+  }
+
   export type MessageHook = () => {
-    send: SendFx
+    send: SendFx<MessageName>
   }
 
   export interface PortHook {
