@@ -86,6 +86,10 @@ function createLoadingEl() {
   loadingEl.style.transition = "opacity 0.47s ease-in-out"
   loadingEl.style.boxShadow = "#333 4.7px 4.7px"
 
+  globalThis.addEventListener("DOMContentLoaded", () => {
+    document.body.appendChild(loadingEl)
+  })
+
   return loadingEl
 }
 

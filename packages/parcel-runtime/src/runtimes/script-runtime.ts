@@ -67,7 +67,6 @@ function setupPort() {
 setupPort()
 
 const loadingIndicator = createLoadingIndicator()
-document.body.appendChild(loadingIndicator.element)
 
 injectHmrSocket(async (updatedAssets) => {
   vLog("Script runtime - on updated assets", {

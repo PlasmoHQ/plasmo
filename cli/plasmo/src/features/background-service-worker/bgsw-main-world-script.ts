@@ -36,18 +36,24 @@ export const createBgswMainWorldInjector = async (
 
       const importScript = importMetadata.map((i) => i.importName)
 
-      const regCsScript = JSON.stringify({
-        ...s,
-        id: importScript.join("-"),
-        js: []
-      }).replace(
+      const regCsScript = Object.entries(s).reduce(
+        (out, [k, v]) => {
+          if (k !== "js") {
+            out[camelCase(k)] = v
+          }
+          return out
+        },
+        { id: importScript.join("-"), js: [] }
+      )
+
+      const regCsScriptCode = JSON.stringify(regCsScript).replace(
         /"js":\[\]/,
         `"js":[${importScript
           .map((imSrc) => `${imSrc}.split("/").pop().split("?")[0]`)
           .join(",")}]`
       )
 
-      return [topImport, regCsScript] as const
+      return [topImport, regCsScriptCode] as const
     })
 
     if (importStatements.length === 0) {
