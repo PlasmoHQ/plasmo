@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import {
   type MessageName,
   type PlasmoMessaging,
-  relay,
+  relayMessage,
   sendToActiveContentScript,
   sendToBackground
 } from "./index"
@@ -81,9 +81,6 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
 /**
  * TODO: Perhaps add a way to detect if this hook is being used inside CS?
  */
-export function useMessageRelay<TRequestBody = any>(
-  name: MessageName,
-  onMessage: PlasmoMessaging.RelayFxOnMessage<TRequestBody>
-) {
-  useEffect(() => relay(name, onMessage), [])
+export function useMessageRelay(name: MessageName) {
+  useEffect(() => relayMessage(name), [])
 }
