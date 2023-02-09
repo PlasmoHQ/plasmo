@@ -1,5 +1,5 @@
-import { getFlag } from "@plasmo/utils/flags"
-import { eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
+import { getFlag, isVerbose } from "@plasmo/utils/flags"
+import { aLog, eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
 
 import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
@@ -65,6 +65,13 @@ async function dev() {
 
       buildWatcher.triggerReload()
     } else if (event.type === "buildFailure") {
+      if (!isVerbose()) {
+        eLog(
+          chalk.redBright(
+            `Build failed. To debug, run ${chalk.bold("plasmo dev --verbose")}.`
+          )
+        )
+      }
       event.diagnostics.forEach((diagnostic) => {
         eLog(chalk.redBright(diagnostic.message))
         if (diagnostic.stack) {

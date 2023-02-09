@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
  * MIT License
  *
  * Port refreshing code is based on https://github.com/crxjs/chrome-extension-tools/blob/main/packages/vite-plugin/src/client/es/hmr-client-worker.ts#L88
@@ -13,6 +13,7 @@ import type { BackgroundMessage } from "../types"
 import { runtimeData } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"
+import { createLoadingIndicator } from "../utils/loading-indicator"
 
 const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
 let scriptPort: chrome.runtime.Port
@@ -43,6 +44,9 @@ function reloadPort() {
 }
 
 function setupPort() {
+  if (!chrome?.runtime) {
+    return
+  }
   setInterval(() => {
     try {
       scriptPort?.postMessage({ __plasmo_cs_ping__: true })
@@ -62,6 +66,9 @@ function setupPort() {
 
 setupPort()
 
+const loadingIndicator = createLoadingIndicator()
+document.body.appendChild(loadingIndicator.element)
+
 injectHmrSocket(async (updatedAssets) => {
   vLog("Script runtime - on updated assets", {
     module,
@@ -73,7 +80,19 @@ injectHmrSocket(async (updatedAssets) => {
     .filter((asset) => asset.envHash === runtimeData.envHash)
     .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
-  scriptPort.postMessage({
-    __plasmo_cs_changed__: isChanged
-  } as BackgroundMessage)
+  if (isChanged) {
+    loadingIndicator.show()
+  }
+
+  if (chrome.runtime) {
+    scriptPort.postMessage({
+      __plasmo_cs_changed__: isChanged
+    } as BackgroundMessage)
+  } else {
+    if (isChanged) {
+      setTimeout(() => {
+        consolidateUpdate()
+      }, 4_700)
+    }
+  }
 })

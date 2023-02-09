@@ -7,7 +7,7 @@ import { toPosix } from "@plasmo/utils/path"
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 export const createBgswEntry = async (
-  { indexFilePath = "", withMessaging = false },
+  { indexFilePath = "", withMessaging = false, withMainWorldScript = false },
   plasmoManifest: PlasmoManifest
 ) => {
   vLog("Creating BGSW entry")
@@ -22,7 +22,8 @@ export const createBgswEntry = async (
 
   const bgswCode = [
     withMessaging && `import "./messaging"`,
-    indexFilePath && `import "${toPosix(indexImportPath).slice(0, -3)}"`
+    indexFilePath && `import "${toPosix(indexImportPath).slice(0, -3)}"`,
+    withMainWorldScript && `import "./main-world-scripts"`
   ]
     .filter(Boolean)
     .join("\n")

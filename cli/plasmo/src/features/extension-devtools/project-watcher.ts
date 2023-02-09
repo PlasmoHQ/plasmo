@@ -103,6 +103,10 @@ export const handleProjectFile = async (
     case WatchReason.ContentScriptIndex:
     case WatchReason.ContentScriptsDirectory: {
       await plasmoManifest.toggleContentScript(path, isEnabled)
+
+      if (plasmoManifest.hasMainWorldScript) {
+        await updateBgswEntry(plasmoManifest)
+      }
       return
     }
 

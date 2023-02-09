@@ -68,6 +68,8 @@ export const iconMap = {
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
+const hasher = createHasher({ trim: true, sort: true })
+
 export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   get browser() {
     return this.bundleConfig.browser
@@ -120,8 +122,6 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     return this.#uiLibraryData.uiExtMap.uiExts
   }
 
-  #hasher = createHasher({ trim: true, sort: true })
-
   #hash = ""
   #prevHash = ""
 
@@ -129,9 +129,30 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   protected overideManifest: Partial<T> = {}
 
   protected packageData?: PackageJSON
-  protected contentScriptMap: Map<string, ManifestContentScript> = new Map()
 
-  protected copyQueue: Array<[string, string]> = []
+  contentScriptMap: Readonly<Map<string, ManifestContentScript>> = new Map()
+
+  get mainWorldScriptList() {
+    const output: ManifestContentScript[] = []
+    for (const script of this.contentScriptMap.values()) {
+      if (script.world === "MAIN") {
+        output.push(script)
+      }
+    }
+    return output
+  }
+
+  get hasMainWorldScript() {
+    for (const script of this.contentScriptMap.values()) {
+      if (script.world === "MAIN") {
+        return true
+      }
+    }
+    return false
+  }
+
+  readonly copyMap = new Map<string, string>()
+  readonly permissionSet = new Set<ManifestPermission>()
 
   readonly scaffolder: Scaffolder
 
@@ -186,7 +207,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   async postBuild() {
     await Promise.all(
-      this.copyQueue.map(async ([src, dest]) => {
+      Array.from(this.copyMap, async ([dest, src]) => {
         if (!(await isReadable(dest))) {
           await copy(src, dest)
         }
@@ -220,9 +241,11 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       this.data.homepage_url = this.packageData.homepage
     }
 
-    this.data.permissions = autoPermissionList.filter(
-      (p) => `@plasmohq/${p}` in (this.packageData.dependencies || {})
-    )
+    for (const perm of autoPermissionList) {
+      if (`@plasmohq/${perm}` in (this.packageData.dependencies || {})) {
+        this.permissionSet.add(perm)
+      }
+    }
 
     await this.#cacheUiLibrary()
 
@@ -354,7 +377,11 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const contentScript = this.injectEnvToObj({
         matches: ["<all_urls>"],
-        js: [scriptPath],
+        js: [
+          metadata?.config?.world === "MAIN"
+            ? scriptPath.split(scriptExt)[0]
+            : scriptPath
+        ],
         ...(metadata?.config || {})
       })
 
@@ -424,7 +451,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     const newManifest = this.toJSON()
 
-    this.#hash = this.#hasher.hash(newManifest)
+    this.#hash = hasher.hash(newManifest)
 
     if (!this.changed && !force) {
       return
@@ -463,7 +490,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     }
 
     base.permissions = [
-      ...new Set([...base.permissions!, ...(overridePermissions || [])])
+      ...new Set([...this.permissionSet, ...(overridePermissions || [])])
     ]
 
     if (base.permissions?.length === 0) {
@@ -565,7 +592,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const destination = resolve(this.commonPath.distDirectory, inputFilePath)
 
-      this.copyQueue.push([resourceFilePath, destination])
+      this.copyMap.set(destination, resourceFilePath)
 
       return toPosix(inputFilePath)
     } catch {
@@ -583,7 +610,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const destination = resolve(this.commonPath.distDirectory, fileName)
 
-      this.copyQueue.push([resourceFilePath, destination])
+      this.copyMap.set(destination, resourceFilePath)
 
       return fileName
     } catch {

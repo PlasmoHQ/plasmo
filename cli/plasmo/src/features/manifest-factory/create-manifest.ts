@@ -32,14 +32,15 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     plasmoManifest.scaffolder.init(),
     plasmoManifest.togglePage(sandboxIndex, true),
 
-    updateBgswEntry(plasmoManifest),
-
     plasmoManifest.toggleContentScript(contentIndex, true),
     plasmoManifest.addContentScriptsDirectory(),
 
     plasmoManifest.addPagesDirectory(tabsDirectory),
     plasmoManifest.addPagesDirectory(sandboxesDirectory)
   ])
+
+  // BGSW needs to check CS set for main world
+  initResults.push(await updateBgswEntry(plasmoManifest))
 
   const hasEntrypoints = initResults.flat()
 

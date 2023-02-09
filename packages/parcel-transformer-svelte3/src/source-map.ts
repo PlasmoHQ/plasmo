@@ -1,9 +1,9 @@
 /**
- * Copyright (c) 2022 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
  * MIT License
  *
  * Based on: https://github.com/HellButcher/parcel-transformer-svelte3-plus
- * Copyright (c) 2022 Christoph Hommelsheim
+ * Copyright (c) 2023 Christoph Hommelsheim
  * MIT License
  */
 import SourceMap from "@parcel/source-map"
