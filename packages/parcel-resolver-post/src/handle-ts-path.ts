@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
  * MIT License
  *
  * Based on: https://github.com/zachbryant/parcel-resolver-tspaths
