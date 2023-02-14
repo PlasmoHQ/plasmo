@@ -422,11 +422,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     }
 
     if (enable) {
-      const scriptPath = relative(this.commonPath.dotPlasmoDirectory, path)
+      const scriptPath = relative(this.commonPath.sourceDirectory, path)
 
-      const modulePath = join("lab", scriptPath).replace(/(^src)[\\/]/, "")
-
-      const parsedModulePath = parse(modulePath)
+      const parsedModulePath = parse(scriptPath)
 
       const { wereFilesWritten } = await this.scaffolder.createPageMount(
         parsedModulePath
