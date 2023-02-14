@@ -29,6 +29,10 @@ export const definedTraverse = (
       }
     }
 
+    if (Object.keys(result).length === 0) {
+      return undefined
+    }
+
     return result
   } else {
     return transformer(target)
