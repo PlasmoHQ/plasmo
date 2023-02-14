@@ -271,6 +271,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       this.browser,
       this.uiExts
     )
+
+    vLog(this.projectPath)
   }
 
   abstract togglePopup: (enable?: boolean) => this
