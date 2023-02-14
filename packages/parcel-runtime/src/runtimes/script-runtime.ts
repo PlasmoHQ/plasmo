@@ -25,6 +25,7 @@ function consolidateUpdate() {
 
 function reloadPort() {
   scriptPort?.disconnect()
+  // Potentially, if MAIN world, we use the external connection instead (?)
   scriptPort = chrome.runtime.connect({
     name: PORT_NAME
   })
@@ -60,8 +61,12 @@ function setupPort() {
     }
   }, 4_700)
 
-  setInterval(reloadPort, 240_000)
-  reloadPort()
+  try {
+    reloadPort()
+    setInterval(reloadPort, 240_000)
+  } catch {
+    return
+  }
 }
 
 setupPort()
