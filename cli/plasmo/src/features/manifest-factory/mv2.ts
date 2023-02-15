@@ -1,5 +1,3 @@
-import { relative } from "path"
-
 import type {
   ExtensionManifestV2,
   ExtensionManifestV3

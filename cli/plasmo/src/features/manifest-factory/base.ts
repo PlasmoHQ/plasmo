@@ -478,6 +478,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         ...base.background,
         ...overrideBackground
       }
+      if (Object.keys(base.background).length === 0) {
+        delete base.background
+      }
     }
 
     if (
