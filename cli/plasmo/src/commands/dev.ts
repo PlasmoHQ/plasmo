@@ -1,5 +1,5 @@
 import { getFlag, isVerbose } from "@plasmo/utils/flags"
-import { aLog, eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
+import { eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
 
 import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
