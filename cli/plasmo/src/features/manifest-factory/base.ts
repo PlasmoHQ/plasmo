@@ -483,11 +483,11 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       }
     }
 
-    if (
-      typeof overrideOptionUi?.open_in_tab === "boolean" &&
-      base.options_ui?.page
-    ) {
-      base.options_ui.open_in_tab = overrideOptionUi.open_in_tab
+    if (base.options_ui?.page) {
+      base.options_ui = {
+        ...base.options_ui,
+        ...overrideOptionUi
+      }
     }
 
     base.permissions = [
