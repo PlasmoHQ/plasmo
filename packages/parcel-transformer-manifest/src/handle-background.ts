@@ -63,9 +63,15 @@ function handleMV2Background(program: MV2Data) {
 }
 
 function handleMV3Background(program: MV3Data) {
-  const { hot, asset, filePath, ptrs, hmrOptions } = getState()
-  vLog(`Handling background service worker`)
+  const { hot, asset, filePath, ptrs, hmrOptions, env } = getState()
 
+  if (env.PLASMO_BROWSER === "firefox") {
+    // Firefox doesn't support BGSW yet, just remove it:
+    delete program.background?.service_worker
+    return
+  }
+
+  vLog(`Handling background service worker`)
   if (program.background?.service_worker) {
     program.background.service_worker = asset.addURLDependency(
       program.background.service_worker,
