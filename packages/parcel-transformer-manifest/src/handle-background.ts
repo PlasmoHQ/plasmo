@@ -67,7 +67,7 @@ function handleMV3Background(program: MV3Data) {
 
   if (env.PLASMO_BROWSER === "firefox") {
     // Firefox doesn't support BGSW yet, just remove it:
-    delete program.background?.service_worker
+    handleMV2Background(program as unknown as MV2Data)
     return
   }
 
