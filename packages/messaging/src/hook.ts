@@ -1,42 +1,16 @@
 import { useEffect, useRef, useState } from "react"
 
-import {
-  type MessageName,
-  type PlasmoMessaging,
-  relayMessage,
-  sendToBackground,
-  sendToContentScript
-} from "./index"
+import { type MessageName, type PlasmoMessaging, relayMessage } from "./index"
 import { getPort } from "./port"
 import { relay } from "./relay"
-import type { InternalSignal } from "./types"
-import { getActiveTab } from "./utils"
-
-const _signalActiveCS: PlasmoMessaging.SendFx<InternalSignal> =
-  sendToContentScript
 
 /**
  * Used in any extension context to listen and send messages to background.
  */
 export const useMessage = <RequestBody, ResponseBody>(
-  handler: PlasmoMessaging.MessageHandler<RequestBody, ResponseBody>
-): PlasmoMessaging.MessageHook<RequestBody> => {
-  const [isReady, setIsReady] = useState(false)
+  handler: PlasmoMessaging.Handler<string, RequestBody, ResponseBody>
+) => {
   const [data, setData] = useState<RequestBody>()
-
-  useEffect(() => {
-    async function init() {
-      // Send a ping to the content script to make sure it's ready before we establish communications
-      await _signalActiveCS({ name: "__PLASMO_MESSAGING_PING__" })
-
-      const tab = await getActiveTab()
-      if (tab?.id) {
-        setIsReady(true)
-      }
-    }
-
-    init()
-  }, [])
 
   useEffect(() => {
     const metaListener = async (req, sender, sendResponse) => {
@@ -64,13 +38,7 @@ export const useMessage = <RequestBody, ResponseBody>(
   }, [handler])
 
   return {
-    data,
-    async send(req) {
-      if (!isReady) {
-        throw new Error("Background Service not ready to receive message")
-      }
-      return await sendToBackground(req)
-    }
+    data
   }
 }
 
