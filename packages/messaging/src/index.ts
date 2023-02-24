@@ -30,9 +30,9 @@ export const sendToBackground: PlasmoMessaging.SendFx = (req) =>
   })
 
 /**
- * Send to CS from Ext Pages
+ * Send to CS from Ext pages or BGSW, default to active tab if no tabId is provided in the request
  */
-export const sendToActiveContentScript: PlasmoMessaging.SendFx = (req) =>
+export const sendToContentScript: PlasmoMessaging.SendFx = (req) =>
   new Promise(async (resolve, reject) => {
     if (!chrome?.tabs) {
       throw new Error("chrome.tabs is not available")
@@ -48,6 +48,12 @@ export const sendToActiveContentScript: PlasmoMessaging.SendFx = (req) =>
       }
     })
   })
+
+/**
+ * @deprecated Renamed to `sendToContentScript`
+ */
+
+export const sendToActiveContentScript = sendToContentScript
 
 /**
  * Any request sent to this relay get send to background, then emitted back as a response

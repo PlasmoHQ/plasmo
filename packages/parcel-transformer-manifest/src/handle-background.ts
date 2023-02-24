@@ -66,8 +66,10 @@ function handleMV3Background(program: MV3Data) {
   const { hot, asset, filePath, ptrs, hmrOptions, env } = getState()
 
   if (env.PLASMO_BROWSER === "firefox") {
-    // Firefox doesn't support BGSW yet, just remove it:
-    handleMV2Background(program as unknown as MV2Data)
+    const mv2Program = program as unknown as MV2Data
+    mv2Program.background.scripts = [program.background.service_worker]
+    delete program.background.service_worker
+    handleMV2Background(mv2Program)
     return
   }
 

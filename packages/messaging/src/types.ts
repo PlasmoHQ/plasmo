@@ -28,15 +28,24 @@ export namespace PlasmoMessaging {
 
   export type InternalHandler = (request: InternalRequest) => void
 
-  export type PortHandler<RequestBody = any, ResponseBody = any> = (
-    request: Request<PortName, RequestBody>,
+  export type Handler<
+    RequestName = string,
+    RequestBody = any,
+    ResponseBody = any
+  > = (
+    request: Request<RequestName, RequestBody>,
     response: Response<ResponseBody>
   ) => void | Promise<void> | boolean
 
-  export type MessageHandler<RequestBody = any, ResponseBody = any> = (
-    request: Request<MessageName, RequestBody>,
-    response: Response<ResponseBody>
-  ) => void | Promise<void> | boolean
+  export type PortHandler<
+    RequestBody = any,
+    ResponseBody = any
+  > = Handler<PortName>
+
+  export type MessageHandler<
+    RequestBody = any,
+    ResponseBody = any
+  > = Handler<MessageName>
 
   export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
@@ -55,10 +64,6 @@ export namespace PlasmoMessaging {
 
   export interface MessageRelayFx {
     <RequestBody = any>(request: Request<MessageName, RequestBody>): () => void
-  }
-
-  export type MessageHook = () => {
-    send: SendFx<MessageName>
   }
 
   export interface PortHook {
