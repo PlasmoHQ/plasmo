@@ -4,21 +4,25 @@ import {
   type MessageName,
   type PlasmoMessaging,
   relayMessage,
-  sendToActiveContentScript,
-  sendToBackground
+  sendToBackground,
+  sendToContentScript
 } from "./index"
 import { getPort } from "./port"
+import { relay } from "./relay"
 import type { InternalSignal } from "./types"
 import { getActiveTab } from "./utils"
 
 const _signalActiveCS: PlasmoMessaging.SendFx<InternalSignal> =
-  sendToActiveContentScript
+  sendToContentScript
 
 /**
- * Used in an extension page or sandbox page to send message to background.
+ * Used in any extension context to listen and send messages to background.
  */
-export const usePageMessaging: PlasmoMessaging.MessageHook = () => {
+export const useMessage = <RequestBody, ResponseBody>(
+  handler: PlasmoMessaging.MessageHandler<RequestBody, ResponseBody>
+): PlasmoMessaging.MessageHook<RequestBody> => {
   const [isReady, setIsReady] = useState(false)
+  const [data, setData] = useState<RequestBody>()
 
   useEffect(() => {
     async function init() {
@@ -34,7 +38,33 @@ export const usePageMessaging: PlasmoMessaging.MessageHook = () => {
     init()
   }, [])
 
+  useEffect(() => {
+    const metaListener = async (req, sender, sendResponse) => {
+      setData(req.body)
+      await handler?.(
+        {
+          ...req,
+          sender
+        },
+        {
+          send: (p) => sendResponse(p)
+        }
+      )
+    }
+
+    const listener = (req, sender, sendResponse) => {
+      metaListener(req, sender, sendResponse)
+      return
+    }
+
+    chrome.runtime.onMessage.addListener(listener)
+    return () => {
+      chrome.runtime.onMessage.removeListener(listener)
+    }
+  }, [handler])
+
   return {
+    data,
     async send(req) {
       if (!isReady) {
         throw new Error("Background Service not ready to receive message")
@@ -81,6 +111,19 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
 /**
  * TODO: Perhaps add a way to detect if this hook is being used inside CS?
  */
-export function useMessageRelay(name: MessageName) {
-  useEffect(() => relayMessage(name), [])
+export function useMessageRelay<RequestBody = any>(
+  req: PlasmoMessaging.Request<MessageName, RequestBody>
+) {
+  useEffect(() => relayMessage(req), [])
+}
+
+export const useRelay: PlasmoMessaging.RelayFx = (req, onMessage) => {
+  const relayRef = useRef<() => void>()
+
+  useEffect(() => {
+    relayRef.current = relay(req, onMessage)
+    return relayRef.current
+  }, [])
+
+  return () => relayRef.current?.()
 }
