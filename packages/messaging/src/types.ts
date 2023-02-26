@@ -37,15 +37,17 @@ export namespace PlasmoMessaging {
     response: Response<ResponseBody>
   ) => void | Promise<void> | boolean
 
-  export type PortHandler<
-    RequestBody = any,
-    ResponseBody = any
-  > = Handler<PortName>
+  export type PortHandler<RequestBody = any, ResponseBody = any> = Handler<
+    PortName,
+    RequestBody,
+    ResponseBody
+  >
 
-  export type MessageHandler<
-    RequestBody = any,
-    ResponseBody = any
-  > = Handler<MessageName>
+  export type MessageHandler<RequestBody = any, ResponseBody = any> = Handler<
+    MessageName,
+    RequestBody,
+    ResponseBody
+  >
 
   export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
