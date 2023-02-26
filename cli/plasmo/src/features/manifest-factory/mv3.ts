@@ -44,7 +44,7 @@ export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifest
     war: ExtensionManifestV3["web_accessible_resources"]
   ) =>
     Promise.all(
-      war!.map(async ({ resources, matches }) => {
+      war!.map(async ({ resources, ...warProps }) => {
         const resolvedResources = await Promise.all(
           resources.map(
             async (resourcePath) =>
@@ -55,7 +55,7 @@ export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifest
 
         return {
           resources: resolvedResources.flat(),
-          matches
+          ...warProps
         }
       })
     )
