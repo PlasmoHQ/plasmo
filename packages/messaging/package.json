@@ -115,9 +115,5 @@
     "ts-jest": "29.0.5",
     "tsup": "6.5.0",
     "typescript": "4.9.4"
-  },
-  "dependencies": {
-    "webextension-polyfill": "0.10.0",
-    "@types/webextension-polyfill": "0.10.0"
   }
 }
