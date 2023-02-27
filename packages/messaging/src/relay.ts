@@ -30,12 +30,11 @@ export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
 
 export const sendViaRelay: PlasmoMessaging.SendFx = (req) =>
   new Promise((resolve, _reject) => {
-    window.postMessage(req)
-
-    // Maybe do a timeout and reject?
     window.addEventListener("message", (event) => {
       if (isSameOrigin(event, req) && event.data.relayed) {
         resolve(event.data.body)
       }
     })
+
+    window.postMessage(req)
   })
