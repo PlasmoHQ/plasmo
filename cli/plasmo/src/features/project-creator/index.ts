@@ -200,7 +200,7 @@ export class ProjectCreator {
       packageData.author = "Plasmo Corp. <foss@plasmo.com>"
     } else {
       delete packageData.contributors
-      packageData.author = await quickPrompt("Auhor name:", packageData.author)
+      packageData.author = await quickPrompt("Author name:", packageData.author)
 
       if (resolveWorkspaceRefs) {
         vLog(
