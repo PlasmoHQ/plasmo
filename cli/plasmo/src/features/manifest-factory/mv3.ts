@@ -1,5 +1,3 @@
-import { relative } from "path"
-
 import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"

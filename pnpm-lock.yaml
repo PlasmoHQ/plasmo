@@ -1371,7 +1371,6 @@ importers:
       '@types/chrome': 0.0.210
       '@types/node': 18.11.18
       '@types/react': 18.0.27
-      '@types/webextension-polyfill': 0.10.0
       cross-env: 7.0.3
       jest: 29.4.1
       jest-environment-jsdom: 29.4.1
@@ -1381,10 +1380,6 @@ importers:
       ts-jest: 29.0.5
       tsup: 6.5.0
       typescript: 4.9.4
-      webextension-polyfill: 0.10.0
-    dependencies:
-      '@types/webextension-polyfill': 0.10.0
-      webextension-polyfill: 0.10.0
     devDependencies:
       '@jest/globals': 29.4.1
       '@jest/types': 29.4.1
@@ -7117,10 +7112,6 @@ packages:
   /@types/uuid/9.0.0:
     resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
     dev: true
-
-  /@types/webextension-polyfill/0.10.0:
-    resolution: {integrity: sha512-If4EcaHzYTqcbNMp/FdReVdRmLL/Te42ivnJII551bYjhX19bWem5m14FERCqdJA732OloGuxCRvLBvcMGsn4A==}
-    dev: false
 
   /@types/ws/8.5.4:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
@@ -16465,10 +16456,6 @@ packages:
 
   /weak-lru-cache/1.2.2:
     resolution: {integrity: sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==}
-
-  /webextension-polyfill/0.10.0:
-    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
-    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
