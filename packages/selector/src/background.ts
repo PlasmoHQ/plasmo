@@ -1,43 +1,37 @@
-import { Storage } from "@plasmohq/storage"
-
 import type { SelectorMessage } from "./types"
 
-const STORAGE_NAMESPACE = "__PLASMO_SELECTOR__"
-const StorageKey = {
-  API_KEY: "API_KEY"
-} as const
+// const MONITOR_API_BASE = "https://itero.plasmo.com"
+const MONITOR_API_BASE = "http://localhost:3000"
 
-async function selectorMessageHandler(message: SelectorMessage) {
+async function selectorMessageHandler(
+  message: SelectorMessage,
+  monitorId: string
+) {
   switch (message.name) {
     case "plasmo:selector:invalid": {
-      const storage = new Storage()
-      storage.setNamespace(STORAGE_NAMESPACE)
-      const apiKey = await storage.get(StorageKey.API_KEY)
-      if (!apiKey) {
+      if (!monitorId) {
         return
       }
 
-      await fetch("https://itero.plasmo.com/api/selector/invalid", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-KEY": apiKey
-        },
-        body: JSON.stringify({
-          selectors: message.selectors
+      try {
+        await fetch(`${MONITOR_API_BASE}/api/selector/invalid`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            monitorId,
+            selectors: message.selectors
+          })
         })
-      })
+      } catch {}
     }
   }
 }
 
-chrome.runtime.onMessage.addListener((message: SelectorMessage) => {
-  selectorMessageHandler(message)
-  return
-})
-
-export const init = async (apiKey: string) => {
-  const storage = new Storage()
-  storage.setNamespace(STORAGE_NAMESPACE)
-  await storage.set(StorageKey.API_KEY, apiKey)
+export const init = ({ monitorId = "" }) => {
+  chrome.runtime.onMessage.addListener((message: SelectorMessage) => {
+    selectorMessageHandler(message, monitorId)
+    return true
+  })
 }

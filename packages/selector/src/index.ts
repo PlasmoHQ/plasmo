@@ -14,7 +14,7 @@ export const querySelectors = (selectors: string[]) => {
 
   try {
     if (invalidSelectors.length > 0) {
-      chrome.runtime.sendMessage({
+      chrome?.runtime?.sendMessage({
         name: "plasmo:selector:invalid",
         selectors: invalidSelectors
       } as SelectorMessage)
@@ -28,7 +28,7 @@ export const querySelector = (selector: string) => {
   const element = document.querySelector(selector)
   try {
     if (!element) {
-      chrome.runtime.sendMessage({
+      chrome?.runtime?.sendMessage({
         name: "plasmo:selector:invalid",
         selectors: [selector]
       })
