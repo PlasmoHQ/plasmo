@@ -1969,7 +1969,6 @@ importers:
     specifiers:
       '@jest/globals': 29.4.1
       '@jest/types': 29.4.1
-      '@plasmohq/storage': workspace:*
       '@testing-library/react': 13.4.0
       '@types/chrome': 0.0.210
       '@types/node': 18.11.18
@@ -1983,8 +1982,6 @@ importers:
       ts-jest: 29.0.5
       tsup: 6.5.0
       typescript: 4.9.4
-    dependencies:
-      '@plasmohq/storage': link:../storage
     devDependencies:
       '@jest/globals': 29.4.1
       '@jest/types': 29.4.1

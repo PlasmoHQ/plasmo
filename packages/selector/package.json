@@ -90,9 +90,6 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "@plasmohq/storage": "workspace:*"
-  },
   "devDependencies": {
     "@jest/globals": "29.4.1",
     "@jest/types": "29.4.1",
