@@ -1,8 +1,5 @@
 import type { SelectorMessage } from "./types"
 
-// const MONITOR_API_BASE = "https://itero.plasmo.com"
-const MONITOR_API_BASE = "http://localhost:3000"
-
 async function selectorMessageHandler(
   message: SelectorMessage,
   monitorId: string
@@ -14,16 +11,19 @@ async function selectorMessageHandler(
       }
 
       try {
-        await fetch(`${MONITOR_API_BASE}/api/selector/invalid`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            monitorId,
-            selectors: message.selectors
-          })
-        })
+        await fetch(
+          `${process.env.ITERO_MONITOR_API_BASE_URI}/api/selector/invalid`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              monitorId,
+              selectors: message.selectors
+            })
+          }
+        )
       } catch {}
     }
   }

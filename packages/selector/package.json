@@ -43,27 +43,11 @@
   "files": [
     "dist"
   ],
-  "tsup": {
-    "entry": [
-      "src/index.ts",
-      "src/monitor.ts",
-      "src/background.ts",
-      "src/hook.ts"
-    ],
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "target": "esnext",
-    "platform": "node",
-    "splitting": false,
-    "bundle": true
-  },
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:compile": "tsup --watch --sourcemap --dts-resolve",
+    "dev:compile": "tsup --watch",
     "dev:test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "build": "tsup --dts-resolve --minify --clean",
+    "build": "tsup",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "prepublishOnly": "pnpm build"
   },
