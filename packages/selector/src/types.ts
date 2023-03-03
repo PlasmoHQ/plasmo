@@ -1,4 +1,7 @@
 export type SelectorMessage = {
   name: "plasmo:selector:invalid"
-  selectors: string[]
+  payload: {
+    selectors: string[]
+    url: string
+  }
 }

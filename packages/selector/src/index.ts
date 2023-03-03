@@ -1,5 +1,17 @@
 import type { SelectorMessage } from "./types"
 
+async function sendInvalidSelectors(selectors: string[]) {
+  try {
+    return await chrome?.runtime?.sendMessage({
+      name: "plasmo:selector:invalid",
+      payload: {
+        selectors,
+        url: window.location.href
+      }
+    } as SelectorMessage)
+  } catch {}
+}
+
 export const querySelectors = (selectors: string[]) => {
   const result: Element[] = []
   const invalidSelectors: string[] = []
@@ -12,42 +24,28 @@ export const querySelectors = (selectors: string[]) => {
     }
   }
 
-  try {
-    if (invalidSelectors.length > 0) {
-      chrome?.runtime?.sendMessage({
-        name: "plasmo:selector:invalid",
-        selectors: invalidSelectors
-      } as SelectorMessage)
-    }
-  } catch {}
+  if (invalidSelectors.length > 0) {
+    sendInvalidSelectors(invalidSelectors)
+  }
 
   return result
 }
 
 export const querySelector = (selector: string) => {
   const element = document.querySelector(selector)
-  try {
-    if (!element) {
-      chrome?.runtime?.sendMessage({
-        name: "plasmo:selector:invalid",
-        selectors: [selector]
-      })
-    }
-  } catch {}
+  if (!element) {
+    sendInvalidSelectors([selector])
+  }
+
   return element
 }
 
 export const querySelectorAll = (selector: string) => {
   const elements = document.querySelectorAll(selector)
 
-  try {
-    if (elements.length === 0) {
-      chrome?.runtime?.sendMessage({
-        name: "plasmo:selector:invalid",
-        selectors: [selector]
-      })
-    }
-  } catch {}
+  if (elements.length === 0) {
+    sendInvalidSelectors([selector])
+  }
 
   return elements
 }
