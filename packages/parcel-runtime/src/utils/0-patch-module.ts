@@ -46,7 +46,11 @@ export async function triggerReload(fullReload = false) {
     })
   }
 
-  if (globalThis.location !== undefined && "reload" in globalThis.location) {
+  if (
+    !document.hidden &&
+    globalThis.location !== undefined &&
+    "reload" in globalThis.location
+  ) {
     globalThis.location.reload()
   }
 }

@@ -20,7 +20,9 @@ let scriptPort: chrome.runtime.Port
 
 function consolidateUpdate() {
   vLog("Script Runtime - reloading")
-  globalThis.location?.reload?.()
+  if (!document.hidden) {
+    globalThis.location?.reload?.()
+  }
 }
 
 function reloadPort() {
