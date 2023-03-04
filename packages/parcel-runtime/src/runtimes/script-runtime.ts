@@ -14,14 +14,18 @@ import { runtimeData } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { createLoadingIndicator } from "../utils/loading-indicator"
+import { reloadButton } from "../utils/reload-button"
 
+let isActiveTab = false
 const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
 let scriptPort: chrome.runtime.Port
 
-function consolidateUpdate() {
+async function consolidateUpdate() {
   vLog("Script Runtime - reloading")
-  if (!document.hidden) {
+  if (isActiveTab) {
     globalThis.location?.reload?.()
+  } else {
+    reloadButton().show()
   }
 }
 
@@ -43,6 +47,10 @@ function reloadPort() {
       consolidateUpdate()
       return
     }
+    if (msg.__am_i_active_tab__) {
+      isActiveTab = true
+      return
+    }
   })
 }
 
@@ -50,18 +58,6 @@ function setupPort() {
   if (!chrome?.runtime) {
     return
   }
-  setInterval(() => {
-    try {
-      scriptPort?.postMessage({ __plasmo_cs_ping__: true })
-    } catch (error) {
-      if (
-        error instanceof Error &&
-        error.message.includes("Extension context invalidated.")
-      ) {
-        consolidateUpdate()
-      } else throw error
-    }
-  }, 4_700)
 
   try {
     reloadPort()
@@ -86,7 +82,7 @@ injectHmrSocket(async (updatedAssets) => {
     .filter((asset) => asset.envHash === runtimeData.envHash)
     .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
-  if (isChanged) {
+  if (isChanged && isActiveTab) {
     loadingIndicator.show()
   }
 

@@ -1,7 +1,7 @@
 import { eLog, iLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
-import { extCtx, getHostname, getPort, runtimeData } from "./0-patch-module"
+import { getHostname, getPort, runtimeData } from "./0-patch-module"
 
 function getBaseSocketUri(port = getPort()) {
   const hostname = getHostname()
@@ -11,12 +11,6 @@ function getBaseSocketUri(port = getPort()) {
       !/localhost|127.0.0.1|0.0.0.0/.test(hostname))
       ? "wss"
       : "ws"
-
-  // If there's an error it's probably because of a race
-  // between this content script and the extension reloading
-  if (extCtx?.runtime?.lastError) {
-    globalThis?.location?.reload?.()
-  }
 
   return `${protocol}://${hostname}:${port}/`
 }

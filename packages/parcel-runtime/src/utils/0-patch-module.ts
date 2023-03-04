@@ -45,14 +45,6 @@ export async function triggerReload(fullReload = false) {
       __plasmo_full_reload__: true
     })
   }
-
-  if (
-    !document.hidden &&
-    globalThis.location !== undefined &&
-    "reload" in globalThis.location
-  ) {
-    globalThis.location.reload()
-  }
 }
 
 export function getHostname() {

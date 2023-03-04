@@ -18,18 +18,21 @@ const state = {
   ports: new Set<chrome.runtime.Port>()
 }
 
-function consolidateUpdate(forced = false) {
+async function consolidateUpdate(forced = false) {
   if (
     forced ||
     (state.buildReady && (state.hmrUpdated || state.csCodeChanged))
   ) {
-    vLog("BGSW Runtime - reloading")
-    extCtx.runtime.reload()
+    // vLog("BGSW Runtime - reloading")
     for (const port of state.ports) {
+      const isActive =
+        (await chrome.tabs.query({ active: true }))[0]?.id ===
+        port.sender.tab.id
       port.postMessage({
-        __plasmo_cs_reload__: true
+        __am_i_active_tab__: isActive
       })
     }
+    extCtx.runtime.reload()
   }
 }
 
@@ -72,6 +75,7 @@ injectBuilderSocket(async () => {
   vLog("BGSW Runtime - On Build Repackaged")
   // maybe we should wait for a bit until we determine if the build is truly ready
   state.buildReady ||= true
+
   consolidateUpdate()
 })
 
@@ -97,7 +101,7 @@ extCtx.runtime.onMessage.addListener(function runtimeMessageHandler(
 ) {
   if (msg.__plasmo_full_reload__) {
     vLog("BGSW Runtime - On top-level code changed")
-    consolidateUpdate(true)
+    consolidateUpdate()
   }
 
   return true
