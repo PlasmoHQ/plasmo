@@ -1,5 +1,9 @@
 const LOADING_ID = "__plasmo-loading__"
 
+function injectLoadingEl(loadingEl) {
+  document.documentElement.appendChild(loadingEl)
+}
+
 function createLoadingEl() {
   const loadingEl = document.createElement("div")
   loadingEl.id = LOADING_ID
@@ -86,9 +90,13 @@ function createLoadingEl() {
   loadingEl.style.transition = "opacity 0.47s ease-in-out"
   loadingEl.style.boxShadow = "#333 4.7px 4.7px"
 
-  globalThis.addEventListener("DOMContentLoaded", () => {
-    document.body.appendChild(loadingEl)
-  })
+  if (!document.documentElement) {
+    globalThis.addEventListener("DOMContentLoaded", () => {
+      injectLoadingEl(loadingEl)
+    })
+  } else {
+    injectLoadingEl(loadingEl)
+  }
 
   return loadingEl
 }
