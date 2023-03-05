@@ -1,0 +1,11 @@
+node_modules
+
+# Lockfiles - See https://github.com/PlasmoHQ/p1asm0
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+.turbo
+
+key.json
+dist/
