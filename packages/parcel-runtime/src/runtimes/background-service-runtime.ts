@@ -23,14 +23,13 @@ async function consolidateUpdate(forced = false) {
     forced ||
     (state.buildReady && (state.hmrUpdated || state.csCodeChanged))
   ) {
-    // vLog("BGSW Runtime - reloading")
+    vLog("BGSW Runtime - reloading")
+    const [activeTab] = await chrome.tabs.query({ active: true })
     for (const port of state.ports) {
-      const isActive =
-        (await chrome.tabs.query({ active: true }))[0]?.id ===
-        port.sender.tab.id
+      const isActive = activeTab?.id === port.sender.tab.id
       port.postMessage({
-        __am_i_active_tab__: isActive
-      })
+        __plasmo_cs_active_tab__: isActive
+      } as BackgroundMessage)
     }
     extCtx.runtime.reload()
   }

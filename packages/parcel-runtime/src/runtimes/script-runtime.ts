@@ -14,18 +14,21 @@ import { runtimeData } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { createLoadingIndicator } from "../utils/loading-indicator"
-import { reloadButton } from "../utils/reload-button"
 
-let isActiveTab = false
 const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
 let scriptPort: chrome.runtime.Port
+let isActiveTab = false
+
+const loadingIndicator = createLoadingIndicator()
 
 async function consolidateUpdate() {
   vLog("Script Runtime - reloading")
   if (isActiveTab) {
     globalThis.location?.reload?.()
   } else {
-    reloadButton().show()
+    loadingIndicator.show({
+      reloadButton: true
+    })
   }
 }
 
@@ -41,16 +44,15 @@ function reloadPort() {
   })
 
   scriptPort.onMessage.addListener((msg: BackgroundMessage) => {
-    if (
-      msg.__plasmo_cs_reload__ // bgsw reloaded, all context gone
-    ) {
+    // bgsw reloaded, all context gone
+    if (msg.__plasmo_cs_reload__) {
       consolidateUpdate()
-      return
     }
-    if (msg.__am_i_active_tab__) {
+
+    if (msg.__plasmo_cs_active_tab__) {
       isActiveTab = true
-      return
     }
+    return
   })
 }
 
@@ -69,29 +71,21 @@ function setupPort() {
 
 setupPort()
 
-const loadingIndicator = createLoadingIndicator()
-
 injectHmrSocket(async (updatedAssets) => {
-  vLog("Script runtime - on updated assets", {
-    module,
-    runtimeData,
-    updatedAssets
-  })
+  vLog("Script runtime - on updated assets")
 
   const isChanged = updatedAssets
     .filter((asset) => asset.envHash === runtimeData.envHash)
     .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
-  if (isChanged && isActiveTab) {
+  if (isChanged) {
     loadingIndicator.show()
-  }
 
-  if (chrome.runtime) {
-    scriptPort.postMessage({
-      __plasmo_cs_changed__: isChanged
-    } as BackgroundMessage)
-  } else {
-    if (isChanged) {
+    if (chrome.runtime) {
+      scriptPort.postMessage({
+        __plasmo_cs_changed__: true
+      } as BackgroundMessage)
+    } else {
       setTimeout(() => {
         consolidateUpdate()
       }, 4_700)
