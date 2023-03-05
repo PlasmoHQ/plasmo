@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/selector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Powerful Selector API with Dedicated Monitoring Supports",
   "type": "module",
   "module": "./dist/index.js",

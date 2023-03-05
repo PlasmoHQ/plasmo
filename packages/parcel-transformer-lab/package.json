@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-lab",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Plasmo Parcel Transformer Laboratory - a way to experiment with how the transformer works",
   "files": [
     "dist"
