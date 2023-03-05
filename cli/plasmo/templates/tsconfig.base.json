@@ -23,7 +23,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
-    "verbatimModuleSyntax": true,
+    "importsNotUsedAsValues": "error",
     "jsx": "preserve"
   }
 }

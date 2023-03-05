@@ -15,7 +15,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "allowJs": true,
-    "verbatimModuleSyntax": true,
+    "importsNotUsedAsValues": "error",
     "lib": ["DOM"]
   },
   "include": ["src/**/*.ts"]
