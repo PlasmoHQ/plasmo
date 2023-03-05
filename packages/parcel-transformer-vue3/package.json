@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.5.0",
-    "vue": "3.2.45"
+    "tsup": "6.6.3",
+    "vue": "3.2.47"
   },
   "dependencies": {
     "@parcel/core": "2.8.3",
@@ -34,7 +34,7 @@
     "@parcel/types": "2.8.3",
     "@parcel/utils": "2.8.3",
     "@plasmohq/consolidate": "0.17.0",
-    "@vue/compiler-sfc": "3.2.45",
+    "@vue/compiler-sfc": "3.2.47",
     "nullthrows": "1.1.1",
     "semver": "7.3.8"
   }
