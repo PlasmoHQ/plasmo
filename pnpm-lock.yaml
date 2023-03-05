@@ -918,6 +918,37 @@ importers:
       prettier: 2.8.3
       typescript: 4.9.4
 
+  examples/with-propelauth:
+    specifiers:
+      '@plasmohq/messaging': ^0.1.2
+      '@plasmohq/prettier-plugin-sort-imports': workspace:*
+      '@propelauth/javascript': ^2.0.3
+      '@propelauth/react': ^2.0.4
+      '@types/chrome': 0.0.210
+      '@types/node': 18.11.18
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      plasmo: 0.65.0
+      prettier: 2.8.3
+      react: 18.2.0
+      react-dom: 18.2.0
+      typescript: 4.9.4
+    dependencies:
+      '@plasmohq/messaging': link:../../packages/messaging
+      '@propelauth/javascript': 2.0.4
+      '@propelauth/react': 2.0.5_biqbaboplfbrettd7655fr4n2y
+      plasmo: 0.65.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@plasmohq/prettier-plugin-sort-imports': link:../../packages/prettier-plugin-sort-imports
+      '@types/chrome': 0.0.210
+      '@types/node': 18.11.18
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      prettier: 2.8.3
+      typescript: 4.9.4
+
   examples/with-react-native:
     specifiers:
       '@babel/core': 7.21.0
@@ -6097,6 +6128,449 @@ packages:
       bluebird: 3.7.2
     dev: false
 
+  /@plasmohq/consolidate/0.17.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Na8imBnvzYPtzkK+9Uv9hPZ/oJti/0jgiQWD222SHxHw2QCVuR4KzslxXCy/rS8gGluSiTs1BGVvc3d2O6aJCA==}
+    engines: {node: '>= 0.10.0'}
+    peerDependencies:
+      arc-templates: ^0.5.3
+      atpl: '>=0.7.6'
+      babel-core: ^6.26.3
+      bracket-template: ^1.1.5
+      coffeescript: ^2.7.0
+      dot: ^1.1.3
+      eco: ^1.1.0-rc-3
+      ect: ^0.5.9
+      ejs: ^3.1.5
+      haml-coffee: ^1.14.1
+      hamlet: ^0.3.3
+      hamljs: ^0.6.2
+      handlebars: ^4.7.6
+      hogan.js: ^3.0.2
+      htmling: ^0.0.8
+      jazz: ^0.0.18
+      jqtpl: ~1.1.0
+      just: ^0.1.8
+      liquid: ^5.1.1
+      liquor: ^0.0.5
+      lodash: ^4.17.20
+      marko: ^3.14.4
+      mote: ^0.2.0
+      mustache: ^4.0.1
+      nunjucks: ^3.2.2
+      plates: ~0.4.11
+      pug: ^3.0.0
+      qejs: ^3.0.5
+      ractive: ^1.3.12
+      razor-tmpl: ^1.3.1
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      slm: ^2.0.0
+      squirrelly: ^5.1.0
+      teacup: ^2.0.0
+      templayed: '>=0.2.3'
+      then-pug: '*'
+      tinyliquid: ^0.2.34
+      toffee: ^0.3.6
+      twig: ^1.15.2
+      twing: ^5.0.2
+      underscore: ^1.11.0
+      vash: ^0.13.0
+      velocityjs: ^2.0.1
+      walrus: ^0.10.1
+      whiskers: ^0.4.0
+    peerDependenciesMeta:
+      arc-templates:
+        optional: true
+      atpl:
+        optional: true
+      babel-core:
+        optional: true
+      bracket-template:
+        optional: true
+      coffeescript:
+        optional: true
+      dot:
+        optional: true
+      eco:
+        optional: true
+      ect:
+        optional: true
+      ejs:
+        optional: true
+      haml-coffee:
+        optional: true
+      hamlet:
+        optional: true
+      hamljs:
+        optional: true
+      handlebars:
+        optional: true
+      hogan.js:
+        optional: true
+      htmling:
+        optional: true
+      jazz:
+        optional: true
+      jqtpl:
+        optional: true
+      just:
+        optional: true
+      liquid:
+        optional: true
+      liquor:
+        optional: true
+      lodash:
+        optional: true
+      marko:
+        optional: true
+      mote:
+        optional: true
+      mustache:
+        optional: true
+      nunjucks:
+        optional: true
+      plates:
+        optional: true
+      pug:
+        optional: true
+      qejs:
+        optional: true
+      ractive:
+        optional: true
+      razor-tmpl:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      slm:
+        optional: true
+      squirrelly:
+        optional: true
+      teacup:
+        optional: true
+      templayed:
+        optional: true
+      then-pug:
+        optional: true
+      tinyliquid:
+        optional: true
+      toffee:
+        optional: true
+      twig:
+        optional: true
+      twing:
+        optional: true
+      underscore:
+        optional: true
+      vash:
+        optional: true
+      velocityjs:
+        optional: true
+      walrus:
+        optional: true
+      whiskers:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@plasmohq/init/0.6.0:
+    resolution: {integrity: sha512-qoSRgQI5+IPBA3II7GDnc45bRycOZa7V7Gb/VrbE+ifXOplzyvdl7DWgH1OmUgzAoNtXcMcqUHILhhrTpX3PPw==}
+    dev: false
+
+  /@plasmohq/parcel-bundler/0.4.6:
+    resolution: {integrity: sha512-R78/uzpMm1tVw4cQvbsLsrbrs7S+kIl6GcqJ9p2xzB1kyaSwq8A7Lk/jnt+btctcB5Bcxt7NXiLLJ5/DPNTNDA==}
+    engines: {node: '>= 16.0.0', parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/diagnostic': 2.8.3
+      '@parcel/graph': 2.8.3
+      '@parcel/hash': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      nullthrows: 1.1.1
+    dev: false
+
+  /@plasmohq/parcel-config/0.31.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-isvvZ92FPkh10edjdbIYdabdYzCRBd9HIszv2Ggdwf3Lu7OXPYqNwnQ5Ga1EBF/kj6dAX23fQmwT+n+mZFe2NQ==}
+    dependencies:
+      '@parcel/config-default': 2.8.3_@parcel+core@2.8.3
+      '@parcel/core': 2.8.3
+      '@parcel/optimizer-data-url': 2.8.3_@parcel+core@2.8.3
+      '@parcel/reporter-bundle-buddy': 2.8.3_@parcel+core@2.8.3
+      '@parcel/runtime-js': 2.8.3_@parcel+core@2.8.3
+      '@parcel/runtime-service-worker': 2.8.3_@parcel+core@2.8.3
+      '@parcel/source-map': 2.1.1
+      '@parcel/transformer-babel': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-css': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-graphql': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-inline-string': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-js': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-less': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-postcss': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-raw': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-react-refresh-wrap': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-sass': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-svg-react': 2.8.3_@parcel+core@2.8.3
+      '@parcel/transformer-worklet': 2.8.3_@parcel+core@2.8.3
+      '@plasmohq/parcel-bundler': 0.4.6
+      '@plasmohq/parcel-namer-manifest': 0.3.5
+      '@plasmohq/parcel-optimizer-es': 0.1.1
+      '@plasmohq/parcel-packager': 0.6.6
+      '@plasmohq/parcel-resolver': 0.11.0
+      '@plasmohq/parcel-resolver-post': 0.1.6
+      '@plasmohq/parcel-runtime': 0.17.1
+      '@plasmohq/parcel-transformer-inject-env': 0.2.4
+      '@plasmohq/parcel-transformer-inline-css': 0.3.1
+      '@plasmohq/parcel-transformer-manifest': 0.13.6
+      '@plasmohq/parcel-transformer-svelte3': 0.4.3
+      '@plasmohq/parcel-transformer-vue3': 0.3.5_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - '@swc/core'
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - coffeescript
+      - cssnano
+      - dot
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - postcss
+      - pug
+      - purgecss
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - relateurl
+      - slm
+      - squirrelly
+      - srcset
+      - supports-color
+      - teacup
+      - templayed
+      - terser
+      - then-pug
+      - tinyliquid
+      - toffee
+      - ts-node
+      - twig
+      - twing
+      - uncss
+      - underscore
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+    dev: false
+
+  /@plasmohq/parcel-namer-manifest/0.3.5:
+    resolution: {integrity: sha512-6CUpmNXMPXhf3c0tYJ8eh4mrzkfCbIGm/OBD59/AxfUJM1GwQL+bcMsunyXioL94/ZVmV/+KqZikzxVeZUoYAw==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+    dev: false
+
+  /@plasmohq/parcel-optimizer-es/0.1.1:
+    resolution: {integrity: sha512-PclpKQq0XnvGG8hR2VyPfQnK7HXruggElZhkwGo10aPwtGK8ee9T+k7eAMBB6zDj21cnzWptoqoKs8vWeGvv7g==}
+    engines: {parcel: '>= 2.8.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/source-map': 2.1.1
+      '@parcel/utils': 2.8.3
+      esbuild: 0.17.5
+      nullthrows: 1.1.1
+      terser: 5.16.1
+    dev: false
+
+  /@plasmohq/parcel-packager/0.6.6:
+    resolution: {integrity: sha512-MASquJBLdKcpoJZkPeI8II7qJVg8+4v3s7HdR5RoSeAdEoWnlM1R1US1xsDhxqhQuepDxfApUfXNaufVQeOFDQ==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      nullthrows: 1.1.1
+    dev: false
+
+  /@plasmohq/parcel-resolver-post/0.1.6:
+    resolution: {integrity: sha512-YH7+J7rO9xD7WIpOLFtccxN3q5rU1d0lHWFVRqunq3syzW6ytF81zbLBZ0QMGNBJS399n7YLY6V03eU3qRpCSg==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/hash': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      tsup: 6.5.0_typescript@4.9.4
+      typescript: 4.9.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - postcss
+      - supports-color
+      - ts-node
+    dev: false
+
+  /@plasmohq/parcel-resolver/0.11.0:
+    resolution: {integrity: sha512-oMF/gZfc1/wPojd99J14xmo8X9LpKBwx3jmfUO4xKgcLP/ZnWMhU19DNkEWtQ/ye1Jf1n2iKf0okIJQx5RUf3A==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/hash': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      fast-glob: 3.2.12
+      fs-extra: 11.1.0
+      got: 12.5.3
+    dev: false
+
+  /@plasmohq/parcel-runtime/0.17.1:
+    resolution: {integrity: sha512-sCe0h39HHdp/ksQK7y4/a6usHLpFGAWW4spbd7RkVhBPuNnGtlsDnOXhdtPSXn5I4cW+Gm/oisJHewctdkM+ZQ==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      react-refresh: 0.14.0
+    dev: false
+
+  /@plasmohq/parcel-transformer-inject-env/0.2.4:
+    resolution: {integrity: sha512-tC6j2jr59rm98LKBE45qbj4pwrRXUuriMtAKfWFfh1VbE0at1TAVtUxCSE3MVHlYGqbVQeab/Qo6sI2KYwIF/Q==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+    dev: false
+
+  /@plasmohq/parcel-transformer-inline-css/0.3.1:
+    resolution: {integrity: sha512-DItHieVNVDhpB45pRZI2n5D2XfNoFlHcnkiQCOllhIZT8SZObNlQL7V6hbxGdyWpNcnqzAW8TEkVEswOnnu69w==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      browserslist: 4.21.4
+      lightningcss: 1.18.0
+    dev: false
+
+  /@plasmohq/parcel-transformer-manifest/0.13.6:
+    resolution: {integrity: sha512-90Nfs5OkTkp+LSxnLTTY/TP4v2opBCS5ECwa+F6LRi5HLWn17VFbtgwy5acOyu/uSGa1cGOk5Utjjy23ndDv4Q==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@mischnic/json-sourcemap': 0.1.0
+      '@parcel/core': 2.8.3
+      '@parcel/diagnostic': 2.8.3
+      '@parcel/fs': 2.8.3_@parcel+core@2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      content-security-policy-parser: 0.4.1
+      json-schema-to-ts: 2.6.2
+      nullthrows: 1.1.1
+    dev: false
+
+  /@plasmohq/parcel-transformer-svelte3/0.4.3:
+    resolution: {integrity: sha512-xBCYMouDLZS20tolA4BAtmfX4RoKvX14yx+ry+Vj78j7DgrD1lz4afKbFdjXsAPMMRnsZMrkiD0dHX3sxiIzew==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/diagnostic': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/source-map': 2.1.1
+      '@parcel/utils': 2.8.3
+    dev: false
+
+  /@plasmohq/parcel-transformer-vue3/0.3.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-up0x41Eh0WYwJxUMD/JATy3M0l1kEB2KrD8cRIQ+K6wXgcJxX6RZ88TjyG1fqvvEjPfaDHlESTsyq52TNbJzpg==}
+    engines: {parcel: '>= 2.7.0'}
+    dependencies:
+      '@parcel/core': 2.8.3
+      '@parcel/diagnostic': 2.8.3
+      '@parcel/plugin': 2.8.3_@parcel+core@2.8.3
+      '@parcel/source-map': 2.1.1
+      '@parcel/types': 2.8.3_@parcel+core@2.8.3
+      '@parcel/utils': 2.8.3
+      '@plasmohq/consolidate': 0.17.0_biqbaboplfbrettd7655fr4n2y
+      '@vue/compiler-sfc': 3.2.45
+      nullthrows: 1.1.1
+      semver: 7.3.8
+    transitivePeerDependencies:
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - coffeescript
+      - dot
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - slm
+      - squirrelly
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+    dev: false
+
   /@plasmohq/redux-persist/6.1.0_redux@4.2.1:
     resolution: {integrity: sha512-12mDmEotgMH/+4g9Hput5DDAIVAnmo8cZGPBsi106i8t/GuySX439XF8gEdEY2sEZaFkminq2smXnMTNysfD+A==}
     peerDependencies:
@@ -6122,6 +6596,23 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@propelauth/javascript/2.0.4:
+    resolution: {integrity: sha512-2suN0i97mPdUnatzp9g53AL4bcICRuNmOlNpgKXxSxLeRgKe6Tgp/qa3PUzNdFKeQUHq5xXPB0cMhfyE8IRjZg==}
+    dev: false
+
+  /@propelauth/react/2.0.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-mAa30ulBqC74/aEmRdr0zCSJzfBePv3iLMAwu/5xPSNf3+w9Gb0Dp+wzo4CwlXbjTpwu9ODzVqvLoHORt+Gl2Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@propelauth/javascript': 2.0.4
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      utility-types: 3.10.0
     dev: false
 
   /@protobufjs/aspromise/1.1.2:
@@ -13532,6 +14023,102 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
+
+  /plasmo/0.65.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-DQxlGOf5mnw5BHLCPlkA44DIemoUXsnSmqpiFIwFlLFpVPLDYG0OSsgDBqNiwLbx6uzD8yONgaUHjQDBHDt/7A==}
+    hasBin: true
+    dependencies:
+      '@expo/spawn-async': 1.7.0
+      '@parcel/core': 2.8.3
+      '@parcel/fs': 2.8.3_@parcel+core@2.8.3
+      '@parcel/package-manager': 2.8.3_@parcel+core@2.8.3
+      '@parcel/watcher': 2.1.0
+      '@plasmohq/init': 0.6.0
+      '@plasmohq/parcel-config': 0.31.1_biqbaboplfbrettd7655fr4n2y
+      archiver: 5.3.1
+      buffer: 6.0.3
+      chalk: 5.2.0
+      change-case: 4.1.2
+      dotenv: 16.0.3
+      dotenv-expand: 10.0.0
+      events: 3.3.0
+      fast-glob: 3.2.12
+      fflate: 0.7.4
+      get-port: 6.1.2
+      got: 12.5.3
+      ignore: 5.2.4
+      inquirer: 9.1.4
+      is-path-inside: 4.0.0
+      json5: 2.2.3
+      mnemonic-id: 3.2.7
+      node-object-hash: 2.3.10
+      package-json: 8.1.0
+      process: 0.11.10
+      semver: 7.3.8
+      sharp: 0.31.1
+      tempy: 3.0.0
+      typescript: 4.9.4
+      ws: 8.12.0
+    transitivePeerDependencies:
+      - '@swc/core'
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - bufferutil
+      - coffeescript
+      - cssnano
+      - dot
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - postcss
+      - pug
+      - purgecss
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - relateurl
+      - slm
+      - squirrelly
+      - srcset
+      - supports-color
+      - teacup
+      - templayed
+      - terser
+      - then-pug
+      - tinyliquid
+      - toffee
+      - ts-node
+      - twig
+      - twing
+      - uncss
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+    dev: false
 
   /posix-character-classes/0.1.1:
     resolution: {integrity: sha512-xTgYBc3fuo7Yt7JbiuFxSYGToMoz8fLoE6TC9Wx1P/u+LfeThMOAqmuyECnlBaaJb+u1m9hHiXUEtwW4OzfUJg==}
