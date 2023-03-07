@@ -28,7 +28,7 @@
 
 # Framework Plasmo
 
-Framework [Plasmo](https://www.plasmo.com/) adalah SDK ekstensi browser penuh daya yang dibuat oleh hacker untuk hacker. Bangun produk Anda dan berhenti untuk khawatir terhadap file konfigurasi dan keanehan aneh dalam membuat ekstensi browser.
+Framework [Plasmo](https://www.plasmo.com/) adalah SDK ekstensi browser penuh daya yang dibuat oleh hacker untuk hacker. Bangun produk Anda dan berhenti khawatir terhadap file konfigurasi dan berbagai macam anomali dalam membuat ekstensi browser.
 
 > Seperti [Next.js](https://nextjs.org/) untuk ekstensi browser!
 
