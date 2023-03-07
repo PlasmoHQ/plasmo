@@ -24,7 +24,6 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "importsNotUsedAsValues": "error",
-
     "jsx": "preserve"
   }
 }

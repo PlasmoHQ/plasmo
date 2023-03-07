@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/messaging",
-  "version": "0.1.6",
-  "description": "Type-safe, zero-config messaging library for modern browser extensions",
+  "name": "@plasmohq/selector",
+  "version": "0.0.3",
+  "description": "Powerful Selector API with Dedicated Monitoring Supports",
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,15 +11,10 @@
       "require": "./dist/hook.cjs",
       "types": "./dist/hook.d.ts"
     },
-    "./relay": {
-      "import": "./dist/relay.js",
-      "require": "./dist/relay.cjs",
-      "types": "./dist/relay.d.ts"
-    },
-    "./port": {
-      "import": "./dist/port.js",
-      "require": "./dist/port.cjs",
-      "types": "./dist/port.d.ts"
+    "./monitor": {
+      "import": "./dist/monitor.js",
+      "require": "./dist/monitor.cjs",
+      "types": "./dist/monitor.d.ts"
     },
     "./background": {
       "import": "./dist/background.js",
@@ -37,11 +32,8 @@
       "hook": [
         "./dist/hook.d.ts"
       ],
-      "relay": [
-        "./dist/relay.d.ts"
-      ],
-      "port": [
-        "./dist/port.d.ts"
+      "monitor": [
+        "./dist/monitor.d.ts"
       ],
       "background": [
         "./dist/background.d.ts"
@@ -51,28 +43,11 @@
   "files": [
     "dist"
   ],
-  "tsup": {
-    "entry": [
-      "src/index.ts",
-      "src/port.ts",
-      "src/relay.ts",
-      "src/background.ts",
-      "src/hook.ts"
-    ],
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "target": "esnext",
-    "platform": "node",
-    "splitting": false,
-    "bundle": true
-  },
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:compile": "tsup --watch --sourcemap --dts-resolve",
+    "dev:compile": "tsup --watch",
     "dev:test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "build": "tsup --dts-resolve --minify --clean",
+    "build": "tsup",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "prepublishOnly": "pnpm build"
   },
