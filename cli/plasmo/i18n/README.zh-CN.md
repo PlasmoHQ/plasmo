@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/README.md">English</a> | 简体中文 | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a>
+  <a href="/cli/plasmo/README.md">English</a> | 简体中文 | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | <a href="/cli/plasmo/i18n/README.id-ID.md">Indonesian</a>
 </p>
 
 # Plasmo 框架
