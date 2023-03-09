@@ -1,3 +1,8 @@
+/**
+ * Based on https://github.com/parcel-bundler/parcel/blob/v2/packages/core/core/src/resolveOptions.js
+ * MIT License
+ */
+
 import { FSCache, LMDBCache } from "@parcel/cache"
 import { toProjectPath } from "@parcel/core/lib/projectPath"
 import { getResolveFrom } from "@parcel/core/lib/requests/ParcelConfigRequest"

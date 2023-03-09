@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * MIT License
+ *
+ * Based on: https://github.com/parcel-bundler/parcel/blob/v2/packages/transformers/webextension/src/schema.js
+ * MIT License
+ */
+
 import type { FromSchema } from "json-schema-to-ts"
 
 import {
@@ -22,6 +30,7 @@ const iconsSchema = {
 const actionProps = {
   // FF only
   browser_style: booleanSchema,
+  chrome_style: booleanSchema,
   // You can also have a raw string, but not in Edge, apparently...
   default_icon: {
     oneOf: [iconsSchema, stringSchema]
@@ -277,6 +286,7 @@ const commonProps = {
     type: "object",
     properties: {
       browser_style: booleanSchema,
+      chrome_style: booleanSchema,
       open_in_tab: booleanSchema,
       page: stringSchema
     },
