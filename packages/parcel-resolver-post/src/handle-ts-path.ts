@@ -14,7 +14,7 @@ import type { CompilerOptions } from "typescript"
 import type { ResolverProps, ResolverResult } from "./shared"
 import { checkWebpackSpecificImportSyntax, findModule, trimStar } from "./utils"
 
-const tsRegex = /\.tsx?$/
+const tsRegex = /\.(tsx?)|vue|svelte$/
 
 const relevantExtList = [
   ".ts",
