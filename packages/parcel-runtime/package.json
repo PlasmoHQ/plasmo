@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.17.2",
+  "version": "0.17.4",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
@@ -24,8 +24,8 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@types/chrome": "0.0.210",
-    "tsup": "6.5.0"
+    "@types/chrome": "0.0.219",
+    "tsup": "6.6.3"
   },
   "dependencies": {
     "@parcel/core": "2.8.3",
