@@ -26,6 +26,8 @@
   English | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | <a href="/cli/plasmo/i18n/README.id-ID.md">Indonesian</a>
 </p>
 
+**Production Cloud:** We've built a cloud offering for browser extensions called [Itero](https://itero.plasmo.com). Check it out if you want instant beta testing and more awesome features. 
+
 # Plasmo Framework
 
 The [Plasmo](https://www.plasmo.com/) Framework is a battery-packed browser extension SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.
