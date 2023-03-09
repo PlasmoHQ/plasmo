@@ -1,16 +1,16 @@
 {
-  "name": "@plasmohq/parcel-transformer-manifest",
-  "version": "0.14.2",
-  "description": "Plasmo Parcel Transformer for Web Extension Manifest",
+  "name": "@plasmohq/parcel-core",
+  "version": "0.0.0",
+  "description": "Plasmo Parcel Core Fork",
   "files": [
-    "dist",
-    "runtime"
+    "dist"
   ],
   "main": "dist/index.js",
+  "types": "src/types.ts",
   "scripts": {
     "prepublishOnly": "pnpm build",
-    "build": "tsup src/index.ts --minify --clean",
-    "dev": "tsup src/index.ts --sourcemap --watch"
+    "build": "tsup --minify --clean",
+    "dev": "tsup --sourcemap --watch"
   },
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "homepage": "https://docs.plasmo.com/",
@@ -25,18 +25,25 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
+    "@parcel/types": "2.8.3",
     "tsup": "6.6.3"
   },
   "dependencies": {
-    "@mischnic/json-sourcemap": "0.1.0",
     "@parcel/core": "2.8.3",
+    "@parcel/cache": "2.8.3",
     "@parcel/diagnostic": "2.8.3",
+    "@parcel/events": "2.8.3",
     "@parcel/fs": "2.8.3",
+    "@parcel/graph": "2.8.3",
+    "@parcel/hash": "2.8.3",
+    "@parcel/logger": "2.8.3",
+    "@parcel/package-manager": "2.8.3",
     "@parcel/plugin": "2.8.3",
+    "@parcel/source-map": "2.1.1",
     "@parcel/types": "2.8.3",
     "@parcel/utils": "2.8.3",
-    "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.7.2",
+    "@parcel/workers": "2.8.3",
+    "abortcontroller-polyfill": "1.7.5",
     "nullthrows": "1.1.1"
   }
 }

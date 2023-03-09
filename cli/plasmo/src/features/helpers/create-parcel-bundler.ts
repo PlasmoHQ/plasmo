@@ -1,4 +1,3 @@
-import { Parcel } from "@parcel/core"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
 import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
@@ -6,11 +5,11 @@ import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
 
+import { Parcel, ParcelOptions } from "@plasmohq/parcel-core"
+
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 import { getPackageManager } from "./package-manager"
-
-type ParcelOptions = Partial<ConstructorParameters<typeof Parcel>[0]>
 
 const PackageInstallerMap = {
   npm: ParcelPM.Npm,
