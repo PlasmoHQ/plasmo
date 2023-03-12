@@ -6,6 +6,11 @@ export async function handleModuleExport({
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
+  // Ignore relative path
+  if (specifier.startsWith("./") || specifier.startsWith("../")) {
+    return null
+  }
+
   try {
     const segments = specifier.split("/")
 
