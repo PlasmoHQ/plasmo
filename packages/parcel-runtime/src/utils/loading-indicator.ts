@@ -32,19 +32,19 @@ function createLoadingEl() {
       }
     }
     
-    .svg-elem-1 {
+    #${LOADING_ID} .svg-elem-1 {
       animation: animate-svg-fill 1.47s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both infinite;
     }
 
-    .svg-elem-2 {
+    #${LOADING_ID} .svg-elem-2 {
       animation: animate-svg-fill 1.47s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both infinite;
     }
     
-    .svg-elem-3 {
+    #${LOADING_ID} .svg-elem-3 {
       animation: animate-svg-fill 1.47s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both infinite;
     }
 
-    .hidden {
+    #${LOADING_ID} .hidden {
       display: none;
     }
 
