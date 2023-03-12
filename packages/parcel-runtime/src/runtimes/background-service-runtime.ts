@@ -24,9 +24,11 @@ async function consolidateUpdate(forced = false) {
     (state.buildReady && (state.hmrUpdated || state.csCodeChanged))
   ) {
     vLog("BGSW Runtime - reloading")
-    const [activeTab] = await chrome.tabs.query({ active: true })
+    const activeTabList = await chrome.tabs.query({ active: true })
+
     for (const port of state.ports) {
-      const isActive = activeTab?.id === port.sender.tab.id
+      const isActive = activeTabList.some((t) => t.id === port.sender.tab.id)
+
       port.postMessage({
         __plasmo_cs_active_tab__: isActive
       } as BackgroundMessage)
