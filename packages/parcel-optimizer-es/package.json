@@ -33,6 +33,6 @@
     "@parcel/utils": "2.8.3",
     "esbuild": "0.17.11",
     "nullthrows": "1.1.1",
-    "terser": "5.16.5"
+    "terser": "5.16.6"
   }
 }

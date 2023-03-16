@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "svelte": "3.55.1",
+    "svelte": "3.57.0",
     "tsup": "6.6.3"
   },
   "dependencies": {
