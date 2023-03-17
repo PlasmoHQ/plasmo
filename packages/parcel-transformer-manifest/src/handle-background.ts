@@ -65,16 +65,17 @@ function handleMV2Background(program: MV2Data) {
 function handleMV3Background(program: MV3Data) {
   const { hot, asset, filePath, ptrs, hmrOptions, env } = getState()
 
-  if (env.PLASMO_BROWSER === "firefox") {
-    const mv2Program = program as unknown as MV2Data
-    mv2Program.background.scripts = [program.background.service_worker]
-    delete program.background.service_worker
-    handleMV2Background(mv2Program)
-    return
-  }
-
   vLog(`Handling background service worker`)
   if (program.background?.service_worker) {
+    // Handle Firefox preliminary MV3 support:
+    if (env.PLASMO_BROWSER === "firefox") {
+      const mv2Program = program as unknown as MV2Data
+      mv2Program.background.scripts = [program.background.service_worker]
+      delete program.background.service_worker
+      handleMV2Background(mv2Program)
+      return
+    }
+
     program.background.service_worker = asset.addURLDependency(
       program.background.service_worker,
       {
