@@ -45,7 +45,7 @@ export class PlasmoPublicEnv {
 }
 
 function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
-  const parsed: dotenv.DotenvParseOutput = {}
+  const parsed: dotenv.DotenvParseOutput = Object.assign({}, process.env)
 
   for (const { contents, name } of loadedEnvFiles) {
     try {
