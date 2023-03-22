@@ -162,7 +162,8 @@ const commonProps = {
           },
           additionalProperties: false
         },
-        description: stringSchema
+        description: stringSchema,
+        global: booleanSchema
       },
       additionalProperties: false
     }
