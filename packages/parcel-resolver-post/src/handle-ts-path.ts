@@ -8,7 +8,7 @@
  */
 
 import { loadConfig } from "@parcel/utils"
-import { extname, join, resolve } from "path"
+import { dirname, extname, join, resolve } from "path"
 import type { CompilerOptions } from "typescript"
 
 import type { ResolverProps, ResolverResult } from "./shared"
@@ -59,8 +59,8 @@ export async function handleTsPath(
       return null
     }
 
-    const { compilerOptions } = await getTsconfigCompilerOptions(props)
-    if (!compilerOptions) {
+    const compilerOptions = await getTsconfigCompilerOptions(props)
+    if (compilerOptions.length === 0) {
       return null
     }
 
@@ -81,30 +81,38 @@ export async function handleTsPath(
 }
 
 /** Populate a map with any paths from tsconfig.json starting from baseUrl */
-function loadTsPathsMap(compilerOptions: CompilerOptions) {
+function loadTsPathsMap(tsConfigs: TSConfig[]) {
   if (state.pathsMap) {
     return
   }
 
-  const baseUrl = compilerOptions.baseUrl || "."
-  const tsPaths = compilerOptions.paths || {}
-
-  const tsPathsMap = Object.entries(tsPaths).reduce(
-    (output, [key, pathList]) => {
-      output.set(
-        key,
-        pathList.map((p) => join(baseUrl, p))
-      )
-      return output
-    },
-    new Map<string, TsPaths>()
-  )
+  const tsPathsMap = new Map<string, TsPaths>()
+  tsConfigs.forEach((tsConfig) => loadPathsFromTSConfig(tsConfig, tsPathsMap))
 
   state.pathsMap = tsPathsMap
   state.pathsMapRegex = Array.from(tsPathsMap.entries()).map((entry) => [
     ...entry,
     new RegExp(`^${entry[0].replace("*", ".*")}$`)
   ])
+}
+
+function loadPathsFromTSConfig(
+  tsConfig: TSConfig,
+  tsPathsMap: Map<string, TsPaths>
+) {
+  const { filePath, compilerOptions } = tsConfig
+
+  const baseUrl = compilerOptions.baseUrl || "."
+  const tsPaths = compilerOptions.paths || {}
+
+  const tsConfigFolderPath = join(dirname(join(filePath)), baseUrl)
+
+  Object.entries(tsPaths).forEach(([key, pathList]) => {
+    tsPathsMap.set(
+      key,
+      pathList.map((p) => join(tsConfigFolderPath, p))
+    )
+  })
 }
 
 function attemptResolve({ specifier, dependency }: ResolverProps) {
@@ -169,14 +177,27 @@ function attemptResolveArray(
   return null
 }
 
-async function getTsconfigCompilerOptions({
-  options,
-  dependency
-}: ResolverProps) {
+type TSConfig = { compilerOptions: CompilerOptions; filePath: string }
+
+async function getTsconfigCompilerOptions(
+  props: ResolverProps & { tsconfigPath?: string },
+  tsConfigs: TSConfig[] = [],
+  depth = 0
+): Promise<TSConfig[]> {
+  if (depth > 20) {
+    throw new Error(
+      "Something went wrong in loading tsconfig (depth > 20). Circular dependency?"
+    )
+  }
+
+  const { options, dependency, tsconfigPath } = props
+
+  const file = tsconfigPath ? [tsconfigPath] : ["tsconfig.json", "tsconfig.js"]
+
   const result = await loadConfig(
     options.inputFS,
     dependency.resolveFrom,
-    ["tsconfig.json", "tsconfig.js"],
+    file,
     join(process.env.PLASMO_PROJECT_DIR, "lab")
   )
 
@@ -184,10 +205,21 @@ async function getTsconfigCompilerOptions({
     return null
   }
 
-  const filePath = result.files[0].filePath
   const compilerOptions = result?.config?.compilerOptions as CompilerOptions
-  return {
-    compilerOptions,
-    filePath
+  const filePath = result.files[0].filePath
+
+  const output = { compilerOptions, filePath }
+
+  if (result.config.extends) {
+    return await getTsconfigCompilerOptions(
+      {
+        tsconfigPath: result.config.extends,
+        ...props
+      },
+      [output, ...tsConfigs],
+      ++depth
+    )
   }
+
+  return [output, ...tsConfigs]
 }
