@@ -24,8 +24,8 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@types/chrome": "0.0.224",
-    "tsup": "6.6.3"
+    "@types/chrome": "0.0.227",
+    "tsup": "6.7.0"
   },
   "dependencies": {
     "@parcel/core": "2.8.3",

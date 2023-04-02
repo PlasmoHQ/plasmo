@@ -11,11 +11,11 @@
     "esModuleInterop": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
-    "isolatedModules": true,
+
     "module": "ESNext",
     "target": "ESNext",
     "allowJs": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "lib": ["DOM"]
   },
   "include": ["src/**/*.ts"]
