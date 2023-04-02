@@ -15,7 +15,9 @@ export type {
  * Should only be called from CS or Ext Pages
  * TODO: Add a framework runtime check, using a global varaible
  */
-export const sendToBackground: PlasmoMessaging.SendFx = async (req) => {
+export const sendToBackground: PlasmoMessaging.SendFx<MessageName> = async (
+  req
+) => {
   if (!chrome?.runtime) {
     throw new Error("chrome.runtime is not available")
   }
