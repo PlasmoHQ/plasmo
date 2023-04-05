@@ -23,7 +23,6 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
 
-    "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "jsx": "preserve"
   }
