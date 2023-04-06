@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid"
+
 import type { PlasmoMessaging } from "./index"
 import { isSameOrigin } from "./utils"
 
@@ -18,6 +20,7 @@ export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
       window.postMessage({
         name: req.name,
         relayId: req.relayId,
+        instanceId: event.data.instanceId,
         body: backgroundResponse,
         relayed: true
       })
@@ -30,8 +33,14 @@ export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
 
 export const sendViaRelay: PlasmoMessaging.SendFx = (req) =>
   new Promise((resolve, _reject) => {
+    req.instanceId = nanoid()
+
     window.addEventListener("message", (event) => {
-      if (isSameOrigin(event, req) && event.data.relayed) {
+      if (
+        isSameOrigin(event, req) &&
+        event.data.relayed &&
+        event.data.instanceId === req.instanceId
+      ) {
         resolve(event.data.body)
       }
     })

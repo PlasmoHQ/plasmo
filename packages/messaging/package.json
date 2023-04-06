@@ -115,5 +115,8 @@
     "ts-jest": "29.0.5",
     "tsup": "6.6.3",
     "typescript": "4.9.5"
+  },
+  "dependencies": {
+    "nanoid": "4.0.2"
   }
 }

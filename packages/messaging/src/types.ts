@@ -16,6 +16,11 @@ export namespace PlasmoMessaging {
     body?: TBody
     tabId?: number
     relayId?: string
+
+    /**
+     * Used to resolve corresponding window.postMessage messages
+     */
+    instanceId?: string
   }
 
   export type InternalRequest = {
