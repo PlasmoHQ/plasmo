@@ -15,7 +15,6 @@
     "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "declaration": false,
     "declarationMap": false,
     "inlineSources": false,
@@ -23,7 +22,8 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
-    "importsNotUsedAsValues": "error",
+
+    "verbatimModuleSyntax": true,
     "jsx": "preserve"
   }
 }

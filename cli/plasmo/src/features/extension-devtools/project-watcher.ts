@@ -1,4 +1,4 @@
-import { Event, subscribe } from "@parcel/watcher"
+import { type Event, subscribe } from "@parcel/watcher"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants/misc"
 import { assertUnreachable } from "@plasmo/utils/assert"

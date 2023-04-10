@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver-post",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Plasmo Parcel Resolver Post-processing",
   "files": [
     "dist"
@@ -31,7 +31,7 @@
     "@parcel/plugin": "2.8.3",
     "@parcel/types": "2.8.3",
     "@parcel/utils": "2.8.3",
-    "tsup": "6.6.3",
-    "typescript": "4.9.5"
+    "tsup": "6.7.0",
+    "typescript": "5.0.4"
   }
 }
