@@ -82,3 +82,23 @@ export type OriginContext =
   | "sandbox-page"
   | "content-script"
   | "window"
+
+interface Chunk {
+  type: "init" | "end" | "data";
+  index: number;
+  chunkCollectionId: number;
+  data: number[];
+}
+
+export interface InitChunk extends Chunk {
+  type: "init";
+  totalChunks: number;
+}
+
+export interface DataChunk extends Chunk {
+  type: "data";
+}
+
+export interface EndChunk extends Chunk {
+  type: "end";
+}
