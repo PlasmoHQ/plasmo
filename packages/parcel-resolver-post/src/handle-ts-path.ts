@@ -11,6 +11,8 @@ import { loadConfig } from "@parcel/utils"
 import { dirname, extname, join, resolve } from "path"
 import type { CompilerOptions } from "typescript"
 
+import { isReadable } from "@plasmo/utils/fs"
+
 import type { ResolverProps, ResolverResult } from "./shared"
 import { checkWebpackSpecificImportSyntax, findModule, trimStar } from "./utils"
 
@@ -60,6 +62,7 @@ export async function handleTsPath(
     }
 
     const compilerOptions = await getTsconfigCompilerOptions(props)
+
     if (compilerOptions.length === 0) {
       return null
     }
@@ -107,12 +110,12 @@ function loadPathsFromTSConfig(
 
   const tsConfigFolderPath = join(dirname(join(filePath)), baseUrl)
 
-  Object.entries(tsPaths).forEach(([key, pathList]) => {
+  for (const key in tsPaths) {
     tsPathsMap.set(
       key,
-      pathList.map((p) => join(tsConfigFolderPath, p))
+      tsPaths[key].map((p) => join(tsConfigFolderPath, p))
     )
-  })
+  }
 }
 
 function attemptResolve({ specifier, dependency }: ResolverProps) {
@@ -184,42 +187,54 @@ async function getTsconfigCompilerOptions(
   tsConfigs: TSConfig[] = [],
   depth = 0
 ): Promise<TSConfig[]> {
-  if (depth > 20) {
+  if (depth > 42) {
     throw new Error(
-      "Something went wrong in loading tsconfig (depth > 20). Circular dependency?"
+      "Something went wrong in loading tsconfig (depth > 42). Circular dependency?"
     )
   }
 
   const { options, dependency, tsconfigPath } = props
 
-  const file = tsconfigPath ? [tsconfigPath] : ["tsconfig.json", "tsconfig.js"]
+  const tsconfigPathList = tsconfigPath
+    ? [tsconfigPath]
+    : ["tsconfig.json", "tsconfig.js"]
 
   const result = await loadConfig(
     options.inputFS,
     dependency.resolveFrom,
-    file,
+    tsconfigPathList,
     join(process.env.PLASMO_PROJECT_DIR, "lab")
   )
 
-  if (!result?.config?.compilerOptions) {
-    return null
+  const compilerOptions = result?.config?.compilerOptions as CompilerOptions
+
+  if (!compilerOptions) {
+    return tsConfigs
   }
 
-  const compilerOptions = result?.config?.compilerOptions as CompilerOptions
   const filePath = result.files[0].filePath
 
   const output = { compilerOptions, filePath }
+  try {
+    if (result.config.extends) {
+      const extendsTsconfigPath = (await isReadable(
+        resolve(result.config.extends)
+      ))
+        ? resolve(result.config.extends)
+        : require.resolve(result.config.extends, {
+            paths: [dependency.resolveFrom]
+          })
 
-  if (result.config.extends) {
-    return await getTsconfigCompilerOptions(
-      {
-        tsconfigPath: result.config.extends,
-        ...props
-      },
-      [output, ...tsConfigs],
-      ++depth
-    )
-  }
+      return await getTsconfigCompilerOptions(
+        {
+          ...props,
+          tsconfigPath: extendsTsconfigPath
+        },
+        [output, ...tsConfigs],
+        ++depth
+      )
+    }
+  } catch {}
 
   return [output, ...tsConfigs]
 }
