@@ -45,6 +45,6 @@
     "@plasmo/constants": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "plasmo": "workspace:*",
-    "typescript": "5.0.3"
+    "typescript": "5.0.4"
   }
 }
