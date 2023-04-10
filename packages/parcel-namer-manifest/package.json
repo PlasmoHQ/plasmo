@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-namer-manifest",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Plasmo Parcel Namer for Extension Manifest",
   "files": [
     "dist"
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "6.6.3"
+    "tsup": "6.7.0"
   },
   "dependencies": {
     "@parcel/core": "2.8.3",
