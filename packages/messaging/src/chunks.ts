@@ -2,6 +2,10 @@ import { Chunk, InitChunk } from "./types";
 
 const maxChunkSize = 5_000_000;
 
+/**
+ * Split large data into multiple chunks to
+ * bypass the browser's limit on runtime messages.
+ */
 export function createChunksFromData(data: unknown): Chunk[] {
   // serialize data to buffer
   const jsonObj = JSON.stringify(data);
@@ -23,6 +27,7 @@ export function createChunksFromData(data: unknown): Chunk[] {
 
   // create chunks
   const chunks: Chunk[] = bytes.map((byteGroup, i) => ({
+    name: "_PLASMO_MESSAGIN_CHUNK",
     type: i === byteGroup.length - 1 ? "end" : (i === 0 ? "init" : "data"),
     index: i,
     chunkCollectionId: collectionID,
@@ -38,6 +43,9 @@ export function createChunksFromData(data: unknown): Chunk[] {
   return chunks
 }
 
+/**
+ * Reconstruct split data from "createChunksFromData()"
+ */
 export function buildDataFromChunks<T = unknown>(chunks: Chunk[]): T {
   // find the init chunk
   const initChunk = chunks.find((chunk) => chunk.type === "init") as InitChunk
