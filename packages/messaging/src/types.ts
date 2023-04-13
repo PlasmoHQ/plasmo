@@ -83,7 +83,7 @@ export type OriginContext =
   | "content-script"
   | "window"
 
-interface Chunk {
+export interface Chunk {
   type: "init" | "end" | "data";
   index: number;
   chunkCollectionId: number;
@@ -92,6 +92,7 @@ interface Chunk {
 
 export interface InitChunk extends Chunk {
   type: "init";
+  dataLength: number;
   totalChunks: number;
 }
 
