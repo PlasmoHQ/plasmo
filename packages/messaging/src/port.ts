@@ -64,6 +64,9 @@ const PlasmoPort = (name: PortName) => {
 
           if (group.length !== initChunk.totalChunks) return
 
+          // check if the listener is present
+          if (!listenerMap.get(callback)) return
+
           // build message data
           const data = buildDataFromChunks(group)
 
