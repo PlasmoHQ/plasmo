@@ -43,7 +43,7 @@ const PlasmoPort = (name: PortName) => {
         // interceptor for the chunks
         const interceptor: MessageEventCallback = (message: Chunk, port) => {
           // only handle chunks
-          if (message?.name !== "_PLASMO_MESSAGIN_CHUNK") {
+          if (message?.name !== "__PLASMO_MESSAGING_CHUNK__") {
             return callback(message, port)
           }
 

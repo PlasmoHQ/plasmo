@@ -27,7 +27,7 @@ export function createChunksFromData(data: unknown): Chunk[] {
 
   // create chunks
   const chunks: Chunk[] = bytes.map((byteGroup, i) => ({
-    name: "_PLASMO_MESSAGIN_CHUNK",
+    name: "__PLASMO_MESSAGING_CHUNK__",
     type: i === byteGroup.length - 1 ? "end" : (i === 0 ? "init" : "data"),
     index: i,
     chunkCollectionId: collectionID,

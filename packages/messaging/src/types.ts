@@ -88,7 +88,7 @@ export type ChunkCollectionID = number;
 export type MessageEventCallback = (message: unknown, port: chrome.runtime.Port) => void;
 
 export interface Chunk {
-  name: "_PLASMO_MESSAGIN_CHUNK"
+  name: "__PLASMO_MESSAGING_CHUNK__"
   type: "init" | "end" | "data";
   index: number;
   chunkCollectionId: ChunkCollectionID;
