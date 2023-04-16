@@ -29,6 +29,7 @@
     "@parcel/transformer-worklet": "2.8.3",
     "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-namer-manifest": "workspace:*",
+    "@plasmohq/parcel-optimizer-encapsulate": "workspace:*",
     "@plasmohq/parcel-optimizer-es": "workspace:*",
     "@plasmohq/parcel-packager": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",

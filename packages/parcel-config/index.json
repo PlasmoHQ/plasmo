@@ -54,7 +54,10 @@
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"],
-    "*.{js,mjs,cjs}": ["@plasmohq/parcel-optimizer-es"]
+    "*.{js,mjs,cjs}": [
+      "@plasmohq/parcel-optimizer-encapsulate",
+      "@plasmohq/parcel-optimizer-es"
+    ]
   },
   "runtimes": [
     "@parcel/runtime-js",
