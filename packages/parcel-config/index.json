@@ -9,7 +9,7 @@
   "transformers": {
     "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
 
-    "react:*.svg": ["...", "@parcel/transformer-svg-react"],
+    "react:*.svg": ["@parcel/transformer-svg-react"],
     "react:*.{js,mjs,jsm,jsx,es6,cjs,ts,tsx}": [
       "@parcel/transformer-babel",
       "@parcel/transformer-js",
