@@ -35,7 +35,7 @@ async function consolidateUpdate() {
 function reloadPort() {
   scriptPort?.disconnect()
   // Potentially, if MAIN world, we use the external connection instead (?)
-  scriptPort = chrome.runtime.connect({
+  scriptPort = globalThis.chrome.runtime.connect({
     name: PORT_NAME
   })
 
@@ -57,7 +57,7 @@ function reloadPort() {
 }
 
 function setupPort() {
-  if (!chrome?.runtime) {
+  if (!globalThis.chrome?.runtime) {
     return
   }
 
@@ -81,7 +81,7 @@ injectHmrSocket(async (updatedAssets) => {
   if (isChanged) {
     loadingIndicator.show()
 
-    if (chrome.runtime) {
+    if (globalThis.chrome?.runtime) {
       scriptPort.postMessage({
         __plasmo_cs_changed__: true
       } as BackgroundMessage)
