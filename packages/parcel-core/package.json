@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Plasmo Parcel Core Fork",
   "files": [
     "dist"
@@ -23,14 +23,14 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
+    "@parcel/types": "2.8.3",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@parcel/types": "2.8.3",
-    "tsup": "6.6.3"
+    "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.3",
     "@parcel/cache": "2.8.3",
+    "@parcel/core": "2.8.3",
     "@parcel/diagnostic": "2.8.3",
     "@parcel/events": "2.8.3",
     "@parcel/fs": "2.8.3",

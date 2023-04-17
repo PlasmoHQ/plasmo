@@ -8,8 +8,10 @@
  */
 
 import { loadConfig } from "@parcel/utils"
-import { extname, join, resolve } from "path"
+import { dirname, extname, join, resolve } from "path"
 import type { CompilerOptions } from "typescript"
+
+import { isReadable } from "@plasmo/utils/fs"
 
 import type { ResolverProps, ResolverResult } from "./shared"
 import { checkWebpackSpecificImportSyntax, findModule, trimStar } from "./utils"
@@ -59,8 +61,9 @@ export async function handleTsPath(
       return null
     }
 
-    const { compilerOptions } = await getTsconfigCompilerOptions(props)
-    if (!compilerOptions) {
+    const compilerOptions = await getTsconfigCompilerOptions(props)
+
+    if (compilerOptions.length === 0) {
       return null
     }
 
@@ -81,30 +84,38 @@ export async function handleTsPath(
 }
 
 /** Populate a map with any paths from tsconfig.json starting from baseUrl */
-function loadTsPathsMap(compilerOptions: CompilerOptions) {
+function loadTsPathsMap(tsConfigs: TSConfig[]) {
   if (state.pathsMap) {
     return
   }
 
-  const baseUrl = compilerOptions.baseUrl || "."
-  const tsPaths = compilerOptions.paths || {}
-
-  const tsPathsMap = Object.entries(tsPaths).reduce(
-    (output, [key, pathList]) => {
-      output.set(
-        key,
-        pathList.map((p) => join(baseUrl, p))
-      )
-      return output
-    },
-    new Map<string, TsPaths>()
-  )
+  const tsPathsMap = new Map<string, TsPaths>()
+  tsConfigs.forEach((tsConfig) => loadPathsFromTSConfig(tsConfig, tsPathsMap))
 
   state.pathsMap = tsPathsMap
   state.pathsMapRegex = Array.from(tsPathsMap.entries()).map((entry) => [
     ...entry,
     new RegExp(`^${entry[0].replace("*", ".*")}$`)
   ])
+}
+
+function loadPathsFromTSConfig(
+  tsConfig: TSConfig,
+  tsPathsMap: Map<string, TsPaths>
+) {
+  const { filePath, compilerOptions } = tsConfig
+
+  const baseUrl = compilerOptions.baseUrl || "."
+  const tsPaths = compilerOptions.paths || {}
+
+  const tsConfigFolderPath = join(dirname(join(filePath)), baseUrl)
+
+  for (const key in tsPaths) {
+    tsPathsMap.set(
+      key,
+      tsPaths[key].map((p) => join(tsConfigFolderPath, p))
+    )
+  }
 }
 
 function attemptResolve({ specifier, dependency }: ResolverProps) {
@@ -169,25 +180,61 @@ function attemptResolveArray(
   return null
 }
 
-async function getTsconfigCompilerOptions({
-  options,
-  dependency
-}: ResolverProps) {
+type TSConfig = { compilerOptions: CompilerOptions; filePath: string }
+
+async function getTsconfigCompilerOptions(
+  props: ResolverProps & { tsconfigPath?: string },
+  tsConfigs: TSConfig[] = [],
+  depth = 0
+): Promise<TSConfig[]> {
+  if (depth > 42) {
+    throw new Error(
+      "Something went wrong in loading tsconfig (depth > 42). Circular dependency?"
+    )
+  }
+
+  const { options, dependency, tsconfigPath } = props
+
+  const tsconfigPathList = tsconfigPath
+    ? [tsconfigPath]
+    : ["tsconfig.json", "tsconfig.js"]
+
   const result = await loadConfig(
     options.inputFS,
     dependency.resolveFrom,
-    ["tsconfig.json", "tsconfig.js"],
+    tsconfigPathList,
     join(process.env.PLASMO_PROJECT_DIR, "lab")
   )
 
-  if (!result?.config?.compilerOptions) {
-    return null
+  const compilerOptions = result?.config?.compilerOptions as CompilerOptions
+
+  if (!compilerOptions) {
+    return tsConfigs
   }
 
   const filePath = result.files[0].filePath
-  const compilerOptions = result?.config?.compilerOptions as CompilerOptions
-  return {
-    compilerOptions,
-    filePath
-  }
+
+  const output = { compilerOptions, filePath }
+  try {
+    if (result.config.extends) {
+      const extendsTsconfigPath = (await isReadable(
+        resolve(result.config.extends)
+      ))
+        ? resolve(result.config.extends)
+        : require.resolve(result.config.extends, {
+            paths: [dependency.resolveFrom]
+          })
+
+      return await getTsconfigCompilerOptions(
+        {
+          ...props,
+          tsconfigPath: extendsTsconfigPath
+        },
+        [output, ...tsConfigs],
+        ++depth
+      )
+    }
+  } catch {}
+
+  return [output, ...tsConfigs]
 }
