@@ -35,10 +35,10 @@ import { isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
-import { EnvConfig, loadEnvConfig } from "~features/env/env-config"
+import { type EnvConfig, loadEnvConfig } from "~features/env/env-config"
 import { outputEnvDeclaration } from "~features/env/env-declaration"
 import {
-  CommonPath,
+  type CommonPath,
   getCommonPath
 } from "~features/extension-devtools/common-path"
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
@@ -46,7 +46,7 @@ import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
-  ProjectPath,
+  type ProjectPath,
   getProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
@@ -56,7 +56,12 @@ import { updateVersionFile } from "~features/framework-update/version-tracker"
 import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
-import { UiExtMap, UiLibrary, getUiExtMap, getUiLibrary } from "./ui-library"
+import {
+  type UiExtMap,
+  type UiLibrary,
+  getUiExtMap,
+  getUiLibrary
+} from "./ui-library"
 
 export const iconMap = {
   "16": "./gen-assets/icon16.plasmo.png",

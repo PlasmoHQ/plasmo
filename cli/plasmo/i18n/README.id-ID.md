@@ -126,7 +126,7 @@ Terima kasih banyak untuk semua yang luar biasa [kontributor](https://github.com
 
 Jangan ragu untuk ikut bersenang-senang dan mengirim PR!
 
-### Framework Plasmo 
+### Framework Plasmo
 
 <a href="https://github.com/PlasmoHQ/plasmo/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />

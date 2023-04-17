@@ -1,6 +1,6 @@
 import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
-import { ParsedPath, join, relative, resolve } from "path"
+import { type ParsedPath, join, relative, resolve } from "path"
 
 import { find } from "@plasmo/utils/array"
 import { isAccessible, isFile } from "@plasmo/utils/fs"
@@ -9,7 +9,7 @@ import { toPosix } from "@plasmo/utils/path"
 
 import { getMd5RevHash } from "~features/helpers/crypto"
 
-import type { PlasmoManifest } from "./base"
+import { type PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
 
 type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"

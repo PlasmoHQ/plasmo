@@ -6,7 +6,7 @@ import semver from "semver"
 import { assertUnreachable } from "@plasmo/utils/assert"
 import { isAccessible } from "@plasmo/utils/fs"
 
-import type { PlasmoManifest } from "./base"
+import { type PlasmoManifest } from "./base"
 
 const supportedUiLibraries = ["react", "svelte", "vue", "vanilla"] as const
 
