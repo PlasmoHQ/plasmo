@@ -6,8 +6,14 @@ import { isSameOrigin } from "./utils"
 /**
  * Raw relay abstracting window.postMessage
  */
-export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
-  const relayHandler = async (event: MessageEvent) => {
+export const relay: PlasmoMessaging.RelayFx = (
+  req,
+  onMessage,
+  messagePort = globalThis.window
+) => {
+  const relayHandler = async (
+    event: MessageEvent<PlasmoMessaging.RelayMessage>
+  ) => {
     if (isSameOrigin(event, req) && !event.data.relayed) {
       const relayPayload = {
         name: req.name,
@@ -17,7 +23,7 @@ export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
 
       const backgroundResponse = await onMessage?.(relayPayload)
 
-      window.postMessage({
+      messagePort.postMessage({
         name: req.name,
         relayId: req.relayId,
         instanceId: event.data.instanceId,
@@ -27,23 +33,32 @@ export const relay: PlasmoMessaging.RelayFx = (req, onMessage) => {
     }
   }
 
-  window.addEventListener("message", relayHandler)
-  return () => window.removeEventListener("message", relayHandler)
+  messagePort.addEventListener("message", relayHandler)
+  return () => messagePort.removeEventListener("message", relayHandler)
 }
 
-export const sendViaRelay: PlasmoMessaging.SendFx = (req) =>
+export const sendViaRelay: PlasmoMessaging.SendFx = (
+  req,
+  messagePort = globalThis.window
+) =>
   new Promise((resolve, _reject) => {
-    req.instanceId = nanoid()
+    const instanceId = nanoid()
 
-    window.addEventListener("message", (event) => {
-      if (
-        isSameOrigin(event, req) &&
-        event.data.relayed &&
-        event.data.instanceId === req.instanceId
-      ) {
-        resolve(event.data.body)
+    messagePort.addEventListener(
+      "message",
+      (event: MessageEvent<PlasmoMessaging.RelayMessage>) => {
+        if (
+          isSameOrigin(event, req) &&
+          event.data.relayed &&
+          event.data.instanceId === instanceId
+        ) {
+          resolve(event.data.body)
+        }
       }
-    })
+    )
 
-    window.postMessage(req)
+    messagePort.postMessage({
+      ...req,
+      instanceId
+    } as PlasmoMessaging.RelayMessage)
   })

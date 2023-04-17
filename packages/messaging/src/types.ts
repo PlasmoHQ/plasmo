@@ -16,11 +16,14 @@ export namespace PlasmoMessaging {
     body?: TBody
     tabId?: number
     relayId?: string
+  }
 
+  export type RelayMessage<TName = any, TBody = any> = Request<TName, TBody> & {
     /**
      * Used to resolve corresponding window.postMessage messages
      */
-    instanceId?: string
+    instanceId: string
+    relayed: boolean
   }
 
   export type InternalRequest = {
@@ -56,7 +59,13 @@ export namespace PlasmoMessaging {
 
   export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
-      request: Request<TName, RequestBody>
+      request: Request<TName, RequestBody>,
+      messagePort?:
+        | Pick<
+            MessagePort,
+            "addEventListener" | "removeEventListener" | "postMessage"
+          >
+        | Window
     ): Promise<ResponseBody>
   }
 
@@ -65,7 +74,13 @@ export namespace PlasmoMessaging {
       request: Request<RelayName, RequestBody>,
       onMessage?: (
         request: Request<RelayName, RequestBody>
-      ) => Promise<ResponseBody>
+      ) => Promise<ResponseBody>,
+      messagePort?:
+        | Pick<
+            MessagePort,
+            "addEventListener" | "removeEventListener" | "postMessage"
+          >
+        | Window
     ): () => void
   }
 
