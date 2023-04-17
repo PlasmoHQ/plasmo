@@ -1,6 +1,6 @@
-// See https://www.plasmo.com/engineering/log/2022.04#update-2022.04.23
 import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
 
+// See https://www.plasmo.com/engineering/log/2022.04#update-2022.04.23
 export type PlasmoCSConfig = Omit<Partial<ManifestContentScript>, "js">
 
 /**

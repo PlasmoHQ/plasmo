@@ -5,7 +5,7 @@ import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
 
-import { Parcel, ParcelOptions } from "@plasmohq/parcel-core"
+import { Parcel, type ParcelOptions } from "@plasmohq/parcel-core"
 
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 

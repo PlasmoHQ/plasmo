@@ -1,4 +1,4 @@
-import spawnAsync, { SpawnOptions } from "@expo/spawn-async"
+import spawnAsync, { type SpawnOptions } from "@expo/spawn-async"
 
 import { isAccessible } from "@plasmo/utils/fs"
 import { iLog, vLog, wLog } from "@plasmo/utils/logging"

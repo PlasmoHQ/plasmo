@@ -6,7 +6,7 @@ import { hasFlag } from "@plasmo/utils/flags"
 import { iLog, vLog, wLog } from "@plasmo/utils/logging"
 
 import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
-import type { PlasmoManifest } from "~features/manifest-factory/base"
+import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 import { generateIcons } from "./generate-icons"
 import { WatchReason } from "./project-path"

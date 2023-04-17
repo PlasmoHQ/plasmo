@@ -14,7 +14,7 @@ import { iLog, vLog } from "@plasmo/utils/logging"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import {
-  PackageJSON,
+  type PackageJSON,
   generatePackage,
   resolveWorkspaceToLatestSemver
 } from "~features/extension-devtools/package-file"
