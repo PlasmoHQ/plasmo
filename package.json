@@ -17,6 +17,7 @@
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
     "publish:cli:lab": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag lab",
     "publish:lab": "run-s publish:packages publish:cli:lab",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "### version script usage example": "pnpm v:cli patch",
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",

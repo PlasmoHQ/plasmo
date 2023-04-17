@@ -2116,6 +2116,9 @@ importers:
       '@plasmohq/parcel-namer-manifest':
         specifier: workspace:*
         version: link:../parcel-namer-manifest
+      '@plasmohq/parcel-optimizer-encapsulate':
+        specifier: workspace:*
+        version: link:../parcel-optimizer-encapsulate
       '@plasmohq/parcel-optimizer-es':
         specifier: workspace:*
         version: link:../parcel-optimizer-es
@@ -2226,6 +2229,31 @@ importers:
       '@plasmo/config':
         specifier: workspace:*
         version: link:../config
+      tsup:
+        specifier: 6.7.0
+        version: 6.7.0(typescript@5.0.4)
+
+  packages/parcel-optimizer-encapsulate:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.8.3
+        version: 2.8.3
+      '@parcel/plugin':
+        specifier: 2.8.3
+        version: 2.8.3(@parcel/core@2.8.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/types':
+        specifier: 2.8.3
+        version: 2.8.3(@parcel/core@2.8.3)
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../utils
       tsup:
         specifier: 6.7.0
         version: 6.7.0(typescript@5.0.4)
@@ -8868,7 +8896,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001460
+      caniuse-lite: 1.0.30001477
       electron-to-chromium: 1.4.320
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
@@ -9038,16 +9066,12 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  /caniuse-lite@1.0.30001460:
-    resolution: {integrity: sha512-Bud7abqjvEjipUkpLs4D7gR0l8hBYBHoa+tGtKJHvT2AYzLp1z7EmVkUT4ERpVUfca8S2HGIVs883D8pUH1ZzQ==}
-
   /caniuse-lite@1.0.30001466:
     resolution: {integrity: sha512-ewtFBSfWjEmxUgNBSZItFSmVtvk9zkwkl1OfRZlKA8slltRN+/C/tuGVrF9styXkN36Yu3+SeJ1qkXxDEyNZ5w==}
     dev: true
 
   /caniuse-lite@1.0.30001477:
     resolution: {integrity: sha512-lZim4iUHhGcy5p+Ri/G7m84hJwncj+Kz7S5aD4hoQfslKZJgt0tHc/hafVbqHC5bbhHb+mrW2JOUHkI5KH7toQ==}
-    dev: false
 
   /capital-case@1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}

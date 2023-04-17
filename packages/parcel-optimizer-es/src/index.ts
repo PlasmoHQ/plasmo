@@ -12,7 +12,7 @@ import { blobToString } from "@parcel/utils"
 import { transform } from "esbuild"
 import nullthrows from "nullthrows"
 import { join, relative } from "path"
-import { MinifyOptions, minify } from "terser"
+import { type MinifyOptions, minify } from "terser"
 
 import { toUtf8 } from "./to-utf8"
 

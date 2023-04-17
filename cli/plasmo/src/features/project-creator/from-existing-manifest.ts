@@ -1,4 +1,4 @@
-import { Unzipped, strFromU8, unzipSync } from "fflate"
+import { type Unzipped, strFromU8, unzipSync } from "fflate"
 import { readJson } from "fs-extra"
 import { readFile } from "fs/promises"
 import { extname } from "path"
@@ -13,7 +13,7 @@ import { vLog } from "@plasmo/utils/logging"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import {
-  PackageJSON,
+  type PackageJSON,
   generatePackage
 } from "~features/extension-devtools/package-file"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"
