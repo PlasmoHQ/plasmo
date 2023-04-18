@@ -32,13 +32,13 @@
 
 [Plasmo](https://www.plasmo.com/) Framework は、すべての開発者のためのブラウザ拡張機能のSDKです。拡張機能のconfigファイルやビルドにおける面倒な独自仕様に悩まされずに拡張機能を作りましょう！
 
-> ブラウザ拡張機能における[Next.js](https://nextjs.org/)です！
+> ブラウザ拡張機能における[Next.js](https://nextjs.org/)
 
 ![CLI Demo](https://www.plasmo.com/assets/plasmo-cli-demo.gif)
 
 ## 主な機能
 
-- [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) の全面サポート。
+- [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) の全面サポート
 - [宣言型開発](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
 - [Contents Scripts UI](https://docs.plasmo.com/csui)
 - [Tab Pages](https://docs.plasmo.com/framework/tab-pages)
@@ -46,7 +46,7 @@
 - [`.env*` ファイル](https://docs.plasmo.com/framework/env)
 - [Storage API](https://docs.plasmo.com/framework/storage)
 - [Messaging API](https://docs.plasmo.com/framework/messaging)
-- [リモートコードバンドル](https://docs.plasmo.com/framework/remote-code) (例: Google Analytics)
+- [リモートコードバンドル](https://docs.plasmo.com/framework/remote-code) (Google Analyticsなど)
 - [複数ブラウザ・マニフェスト対応](https://docs.plasmo.com/framework/workflows/build#with-specific-target)
 - [BPPによる自動デプロイ](https://docs.plasmo.com/framework/workflows/submit)
 - [Svelte](https://github.com/PlasmoHQ/with-svelte)、 [Vue](https://github.com/PlasmoHQ/with-vue) にも対応
@@ -69,7 +69,7 @@
 
 ## ブラウザ拡張機能についての書籍
 
-ブラウザ拡張機能の動作や開発方法についてさらに深く学びたい場合、Matt Frisbie氏の書籍『Building Browser Extensions』（https://buildingbrowserextensions.com/plasmo）がおすすめです。
+ブラウザ拡張機能の動作や開発方法についてさらに深く学びたい場合、Matt Frisbie氏の書籍[『Building Browser Extensions』](https://buildingbrowserextensions.com/plasmo)がおすすめです。
 
 ## 使い方
 
@@ -109,6 +109,7 @@ ext-dir
 ```
 
 また、ルートディレクトリに置きたくない場合は、`src` ディレクトリを作成して、そこにソースコードを置くこともできます。詳しくは[こちらのガイド](https://docs.plasmo.com/framework/customization/src)をご覧ください。
+
 ただし、`assets` やconfigファイルはルートディレクトリに置く必要があります。
 
 ## 対応しているブラウザ
@@ -124,8 +125,6 @@ ext-dir
 ## コントリビュート
 
 詳しくは[コントリビュートガイドライン](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md)をご覧ください。
-
-Please see the [contributing guidelines](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) to learn more.
 
 素晴らしい[コントリビューターの方々](https://github.com/PlasmoHQ/plasmo/graphs/contributors)に感謝します❤️
 
