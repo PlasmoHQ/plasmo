@@ -3,6 +3,7 @@ import {
   InlineCSUIContainer,
   OverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-react"
+import { getLayout } from "@plasmo-static-common/react"
 import React from "react"
 import { createRoot } from "react-dom/client"
 
@@ -24,8 +25,7 @@ const render = createRender(
   async (anchor, rootContainer) => {
     const root = createRoot(rootContainer)
 
-    const Layout =
-      RawMount.Layout || RawMount.getGlobalProvider?.() || React.Fragment
+    const Layout = getLayout(RawMount)
 
     switch (anchor.type) {
       case "inline": {

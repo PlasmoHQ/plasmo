@@ -1,4 +1,5 @@
-// @ts-nocheck
+import { getLayout } from "@plasmo-static-common/react"
+// @ts-ignore
 import * as Component from "__plasmo_import_module__"
 import React from "react"
 import * as ReactDOM from "react-dom"
@@ -10,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return
   }
 
-  const Layout =
-    Component.Layout || Component.getGlobalProvider?.() || React.Fragment
+  const Layout = getLayout(Component)
 
   __plasmoRoot = document.getElementById("__plasmo")
 

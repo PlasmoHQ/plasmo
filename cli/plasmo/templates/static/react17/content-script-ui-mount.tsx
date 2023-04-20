@@ -10,6 +10,8 @@ import * as ReactDOM from "react-dom"
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
+import { getLayout } from "@plasmo-static-common/react"
+
 import type { PlasmoCSUI, PlasmoCSUIAnchor } from "~type"
 
 // Escape parcel's static analyzer
@@ -22,8 +24,7 @@ const render = createRender(
   [InlineCSUIContainer, OverlayCSUIContainer],
   observer?.mountState,
   async (anchor, rootContainer) => {
-    const Layout =
-      RawMount.Layout || RawMount.getGlobalProvider?.() || React.Fragment
+    const Layout = getLayout(RawMount)
 
     switch (anchor.type) {
       case "inline": {
