@@ -9,7 +9,7 @@ import {
   writeJson
 } from "fs-extra"
 import { readdir } from "fs/promises"
-import createHasher from "node-object-hash"
+import { hasher as createHasher } from "node-object-hash"
 import {
   basename,
   dirname,
