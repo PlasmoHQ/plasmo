@@ -22,12 +22,17 @@ const render = createRender(
   [InlineCSUIContainer, OverlayCSUIContainer],
   observer?.mountState,
   async (anchor, rootContainer) => {
+    const Layout =
+      RawMount.Layout || RawMount.getGlobalProvider?.() || React.Fragment
+
     switch (anchor.type) {
       case "inline": {
         ReactDOM.render(
-          <InlineCSUIContainer anchor={anchor}>
-            <RawMount.default anchor={anchor} />
-          </InlineCSUIContainer>,
+          <Layout>
+            <InlineCSUIContainer anchor={anchor}>
+              <RawMount.default anchor={anchor} />
+            </InlineCSUIContainer>
+          </Layout>,
           rootContainer
         )
         break
@@ -46,13 +51,15 @@ const render = createRender(
                 type: "overlay"
               }
               return (
-                <OverlayCSUIContainer
-                  id={id}
-                  key={id}
-                  anchor={innerAnchor}
-                  watchOverlayAnchor={Mount.watchOverlayAnchor}>
-                  <RawMount.default anchor={innerAnchor} />
-                </OverlayCSUIContainer>
+                <Layout>
+                  <OverlayCSUIContainer
+                    id={id}
+                    key={id}
+                    anchor={innerAnchor}
+                    watchOverlayAnchor={Mount.watchOverlayAnchor}>
+                    <RawMount.default anchor={innerAnchor} />
+                  </OverlayCSUIContainer>
+                </Layout>
               )
             })}
           </>,

@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   __plasmoRoot = document.getElementById("__plasmo")
+
   const root = createRoot(__plasmoRoot)
-  root.render(<Component.default />)
+
+  const Layout =
+    Component.Layout || Component.getGlobalProvider?.() || React.Fragment
+
+  root.render(
+    <Layout>
+      <Component.default />
+    </Layout>
+  )
 })
