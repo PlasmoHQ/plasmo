@@ -3,6 +3,7 @@ import {
   InlineCSUIContainer,
   OverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-react"
+import { getLayout } from "@plasmo-static-common/react"
 import React from "react"
 import { createRoot } from "react-dom/client"
 
@@ -23,12 +24,17 @@ const render = createRender(
   observer?.mountState,
   async (anchor, rootContainer) => {
     const root = createRoot(rootContainer)
+
+    const Layout = getLayout(RawMount)
+
     switch (anchor.type) {
       case "inline": {
         root.render(
-          <InlineCSUIContainer anchor={anchor}>
-            <RawMount.default anchor={anchor} />
-          </InlineCSUIContainer>
+          <Layout>
+            <InlineCSUIContainer anchor={anchor}>
+              <RawMount.default anchor={anchor} />
+            </InlineCSUIContainer>
+          </Layout>
         )
         break
       }
@@ -46,13 +52,15 @@ const render = createRender(
                 type: "overlay"
               }
               return (
-                <OverlayCSUIContainer
-                  id={id}
-                  key={id}
-                  anchor={innerAnchor}
-                  watchOverlayAnchor={Mount.watchOverlayAnchor}>
-                  <RawMount.default anchor={innerAnchor} />
-                </OverlayCSUIContainer>
+                <Layout>
+                  <OverlayCSUIContainer
+                    id={id}
+                    key={id}
+                    anchor={innerAnchor}
+                    watchOverlayAnchor={Mount.watchOverlayAnchor}>
+                    <RawMount.default anchor={innerAnchor} />
+                  </OverlayCSUIContainer>
+                </Layout>
               )
             })}
           </>
