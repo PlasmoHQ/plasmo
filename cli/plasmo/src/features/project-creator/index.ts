@@ -206,14 +206,13 @@ export class ProjectCreator {
         vLog(
           "Replace workspace refs with the latest package version from npm registry"
         )
-        await Promise.all([
-          (packageData.dependencies = await resolveWorkspaceToLatestSemver(
-            packageData.dependencies
-          )),
-          (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
-            packageData.devDependencies
-          ))
+        const resolvedDeps = await Promise.all([
+          resolveWorkspaceToLatestSemver(packageData.dependencies),
+          resolveWorkspaceToLatestSemver(packageData.devDependencies)
         ])
+
+        packageData.dependencies = resolvedDeps[0]
+        packageData.devDependencies = resolvedDeps[1]
       }
     }
 
