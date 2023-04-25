@@ -63,11 +63,9 @@ export const createBgswMainWorldInjector = async (
     plasmoManifest.permissionSet.add("scripting")
 
     const code = `${importStatements.map(([top]) => top).join("\n")}
-try {
-  chrome.scripting.registerContentScripts([
-    ${importStatements.map(([, reg]) => reg).join(",\n  ")}
-  ])
-} catch {}
+chrome.scripting.registerContentScripts([
+  ${importStatements.map(([, reg]) => reg).join(",\n  ")}
+]).catch(_ => {})
 `
 
     await outputFile(outputPath, code)
