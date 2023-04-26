@@ -13,7 +13,7 @@ export type {
 
 /**
  * Should only be called from CS or Ext Pages
- * TODO: Add a framework runtime check, using a global varaible
+ * TODO: Add a framework runtime check, using a global variable
  */
 export const sendToBackground: PlasmoMessaging.SendFx<MessageName> = async (
   req
