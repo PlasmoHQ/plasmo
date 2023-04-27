@@ -1,9 +1,12 @@
 {
   "name": "plasmo",
-  "version": "0.69.1",
+  "version": "0.69.2",
   "description": "The Plasmo Platform CLI",
+  "publishConfig": {
+    "types": "dist/type.d.ts"
+  },
+  "types": "src/type.ts",
   "main": "dist/index.js",
-  "types": "dist/type.d.ts",
   "bin": "bin/index.mjs",
   "type": "module",
   "files": [
