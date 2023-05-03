@@ -52,10 +52,9 @@ const render = createRender(
                 type: "overlay"
               }
               return (
-                <Layout>
+                <Layout key={id}>
                   <OverlayCSUIContainer
                     id={id}
-                    key={id}
                     anchor={innerAnchor}
                     watchOverlayAnchor={Mount.watchOverlayAnchor}>
                     <RawMount.default anchor={innerAnchor} />
