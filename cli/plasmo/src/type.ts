@@ -73,7 +73,7 @@ export type PlasmoGetStyle = Getter<HTMLStyleElement, PlasmoCSUIAnchor>
  */
 export type PlasmoWatchOverlayAnchor = (
   updatePosition: () => Promise<void>
-) => () => void
+) => void
 
 export type PlasmoCSUIContainerProps = {
   id?: string
