@@ -32,8 +32,8 @@ async function build() {
     shouldDisableCache: true,
     shouldContentHash: false,
     defaultTargetOptions: {
-      shouldOptimize: !hasFlag("--no-minify"),
-      shouldScopeHoist: !hasFlag("--no-hoist")
+      shouldOptimize: hasFlag("--minify"),
+      shouldScopeHoist: hasFlag("--hoist")
     }
   })
 

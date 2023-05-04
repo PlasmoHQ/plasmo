@@ -42,7 +42,7 @@ import { AbortController } from "abortcontroller-polyfill/dist/cjs-ponyfill"
 import invariant from "assert"
 import nullthrows from "nullthrows"
 
-import { resolveOptions } from "./resolve-options"
+import { type ResolvedOptions, resolveOptions } from "./resolve-options"
 
 registerCoreWithSerializer()
 
@@ -59,7 +59,7 @@ export class Parcel {
   #disposable: Disposable
   #initialOptions: InitialParcelOptions
   #reporterRunner: ReporterRunner
-  #resolvedOptions = null
+  #resolvedOptions: ResolvedOptions = null
   #optionsRef: SharedReference
   #watchAbortController /*: AbortController*/
   #watchQueue = new PromiseQueue<BuildEvent>({

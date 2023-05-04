@@ -67,9 +67,10 @@ export async function resolveOptions(initialOptions: InitialParcelOptions) {
     (await resolveConfig(
       inputFS,
       path.join(entryRoot, "index"),
-      [...LOCK_FILE_NAMES, ".git", ".hg"],
+      [...LOCK_FILE_NAMES],
       path.parse(entryRoot).root
     )) || path.join(inputCwd, "index")
+
   // ? Should this just be rootDir
   let projectRoot = path.dirname(projectRootFile)
   let packageManager =
@@ -169,6 +170,8 @@ export async function resolveOptions(initialOptions: InitialParcelOptions) {
     }
   }
 }
+
+export type ResolvedOptions = Awaited<ReturnType<typeof resolveOptions>>
 
 function getRelativeConfigSpecifier(
   fs: FileSystem,
