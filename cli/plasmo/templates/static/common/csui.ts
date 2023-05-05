@@ -1,11 +1,6 @@
-import type {
-  PlasmoCSUI,
-  PlasmoCSUIAnchor,
-  PlasmoCSUIContainer,
-  PlasmoCSUIMountState
-} from "~type"
+import type { PlasmoCSUI, PlasmoCSUIAnchor, PlasmoCSUIMountState } from "~type"
 
-async function createShadowDOM(Mount: PlasmoCSUI) {
+async function createShadowDOM<T>(Mount: PlasmoCSUI<T>) {
   const shadowHost = document.createElement("plasmo-csui")
 
   const shadowRoot =
@@ -30,8 +25,8 @@ async function createShadowDOM(Mount: PlasmoCSUI) {
 
 export type PlasmoCSUIShadowDOM = Awaited<ReturnType<typeof createShadowDOM>>
 
-async function injectAnchor(
-  Mount: PlasmoCSUI,
+async function injectAnchor<T>(
+  Mount: PlasmoCSUI<T>,
   anchor: PlasmoCSUIAnchor,
   { shadowHost, shadowRoot }: PlasmoCSUIShadowDOM,
   mountState?: PlasmoCSUIMountState
@@ -57,8 +52,8 @@ async function injectAnchor(
   }
 }
 
-export async function createShadowContainer(
-  Mount: PlasmoCSUI,
+export async function createShadowContainer<T>(
+  Mount: PlasmoCSUI<T>,
   anchor: PlasmoCSUIAnchor,
   mountState?: PlasmoCSUIMountState
 ) {
@@ -72,7 +67,7 @@ export async function createShadowContainer(
   return shadowDom.shadowContainer
 }
 
-export function createAnchorObserver(Mount: PlasmoCSUI) {
+export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
   const mountState: PlasmoCSUIMountState = {
     document: document || window.document,
     observer: null,
@@ -258,9 +253,9 @@ export function createAnchorObserver(Mount: PlasmoCSUI) {
   }
 }
 
-export const createRender = (
-  Mount: PlasmoCSUI,
-  containers: [PlasmoCSUIContainer, PlasmoCSUIContainer],
+export const createRender = <T>(
+  Mount: PlasmoCSUI<T>,
+  containers: [T, T],
   mountState?: PlasmoCSUIMountState,
   renderFx?: (anchor: PlasmoCSUIAnchor, rootContainer: Element) => Promise<void>
 ) => {

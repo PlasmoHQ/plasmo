@@ -1,7 +1,7 @@
 {
   "name": "plasmo",
-  "version": "0.70.0",
-  "description": "The Plasmo Platform CLI",
+  "version": "0.70.1",
+  "description": "The Plasmo Framework CLI",
   "publishConfig": {
     "types": "dist/type.d.ts"
   },

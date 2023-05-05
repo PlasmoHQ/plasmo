@@ -11,10 +11,14 @@ import { createRoot } from "react-dom/client"
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
-import type { PlasmoCSUI, PlasmoCSUIAnchor } from "~type"
+import type {
+  PlasmoCSUI,
+  PlasmoCSUIAnchor,
+  PlasmoCSUIJSXContainer
+} from "~type"
 
 // Escape parcel's static analyzer
-const Mount = RawMount as PlasmoCSUI
+const Mount = RawMount as PlasmoCSUI<PlasmoCSUIJSXContainer>
 
 const observer = createAnchorObserver(Mount)
 
@@ -76,5 +80,12 @@ if (!!observer) {
   render({
     element: document.documentElement,
     type: "overlay"
+  })
+}
+
+if (typeof Mount.watch === "function") {
+  Mount.watch({
+    observer,
+    render
   })
 }
