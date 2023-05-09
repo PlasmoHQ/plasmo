@@ -11,3 +11,7 @@ export const getPort = (name: PortName) => {
   portMap.set(name, newPort)
   return newPort
 }
+
+export const delPort = (name: PortName) => {
+  portMap.delete(name)
+}
