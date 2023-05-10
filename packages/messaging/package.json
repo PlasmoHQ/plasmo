@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/messaging",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Type-safe, zero-config messaging library for modern browser extensions",
   "type": "module",
   "module": "./dist/index.js",
@@ -26,6 +26,11 @@
       "require": "./dist/background.cjs",
       "types": "./dist/background.d.ts"
     },
+    "./message": {
+      "import": "./dist/message.js",
+      "require": "./dist/message.cjs",
+      "types": "./dist/message.d.ts"
+    },
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
@@ -34,6 +39,9 @@
   },
   "typesVersions": {
     "*": {
+      "message": [
+        "./dist/message.d.ts"
+      ],
       "hook": [
         "./dist/hook.d.ts"
       ],
@@ -56,6 +64,7 @@
       "src/index.ts",
       "src/port.ts",
       "src/relay.ts",
+      "src/message.ts",
       "src/background.ts",
       "src/hook.ts"
     ],
