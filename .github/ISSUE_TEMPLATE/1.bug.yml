@@ -66,14 +66,16 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: Shell
-  - type: input
-    id: contact
+
+  - type: checkboxes
+    id: contribution
     attributes:
-      label: (OPTIONAL) Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
+      label: (OPTIONAL) Contribution
+      description: Would you be willing to create a PR to solve this issue?
+      options:
+        - label: I would like to fix this BUG via a PR
+          required: true
+
   - type: checkboxes
     id: terms
     attributes:
