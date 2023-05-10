@@ -35,14 +35,14 @@ body:
     validations:
       required: false
 
-  - type: input
-    id: contact
+  - type: checkboxes
+    id: contribution
     attributes:
-      label: (OPTIONAL) Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
+      label: (OPTIONAL) Contribution
+      description: Would you be willing to create a PR to solve this issue?
+      options:
+        - label: I would like to contribute to this RFC via a PR
+          required: true
 
   - type: checkboxes
     attributes:
@@ -51,6 +51,7 @@ body:
       options:
         - label: I verified that the issue exists in `plasmo` canary release
           required: true
+
   - type: checkboxes
     id: terms
     attributes:

@@ -10,6 +10,7 @@ This PR ...
 ### Code of Conduct
 
 - [ ] I agree to follow this project's [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md)
+- [ ] I agree to license this contribution under the MIT LICENSE
 - [ ] I checked the [current PR](https://github.com/PlasmoHQ/plasmo/pulls) for duplication.
 
 ## Contacts
