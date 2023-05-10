@@ -12,6 +12,30 @@ export const getPort = (name: PortName) => {
   return newPort
 }
 
-export const delPort = (name: PortName) => {
+export const removePort = (name: PortName) => {
   portMap.delete(name)
+}
+
+export const listen = <ResponseBody = any>(
+  name: PortName,
+  handler: (msg: ResponseBody) => void,
+  onReconnect?: () => void
+) => {
+  const port = getPort(name)
+
+  function reconnectHandler() {
+    removePort(name)
+    onReconnect?.()
+  }
+
+  port.onMessage.addListener(handler)
+  port.onDisconnect.addListener(reconnectHandler)
+
+  return {
+    port,
+    disconnect: () => {
+      port.onMessage.removeListener(handler)
+      port.onDisconnect.removeListener(reconnectHandler)
+    }
+  }
 }
