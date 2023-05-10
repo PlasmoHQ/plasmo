@@ -18,7 +18,7 @@ export const removePort = (name: PortName) => {
 
 export const listen = <ResponseBody = any>(
   name: PortName,
-  handler: (msg: ResponseBody) => void,
+  handler: (msg: ResponseBody) => Promise<void> | void,
   onReconnect?: () => void
 ) => {
   const port = getPort(name)
