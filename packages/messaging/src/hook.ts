@@ -15,9 +15,9 @@ export const useMessage = <RequestBody, ResponseBody>(
 
   useEffect(
     () =>
-      messageListen<RequestBody, ResponseBody>((req, res) => {
+      messageListen<RequestBody, ResponseBody>(async (req, res) => {
         setData(req.body)
-        return handler(req, res)
+        await handler(req, res)
       }),
     [handler]
   )

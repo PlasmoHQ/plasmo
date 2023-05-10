@@ -1,4 +1,4 @@
-import { type MessageName, type PlasmoMessaging } from "./index"
+import { type PlasmoMessaging } from "./index"
 
 export const listen = <RequestBody, ResponseBody>(
   handler: PlasmoMessaging.Handler<string, RequestBody, ResponseBody>
