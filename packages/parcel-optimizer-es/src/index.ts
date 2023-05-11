@@ -14,6 +14,8 @@ import nullthrows from "nullthrows"
 import { join, relative } from "path"
 import { type MinifyOptions, minify } from "terser"
 
+import { vLog } from "@plasmo/utils/logging"
+
 import { toUtf8 } from "./to-utf8"
 
 export default new Optimizer({
@@ -21,6 +23,7 @@ export default new Optimizer({
     let code = (await blobToString(contents)) as string
 
     if (!bundle.env.shouldOptimize) {
+      vLog(`optimizer-es: skipped`)
       return {
         contents: toUtf8(code),
         map
@@ -37,6 +40,7 @@ export default new Optimizer({
       process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS !== "none" ||
       !bundle.env.shouldScopeHoist
     ) {
+      vLog(`optimizer-es: use TERSER for ${relativeBundlePath}`)
       const originalMap = map ? await map.stringify({}) : null
       const config: MinifyOptions = {
         format: {
@@ -76,17 +80,35 @@ export default new Optimizer({
         map: sourceMap
       }
     } else {
-      // ESBUILD full throttle, no sourcemap
-      const { code: esOutput } = await transform(code, {
-        sourcemap: false,
+      vLog(`optimizer-es: use ESBUILD for ${relativeBundlePath}`)
+      // const config: MinifyOptions = {
+      //   format: {
+      //     ascii_only: true,
+      //   },
+      //   sourceMap: false,
+      //   toplevel:
+      //     bundle.env.outputFormat === "esmodule" ||
+      //     bundle.env.outputFormat === "commonjs",
+      //   module: bundle.env.outputFormat === "esmodule"
+      // }
+
+      // const terserOutput = await minify(code, config)
+
+      const esbuildOutput = await transform(code, {
         sourcefile: relativeBundlePath,
+        sourcemap: false,
         minify: true,
         treeShaking: true,
-        format: "esm"
+        format: "esm",
+        platform: "browser"
       })
 
+      // console.log(">>> BUILD FOR:", relativeBundlePath)
+      // console.log(">>> >>> terser: ", terserOutput.code.length)
+      // console.log(">>> >>> esbuild: ", esbuildOutput.code.length)
+
       return {
-        contents: esOutput,
+        contents: esbuildOutput.code,
         map: null
       }
     }

@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-es",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Plasmo ECMAScript Optimizer for Extension",
   "files": [
     "dist"
