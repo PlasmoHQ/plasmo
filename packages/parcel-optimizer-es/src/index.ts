@@ -95,6 +95,7 @@ export default new Optimizer({
       // const terserOutput = await minify(code, config)
 
       const esbuildOutput = await transform(code, {
+        // drop: ["console", "debugger"],
         sourcefile: relativeBundlePath,
         sourcemap: false,
         minify: true,
