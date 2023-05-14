@@ -42,7 +42,7 @@ body:
       description: Would you be willing to create a PR to solve this issue?
       options:
         - label: I would like to contribute to this RFC via a PR
-          required: true
+          required: false
 
   - type: checkboxes
     attributes:
