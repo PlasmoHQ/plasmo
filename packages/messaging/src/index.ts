@@ -34,7 +34,7 @@ export const sendToContentScript: PlasmoMessaging.SendFx = async (req) => {
   const tabId =
     typeof req.tabId === "number" ? req.tabId : (await getActiveTab()).id
 
-  return chrome.tabs.sendMessage(tabId, req)
+  return await chrome.tabs.sendMessage(tabId, req)
 }
 
 /**
