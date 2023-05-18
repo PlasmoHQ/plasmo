@@ -4,7 +4,6 @@ import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
 import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
-import { vLog } from "@plasmo/utils/logging"
 
 import { Parcel, type ParcelOptions } from "@plasmohq/parcel-core"
 
@@ -29,8 +28,6 @@ export const createParcelBuilder = async (
   } else {
     await ensureDir(commonPath.distDirectory)
   }
-
-  vLog("Parcel Builder Options:", defaultTargetOptions)
 
   process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_MINIFY =
     isProd && hasFlag("--no-minify") ? "true" : "false"
