@@ -29,6 +29,9 @@ export const createParcelBuilder = async (
     await ensureDir(commonPath.distDirectory)
   }
 
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_MINIFY =
+    isProd && hasFlag("--no-minify") ? "true" : "false"
+
   process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS = isProd
     ? hasFlag("--inline-source-maps")
       ? "inline"

@@ -1,5 +1,5 @@
 {
-  "extends": "@plasmo/config/ts/cli.json",
+  "extends": "@plasmo/config/ts/framework.json",
   "include": [
     "src/**/*.ts",
     "templates/static/**/*.ts",

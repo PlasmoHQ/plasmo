@@ -4,7 +4,11 @@ import path, { basename, dirname, join } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { PlasmoRuntime, RuntimeData, plasmoRuntimeList } from "./types"
+import {
+  type PlasmoRuntime,
+  type RuntimeData,
+  plasmoRuntimeList
+} from "./types"
 
 const devRuntimeMap = plasmoRuntimeList.reduce(
   (accumulatedRuntimeMap, currentRuntime) => ({
