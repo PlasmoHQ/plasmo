@@ -8,6 +8,8 @@ import type {
 } from "@parcel/types"
 import type { DefaultMap } from "@parcel/utils"
 
+import type { BitSet } from "./bit-set"
+
 type AssetId = string
 
 export type DependencyBundleGraph = ContentGraph<
@@ -34,7 +36,7 @@ export type IdealGraph = {
 export type Bundle = {
   uniqueKey: string | null | undefined
   assets: Set<Asset>
-  internalizedAssetIds: Array<AssetId>
+  internalizedAssets?: BitSet<Asset>
   bundleBehavior?: BundleBehavior | null | undefined
   needsStableName: boolean
   mainEntryAsset: Asset | null | undefined
