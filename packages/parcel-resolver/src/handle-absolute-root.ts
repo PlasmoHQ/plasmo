@@ -1,8 +1,8 @@
 import { extname, isAbsolute, resolve } from "path"
 
 import {
-  ResolverProps,
-  ResolverResult,
+  type ResolverProps,
+  type ResolverResult,
   relevantExtensionList,
   resolveSourceIndex
 } from "./shared"

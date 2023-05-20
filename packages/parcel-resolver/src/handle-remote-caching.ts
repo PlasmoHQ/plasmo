@@ -2,6 +2,7 @@ import { hashString } from "@parcel/hash"
 import { resolve } from "path"
 
 import { injectEnv } from "@plasmo/utils/env"
+import { vLog } from "@plasmo/utils/logging"
 
 import {
   type ResolverProps,
@@ -42,13 +43,22 @@ export async function handleRemoteCaching({
     const cookedCode = await cookCode(target, code)
 
     const filePath = resolve(
-      options.projectRoot,
+      state.remoteCacheDirectory,
       `${hashString(specifier)}-${hashString(cookedCode)}.${fileType}`
     )
+
+    await options.inputFS.rimraf(filePath)
+
+    await options.inputFS.writeFile(filePath, cookedCode, {
+      mode: 0o66
+    })
+
+    vLog(`Caching HTTPS dependency: ${specifier}`)
 
     return {
       code: cookedCode,
       priority: "lazy",
+      sideEffects: true,
       filePath
     }
   } catch (error) {
