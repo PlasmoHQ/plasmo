@@ -40,14 +40,10 @@ export default new Optimizer({
 
     vLog(`optimizer-es: use SWC for ${bundle.displayName}`)
 
-    const swcOutput = await swcTransform(code, {
+    const swcOutput = await swcTransform(toUtf8(code), {
       jsc: {
         target: "es2022",
-
         minify: {
-          format: {
-            ascii_only: true
-          },
           mangle: shouldMinify,
           compress: shouldMinify,
           sourceMap: sourceMapType !== "none",

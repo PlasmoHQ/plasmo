@@ -4,8 +4,8 @@ import { resolve } from "path"
 import { injectEnv } from "@plasmo/utils/env"
 
 import {
-  ResolverProps,
-  ResolverResult,
+  type ResolverProps,
+  type ResolverResult,
   relevantExtensionList,
   state
 } from "./shared"

@@ -47,6 +47,8 @@ declare module "*.graphql"
 
 declare module "react:*"
 
+declare module "https:*"
+
 declare module "url:*" {
   const value: string
   export default value
