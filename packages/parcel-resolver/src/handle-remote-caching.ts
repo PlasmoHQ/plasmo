@@ -51,7 +51,7 @@ export async function handleRemoteCaching({
     await options.inputFS.rimraf(filePath)
 
     await options.inputFS.writeFile(filePath, cookedCode, {
-      mode: 0o66
+      mode: 0o664
     })
 
     vLog(`Caching HTTPS dependency: ${specifier}`)
