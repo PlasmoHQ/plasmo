@@ -10,12 +10,12 @@
 import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
-import { runtimeData } from "../utils/0-patch-module"
+import { SCRIPT_PORT_PREFIX, runtimeData } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { createLoadingIndicator } from "../utils/loading-indicator"
 
-const PORT_NAME = `__plasmo_runtime_script_${module.id}__`
+const PORT_NAME = `${SCRIPT_PORT_PREFIX}${module.id}__`
 let scriptPort: chrome.runtime.Port
 let isActiveTab = false
 
