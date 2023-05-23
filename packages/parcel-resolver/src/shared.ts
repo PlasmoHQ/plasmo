@@ -89,8 +89,12 @@ export const resolveSourceIndex = async (
   checkingExts = relevantExtensionList as readonly string[],
   opts = {} as Partial<ResolveResult>
 ): Promise<ResolverResult> => {
+  const browser = process.env.PLASMO_BROWSER
+
   const potentialFiles = checkingExts.flatMap((ext) => [
+    ...(browser ? [`${absoluteBaseFile}.${browser}${ext}`] : []),
     `${absoluteBaseFile}${ext}`,
+    ...(browser ? [resolve(absoluteBaseFile, `index.${browser}${ext}`)] : []),
     resolve(absoluteBaseFile, `index${ext}`)
   ])
 

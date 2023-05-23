@@ -5,6 +5,7 @@ import { handleAlias } from "./handle-alias"
 import { handleModuleExport } from "./handle-module-exports"
 import { handlePlasmoInternal } from "./handle-plasmo-internal"
 import { handlePolyfill } from "./handle-polyfill"
+import { handleRelativePath } from "./handle-relative-path"
 import { handleRemoteCaching } from "./handle-remote-caching"
 import { handleTildeSrc } from "./handle-tilde-src"
 import { initializeState } from "./shared"
@@ -21,6 +22,7 @@ export default new Resolver({
       (await handleTildeSrc(props)) ||
       (await handleAbsoluteRoot(props)) ||
       (await handleModuleExport(props)) ||
+      (await handleRelativePath(props)) ||
       null
     )
   }

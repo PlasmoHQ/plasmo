@@ -59,6 +59,10 @@ export class Scaffolder {
   }
 
   #initUiPageTemplate = async (uiPageName: ExtensionUIPage) => {
+    if (process.env.PLASMO_BROWSER === "safari") {
+      return
+    }
+
     vLog(`Creating static templates for ${uiPageName}`)
 
     const indexList = this.projectPath[`${uiPageName}IndexList`]

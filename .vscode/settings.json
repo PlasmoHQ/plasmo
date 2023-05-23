@@ -18,5 +18,8 @@
   "git.detectSubmodulesLimit": 99,
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
-  }
+  },
+  "cSpell.words": [
+    "PLASMO"
+  ]
 }

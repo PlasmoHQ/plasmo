@@ -1,26 +1,29 @@
 import { resolve } from "path"
 
-import { isReadable } from "@plasmo/utils/fs"
-
-import { type ResolverProps, type ResolverResult, state } from "./shared"
+import {
+  type ResolverProps,
+  type ResolverResult,
+  resolveSourceIndex,
+  state
+} from "./shared"
 
 export async function handleAlias({
   specifier
 }: ResolverProps): Promise<ResolverResult> {
-  if (!state.aliasMap.has(specifier)) {
+  const targetAlias = Array.from(state.aliasMap.keys()).find((alias) => {
+    return specifier.includes(alias);
+  })
+
+  if (!targetAlias) {
     return null
   }
 
-  const absPath = resolve(state.aliasMap.get(specifier))
+  const wipeAliasPath = specifier.replace(new RegExp(targetAlias, "g"), "")
+  const absolutePath = resolve(
+    process.env.PLASMO_PROJECT_DIR,
+    state.aliasMap.get(targetAlias)[0],
+    wipeAliasPath
+  )
 
-  const hasLocalAlias = await isReadable(absPath)
-
-  if (!hasLocalAlias) {
-    return null
-  }
-
-  return {
-    filePath: absPath,
-    priority: "sync"
-  }
+  return resolveSourceIndex(absolutePath, [".ts", ".tsx", ".js", ".jsx"])
 }
