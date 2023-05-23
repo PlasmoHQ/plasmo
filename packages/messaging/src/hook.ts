@@ -62,8 +62,7 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
         body
       })
     },
-    listen: <T = string>(handler: (msg: T) => void) =>
-      portListen<T>(name, handler)
+    listen: (handler) => portListen(name, handler)
   }
 }
 

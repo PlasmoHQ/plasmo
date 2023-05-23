@@ -92,6 +92,12 @@ export namespace PlasmoMessaging {
     <TRequestBody = Record<string, any>, TResponseBody = any>(name: PortName): {
       data?: TResponseBody
       send: (payload: TRequestBody) => void
+      listen: <T = TResponseBody>(
+        handler: (msg: T) => void
+      ) => {
+        port: chrome.runtime.Port
+        disconnect: () => void
+      }
     }
   }
 }
