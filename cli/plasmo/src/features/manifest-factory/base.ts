@@ -351,7 +351,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     if (enable) {
       const metadata = await extractContentScriptConfig(path)
-      if (metadata.isEmpty) {
+      if (metadata?.isEmpty) {
         return false
       }
 
