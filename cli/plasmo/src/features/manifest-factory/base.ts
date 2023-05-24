@@ -8,7 +8,7 @@ import {
   readJson,
   writeJson
 } from "fs-extra"
-import { readdir } from "fs/promises"
+import { readFile, readdir } from "fs/promises"
 import { hasher as createHasher } from "node-object-hash"
 import {
   basename,
@@ -351,6 +351,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     if (enable) {
       const metadata = await extractContentScriptConfig(path)
+      if (metadata.isEmpty) {
+        return false
+      }
 
       vLog("Adding content script: ", path)
 

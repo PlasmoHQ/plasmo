@@ -42,6 +42,12 @@ export const createParcelBuilder = async (
     ? "none"
     : "inline"
 
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_CS_RELOAD = hasFlag(
+    "--no-cs-reload"
+  )
+    ? "true"
+    : "false"
+
   const pmInfo = await getPackageManager()
 
   const inputFS = new ParcelFS.NodeFS()

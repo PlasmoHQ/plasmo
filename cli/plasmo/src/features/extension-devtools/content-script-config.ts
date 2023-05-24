@@ -18,6 +18,11 @@ const {
 export const extractContentScriptConfig = async (path: string) => {
   try {
     const sourceContent = await readFile(path, "utf8")
+    if (sourceContent.length === 0) {
+      return {
+        isEmpty: true
+      }
+    }
 
     const sourceFile = createSourceFile(
       path,
