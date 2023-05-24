@@ -5,7 +5,7 @@ import { relative, resolve } from "path"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
-import type { PlasmoManifest } from "~features/manifest-factory/base"
+import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 export const createBgswMainWorldInjector = async (
   plasmoManifest: PlasmoManifest
@@ -65,7 +65,7 @@ export const createBgswMainWorldInjector = async (
     const code = `${importStatements.map(([top]) => top).join("\n")}
 chrome.scripting.registerContentScripts([
   ${importStatements.map(([, reg]) => reg).join(",\n  ")}
-])
+]).catch(_ => {})
 `
 
     await outputFile(outputPath, code)

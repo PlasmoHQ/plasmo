@@ -58,7 +58,10 @@ export function decorateLegacyGraph(
         })
       )
       bundleGraph.addBundleToBundleGroup(bundle, bundleGroup)
-    } else if (idealBundle.sourceBundles.size > 0) {
+    } else if (
+      idealBundle.sourceBundles.size > 0 &&
+      !idealBundle.mainEntryAsset
+    ) {
       bundle = nullthrows(
         bundleGraph.createBundle({
           uniqueKey:
@@ -105,19 +108,17 @@ export function decorateLegacyGraph(
   for (let [, idealBundle] of idealBundleGraph.nodes) {
     if (idealBundle === "root") continue
     let bundle = nullthrows(idealBundleToLegacyBundle.get(idealBundle))
-
-    for (let internalized of idealBundle.internalizedAssetIds) {
-      let incomingDeps = bundleGraph.getIncomingDependencies(
-        bundleGraph.getAssetById(internalized)
-      )
-
-      for (let incomingDep of incomingDeps) {
-        if (
-          incomingDep.priority === "lazy" &&
-          incomingDep.specifierType !== "url" &&
-          bundle.hasDependency(incomingDep)
-        ) {
-          bundleGraph.internalizeAsyncDependency(bundle, incomingDep)
+    if (idealBundle.internalizedAssets) {
+      for (let internalized of idealBundle.internalizedAssets.values()) {
+        let incomingDeps = bundleGraph.getIncomingDependencies(internalized)
+        for (let incomingDep of incomingDeps) {
+          if (
+            incomingDep.priority === "lazy" &&
+            incomingDep.specifierType !== "url" &&
+            bundle.hasDependency(incomingDep)
+          ) {
+            bundleGraph.internalizeAsyncDependency(bundle, incomingDep)
+          }
         }
       }
     }

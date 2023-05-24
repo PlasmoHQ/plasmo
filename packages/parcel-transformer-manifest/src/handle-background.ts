@@ -85,7 +85,7 @@ function handleMV3Background(program: MV3Data) {
           ...getJSONSourceLocation(ptrs["/background/service_worker"], "value")
         },
         env: {
-          context: "service-worker"
+          context: "web-worker"
         }
       }
     )
@@ -114,7 +114,7 @@ function handleMV3Background(program: MV3Data) {
         service_worker: asset.addURLDependency(defaultBackgroundScriptPath, {
           resolveFrom: __filename,
           env: {
-            context: "service-worker"
+            context: "web-worker"
           }
         })
       }

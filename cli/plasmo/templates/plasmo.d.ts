@@ -35,15 +35,19 @@ declare module "*.module.sass"
 declare module "*.module.styl"
 declare module "*.module.pcss"
 
-declare module "react:*"
-// {
-//   const value: FunctionComponent<SVGProps<SVGSVGElement>>
-//   export default value
-// }
+declare module "react:*.svg" {
+  import type { FunctionComponent, SVGProps } from "react"
+
+  const value: FunctionComponent<SVGProps<SVGSVGElement>>
+  export default value
+}
+
 declare module "*.gql"
 declare module "*.graphql"
 
 declare module "react:*"
+
+declare module "https:*"
 
 declare module "url:*" {
   const value: string

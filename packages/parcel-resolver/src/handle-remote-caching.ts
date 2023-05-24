@@ -2,10 +2,11 @@ import { hashString } from "@parcel/hash"
 import { resolve } from "path"
 
 import { injectEnv } from "@plasmo/utils/env"
+import { vLog } from "@plasmo/utils/logging"
 
 import {
-  ResolverProps,
-  ResolverResult,
+  type ResolverProps,
+  type ResolverResult,
   relevantExtensionList,
   state
 } from "./shared"
@@ -18,6 +19,7 @@ const cookCode = async (target: URL, code: string) => {
   }
 }
 
+// TODO: Some kind of caching mechanism would be nice
 export async function handleRemoteCaching({
   specifier,
   dependency,
@@ -27,6 +29,7 @@ export async function handleRemoteCaching({
     return null
   }
 
+  // Only these extensions parents are allowed to cache remote dependencies
   if (
     !relevantExtensionList.some((ext) => dependency.sourcePath.endsWith(ext))
   ) {
@@ -37,18 +40,25 @@ export async function handleRemoteCaching({
   const fileType = target.searchParams.get("plasmo-ext") || "js"
 
   try {
+    const filePath = resolve(
+      state.remoteCacheDirectory,
+      `${hashString(specifier)}.${fileType}`
+    )
     const code = (await state.got(target.toString()).text()) as string
 
     const cookedCode = await cookCode(target, code)
 
-    const filePath = resolve(
-      options.projectRoot,
-      `${hashString(specifier)}-${hashString(cookedCode)}.${fileType}`
-    )
+    await options.inputFS.rimraf(filePath)
+
+    await options.inputFS.writeFile(filePath, cookedCode, {
+      mode: 0o664
+    })
+
+    vLog(`Caching HTTPS dependency: ${specifier}`)
 
     return {
-      code: cookedCode,
       priority: "lazy",
+      sideEffects: true,
       filePath
     }
   } catch (error) {

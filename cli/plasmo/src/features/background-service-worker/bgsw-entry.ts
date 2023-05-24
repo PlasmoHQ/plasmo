@@ -4,7 +4,7 @@ import { relative, resolve } from "path"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
-import type { PlasmoManifest } from "~features/manifest-factory/base"
+import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 export const createBgswEntry = async (
   { indexFilePath = "", withMessaging = false, withMainWorldScript = false },

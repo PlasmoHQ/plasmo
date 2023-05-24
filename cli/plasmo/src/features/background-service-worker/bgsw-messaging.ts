@@ -12,7 +12,7 @@ import {
   outputMessagingDeclaration
 } from "~features/background-service-worker/bgsw-messaging-declaration"
 import { getMd5RevHash } from "~features/helpers/crypto"
-import type { PlasmoManifest } from "~features/manifest-factory/base"
+import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 const state = {
   md5Hash: ""

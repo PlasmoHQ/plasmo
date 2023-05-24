@@ -36,7 +36,10 @@ const EXTENSION_OPTIONS = {
  *
  */
 export default new Bundler({
-  loadConfig() {
+  loadConfig({ options }) {
+    // TODO: Maybe depend on whether it's BGSW or not, we enable bundle splitting
+    // console.log(options)
+
     return EXTENSION_OPTIONS
   },
 

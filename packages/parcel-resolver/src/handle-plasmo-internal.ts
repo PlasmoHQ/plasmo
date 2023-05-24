@@ -1,8 +1,8 @@
 import { resolve } from "path"
 
 import {
-  ResolverProps,
-  ResolverResult,
+  type ResolverProps,
+  type ResolverResult,
   resolveSourceIndex,
   state
 } from "./shared"

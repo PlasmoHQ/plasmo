@@ -10,10 +10,16 @@ import * as ReactDOM from "react-dom"
 // @ts-ignore
 import * as RawMount from "__plasmo_mount_content_script__"
 
-import type { PlasmoCSUI, PlasmoCSUIAnchor } from "~type"
+import { getLayout } from "@plasmo-static-common/react"
+
+import type {
+  PlasmoCSUI,
+  PlasmoCSUIAnchor,
+  PlasmoCSUIJSXContainer
+} from "~type"
 
 // Escape parcel's static analyzer
-const Mount = RawMount as PlasmoCSUI
+const Mount = RawMount as PlasmoCSUI<PlasmoCSUIJSXContainer>
 
 const observer = createAnchorObserver(Mount)
 
@@ -22,12 +28,16 @@ const render = createRender(
   [InlineCSUIContainer, OverlayCSUIContainer],
   observer?.mountState,
   async (anchor, rootContainer) => {
+    const Layout = getLayout(RawMount)
+
     switch (anchor.type) {
       case "inline": {
         ReactDOM.render(
-          <InlineCSUIContainer anchor={anchor}>
-            <RawMount.default anchor={anchor} />
-          </InlineCSUIContainer>,
+          <Layout>
+            <InlineCSUIContainer anchor={anchor}>
+              <RawMount.default anchor={anchor} />
+            </InlineCSUIContainer>
+          </Layout>,
           rootContainer
         )
         break
@@ -46,13 +56,14 @@ const render = createRender(
                 type: "overlay"
               }
               return (
-                <OverlayCSUIContainer
-                  id={id}
-                  key={id}
-                  anchor={innerAnchor}
-                  watchOverlayAnchor={Mount.watchOverlayAnchor}>
-                  <RawMount.default anchor={innerAnchor} />
-                </OverlayCSUIContainer>
+                <Layout key={id}>
+                  <OverlayCSUIContainer
+                    id={id}
+                    anchor={innerAnchor}
+                    watchOverlayAnchor={Mount.watchOverlayAnchor}>
+                    <RawMount.default anchor={innerAnchor} />
+                  </OverlayCSUIContainer>
+                </Layout>
               )
             })}
           </>,
@@ -70,5 +81,12 @@ if (!!observer) {
   render({
     element: document.documentElement,
     type: "overlay"
+  })
+}
+
+if (typeof Mount.watch === "function") {
+  Mount.watch({
+    observer,
+    render
   })
 }

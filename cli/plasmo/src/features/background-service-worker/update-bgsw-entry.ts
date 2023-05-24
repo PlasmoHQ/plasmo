@@ -4,7 +4,7 @@ import { isAccessible } from "@plasmo/utils/fs"
 import { createBgswEntry } from "~features/background-service-worker/bgsw-entry"
 import { createBgswMainWorldInjector } from "~features/background-service-worker/bgsw-main-world-script"
 import { createBgswMessaging } from "~features/background-service-worker/bgsw-messaging"
-import type { PlasmoManifest } from "~features/manifest-factory/base"
+import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 export const updateBgswEntry = async (plasmoManifest: PlasmoManifest) => {
   const [bgswIndexFilePath, withMessaging, withMainWorldScript] =

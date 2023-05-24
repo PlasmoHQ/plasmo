@@ -5,7 +5,7 @@ import { dirname, join, resolve } from "path"
 
 import { hasFlag } from "@plasmo/utils/flags"
 
-import { Parcel, ParcelOptions } from "@plasmohq/parcel-core"
+import { Parcel, type ParcelOptions } from "@plasmohq/parcel-core"
 
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
@@ -29,6 +29,9 @@ export const createParcelBuilder = async (
     await ensureDir(commonPath.distDirectory)
   }
 
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_MINIFY =
+    isProd && hasFlag("--no-minify") ? "true" : "false"
+
   process.env.__PLASMO_FRAMEWORK_INTERNAL_SOURCE_MAPS = isProd
     ? hasFlag("--inline-source-maps")
       ? "inline"
@@ -38,6 +41,12 @@ export const createParcelBuilder = async (
     : hasFlag("--no-source-maps")
     ? "none"
     : "inline"
+
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_CS_RELOAD = hasFlag(
+    "--no-cs-reload"
+  )
+    ? "true"
+    : "false"
 
   const pmInfo = await getPackageManager()
 

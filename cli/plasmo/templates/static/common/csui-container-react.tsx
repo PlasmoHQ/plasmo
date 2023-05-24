@@ -34,7 +34,9 @@ export const OverlayCSUIContainer = (props: PlasmoCSUIContainerProps) => {
     window.addEventListener("scroll", updatePosition)
 
     return () => {
-      unwatch?.()
+      if (typeof unwatch === "function") {
+        unwatch()
+      }
       window.removeEventListener("scroll", updatePosition)
     }
   }, [])

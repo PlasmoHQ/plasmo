@@ -7,7 +7,7 @@ import { handlePlasmoInternal } from "./handle-plasmo-internal"
 import { handlePolyfill } from "./handle-polyfill"
 import { handleRemoteCaching } from "./handle-remote-caching"
 import { handleTildeSrc } from "./handle-tilde-src"
-import { initializeState, state } from "./shared"
+import { initializeState } from "./shared"
 
 export default new Resolver({
   async resolve(props) {

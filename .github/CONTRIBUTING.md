@@ -34,14 +34,17 @@ requests should be made against.
 
 To develop locally:
 
-1. Install [pnpm](https://pnpm.io/)
-1. Install the dependencies with:
+1. Install [pnpm](https://pnpm.io/) 
+   - DO NOT install pnpm a as npm's global dependency, we need pnpm to be able to link directly to your $PATH.
+   - Recommended installation method is with corepack or with brew (on macOS)
+   - If installed with brew, you might need to include the pnpm $PATH to your debugger
+2. Install the dependencies with:
 
    ```
    pnpm i
    ```
 
-1. Start developing and watch for code changes:
+3. Start developing and watch for code changes:
 
    ```
    pnpm dev:cli

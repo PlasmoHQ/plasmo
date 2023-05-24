@@ -4,7 +4,12 @@
 import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
-import { extCtx, runtimeData } from "../utils/0-patch-module"
+import {
+  PAGE_PORT_PREFIX,
+  SCRIPT_PORT_PREFIX,
+  extCtx,
+  runtimeData
+} from "../utils/0-patch-module"
 import { pollingDevServer } from "../utils/bgsw"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectBuilderSocket, injectHmrSocket } from "../utils/inject-socket"
@@ -13,26 +18,34 @@ const parent = module.bundle.parent
 
 const state = {
   buildReady: false,
-  hmrUpdated: false,
-  csCodeChanged: false,
-  ports: new Set<chrome.runtime.Port>()
+  bgChanged: false,
+  csChanged: false,
+  pageChanged: false,
+  scriptPorts: new Set<chrome.runtime.Port>(),
+  pagePorts: new Set<chrome.runtime.Port>()
 }
 
 async function consolidateUpdate(forced = false) {
-  if (
-    forced ||
-    (state.buildReady && (state.hmrUpdated || state.csCodeChanged))
-  ) {
-    vLog("BGSW Runtime - reloading")
+  if (forced || (state.buildReady && state.pageChanged)) {
+    vLog("BGSW Runtime - reloading Page")
+    for (const port of state.pagePorts) {
+      // Mark the active tab for specific reload
+      port.postMessage(null)
+    }
+  }
+
+  if (forced || (state.buildReady && (state.bgChanged || state.csChanged))) {
+    vLog("BGSW Runtime - reloading CS")
     const activeTabList = await chrome.tabs.query({ active: true })
 
-    for (const port of state.ports) {
-      const isActive = activeTabList.some((t) => t.id === port.sender.tab.id)
-
+    for (const port of state.scriptPorts) {
+      const isActive = activeTabList.some((t) => t.id === port.sender.tab?.id)
+      // Mark the active tab for specific reload
       port.postMessage({
         __plasmo_cs_active_tab__: isActive
       } as BackgroundMessage)
     }
+    // Required to actually reload the CS
     extCtx.runtime.reload()
   }
 }
@@ -41,7 +54,7 @@ if (!parent || !parent.isParcelRequire) {
   const hmrSocket = injectHmrSocket(async (updatedAssets) => {
     vLog("BGSW Runtime - On HMR Update")
 
-    state.hmrUpdated ||= updatedAssets
+    state.bgChanged ||= updatedAssets
       .filter((asset) => asset.envHash === runtimeData.envHash)
       .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
 
@@ -54,7 +67,7 @@ if (!parent || !parent.isParcelRequire) {
         .map((o) => Object.values(o))
         .flat()
 
-      state.hmrUpdated ||= deps.every((dep) => changedIdSet.has(dep))
+      state.bgChanged ||= deps.every((dep) => changedIdSet.has(dep))
     }
 
     consolidateUpdate()
@@ -81,18 +94,29 @@ injectBuilderSocket(async () => {
 })
 
 extCtx.runtime.onConnect.addListener(function (port) {
-  if (port.name.startsWith("__plasmo_runtime_script_")) {
-    state.ports.add(port)
+  const isPagePort = port.name.startsWith(PAGE_PORT_PREFIX)
+  const isScriptPort = port.name.startsWith(SCRIPT_PORT_PREFIX)
+
+  if (isPagePort || isScriptPort) {
+    const portSet = isPagePort ? state.pagePorts : state.scriptPorts
+
+    portSet.add(port)
+
     port.onDisconnect.addListener(() => {
-      state.ports.delete(port)
+      portSet.delete(port)
     })
 
     port.onMessage.addListener(function (msg: BackgroundMessage) {
+      vLog("BGSW Runtime - On source changed", msg)
       if (msg.__plasmo_cs_changed__) {
-        vLog("BGSW Runtime - On CS code changed")
-        state.csCodeChanged ||= true
-        consolidateUpdate()
+        state.csChanged ||= true
       }
+
+      if (msg.__plasmo_page_changed__) {
+        state.pageChanged ||= true
+      }
+
+      consolidateUpdate()
     })
   }
 })

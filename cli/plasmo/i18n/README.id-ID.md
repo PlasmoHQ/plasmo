@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/README.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | Indonesian
+  <a href="/cli/plasmo/README.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | Indonesian | <a href="/cli/plasmo/i18n/README.ru-RU.md">Русский</a> | <a href="/cli/plasmo/i18n/README.tr-TR.md">Turkish</a> | <a href="/cli/plasmo/i18n/README.ja-JP.md">日本語</a>
 </p>
 
 # Framework Plasmo
@@ -126,7 +126,7 @@ Terima kasih banyak untuk semua yang luar biasa [kontributor](https://github.com
 
 Jangan ragu untuk ikut bersenang-senang dan mengirim PR!
 
-### Framework Plasmo 
+### Framework Plasmo
 
 <a href="https://github.com/PlasmoHQ/plasmo/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PlasmoHQ/plasmo" />

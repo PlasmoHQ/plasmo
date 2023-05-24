@@ -42,7 +42,7 @@ import { AbortController } from "abortcontroller-polyfill/dist/cjs-ponyfill"
 import invariant from "assert"
 import nullthrows from "nullthrows"
 
-import { resolveOptions } from "./resolve-options"
+import { type ResolvedOptions, resolveOptions } from "./resolve-options"
 
 registerCoreWithSerializer()
 
@@ -59,7 +59,7 @@ export class Parcel {
   #disposable: Disposable
   #initialOptions: InitialParcelOptions
   #reporterRunner: ReporterRunner
-  #resolvedOptions = null
+  #resolvedOptions: ResolvedOptions = null
   #optionsRef: SharedReference
   #watchAbortController /*: AbortController*/
   #watchQueue = new PromiseQueue<BuildEvent>({
@@ -274,7 +274,7 @@ export class Parcel {
 
       this.#requestedAssetIds.clear()
 
-      dumpGraphToGraphViz(
+      await dumpGraphToGraphViz(
         // $FlowFixMe
         this.#requestTracker.graph,
         "RequestGraph",
@@ -372,6 +372,8 @@ export class Parcel {
 
   async _getWatcherSubscription(): Promise<AsyncSubscription> {
     invariant(this.#watcherSubscription == null)
+
+    // TODO: This is where the resolvedOptions - the watch project root, need to be fixed
 
     let resolvedOptions = nullthrows(this.#resolvedOptions)
     let opts = getWatcherOptions(resolvedOptions)

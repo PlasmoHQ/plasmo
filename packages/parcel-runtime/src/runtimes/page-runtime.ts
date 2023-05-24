@@ -1,14 +1,47 @@
 import { vLog } from "@plasmo/utils/logging"
 
-import { runtimeData, triggerReload } from "../utils/0-patch-module"
-import { hmrAcceptCheck, hmrState, resetHmrState } from "../utils/hmr-check"
+import type { BackgroundMessage } from "../types"
+import {
+  PAGE_PORT_PREFIX,
+  runtimeData,
+  triggerReload
+} from "../utils/0-patch-module"
+import {
+  hmrAcceptCheck,
+  hmrState,
+  isDependencyOfBundle,
+  resetHmrState
+} from "../utils/hmr-check"
 import { hmrAccept, hmrApplyUpdates, hmrDispose } from "../utils/hmr-utils"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { injectReactRefresh } from "../utils/react-refresh"
 
+const PORT_NAME = `${PAGE_PORT_PREFIX}${module.id}__`
+let pagePort: chrome.runtime.Port
+
 const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
+  try {
+    pagePort = globalThis.chrome.runtime.connect({
+      name: PORT_NAME
+    })
+
+    pagePort.onDisconnect.addListener(() => {
+      triggerReload()
+    })
+
+    // TODO: should prob use canHmr instead of isReact
+    if (!runtimeData.isReact) {
+      pagePort.onMessage.addListener(() => {
+        // bgsw reloaded, all context gone
+        triggerReload()
+      })
+    }
+  } catch (error) {
+    vLog(error)
+  }
+
   injectHmrSocket(async (updatedAssets) => {
     vLog("Page runtime - On HMR Update")
     if (runtimeData.isReact) {
@@ -57,8 +90,16 @@ if (!parent || !parent.isParcelRequire) {
         }
       }
     } else {
-      vLog("Page runtime - Reloading")
-      await triggerReload()
+      const sourceChanged = updatedAssets
+        .filter((asset) => asset.envHash === runtimeData.envHash)
+        .some((asset) => isDependencyOfBundle(module.bundle, asset.id))
+      vLog(`Page runtime -`, { sourceChanged })
+
+      if (sourceChanged) {
+        pagePort.postMessage({
+          __plasmo_page_changed__: true
+        } as BackgroundMessage)
+      }
     }
   })
 }

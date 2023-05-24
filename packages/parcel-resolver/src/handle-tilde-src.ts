@@ -1,8 +1,8 @@
 import { extname, resolve } from "path"
 
 import {
-  ResolverProps,
-  ResolverResult,
+  type ResolverProps,
+  type ResolverResult,
   relevantExtensionList,
   relevantExtensionSet,
   resolveSourceIndex

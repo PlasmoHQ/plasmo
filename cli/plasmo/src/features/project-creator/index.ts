@@ -14,7 +14,7 @@ import { iLog, vLog } from "@plasmo/utils/logging"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import {
-  PackageJSON,
+  type PackageJSON,
   generatePackage,
   resolveWorkspaceToLatestSemver
 } from "~features/extension-devtools/package-file"
@@ -206,14 +206,13 @@ export class ProjectCreator {
         vLog(
           "Replace workspace refs with the latest package version from npm registry"
         )
-        await Promise.all([
-          (packageData.dependencies = await resolveWorkspaceToLatestSemver(
-            packageData.dependencies
-          )),
-          (packageData.devDependencies = await resolveWorkspaceToLatestSemver(
-            packageData.devDependencies
-          ))
+        const resolvedDeps = await Promise.all([
+          resolveWorkspaceToLatestSemver(packageData.dependencies),
+          resolveWorkspaceToLatestSemver(packageData.devDependencies)
         ])
+
+        packageData.dependencies = resolvedDeps[0]
+        packageData.devDependencies = resolvedDeps[1]
       }
     }
 

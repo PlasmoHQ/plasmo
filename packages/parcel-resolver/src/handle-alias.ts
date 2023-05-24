@@ -2,7 +2,7 @@ import { resolve } from "path"
 
 import { isReadable } from "@plasmo/utils/fs"
 
-import { ResolverProps, ResolverResult, state } from "./shared"
+import { type ResolverProps, type ResolverResult, state } from "./shared"
 
 export async function handleAlias({
   specifier

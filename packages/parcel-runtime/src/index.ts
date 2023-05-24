@@ -4,7 +4,11 @@ import path, { basename, dirname, join } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { PlasmoRuntime, RuntimeData, plasmoRuntimeList } from "./types"
+import {
+  type PlasmoRuntime,
+  type RuntimeData,
+  plasmoRuntimeList
+} from "./types"
 
 const devRuntimeMap = plasmoRuntimeList.reduce(
   (accumulatedRuntimeMap, currentRuntime) => ({
@@ -98,6 +102,13 @@ export default new Runtime({
 
     const isContentScript =
       dirname(entryFilePath).endsWith("contents") || entryBasename === "content"
+
+    if (
+      process.env.__PLASMO_FRAMEWORK_INTERNAL_NO_CS_RELOAD === "true" &&
+      isContentScript
+    ) {
+      return
+    }
 
     // TODO: add production runtimes
     const devRuntime: PlasmoRuntime = isBackground

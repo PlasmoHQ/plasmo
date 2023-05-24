@@ -55,8 +55,9 @@ export const getProjectPath = (
    */
   const getModuleList = (moduleName: string) =>
     [".ts", ...uiExts, ".js"].flatMap((ext) => [
-      resolve(sourceDirectory, `${moduleName}${ext}`),
-      resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`)
+      resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
+      resolve(sourceDirectory, `${moduleName}.${process.env.NODE_ENV}${ext}`),
+      resolve(sourceDirectory, `${moduleName}${ext}`)
     ])
 
   /**
@@ -66,6 +67,14 @@ export const getProjectPath = (
     exts.flatMap((ext) => [
       resolve(sourceDirectory, `${moduleName}.${browserTarget}${ext}`),
       resolve(sourceDirectory, moduleName, `index.${browserTarget}${ext}`),
+
+      resolve(sourceDirectory, `${moduleName}.${process.env.NODE_ENV}${ext}`),
+      resolve(
+        sourceDirectory,
+        moduleName,
+        `index.${process.env.NODE_ENV}${ext}`
+      ),
+
       resolve(sourceDirectory, `${moduleName}${ext}`),
       resolve(sourceDirectory, moduleName, `index${ext}`)
     ])

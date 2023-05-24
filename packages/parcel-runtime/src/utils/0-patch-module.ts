@@ -44,6 +44,8 @@ export async function triggerReload(fullReload = false) {
     extCtx.runtime.sendMessage<BackgroundMessage>({
       __plasmo_full_reload__: true
     })
+  } else {
+    globalThis.location?.reload?.()
   }
 }
 
@@ -60,3 +62,6 @@ export function getHostname() {
 export function getPort() {
   return runtimeData.port || location.port
 }
+
+export const PAGE_PORT_PREFIX = `__plasmo_runtime_page_`
+export const SCRIPT_PORT_PREFIX = `__plasmo_runtime_script_`

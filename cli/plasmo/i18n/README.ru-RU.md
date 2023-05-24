@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/README.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | Русский
+  <a href="/cli/plasmo/README.md">English</a> | <a href="/cli/plasmo/i18n/README.zh-CN.md">简体中文</a> | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | <a href="/cli/plasmo/i18n/README.id-ID.md">Indonesian</a> | Русский< | <a href="/cli/plasmo/i18n/README.tr-TR.md">Turkish</a> | <a href="/cli/plasmo/i18n/README.ja-JP.md">日本語</a>
 </p>
 
 # Plasmo Framework
@@ -34,7 +34,7 @@
 
 ![CLI Demo](https://www.plasmo.com/assets/plasmo-cli-demo.gif)
 
-## Главные особенности 
+## Главные особенности
 
 - Первоклассная поддержка [React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
 - [Декларативная настройка "manifest.json" (MV3)](https://docs.plasmo.com/framework#where-is-the-manifestjson-file)
@@ -106,7 +106,7 @@ pnpm dev
 ...
 ```
 
-Наконец, вы также можете избежать размещения исходного кода в вашем корневом каталоге, поместив их в подкаталог `src`, [следуя этому руководству](https://docs.plasmo.com/framework/customization/src). Обратите внимание что `assets`  и другие конфигурационные файлы по-прежнему должны находиться в корневом каталоге.
+Наконец, вы также можете избежать размещения исходного кода в вашем корневом каталоге, поместив их в подкаталог `src`, [следуя этому руководству](https://docs.plasmo.com/framework/customization/src). Обратите внимание что `assets` и другие конфигурационные файлы по-прежнему должны находиться в корневом каталоге.
 
 ## Поддерживаемые браузеры
 
