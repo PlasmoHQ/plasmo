@@ -16,6 +16,7 @@ export function createBundle(opts: {
     return {
       uniqueKey: opts.uniqueKey,
       assets: new Set(),
+      internalizedAssetIds: [],
       mainEntryAsset: null,
       size: 0,
       sourceBundles: new Set(),
@@ -31,6 +32,7 @@ export function createBundle(opts: {
   return {
     uniqueKey: opts.uniqueKey,
     assets: new Set([asset]),
+    internalizedAssetIds: [],
     mainEntryAsset: asset,
     size: asset.stats.size,
     sourceBundles: new Set(),

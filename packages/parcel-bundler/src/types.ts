@@ -36,7 +36,8 @@ export type IdealGraph = {
 export type Bundle = {
   uniqueKey: string | null | undefined
   assets: Set<Asset>
-  internalizedAssets?: BitSet<Asset>
+  internalizedAsset?: BitSet<Asset>
+  internalizedAssetIds: Array<AssetId>
   bundleBehavior?: BundleBehavior | null | undefined
   needsStableName: boolean
   mainEntryAsset: Asset | null | undefined
