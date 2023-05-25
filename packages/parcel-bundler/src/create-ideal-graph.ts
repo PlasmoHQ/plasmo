@@ -9,8 +9,8 @@ import { createBundle } from "./create-bundle"
 import { getReachableBundleRoots } from "./get-reachable-bundle-root"
 import { removeBundle } from "./remove-bundle"
 import {
-  BundleRoot,
-  ResolvedBundlerConfig,
+  type BundleRoot,
+  type ResolvedBundlerConfig,
   dependencyPriorityEdges
 } from "./types"
 import type { Bundle, DependencyBundleGraph, IdealGraph } from "./types"
