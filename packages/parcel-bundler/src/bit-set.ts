@@ -1,7 +1,7 @@
 import nullthrows from "nullthrows"
 
-const BIGINT_ZERO: bigint = 0n
-const BIGINT_ONE: bigint = 1n
+const BIGINT_ZERO = 0n
+const BIGINT_ONE = 1n
 let numberToBigInt = (v: number): bigint => globalThis.BigInt(v)
 
 let bitUnion = (a: bigint, b: bigint): bigint => a | b

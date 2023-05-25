@@ -37,7 +37,7 @@
     "@types/inquirer": "9.0.3",
     "@types/node": "20.2.3",
     "@types/node-rsa": "1.1.1",
-    "@types/react": "18.2.6",
+    "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "@types/semver": "7.5.0",
     "@types/uuid": "9.0.1",
@@ -50,7 +50,7 @@
     "prettier": "2.8.8",
     "sharp": "0.32.1",
     "tsup": "6.7.0",
-    "turbo": "1.9.8"
+    "turbo": "1.9.9"
   },
   "engines": {
     "npm": ">=7.0.0",
