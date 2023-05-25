@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-optimizer-encapsulate",
-  "version": "0.0.2",
-  "description": "Plasmo ECMAScript Encapsulation for Extension",
+  "name": "@plasmohq/parcel-compressor-utf8",
+  "version": "0.0.0",
+  "description": "Plasmo UTF8 Compressor for Extension",
   "files": [
     "dist"
   ],
@@ -27,9 +27,6 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/types": "2.8.3",
-    "@parcel/core": "2.8.3",
-    "@parcel/plugin": "2.8.3",
-    "@parcel/source-map": "2.1.1"
+    "@parcel/plugin": "2.8.3"
   }
 }

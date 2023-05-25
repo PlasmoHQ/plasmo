@@ -74,7 +74,11 @@ export default new Runtime({
       return
     }
 
-    const entryFilePath = bundle.getMainEntry().filePath
+    const entryFilePath = bundle.getMainEntry()?.filePath
+
+    if (!entryFilePath) {
+      return
+    }
 
     const isPlasmo = entryFilePath.includes(".plasmo")
 

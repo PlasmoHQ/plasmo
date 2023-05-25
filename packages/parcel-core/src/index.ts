@@ -37,6 +37,7 @@ import type {
   InitialParcelOptions
 } from "@parcel/types"
 import { PromiseQueue } from "@parcel/utils"
+import { type Options as ParcelWatcherOptions } from "@parcel/watcher"
 // eslint-disable-next-line no-unused-vars
 import { AbortController } from "abortcontroller-polyfill/dist/cjs-ponyfill"
 import invariant from "assert"
@@ -376,7 +377,10 @@ export class Parcel {
     // TODO: This is where the resolvedOptions - the watch project root, need to be fixed
 
     let resolvedOptions = nullthrows(this.#resolvedOptions)
-    let opts = getWatcherOptions(resolvedOptions)
+    let opts: ParcelWatcherOptions = getWatcherOptions(resolvedOptions)
+
+    opts.ignore.push(process.env.PLASMO_BUILD_DIR)
+
     let sub = await resolvedOptions.inputFS.watch(
       resolvedOptions.projectRoot,
       (err, events) => {

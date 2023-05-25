@@ -59,6 +59,10 @@
       "@plasmohq/parcel-optimizer-es"
     ]
   },
+  "compressors": {
+    "*": ["@parcel/compressor-raw"],
+    "*.js": ["@plasmohq/parcel-compressor-utf8"]
+  },
   "runtimes": [
     "@parcel/runtime-js",
     "@plasmohq/parcel-runtime",

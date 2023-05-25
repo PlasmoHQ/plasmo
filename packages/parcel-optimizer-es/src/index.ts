@@ -8,13 +8,12 @@
 
 import { Optimizer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
-import { blobToString } from "@parcel/utils"
 import { transform as swcTransform } from "@swc/core"
 import nullthrows from "nullthrows"
 
 import { vLog } from "@plasmo/utils/logging"
 
-import { toUtf8 } from "./to-utf8"
+import { blobToString } from "./blob-to-string"
 
 export default new Optimizer({
   async optimize({
@@ -24,12 +23,19 @@ export default new Optimizer({
     options,
     getSourceMapReference
   }) {
-    const code = (await blobToString(contents)) as string
+    vLog(
+      "@plasmohq/optimizer-es: ",
+      bundle.name,
+      bundle.displayName,
+      options.projectRoot
+    )
+
+    const code = await blobToString(contents)
 
     if (!bundle.env.shouldOptimize) {
       vLog(`optimizer-es: skipped`)
       return {
-        contents: toUtf8(code),
+        contents: code,
         map: originalMap
       }
     }
@@ -40,7 +46,7 @@ export default new Optimizer({
 
     vLog(`optimizer-es: use SWC for ${bundle.displayName}`)
 
-    const swcOutput = await swcTransform(toUtf8(code), {
+    const swcOutput = await swcTransform(code, {
       jsc: {
         target: "es2022",
         minify: {

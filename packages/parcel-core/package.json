@@ -29,6 +29,7 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
+    "@parcel/watcher": "2.1.0",
     "@parcel/cache": "2.8.3",
     "@parcel/core": "2.8.3",
     "@parcel/diagnostic": "2.8.3",
