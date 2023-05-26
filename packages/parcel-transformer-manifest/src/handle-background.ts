@@ -68,32 +68,31 @@ function handleMV3Background(program: MV3Data) {
   vLog(`Handling background service worker`)
   if (program.background?.service_worker) {
     // Handle Firefox preliminary MV3 support:
-    if (env.PLASMO_BROWSER === "firefox") {
+    if (env.PLASMO_BROWSER === "firefox" || env.PLASMO_BROWSER === "safari") {
       const mv2Program = program as unknown as MV2Data
       mv2Program.background.scripts = [program.background.service_worker]
       delete program.background.service_worker
+
+      if (env.PLASMO_BROWSER === "safari") {
+        program.background.persistent = false
+      }
       handleMV2Background(mv2Program)
       return
     }
 
-    if (env.PLASMO_BROWSER === "safari") {
-      (program as unknown as MV2Data).background.scripts = [program.background.service_worker]
-      delete program.background.service_worker
-    } else {
-      program.background.service_worker = asset.addURLDependency(
-        program.background.service_worker,
-        {
-          bundleBehavior: "isolated",
-          loc: {
-            filePath,
-            ...getJSONSourceLocation(ptrs["/background/service_worker"], "value")
-          },
-          env: {
-            context: "web-worker"
-          }
+    program.background.service_worker = asset.addURLDependency(
+      program.background.service_worker,
+      {
+        bundleBehavior: "isolated",
+        loc: {
+          filePath,
+          ...getJSONSourceLocation(ptrs["/background/service_worker"], "value")
+        },
+        env: {
+          context: "web-worker"
         }
-      )
-    }
+      }
+    )
 
     // Since we bundle everything, and sw import is static (not async), we can ignore type module.
     if (!!program.background.type) {
