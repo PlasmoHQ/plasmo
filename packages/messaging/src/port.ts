@@ -1,4 +1,5 @@
 import type { PortName } from "./index"
+import { getExtRuntime } from "./utils"
 
 const portMap = new Map<PortName, chrome.runtime.Port>()
 
@@ -7,7 +8,7 @@ export const getPort = (name: PortName) => {
   if (!!port) {
     return port
   }
-  const newPort = chrome.runtime.connect({ name })
+  const newPort = getExtRuntime().connect({ name })
   portMap.set(name, newPort)
   return newPort
 }

@@ -1,4 +1,5 @@
 import type { PlasmoMessaging, PortName } from "./index"
+import { getExtRuntime } from "./utils"
 
 export const getPortMap = (): Map<PortName, chrome.runtime.Port> =>
   globalThis.__plasmoInternalPortMap
@@ -12,7 +13,7 @@ export const getPort = (name: PortName): chrome.runtime.Port => {
   return port
 }
 
-chrome.runtime.onMessage.addListener(
+getExtRuntime().onMessage.addListener(
   (request: PlasmoMessaging.InternalRequest, _sender, sendResponse) => {
     switch (request.__PLASMO_INTERNAL_SIGNAL__) {
       case "__PLASMO_MESSAGING_PING__": {

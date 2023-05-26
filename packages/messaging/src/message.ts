@@ -1,4 +1,5 @@
 import { type PlasmoMessaging } from "./index"
+import { getExtRuntime } from "./utils"
 
 export const listen = <RequestBody, ResponseBody>(
   handler: PlasmoMessaging.Handler<string, RequestBody, ResponseBody>
@@ -20,8 +21,8 @@ export const listen = <RequestBody, ResponseBody>(
     return // Syncronous return to indicate this is an async listener
   }
 
-  chrome.runtime.onMessage.addListener(listener)
+  getExtRuntime().onMessage.addListener(listener)
   return () => {
-    chrome.runtime.onMessage.removeListener(listener)
+    getExtRuntime().onMessage.removeListener(listener)
   }
 }
