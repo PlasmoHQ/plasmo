@@ -24,12 +24,12 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "@types/chrome": "0.0.236",
+    "@types/chrome": "0.0.237",
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.3",
-    "@parcel/plugin": "2.8.3",
+    "@parcel/core": "2.9.0",
+    "@parcel/plugin": "2.9.0",
     "react-refresh": "0.14.0"
   }
 }
