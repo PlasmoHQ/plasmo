@@ -48,7 +48,7 @@ export default new Optimizer({
 
     const swcOutput = await swcTransform(code, {
       jsc: {
-        target: "es2022",
+        target: process.env.__PLASMO_FRAMEWORK_INTERNAL_ES_TARGET,
         minify: {
           mangle: shouldMinify,
           compress: shouldMinify,

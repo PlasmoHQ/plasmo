@@ -7,7 +7,7 @@ import { isAccessible, isFile } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"
 
-import { getMd5RevHash } from "~features/helpers/crypto"
+import { getRevHash } from "~features/helpers/crypto"
 
 import { type PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
@@ -223,7 +223,7 @@ export class Scaffolder {
       templateContent
     )
 
-    const hash = getMd5RevHash(Buffer.from(finalScaffold))
+    const hash = getRevHash(Buffer.from(finalScaffold))
     if (this.#outputHashCache[outputFilePath] === hash) {
       return false
     }

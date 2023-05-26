@@ -4,12 +4,14 @@ import { eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
 import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
+import { checkNewVersion } from "~features/framework-update/version-tracker"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
 
 async function dev() {
   printHeader()
+  await checkNewVersion()
 
   process.env.NODE_ENV = "development"
 

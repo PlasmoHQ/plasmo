@@ -31,12 +31,12 @@ const _generatePackage = async ({
     } as Record<string, string>,
     devDependencies: {
       "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
-      "@types/chrome": "0.0.227",
-      "@types/node": "18.15.11",
-      "@types/react": "18.0.32",
-      "@types/react-dom": "18.0.11",
-      prettier: "2.8.7",
-      typescript: "5.0.3"
+      "@types/chrome": "0.0.237",
+      "@types/node": "20.2.4",
+      "@types/react": "18.2.7",
+      "@types/react-dom": "18.2.4",
+      prettier: "2.8.8",
+      typescript: "5.0.4"
     } as Record<string, string>,
     manifest: {
       // permissions: [] as ValidManifestPermission[],

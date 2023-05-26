@@ -1,12 +1,14 @@
 import { iLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
+import { checkNewVersion } from "~features/framework-update/version-tracker"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
 import { zipBundle } from "~features/manifest-factory/zip"
 
 async function packageCmd() {
   printHeader()
+  await checkNewVersion()
 
   process.env.NODE_ENV = "production"
 

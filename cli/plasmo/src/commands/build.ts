@@ -4,6 +4,7 @@ import { iLog, sLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { nextNewTab } from "~features/extra/next-new-tab"
+import { checkNewVersion } from "~features/framework-update/version-tracker"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
@@ -11,6 +12,7 @@ import { zipBundle } from "~features/manifest-factory/zip"
 
 async function build() {
   printHeader()
+  await checkNewVersion()
 
   process.env.NODE_ENV = "production"
 
