@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-namer-manifest",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Plasmo Parcel Namer for Extension Manifest",
   "files": [
     "dist"
