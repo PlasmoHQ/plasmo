@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.36.2",
+  "version": "0.36.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "main": "index.json",
   "dependencies": {
+    "@parcel/core": "2.8.3",
     "@parcel/compressor-raw": "2.8.3",
     "@parcel/config-default": "2.8.3",
     "@parcel/optimizer-data-url": "2.8.3",

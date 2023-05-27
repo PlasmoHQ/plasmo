@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.73.4",
+  "version": "0.73.5",
   "description": "The Plasmo Framework CLI",
   "publishConfig": {
     "types": "dist/type.d.ts"
@@ -39,6 +39,7 @@
   "dependencies": {
     "@expo/spawn-async": "1.7.2",
     "@parcel/fs": "2.8.3",
+    "@parcel/core": "2.8.3",
     "@parcel/package-manager": "2.8.3",
     "@parcel/watcher": "2.1.0",
     "@plasmohq/init": "workspace:*",
