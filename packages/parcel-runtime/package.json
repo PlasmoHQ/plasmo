@@ -28,8 +28,8 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.0",
-    "@parcel/plugin": "2.9.0",
+    "@parcel/core": "2.8.3",
+    "@parcel/plugin": "2.8.3",
     "react-refresh": "0.14.0"
   }
 }

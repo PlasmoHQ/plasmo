@@ -27,6 +27,6 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/plugin": "2.9.0"
+    "@parcel/plugin": "2.8.3"
   }
 }

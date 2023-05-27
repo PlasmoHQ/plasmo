@@ -28,10 +28,10 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.0",
-    "@parcel/plugin": "2.9.0",
-    "@parcel/types": "2.9.0",
-    "@parcel/utils": "2.9.0",
+    "@parcel/core": "2.8.3",
+    "@parcel/plugin": "2.8.3",
+    "@parcel/types": "2.8.3",
+    "@parcel/utils": "2.8.3",
     "nullthrows": "1.1.1"
   }
 }
