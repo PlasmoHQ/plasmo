@@ -38,7 +38,6 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.7.2",
-    "@parcel/core": "2.9.0",
     "@parcel/fs": "2.9.0",
     "@parcel/package-manager": "2.9.0",
     "@parcel/watcher": "2.1.0",
