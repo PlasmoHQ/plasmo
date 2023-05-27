@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-vue3",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "Plasmo Parcel Transformer for Vue3",
   "files": [
     "dist"
