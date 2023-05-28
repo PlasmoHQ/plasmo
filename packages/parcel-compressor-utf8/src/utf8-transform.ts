@@ -4,19 +4,23 @@
  */
 
 import { Transform, type TransformCallback } from "stream"
+import { StringDecoder } from "string_decoder"
 
 class Utf8Transform extends Transform {
+  private decoder = new StringDecoder("utf8")
+
   _transform(chunk: Buffer, _: BufferEncoding, callback: TransformCallback) {
-    const str = chunk.toString()
-    let result = ""
-    for (let i = 0; i < chunk.length; i++) {
-      let ch = str.charAt(i)
-      result +=
-        ch.charCodeAt(0) <= 0x7f
-          ? ch
-          : "\\u" + ("0000" + ch.charCodeAt(0).toString(16)).slice(-4)
+    const str = this.decoder.write(chunk)
+    callback(null, str)
+  }
+
+  _flush(callback: TransformCallback) {
+    const remainder = this.decoder.end()
+    if (remainder) {
+      callback(null, remainder)
+    } else {
+      callback()
     }
-    callback(null, result)
   }
 }
 

@@ -60,8 +60,8 @@
     ]
   },
   "compressors": {
-    "*": ["@parcel/compressor-raw"],
-    "*.js": ["@plasmohq/parcel-compressor-utf8"]
+    "*.js": ["@plasmohq/parcel-compressor-utf8"],
+    "*": ["@parcel/compressor-raw"]
   },
   "runtimes": [
     "@parcel/runtime-js",
