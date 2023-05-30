@@ -98,8 +98,6 @@ export default new Runtime({
       return
     }
 
-    vLog("@plasmohq/parcel-runtime")
-
     const isReact = config.hasReact && entryFilePath.endsWith(".tsx")
 
     const entryBasename = basename(entryFilePath).split(".")[0]
@@ -122,6 +120,7 @@ export default new Runtime({
       : "page-runtime"
 
     vLog(
+      "@plasmohq/parcel-runtime",
       "Injecting <<",
       devRuntime,
       ">> for",
