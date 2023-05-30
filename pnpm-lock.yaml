@@ -2884,6 +2884,9 @@ importers:
       '@jest/types':
         specifier: 29.5.0
         version: 29.5.0
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../config
       '@types/chrome':
         specifier: 0.0.237
         version: 0.0.237

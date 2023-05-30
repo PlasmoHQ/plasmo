@@ -49,6 +49,7 @@
     "chrome-extension"
   ],
   "devDependencies": {
+    "@plasmo/config": "workspace:*",
     "@jest/globals": "29.5.0",
     "@jest/types": "29.5.0",
     "@types/chrome": "0.0.237",
