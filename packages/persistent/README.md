@@ -5,7 +5,7 @@ This library contains a couple of hacks to keep the BGSW alive for MV3 transitio
 Usage in a background service worker:
 
 ```ts
-import { keepAlive } from "@plasmohq/persistent"
+import { keepAlive } from "@plasmohq/persistent/background"
 
 keepAlive()
 ```
