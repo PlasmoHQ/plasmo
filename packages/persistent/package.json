@@ -1,10 +1,28 @@
 {
   "name": "@plasmohq/persistent",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A couple of hacks to keep the BGSW alive in a library",
   "type": "module",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "typesVersions": {
+    "*": {
+      "background": [
+        "./src/background.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+      "*": {
+        "background": [
+          "./dist/background.d.ts"
+        ]
+      }
+    }
+  },
   "exports": {
     "./background": {
       "import": "./dist/background.js",
@@ -15,13 +33,6 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "background": [
-        "./dist/background.d.ts"
-      ]
     }
   },
   "files": [

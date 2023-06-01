@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.19.4",
+  "version": "0.20.0",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
@@ -22,6 +22,7 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
+    "@plasmohq/persistent": "workspace:*",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "@types/chrome": "0.0.237",

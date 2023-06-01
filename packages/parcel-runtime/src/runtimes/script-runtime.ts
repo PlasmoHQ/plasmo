@@ -63,7 +63,7 @@ function setupPort() {
 
   try {
     reloadPort()
-    setInterval(reloadPort, 240_000)
+    setInterval(reloadPort, 24_000)
   } catch {
     return
   }
