@@ -15,24 +15,24 @@
   "publishConfig": {
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "exports": {
-      "./background": {
-        "import": "./dist/background.js",
-        "require": "./dist/background.cjs",
-        "types": "./dist/background.d.ts"
-      },
-      ".": {
-        "import": "./dist/index.js",
-        "require": "./dist/index.cjs",
-        "types": "./dist/index.d.ts"
-      }
-    },
     "typesVersions": {
       "*": {
         "background": [
           "./dist/background.d.ts"
         ]
       }
+    }
+  },
+  "exports": {
+    "./background": {
+      "import": "./dist/background.js",
+      "require": "./dist/background.cjs",
+      "types": "./dist/background.d.ts"
+    },
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
