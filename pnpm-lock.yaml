@@ -2750,8 +2750,8 @@ importers:
         specifier: 0.4.1
         version: 0.4.1
       json-schema-to-ts:
-        specifier: 2.9.0
-        version: 2.9.0
+        specifier: 2.9.1
+        version: 2.9.1
       nullthrows:
         specifier: 1.1.1
         version: 1.1.1
@@ -13100,8 +13100,8 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: false
 
-  /json-schema-to-ts@2.9.0:
-    resolution: {integrity: sha512-QyIjLEDtlRVfgoOAhjNj/RLYWnuDLUIFFcvb4vnmMOzRjHRF/VcjOZX7LfxCEaKzkJLZ8/ZStaU3EGo4O2V+lw==}
+  /json-schema-to-ts@2.9.1:
+    resolution: {integrity: sha512-8MNpRGERlCUWYeJwsWkMrJ0MWzBz49dfqpG+n9viiIlP4othaahbiaNQZuBzmPxRLUhOv1QJMCzW5WE8nHFGIQ==}
     engines: {node: '>=16'}
     dependencies:
       '@babel/runtime': 7.22.0
