@@ -36,7 +36,7 @@ module.bundle.Module = Module
 module.bundle.hotData = {}
 
 export const extCtx: ExtensionApi =
-  globalThis.chrome || globalThis.browser || null
+  globalThis.browser || globalThis.chrome || null
 
 export async function triggerReload(fullReload = false) {
   if (fullReload) {
