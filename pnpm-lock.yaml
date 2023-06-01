@@ -2635,6 +2635,9 @@ importers:
       '@plasmo/utils':
         specifier: workspace:*
         version: link:../utils
+      '@plasmohq/persistent':
+        specifier: workspace:*
+        version: link:../persistent
       '@types/chrome':
         specifier: 0.0.237
         version: 0.0.237

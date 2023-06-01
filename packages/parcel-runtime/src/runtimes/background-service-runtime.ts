@@ -3,6 +3,8 @@
  */
 import { vLog } from "@plasmo/utils/logging"
 
+import { keepAlive } from "@plasmohq/persistent/background"
+
 import type { BackgroundMessage } from "../types"
 import {
   PAGE_PORT_PREFIX,
@@ -51,6 +53,8 @@ async function consolidateUpdate(forced = false) {
 }
 
 if (!parent || !parent.isParcelRequire) {
+  keepAlive()
+
   const hmrSocket = injectHmrSocket(async (updatedAssets) => {
     vLog("BGSW Runtime - On HMR Update")
 
