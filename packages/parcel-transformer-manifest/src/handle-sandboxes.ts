@@ -5,7 +5,13 @@ import { vLog } from "@plasmo/utils/logging"
 import { getState } from "./state"
 
 export async function handleSandboxes() {
-  const { asset, srcDir, dotPlasmoDir, program } = getState()
+  const { asset, srcDir, dotPlasmoDir, program, env } = getState()
+
+  // firefox does not support sandbox
+  if (env.PLASMO_BROWSER === "firefox" || env.PLASMO_BROWSER === "gecko") {
+    return
+  }
+
   const srcPaths = ["sandboxes", "sandbox.ts", "sandbox.tsx"].map((file) =>
     resolve(srcDir, file)
   )

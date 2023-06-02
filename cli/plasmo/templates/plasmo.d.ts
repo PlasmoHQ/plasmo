@@ -9,6 +9,7 @@ declare namespace NodeJS {
       | "chromium"
       | "edge"
       | "firefox"
+      | "gecko"
       | "island"
       | "opera"
       | "plasmo"

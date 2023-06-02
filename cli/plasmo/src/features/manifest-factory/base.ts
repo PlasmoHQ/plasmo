@@ -77,7 +77,7 @@ const hasher = createHasher({ trim: true, sort: true })
 
 export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   get browser() {
-    return this.bundleConfig.browser
+    return this.bundleConfig.browser as typeof process.env.PLASMO_BROWSER
   }
 
   #commonPath?: CommonPath
