@@ -3,7 +3,7 @@
   "bundler": "@plasmohq/parcel-bundler",
   "resolvers": [
     "@plasmohq/parcel-resolver",
-    "...",
+    "@parcel/resolver-default",
     "@plasmohq/parcel-resolver-post"
   ],
   "transformers": {

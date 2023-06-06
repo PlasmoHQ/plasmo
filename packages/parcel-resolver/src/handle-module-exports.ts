@@ -15,9 +15,13 @@ export async function handleModuleExport({
     const segments = specifier.split("/")
 
     if (segments.length > 2 || knownEsmPackageSet.has(segments[0])) {
+      console.log(segments)
+
       const filePath = require.resolve(specifier, {
         paths: [dependency.resolveFrom]
       })
+
+      console.log(filePath)
 
       return {
         filePath
