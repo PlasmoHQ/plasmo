@@ -2,6 +2,7 @@ import type { ResolverProps, ResolverResult } from "./shared"
 
 const knownEsmPackageSet = new Set(["firebase-admin"])
 
+// Last resort resolver for weird packages:
 export async function handleModuleExport({
   specifier,
   dependency
@@ -15,13 +16,9 @@ export async function handleModuleExport({
     const segments = specifier.split("/")
 
     if (segments.length > 2 || knownEsmPackageSet.has(segments[0])) {
-      console.log(segments)
-
       const filePath = require.resolve(specifier, {
         paths: [dependency.resolveFrom]
       })
-
-      console.log(filePath)
 
       return {
         filePath
