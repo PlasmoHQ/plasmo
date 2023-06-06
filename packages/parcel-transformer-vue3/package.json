@@ -27,12 +27,12 @@
     "vue": "3.3.4"
   },
   "dependencies": {
-    "@parcel/core": "2.8.3",
-    "@parcel/diagnostic": "2.8.3",
-    "@parcel/plugin": "2.8.3",
+    "@parcel/core": "2.9.1",
+    "@parcel/diagnostic": "2.9.1",
+    "@parcel/plugin": "2.9.1",
     "@parcel/source-map": "2.1.1",
-    "@parcel/types": "2.8.3",
-    "@parcel/utils": "2.8.3",
+    "@parcel/types": "2.9.1",
+    "@parcel/utils": "2.9.1",
     "@plasmohq/consolidate": "0.17.0",
     "@vue/compiler-sfc": "3.3.4",
     "nullthrows": "1.1.1",

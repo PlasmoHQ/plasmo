@@ -60,9 +60,9 @@
     "chrome-extension"
   ],
   "devDependencies": {
-    "@plasmo/config": "workspace:*",
     "@jest/globals": "29.5.0",
     "@jest/types": "29.5.0",
+    "@plasmo/config": "workspace:*",
     "@types/chrome": "0.0.237",
     "@types/node": "20.2.5",
     "cross-env": "7.0.3",
@@ -70,6 +70,6 @@
     "jest-environment-jsdom": "29.5.0",
     "ts-jest": "29.1.0",
     "tsup": "6.7.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
