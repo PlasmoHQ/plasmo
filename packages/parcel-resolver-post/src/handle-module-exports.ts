@@ -2,6 +2,7 @@ import type { ResolverProps, ResolverResult } from "./shared"
 
 const knownEsmPackageSet = new Set(["firebase-admin"])
 
+// Last resort resolver for weird packages:
 export async function handleModuleExport({
   specifier,
   dependency

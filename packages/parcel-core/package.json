@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-core",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Plasmo Parcel Core Fork",
   "files": [
     "dist"
@@ -29,21 +29,21 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
-    "@parcel/cache": "2.8.3",
-    "@parcel/core": "2.8.3",
-    "@parcel/diagnostic": "2.8.3",
-    "@parcel/events": "2.8.3",
-    "@parcel/fs": "2.8.3",
-    "@parcel/graph": "2.8.3",
-    "@parcel/hash": "2.8.3",
-    "@parcel/logger": "2.8.3",
-    "@parcel/package-manager": "2.8.3",
-    "@parcel/plugin": "2.8.3",
+    "@parcel/cache": "2.9.1",
+    "@parcel/core": "2.9.1",
+    "@parcel/diagnostic": "2.9.1",
+    "@parcel/events": "2.9.1",
+    "@parcel/fs": "2.9.1",
+    "@parcel/graph": "2.9.1",
+    "@parcel/hash": "2.9.1",
+    "@parcel/logger": "2.9.1",
+    "@parcel/package-manager": "2.9.1",
+    "@parcel/plugin": "2.9.1",
     "@parcel/source-map": "2.1.1",
-    "@parcel/types": "2.8.3",
-    "@parcel/utils": "2.8.3",
+    "@parcel/types": "2.9.1",
+    "@parcel/utils": "2.9.1",
     "@parcel/watcher": "2.1.0",
-    "@parcel/workers": "2.8.3",
+    "@parcel/workers": "2.9.1",
     "abortcontroller-polyfill": "1.7.5",
     "nullthrows": "1.1.1"
   }

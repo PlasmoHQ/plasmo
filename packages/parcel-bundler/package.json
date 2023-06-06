@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-bundler",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,16 +18,16 @@
     "parcel": ">= 2.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.8.3",
-    "@parcel/diagnostic": "2.8.3",
-    "@parcel/graph": "2.8.3",
-    "@parcel/hash": "2.8.3",
-    "@parcel/plugin": "2.8.3",
-    "@parcel/utils": "2.8.3",
+    "@parcel/core": "2.9.1",
+    "@parcel/diagnostic": "2.9.1",
+    "@parcel/graph": "2.9.1",
+    "@parcel/hash": "2.9.1",
+    "@parcel/plugin": "2.9.1",
+    "@parcel/utils": "2.9.1",
     "nullthrows": "1.1.1"
   },
   "devDependencies": {
-    "@parcel/types": "2.8.3",
+    "@parcel/types": "2.9.1",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "tsup": "6.7.0"
