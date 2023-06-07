@@ -38,7 +38,7 @@ async function consolidateUpdate(forced = false) {
 
   if (forced || (state.buildReady && (state.bgChanged || state.csChanged))) {
     vLog("BGSW Runtime - reloading CS")
-    const activeTabList = await chrome.tabs.query({ active: true })
+    const activeTabList = await extCtx?.tabs.query({ active: true })
 
     for (const port of state.scriptPorts) {
       const isActive = activeTabList.some((t) => t.id === port.sender.tab?.id)

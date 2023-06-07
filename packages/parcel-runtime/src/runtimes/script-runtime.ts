@@ -10,7 +10,11 @@
 import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
-import { SCRIPT_PORT_PREFIX, runtimeData } from "../utils/0-patch-module"
+import {
+  SCRIPT_PORT_PREFIX,
+  extCtx,
+  runtimeData
+} from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"
 import { createLoadingIndicator } from "../utils/loading-indicator"
@@ -35,7 +39,7 @@ async function consolidateUpdate() {
 function reloadPort() {
   scriptPort?.disconnect()
   // Potentially, if MAIN world, we use the external connection instead (?)
-  scriptPort = globalThis.chrome.runtime.connect({
+  scriptPort = extCtx?.runtime.connect({
     name: PORT_NAME
   })
 
@@ -57,7 +61,7 @@ function reloadPort() {
 }
 
 function setupPort() {
-  if (!globalThis.chrome?.runtime) {
+  if (!extCtx?.runtime) {
     return
   }
 
@@ -81,7 +85,7 @@ injectHmrSocket(async (updatedAssets) => {
   if (isChanged) {
     loadingIndicator.show()
 
-    if (globalThis.chrome?.runtime) {
+    if (extCtx?.runtime) {
       scriptPort.postMessage({
         __plasmo_cs_changed__: true
       } as BackgroundMessage)

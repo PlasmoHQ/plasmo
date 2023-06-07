@@ -3,6 +3,7 @@ import { vLog } from "@plasmo/utils/logging"
 import type { BackgroundMessage } from "../types"
 import {
   PAGE_PORT_PREFIX,
+  extCtx,
   runtimeData,
   triggerReload
 } from "../utils/0-patch-module"
@@ -23,7 +24,7 @@ const parent = module.bundle.parent
 
 if (!parent || !parent.isParcelRequire) {
   try {
-    pagePort = globalThis.chrome.runtime.connect({
+    pagePort = extCtx?.runtime.connect({
       name: PORT_NAME
     })
 
@@ -96,6 +97,12 @@ if (!parent || !parent.isParcelRequire) {
       vLog(`Page runtime -`, { sourceChanged })
 
       if (sourceChanged) {
+        // @ts-ignore
+        // if (module.hot) {
+        //   // @ts-ignore
+        //   module.hot.accept()
+        // }
+
         pagePort.postMessage({
           __plasmo_page_changed__: true
         } as BackgroundMessage)

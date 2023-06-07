@@ -103,7 +103,7 @@ function handleMV3Background(program: MV3Data) {
     const csp = program.content_security_policy || {}
     csp.extension_pages = cspPatchHMR(
       csp.extension_pages,
-      `http://${hmrOptions?.host || "localhost"}`
+      `http://${hmrOptions?.host || "localhost"}:*`
     )
     // Sandbox allows eval by default
     if (csp.sandbox) {
