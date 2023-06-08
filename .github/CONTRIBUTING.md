@@ -75,6 +75,14 @@ To develop locally:
    pnpm rm -g plasmo
    ```
 
+Note: The `create-plasmo` CLI tool is not meant to be run locally.
+If you have already linked it, please run 
+
+```sh
+pnpm -g unlink create-plasmo
+```
+ to unlink it.
+
 ## Building
 
 You can build the project, including all type definitions, with:
