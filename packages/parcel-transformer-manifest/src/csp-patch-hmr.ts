@@ -10,8 +10,6 @@ export function cspPatchHMR(
     insert === DEFAULT_INSERT ? "'self' blob: filesystem:" : "'self'"
 
   if (policy) {
-    console.log(policy)
-
     const csp = parseCSP(policy)
     policy = ""
 
