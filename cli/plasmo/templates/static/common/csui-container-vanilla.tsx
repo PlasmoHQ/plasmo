@@ -33,6 +33,7 @@ export const createOverlayCSUIContainer = (props: PlasmoCSUIContainerProps) => {
 
     props.watchOverlayAnchor?.(updatePosition)
     window.addEventListener("scroll", updatePosition)
+    window.addEventListener("resize", updatePosition)
   }
 
   return container

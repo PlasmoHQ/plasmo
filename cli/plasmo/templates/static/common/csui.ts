@@ -67,10 +67,52 @@ export async function createShadowContainer<T>(
   return shadowDom.shadowContainer
 }
 
+const isVisible = (el: Element) => {
+  if (!el) {
+    return false
+  }
+  const elementRect = el.getBoundingClientRect()
+  const elementStyle = globalThis.getComputedStyle(el)
+
+  // console.log(elementRect, elementStyle)
+
+  if (elementStyle.display === "none") {
+    return false
+  }
+
+  if (elementStyle.visibility === "hidden") {
+    return false
+  }
+
+  if (elementStyle.opacity === "0") {
+    return false
+  }
+
+  if (
+    elementRect.width === 0 &&
+    elementRect.height === 0 &&
+    elementStyle.overflow !== "hidden"
+  ) {
+    return false
+  }
+
+  // Check if the element is irrevocably off-screen:
+  if (
+    elementRect.x + elementRect.width < 0 ||
+    elementRect.y + elementRect.height < 0
+  ) {
+    return false
+  }
+
+  return true
+}
+
 export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
   const mountState: PlasmoCSUIMountState = {
     document: document || window.document,
     observer: null,
+
+    mountInterval: null,
 
     isMounting: false,
     isMutated: false,
@@ -85,41 +127,6 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
     el?.id
       ? !!document.getElementById(el.id)
       : el?.getRootNode({ composed: true }) === mountState.document
-
-  const isVisible = (el: Element) => {
-    const elementRect = el.getBoundingClientRect()
-    const elementStyle = getComputedStyle(el)
-
-    if (elementStyle.display === "none") {
-      return false
-    }
-
-    if (elementStyle.visibility === "hidden") {
-      return false
-    }
-
-    if (elementStyle.opacity === "0") {
-      return false
-    }
-
-    if (
-      elementRect.width === 0 &&
-      elementRect.height === 0 &&
-      elementStyle.overflow !== "hidden"
-    ) {
-      return false
-    }
-
-    // Check if the element is irrevocably off-screen:
-    if (
-      elementRect.x + elementRect.width < 0 ||
-      elementRect.y + elementRect.height < 0
-    ) {
-      return false
-    }
-
-    return true
-  }
 
   const hasInlineAnchor = typeof Mount.getInlineAnchor === "function"
   const hasOverlayAnchor = typeof Mount.getOverlayAnchor === "function"
@@ -245,6 +252,14 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
       childList: true,
       subtree: true
     })
+
+    mountState.mountInterval = setInterval(() => {
+      if (mountState.isMounting) {
+        mountState.isMutated = true
+        return
+      }
+      mountAnchors(render)
+    }, 142)
   }
 
   return {
