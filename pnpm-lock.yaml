@@ -2641,9 +2641,6 @@ importers:
       '@parcel/plugin':
         specifier: 2.9.1
         version: 2.9.1(@parcel/core@2.9.1)
-      '@plasmo/framework-shared':
-        specifier: workspace:*
-        version: link:../framework-shared
       react-refresh:
         specifier: 0.14.0
         version: 0.14.0
@@ -2651,6 +2648,9 @@ importers:
       '@plasmo/config':
         specifier: workspace:*
         version: link:../config
+      '@plasmo/framework-shared':
+        specifier: workspace:*
+        version: link:../framework-shared
       '@plasmo/utils':
         specifier: workspace:*
         version: link:../utils
