@@ -1,4 +1,4 @@
-import { type BuildSocketEvent } from "@plasmo/framework-shared/build-socket"
+import { type BuildSocketEvent } from "@plasmo/framework-shared/build-socket/event"
 import { eLog, iLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"

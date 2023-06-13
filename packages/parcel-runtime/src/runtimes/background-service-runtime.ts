@@ -2,7 +2,7 @@
  * This runtime is injected into the background service worker
  */
 
-import { BuildSocketEvent } from "@plasmo/framework-shared/build-socket"
+import { BuildSocketEvent } from "@plasmo/framework-shared/build-socket/event"
 import { vLog } from "@plasmo/utils/logging"
 
 import { keepAlive } from "@plasmohq/persistent/background"

@@ -1,9 +1,8 @@
 import { WebSocket, WebSocketServer } from "ws"
 
-export enum BuildSocketEvent {
-  BuildReady = "build_ready",
-  CsChanged = "cs_changed"
-}
+import { BuildSocketEvent } from "./event"
+
+export { BuildSocketEvent }
 
 const createBuildSocket = (hmrPort: number) => {
   const wss = new WebSocketServer({ port: hmrPort + 1 })
