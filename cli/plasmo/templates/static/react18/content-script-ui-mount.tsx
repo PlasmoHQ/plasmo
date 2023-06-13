@@ -48,7 +48,7 @@ const render = createRender(
         ]
 
         root.render(
-          <>
+          <Layout>
             {targetList.map((target, i) => {
               const id = `plasmo-overlay-${i}`
               const innerAnchor: PlasmoCSUIAnchor = {
@@ -56,17 +56,16 @@ const render = createRender(
                 type: "overlay"
               }
               return (
-                <Layout key={id}>
-                  <OverlayCSUIContainer
-                    id={id}
-                    anchor={innerAnchor}
-                    watchOverlayAnchor={Mount.watchOverlayAnchor}>
-                    <RawMount.default anchor={innerAnchor} />
-                  </OverlayCSUIContainer>
-                </Layout>
+                <OverlayCSUIContainer
+                  key={id}
+                  id={id}
+                  anchor={innerAnchor}
+                  watchOverlayAnchor={Mount.watchOverlayAnchor}>
+                  <RawMount.default anchor={innerAnchor} />
+                </OverlayCSUIContainer>
               )
             })}
-          </>
+          </Layout>
         )
         break
       }
