@@ -31,7 +31,7 @@ import type {
 } from "@plasmo/constants"
 import {
   BuildSocketEvent,
-  getBuildSocket
+  buildBroadcast
 } from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
@@ -402,7 +402,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       this.contentScriptMap.delete(path)
     }
 
-    getBuildSocket().broadcast(BuildSocketEvent.CsChanged)
+    buildBroadcast(BuildSocketEvent.CsChanged)
 
     return enable
   }
