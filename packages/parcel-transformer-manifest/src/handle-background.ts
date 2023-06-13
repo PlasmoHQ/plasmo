@@ -19,18 +19,38 @@ export const handleBackground = () => {
 const defaultBackgroundScriptPath = "../runtime/plasmo-default-background.ts"
 
 function handleMV2Background(program: MV2Data) {
-  const { hot, asset, filePath, ptrs } = getState()
-  vLog(`Handling background scripts`)
+  handleMV2BackgroundScript(program)
+  handleMV2HotCsp(program)
+}
 
-  if (program.background?.page) {
-    program.background.page = asset.addURLDependency(program.background.page, {
-      bundleBehavior: "isolated",
-      loc: {
-        filePath,
-        ...getJSONSourceLocation(ptrs["/background/page"], "value")
-      }
-    })
+function handleMV3Background(program: MV3Data) {
+  const { env } = getState()
+
+  const isFirefox =
+    env.PLASMO_BROWSER === "firefox" || env.PLASMO_BROWSER === "gecko"
+
+  // Handle Firefox preliminary MV3 support:
+  if (isFirefox) {
+    handleFirefoxMV3Background(program)
+    return
   }
+
+  handleMV3BackgroundServiceWorker(program)
+  handleMV3HotCsp(program)
+}
+
+function handleFirefoxMV3Background(program: MV3Data) {
+  const mv2Program = program as unknown as MV2Data
+  mv2Program.background.scripts = [program.background.service_worker]
+  delete program.background.service_worker
+
+  handleMV2BackgroundScript(mv2Program)
+  handleMV3HotCsp(program)
+}
+
+function handleMV2BackgroundScript(program: MV2Data) {
+  const { hot, asset } = getState()
+  vLog(`Handling background scripts`)
 
   if (program.background?.scripts) {
     program.background.scripts = program.background.scripts.map((bgScript) =>
@@ -41,40 +61,19 @@ function handleMV2Background(program: MV2Data) {
   }
 
   if (hot) {
-    // To enable HMR, we must override the CSP to allow 'unsafe-eval'
-    program.content_security_policy = cspPatchHMR(
-      program.content_security_policy
-    )
-
-    if (!program.background) {
-      program.background = {}
-    }
-
     if (!program.background?.scripts) {
-      program.background.scripts = []
+      program.background.scripts = [
+        asset.addURLDependency(defaultBackgroundScriptPath, {
+          resolveFrom: __filename
+        })
+      ]
     }
-
-    program.background.scripts.push(
-      asset.addURLDependency(defaultBackgroundScriptPath, {
-        resolveFrom: __filename
-      })
-    )
   }
 }
 
-function handleMV3Background(program: MV3Data) {
-  const { hot, asset, filePath, ptrs, hmrOptions, env } = getState()
-
-  // Handle Firefox preliminary MV3 support:
-  if (env.PLASMO_BROWSER === "firefox" || env.PLASMO_BROWSER === "gecko") {
-    const mv2Program = program as unknown as MV2Data
-    if (program.background?.service_worker) {
-      mv2Program.background.scripts = [program.background.service_worker]
-      delete program.background.service_worker
-    }
-    handleMV2Background(mv2Program)
-    return
-  }
+function handleMV3BackgroundServiceWorker(program: MV3Data) {
+  const { hot, asset, filePath, ptrs } = getState()
+  vLog(`Handling background scripts`)
 
   if (program.background?.service_worker) {
     vLog(`Handling background service worker`)
@@ -99,18 +98,6 @@ function handleMV3Background(program: MV3Data) {
   }
 
   if (hot) {
-    // Enable eval HMR for sandbox,
-    const csp = program.content_security_policy || {}
-    csp.extension_pages = cspPatchHMR(
-      csp.extension_pages,
-      `http://${hmrOptions?.host || "localhost"}:*`
-    )
-    // Sandbox allows eval by default
-    if (csp.sandbox) {
-      csp.sandbox = cspPatchHMR(csp.sandbox)
-    }
-    program.content_security_policy = csp
-
     if (!program.background) {
       program.background = {
         service_worker: asset.addURLDependency(defaultBackgroundScriptPath, {
@@ -121,5 +108,34 @@ function handleMV3Background(program: MV3Data) {
         })
       }
     }
+  }
+}
+
+function handleMV2HotCsp(program: MV2Data) {
+  const { hot } = getState()
+
+  if (hot) {
+    // To enable HMR, we must override the CSP to allow 'unsafe-eval'
+    program.content_security_policy = cspPatchHMR(
+      program.content_security_policy
+    )
+  }
+}
+
+// Enable eval HMR for sandbox,
+function handleMV3HotCsp(program: MV3Data) {
+  const { hot, hmrOptions } = getState()
+
+  if (hot) {
+    const csp = program.content_security_policy || {}
+    csp.extension_pages = cspPatchHMR(
+      csp.extension_pages,
+      `http://${hmrOptions?.host || "localhost"}:*`
+    )
+    // Sandbox allows eval by default
+    if (csp.sandbox) {
+      csp.sandbox = cspPatchHMR(csp.sandbox)
+    }
+    program.content_security_policy = csp
   }
 }
