@@ -29,6 +29,7 @@
     "tsup": "6.7.0"
   },
   "dependencies": {
+    "@plasmo/framework-shared": "workspace:*",
     "@parcel/core": "2.9.1",
     "@parcel/plugin": "2.9.1",
     "react-refresh": "0.14.0"

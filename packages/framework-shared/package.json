@@ -1,0 +1,15 @@
+{
+  "name": "@plasmo/framework-shared",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ws": "8.13.0"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/utils": "workspace:*"
+  }
+}
