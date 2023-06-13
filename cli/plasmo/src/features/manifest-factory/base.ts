@@ -29,6 +29,10 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
+import {
+  BuildSocketEvent,
+  buildBroadcast
+} from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
 import { isReadable } from "@plasmo/utils/fs"
@@ -397,6 +401,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     } else {
       this.contentScriptMap.delete(path)
     }
+
+    buildBroadcast(BuildSocketEvent.CsChanged)
+
     return enable
   }
 

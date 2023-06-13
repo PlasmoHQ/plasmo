@@ -1,6 +1,8 @@
 /**
  * This runtime is injected into the background service worker
  */
+
+import { BuildSocketEvent } from "@plasmo/framework-shared/build-socket/event"
 import { vLog } from "@plasmo/utils/logging"
 
 import { keepAlive } from "@plasmohq/persistent/background"
@@ -89,12 +91,21 @@ if (!parent || !parent.isParcelRequire) {
   })
 }
 
-injectBuilderSocket(async () => {
+injectBuilderSocket(async (event) => {
   vLog("BGSW Runtime - On Build Repackaged")
   // maybe we should wait for a bit until we determine if the build is truly ready
-  state.buildReady ||= true
-
-  consolidateUpdate()
+  switch (event.type) {
+    case BuildSocketEvent.BuildReady: {
+      state.buildReady ||= true
+      consolidateUpdate()
+      break
+    }
+    case BuildSocketEvent.CsChanged: {
+      state.csChanged ||= true
+      consolidateUpdate()
+      break
+    }
+  }
 })
 
 extCtx.runtime.onConnect.addListener(function (port) {

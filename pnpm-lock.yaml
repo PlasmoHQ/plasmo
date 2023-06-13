@@ -189,9 +189,6 @@ importers:
       typescript:
         specifier: 5.1.3
         version: 5.1.3
-      ws:
-        specifier: 8.13.0
-        version: 8.13.0
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
@@ -199,6 +196,9 @@ importers:
       '@plasmo/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@plasmo/framework-shared':
+        specifier: workspace:*
+        version: link:../../packages/framework-shared
       '@plasmo/utils':
         specifier: workspace:*
         version: link:../../packages/utils
@@ -2040,6 +2040,19 @@ importers:
         specifier: workspace:*
         version: link:../utils
 
+  packages/framework-shared:
+    dependencies:
+      ws:
+        specifier: 8.13.0
+        version: 8.13.0
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../utils
+
   packages/gcp-refresh-token:
     dependencies:
       get-port:
@@ -2628,6 +2641,9 @@ importers:
       '@parcel/plugin':
         specifier: 2.9.1
         version: 2.9.1(@parcel/core@2.9.1)
+      '@plasmo/framework-shared':
+        specifier: workspace:*
+        version: link:../framework-shared
       react-refresh:
         specifier: 0.14.0
         version: 0.14.0

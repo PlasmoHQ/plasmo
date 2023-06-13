@@ -1,3 +1,4 @@
+import { type BuildSocketEvent } from "@plasmo/framework-shared/build-socket/event"
 import { eLog, iLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
@@ -21,7 +22,9 @@ function wsErrorHandler(e: ErrorEvent) {
   }
 }
 
-export function injectBuilderSocket(onUpdate?: () => Promise<void>) {
+export function injectBuilderSocket(
+  onData?: (data: { type: BuildSocketEvent }) => Promise<void>
+) {
   if (typeof globalThis.WebSocket === "undefined") {
     return
   }
@@ -29,11 +32,8 @@ export function injectBuilderSocket(onUpdate?: () => Promise<void>) {
   const builderWs = new WebSocket(getBaseSocketUri(Number(getPort()) + 1))
 
   builderWs.addEventListener("message", async function (event) {
-    const data = JSON.parse(event.data) as HmrMessage
-    if (data.type === "build_ready") {
-      await onUpdate()
-      return
-    }
+    const data = JSON.parse(event.data)
+    await onData(data)
   })
 
   builderWs.addEventListener("error", wsErrorHandler)

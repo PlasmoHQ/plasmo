@@ -90,9 +90,6 @@ export type HmrMessage =
         }>
       }
     }
-  | {
-      type: "build_ready"
-    }
 
 export type BackgroundMessage = {
   __plasmo_full_reload__?: boolean

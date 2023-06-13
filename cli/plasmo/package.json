@@ -67,10 +67,10 @@
     "semver": "7.5.1",
     "sharp": "0.32.1",
     "tempy": "3.0.0",
-    "typescript": "5.1.3",
-    "ws": "8.13.0"
+    "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@plasmo/framework-shared": "workspace:*",
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
     "@plasmo/utils": "workspace:*"
