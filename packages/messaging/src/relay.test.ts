@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, jest, test } from "@jest/globals"
-import exp from "constants"
 
 import type { PlasmoMessaging } from "./types"
 

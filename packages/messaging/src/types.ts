@@ -16,6 +16,9 @@ export namespace PlasmoMessaging {
     body?: TBody
     tabId?: number
     relayId?: string
+
+    // Target origin to send the message to (for relay), default to "/"
+    targetOrigin?: string
   }
 
   export type RelayMessage<TName = any, TBody = any> = Request<TName, TBody> & {

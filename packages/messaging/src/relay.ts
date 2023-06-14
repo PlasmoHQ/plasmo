@@ -23,13 +23,18 @@ export const relay: PlasmoMessaging.RelayFx = (
 
       const backgroundResponse = await onMessage?.(relayPayload)
 
-      messagePort.postMessage({
-        name: req.name,
-        relayId: req.relayId,
-        instanceId: event.data.instanceId,
-        body: backgroundResponse,
-        relayed: true
-      })
+      messagePort.postMessage(
+        {
+          name: req.name,
+          relayId: req.relayId,
+          instanceId: event.data.instanceId,
+          body: backgroundResponse,
+          relayed: true
+        },
+        {
+          targetOrigin: req.targetOrigin || "/"
+        }
+      )
     }
   }
 
@@ -43,7 +48,7 @@ export const sendViaRelay: PlasmoMessaging.SendFx = (
 ) =>
   new Promise((resolve, _reject) => {
     const instanceId = nanoid()
-
+    const abortController = new AbortController()
     messagePort.addEventListener(
       "message",
       (event: MessageEvent<PlasmoMessaging.RelayMessage>) => {
@@ -53,12 +58,21 @@ export const sendViaRelay: PlasmoMessaging.SendFx = (
           event.data.instanceId === instanceId
         ) {
           resolve(event.data.body)
+          abortController.abort()
         }
+      },
+      {
+        signal: abortController.signal
       }
     )
 
-    messagePort.postMessage({
-      ...req,
-      instanceId
-    } as PlasmoMessaging.RelayMessage)
+    messagePort.postMessage(
+      {
+        ...req,
+        instanceId
+      } as PlasmoMessaging.RelayMessage,
+      {
+        targetOrigin: req.targetOrigin || "/"
+      }
+    )
   })
