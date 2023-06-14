@@ -49,7 +49,7 @@ export const createParcelBuilder = async (
     : "false"
 
   process.env.__PLASMO_FRAMEWORK_INTERNAL_ES_TARGET =
-    (getFlag("--es-target") as any) || "es2016"
+    (getFlag("--es-target") as any) || "es2022"
 
   const pmInfo = await getPackageManager()
 

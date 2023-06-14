@@ -16,7 +16,7 @@ import { getEntryByTarget } from "./get-entry-by-target"
 
 const EXTENSION_OPTIONS = {
   minBundles: 1_000_000_000,
-  minBundleSize: 1_000_000,
+  minBundleSize: 2_400,
   maxParallelRequests: 20
 }
 

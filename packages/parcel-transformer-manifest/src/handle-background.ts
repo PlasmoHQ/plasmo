@@ -55,7 +55,8 @@ function handleMV2BackgroundScript(program: MV2Data) {
   if (program.background?.scripts) {
     program.background.scripts = program.background.scripts.map((bgScript) =>
       asset.addURLDependency(bgScript, {
-        bundleBehavior: "isolated"
+        bundleBehavior: "isolated",
+        needsStableName: true
       })
     )
   }
@@ -64,7 +65,8 @@ function handleMV2BackgroundScript(program: MV2Data) {
     if (!program.background?.scripts) {
       program.background.scripts = [
         asset.addURLDependency(defaultBackgroundScriptPath, {
-          resolveFrom: __filename
+          resolveFrom: __filename,
+          needsStableName: true
         })
       ]
     }
@@ -81,6 +83,7 @@ function handleMV3BackgroundServiceWorker(program: MV3Data) {
       program.background.service_worker,
       {
         bundleBehavior: "isolated",
+        needsStableName: true,
         loc: {
           filePath,
           ...getJSONSourceLocation(ptrs["/background/service_worker"], "value")
@@ -102,6 +105,7 @@ function handleMV3BackgroundServiceWorker(program: MV3Data) {
       program.background = {
         service_worker: asset.addURLDependency(defaultBackgroundScriptPath, {
           resolveFrom: __filename,
+          needsStableName: true,
           env: {
             context: "web-worker"
           }
@@ -130,7 +134,7 @@ function handleMV3HotCsp(program: MV3Data) {
     const csp = program.content_security_policy || {}
     csp.extension_pages = cspPatchHMR(
       csp.extension_pages,
-      `http://${hmrOptions?.host || "localhost"}:*`
+      `http://${hmrOptions?.host || "localhost"}`
     )
     // Sandbox allows eval by default
     if (csp.sandbox) {
