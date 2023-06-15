@@ -56,7 +56,7 @@ function handleMV2BackgroundScript(program: MV2Data) {
     program.background.scripts = program.background.scripts.map((bgScript) =>
       asset.addURLDependency(bgScript, {
         bundleBehavior: "isolated",
-        needsStableName: true
+        priority: "parallel"
       })
     )
   }
@@ -65,8 +65,7 @@ function handleMV2BackgroundScript(program: MV2Data) {
     if (!program.background?.scripts) {
       program.background.scripts = [
         asset.addURLDependency(defaultBackgroundScriptPath, {
-          resolveFrom: __filename,
-          needsStableName: true
+          resolveFrom: __filename
         })
       ]
     }
@@ -105,7 +104,6 @@ function handleMV3BackgroundServiceWorker(program: MV3Data) {
       program.background = {
         service_worker: asset.addURLDependency(defaultBackgroundScriptPath, {
           resolveFrom: __filename,
-          needsStableName: true,
           env: {
             context: "web-worker"
           }
