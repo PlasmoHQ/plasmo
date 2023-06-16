@@ -56,7 +56,7 @@ function handleMV2BackgroundScript(program: MV2Data) {
     program.background.scripts = program.background.scripts.map((bgScript) =>
       asset.addURLDependency(bgScript, {
         bundleBehavior: "isolated",
-        priority: "parallel"
+        needsStableName: true
       })
     )
   }
