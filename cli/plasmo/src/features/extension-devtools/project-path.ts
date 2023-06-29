@@ -86,13 +86,13 @@ export const getProjectPath = (
   const optionsIndexList = getIndexList("options", uiExts)
   const devtoolsIndexList = getIndexList("devtools", uiExts)
   const newtabIndexList = getIndexList("newtab", uiExts)
-  const sidePanelIndexList = getIndexList("sidepanel", uiExts)
+  const sidepanelIndexList = getIndexList("sidepanel", uiExts)
 
   const popupHtmlList = getIndexList("popup", [".html"])
   const optionsHtmlList = getIndexList("options", [".html"])
   const devtoolsHtmlList = getIndexList("devtools", [".html"])
   const newtabHtmlList = getIndexList("newtab", [".html"])
-  const sidePanelHtmlList = getIndexList("sidepanel", [".html"])
+  const sidepanelHtmlList = getIndexList("sidepanel", [".html"])
 
   const envFileList = getEnvFileNames().map((f) => resolve(sourceDirectory, f))
 
@@ -115,13 +115,13 @@ export const getProjectPath = (
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
     ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
-    ...getWatchReasonMap(sidePanelIndexList, WatchReason.SidePanelIndex),
+    ...getWatchReasonMap(sidepanelIndexList, WatchReason.SidePanelIndex),
 
     ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
     ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
     ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
     ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml),
-    ...getWatchReasonMap(sidePanelHtmlList, WatchReason.SidePanelHtml)
+    ...getWatchReasonMap(sidepanelHtmlList, WatchReason.SidePanelHtml)
   }
 
   const contentsDirectory = resolve(sourceDirectory, "contents")
@@ -146,7 +146,7 @@ export const getProjectPath = (
     ...optionsIndexList,
     ...devtoolsIndexList,
     ...newtabIndexList,
-    ...sidePanelIndexList
+    ...sidepanelIndexList
   ])
 
   const isEntryPath = (path: string) => entryFileSet.has(path)
@@ -169,6 +169,9 @@ export const getProjectPath = (
 
     contentIndexList,
     contentsDirectory,
+
+    sidepanelIndexList,
+    sidepanelHtmlList,
 
     sandboxIndexList,
     sandboxesDirectory,

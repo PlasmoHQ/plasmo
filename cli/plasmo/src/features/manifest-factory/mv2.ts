@@ -18,8 +18,26 @@ export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifest
     }
   }
 
-  toggleSidePanel = () => {
-    iLog("Side panel is not supported in MV2, skipping.")
+  toggleSidePanel = (enable = false) => {
+    switch (this.browser) {
+      case "firefox":
+      case "gecko": {
+        if (enable) {
+          this.data.sidebar_action = {
+            default_panel: "./sidepanel.html"
+          }
+        } else {
+          delete this.data.sidebar_action
+        }
+        break
+      }
+      default: {
+        iLog(
+          "SidePanel is not available on chromium-based MV2 browsers, skipping."
+        )
+      }
+    }
+
     return this
   }
 

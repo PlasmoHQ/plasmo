@@ -15,7 +15,6 @@ import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import {
   type PackageJSON,
-  generatePackage,
   resolveWorkspaceToLatestSemver
 } from "~features/extension-devtools/package-file"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
@@ -163,18 +162,7 @@ export class ProjectCreator {
   }
 
   async createBlank() {
-    const packageData = await generatePackage({
-      name: this.commonPath.packageName,
-      packageManager: this.isExample ? undefined : this.packageManager
-    })
-
-    vLog(`Copying template files...`)
-    await Promise.all([
-      this.outputPackageData(packageData, { resolveWorkspaceRefs: true }),
-      this.copyBlankInitFiles()
-    ])
-
-    iLog("Creating new blank project")
+    await this.createWithExample("with-popup")
     return true
   }
 
