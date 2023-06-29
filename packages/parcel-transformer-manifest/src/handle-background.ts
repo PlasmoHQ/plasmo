@@ -41,8 +41,10 @@ function handleMV3Background(program: MV3Data) {
 
 function handleFirefoxMV3Background(program: MV3Data) {
   const mv2Program = program as unknown as MV2Data
-  mv2Program.background.scripts = [program.background.service_worker]
-  delete program.background.service_worker
+  if (program.background?.service_worker) {
+    mv2Program.background.scripts = [program.background.service_worker]
+    delete program.background.service_worker
+  }
 
   handleMV2BackgroundScript(mv2Program)
   handleMV3HotCsp(program)
