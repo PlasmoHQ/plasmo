@@ -13,6 +13,8 @@
     "build": "turbo run build",
     "build:cli": "turbo run build --filter=plasmo",
     "build:packages": "turbo run build --filter \"./packages/**\"",
+    "build:api": "turbo run build --filter \"./packages/**\"",
+    "build:core": "turbo run build --filter \"./packages/**\"",
     "build:examples": "pnpm --filter \"./examples/**\" -r build",
     "publish:parcel": "pnpm --filter \"./packages/parcel-*\" publish",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
