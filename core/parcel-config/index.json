@@ -38,12 +38,14 @@
       "@parcel/transformer-raw"
     ],
 
-    "*.vue": ["@plasmohq/parcel-transformer-vue3"],
-    "template:*.vue": ["@plasmohq/parcel-transformer-vue3"],
-    "script:*.vue": ["@plasmohq/parcel-transformer-vue3"],
-    "style:*.vue": ["@plasmohq/parcel-transformer-vue3"],
-    "custom:*.vue": ["@plasmohq/parcel-transformer-vue3"],
-    "*.svelte": ["@plasmohq/parcel-transformer-svelte3"],
+    "*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "template:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "script:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "style:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "custom:*.vue": ["@plasmohq/parcel-transformer-vue"],
+
+    "*.svelte": ["@plasmohq/parcel-transformer-svelte"],
+
     "*.{gql,graphql}": ["@parcel/transformer-graphql"],
     "*.{sass,scss}": ["@parcel/transformer-sass"],
     "*.less": ["@parcel/transformer-less"]

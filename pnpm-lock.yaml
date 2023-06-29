@@ -558,12 +558,12 @@ importers:
       '@plasmohq/parcel-transformer-manifest':
         specifier: workspace:*
         version: link:../parcel-transformer-manifest
-      '@plasmohq/parcel-transformer-svelte3':
+      '@plasmohq/parcel-transformer-svelte':
         specifier: workspace:*
-        version: link:../parcel-transformer-svelte3
-      '@plasmohq/parcel-transformer-vue3':
+        version: link:../parcel-transformer-svelte
+      '@plasmohq/parcel-transformer-vue':
         specifier: workspace:*
-        version: link:../parcel-transformer-vue3
+        version: link:../parcel-transformer-vue
 
   core/parcel-core:
     dependencies:
@@ -1033,7 +1033,7 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(@swc/core@1.3.66)
 
-  core/parcel-transformer-svelte3:
+  core/parcel-transformer-svelte:
     dependencies:
       '@parcel/core':
         specifier: 2.9.3
@@ -1061,7 +1061,7 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(@swc/core@1.3.66)
 
-  core/parcel-transformer-vue3:
+  core/parcel-transformer-vue:
     dependencies:
       '@parcel/core':
         specifier: 2.9.3
