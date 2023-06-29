@@ -6,7 +6,7 @@
 
 import { Optimizer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
-import { type PluginOptions } from "@parcel/types"
+import type { PluginOptions } from "@parcel/types"
 
 import { vLog } from "@plasmo/utils/logging"
 

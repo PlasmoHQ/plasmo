@@ -13,8 +13,8 @@
     "build": "turbo run build",
     "build:cli": "turbo run build --filter=plasmo",
     "build:packages": "turbo run build --filter \"./packages/**\"",
-    "build:api": "turbo run build --filter \"./packages/**\"",
-    "build:core": "turbo run build --filter \"./packages/**\"",
+    "build:api": "turbo run build --filter \"./api/**\"",
+    "build:core": "turbo run build --filter \"./core/**\"",
     "build:examples": "pnpm --filter \"./examples/**\" -r build",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
     "publish:api": "pnpm --filter \"./api/**\" publish",
@@ -26,7 +26,7 @@
     "### version script usage example": "pnpm v:cli patch",
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:core": "pnpm --filter \"./core/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
-    "v:api": "pnpm --filter \"./core/api-*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:api": "pnpm --filter \"./api/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "pnpm": {

@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-transformer-vue3",
-  "version": "0.3.12",
-  "description": "Plasmo Parcel Transformer for Vue3",
+  "name": "@plasmohq/parcel-transformer-svelte",
+  "version": "0.5.2",
+  "description": "Plasmo Parcel Transformer for Svelte",
   "files": [
     "dist"
   ],
@@ -23,19 +23,14 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "7.1.0",
-    "vue": "3.3.4"
+    "tsup": "7.1.0"
   },
   "dependencies": {
+    "svelte": "4.0.1",
     "@parcel/core": "2.9.3",
     "@parcel/diagnostic": "2.9.3",
     "@parcel/plugin": "2.9.3",
     "@parcel/source-map": "2.1.1",
-    "@parcel/types": "2.9.3",
-    "@parcel/utils": "2.9.3",
-    "@plasmohq/consolidate": "0.17.0",
-    "@vue/compiler-sfc": "3.3.4",
-    "nullthrows": "1.1.1",
-    "semver": "7.5.3"
+    "@parcel/utils": "2.9.3"
   }
 }

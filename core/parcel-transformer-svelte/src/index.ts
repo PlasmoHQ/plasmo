@@ -9,7 +9,7 @@
 import ThrowableDiagnostic from "@parcel/diagnostic"
 import { Transformer } from "@parcel/plugin"
 import { relativeUrl } from "@parcel/utils"
-import { compile, preprocess } from "svelte/compiler"
+import { type CompileOptions, compile, preprocess } from "svelte/compiler"
 
 import { convertError } from "./convert-error"
 import { extendSourceMap } from "./source-map"
@@ -17,7 +17,12 @@ import { extendSourceMap } from "./source-map"
 export default new Transformer({
   async loadConfig({ config, options }) {
     const conf = await config.getConfig(
-      [".svelterc", "svelte.config.js", "svelte.config.cjs"],
+      [
+        ".svelterc",
+        "svelte.config.js",
+        "svelte.config.cjs",
+        "svelte.config.mjs"
+      ],
       {
         packageKey: "svelte"
       }
@@ -36,10 +41,9 @@ export default new Transformer({
     return {
       compilerOptions: {
         dev: options.mode !== "production",
-        css: false,
-        format: "esm",
+        css: "external",
         ...compilerOptions
-      },
+      } as CompileOptions,
       preprocess: contents.preprocess,
       filePath: conf && conf.filePath
     }

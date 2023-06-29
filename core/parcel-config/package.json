@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.37.9",
+  "version": "0.38.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "@plasmohq/parcel-transformer-inject-env": "workspace:*",
     "@plasmohq/parcel-transformer-inline-css": "workspace:*",
     "@plasmohq/parcel-transformer-manifest": "workspace:*",
-    "@plasmohq/parcel-transformer-svelte3": "workspace:*",
-    "@plasmohq/parcel-transformer-vue3": "workspace:*"
+    "@plasmohq/parcel-transformer-svelte": "workspace:*",
+    "@plasmohq/parcel-transformer-vue": "workspace:*"
   }
 }
