@@ -38,9 +38,9 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.7.2",
-    "@parcel/core": "2.9.1",
-    "@parcel/fs": "2.9.1",
-    "@parcel/package-manager": "2.9.1",
+    "@parcel/core": "2.9.3",
+    "@parcel/fs": "2.9.3",
+    "@parcel/package-manager": "2.9.3",
     "@parcel/watcher": "2.1.0",
     "@plasmohq/init": "workspace:*",
     "@plasmohq/parcel-config": "workspace:*",
@@ -49,7 +49,7 @@
     "buffer": "6.0.3",
     "chalk": "5.2.0",
     "change-case": "4.1.2",
-    "dotenv": "16.1.4",
+    "dotenv": "16.3.1",
     "dotenv-expand": "10.0.0",
     "events": "3.3.0",
     "fast-glob": "3.2.12",
@@ -62,17 +62,17 @@
     "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
     "node-object-hash": "3.0.0",
-    "package-json": "8.1.0",
+    "package-json": "8.1.1",
     "process": "0.11.10",
-    "semver": "7.5.1",
+    "semver": "7.5.3",
     "sharp": "0.32.1",
     "tempy": "3.0.0",
-    "typescript": "5.1.3"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@plasmo/framework-shared": "workspace:*",
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
+    "@plasmo/framework-shared": "workspace:*",
     "@plasmo/utils": "workspace:*"
   }
 }

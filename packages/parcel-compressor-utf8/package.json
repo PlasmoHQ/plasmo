@@ -24,9 +24,9 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "6.7.0"
+    "tsup": "7.1.0"
   },
   "dependencies": {
-    "@parcel/plugin": "2.9.1"
+    "@parcel/plugin": "2.9.3"
   }
 }
