@@ -21,6 +21,11 @@
       "require": "./dist/port.cjs",
       "types": "./dist/port.d.ts"
     },
+    "./pub-sub": {
+      "import": "./dist/pub-sub.js",
+      "require": "./dist/pub-sub.cjs",
+      "types": "./dist/pub-sub.d.ts"
+    },
     "./background": {
       "import": "./dist/background.js",
       "require": "./dist/background.cjs",
@@ -51,6 +56,9 @@
       "port": [
         "./dist/port.d.ts"
       ],
+      "pub-sub": [
+        "./dist/pub-sub.d.ts"
+      ],
       "background": [
         "./dist/background.d.ts"
       ]
@@ -63,6 +71,7 @@
     "entry": [
       "src/index.ts",
       "src/port.ts",
+      "src/pub-sub.ts",
       "src/relay.ts",
       "src/message.ts",
       "src/background.ts",
