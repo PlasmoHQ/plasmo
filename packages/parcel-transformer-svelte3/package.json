@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-svelte3",
-  "version": "0.4.10",
+  "version": "0.4.11",
   "description": "Plasmo Parcel Transformer for Svelte3",
   "files": [
     "dist"
