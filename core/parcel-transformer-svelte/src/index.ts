@@ -88,6 +88,8 @@ export default new Transformer({
         logger.warn(convertError(asset, originalMap, finalCode, warning))
       })
 
+      // console.log(compiled.js.code)
+
       const results = [
         {
           type: "js",
