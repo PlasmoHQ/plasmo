@@ -44,6 +44,7 @@ jobs:
         run: |
           pnpm i --no-frozen-lockfile
           pnpm run build:packages
+          pnpm run build:api
           pnpm i
           pnpm run build:cli
           pnpm i
