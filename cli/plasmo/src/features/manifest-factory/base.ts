@@ -488,16 +488,6 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       ...overide
     } = this.overideManifest as T
 
-    if (this.bundleConfig.manifestVersion === "mv2") {
-      base.background = {
-        ...base.background,
-        ...overrideBackground
-      }
-      if (Object.keys(base.background).length === 0) {
-        delete base.background
-      }
-    }
-
     if (base.options_ui?.page) {
       base.options_ui = {
         ...base.options_ui,
@@ -511,6 +501,23 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     if (base.permissions?.length === 0) {
       delete base.permissions
+    }
+
+    if (this.bundleConfig.manifestVersion === "mv2") {
+      base.background = {
+        ...base.background,
+        ...overrideBackground
+      }
+      if (Object.keys(base.background).length === 0) {
+        delete base.background
+      }
+      // Host permission is coupled with permission in mv2
+      if (overide["host_permissions"]?.length > 0) {
+        base.permissions = [
+          ...(base.permissions || []),
+          ...overide["host_permissions"]
+        ]
+      }
     }
 
     // Populate content_scripts
