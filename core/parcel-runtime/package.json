@@ -1,0 +1,37 @@
+{
+  "name": "@plasmohq/parcel-runtime",
+  "version": "0.21.1",
+  "description": "Plasmo Parcel Runtime",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsup --minify --clean",
+    "dev": "tsup --sourcemap --watch"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "engines": {
+    "parcel": ">= 2.7.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/framework-shared": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "@plasmohq/persistent": "workspace:*",
+    "@types/chrome": "0.0.239",
+    "tsup": "7.1.0"
+  },
+  "dependencies": {
+    "@parcel/core": "2.9.3",
+    "@parcel/plugin": "2.9.3",
+    "react-refresh": "0.14.0"
+  }
+}

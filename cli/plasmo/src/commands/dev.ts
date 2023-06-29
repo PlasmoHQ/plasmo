@@ -1,15 +1,20 @@
+import {
+  BuildSocketEvent,
+  getBuildSocket
+} from "@plasmo/framework-shared/build-socket"
 import { getFlag, isVerbose } from "@plasmo/utils/flags"
 import { eLog, iLog, sLog, vLog } from "@plasmo/utils/logging"
 
-import { createBuildSocket } from "~features/extension-devtools/build-socket"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
+import { checkNewVersion } from "~features/framework-update/version-tracker"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
 
 async function dev() {
   printHeader()
+  await checkNewVersion()
 
   process.env.NODE_ENV = "development"
 
@@ -18,20 +23,21 @@ async function dev() {
 
   iLog("Starting the extension development server...")
 
-  const bundleConfig = getBundleConfig()
-
-  const plasmoManifest = await createManifest(bundleConfig)
-
-  const projectWatcher = await createProjectWatcher(plasmoManifest)
-
   const { default: getPort } = await import("get-port")
 
   const [servePort, hmrPort] = await Promise.all([
     getPort({ port: parseInt(rawServePort) }),
     getPort({ port: parseInt(rawHmrPort) })
   ])
+  const buildWatcher = getBuildSocket(hmrPort)
 
   vLog(`Starting dev server on ${servePort}, HMR on ${hmrPort}...`)
+
+  const bundleConfig = getBundleConfig()
+
+  const plasmoManifest = await createManifest(bundleConfig)
+
+  const projectWatcher = await createProjectWatcher(plasmoManifest)
 
   const bundler = await createParcelBuilder(plasmoManifest, {
     logLevel: "verbose",
@@ -48,7 +54,6 @@ async function dev() {
 
   const { default: chalk } = await import("chalk")
 
-  const buildWatcher = await createBuildSocket(hmrPort)
   const bundlerWatcher = await bundler.watch(async (err, event) => {
     if (err) {
       throw err
@@ -63,7 +68,7 @@ async function dev() {
 
       await plasmoManifest.postBuild()
 
-      buildWatcher.triggerReload()
+      buildWatcher.broadcast(BuildSocketEvent.BuildReady)
     } else if (event.type === "buildFailure") {
       if (!isVerbose()) {
         eLog(

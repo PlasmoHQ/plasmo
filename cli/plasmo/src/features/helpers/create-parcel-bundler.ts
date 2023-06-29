@@ -3,7 +3,7 @@ import ParcelPM from "@parcel/package-manager"
 import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
 import { dirname, join, resolve } from "path"
 
-import { hasFlag } from "@plasmo/utils/flags"
+import { getFlag, hasFlag } from "@plasmo/utils/flags"
 
 import { Parcel, type ParcelOptions } from "@plasmohq/parcel-core"
 
@@ -47,6 +47,9 @@ export const createParcelBuilder = async (
   )
     ? "true"
     : "false"
+
+  process.env.__PLASMO_FRAMEWORK_INTERNAL_ES_TARGET =
+    (getFlag("--es-target") as any) || "es2022"
 
   const pmInfo = await getPackageManager()
 

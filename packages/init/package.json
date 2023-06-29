@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/init",
-  "version": "0.6.3",
+  "version": "0.6.5",
   "description": "Plasmo init template files",
   "files": [
     "entries",

@@ -2,6 +2,7 @@
   "extends": "@plasmo/config/ts/framework.json",
   "include": [
     "src/**/*.ts",
+    "templates/plasmo.d.ts",
     "templates/static/**/*.ts",
     "templates/static/**/*.tsx"
   ],

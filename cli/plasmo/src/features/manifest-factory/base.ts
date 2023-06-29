@@ -8,7 +8,7 @@ import {
   readJson,
   writeJson
 } from "fs-extra"
-import { readFile, readdir } from "fs/promises"
+import { readdir } from "fs/promises"
 import { hasher as createHasher } from "node-object-hash"
 import {
   basename,
@@ -29,6 +29,10 @@ import type {
   ManifestContentScript,
   ManifestPermission
 } from "@plasmo/constants"
+import {
+  BuildSocketEvent,
+  buildBroadcast
+} from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
 import { isReadable } from "@plasmo/utils/fs"
@@ -77,7 +81,7 @@ const hasher = createHasher({ trim: true, sort: true })
 
 export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   get browser() {
-    return this.bundleConfig.browser
+    return this.bundleConfig.browser as typeof process.env.PLASMO_BROWSER
   }
 
   #commonPath?: CommonPath
@@ -397,6 +401,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     } else {
       this.contentScriptMap.delete(path)
     }
+
+    buildBroadcast(BuildSocketEvent.CsChanged)
+
     return enable
   }
 
@@ -481,16 +488,6 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       ...overide
     } = this.overideManifest as T
 
-    if (this.bundleConfig.manifestVersion === "mv2") {
-      base.background = {
-        ...base.background,
-        ...overrideBackground
-      }
-      if (Object.keys(base.background).length === 0) {
-        delete base.background
-      }
-    }
-
     if (base.options_ui?.page) {
       base.options_ui = {
         ...base.options_ui,
@@ -504,6 +501,23 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     if (base.permissions?.length === 0) {
       delete base.permissions
+    }
+
+    if (this.bundleConfig.manifestVersion === "mv2") {
+      base.background = {
+        ...base.background,
+        ...overrideBackground
+      }
+      if (Object.keys(base.background).length === 0) {
+        delete base.background
+      }
+      // Host permission is coupled with permission in mv2
+      if (overide["host_permissions"]?.length > 0) {
+        base.permissions = [
+          ...(base.permissions || []),
+          ...overide["host_permissions"]
+        ]
+      }
     }
 
     // Populate content_scripts

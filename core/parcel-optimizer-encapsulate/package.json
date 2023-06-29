@@ -1,0 +1,35 @@
+{
+  "name": "@plasmohq/parcel-optimizer-encapsulate",
+  "version": "0.0.6",
+  "description": "Plasmo ECMAScript Encapsulation for Extension",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsup --minify --clean",
+    "dev": "tsup --sourcemap --watch"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "engines": {
+    "parcel": ">= 2.8.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "tsup": "7.1.0"
+  },
+  "dependencies": {
+    "@parcel/core": "2.9.3",
+    "@parcel/plugin": "2.9.3",
+    "@parcel/source-map": "2.1.1",
+    "@parcel/types": "2.9.3"
+  }
+}

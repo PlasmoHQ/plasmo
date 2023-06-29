@@ -1,0 +1,140 @@
+{
+  "name": "@plasmohq/messaging",
+  "version": "0.5.0",
+  "description": "Type-safe, zero-config messaging library for modern browser extensions",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./hook": {
+      "import": "./dist/hook.js",
+      "require": "./dist/hook.cjs",
+      "types": "./dist/hook.d.ts"
+    },
+    "./relay": {
+      "import": "./dist/relay.js",
+      "require": "./dist/relay.cjs",
+      "types": "./dist/relay.d.ts"
+    },
+    "./port": {
+      "import": "./dist/port.js",
+      "require": "./dist/port.cjs",
+      "types": "./dist/port.d.ts"
+    },
+    "./pub-sub": {
+      "import": "./dist/pub-sub.js",
+      "require": "./dist/pub-sub.cjs",
+      "types": "./dist/pub-sub.d.ts"
+    },
+    "./background": {
+      "import": "./dist/background.js",
+      "require": "./dist/background.cjs",
+      "types": "./dist/background.d.ts"
+    },
+    "./message": {
+      "import": "./dist/message.js",
+      "require": "./dist/message.cjs",
+      "types": "./dist/message.d.ts"
+    },
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "message": [
+        "./dist/message.d.ts"
+      ],
+      "hook": [
+        "./dist/hook.d.ts"
+      ],
+      "relay": [
+        "./dist/relay.d.ts"
+      ],
+      "port": [
+        "./dist/port.d.ts"
+      ],
+      "pub-sub": [
+        "./dist/pub-sub.d.ts"
+      ],
+      "background": [
+        "./dist/background.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "tsup": {
+    "entry": [
+      "src/index.ts",
+      "src/port.ts",
+      "src/pub-sub.ts",
+      "src/relay.ts",
+      "src/message.ts",
+      "src/background.ts",
+      "src/hook.ts"
+    ],
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "target": "esnext",
+    "platform": "node",
+    "splitting": false,
+    "bundle": true
+  },
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:compile": "tsup --watch --sourcemap --dts-resolve",
+    "dev:test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "build": "tsup --dts-resolve --minify --clean",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "prepublishOnly": "pnpm build"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "contributors": [
+    "@louisgv",
+    "@ColdSauce"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-hook",
+    "browser-extension",
+    "chrome-extension"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.6 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "29.5.0",
+    "@jest/types": "29.5.0",
+    "@testing-library/react": "14.0.0",
+    "@types/chrome": "0.0.239",
+    "@types/node": "20.3.2",
+    "@types/react": "18.2.14",
+    "cross-env": "7.0.3",
+    "jest": "29.5.0",
+    "jest-environment-jsdom": "29.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.1",
+    "ts-jest": "29.1.0",
+    "tsup": "7.1.0",
+    "typescript": "5.1.6"
+  },
+  "dependencies": {
+    "nanoid": "4.0.2"
+  }
+}

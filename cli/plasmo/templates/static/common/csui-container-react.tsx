@@ -13,8 +13,7 @@ export const OverlayCSUIContainer = (props: PlasmoCSUIContainerProps) => {
     }
 
     const updatePosition = async () => {
-      const rect = props.anchor.element.getBoundingClientRect()
-
+      const rect = props.anchor.element?.getBoundingClientRect()
       if (!rect) {
         return
       }
@@ -32,14 +31,16 @@ export const OverlayCSUIContainer = (props: PlasmoCSUIContainerProps) => {
 
     const unwatch = props.watchOverlayAnchor?.(updatePosition)
     window.addEventListener("scroll", updatePosition)
+    window.addEventListener("resize", updatePosition)
 
     return () => {
       if (typeof unwatch === "function") {
         unwatch()
       }
       window.removeEventListener("scroll", updatePosition)
+      window.removeEventListener("resize", updatePosition)
     }
-  }, [])
+  }, [props.anchor.element])
 
   return (
     <div

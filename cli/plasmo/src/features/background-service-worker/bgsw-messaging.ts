@@ -11,7 +11,7 @@ import {
   createDeclarationCode,
   outputMessagingDeclaration
 } from "~features/background-service-worker/bgsw-messaging-declaration"
-import { getMd5RevHash } from "~features/helpers/crypto"
+import { getRevHash } from "~features/helpers/crypto"
 import { type PlasmoManifest } from "~features/manifest-factory/base"
 
 const state = {
@@ -126,7 +126,7 @@ export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
       portHandlerList.map(({ declaration }) => declaration)
     )
 
-    const declarationMd5Hash = getMd5RevHash(Buffer.from(declarationCode))
+    const declarationMd5Hash = getRevHash(Buffer.from(declarationCode))
 
     if (state.md5Hash === declarationMd5Hash) {
       return true
