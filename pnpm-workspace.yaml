@@ -2,3 +2,5 @@ packages:
   - "cli/*"
   - "packages/*"
   - "examples/*"
+  - "api/*"
+  - "core/*"

@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   '@parcel/source-map': 2.1.1
   react-refresh: 0.14.0
@@ -72,6 +76,203 @@ importers:
         specifier: 1.10.6
         version: 1.10.6
 
+  api/messaging:
+    dependencies:
+      nanoid:
+        specifier: 4.0.2
+        version: 4.0.2
+    devDependencies:
+      '@jest/globals':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@jest/types':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@testing-library/react':
+        specifier: 14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@types/chrome':
+        specifier: 0.0.239
+        version: 0.0.239
+      '@types/node':
+        specifier: 20.3.2
+        version: 20.3.2
+      '@types/react':
+        specifier: 18.2.14
+        version: 18.2.14
+      cross-env:
+        specifier: 7.0.3
+        version: 7.0.3
+      jest:
+        specifier: 29.5.0
+        version: 29.5.0(@types/node@20.3.2)
+      jest-environment-jsdom:
+        specifier: 29.5.0
+        version: 29.5.0
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      rimraf:
+        specifier: 5.0.1
+        version: 5.0.1
+      ts-jest:
+        specifier: 29.1.0
+        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  api/persistent:
+    devDependencies:
+      '@jest/globals':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@jest/types':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@types/chrome':
+        specifier: 0.0.239
+        version: 0.0.239
+      '@types/node':
+        specifier: 20.3.2
+        version: 20.3.2
+      cross-env:
+        specifier: 7.0.3
+        version: 7.0.3
+      jest:
+        specifier: 29.5.0
+        version: 29.5.0(@types/node@20.3.2)
+      jest-environment-jsdom:
+        specifier: 29.5.0
+        version: 29.5.0
+      ts-jest:
+        specifier: 29.1.0
+        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  api/selector:
+    devDependencies:
+      '@jest/globals':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@jest/types':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@testing-library/react':
+        specifier: 14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@types/chrome':
+        specifier: 0.0.239
+        version: 0.0.239
+      '@types/node':
+        specifier: 20.3.2
+        version: 20.3.2
+      '@types/react':
+        specifier: 18.2.14
+        version: 18.2.14
+      cross-env:
+        specifier: 7.0.3
+        version: 7.0.3
+      jest:
+        specifier: 29.5.0
+        version: 29.5.0(@types/node@20.3.2)
+      jest-environment-jsdom:
+        specifier: 29.5.0
+        version: 29.5.0
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      rimraf:
+        specifier: 5.0.1
+        version: 5.0.1
+      ts-jest:
+        specifier: 29.1.0
+        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  api/storage:
+    dependencies:
+      pify:
+        specifier: 6.1.0
+        version: 6.1.0
+    devDependencies:
+      '@jest/globals':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@jest/types':
+        specifier: 29.5.0
+        version: 29.5.0
+      '@plasmohq/prettier-plugin-sort-imports':
+        specifier: workspace:*
+        version: link:../../packages/prettier-plugin-sort-imports
+      '@plasmohq/rps':
+        specifier: workspace:*
+        version: link:../../packages/rps
+      '@testing-library/react':
+        specifier: 14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@types/chrome':
+        specifier: 0.0.239
+        version: 0.0.239
+      '@types/node':
+        specifier: 20.3.2
+        version: 20.3.2
+      '@types/react':
+        specifier: 18.2.14
+        version: 18.2.14
+      cross-env:
+        specifier: 7.0.3
+        version: 7.0.3
+      jest:
+        specifier: 29.5.0
+        version: 29.5.0(@types/node@20.3.2)
+      jest-environment-jsdom:
+        specifier: 29.5.0
+        version: 29.5.0
+      prettier:
+        specifier: 2.8.8
+        version: 2.8.8
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      rimraf:
+        specifier: 5.0.1
+        version: 5.0.1
+      ts-jest:
+        specifier: 29.1.0
+        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
   cli/create-plasmo:
     dependencies:
       '@plasmohq/init':
@@ -116,10 +317,10 @@ importers:
         version: link:../../packages/init
       '@plasmohq/parcel-config':
         specifier: workspace:*
-        version: link:../../packages/parcel-config
+        version: link:../../core/parcel-config
       '@plasmohq/parcel-core':
         specifier: workspace:*
-        version: link:../../packages/parcel-core
+        version: link:../../core/parcel-core
       archiver:
         specifier: 5.3.1
         version: 5.3.1
@@ -202,6 +403,706 @@ importers:
       '@plasmo/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+
+  core/parcel-bundler:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/graph':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/hash':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+    devDependencies:
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-compressor-utf8:
+    dependencies:
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-config:
+    dependencies:
+      '@parcel/compressor-raw':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/config-default':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/optimizer-data-url':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/reporter-bundle-buddy':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/resolver-default':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/runtime-js':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/runtime-service-worker':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/transformer-babel':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-css':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-graphql':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-inline-string':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-js':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-less':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-postcss':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-raw':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-react-refresh-wrap':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-sass':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-svg-react':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-worklet':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@plasmohq/parcel-bundler':
+        specifier: workspace:*
+        version: link:../parcel-bundler
+      '@plasmohq/parcel-compressor-utf8':
+        specifier: workspace:*
+        version: link:../parcel-compressor-utf8
+      '@plasmohq/parcel-namer-manifest':
+        specifier: workspace:*
+        version: link:../parcel-namer-manifest
+      '@plasmohq/parcel-optimizer-encapsulate':
+        specifier: workspace:*
+        version: link:../parcel-optimizer-encapsulate
+      '@plasmohq/parcel-optimizer-es':
+        specifier: workspace:*
+        version: link:../parcel-optimizer-es
+      '@plasmohq/parcel-packager':
+        specifier: workspace:*
+        version: link:../parcel-packager
+      '@plasmohq/parcel-resolver':
+        specifier: workspace:*
+        version: link:../parcel-resolver
+      '@plasmohq/parcel-resolver-post':
+        specifier: workspace:*
+        version: link:../parcel-resolver-post
+      '@plasmohq/parcel-runtime':
+        specifier: workspace:*
+        version: link:../parcel-runtime
+      '@plasmohq/parcel-transformer-inject-env':
+        specifier: workspace:*
+        version: link:../parcel-transformer-inject-env
+      '@plasmohq/parcel-transformer-inline-css':
+        specifier: workspace:*
+        version: link:../parcel-transformer-inline-css
+      '@plasmohq/parcel-transformer-manifest':
+        specifier: workspace:*
+        version: link:../parcel-transformer-manifest
+      '@plasmohq/parcel-transformer-svelte3':
+        specifier: workspace:*
+        version: link:../parcel-transformer-svelte3
+      '@plasmohq/parcel-transformer-vue3':
+        specifier: workspace:*
+        version: link:../parcel-transformer-vue3
+
+  core/parcel-core:
+    dependencies:
+      '@parcel/cache':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/events':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/fs':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/graph':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/hash':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/logger':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/package-manager':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/watcher':
+        specifier: 2.1.0
+        version: 2.1.0
+      '@parcel/workers':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      abortcontroller-polyfill:
+        specifier: 1.7.5
+        version: 1.7.5
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-namer-manifest:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-optimizer-encapsulate:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-optimizer-es:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@swc/core':
+        specifier: 1.3.66
+        version: 1.3.66
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-packager:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-resolver:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/hash':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      fast-glob:
+        specifier: 3.2.12
+        version: 3.2.12
+      fs-extra:
+        specifier: 11.1.1
+        version: 11.1.1
+      got:
+        specifier: 13.0.0
+        version: 13.0.0
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      '@plasmohq/rps':
+        specifier: workspace:*
+        version: link:../../packages/rps
+      assert:
+        specifier: 2.0.0
+        version: 2.0.0
+      browserify-zlib:
+        specifier: 0.2.0
+        version: 0.2.0
+      buffer:
+        specifier: 6.0.3
+        version: 6.0.3
+      console-browserify:
+        specifier: 1.2.0
+        version: 1.2.0
+      constants-browserify:
+        specifier: 1.0.0
+        version: 1.0.0
+      crc-32:
+        specifier: 1.2.2
+        version: 1.2.2
+      crypto-browserify:
+        specifier: 3.12.0
+        version: 3.12.0
+      domain-browser:
+        specifier: 4.22.0
+        version: 4.22.0
+      esbuild:
+        specifier: 0.18.10
+        version: 0.18.10
+      events:
+        specifier: 3.3.0
+        version: 3.3.0
+      https-browserify:
+        specifier: 1.0.0
+        version: 1.0.0
+      os-browserify:
+        specifier: 0.3.0
+        version: 0.3.0
+      path-browserify:
+        specifier: 1.0.1
+        version: 1.0.1
+      process:
+        specifier: 0.11.10
+        version: 0.11.10
+      punycode:
+        specifier: 2.3.0
+        version: 2.3.0
+      querystring-es3:
+        specifier: 0.2.1
+        version: 0.2.1
+      react-refresh:
+        specifier: 0.14.0
+        version: 0.14.0
+      stream-browserify:
+        specifier: 3.0.0
+        version: 3.0.0
+      stream-http:
+        specifier: 3.2.0
+        version: 3.2.0
+      string_decoder:
+        specifier: 1.3.0
+        version: 1.3.0
+      timers-browserify:
+        specifier: 2.0.12
+        version: 2.0.12
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+      tty-browserify:
+        specifier: 0.0.1
+        version: 0.0.1
+      url:
+        specifier: 0.11.1
+        version: 0.11.1
+      util:
+        specifier: 0.12.5
+        version: 0.12.5
+      vm-browserify:
+        specifier: 1.1.2
+        version: 1.1.2
+
+  core/parcel-resolver-post:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/hash':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+
+  core/parcel-runtime:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      react-refresh:
+        specifier: 0.14.0
+        version: 0.14.0
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/framework-shared':
+        specifier: workspace:*
+        version: link:../../packages/framework-shared
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      '@plasmohq/persistent':
+        specifier: workspace:*
+        version: link:../../api/persistent
+      '@types/chrome':
+        specifier: 0.0.239
+        version: 0.0.239
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-inject-env:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-inline-css:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      browserslist:
+        specifier: 4.21.9
+        version: 4.21.9
+      lightningcss:
+        specifier: 1.21.1
+        version: 1.21.1
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-lab:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/fs':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-manifest:
+    dependencies:
+      '@mischnic/json-sourcemap':
+        specifier: 0.1.0
+        version: 0.1.0
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/fs':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      content-security-policy-parser:
+        specifier: 0.4.1
+        version: 0.4.1
+      json-schema-to-ts:
+        specifier: 2.9.1
+        version: 2.9.1
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@plasmo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-svelte3:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      svelte:
+        specifier: 4.0.0
+        version: 4.0.0
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+
+  core/parcel-transformer-vue3:
+    dependencies:
+      '@parcel/core':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/diagnostic':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@parcel/plugin':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/source-map':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@parcel/types':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/utils':
+        specifier: 2.9.3
+        version: 2.9.3
+      '@plasmohq/consolidate':
+        specifier: 0.17.0
+        version: 0.17.0
+      '@vue/compiler-sfc':
+        specifier: 3.3.4
+        version: 3.3.4
+      nullthrows:
+        specifier: 1.1.1
+        version: 1.1.1
+      semver:
+        specifier: 7.5.3
+        version: 7.5.3
+    devDependencies:
+      '@plasmo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.3.66)
+      vue:
+        specifier: 3.3.4
+        version: 3.3.4
 
   examples/with-antd:
     dependencies:
@@ -565,7 +1466,7 @@ importers:
     dependencies:
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../../packages/storage
+        version: link:../../api/storage
       firebase:
         specifier: 9.23.0
         version: 9.23.0
@@ -959,7 +1860,7 @@ importers:
     dependencies:
       '@plasmohq/messaging':
         specifier: workspace:*
-        version: link:../../packages/messaging
+        version: link:../../api/messaging
       next:
         specifier: 13.4.7
         version: 13.4.7(react-dom@18.2.0)(react@18.2.0)
@@ -1147,7 +2048,7 @@ importers:
         version: link:../../packages/rps
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../../packages/storage
+        version: link:../../api/storage
       '@types/chrome':
         specifier: 0.0.239
         version: 0.0.239
@@ -1276,7 +2177,7 @@ importers:
     dependencies:
       '@plasmohq/messaging':
         specifier: workspace:*
-        version: link:../../packages/messaging
+        version: link:../../api/messaging
       '@propelauth/javascript':
         specifier: 2.0.5
         version: 2.0.5
@@ -1445,7 +2346,7 @@ importers:
         version: 6.1.0(redux@4.2.1)
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../../packages/storage
+        version: link:../../api/storage
       '@reduxjs/toolkit':
         specifier: 1.9.5
         version: 1.9.5(react-redux@8.1.1)(react@18.2.0)
@@ -1500,7 +2401,7 @@ importers:
     dependencies:
       '@plasmohq/selector':
         specifier: workspace:*
-        version: link:../../packages/selector
+        version: link:../../api/selector
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -1651,7 +2552,7 @@ importers:
     dependencies:
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../../packages/storage
+        version: link:../../api/storage
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -1780,10 +2681,10 @@ importers:
     dependencies:
       '@plasmohq/messaging':
         specifier: workspace:*
-        version: link:../../packages/messaging
+        version: link:../../api/messaging
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../../packages/storage
+        version: link:../../api/storage
       '@supabase/supabase-js':
         specifier: 2.26.0
         version: 2.26.0
@@ -2104,758 +3005,6 @@ importers:
 
   packages/init: {}
 
-  packages/messaging:
-    dependencies:
-      nanoid:
-        specifier: 4.0.2
-        version: 4.0.2
-    devDependencies:
-      '@jest/globals':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@jest/types':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@testing-library/react':
-        specifier: 14.0.0
-        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/chrome':
-        specifier: 0.0.239
-        version: 0.0.239
-      '@types/node':
-        specifier: 20.3.2
-        version: 20.3.2
-      '@types/react':
-        specifier: 18.2.14
-        version: 18.2.14
-      cross-env:
-        specifier: 7.0.3
-        version: 7.0.3
-      jest:
-        specifier: 29.5.0
-        version: 29.5.0(@types/node@20.3.2)
-      jest-environment-jsdom:
-        specifier: 29.5.0
-        version: 29.5.0
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rimraf:
-        specifier: 5.0.1
-        version: 5.0.1
-      ts-jest:
-        specifier: 29.1.0
-        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(typescript@5.1.6)
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
-
-  packages/parcel-bundler:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/graph':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/hash':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-    devDependencies:
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-compressor-utf8:
-    dependencies:
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-config:
-    dependencies:
-      '@parcel/compressor-raw':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/config-default':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/optimizer-data-url':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/reporter-bundle-buddy':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/resolver-default':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/runtime-js':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/runtime-service-worker':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/transformer-babel':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-css':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-graphql':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-inline-string':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-js':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-less':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-postcss':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-raw':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-react-refresh-wrap':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-sass':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-svg-react':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/transformer-worklet':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@plasmohq/parcel-bundler':
-        specifier: workspace:*
-        version: link:../parcel-bundler
-      '@plasmohq/parcel-compressor-utf8':
-        specifier: workspace:*
-        version: link:../parcel-compressor-utf8
-      '@plasmohq/parcel-namer-manifest':
-        specifier: workspace:*
-        version: link:../parcel-namer-manifest
-      '@plasmohq/parcel-optimizer-encapsulate':
-        specifier: workspace:*
-        version: link:../parcel-optimizer-encapsulate
-      '@plasmohq/parcel-optimizer-es':
-        specifier: workspace:*
-        version: link:../parcel-optimizer-es
-      '@plasmohq/parcel-packager':
-        specifier: workspace:*
-        version: link:../parcel-packager
-      '@plasmohq/parcel-resolver':
-        specifier: workspace:*
-        version: link:../parcel-resolver
-      '@plasmohq/parcel-resolver-post':
-        specifier: workspace:*
-        version: link:../parcel-resolver-post
-      '@plasmohq/parcel-runtime':
-        specifier: workspace:*
-        version: link:../parcel-runtime
-      '@plasmohq/parcel-transformer-inject-env':
-        specifier: workspace:*
-        version: link:../parcel-transformer-inject-env
-      '@plasmohq/parcel-transformer-inline-css':
-        specifier: workspace:*
-        version: link:../parcel-transformer-inline-css
-      '@plasmohq/parcel-transformer-manifest':
-        specifier: workspace:*
-        version: link:../parcel-transformer-manifest
-      '@plasmohq/parcel-transformer-svelte3':
-        specifier: workspace:*
-        version: link:../parcel-transformer-svelte3
-      '@plasmohq/parcel-transformer-vue3':
-        specifier: workspace:*
-        version: link:../parcel-transformer-vue3
-
-  packages/parcel-core:
-    dependencies:
-      '@parcel/cache':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/events':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/fs':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/graph':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/hash':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/logger':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/package-manager':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/watcher':
-        specifier: 2.1.0
-        version: 2.1.0
-      '@parcel/workers':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      abortcontroller-polyfill:
-        specifier: 1.7.5
-        version: 1.7.5
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-namer-manifest:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-optimizer-encapsulate:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-optimizer-es:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@swc/core':
-        specifier: 1.3.66
-        version: 1.3.66
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-packager:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/constants':
-        specifier: workspace:*
-        version: link:../constants
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-resolver:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/hash':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      fast-glob:
-        specifier: 3.2.12
-        version: 3.2.12
-      fs-extra:
-        specifier: 11.1.1
-        version: 11.1.1
-      got:
-        specifier: 13.0.0
-        version: 13.0.0
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@plasmohq/rps':
-        specifier: workspace:*
-        version: link:../rps
-      assert:
-        specifier: 2.0.0
-        version: 2.0.0
-      browserify-zlib:
-        specifier: 0.2.0
-        version: 0.2.0
-      buffer:
-        specifier: 6.0.3
-        version: 6.0.3
-      console-browserify:
-        specifier: 1.2.0
-        version: 1.2.0
-      constants-browserify:
-        specifier: 1.0.0
-        version: 1.0.0
-      crc-32:
-        specifier: 1.2.2
-        version: 1.2.2
-      crypto-browserify:
-        specifier: 3.12.0
-        version: 3.12.0
-      domain-browser:
-        specifier: 4.22.0
-        version: 4.22.0
-      esbuild:
-        specifier: 0.18.10
-        version: 0.18.10
-      events:
-        specifier: 3.3.0
-        version: 3.3.0
-      https-browserify:
-        specifier: 1.0.0
-        version: 1.0.0
-      os-browserify:
-        specifier: 0.3.0
-        version: 0.3.0
-      path-browserify:
-        specifier: 1.0.1
-        version: 1.0.1
-      process:
-        specifier: 0.11.10
-        version: 0.11.10
-      punycode:
-        specifier: 2.3.0
-        version: 2.3.0
-      querystring-es3:
-        specifier: 0.2.1
-        version: 0.2.1
-      react-refresh:
-        specifier: 0.14.0
-        version: 0.14.0
-      stream-browserify:
-        specifier: 3.0.0
-        version: 3.0.0
-      stream-http:
-        specifier: 3.2.0
-        version: 3.2.0
-      string_decoder:
-        specifier: 1.3.0
-        version: 1.3.0
-      timers-browserify:
-        specifier: 2.0.12
-        version: 2.0.12
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-      tty-browserify:
-        specifier: 0.0.1
-        version: 0.0.1
-      url:
-        specifier: 0.11.1
-        version: 0.11.1
-      util:
-        specifier: 0.12.5
-        version: 0.12.5
-      vm-browserify:
-        specifier: 1.1.2
-        version: 1.1.2
-
-  packages/parcel-resolver-post:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/hash':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(typescript@5.1.6)
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-
-  packages/parcel-runtime:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      react-refresh:
-        specifier: 0.14.0
-        version: 0.14.0
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/framework-shared':
-        specifier: workspace:*
-        version: link:../framework-shared
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@plasmohq/persistent':
-        specifier: workspace:*
-        version: link:../persistent
-      '@types/chrome':
-        specifier: 0.0.239
-        version: 0.0.239
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-inject-env:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-inline-css:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      browserslist:
-        specifier: 4.21.9
-        version: 4.21.9
-      lightningcss:
-        specifier: 1.21.1
-        version: 1.21.1
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-lab:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/fs':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-manifest:
-    dependencies:
-      '@mischnic/json-sourcemap':
-        specifier: 0.1.0
-        version: 0.1.0
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/fs':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      content-security-policy-parser:
-        specifier: 0.4.1
-        version: 0.4.1
-      json-schema-to-ts:
-        specifier: 2.9.1
-        version: 2.9.1
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@plasmo/utils':
-        specifier: workspace:*
-        version: link:../utils
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-svelte3:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      svelte:
-        specifier: 4.0.0
-        version: 4.0.0
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-
-  packages/parcel-transformer-vue3:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/diagnostic':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@plasmohq/consolidate':
-        specifier: 0.17.0
-        version: 0.17.0
-      '@vue/compiler-sfc':
-        specifier: 3.3.4
-        version: 3.3.4
-      nullthrows:
-        specifier: 1.1.1
-        version: 1.1.1
-      semver:
-        specifier: 7.5.3
-        version: 7.5.3
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(@swc/core@1.3.66)
-      vue:
-        specifier: 3.3.4
-        version: 3.3.4
-
   packages/permission-ui:
     devDependencies:
       '@jest/globals':
@@ -2869,7 +3018,7 @@ importers:
         version: link:../prettier-plugin-sort-imports
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../storage
+        version: link:../../api/storage
       '@types/node':
         specifier: 20.3.2
         version: 20.3.2
@@ -2888,42 +3037,6 @@ importers:
       react:
         specifier: 18.2.0
         version: 18.2.0
-      ts-jest:
-        specifier: 29.1.0
-        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(typescript@5.1.6)
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
-
-  packages/persistent:
-    devDependencies:
-      '@jest/globals':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@jest/types':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../config
-      '@types/chrome':
-        specifier: 0.0.239
-        version: 0.0.239
-      '@types/node':
-        specifier: 20.3.2
-        version: 20.3.2
-      cross-env:
-        specifier: 7.0.3
-        version: 7.0.3
-      jest:
-        specifier: 29.5.0
-        version: 29.5.0(@types/node@20.3.2)
-      jest-environment-jsdom:
-        specifier: 29.5.0
-        version: 29.5.0
       ts-jest:
         specifier: 29.1.0
         version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
@@ -3062,115 +3175,6 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
-  packages/selector:
-    devDependencies:
-      '@jest/globals':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@jest/types':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@testing-library/react':
-        specifier: 14.0.0
-        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/chrome':
-        specifier: 0.0.239
-        version: 0.0.239
-      '@types/node':
-        specifier: 20.3.2
-        version: 20.3.2
-      '@types/react':
-        specifier: 18.2.14
-        version: 18.2.14
-      cross-env:
-        specifier: 7.0.3
-        version: 7.0.3
-      jest:
-        specifier: 29.5.0
-        version: 29.5.0(@types/node@20.3.2)
-      jest-environment-jsdom:
-        specifier: 29.5.0
-        version: 29.5.0
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rimraf:
-        specifier: 5.0.1
-        version: 5.0.1
-      ts-jest:
-        specifier: 29.1.0
-        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(typescript@5.1.6)
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
-
-  packages/storage:
-    dependencies:
-      pify:
-        specifier: 6.1.0
-        version: 6.1.0
-    devDependencies:
-      '@jest/globals':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@jest/types':
-        specifier: 29.5.0
-        version: 29.5.0
-      '@plasmohq/prettier-plugin-sort-imports':
-        specifier: workspace:*
-        version: link:../prettier-plugin-sort-imports
-      '@plasmohq/rps':
-        specifier: workspace:*
-        version: link:../rps
-      '@testing-library/react':
-        specifier: 14.0.0
-        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/chrome':
-        specifier: 0.0.239
-        version: 0.0.239
-      '@types/node':
-        specifier: 20.3.2
-        version: 20.3.2
-      '@types/react':
-        specifier: 18.2.14
-        version: 18.2.14
-      cross-env:
-        specifier: 7.0.3
-        version: 7.0.3
-      jest:
-        specifier: 29.5.0
-        version: 29.5.0(@types/node@20.3.2)
-      jest-environment-jsdom:
-        specifier: 29.5.0
-        version: 29.5.0
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rimraf:
-        specifier: 5.0.1
-        version: 5.0.1
-      ts-jest:
-        specifier: 29.1.0
-        version: 29.1.0(@babel/core@7.22.5)(@jest/types@29.5.0)(esbuild@0.18.10)(jest@29.5.0)(typescript@5.1.6)
-      tsup:
-        specifier: 7.1.0
-        version: 7.1.0(typescript@5.1.6)
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
-
   packages/use-hashed-state:
     dependencies:
       node-object-hash:
@@ -3188,7 +3192,7 @@ importers:
         version: link:../prettier-plugin-sort-imports
       '@plasmohq/storage':
         specifier: workspace:*
-        version: link:../storage
+        version: link:../../api/storage
       '@testing-library/react':
         specifier: 14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -3608,13 +3612,6 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       chalk: 2.4.2
       js-tokens: 4.0.0
-
-  /@babel/parser@7.22.0:
-    resolution: {integrity: sha512-DA65VCJRetcFmJnt9/hEmRvXNCwk0V86dxG6p6N13hzDazaLRjGdTGPGgjxZOtLuFgWzOSRX4grybmRXwQ9bSg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.22.5
 
   /@babel/parser@7.22.5:
     resolution: {integrity: sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==}
@@ -5962,7 +5959,7 @@ packages:
       jest-regex-util: 29.4.3
       jest-util: 29.5.0
       micromatch: 4.0.5
-      pirates: 4.0.5
+      pirates: 4.0.6
       slash: 3.0.0
       write-file-atomic: 4.0.2
     transitivePeerDependencies:
@@ -8375,7 +8372,7 @@ packages:
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@babel/runtime': 7.22.0
+      '@babel/runtime': 7.22.5
       '@testing-library/dom': 9.3.0
       '@types/react-dom': 18.2.6
       react: 18.2.0
@@ -8708,7 +8705,7 @@ packages:
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
     dependencies:
-      '@babel/parser': 7.22.0
+      '@babel/parser': 7.22.5
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       source-map-js: 1.0.2
@@ -8722,7 +8719,7 @@ packages:
   /@vue/compiler-sfc@3.3.4:
     resolution: {integrity: sha512-6y/d8uw+5TkCuzBkgLS0v3lSM3hJDntFEiUORM11pQ/hKvkhSKZrXW6i69UyXlJQisJxuUEJKAWEqWbWsLeNKQ==}
     dependencies:
-      '@babel/parser': 7.22.0
+      '@babel/parser': 7.22.5
       '@vue/compiler-core': 3.3.4
       '@vue/compiler-dom': 3.3.4
       '@vue/compiler-ssr': 3.3.4
@@ -8742,7 +8739,7 @@ packages:
   /@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==}
     dependencies:
-      '@babel/parser': 7.22.0
+      '@babel/parser': 7.22.5
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
@@ -9131,7 +9128,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      browserslist: 4.21.5
+      browserslist: 4.21.9
       caniuse-lite: 1.0.30001489
       fraction.js: 4.2.0
       normalize-range: 0.1.2
@@ -9455,17 +9452,6 @@ packages:
     resolution: {integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==}
     dependencies:
       pako: 1.0.11
-    dev: true
-
-  /browserslist@4.21.5:
-    resolution: {integrity: sha512-tUkiguQGW7S3IhB7N+c2MV/HZPSCPAAiYBZXLsBhFB/PCy6ZKKsZrmBayHV9fdGV/ARIfJ14NkxKzRDjvp7L6w==}
-    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
-    hasBin: true
-    dependencies:
-      caniuse-lite: 1.0.30001489
-      electron-to-chromium: 1.4.422
-      node-releases: 2.0.12
-      update-browserslist-db: 1.0.11(browserslist@4.21.5)
     dev: true
 
   /browserslist@4.21.9:
@@ -10554,10 +10540,6 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
-
-  /electron-to-chromium@1.4.422:
-    resolution: {integrity: sha512-OQMid0IRbJv27BhlPiBK8CfGzjeq4ZCBSmpwNi1abyS8w17/BajOUu7hBI49ptDTBCz9NRFbORhWvt41dF7dwg==}
-    dev: true
 
   /electron-to-chromium@1.4.445:
     resolution: {integrity: sha512-++DB+9VK8SBJwC+X1zlMfJ1tMA3F0ipi39GdEp+x3cV2TyBihqAgad8cNMWtLDEkbH39nlDQP7PfGrDr3Dr7HA==}
@@ -12902,7 +12884,7 @@ packages:
     resolution: {integrity: sha512-8MNpRGERlCUWYeJwsWkMrJ0MWzBz49dfqpG+n9viiIlP4othaahbiaNQZuBzmPxRLUhOv1QJMCzW5WE8nHFGIQ==}
     engines: {node: '>=16'}
     dependencies:
-      '@babel/runtime': 7.22.0
+      '@babel/runtime': 7.22.5
       '@types/json-schema': 7.0.12
       ts-algebra: 1.2.0
     dev: false
@@ -14500,7 +14482,6 @@ packages:
   /pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
-    dev: false
 
   /pkg-dir@3.0.0:
     resolution: {integrity: sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==}
@@ -17282,17 +17263,6 @@ packages:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
     engines: {node: '>=8'}
     dev: false
-
-  /update-browserslist-db@1.0.11(browserslist@4.21.5):
-    resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}
-    hasBin: true
-    peerDependencies:
-      browserslist: '>= 4.21.0'
-    dependencies:
-      browserslist: 4.21.5
-      escalade: 3.1.1
-      picocolors: 1.0.0
-    dev: true
 
   /update-browserslist-db@1.0.11(browserslist@4.21.9):
     resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}

@@ -3,6 +3,8 @@
   "private": true,
   "workspaces": [
     "cli/*",
+    "api/*",
+    "core/*",
     "packages/*",
     "examples/*"
   ],
@@ -20,7 +22,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "### version script usage example": "pnpm v:cli patch",
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
-    "v:parcel": "pnpm --filter \"./packages/parcel-*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:core": "pnpm --filter \"./core/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:api": "pnpm --filter \"./core/api-*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "pnpm": {

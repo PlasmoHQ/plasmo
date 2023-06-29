@@ -14,10 +14,6 @@
 	path = packages/use-hashed-state
 	url = git@github.com:PlasmoHQ/use-hashed-state.git
 	branch = main
-[submodule "packages/storage"]
-	path = packages/storage
-	url = git@github.com:PlasmoHQ/storage.git
-	branch = main
 [submodule "examples"]
 	path = examples
 	url = git@github.com:PlasmoHQ/examples.git
@@ -36,3 +32,7 @@
 [submodule "packages/prettier-plugin-sort-imports"]
 	path = packages/prettier-plugin-sort-imports
 	url = https://github.com/PlasmoHQ/prettier-plugin-sort-imports.git
+[submodule "api/storage"]
+	path = api/storage
+	url = git@github.com:PlasmoHQ/storage.git
+	branch = main
