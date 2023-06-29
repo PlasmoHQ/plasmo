@@ -92,7 +92,9 @@ export namespace PlasmoMessaging {
   }
 
   export interface PortHook {
-    <TRequestBody = Record<string, any>, TResponseBody = any>(name: PortName): {
+    <TRequestBody = Record<string, any>, TResponseBody = any>(
+      portKey: PortKey
+    ): {
       data?: TResponseBody
       send: (payload: TRequestBody) => void
       listen: <T = TResponseBody>(
@@ -112,28 +114,39 @@ export type OriginContext =
   | "content-script"
   | "window"
 
-export type ChunkCollectionID = number;
+export type PortKey =
+  | PortName
+  | {
+      name: PortName
+      // Enable chunking of port data stream. This split the data into smaller chunk and stream them through the port, overcoming the port bandwidth limitation.
+      isChunked?: boolean
+    }
 
-export type MessageEventCallback = (message: unknown, port: chrome.runtime.Port) => void;
+export type ChunkCollectionID = number
+
+export type MessageEventCallback = (
+  message: unknown,
+  port: chrome.runtime.Port
+) => void
 
 export interface Chunk {
   name: "__PLASMO_MESSAGING_CHUNK__"
-  type: "init" | "end" | "data";
-  index: number;
-  chunkCollectionId: ChunkCollectionID;
-  data: number[];
+  type: "init" | "end" | "data"
+  index: number
+  chunkCollectionId: ChunkCollectionID
+  data: number[]
 }
 
 export interface InitChunk extends Chunk {
-  type: "init";
-  dataLength: number;
-  totalChunks: number;
+  type: "init"
+  dataLength: number
+  totalChunks: number
 }
 
 export interface DataChunk extends Chunk {
-  type: "data";
+  type: "data"
 }
 
 export interface EndChunk extends Chunk {
-  type: "end";
+  type: "end"
 }

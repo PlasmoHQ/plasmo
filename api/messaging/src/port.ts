@@ -1,130 +1,39 @@
-import { buildDataFromChunks, createChunksFromData } from "./chunks"
-import type { PortName } from "./index"
-import type {
-  Chunk,
-  ChunkCollectionID,
-  InitChunk,
-  MessageEventCallback
-} from "./types"
+import { createChunkedStreamPort } from "./chunked-stream"
+import type { PortKey, PortName } from "./index"
 import { getExtRuntime } from "./utils"
 
 const portMap = new Map<PortName, chrome.runtime.Port>()
 
-/**
- * Plasmo advanced port extending the default
- * chrome.runtime.Port
- */
-const createStreamingPort = (name: PortName) => {
-  // connect to the port
-  const port = getExtRuntime().connect({ name })
+export const getPort = (portKey: PortKey) => {
+  const portName = typeof portKey === "string" ? portKey : portKey.name
+  const isChunked = typeof portKey !== "string" && portKey.isChunked
 
-  // chunk map
-  const chunkMap = new Map<ChunkCollectionID, Chunk[]>()
+  const port = portMap.get(portName)
 
-  // intercepted event listeners map
-  // Map format: key - original handler, value - interceptor
-  const listenerMap = new Map<MessageEventCallback, MessageEventCallback>()
-
-  // setup interceptor
-  const interceptor: chrome.runtime.Port = {
-    ...port,
-    postMessage(message: unknown) {
-      // split chunks
-      const chunks = createChunksFromData(message)
-
-      // get if chunks are needed
-      // if not, just send the message
-      if (chunks.length >= 1) {
-        return port.postMessage(message)
-      }
-
-      // send chunks
-      for (let i = 0; i < chunks.length; i++) {
-        port.postMessage(chunks[i])
-      }
-    },
-    onMessage: {
-      ...port.onMessage,
-      addListener(callback: MessageEventCallback) {
-        // interceptor for the chunks
-        const interceptor: MessageEventCallback = (message: Chunk, port) => {
-          // only handle chunks
-          if (message?.name !== "__PLASMO_MESSAGING_CHUNK__") {
-            return callback(message, port)
-          }
-
-          // check if a group exists for this
-          // chunk in the chunkMap
-          let group = chunkMap.get(message.chunkCollectionId)
-
-          // if the group exists, add chunk to it
-          // otherwise create the group
-          if (!!group) group.push(message)
-          else chunkMap.set(message.chunkCollectionId, [message])
-
-          // update group (in case it was undefined before)
-          group = chunkMap.get(message.chunkCollectionId)
-
-          // check if all chunks have been received
-          const initChunk = group.find(
-            (chunk) => chunk.type === "init"
-          ) as InitChunk
-
-          if (group.length !== initChunk.totalChunks) return
-
-          // check if the listener is present
-          if (!listenerMap.get(callback)) return
-
-          // build message data
-          const data = buildDataFromChunks(group)
-
-          // call original listener to handle
-          // the reconstructed message
-          return callback(data, port)
-        }
-
-        // add listener
-        port.onMessage.addListener(interceptor)
-
-        // map listener
-        listenerMap.set(callback, interceptor)
-      },
-      removeListener(callback: MessageEventCallback) {
-        // remove listener from the original port
-        port.onMessage.removeListener(listenerMap.get(callback))
-
-        // remove listener from listener map
-        listenerMap.delete(callback)
-      }
-    }
-  }
-
-  return interceptor
-}
-
-export const getPort = (name: PortName) => {
-  const port = portMap.get(name)
   if (!!port) {
     return port
   }
-  const newPort = createStreamingPort(name)
-  portMap.set(name, newPort)
+  const newPort = isChunked
+    ? createChunkedStreamPort(portName)
+    : getExtRuntime().connect({ name: portName })
+
+  portMap.set(portName, newPort)
   return newPort
 }
 
-export const removePort = (name: PortName) => {
-  portMap.delete(name)
+export const removePort = (portKey: PortKey) => {
+  portMap.delete(typeof portKey === "string" ? portKey : portKey.name)
 }
 
 export const listen = <ResponseBody = any>(
-  name: PortName,
+  portKey: PortKey,
   handler: (msg: ResponseBody) => Promise<void> | void,
   onReconnect?: () => void
 ) => {
-  const port = getPort(name)
+  const port = getPort(portKey)
 
   function reconnectHandler() {
-    removePort(name)
+    removePort(portKey)
     onReconnect?.()
   }
 
