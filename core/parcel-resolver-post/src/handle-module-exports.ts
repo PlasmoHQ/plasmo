@@ -1,6 +1,6 @@
 import type { ResolverProps, ResolverResult } from "./shared"
 
-const knownEsmPackageSet = new Set(["firebase-admin"])
+const knownEsmPackageSet = new Set(["firebase-admin", "svelte"])
 
 // Last resort resolver for weird packages:
 export async function handleModuleExport({
