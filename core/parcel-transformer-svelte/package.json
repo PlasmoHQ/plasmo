@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-svelte",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Plasmo Parcel Transformer for Svelte",
   "files": [
     "dist"
@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "svelte": "4.0.0",
     "tsup": "7.1.0"
   },
   "dependencies": {
+    "svelte": "4.0.0",
     "@parcel/core": "2.9.3",
     "@parcel/diagnostic": "2.9.3",
     "@parcel/plugin": "2.9.3",
