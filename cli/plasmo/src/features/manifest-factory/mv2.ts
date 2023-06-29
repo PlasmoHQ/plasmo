@@ -2,6 +2,7 @@ import type {
   ExtensionManifestV2,
   ExtensionManifestV3
 } from "@plasmo/constants"
+import { iLog } from "@plasmo/utils/logging"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
@@ -15,6 +16,11 @@ export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifest
     this.data.browser_action = {
       default_icon: iconMap
     }
+  }
+
+  toggleSidePanel = () => {
+    iLog("Side panel is not supported in MV2, skipping.")
+    return this
   }
 
   togglePopup = (enable = false) => {

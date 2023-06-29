@@ -13,6 +13,17 @@ export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifest
     }
   }
 
+  toggleSidePanel = (enable = false) => {
+    if (enable) {
+      this.data.side_panel.default_path = "./side-panel.html"
+      this.permissionSet.add("sidePanel")
+    } else {
+      delete this.data.side_panel
+      this.permissionSet.delete("sidePanel")
+    }
+    return this
+  }
+
   togglePopup = (enable = false) => {
     if (enable) {
       this.data.action!.default_popup = "./popup.html"
