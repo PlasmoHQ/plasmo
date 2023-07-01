@@ -427,9 +427,51 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((results) => results.includes(true))
   }
 
+  addIndexDirectory = async (
+    path: string,
+    toggleDynamicPath: typeof this.toggleContentScript
+  ) => {
+    const indexFileList = [...this.#extSet].flatMap((ext) => [
+      `index${ext}`,
+      `index.${this.browser}${ext}`
+    ])
+
+    return readdir(path, { withFileTypes: true })
+      .then((files) =>
+        Promise.all(
+          files
+            .filter((f) => f.isFile() && indexFileList.includes(f.name))
+            .map((f) => resolve(path, f.name))
+            .map((filePath) => toggleDynamicPath(filePath, true))
+        )
+      )
+      .then((results) => results.includes(true))
+  }
+
+  addContentScriptsNestedDirectories = async () => {
+    const path = this.projectPath.contentsDirectory
+
+    return readdir(path, { withFileTypes: true })
+      .then((files) =>
+        Promise.all(
+          files
+            .filter((f) => f.isDirectory())
+            .map((dir) => resolve(path, dir.name))
+            .map((dirPath) =>
+              this.addIndexDirectory(dirPath, this.toggleContentScript)
+            )
+        )
+      )
+      .then((results) => results.includes(true))
+  }
+
   addContentScriptsDirectory = async (
     contentsDirectory = this.projectPath.contentsDirectory
-  ) => this.addDirectory(contentsDirectory, this.toggleContentScript)
+  ) =>
+    Promise.all([
+      this.addDirectory(contentsDirectory, this.toggleContentScript),
+      this.addContentScriptsNestedDirectories()
+    ]).then((results) => results.includes(true))
 
   togglePage = async (path?: string, enable = false) => {
     if (this.isPathInvalid(path)) {
