@@ -409,7 +409,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   addDirectory = async (
     path: string,
-    toggleDynamicPath: typeof this.toggleContentScript
+    toggleDynamicPath: typeof this.toggleContentScript,
+    filterFile?: (fileName: string) => boolean
   ) => {
     if (!existsSync(path)) {
       return false
@@ -419,28 +420,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((files) =>
         Promise.all(
           files
-            .filter((f) => f.isFile())
-            .map((f) => resolve(path, f.name))
-            .map((filePath) => toggleDynamicPath(filePath, true))
-        )
-      )
-      .then((results) => results.includes(true))
-  }
-
-  addIndexDirectory = async (
-    path: string,
-    toggleDynamicPath: typeof this.toggleContentScript
-  ) => {
-    const indexFileList = [...this.#extSet].flatMap((ext) => [
-      `index${ext}`,
-      `index.${this.browser}${ext}`
-    ])
-
-    return readdir(path, { withFileTypes: true })
-      .then((files) =>
-        Promise.all(
-          files
-            .filter((f) => f.isFile() && indexFileList.includes(f.name))
+            .filter((f) =>
+              f.isFile() && filterFile ? filterFile(f.name) : true
+            )
             .map((f) => resolve(path, f.name))
             .map((filePath) => toggleDynamicPath(filePath, true))
         )
@@ -451,6 +433,11 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   addContentScriptsNestedDirectories = async () => {
     const path = this.projectPath.contentsDirectory
 
+    const indexFileList = [...this.#extSet].flatMap((ext) => [
+      `index${ext}`,
+      `index.${this.browser}${ext}`
+    ])
+
     return readdir(path, { withFileTypes: true })
       .then((files) =>
         Promise.all(
@@ -458,7 +445,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
             .filter((f) => f.isDirectory())
             .map((dir) => resolve(path, dir.name))
             .map((dirPath) =>
-              this.addIndexDirectory(dirPath, this.toggleContentScript)
+              this.addDirectory(dirPath, this.toggleContentScript, (fileName) =>
+                indexFileList.includes(fileName)
+              )
             )
         )
       )
