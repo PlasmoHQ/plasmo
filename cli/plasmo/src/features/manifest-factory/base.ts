@@ -430,7 +430,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((results) => results.includes(true))
   }
 
-  addContentScriptsNestedDirectories = async () => {
+  addContentScriptsIndexFiles = async () => {
     const path = this.projectPath.contentsDirectory
 
     const indexFileList = [...this.#extSet].flatMap((ext) => [
@@ -459,7 +459,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
   ) =>
     Promise.all([
       this.addDirectory(contentsDirectory, this.toggleContentScript),
-      this.addContentScriptsNestedDirectories()
+      this.addContentScriptsIndexFiles()
     ]).then((results) => results.includes(true))
 
   togglePage = async (path?: string, enable = false) => {
