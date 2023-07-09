@@ -1,3 +1,4 @@
+import { hasFlag } from "@plasmo/utils/flags"
 import { iLog } from "@plasmo/utils/logging"
 
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
@@ -18,7 +19,7 @@ async function packageCmd() {
 
   const plasmoManifest = await createManifest(bundleConfig)
 
-  await zipBundle(plasmoManifest.commonPath)
+  await zipBundle(plasmoManifest.commonPath, hasFlag("--with-source-maps"))
 }
 
 export default packageCmd
