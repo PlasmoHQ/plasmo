@@ -38,7 +38,6 @@
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
     "@plasmohq/rps": "workspace:*",
-    "@types/archiver": "5.3.2",
     "@types/fs-extra": "11.0.1",
     "@types/inquirer": "9.0.3",
     "@types/node": "20.3.2",
