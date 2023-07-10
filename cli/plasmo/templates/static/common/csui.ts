@@ -43,7 +43,7 @@ async function injectAnchor<T>(
     await Mount.mountShadowHost({
       shadowHost,
       anchor,
-      observer: mountState?.observer
+      mountState
     })
   } else if (anchor.type === "inline") {
     anchor.element.insertAdjacentElement("afterend", shadowHost)
