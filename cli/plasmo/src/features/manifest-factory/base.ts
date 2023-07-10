@@ -35,7 +35,7 @@ import {
 } from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
-import { isReadable } from "@plasmo/utils/fs"
+import { isDirectory, isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
@@ -410,7 +410,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   addDirectory = async (
     path: string,
-    toggleDynamicPath: typeof this.toggleContentScript
+    toggleDynamicPath: typeof this.toggleContentScript,
+    filterFile?: (fileName: string) => boolean
   ) => {
     if (!existsSync(path)) {
       return false
@@ -420,7 +421,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((files) =>
         Promise.all(
           files
-            .filter((f) => f.isFile())
+            .filter((f) =>
+              f.isFile() && filterFile ? filterFile(f.name) : true
+            )
             .map((f) => resolve(path, f.name))
             .map((filePath) => toggleDynamicPath(filePath, true))
         )
@@ -428,9 +431,40 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((results) => results.includes(true))
   }
 
+  addContentScriptsIndexFiles = async () => {
+    const path = this.projectPath.contentsDirectory
+    if (!(await isDirectory(path))) {
+      return false
+    }
+
+    const indexFileList = [...this.#extSet].flatMap((ext) => [
+      `index${ext}`,
+      `index.${this.browser}${ext}`
+    ])
+
+    return readdir(path, { withFileTypes: true })
+      .then((files) =>
+        Promise.all(
+          files
+            .filter((f) => f.isDirectory())
+            .map((dir) => resolve(path, dir.name))
+            .map((dirPath) =>
+              this.addDirectory(dirPath, this.toggleContentScript, (fileName) =>
+                indexFileList.includes(fileName)
+              )
+            )
+        )
+      )
+      .then((results) => results.includes(true))
+  }
+
   addContentScriptsDirectory = async (
     contentsDirectory = this.projectPath.contentsDirectory
-  ) => this.addDirectory(contentsDirectory, this.toggleContentScript)
+  ) =>
+    Promise.all([
+      this.addDirectory(contentsDirectory, this.toggleContentScript),
+      this.addContentScriptsIndexFiles()
+    ]).then((results) => results.includes(true))
 
   togglePage = async (path?: string, enable = false) => {
     if (this.isPathInvalid(path)) {
