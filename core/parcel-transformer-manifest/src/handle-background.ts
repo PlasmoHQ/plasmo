@@ -42,8 +42,9 @@ function handleMV3Background(program: MV3Data) {
 function handleFirefoxMV3Background(program: MV3Data) {
   const mv2Program = program as unknown as MV2Data
   if (program.background?.service_worker) {
-    mv2Program.background.scripts = [program.background.service_worker]
-    delete program.background.service_worker
+    mv2Program.background = {
+      scripts: [program.background.service_worker]
+    }
   }
 
   handleMV2BackgroundScript(mv2Program)
@@ -65,11 +66,13 @@ function handleMV2BackgroundScript(program: MV2Data) {
 
   if (hot) {
     if (!program.background?.scripts) {
-      program.background.scripts = [
-        asset.addURLDependency(defaultBackgroundScriptPath, {
-          resolveFrom: __filename
-        })
-      ]
+      program.background = {
+        scripts: [
+          asset.addURLDependency(defaultBackgroundScriptPath, {
+            resolveFrom: __filename
+          })
+        ]
+      }
     }
   }
 }
