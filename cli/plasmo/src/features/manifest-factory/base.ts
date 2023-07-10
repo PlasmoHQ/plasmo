@@ -35,7 +35,7 @@ import {
 } from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
-import { isReadable } from "@plasmo/utils/fs"
+import { isDirectory, isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
@@ -432,6 +432,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   addContentScriptsIndexFiles = async () => {
     const path = this.projectPath.contentsDirectory
+    if (!(await isDirectory(path))) {
+      return false
+    }
 
     const indexFileList = [...this.#extSet].flatMap((ext) => [
       `index${ext}`,
