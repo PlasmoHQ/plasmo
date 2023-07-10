@@ -38,7 +38,7 @@ export async function cleanUpLargeCache(commonPath: CommonPath) {
   const cacheLimitGB = 1.47
 
   if (sizeInGB > cacheLimitGB) {
-    vLog(`Busting large build cache, size: ${sizeInGB.toFixed(2)}GB`)
+    vLog(`Busting large build cache, size: ${sizeInGB.toFixed(2)} GB`)
     await cleanUpDotPlasmo(commonPath)
   }
 }
