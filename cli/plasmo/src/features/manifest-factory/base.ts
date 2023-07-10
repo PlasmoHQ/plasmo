@@ -284,6 +284,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   abstract togglePopup: (enable?: boolean) => this
   abstract toggleBackground: (enable?: boolean) => boolean
+  abstract toggleSidePanel: (enable?: boolean) => this
 
   toggleOptions = (enable = false) => {
     if (enable) {

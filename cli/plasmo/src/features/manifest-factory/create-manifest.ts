@@ -48,13 +48,15 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     wLog("Unable to find any entry files. The extension might be empty")
   }
 
-  const [hasPopup, hasOptions, hasNewtab, hasDevtools] = hasEntrypoints
+  const [hasPopup, hasOptions, hasNewtab, hasDevtools, hasSidePanel] =
+    hasEntrypoints
 
   plasmoManifest
     .togglePopup(hasPopup)
     .toggleOptions(hasOptions)
     .toggleNewtab(hasNewtab)
     .toggleDevtools(hasDevtools)
+    .toggleSidePanel(hasSidePanel)
 
   await plasmoManifest.write(true)
 

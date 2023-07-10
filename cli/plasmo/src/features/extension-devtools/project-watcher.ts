@@ -117,6 +117,11 @@ export const handleProjectFile = async (
       return
     }
 
+    case WatchReason.SidePanelIndex: {
+      plasmoManifest.toggleSidePanel(isEnabled)
+      return
+    }
+
     case WatchReason.PopupIndex: {
       plasmoManifest.togglePopup(isEnabled)
       return
@@ -155,6 +160,13 @@ export const handleProjectFile = async (
     case WatchReason.NewtabHtml: {
       await plasmoManifest.scaffolder.createPageHtml(
         "newtab",
+        isEnabled && path
+      )
+      return
+    }
+    case WatchReason.SidePanelHtml: {
+      await plasmoManifest.scaffolder.createPageHtml(
+        "sidepanel",
         isEnabled && path
       )
       return

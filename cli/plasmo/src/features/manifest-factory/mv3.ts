@@ -13,6 +13,35 @@ export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifest
     }
   }
 
+  toggleSidePanel = (enable = false) => {
+    switch (this.browser) {
+      case "firefox":
+      case "gecko": {
+        if (enable) {
+          this.data.sidebar_action = {
+            default_panel: "./sidepanel.html"
+          }
+        } else {
+          delete this.data.sidebar_action
+        }
+        break
+      }
+      default: {
+        if (enable) {
+          this.data.side_panel = {
+            default_path: "./sidepanel.html"
+          }
+          this.permissionSet.add("sidePanel")
+        } else {
+          delete this.data.side_panel
+          this.permissionSet.delete("sidePanel")
+        }
+      }
+    }
+
+    return this
+  }
+
   togglePopup = (enable = false) => {
     if (enable) {
       this.data.action!.default_popup = "./popup.html"

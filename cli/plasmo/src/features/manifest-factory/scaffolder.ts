@@ -12,7 +12,7 @@ import { getRevHash } from "~features/helpers/crypto"
 import { type PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
 
-type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
+type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab" | "sidepanel"
 
 export class Scaffolder {
   #templateCache = {} as Record<string, string>
@@ -38,7 +38,8 @@ export class Scaffolder {
       this.#initUiPageTemplate("popup"),
       this.#initUiPageTemplate("options"),
       this.#initUiPageTemplate("newtab"),
-      this.#initUiPageTemplate("devtools")
+      this.#initUiPageTemplate("devtools"),
+      this.#initUiPageTemplate("sidepanel")
     ])
 
     return uiPagesResult
