@@ -61,7 +61,7 @@ export type PlasmoGetInlineAnchorList = Getter<NodeList>
 
 export type PlasmoMountShadowHost = (
   props: {
-    observer: MutationObserver | null
+    mountState?: PlasmoCSUIMountState
     shadowHost: Element
   } & PlasmoCSUIProps
 ) => Async<void>
