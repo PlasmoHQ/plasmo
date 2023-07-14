@@ -58,8 +58,8 @@
     "turbo": "1.10.6"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=16.0.0"
+    "npm": ">=9.5.0",
+    "node": ">=18.0.0"
   },
   "packageManager": "pnpm@8.6.5"
 }
