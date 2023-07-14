@@ -27,7 +27,7 @@
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:core": "pnpm --filter \"./core/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:api": "pnpm --filter \"./api/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
-    "v:cli": "pnpm --filter \"./cli/*\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
+    "v:cli": "pnpm --filter \"./cli/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "pnpm": {
     "overrides": {
@@ -55,7 +55,7 @@
     "prettier": "3.0.0",
     "sharp": "0.32.2",
     "tsup": "7.1.0",
-    "turbo": "1.10.7"
+    "turbo": "1.10.6"
   },
   "engines": {
     "npm": ">=7.0.0",
