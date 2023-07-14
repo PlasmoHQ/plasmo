@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         package-manager:
           [
             { name: "pnpm", exec: "pnpm dlx" },
