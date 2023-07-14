@@ -30,6 +30,6 @@
     "@parcel/plugin": "2.9.3",
     "@parcel/utils": "2.9.3",
     "browserslist": "4.21.9",
-    "lightningcss": "1.21.1"
+    "lightningcss": "1.21.5"
   }
 }
