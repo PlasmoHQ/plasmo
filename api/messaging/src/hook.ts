@@ -27,18 +27,18 @@ export const useMessage = <RequestBody, ResponseBody>(
   }
 }
 
-export const usePort: PlasmoMessaging.PortHook = (name) => {
+export const usePort: PlasmoMessaging.PortHook = (portKey) => {
   const portRef = useRef<chrome.runtime.Port>()
   const reconnectRef = useRef(0)
   const [data, setData] = useState()
 
   useEffect(() => {
-    if (!name) {
+    if (!portKey) {
       return null
     }
 
     const { port, disconnect } = portListen(
-      name,
+      portKey,
       (msg) => {
         setData(msg)
       },
@@ -50,7 +50,7 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
     portRef.current = port
     return disconnect
   }, [
-    name,
+    portKey,
     reconnectRef.current // This is needed to force a new port ref
   ])
 
@@ -58,11 +58,11 @@ export const usePort: PlasmoMessaging.PortHook = (name) => {
     data,
     send: (body) => {
       portRef.current.postMessage({
-        name,
+        name: portKey,
         body
       })
     },
-    listen: (handler) => portListen(name, handler)
+    listen: (handler) => portListen(portKey, handler)
   }
 }
 

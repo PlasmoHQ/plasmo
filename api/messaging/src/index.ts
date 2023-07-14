@@ -8,7 +8,8 @@ export type {
   PortName,
   PortsMetadata,
   MessagesMetadata,
-  OriginContext
+  OriginContext,
+  PortKey
 } from "./types"
 
 /**
