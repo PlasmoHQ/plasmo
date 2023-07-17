@@ -10,6 +10,10 @@ import { createApp } from "vue"
 // @ts-ignore
 import RawMount from "__plasmo_mount_content_script__"
 
+// prettier-sort-ignore
+// @ts-ignore
+import SfcStyleContent from "style-raw:__plasmo_mount_content_script__"
+
 import type {
   PlasmoCSUI,
   PlasmoCSUIAnchor,
@@ -17,7 +21,19 @@ import type {
 } from "~type"
 
 // Escape parcel's static analyzer
-const Mount = RawMount.plasmo as PlasmoCSUI<PlasmoCSUIHTMLContainer>
+const Mount = (RawMount.plasmo || {}) as PlasmoCSUI<PlasmoCSUIHTMLContainer>
+
+if (typeof SfcStyleContent === "string") {
+  Mount.getSfcStyleContent = () => SfcStyleContent
+
+  if (typeof Mount.getStyle !== "function") {
+    Mount.getStyle = ({ sfcStyleContent }) => {
+      const element = document.createElement("style")
+      element.textContent = sfcStyleContent
+      return element
+    }
+  }
+}
 
 const observer = createAnchorObserver(Mount)
 
