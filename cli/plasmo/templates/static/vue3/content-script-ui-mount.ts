@@ -1,4 +1,3 @@
-// @ts-ignore
 import { createApp } from "vue"
 
 import { createAnchorObserver, createRender } from "@plasmo-static-common/csui"
@@ -6,10 +5,6 @@ import {
   createInlineCSUIContainer,
   createOverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-vanilla"
-
-// prettier-sort-ignore
-// @ts-ignore
-import SfcStyleContent from "style-raw:__plasmo_mount_content_script__"
 
 import type {
   PlasmoCSUI,
@@ -19,6 +14,8 @@ import type {
 
 // @ts-ignore
 import RawMount from "__plasmo_mount_content_script__"
+// @ts-ignore
+import SfcStyleContent from "style-raw:__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = (RawMount.plasmo || {}) as PlasmoCSUI<PlasmoCSUIHTMLContainer>
@@ -48,9 +45,8 @@ const render = createRender(
         rootContainer.appendChild(mountPoint)
 
         const app = createApp(RawMount)
-        app.mount(mountPoint, {
-          anchor
-        })
+        app.config.globalProperties.$anchor = anchor
+        app.mount(mountPoint)
         break
       }
       case "overlay": {
@@ -74,9 +70,8 @@ const render = createRender(
           rootContainer.appendChild(mountPoint)
 
           const app = createApp(RawMount)
-          app.mount(mountPoint, {
-            anchor: innerAnchor
-          })
+          app.config.globalProperties.$anchor = innerAnchor
+          app.mount(mountPoint)
         })
         break
       }
