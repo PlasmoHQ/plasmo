@@ -64,7 +64,7 @@
     "package-json": "8.1.1",
     "process": "0.11.10",
     "semver": "7.5.4",
-    "sharp": "0.32.2",
+    "sharp": "0.32.3",
     "tempy": "3.1.0",
     "typescript": "5.1.6"
   },

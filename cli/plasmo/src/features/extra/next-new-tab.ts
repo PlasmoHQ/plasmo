@@ -1,7 +1,7 @@
-import { sentenceCase } from "change-case"
-import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 import { mkdir } from "fs/promises"
 import { resolve } from "path"
+import { sentenceCase } from "change-case"
+import { copy, emptyDir, readJson, writeJson } from "fs-extra"
 
 import { isAccessible } from "@plasmo/utils/fs"
 import { sLog, vLog } from "@plasmo/utils/logging"

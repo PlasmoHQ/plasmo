@@ -1,6 +1,6 @@
+import { relative, resolve } from "path"
 import { camelCase } from "change-case"
 import { outputFile } from "fs-extra"
-import { relative, resolve } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"

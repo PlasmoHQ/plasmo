@@ -1,6 +1,6 @@
-import { paramCase } from "change-case"
 import { resolve } from "path"
 import { cwd } from "process"
+import { paramCase } from "change-case"
 
 import { hasFlag } from "@plasmo/utils/flags"
 import { ensureWritableAndEmpty } from "@plasmo/utils/fs"

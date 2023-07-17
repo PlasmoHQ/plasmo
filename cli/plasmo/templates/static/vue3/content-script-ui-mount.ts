@@ -1,20 +1,20 @@
+// @ts-ignore
+import { createApp } from "vue"
+
 import { createAnchorObserver, createRender } from "@plasmo-static-common/csui"
 import {
   createInlineCSUIContainer,
   createOverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-vanilla"
-// @ts-ignore
-import { createApp } from "vue"
-
-// prettier-sort-ignore
-// @ts-ignore
-import RawMount from "__plasmo_mount_content_script__"
 
 import type {
   PlasmoCSUI,
   PlasmoCSUIAnchor,
   PlasmoCSUIHTMLContainer
 } from "~type"
+
+// @ts-ignore
+import RawMount from "__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = RawMount.plasmo as PlasmoCSUI<PlasmoCSUIHTMLContainer>

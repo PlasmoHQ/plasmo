@@ -5,10 +5,10 @@
  * Based on: https://github.com/parcel-bundler/parcel/tree/v2/packages/packagers/webextension
  * MIT License
  */
+import assert from "assert"
 import { Packager } from "@parcel/plugin"
 import type { Asset } from "@parcel/types"
 import { replaceURLReferences } from "@parcel/utils"
-import assert from "assert"
 
 import type { ExtensionManifest } from "@plasmo/constants"
 import { vLog } from "@plasmo/utils/logging"

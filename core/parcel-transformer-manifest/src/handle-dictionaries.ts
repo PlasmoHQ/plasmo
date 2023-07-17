@@ -1,5 +1,5 @@
-import ThrowableDiagnostic, { getJSONSourceLocation } from "@parcel/diagnostic"
 import path from "path"
+import ThrowableDiagnostic, { getJSONSourceLocation } from "@parcel/diagnostic"
 
 import { getState } from "./state"
 

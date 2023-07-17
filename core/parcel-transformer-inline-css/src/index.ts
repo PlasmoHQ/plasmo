@@ -6,10 +6,10 @@
  * MIT License
  */
 
+import { relative } from "path"
 import { Transformer } from "@parcel/plugin"
 import { remapSourceLocation } from "@parcel/utils"
 import { transform } from "lightningcss"
-import { relative } from "path"
 
 import { getTargets } from "./get-tagets"
 

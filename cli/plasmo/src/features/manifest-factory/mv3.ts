@@ -2,7 +2,7 @@ import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { PlasmoManifest, iconMap } from "./base"
+import { iconMap, PlasmoManifest } from "./base"
 
 export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifestV3> {
   constructor(bundleConfig: PlasmoBundleConfig) {

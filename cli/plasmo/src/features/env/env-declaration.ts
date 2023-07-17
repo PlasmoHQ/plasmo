@@ -1,5 +1,5 @@
-import { outputFile } from "fs-extra"
 import { resolve } from "path"
+import { outputFile } from "fs-extra"
 
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 

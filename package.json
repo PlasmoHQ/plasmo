@@ -22,7 +22,7 @@
     "publish:cli": "pnpm --filter \"./cli/*\" publish",
     "publish:cli:lab": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag lab",
     "publish:lab": "run-s publish:packages publish:cli:lab",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mjs}\"",
     "### version script usage example": "pnpm v:cli patch",
     "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
     "v:core": "pnpm --filter \"./core/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
@@ -36,8 +36,8 @@
     }
   },
   "devDependencies": {
-    "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
     "@plasmohq/rps": "workspace:*",
+    "@ianvs/prettier-plugin-sort-imports": "4.1.0",
     "@types/fs-extra": "11.0.1",
     "@types/inquirer": "9.0.3",
     "@types/node": "20.4.2",
@@ -47,15 +47,15 @@
     "@types/semver": "7.5.0",
     "@types/uuid": "9.0.2",
     "@types/ws": "8.5.5",
-    "esbuild": "0.18.12",
-    "eslint": "8.44.0",
+    "esbuild": "0.18.13",
+    "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-react": "7.32.2",
     "fs-extra": "11.1.1",
     "prettier": "3.0.0",
-    "sharp": "0.32.2",
+    "sharp": "0.32.3",
     "tsup": "7.1.0",
-    "turbo": "1.10.6"
+    "turbo": "1.10.7"
   },
   "engines": {
     "npm": ">=9.5.0",

@@ -16,6 +16,6 @@ const config = {
     ]
   },
   testMatch: ["**/*.test.ts"],
-  verbose: true,
+  verbose: true
 }
 export default config

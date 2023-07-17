@@ -1,14 +1,14 @@
-import { hashString } from "@parcel/hash"
 import { resolve } from "path"
+import { hashString } from "@parcel/hash"
 
 import { injectEnv } from "@plasmo/utils/env"
 import { vLog } from "@plasmo/utils/logging"
 
 import {
-  type ResolverProps,
-  type ResolverResult,
   relevantExtensionList,
-  state
+  state,
+  type ResolverProps,
+  type ResolverResult
 } from "./shared"
 
 const cookCode = async (target: URL, code: string) => {

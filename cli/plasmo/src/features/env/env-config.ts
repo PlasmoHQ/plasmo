@@ -1,9 +1,9 @@
 // Forked from https://github.com/vercel/next.js/blob/canary/packages/next-env/index.ts
+import { readFile } from "fs/promises"
+import { resolve } from "path"
 import { constantCase } from "change-case"
 import dotenv from "dotenv"
 import { expand as dotenvExpand } from "dotenv-expand"
-import { readFile } from "fs/promises"
-import { resolve } from "path"
 
 import { isFile, isReadable } from "@plasmo/utils/fs"
 import { eLog, iLog, vLog } from "@plasmo/utils/logging"

@@ -1,21 +1,21 @@
+import React from "react"
+import { createRoot } from "react-dom/client"
+
 import { createAnchorObserver, createRender } from "@plasmo-static-common/csui"
 import {
   InlineCSUIContainer,
   OverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-react"
 import { getLayout } from "@plasmo-static-common/react"
-import React from "react"
-import { createRoot } from "react-dom/client"
-
-// prettier-sort-ignore
-// @ts-ignore
-import * as RawMount from "__plasmo_mount_content_script__"
 
 import type {
   PlasmoCSUI,
   PlasmoCSUIAnchor,
   PlasmoCSUIJSXContainer
 } from "~type"
+
+// @ts-ignore
+import * as RawMount from "__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = RawMount as PlasmoCSUI<PlasmoCSUIJSXContainer>

@@ -4,15 +4,14 @@
  * Adapted from https://github.com/dword-design/ts-ast-to-literal/blob/master/src/index.js
  * Copyright (c) Sebastian Landwehr info@sebastianlandwehr.com, MIT licensed
  */
-import type {
-  ArrayLiteralExpression,
-  Identifier,
-  LiteralExpression,
-  Node,
-  ObjectLiteralExpression,
-  PropertyAssignment
+import typescript, {
+  type ArrayLiteralExpression,
+  type Identifier,
+  type LiteralExpression,
+  type Node,
+  type ObjectLiteralExpression,
+  type PropertyAssignment
 } from "typescript"
-import typescript from "typescript"
 
 const { SyntaxKind } = typescript
 

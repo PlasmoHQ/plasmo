@@ -1,5 +1,5 @@
-import { ensureDir, outputFile } from "fs-extra"
 import { relative, resolve } from "path"
+import { ensureDir, outputFile } from "fs-extra"
 
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"

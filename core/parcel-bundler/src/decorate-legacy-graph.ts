@@ -1,10 +1,10 @@
+import invariant from "assert"
 import { ALL_EDGE_TYPES, NodeId } from "@parcel/graph"
 import type {
   BundleGroup,
   Bundle as LegacyBundle,
   MutableBundleGraph
 } from "@parcel/types"
-import invariant from "assert"
 import nullthrows from "nullthrows"
 
 import type { Bundle, IdealGraph } from "./types"

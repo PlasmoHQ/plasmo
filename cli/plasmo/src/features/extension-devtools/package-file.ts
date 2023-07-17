@@ -1,5 +1,5 @@
-import { sentenceCase } from "change-case"
 import { userInfo } from "os"
+import { sentenceCase } from "change-case"
 import getPackageJson, { type AbbreviatedVersion } from "package-json"
 
 import type { ExtensionManifestV3 } from "@plasmo/constants"
@@ -30,7 +30,6 @@ const _generatePackage = async ({
       "react-dom": "*"
     } as Record<string, string>,
     devDependencies: {
-      "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
       "@types/chrome": "*",
       "@types/node": "*",
       "@types/react": "*",

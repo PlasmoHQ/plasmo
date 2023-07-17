@@ -1,10 +1,10 @@
+import { existsSync } from "fs"
+import { lstat, readFile, writeFile } from "fs/promises"
+import { isAbsolute, join, relative, resolve } from "path"
 import spawnAsync from "@expo/spawn-async"
 import { sentenceCase } from "change-case"
-import { existsSync } from "fs"
 import { copy, outputJson, readJson } from "fs-extra"
-import { lstat, readFile, writeFile } from "fs/promises"
 import ignore from "ignore"
-import { isAbsolute, join, relative, resolve } from "path"
 import { temporaryDirectory } from "tempy"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
@@ -14,8 +14,8 @@ import { iLog, vLog } from "@plasmo/utils/logging"
 import type { CommonPath } from "~features/extension-devtools/common-path"
 import { generateGitIgnore } from "~features/extension-devtools/git-ignore"
 import {
-  type PackageJSON,
-  resolveWorkspaceToLatestSemver
+  resolveWorkspaceToLatestSemver,
+  type PackageJSON
 } from "~features/extension-devtools/package-file"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import type { PackageManagerInfo } from "~features/helpers/package-manager"

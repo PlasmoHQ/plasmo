@@ -1,7 +1,7 @@
-import { outputFile, outputJson } from "fs-extra"
 import { readFile } from "fs/promises"
-import json5 from "json5"
 import { resolve } from "path"
+import { outputFile, outputJson } from "fs-extra"
+import json5 from "json5"
 
 import { MESSAGING_DECLARATION } from "~features/background-service-worker/bgsw-messaging-declaration"
 import { PROCESS_ENV_DECLARATION } from "~features/env/env-declaration"

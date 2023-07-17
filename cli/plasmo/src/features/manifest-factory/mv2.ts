@@ -6,7 +6,7 @@ import { iLog } from "@plasmo/utils/logging"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { PlasmoManifest, iconMap } from "./base"
+import { iconMap, PlasmoManifest } from "./base"
 
 export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifestV2> {
   constructor(bundleConfig: PlasmoBundleConfig) {

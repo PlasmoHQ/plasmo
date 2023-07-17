@@ -9,10 +9,10 @@ import { keepAlive } from "@plasmohq/persistent/background"
 
 import type { BackgroundMessage } from "../types"
 import {
-  PAGE_PORT_PREFIX,
-  SCRIPT_PORT_PREFIX,
   extCtx,
-  runtimeData
+  PAGE_PORT_PREFIX,
+  runtimeData,
+  SCRIPT_PORT_PREFIX
 } from "../utils/0-patch-module"
 import { pollingDevServer } from "../utils/bgsw"
 import { isDependencyOfBundle } from "../utils/hmr-check"

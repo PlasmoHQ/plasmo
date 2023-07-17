@@ -1,6 +1,6 @@
-import { emptyDir, ensureDir } from "fs-extra"
 import { lstat } from "fs/promises"
 import { resolve } from "path"
+import { emptyDir, ensureDir } from "fs-extra"
 
 import { isAccessible } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
