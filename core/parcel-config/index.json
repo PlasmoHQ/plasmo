@@ -42,6 +42,7 @@
     "template:*.vue": ["@plasmohq/parcel-transformer-vue"],
     "script:*.vue": ["@plasmohq/parcel-transformer-vue"],
     "style:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "style-raw:*.vue": ["@plasmohq/parcel-transformer-vue"],
     "custom:*.vue": ["@plasmohq/parcel-transformer-vue"],
 
     "*.svelte": ["@plasmohq/parcel-transformer-svelte"],
