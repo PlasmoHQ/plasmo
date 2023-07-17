@@ -1,12 +1,12 @@
+import { dirname, resolve } from "path"
 import type { Mapping } from "@mischnic/json-sourcemap"
 import type {
   MutableAsset,
   PluginOptions,
   TransformerResult
 } from "@parcel/types"
-import { dirname, resolve } from "path"
 
-import type { MV2Data, ManifestData } from "./schema"
+import type { ManifestData, MV2Data } from "./schema"
 
 type ExtraAsset = TransformerResult
 

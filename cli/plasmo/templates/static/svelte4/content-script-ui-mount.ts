@@ -4,15 +4,14 @@ import {
   createOverlayCSUIContainer
 } from "@plasmo-static-common/csui-container-vanilla"
 
-// prettier-sort-ignore
-// @ts-ignore
-import * as RawMount from "__plasmo_mount_content_script__"
-
 import type {
   PlasmoCSUI,
   PlasmoCSUIAnchor,
   PlasmoCSUIHTMLContainer
 } from "~type"
+
+// @ts-ignore
+import * as RawMount from "__plasmo_mount_content_script__"
 
 // Escape parcel's static analyzer
 const Mount = RawMount as PlasmoCSUI<PlasmoCSUIHTMLContainer>

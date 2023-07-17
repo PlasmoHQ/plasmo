@@ -1,7 +1,7 @@
-import glob from "fast-glob"
-import { AsyncZipDeflate, Zip } from "fflate"
 import { createReadStream, createWriteStream } from "fs"
 import { resolve } from "path"
+import glob from "fast-glob"
+import { AsyncZipDeflate, Zip } from "fflate"
 
 import { iLog } from "@plasmo/utils/logging"
 

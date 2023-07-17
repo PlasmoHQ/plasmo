@@ -43,10 +43,13 @@ export enum WatchReason {
 type DirectoryWatchTuple = [WatchReason, string]
 
 const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
-  paths.reduce((output, path) => {
-    output[path] = reason
-    return output
-  }, {} as Record<string, WatchReason>)
+  paths.reduce(
+    (output, path) => {
+      output[path] = reason
+      return output
+    },
+    {} as Record<string, WatchReason>
+  )
 
 export const getProjectPath = (
   { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,

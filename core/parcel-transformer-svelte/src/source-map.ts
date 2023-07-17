@@ -6,8 +6,8 @@
  * Copyright (c) 2023 Christoph Hommelsheim
  * MIT License
  */
-import SourceMap from "@parcel/source-map"
 import { dirname, isAbsolute, join } from "path"
+import SourceMap from "@parcel/source-map"
 
 import type { Options } from "./types"
 

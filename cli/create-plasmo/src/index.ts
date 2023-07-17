@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import { argv, exit } from "process"
 import { version } from "plasmo/package.json"
 import init from "plasmo/src/commands/init"
-import { argv, exit } from "process"
 
 import { ErrorMessage } from "@plasmo/constants/error"
 import { aLog, eLog } from "@plasmo/utils/logging"

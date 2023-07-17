@@ -1,10 +1,10 @@
 import { resolve } from "path"
 
 import {
-  type ResolverProps,
-  type ResolverResult,
   resolveSourceIndex,
-  state
+  state,
+  type ResolverProps,
+  type ResolverResult
 } from "./shared"
 
 const resolveByPrefix = (specifier = "", prefix = "", prefixPath = "") => {

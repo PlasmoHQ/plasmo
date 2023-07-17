@@ -1,5 +1,5 @@
-import { copy, ensureDir } from "fs-extra"
 import { basename, resolve } from "path"
+import { copy, ensureDir } from "fs-extra"
 import sharp from "sharp"
 
 import { find } from "@plasmo/utils/array"

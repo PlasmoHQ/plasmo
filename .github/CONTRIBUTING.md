@@ -34,7 +34,7 @@ requests should be made against.
 
 To develop locally:
 
-1. Install [pnpm](https://pnpm.io/) 
+1. Install [pnpm](https://pnpm.io/)
    - DO NOT install pnpm a as npm's global dependency, we need pnpm to be able to link directly to your $PATH.
    - Recommended installation method is with corepack or with brew (on macOS)
    - If installed with brew, you might need to include the pnpm $PATH to your debugger
@@ -76,12 +76,13 @@ To develop locally:
    ```
 
 Note: The `create-plasmo` CLI tool is not meant to be run locally.
-If you have already linked it, please run 
+If you have already linked it, please run
 
 ```sh
 pnpm -g unlink create-plasmo
 ```
- to unlink it.
+
+to unlink it.
 
 ## Building
 

@@ -3,29 +3,31 @@
  * MIT License
  */
 
+import invariant from "assert"
 import { createWorkerFarm } from "@parcel/core"
-import ParcelConfig from "@parcel/core/lib/ParcelConfig"
-import ReporterRunner from "@parcel/core/lib/ReporterRunner"
-import RequestTracker, {
-  getWatcherOptions,
-  requestGraphEdgeTypes
-} from "@parcel/core/lib/RequestTracker"
 import dumpGraphToGraphViz from "@parcel/core/lib/dumpGraphToGraphViz"
+import ParcelConfig from "@parcel/core/lib/ParcelConfig"
 import { toProjectPath } from "@parcel/core/lib/projectPath"
 import { assetFromValue } from "@parcel/core/lib/public/Asset"
 import { PackagedBundle } from "@parcel/core/lib/public/Bundle"
 import BundleGraph from "@parcel/core/lib/public/BundleGraph"
+import ReporterRunner from "@parcel/core/lib/ReporterRunner"
 import createParcelBuildRequest from "@parcel/core/lib/requests/ParcelBuildRequest"
 import { loadParcelConfig } from "@parcel/core/lib/requests/ParcelConfigRequest"
 import createValidationRequest from "@parcel/core/lib/requests/ValidationRequest"
+import RequestTracker, {
+  getWatcherOptions,
+  requestGraphEdgeTypes
+} from "@parcel/core/lib/RequestTracker"
 import {
   BuildAbortError,
   registerCoreWithSerializer
 } from "@parcel/core/lib/utils"
-import type { Diagnostic } from "@parcel/diagnostic"
-import ThrowableDiagnostic, { anyToDiagnostic } from "@parcel/diagnostic"
-import { ValueEmitter } from "@parcel/events"
-import { Disposable } from "@parcel/events"
+import ThrowableDiagnostic, {
+  anyToDiagnostic,
+  type Diagnostic
+} from "@parcel/diagnostic"
+import { Disposable, ValueEmitter } from "@parcel/events"
 import { init as initHash } from "@parcel/hash"
 import logger from "@parcel/logger"
 import { init as initSourcemaps } from "@parcel/source-map"
@@ -33,17 +35,16 @@ import type {
   AsyncSubscription,
   BuildEvent,
   BuildSuccessEvent,
-  PackagedBundle as IPackagedBundle,
-  InitialParcelOptions
+  InitialParcelOptions,
+  PackagedBundle as IPackagedBundle
 } from "@parcel/types"
 import { PromiseQueue } from "@parcel/utils"
 import { type Options as ParcelWatcherOptions } from "@parcel/watcher"
 // eslint-disable-next-line no-unused-vars
 import { AbortController } from "abortcontroller-polyfill/dist/cjs-ponyfill"
-import invariant from "assert"
 import nullthrows from "nullthrows"
 
-import { type ResolvedOptions, resolveOptions } from "./resolve-options"
+import { resolveOptions, type ResolvedOptions } from "./resolve-options"
 
 registerCoreWithSerializer()
 

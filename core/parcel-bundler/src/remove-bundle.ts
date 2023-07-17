@@ -1,7 +1,7 @@
+import invariant from "assert"
 import type { Graph, NodeId } from "@parcel/graph"
 import type { Asset, Dependency } from "@parcel/types"
 import type { DefaultMap } from "@parcel/utils"
-import invariant from "assert"
 import nullthrows from "nullthrows"
 
 import type { Bundle } from "./types"

@@ -7,8 +7,8 @@
  * MIT License
  */
 
-import { loadConfig } from "@parcel/utils"
 import { dirname, extname, join, resolve } from "path"
+import { loadConfig } from "@parcel/utils"
 import type { CompilerOptions } from "typescript"
 
 import { isReadable } from "@plasmo/utils/fs"

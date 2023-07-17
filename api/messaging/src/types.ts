@@ -92,7 +92,9 @@ export namespace PlasmoMessaging {
   }
 
   export interface PortHook {
-    <TRequestBody = Record<string, any>, TResponseBody = any>(name: PortName): {
+    <TRequestBody = Record<string, any>, TResponseBody = any>(
+      name: PortName
+    ): {
       data?: TResponseBody
       send: (payload: TRequestBody) => void
       listen: <T = TResponseBody>(

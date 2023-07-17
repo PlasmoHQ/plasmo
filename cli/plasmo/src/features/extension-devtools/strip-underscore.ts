@@ -1,4 +1,4 @@
-import { readFile, readdir, rename, stat, writeFile } from "fs/promises"
+import { readdir, readFile, rename, stat, writeFile } from "fs/promises"
 import { join, resolve } from "path"
 
 const stripFileUnderscore = async (filePath: string) => {

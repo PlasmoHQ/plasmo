@@ -1,7 +1,7 @@
+import { dirname, join, resolve } from "path"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
 import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
-import { dirname, join, resolve } from "path"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
 

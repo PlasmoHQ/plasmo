@@ -1,6 +1,7 @@
 // @ts-nocheck
-import * as Component from "__plasmo_import_module__"
 import { createApp } from "vue"
+
+import * as Component from "__plasmo_import_module__"
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(Component.default)

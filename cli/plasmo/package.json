@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.80.0",
+  "version": "0.81.0",
   "description": "The Plasmo Framework CLI",
   "publishConfig": {
     "types": "dist/type.d.ts"
@@ -64,11 +64,12 @@
     "package-json": "8.1.1",
     "process": "0.11.10",
     "semver": "7.5.4",
-    "sharp": "0.32.2",
+    "sharp": "0.32.3",
     "tempy": "3.1.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "vue": "3.3.4",
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
     "@plasmo/framework-shared": "workspace:*",

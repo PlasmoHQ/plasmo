@@ -1,15 +1,5 @@
 import { ok } from "assert"
-import glob from "fast-glob"
-import {
-  copy,
-  ensureDir,
-  existsSync,
-  pathExists,
-  readJson,
-  writeJson
-} from "fs-extra"
 import { readdir } from "fs/promises"
-import { hasher as createHasher } from "node-object-hash"
 import {
   basename,
   dirname,
@@ -21,6 +11,16 @@ import {
   resolve
 } from "path"
 import { cwd } from "process"
+import glob from "fast-glob"
+import {
+  copy,
+  ensureDir,
+  existsSync,
+  pathExists,
+  readJson,
+  writeJson
+} from "fs-extra"
+import { hasher as createHasher } from "node-object-hash"
 
 import type {
   ChromeUrlOverrideType,
@@ -30,8 +30,8 @@ import type {
   ManifestPermission
 } from "@plasmo/constants"
 import {
-  BuildSocketEvent,
-  buildBroadcast
+  buildBroadcast,
+  BuildSocketEvent
 } from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
@@ -39,19 +39,19 @@ import { isDirectory, isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
-import { type EnvConfig, loadEnvConfig } from "~features/env/env-config"
+import { loadEnvConfig, type EnvConfig } from "~features/env/env-config"
 import { outputEnvDeclaration } from "~features/env/env-declaration"
 import {
-  type CommonPath,
-  getCommonPath
+  getCommonPath,
+  type CommonPath
 } from "~features/extension-devtools/common-path"
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
-  type ProjectPath,
-  getProjectPath
+  getProjectPath,
+  type ProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
@@ -61,10 +61,10 @@ import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
 import {
-  type UiExtMap,
-  type UiLibrary,
   getUiExtMap,
-  getUiLibrary
+  getUiLibrary,
+  type UiExtMap,
+  type UiLibrary
 } from "./ui-library"
 
 export const iconMap = {

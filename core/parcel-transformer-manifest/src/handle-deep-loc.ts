@@ -1,5 +1,5 @@
-import { getJSONSourceLocation } from "@parcel/diagnostic"
 import { extname } from "path"
+import { getJSONSourceLocation } from "@parcel/diagnostic"
 
 import { vLog } from "@plasmo/utils/logging"
 

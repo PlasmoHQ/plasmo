@@ -1,7 +1,7 @@
+import invariant from "assert"
 import { ALL_EDGE_TYPES, ContentGraph, Graph, NodeId } from "@parcel/graph"
 import type { Asset, Dependency, MutableBundleGraph } from "@parcel/types"
 import { DefaultMap, setEqual, setIntersect, setUnion } from "@parcel/utils"
-import invariant from "assert"
 import nullthrows from "nullthrows"
 
 import { canMerge } from "./can-merge"
@@ -9,11 +9,13 @@ import { createBundle } from "./create-bundle"
 import { getReachableBundleRoots } from "./get-reachable-bundle-root"
 import { removeBundle } from "./remove-bundle"
 import {
+  dependencyPriorityEdges,
+  type Bundle,
   type BundleRoot,
-  type ResolvedBundlerConfig,
-  dependencyPriorityEdges
+  type DependencyBundleGraph,
+  type IdealGraph,
+  type ResolvedBundlerConfig
 } from "./types"
-import type { Bundle, DependencyBundleGraph, IdealGraph } from "./types"
 
 export function createIdealGraph(
   assetGraph: MutableBundleGraph,

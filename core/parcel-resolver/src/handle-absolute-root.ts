@@ -1,10 +1,10 @@
 import { extname, isAbsolute, resolve } from "path"
 
 import {
-  type ResolverProps,
-  type ResolverResult,
   relevantExtensionList,
-  resolveSourceIndex
+  resolveSourceIndex,
+  type ResolverProps,
+  type ResolverResult
 } from "./shared"
 
 export async function handleAbsoluteRoot({

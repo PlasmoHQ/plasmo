@@ -2,8 +2,8 @@ import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
 import {
-  PAGE_PORT_PREFIX,
   extCtx,
+  PAGE_PORT_PREFIX,
   runtimeData,
   triggerReload
 } from "../utils/0-patch-module"

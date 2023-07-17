@@ -81,7 +81,7 @@ pnpm dev
 
 変更したい部分によって、以下のファイルを編集してください。
 
-- ポップアップ → `popup.tsx` 
+- ポップアップ → `popup.tsx`
 - 設定ページ → `options.tsx`
 - コンテンツスクリプト → `content.ts`
 - バックグランドサービスワーカー → `background.ts`

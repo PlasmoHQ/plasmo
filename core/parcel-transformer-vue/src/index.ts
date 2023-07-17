@@ -5,10 +5,11 @@
  * Based on: https://github.com/parcel-bundler/parcel/tree/v2/packages/transformers/vue
  * MIT License
  */
+import { basename, dirname, extname, relative } from "path"
 import ThrowableDiagnostic, {
-  type Diagnostic,
   escapeMarkdown,
-  md
+  md,
+  type Diagnostic
 } from "@parcel/diagnostic"
 import { Transformer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
@@ -16,7 +17,6 @@ import type { TransformerResult } from "@parcel/types"
 import { hashObject } from "@parcel/utils"
 import * as compiler from "@vue/compiler-sfc"
 import nullthrows from "nullthrows"
-import { basename, dirname, extname, relative } from "path"
 import semver from "semver"
 
 import consolidate from "@plasmohq/consolidate"
