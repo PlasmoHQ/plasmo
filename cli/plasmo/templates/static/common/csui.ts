@@ -32,7 +32,11 @@ async function injectAnchor<T>(
   mountState?: PlasmoCSUIMountState
 ) {
   if (typeof Mount.getStyle === "function") {
-    shadowRoot.prepend(await Mount.getStyle(anchor))
+    const sfcStyleContent =
+      typeof Mount.getSfcStyleContent === "function"
+        ? await Mount.getSfcStyleContent()
+        : ""
+    shadowRoot.prepend(await Mount.getStyle({ ...anchor, sfcStyleContent }))
   }
 
   if (typeof Mount.getShadowHostId === "function") {

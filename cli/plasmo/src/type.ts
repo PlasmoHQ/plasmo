@@ -68,7 +68,12 @@ export type PlasmoMountShadowHost = (
 
 export type PlasmoGetShadowHostId = Getter<string, PlasmoCSUIAnchor>
 
-export type PlasmoGetStyle = Getter<HTMLStyleElement, PlasmoCSUIAnchor>
+export type PlasmoGetStyle = Getter<
+  HTMLStyleElement,
+  PlasmoCSUIAnchor & { sfcStyleContent?: string }
+>
+
+export type PlasmoGetSfcStyleContent = Getter<string>
 
 /**
  * @return a cleanup unwatch function that will be run when unmounted
@@ -113,6 +118,7 @@ export type PlasmoCSUIWatch = (props: {
 export type PlasmoCSUI<T> = {
   default: any
   getStyle: PlasmoGetStyle
+  getSfcStyleContent: PlasmoGetSfcStyleContent
   getShadowHostId: PlasmoGetShadowHostId
 
   getOverlayAnchor: PlasmoGetOverlayAnchor
