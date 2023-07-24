@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.81.0",
+  "version": "0.81.1",
   "description": "The Plasmo Framework CLI",
   "publishConfig": {
     "types": "dist/type.d.ts"
@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "node index.mjs -w",
     "build": "node index.mjs",
-    "type": "tsup src/type.ts --dts-only --dts-resolve",
+    "type": "tsup src/type.ts --format esm --dts-only --dts-resolve",
     "prepublishOnly": "run-p type build",
     "lint": "run-p lint:*",
     "lint:type": "tsc --noemit",
