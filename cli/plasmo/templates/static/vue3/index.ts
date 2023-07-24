@@ -1,14 +1,9 @@
-// @ts-nocheck
 import { createApp } from "vue"
 
+// @ts-ignore
 import * as Component from "__plasmo_import_module__"
 
-__VUE_OPTIONS_API__ = true
-if(process.env.NODE_ENV !== 'production') {
-  __VUE_PROD_DEVTOOLS__ = true
-} else {
-  __VUE_PROD_DEVTOOLS__ = false
-}
+import "@plasmo-static-common/vue"
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(Component.default)

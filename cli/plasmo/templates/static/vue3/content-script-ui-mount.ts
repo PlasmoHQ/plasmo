@@ -12,6 +12,8 @@ import type {
   PlasmoCSUIHTMLContainer
 } from "~type"
 
+import "@plasmo-static-common/vue"
+
 // @ts-ignore
 import RawMount from "__plasmo_mount_content_script__"
 // @ts-ignore
