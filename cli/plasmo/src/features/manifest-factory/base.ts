@@ -1,15 +1,5 @@
 import { ok } from "assert"
-import glob from "fast-glob"
-import {
-  copy,
-  ensureDir,
-  existsSync,
-  pathExists,
-  readJson,
-  writeJson
-} from "fs-extra"
 import { readdir } from "fs/promises"
-import { hasher as createHasher } from "node-object-hash"
 import {
   basename,
   dirname,
@@ -21,6 +11,16 @@ import {
   resolve
 } from "path"
 import { cwd } from "process"
+import glob from "fast-glob"
+import {
+  copy,
+  ensureDir,
+  existsSync,
+  pathExists,
+  readJson,
+  writeJson
+} from "fs-extra"
+import { hasher as createHasher } from "node-object-hash"
 
 import type {
   ChromeUrlOverrideType,
@@ -30,28 +30,28 @@ import type {
   ManifestPermission
 } from "@plasmo/constants"
 import {
-  BuildSocketEvent,
-  buildBroadcast
+  buildBroadcast,
+  BuildSocketEvent
 } from "@plasmo/framework-shared/build-socket"
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
-import { isReadable } from "@plasmo/utils/fs"
+import { isDirectory, isReadable } from "@plasmo/utils/fs"
 import { vLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
-import { type EnvConfig, loadEnvConfig } from "~features/env/env-config"
+import { loadEnvConfig, type EnvConfig } from "~features/env/env-config"
 import { outputEnvDeclaration } from "~features/env/env-declaration"
 import {
-  type CommonPath,
-  getCommonPath
+  getCommonPath,
+  type CommonPath
 } from "~features/extension-devtools/common-path"
 import { extractContentScriptConfig } from "~features/extension-devtools/content-script-config"
 import { generateIcons } from "~features/extension-devtools/generate-icons"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import type { PackageJSON } from "~features/extension-devtools/package-file"
 import {
-  type ProjectPath,
-  getProjectPath
+  getProjectPath,
+  type ProjectPath
 } from "~features/extension-devtools/project-path"
 import { getTemplatePath } from "~features/extension-devtools/template-path"
 import { outputIndexDeclaration } from "~features/extension-devtools/tsconfig"
@@ -61,10 +61,10 @@ import { definedTraverse } from "~features/helpers/traverse"
 
 import { Scaffolder } from "./scaffolder"
 import {
-  type UiExtMap,
-  type UiLibrary,
   getUiExtMap,
-  getUiLibrary
+  getUiLibrary,
+  type UiExtMap,
+  type UiLibrary
 } from "./ui-library"
 
 export const iconMap = {
@@ -284,6 +284,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   abstract togglePopup: (enable?: boolean) => this
   abstract toggleBackground: (enable?: boolean) => boolean
+  abstract toggleSidePanel: (enable?: boolean) => this
 
   toggleOptions = (enable = false) => {
     if (enable) {
@@ -409,7 +410,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   addDirectory = async (
     path: string,
-    toggleDynamicPath: typeof this.toggleContentScript
+    toggleDynamicPath: typeof this.toggleContentScript,
+    filterFile?: (fileName: string) => boolean
   ) => {
     if (!existsSync(path)) {
       return false
@@ -419,7 +421,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((files) =>
         Promise.all(
           files
-            .filter((f) => f.isFile())
+            .filter((f) =>
+              f.isFile() && filterFile ? filterFile(f.name) : true
+            )
             .map((f) => resolve(path, f.name))
             .map((filePath) => toggleDynamicPath(filePath, true))
         )
@@ -427,9 +431,40 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       .then((results) => results.includes(true))
   }
 
+  addContentScriptsIndexFiles = async () => {
+    const path = this.projectPath.contentsDirectory
+    if (!(await isDirectory(path))) {
+      return false
+    }
+
+    const indexFileList = [...this.#extSet].flatMap((ext) => [
+      `index${ext}`,
+      `index.${this.browser}${ext}`
+    ])
+
+    return readdir(path, { withFileTypes: true })
+      .then((files) =>
+        Promise.all(
+          files
+            .filter((f) => f.isDirectory())
+            .map((dir) => resolve(path, dir.name))
+            .map((dirPath) =>
+              this.addDirectory(dirPath, this.toggleContentScript, (fileName) =>
+                indexFileList.includes(fileName)
+              )
+            )
+        )
+      )
+      .then((results) => results.includes(true))
+  }
+
   addContentScriptsDirectory = async (
     contentsDirectory = this.projectPath.contentsDirectory
-  ) => this.addDirectory(contentsDirectory, this.toggleContentScript)
+  ) =>
+    Promise.all([
+      this.addDirectory(contentsDirectory, this.toggleContentScript),
+      this.addContentScriptsIndexFiles()
+    ]).then((results) => results.includes(true))
 
   togglePage = async (path?: string, enable = false) => {
     if (this.isPathInvalid(path)) {

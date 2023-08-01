@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-vue",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Plasmo Parcel Transformer for Vue",
   "files": [
     "dist"
@@ -34,8 +34,8 @@
     "@parcel/utils": "2.9.3",
     "@plasmohq/consolidate": "0.17.0",
     "@vue/compiler-sfc": "3.3.4",
-    "vue": "3.3.4",
     "nullthrows": "1.1.1",
-    "semver": "7.5.3"
+    "semver": "7.5.4",
+    "vue": "3.3.4"
   }
 }

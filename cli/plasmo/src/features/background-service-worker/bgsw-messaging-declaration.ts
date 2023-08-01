@@ -1,5 +1,5 @@
-import { outputFile } from "fs-extra"
 import { resolve } from "path"
+import { outputFile } from "fs-extra"
 
 import type { CommonPath } from "~features/extension-devtools/common-path"
 

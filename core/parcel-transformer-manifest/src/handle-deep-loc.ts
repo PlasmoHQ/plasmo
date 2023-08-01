@@ -1,5 +1,5 @@
-import { getJSONSourceLocation } from "@parcel/diagnostic"
 import { extname } from "path"
+import { getJSONSourceLocation } from "@parcel/diagnostic"
 
 import { vLog } from "@plasmo/utils/logging"
 
@@ -18,6 +18,7 @@ const DEEP_LOCS = [
   ["options_ui", "page"],
   ["sidebar_action", "default_icon"],
   ["sidebar_action", "default_panel"],
+  ["side_panel", "default_path"],
   ["storage", "managed_schema"],
   ["theme", "images", "theme_frame"],
   ["theme", "images", "additional_backgrounds"],

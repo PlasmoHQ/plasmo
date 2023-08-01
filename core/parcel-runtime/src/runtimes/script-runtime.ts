@@ -11,9 +11,9 @@ import { vLog } from "@plasmo/utils/logging"
 
 import type { BackgroundMessage } from "../types"
 import {
-  SCRIPT_PORT_PREFIX,
   extCtx,
-  runtimeData
+  runtimeData,
+  SCRIPT_PORT_PREFIX
 } from "../utils/0-patch-module"
 import { isDependencyOfBundle } from "../utils/hmr-check"
 import { injectHmrSocket } from "../utils/inject-socket"

@@ -1,6 +1,6 @@
+import { argv, exit } from "process"
 import { build, context } from "esbuild"
 import fse from "fs-extra"
-import { argv, exit } from "process"
 
 const watch = argv.includes("-w")
 

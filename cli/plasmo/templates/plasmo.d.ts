@@ -22,8 +22,7 @@ declare namespace NodeJS {
 
     PLASMO_MANIFEST_VERSION?: "mv2" | "mv3"
 
-    PLASMO_TARGET?:
-      | `${ProcessEnv["PLASMO_BROWSER"]}-${ProcessEnv["PLASMO_MANIFEST_VERSION"]}`
+    PLASMO_TARGET?: `${ProcessEnv["PLASMO_BROWSER"]}-${ProcessEnv["PLASMO_MANIFEST_VERSION"]}`
 
     PLASMO_TAG?: string
   }

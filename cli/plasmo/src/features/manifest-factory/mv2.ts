@@ -2,10 +2,11 @@ import type {
   ExtensionManifestV2,
   ExtensionManifestV3
 } from "@plasmo/constants"
+import { iLog } from "@plasmo/utils/logging"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { PlasmoManifest, iconMap } from "./base"
+import { iconMap, PlasmoManifest } from "./base"
 
 export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifestV2> {
   constructor(bundleConfig: PlasmoBundleConfig) {
@@ -15,6 +16,29 @@ export class PlasmoExtensionManifestMV2 extends PlasmoManifest<ExtensionManifest
     this.data.browser_action = {
       default_icon: iconMap
     }
+  }
+
+  toggleSidePanel = (enable = false) => {
+    switch (this.browser) {
+      case "firefox":
+      case "gecko": {
+        if (enable) {
+          this.data.sidebar_action = {
+            default_panel: "./sidepanel.html"
+          }
+        } else {
+          delete this.data.sidebar_action
+        }
+        break
+      }
+      default: {
+        iLog(
+          "SidePanel is not available on chromium-based MV2 browsers, skipping."
+        )
+      }
+    }
+
+    return this
   }
 
   togglePopup = (enable = false) => {

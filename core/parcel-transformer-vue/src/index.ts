@@ -5,10 +5,11 @@
  * Based on: https://github.com/parcel-bundler/parcel/tree/v2/packages/transformers/vue
  * MIT License
  */
+import { basename, dirname, extname, relative } from "path"
 import ThrowableDiagnostic, {
-  type Diagnostic,
   escapeMarkdown,
-  md
+  md,
+  type Diagnostic
 } from "@parcel/diagnostic"
 import { Transformer } from "@parcel/plugin"
 import SourceMap from "@parcel/source-map"
@@ -16,7 +17,6 @@ import type { TransformerResult } from "@parcel/types"
 import { hashObject } from "@parcel/utils"
 import * as compiler from "@vue/compiler-sfc"
 import nullthrows from "nullthrows"
-import { basename, dirname, extname, relative } from "path"
 import semver from "semver"
 
 import consolidate from "@plasmohq/consolidate"
@@ -338,7 +338,8 @@ async function processPipeline({
 
       return [scriptAsset]
     }
-    case "style": {
+    case "style":
+    case "style-raw": {
       let cssModules = {}
       let assets = await Promise.all(
         styles.map(async (style, i) => {
@@ -408,11 +409,12 @@ async function processPipeline({
           return styleAsset
         })
       )
-      if (Object.keys(cssModules).length !== 0) {
-        assets.push({
-          type: "js",
-          uniqueKey: asset.id + "-cssModules",
-          content: `
+      if (asset.pipeline == "style") {
+        if (Object.keys(cssModules).length !== 0) {
+          assets.push({
+            type: "js",
+            uniqueKey: asset.id + "-cssModules",
+            content: `
  import {render} from 'template:./${basePath}';
  let cssModules = ${JSON.stringify(cssModules)};
  ${
@@ -425,9 +427,22 @@ async function processPipeline({
      : ""
  }
  export default cssModules;`
-        })
+          })
+        }
+        return assets
+      } else if (asset.pipeline == "style-raw") {
+        const styleRawString = assets.map((a) => a.content).join("\n")
+        return [
+          {
+            type: "js",
+            uniqueKey: asset.id + "-cssRawString",
+            content: `
+const styleRawString = \`${styleRawString}\`
+export default styleRawString
+          `
+          }
+        ]
       }
-      return assets
     }
     case "custom": {
       let toCall = []

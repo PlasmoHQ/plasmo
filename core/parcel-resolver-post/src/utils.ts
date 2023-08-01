@@ -1,8 +1,8 @@
-import type { ResolveResult } from "@parcel/types"
 import { statSync } from "fs"
 import { resolve } from "path"
+import type { ResolveResult } from "@parcel/types"
 
-import { type ResolverResult, relevantExtensionList } from "./shared"
+import { relevantExtensionList, type ResolverResult } from "./shared"
 
 const WEBPACK_IMPORT_REGEX = /\S+-loader\S*!\S+/g
 

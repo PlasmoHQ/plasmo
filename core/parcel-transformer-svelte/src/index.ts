@@ -9,7 +9,7 @@
 import ThrowableDiagnostic from "@parcel/diagnostic"
 import { Transformer } from "@parcel/plugin"
 import { relativeUrl } from "@parcel/utils"
-import { type CompileOptions, compile, preprocess } from "svelte/compiler"
+import { compile, preprocess, type CompileOptions } from "svelte/compiler"
 
 import { convertError } from "./convert-error"
 import { extendSourceMap } from "./source-map"

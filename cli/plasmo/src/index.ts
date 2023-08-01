@@ -7,7 +7,7 @@ import { verbose } from "@plasmo/utils/flags"
 import { eLog, vLog } from "@plasmo/utils/logging"
 import { exitCountDown } from "@plasmo/utils/wait"
 
-import { type ValidCommand, runMap, validCommandSet } from "~commands"
+import { runMap, validCommandSet, type ValidCommand } from "~commands"
 import { printHeader, printHelp } from "~features/helpers/print"
 
 async function defaultMode() {

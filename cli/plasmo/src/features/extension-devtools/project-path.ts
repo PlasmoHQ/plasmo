@@ -24,6 +24,9 @@ export enum WatchReason {
   NewtabIndex,
   NewtabHtml,
 
+  SidePanelIndex,
+  SidePanelHtml,
+
   DevtoolsIndex,
   DevtoolsHtml,
 
@@ -40,10 +43,13 @@ export enum WatchReason {
 type DirectoryWatchTuple = [WatchReason, string]
 
 const getWatchReasonMap = (paths: string[], reason: WatchReason) =>
-  paths.reduce((output, path) => {
-    output[path] = reason
-    return output
-  }, {} as Record<string, WatchReason>)
+  paths.reduce(
+    (output, path) => {
+      output[path] = reason
+      return output
+    },
+    {} as Record<string, WatchReason>
+  )
 
 export const getProjectPath = (
   { sourceDirectory, packageFilePath, assetsDirectory }: CommonPath,
@@ -83,11 +89,13 @@ export const getProjectPath = (
   const optionsIndexList = getIndexList("options", uiExts)
   const devtoolsIndexList = getIndexList("devtools", uiExts)
   const newtabIndexList = getIndexList("newtab", uiExts)
+  const sidepanelIndexList = getIndexList("sidepanel", uiExts)
 
   const popupHtmlList = getIndexList("popup", [".html"])
   const optionsHtmlList = getIndexList("options", [".html"])
   const devtoolsHtmlList = getIndexList("devtools", [".html"])
   const newtabHtmlList = getIndexList("newtab", [".html"])
+  const sidepanelHtmlList = getIndexList("sidepanel", [".html"])
 
   const envFileList = getEnvFileNames().map((f) => resolve(sourceDirectory, f))
 
@@ -110,11 +118,13 @@ export const getProjectPath = (
     ...getWatchReasonMap(optionsIndexList, WatchReason.OptionsIndex),
     ...getWatchReasonMap(devtoolsIndexList, WatchReason.DevtoolsIndex),
     ...getWatchReasonMap(newtabIndexList, WatchReason.NewtabIndex),
+    ...getWatchReasonMap(sidepanelIndexList, WatchReason.SidePanelIndex),
 
     ...getWatchReasonMap(popupHtmlList, WatchReason.PopupHtml),
     ...getWatchReasonMap(optionsHtmlList, WatchReason.OptionsHtml),
     ...getWatchReasonMap(devtoolsHtmlList, WatchReason.DevtoolsHtml),
-    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml)
+    ...getWatchReasonMap(newtabHtmlList, WatchReason.NewtabHtml),
+    ...getWatchReasonMap(sidepanelHtmlList, WatchReason.SidePanelHtml)
   }
 
   const contentsDirectory = resolve(sourceDirectory, "contents")
@@ -138,7 +148,8 @@ export const getProjectPath = (
     ...popupIndexList,
     ...optionsIndexList,
     ...devtoolsIndexList,
-    ...newtabIndexList
+    ...newtabIndexList,
+    ...sidepanelIndexList
   ])
 
   const isEntryPath = (path: string) => entryFileSet.has(path)
@@ -161,6 +172,9 @@ export const getProjectPath = (
 
     contentIndexList,
     contentsDirectory,
+
+    sidepanelIndexList,
+    sidepanelHtmlList,
 
     sandboxIndexList,
     sandboxesDirectory,

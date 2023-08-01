@@ -1,11 +1,11 @@
 import { extname, resolve } from "path"
 
 import {
-  type ResolverProps,
-  type ResolverResult,
   relevantExtensionList,
   relevantExtensionSet,
-  resolveSourceIndex
+  resolveSourceIndex,
+  type ResolverProps,
+  type ResolverResult
 } from "./shared"
 
 export async function handleTildeSrc({

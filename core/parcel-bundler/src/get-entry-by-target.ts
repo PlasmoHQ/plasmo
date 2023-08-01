@@ -1,7 +1,7 @@
 // @ts-nocheck
+import invariant from "assert"
 import type { Asset, Dependency, MutableBundleGraph } from "@parcel/types"
 import { DefaultMap } from "@parcel/utils"
-import invariant from "assert"
 
 export function getEntryByTarget(
   bundleGraph: MutableBundleGraph

@@ -1,4 +1,4 @@
-import { type Event, subscribe } from "@parcel/watcher"
+import { subscribe, type Event } from "@parcel/watcher"
 
 import { PARCEL_WATCHER_BACKEND } from "@plasmo/constants/misc"
 import { assertUnreachable } from "@plasmo/utils/assert"
@@ -117,6 +117,11 @@ export const handleProjectFile = async (
       return
     }
 
+    case WatchReason.SidePanelIndex: {
+      plasmoManifest.toggleSidePanel(isEnabled)
+      return
+    }
+
     case WatchReason.PopupIndex: {
       plasmoManifest.togglePopup(isEnabled)
       return
@@ -155,6 +160,13 @@ export const handleProjectFile = async (
     case WatchReason.NewtabHtml: {
       await plasmoManifest.scaffolder.createPageHtml(
         "newtab",
+        isEnabled && path
+      )
+      return
+    }
+    case WatchReason.SidePanelHtml: {
+      await plasmoManifest.scaffolder.createPageHtml(
+        "sidepanel",
         isEnabled && path
       )
       return

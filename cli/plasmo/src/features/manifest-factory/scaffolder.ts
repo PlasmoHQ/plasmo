@@ -1,6 +1,6 @@
-import { copy, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "fs/promises"
-import { type ParsedPath, join, relative, resolve } from "path"
+import { join, relative, resolve, type ParsedPath } from "path"
+import { copy, ensureDir } from "fs-extra"
 
 import { find } from "@plasmo/utils/array"
 import { isAccessible, isFile } from "@plasmo/utils/fs"
@@ -12,7 +12,7 @@ import { getRevHash } from "~features/helpers/crypto"
 import { type PlasmoManifest } from "./base"
 import { isSupportedUiExt } from "./ui-library"
 
-type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab"
+type ExtensionUIPage = "popup" | "options" | "devtools" | "newtab" | "sidepanel"
 
 export class Scaffolder {
   #templateCache = {} as Record<string, string>
@@ -38,7 +38,8 @@ export class Scaffolder {
       this.#initUiPageTemplate("popup"),
       this.#initUiPageTemplate("options"),
       this.#initUiPageTemplate("newtab"),
-      this.#initUiPageTemplate("devtools")
+      this.#initUiPageTemplate("devtools"),
+      this.#initUiPageTemplate("sidepanel")
     ])
 
     return uiPagesResult

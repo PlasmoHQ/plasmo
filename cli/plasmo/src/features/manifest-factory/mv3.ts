@@ -2,7 +2,7 @@ import type { ExtensionManifestV3 } from "@plasmo/constants"
 
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
-import { PlasmoManifest, iconMap } from "./base"
+import { iconMap, PlasmoManifest } from "./base"
 
 export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifestV3> {
   constructor(bundleConfig: PlasmoBundleConfig) {
@@ -11,6 +11,35 @@ export class PlasmoExtensionManifestMV3 extends PlasmoManifest<ExtensionManifest
     this.data.action = {
       default_icon: iconMap
     }
+  }
+
+  toggleSidePanel = (enable = false) => {
+    switch (this.browser) {
+      case "firefox":
+      case "gecko": {
+        if (enable) {
+          this.data.sidebar_action = {
+            default_panel: "./sidepanel.html"
+          }
+        } else {
+          delete this.data.sidebar_action
+        }
+        break
+      }
+      default: {
+        if (enable) {
+          this.data.side_panel = {
+            default_path: "./sidepanel.html"
+          }
+          this.permissionSet.add("sidePanel")
+        } else {
+          delete this.data.side_panel
+          this.permissionSet.delete("sidePanel")
+        }
+      }
+    }
+
+    return this
   }
 
   togglePopup = (enable = false) => {

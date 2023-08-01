@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-import { type MessageName, type PlasmoMessaging, relayMessage } from "./index"
+import { relayMessage, type MessageName, type PlasmoMessaging } from "./index"
 import { listen as messageListen } from "./message"
 import { listen as portListen } from "./port"
 import { relay } from "./relay"

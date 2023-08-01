@@ -3,11 +3,11 @@
  * MIT License
  */
 
+import path from "path"
 import { FSCache, LMDBCache } from "@parcel/cache"
 import { toProjectPath } from "@parcel/core/lib/projectPath"
 import { getResolveFrom } from "@parcel/core/lib/requests/ParcelConfigRequest"
-import type { FileSystem } from "@parcel/fs"
-import { NodeFS } from "@parcel/fs"
+import { NodeFS, type FileSystem } from "@parcel/fs"
 import { hashString } from "@parcel/hash"
 import { NodePackageManager } from "@parcel/package-manager"
 import type {
@@ -17,7 +17,6 @@ import type {
   InitialServerOptions
 } from "@parcel/types"
 import { getRootDir, isGlob, relativePath, resolveConfig } from "@parcel/utils"
-import path from "path"
 
 // Default cache directory name
 const LOCK_FILE_NAMES = ["yarn.lock", "package-lock.json", "pnpm-lock.yaml"]

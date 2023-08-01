@@ -1,13 +1,13 @@
-import { Runtime } from "@parcel/plugin"
 import fs from "fs"
 import path, { basename, dirname, join } from "path"
+import { Runtime } from "@parcel/plugin"
 
 import { vLog } from "@plasmo/utils/logging"
 
 import {
+  plasmoRuntimeList,
   type PlasmoRuntime,
-  type RuntimeData,
-  plasmoRuntimeList
+  type RuntimeData
 } from "./types"
 
 const devRuntimeMap = plasmoRuntimeList.reduce(

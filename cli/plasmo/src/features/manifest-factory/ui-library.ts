@@ -1,6 +1,6 @@
-import { readJson } from "fs-extra"
 import { resolve } from "path"
 import { cwd } from "process"
+import { readJson } from "fs-extra"
 import semver from "semver"
 
 import { assertUnreachable } from "@plasmo/utils/assert"

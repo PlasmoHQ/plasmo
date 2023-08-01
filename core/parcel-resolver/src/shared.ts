@@ -1,10 +1,10 @@
+import { statSync } from "fs"
+import { join, resolve } from "path"
 import type { Resolver } from "@parcel/plugin"
 import type { ResolveResult } from "@parcel/types"
 import glob from "fast-glob"
-import { statSync } from "fs"
 import { readJson } from "fs-extra"
 import type { Got } from "got"
-import { join, resolve } from "path"
 
 import { vLog } from "@plasmo/utils/logging"
 import { toPosix } from "@plasmo/utils/path"

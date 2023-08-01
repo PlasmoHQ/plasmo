@@ -1,4 +1,4 @@
-import { type ResolverProps, type ResolverResult, state } from "./shared"
+import { state, type ResolverProps, type ResolverResult } from "./shared"
 
 export async function handlePolyfill({
   specifier

@@ -1,6 +1,5 @@
 import { readFile } from "fs/promises"
-import type { Node, VariableDeclaration } from "typescript"
-import typescript from "typescript"
+import typescript, { type Node, type VariableDeclaration } from "typescript"
 
 import type { ManifestContentScript } from "@plasmo/constants"
 import { eLog, vLog } from "@plasmo/utils/logging"
@@ -33,13 +32,16 @@ export const extractContentScriptConfig = async (path: string) => {
 
     const variableDeclarationMap = sourceFile.statements
       .filter(isVariableStatement)
-      .reduce((output, node) => {
-        node.declarationList.forEachChild((vd: VariableDeclaration) => {
-          output[vd.name.getText()] = vd.initializer
-        })
+      .reduce(
+        (output, node) => {
+          node.declarationList.forEachChild((vd: VariableDeclaration) => {
+            output[vd.name.getText()] = vd.initializer
+          })
 
-        return output
-      }, {} as Record<string, Node>)
+          return output
+        },
+        {} as Record<string, Node>
+      )
 
     const configAST = variableDeclarationMap["config"]
 
