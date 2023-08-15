@@ -30,6 +30,6 @@
     "@parcel/types": "2.9.3",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "7.1.0"
+    "tsup": "7.2.0"
   }
 }

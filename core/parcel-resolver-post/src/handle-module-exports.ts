@@ -1,5 +1,6 @@
 import type { ResolverProps, ResolverResult } from "./shared"
 
+// TODO: move this stuff into plasmo.config.ts
 const knownEsmPackageSet = new Set(["firebase-admin", "svelte", "ai"])
 
 // Last resort resolver for weird packages:
