@@ -1,6 +1,6 @@
 {
   "name": "create-plasmo",
-  "version": "0.82.1",
+  "version": "0.82.2",
   "description": "Create Plasmo Framework Browser Extension",
   "main": "dist/index.js",
   "bin": "bin/index.mjs",
@@ -45,6 +45,6 @@
     "@plasmo/constants": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "plasmo": "workspace:*",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   }
 }
