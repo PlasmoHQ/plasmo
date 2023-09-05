@@ -4,8 +4,11 @@ import { BuildSocketEvent } from "./event"
 
 export { BuildSocketEvent }
 
-const createBuildSocket = (hmrPort: number) => {
-  const wss = new WebSocketServer({ port: hmrPort + 1 })
+const createBuildSocket = (hmrHost: string, hmrPort: number) => {
+  const wss = new WebSocketServer({
+    host: hmrHost,
+    port: hmrPort + 1
+  })
 
   const broadcast = (type: BuildSocketEvent) => {
     for (const client of wss.clients) {
@@ -22,7 +25,7 @@ const createBuildSocket = (hmrPort: number) => {
 
 let _buildSocket: Awaited<ReturnType<typeof createBuildSocket>>
 
-export const getBuildSocket = (hmrPort?: number) => {
+export const getBuildSocket = (hmrHost = "localhost", hmrPort?: number) => {
   if (process.env.NODE_ENV === "production") {
     return null
   }
@@ -35,7 +38,7 @@ export const getBuildSocket = (hmrPort?: number) => {
     throw new Error("HMR port is not provided")
   }
 
-  _buildSocket = createBuildSocket(hmrPort)
+  _buildSocket = createBuildSocket(hmrHost, hmrPort)
   return _buildSocket
 }
 

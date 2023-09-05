@@ -31,9 +31,11 @@ async function dev() {
     getPort({ port: parseInt(rawServePort) }),
     getPort({ port: parseInt(rawHmrPort) })
   ])
-  const buildWatcher = getBuildSocket(hmrPort)
 
-  vLog(`Starting dev server on ${serveHost}:${servePort}, HMR on ${hmrHost}:${hmrPort}...`)
+  const buildWatcher = getBuildSocket(hmrHost, hmrPort)
+  vLog(
+    `Starting dev server on ${serveHost}:${servePort}, HMR on ${hmrHost}:${hmrPort}...`
+  )
 
   const bundleConfig = getBundleConfig()
 
