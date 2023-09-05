@@ -131,14 +131,11 @@ function handleMV2HotCsp(program: MV2Data) {
 
 // Enable eval HMR for sandbox,
 function handleMV3HotCsp(program: MV3Data) {
-  const { hot, hmrOptions } = getState()
+  const { hot } = getState()
 
   if (hot) {
     const csp = program.content_security_policy || {}
-    csp.extension_pages = cspPatchHMR(
-      csp.extension_pages,
-      `http://${hmrOptions?.host || "localhost"}`
-    )
+    csp.extension_pages = cspPatchHMR(csp.extension_pages, `http://localhost`)
     // Sandbox allows eval by default
     if (csp.sandbox) {
       csp.sandbox = cspPatchHMR(csp.sandbox)
