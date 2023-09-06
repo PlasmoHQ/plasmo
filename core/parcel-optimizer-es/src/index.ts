@@ -51,7 +51,7 @@ export default new Optimizer({
         target: process.env.__PLASMO_FRAMEWORK_INTERNAL_ES_TARGET,
         minify: {
           format: {
-            comments: shouldMinify ? "some": "all"
+            comments: shouldMinify ? "some" : "all"
           },
           mangle: shouldMinify,
           compress: shouldMinify,
