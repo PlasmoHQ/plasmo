@@ -3,7 +3,6 @@ import { readFile } from "fs/promises"
 import { resolve } from "path"
 import { constantCase } from "change-case"
 import dotenv from "dotenv"
-import { expand as dotenvExpand } from "dotenv-expand"
 
 import { isFile, isReadable } from "@plasmo/utils/fs"
 import { eLog, iLog, vLog } from "@plasmo/utils/logging"
@@ -16,6 +15,7 @@ type LoadedEnvFiles = Array<{
   contents: string
 }>
 
+const JSON_DIRECTIVE_REGEX = /^\s*~/
 export const INTERNAL_ENV_PREFIX = "PLASMO_"
 export const PUBLIC_ENV_PREFIX = "PLASMO_PUBLIC_"
 
@@ -50,22 +50,17 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   for (const { contents, name } of loadedEnvFiles) {
     try {
       envFileSet.add(name)
-      const result = dotenvExpand({
-        parsed: dotenv.parse(contents)
-      })
 
-      if (!!result.parsed) {
-        vLog(`Loaded env from ${name}`)
-        const resultData = result.parsed || {}
+      vLog(`Loaded env from ${name}`)
+      const resultData: dotenv.DotenvParseOutput = dotenv.parse(contents) || {}
 
-        for (const envKey of Object.keys(resultData)) {
-          if (typeof parsed[envKey] === "undefined") {
-            parsed[envKey] = resultData[envKey]
+      for (const [envKey, envValue] of Object.entries(resultData)) {
+        if (typeof parsed[envKey] === "undefined") {
+          parsed[envKey] = maybeParseJSON(envValue)
 
-            // Pass through internal env variables
-            if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
-              process.env[envKey] = resultData[envKey]
-            }
+          // Pass through internal env variables
+          if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
+            process.env[envKey] = envValue
           }
         }
       }
@@ -75,6 +70,16 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   }
 
   return parsed
+}
+
+function isJSONDirective(value: string): boolean {
+  return JSON_DIRECTIVE_REGEX.test(value);
+}
+
+function maybeParseJSON(value: string): any {
+  return isJSONDirective(value)
+    ? JSON.parse(value.replace(JSON_DIRECTIVE_REGEX, ""))
+    : value;
 }
 
 export const getEnvFileNames = () => {
