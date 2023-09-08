@@ -59,6 +59,14 @@ export function getHostname() {
   return runtimeData.host
 }
 
+export function getSocketHostname() {
+  if (!runtimeData.host || runtimeData.host === "0.0.0.0") {
+    return "localhost";
+  }
+
+  return runtimeData.host
+}
+
 export function getPort() {
   return runtimeData.port || location.port
 }

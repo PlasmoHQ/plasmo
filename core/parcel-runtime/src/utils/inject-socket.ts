@@ -2,10 +2,10 @@ import { type BuildSocketEvent } from "@plasmo/framework-shared/build-socket/eve
 import { eLog, iLog, wLog } from "@plasmo/utils/logging"
 
 import type { HmrAsset, HmrMessage } from "../types"
-import { getHostname, getPort, runtimeData } from "./0-patch-module"
+import { getSocketHostname, getPort, runtimeData } from "./0-patch-module"
 
 function getBaseSocketUri(port = getPort()) {
-  const hostname = getHostname()
+  const hostname = getSocketHostname()
   const protocol =
     runtimeData.secure ||
     (location.protocol === "https:" &&
