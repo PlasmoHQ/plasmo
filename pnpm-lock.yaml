@@ -327,6 +327,9 @@ importers:
       dotenv:
         specifier: 16.3.1
         version: 16.3.1
+      dotenv-expand:
+        specifier: 10.0.0
+        version: 10.0.0
       events:
         specifier: 3.3.0
         version: 3.3.0
@@ -11192,6 +11195,11 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.2
+    dev: false
+
+  /dotenv-expand@10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
+    engines: {node: '>=12'}
     dev: false
 
   /dotenv-expand@5.1.0:

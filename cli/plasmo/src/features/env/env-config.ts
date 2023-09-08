@@ -3,6 +3,7 @@ import { readFile } from "fs/promises"
 import { resolve } from "path"
 import { constantCase } from "change-case"
 import dotenv from "dotenv"
+import { expand as dotenvExpand } from "dotenv-expand"
 
 import { isFile, isReadable } from "@plasmo/utils/fs"
 import { eLog, iLog, vLog } from "@plasmo/utils/logging"
@@ -49,21 +50,27 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   for (const { contents, name } of loadedEnvFiles) {
     try {
       envFileSet.add(name)
+      const result = dotenvExpand({
+        ignoreProcessEnv: true,
+        parsed: dotenv.parse(contents)
+      })
 
-      vLog(`Loaded env from ${name}`)
-      const resultData: dotenv.DotenvParseOutput = dotenv.parse(contents) || {}
+      if (!!result.parsed) {
+        vLog(`Loaded env from ${name}`)
+        const resultData = result.parsed || {}
 
-      for (const [envKey, envValue] of Object.entries(resultData)) {
-        if (typeof parsed[envKey] === "undefined") {
-          try {
-            parsed[envKey] = maybeParseJSON(envValue)
-          } catch (ex) {
-            eLog(`Failed to parse JSON directive ${envKey} in ${name}:`, ex.message)
-          }
+        for (const [envKey, envValue] of Object.entries(resultData)) {
+          if (typeof parsed[envKey] === "undefined") {
+            try {
+              parsed[envKey] = maybeParseJSON(envValue)
+            } catch (ex) {
+              eLog(`Failed to parse JSON directive ${envKey} in ${name}:`, ex.message)
+            }
 
-          // Pass through internal env variables
-          if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
-            process.env[envKey] = envValue
+            // Pass through internal env variables
+            if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
+              process.env[envKey] = envValue
+            }
           }
         }
       }
