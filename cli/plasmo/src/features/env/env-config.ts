@@ -51,6 +51,7 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
     try {
       envFileSet.add(name)
       const result = dotenvExpand({
+        ignoreProcessEnv: true,
         parsed: dotenv.parse(contents)
       })
 
@@ -58,13 +59,17 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
         vLog(`Loaded env from ${name}`)
         const resultData = result.parsed || {}
 
-        for (const envKey of Object.keys(resultData)) {
+        for (const [envKey, envValue] of Object.entries(resultData)) {
           if (typeof parsed[envKey] === "undefined") {
-            parsed[envKey] = resultData[envKey]
+            try {
+              parsed[envKey] = maybeParseJSON(envValue)
+            } catch (ex) {
+              eLog(`Failed to parse JSON directive ${envKey} in ${name}:`, ex.message)
+            }
 
             // Pass through internal env variables
             if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
-              process.env[envKey] = resultData[envKey]
+              process.env[envKey] = envValue
             }
           }
         }
@@ -75,6 +80,13 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   }
 
   return parsed
+}
+
+const JSON_DIRECTIVE_RE = /^\s*json\((.+)\)\s*$/si
+
+function maybeParseJSON(value: string): any {
+  const match = value.match(JSON_DIRECTIVE_RE)
+  return match ? JSON.parse(match[1]) : value
 }
 
 export const getEnvFileNames = () => {
