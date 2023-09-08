@@ -1,6 +1,6 @@
 {
   "name": "plasmo",
-  "version": "0.82.6",
+  "version": "0.83.0",
   "description": "The Plasmo Framework CLI",
   "publishConfig": {
     "types": "dist/type.d.ts"
