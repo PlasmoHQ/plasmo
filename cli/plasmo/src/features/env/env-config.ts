@@ -15,7 +15,6 @@ type LoadedEnvFiles = Array<{
   contents: string
 }>
 
-const JSON_DIRECTIVE_REGEX = /^\s*~/
 export const INTERNAL_ENV_PREFIX = "PLASMO_"
 export const PUBLIC_ENV_PREFIX = "PLASMO_PUBLIC_"
 
@@ -56,7 +55,11 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
 
       for (const [envKey, envValue] of Object.entries(resultData)) {
         if (typeof parsed[envKey] === "undefined") {
-          parsed[envKey] = maybeParseJSON(envValue)
+          try {
+            parsed[envKey] = maybeParseJSON(envValue)
+          } catch (ex) {
+            eLog(`Failed to parse JSON directive ${envKey} in ${name}:`, ex.message)
+          }
 
           // Pass through internal env variables
           if (envKey.startsWith(INTERNAL_ENV_PREFIX)) {
@@ -72,14 +75,11 @@ function cascadeEnv(loadedEnvFiles: LoadedEnvFiles) {
   return parsed
 }
 
-function isJSONDirective(value: string): boolean {
-  return JSON_DIRECTIVE_REGEX.test(value);
-}
+const JSON_DIRECTIVE_RE = /^\s*json\((.+)\)\s*$/si
 
 function maybeParseJSON(value: string): any {
-  return isJSONDirective(value)
-    ? JSON.parse(value.replace(JSON_DIRECTIVE_REGEX, ""))
-    : value;
+  const match = value.match(JSON_DIRECTIVE_RE)
+  return match ? JSON.parse(match[1]) : value
 }
 
 export const getEnvFileNames = () => {
