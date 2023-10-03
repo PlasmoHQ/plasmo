@@ -1627,6 +1627,9 @@ importers:
 
   examples/with-google-analytics-measurement:
     dependencies:
+      '@plasmohq/storage':
+        specifier: workspace:*
+        version: link:../../api/storage
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
