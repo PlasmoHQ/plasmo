@@ -97,6 +97,36 @@ var _default = new (_plugin().Packager)({
         getReplacement: s => JSON.stringify(s).slice(1, -1)
       }));
     }
+
+    //#region start inject style
+    if (
+      /VUE_SFC_STYLE_PLACEHOLDER/.test(contents)
+    ) {
+      let promises = [];
+      bundle.traverseAssets(asset => {
+        if (asset.filePath.endsWith('.vue')) {
+          console.log(asset.filePath, asset.pipeline, asset.type)
+          promises.push(Promise.all([
+            asset.getCode(),
+            asset.getMap()
+          ]));
+        }
+      });
+
+      let styleAssets = await Promise.all(promises)
+      console.log(styleAssets)
+      // TODO: Here we should replace the placeholder with the css assets content. But there is no css asset?
+      contents = contents.replace(
+        /VUE_SFC_STYLE_PLACEHOLDER/,
+        `
+          * {
+            background-color: red;
+          }
+        ` // sample css content
+      )
+    }
+    //#endregion
+
     return (0, _utils().replaceInlineReferences)({
       bundle,
       bundleGraph,
