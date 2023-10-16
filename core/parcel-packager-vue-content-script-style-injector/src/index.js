@@ -102,27 +102,27 @@ var _default = new (_plugin().Packager)({
     if (
       /VUE_SFC_STYLE_PLACEHOLDER/.test(contents)
     ) {
-      let promises = [];
-      bundle.traverseAssets(asset => {
-        if (asset.filePath.endsWith('.vue')) {
-          console.log(asset.filePath, asset.pipeline, asset.type)
-          promises.push(Promise.all([
-            asset.getCode(),
-            asset.getMap()
-          ]));
+      // get css asset from bundleGraph
+      const cssBundle = new Set()
+      bundleGraph.traverseBundles((bundle) => {
+        if (bundle.type === 'css') {
+          cssBundle.add(bundle)
         }
-      });
+      })
 
-      let styleAssets = await Promise.all(promises)
-      console.log(styleAssets)
-      // TODO: Here we should replace the placeholder with the css assets content. But there is no css asset?
+      let cssAssets = new Set()
+      ;[...cssBundle].forEach(bundle => {
+        bundle.traverseAssets(asset => {
+          console.log(asset.filePath, asset.pipeline, asset.type)
+          cssAssets.add(asset)
+        });
+      })
+      const cssContents = await Promise.all([...cssAssets].map(asset => asset.getCode()))
+
+      // console.log(styleAssets)
       contents = contents.replace(
         /VUE_SFC_STYLE_PLACEHOLDER/,
-        `
-          * {
-            background-color: red;
-          }
-        ` // sample css content
+        `${cssContents.join('\n')}`
       )
     }
     //#endregion
