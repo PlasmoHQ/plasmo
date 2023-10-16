@@ -35,6 +35,7 @@
     "@plasmohq/parcel-optimizer-encapsulate": "workspace:*",
     "@plasmohq/parcel-optimizer-es": "workspace:*",
     "@plasmohq/parcel-packager": "workspace:*",
+    "@plasmohq/parcel-packager-vue-content-script-style-injector": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-resolver-post": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*",
