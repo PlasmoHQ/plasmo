@@ -17,6 +17,7 @@ type GetElement = Getter<Element>
 export type PlasmoCSUIAnchor = {
   element: Element
   type: "overlay" | "inline"
+  inlineInsertPosition?: "beforebegin" | "afterbegin" | "beforeend" | "afterend"
 }
 
 export type PlasmoCSUIProps = {
