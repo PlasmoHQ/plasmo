@@ -13,12 +13,13 @@ export type {
 
 /**
  * Should only be called from CS or Ext Pages
+ * Extension Id is required to send a message from a CS in the main world
  * TODO: Add a framework runtime check, using a global variable
  */
 export const sendToBackground: PlasmoMessaging.SendFx<MessageName> = async (
   req
 ) => {
-  return getExtRuntime().sendMessage(req)
+    return getExtRuntime().sendMessage(req.extensionId ?? null, req)
 }
 
 /**

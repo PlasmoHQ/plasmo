@@ -28,6 +28,16 @@ globalThis.__plasmoInternalPortMap = new Map()
 
 ${importSection}
 
+chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+  switch (request.name) {
+    ${switchCaseSection}
+    default:
+      break
+  }
+
+  return true
+})
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.name) {
     ${switchCaseSection}

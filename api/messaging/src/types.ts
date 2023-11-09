@@ -10,6 +10,7 @@ export namespace PlasmoMessaging {
   export type Request<TName = any, TBody = any> = {
     name: TName
 
+    extensionId?: string
     port?: chrome.runtime.Port
     sender?: chrome.runtime.MessageSender
 
