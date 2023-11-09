@@ -14,10 +14,18 @@ type Getter<T, P = any> = (props?: P) => Async<T>
 
 type GetElement = Getter<Element>
 
-export type PlasmoCSUIAnchor = {
+type PlasmoCSUIOverlayAnchor = {
   element: Element
-  type: "overlay" | "inline"
+  type: "overlay"
 }
+
+type PlasmoCSUIInlineAnchor = {
+  element: Element
+  type: "inline"
+  insertPosition?: "beforebegin" | "afterbegin" | "beforeend" | "afterend"
+}
+
+export type PlasmoCSUIAnchor = PlasmoCSUIOverlayAnchor | PlasmoCSUIInlineAnchor
 
 export type PlasmoCSUIProps = {
   anchor?: PlasmoCSUIAnchor
