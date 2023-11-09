@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="/cli/plasmo/README.md">English</a> | 简体中文 | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | <a href="/cli/plasmo/i18n/README.id-ID.md">Indonesian</a> | <a href="/cli/plasmo/i18n/README.ru-RU.md">Русский</a> | <a href="/cli/plasmo/i18n/README.tr-TR.md">Turkish</a> | <a href="/cli/plasmo/i18n/README.ja-JP.md">日本語</a>
+  <a href="/cli/plasmo/README.md">English</a> | 简体中文 | <a href="/cli/plasmo/i18n/README.vi-VN.md">Tiếng Việt</a> | <a href="/cli/plasmo/i18n/README.de-DE.md">Deutsch</a> | <a href="/cli/plasmo/i18n/README.fr-FR.md">French</a> | <a href="/cli/plasmo/i18n/README.id-ID.md">Indonesian</a> | <a href="/cli/plasmo/i18n/README.ru-RU.md">Русский</a> | <a href="/cli/plasmo/i18n/README.tr-TR.md">Turkish</a> | <a href="/cli/plasmo/i18n/README.ja-JP.md">日本語</a> | <a href="/cli/plasmo/i18n/README.ko-KR.md">한국어</a>
 </p>
 
 **云服务:** 我们为浏览器扩展程序构建了一个云服务，叫 [Itero](https://itero.plasmo.com) 。如果你想要进行即时beta测试并体验更多很棒的功能，可以去尝试一下。
