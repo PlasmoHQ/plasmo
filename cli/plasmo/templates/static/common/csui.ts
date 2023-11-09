@@ -50,7 +50,7 @@ async function injectAnchor<T>(
       mountState
     })
   } else if (anchor.type === "inline") {
-    anchor.element.insertAdjacentElement("afterend", shadowHost)
+    anchor.element.insertAdjacentElement(anchor.insertPosition || "afterend", shadowHost)
   } else {
     document.documentElement.prepend(shadowHost)
   }
