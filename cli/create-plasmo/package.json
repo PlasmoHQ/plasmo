@@ -29,7 +29,8 @@
   "homepage": "https://docs.plasmo.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PlasmoHQ/plasmo.git"
+    "url": "https://github.com/PlasmoHQ/plasmo.git",
+    "directory": "cli/create-plasmo"
   },
   "license": "MIT",
   "keywords": [
