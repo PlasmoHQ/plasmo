@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-vue",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Plasmo Parcel Transformer for Vue",
   "files": [
     "dist"

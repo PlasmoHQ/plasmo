@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-encapsulate",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Plasmo ECMAScript Encapsulation for Extension",
   "files": [
     "dist"

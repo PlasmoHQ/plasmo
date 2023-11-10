@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/persistent",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A couple of hacks to keep the BGSW alive in a library",
   "type": "module",
   "module": "./src/index.ts",

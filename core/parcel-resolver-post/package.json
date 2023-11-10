@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-resolver-post",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Plasmo Parcel Resolver Post-processing",
   "files": [
     "dist"
