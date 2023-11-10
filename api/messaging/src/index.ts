@@ -26,7 +26,11 @@ export const sendToBackground: PlasmoMessaging.SendFx<MessageName> = async (
  */
 export const sendToContentScript: PlasmoMessaging.SendFx = async (req) => {
   const tabId =
-    typeof req.tabId === "number" ? req.tabId : (await getActiveTab()).id
+    typeof req.tabId === "number" ? req.tabId : (await getActiveTab())?.id
+
+  if (!tabId) {
+    throw new Error("No active tab found to send message to.")
+  }
 
   return getExtTabs().sendMessage(tabId, req)
 }
