@@ -25,13 +25,6 @@ export function hmrDownload(asset: HmrAsset) {
   }
 }
 
-let supportsSourceURL = false
-try {
-  ;(0, eval)('throw new Error("test"); //# sourceURL=test.js')
-} catch (err) {
-  supportsSourceURL = err.stack.includes("test.js")
-}
-
 export async function hmrApplyUpdates(assets: Array<HmrAsset>) {
   global.parcelHotUpdate = Object.create(null)
 
@@ -49,9 +42,7 @@ export async function hmrApplyUpdates(assets: Array<HmrAsset>) {
     )
   })
 
-  const scriptsToRemove = await Promise.all(
-    supportsSourceURL ? [] : assets.map(hmrDownload)
-  )
+  const scriptsToRemove = await Promise.all(assets.map(hmrDownload))
 
   try {
     assets.forEach(function (asset) {
@@ -144,12 +135,6 @@ function hmrApply(bundle: ParcelBundle, asset: HmrAsset) {
             }
           }
         }
-      }
-
-      if (supportsSourceURL) {
-        // Global eval. We would use `new Function` here but browser
-        // support for source maps is better with eval.
-        ;(0, eval)(asset.output)
       }
 
       const fn = global.parcelHotUpdate[asset.id]

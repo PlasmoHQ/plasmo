@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-config",
-  "version": "0.39.5",
+  "version": "0.40.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "@parcel/optimizer-data-url": "2.9.3",
     "@parcel/reporter-bundle-buddy": "2.9.3",
     "@parcel/resolver-default": "2.9.3",
-    "@parcel/runtime-js": "2.9.3",
+    "@parcel/runtime-js": "2.8.3",
     "@parcel/runtime-service-worker": "2.9.3",
     "@parcel/source-map": "2.1.1",
     "@parcel/transformer-babel": "2.9.3",
