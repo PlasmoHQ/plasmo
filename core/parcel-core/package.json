@@ -1,12 +1,12 @@
 {
   "name": "@plasmohq/parcel-core",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Plasmo Parcel Core Fork",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
-  "types": "src/types.ts",
+  "types": "src/index.ts",
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup --minify --clean",
@@ -23,27 +23,28 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
+    "@parcel/core": "2.10.2",
     "@parcel/types": "2.8.3",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "tsup": "7.2.0"
   },
   "dependencies": {
-    "@parcel/cache": "2.9.3",
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/events": "2.9.3",
-    "@parcel/fs": "2.9.3",
-    "@parcel/graph": "2.9.3",
+    "@parcel/rust": "2.10.2",
+    "@parcel/cache": "2.10.2",
+    "@parcel/diagnostic": "2.10.2",
+    "@parcel/events": "2.10.2",
+    "@parcel/fs": "2.10.2",
+    "@parcel/graph": "3.0.2",
     "@parcel/hash": "2.9.3",
-    "@parcel/logger": "2.9.3",
-    "@parcel/package-manager": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/logger": "2.10.2",
+    "@parcel/package-manager": "2.10.2",
+    "@parcel/plugin": "2.10.2",
     "@parcel/source-map": "2.1.1",
-    "@parcel/types": "2.9.3",
-    "@parcel/utils": "2.9.3",
-    "@parcel/watcher": "2.2.0",
-    "@parcel/workers": "2.9.3",
+    "@parcel/types": "2.10.2",
+    "@parcel/utils": "2.10.2",
+    "@parcel/watcher": "2.3.0",
+    "@parcel/workers": "2.10.2",
     "abortcontroller-polyfill": "1.7.5",
     "nullthrows": "1.1.1"
   }
