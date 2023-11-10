@@ -33,9 +33,9 @@
     "@parcel/types": "2.9.3",
     "@parcel/utils": "2.9.3",
     "@plasmohq/consolidate": "0.17.0",
-    "@vue/compiler-sfc": "3.3.4",
+    "@vue/compiler-sfc": "3.3.8",
     "nullthrows": "1.1.1",
     "semver": "7.5.4",
-    "vue": "3.3.4"
+    "vue": "3.3.8"
   }
 }
