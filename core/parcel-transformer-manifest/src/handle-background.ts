@@ -3,11 +3,13 @@ import { getJSONSourceLocation } from "@parcel/diagnostic"
 import { vLog } from "@plasmo/utils/logging"
 
 import { cspPatchHMR } from "./csp-patch-hmr"
-import type { MV2Data, MV3Data } from "./schema"
+import type { ManifestData, MV2Data, MV3Data } from "./schema"
 import { checkMV2, getState } from "./state"
 
 export const handleBackground = () => {
   const { program } = getState()
+
+  handleHotScripting(program)
   const isMV2 = checkMV2(program)
   if (isMV2) {
     handleMV2Background(program)
@@ -118,6 +120,20 @@ function handleMV3BackgroundServiceWorker(program: MV3Data) {
   }
 }
 
+function handleHotScripting(program: ManifestData) {
+  const { hot } = getState()
+
+  if (hot) {
+    if (!program.permissions) {
+      program.permissions = []
+    }
+
+    if (!program.permissions.includes("scripting")) {
+      program.permissions.push("scripting")
+    }
+  }
+}
+
 function handleMV2HotCsp(program: MV2Data) {
   const { hot } = getState()
 
@@ -126,20 +142,31 @@ function handleMV2HotCsp(program: MV2Data) {
     program.content_security_policy = cspPatchHMR(
       program.content_security_policy
     )
+
+    const hostPerms = [
+      ...new Set(program.content_scripts.flatMap((sc) => sc.matches))
+    ]
+    program.permissions = program.permissions.concat(hostPerms)
   }
 }
 
-// Enable eval HMR for sandbox,
+// Enable eval HMR
 function handleMV3HotCsp(program: MV3Data) {
   const { hot } = getState()
 
   if (hot) {
     const csp = program.content_security_policy || {}
-    csp.extension_pages = cspPatchHMR(csp.extension_pages, `http://localhost`)
+    csp.extension_pages = cspPatchHMR(csp.extension_pages, `http://localhost:*`)
     // Sandbox allows eval by default
     if (csp.sandbox) {
       csp.sandbox = cspPatchHMR(csp.sandbox)
     }
     program.content_security_policy = csp
+
+    const hostPerms = [
+      ...new Set(program.content_scripts.flatMap((sc) => sc.matches))
+    ]
+    if (!program.host_permissions) program.host_permissions = []
+    program.host_permissions = program.host_permissions.concat(hostPerms)
   }
 }

@@ -33,6 +33,9 @@
     "overrides": {
       "@parcel/source-map": "2.1.1",
       "react-refresh": "0.14.0"
+    },
+    "patchedDependencies": {
+      "@parcel/bundler-default@2.10.2": "patches/@parcel__bundler-default@2.10.2.patch"
     }
   },
   "devDependencies": {

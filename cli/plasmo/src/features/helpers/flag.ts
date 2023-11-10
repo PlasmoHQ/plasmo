@@ -1,4 +1,4 @@
-import { paramCase } from "change-case"
+import { kebabCase } from "change-case"
 
 import { getFlag } from "@plasmo/utils/flags"
 
@@ -13,7 +13,7 @@ export const getFlagMap = () => {
     process.env.PLASMO_TAG ||
     (process.env.NODE_ENV === "production" ? "prod" : "dev")
 
-  const target = paramCase(
+  const target = kebabCase(
     getFlag("--target") || process.env.PLASMO_TARGET || "chrome-mv3"
   )
 

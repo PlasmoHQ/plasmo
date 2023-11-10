@@ -1,6 +1,6 @@
 {
   "extends": "@parcel/config-default",
-  "bundler": "@plasmohq/parcel-bundler",
+  "bundler": "@parcel/bundler-default",
   "resolvers": [
     "@plasmohq/parcel-resolver",
     "@parcel/resolver-default",

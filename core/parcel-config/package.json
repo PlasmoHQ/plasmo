@@ -8,6 +8,7 @@
   },
   "main": "index.json",
   "dependencies": {
+    "@parcel/bundler-default": "2.10.2",
     "@parcel/compressor-raw": "2.10.2",
     "@parcel/config-default": "2.10.2",
     "@parcel/core": "2.10.2",
@@ -29,7 +30,6 @@
     "@parcel/transformer-sass": "2.10.2",
     "@parcel/transformer-svg-react": "2.10.2",
     "@parcel/transformer-worklet": "2.10.2",
-    "@plasmohq/parcel-bundler": "workspace:*",
     "@plasmohq/parcel-compressor-utf8": "workspace:*",
     "@plasmohq/parcel-namer-manifest": "workspace:*",
     "@plasmohq/parcel-optimizer-encapsulate": "workspace:*",
