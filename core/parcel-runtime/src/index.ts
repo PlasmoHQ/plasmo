@@ -76,15 +76,15 @@ export default new Runtime({
       return
     }
 
-    const manifest = bundleGraph
-      .getBundles()
-      .find((b) => b.getMainEntry()?.meta.webextEntry === true)
+    // const manifest = bundleGraph
+    //   .getBundles()
+    //   .find((b) => b.getMainEntry()?.meta.webextEntry === true)
 
-    const entry = manifest?.getMainEntry()
-    const insertDep = entry?.meta.webextBGInsert
-    if (!manifest || !entry || insertDep === null) {
-      return
-    }
+    // const entry = manifest?.getMainEntry()
+    // const insertDep = entry?.meta.webextBGInsert
+    // if (!manifest || !entry || insertDep === null) {
+    //   return
+    // }
 
     const entryFilePath = bundle.getMainEntry()?.filePath
     if (!entryFilePath) {
@@ -167,37 +167,6 @@ export default new Runtime({
         isEntry: true,
         env: {
           sourceType: "module"
-        }
-      }
-    } else {
-      let firstInsertableBundle
-      const insertBundle = bundleGraph.getReferencedBundle(
-        entry?.getDependencies().find((dep) => dep.id === insertDep),
-        manifest
-      )
-      bundleGraph.traverseBundles((b, _, actions) => {
-        if (b.type == "js") {
-          firstInsertableBundle = b
-          actions.stop()
-        }
-      }, insertBundle)
-
-      if (bundle === firstInsertableBundle) {
-        return {
-          filePath: __filename,
-          code: `JSON.parse(${JSON.stringify(
-            JSON.stringify(
-              JSON.parse(
-                replaceURLReferences({
-                  bundle: manifest,
-                  bundleGraph,
-                  contents: await entry.getCode(),
-                  getReplacement: () => ""
-                }).contents
-              )
-            )
-          )})`,
-          isEntry: true
         }
       }
     }

@@ -6,7 +6,7 @@
     "types": "dist/type.d.ts"
   },
   "types": "src/type.ts",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "bin": "bin/index.mjs",
   "type": "module",
   "files": [
