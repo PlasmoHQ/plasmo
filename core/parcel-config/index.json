@@ -53,7 +53,8 @@
   },
   "namers": ["@plasmohq/parcel-namer-manifest", "..."],
   "packagers": {
-    "manifest.json": "@plasmohq/parcel-packager"
+    "manifest.json": "@plasmohq/parcel-packager",
+    "*.{js,mjs,cjs}": "@plasmohq/parcel-packager-vue-content-script-style-injector"
   },
   "optimizers": {
     "data-base64:*": ["...", "@parcel/optimizer-data-url"],

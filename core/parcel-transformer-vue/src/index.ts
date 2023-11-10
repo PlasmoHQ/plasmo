@@ -431,13 +431,14 @@ async function processPipeline({
         }
         return assets
       } else if (asset.pipeline == "style-raw") {
-        const styleRawString = assets.map((a) => a.content).join("\n")
+        // TODO: How to inject the descendant styles？Can we leave a placeholder, then replace it after the style asset has bundled?
+        const vueSfcDescendantStyles = [`VUE_SFC_STYLE_PLACEHOLDER`]
         return [
           {
             type: "js",
             uniqueKey: asset.id + "-cssRawString",
             content: `
-const styleRawString = \`${styleRawString}\`
+const styleRawString = \`${vueSfcDescendantStyles.join("\n")}\`
 export default styleRawString
           `
           }

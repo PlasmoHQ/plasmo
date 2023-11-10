@@ -1,0 +1,40 @@
+{
+  "name": "@plasmohq/parcel-packager-vue-content-script-style-injector",
+  "version": "0.6.14",
+  "description": "Plasmo Parcel Packager for Web Extension Manifest",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "rm -rf ./dist && mkdir dist && cp ./src/* ./dist"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "engines": {
+    "parcel": ">= 2.7.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/constants": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "tsup": "7.2.0"
+  },
+  "dependencies": {
+    "@parcel/core": "2.9.3",
+    "@parcel/diagnostic": "2.9.3",
+    "@parcel/hash": "2.9.3",
+    "@parcel/plugin": "2.9.3",
+    "@parcel/source-map": "2.9.3",
+    "@parcel/types": "2.9.3",
+    "@parcel/utils": "2.9.3",
+    "globals": "13.23.0",
+    "nullthrows": "1.1.1"
+  }
+}
