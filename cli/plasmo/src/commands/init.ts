@@ -1,6 +1,6 @@
 import { resolve } from "path"
 import { cwd } from "process"
-import { paramCase } from "change-case"
+import { kebabCase } from "change-case"
 
 import { hasFlag } from "@plasmo/utils/flags"
 import { ensureWritableAndEmpty } from "@plasmo/utils/fs"
@@ -26,7 +26,7 @@ async function init() {
   // For resolving project directory
   const projectDirectory = resolve(
     currentDirectory,
-    paramCase(rawName) || rawName
+    kebabCase(rawName) || rawName
   )
 
   vLog("Project directory:", projectDirectory)
