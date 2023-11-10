@@ -10,6 +10,11 @@
 
 const LOADING_ID = "__plasmo-loading__"
 
+const trustedPolicy = typeof trustedTypes !== "undefined"
+  ? trustedTypes
+    .createPolicy(`trusted-html-${LOADING_ID}`, { createHTML: str => str })
+  : undefined
+
 function getLoader() {
   return document.getElementById(LOADING_ID)
 }
@@ -22,7 +27,7 @@ function createLoader() {
   const loadingEl = document.createElement("div")
   loadingEl.id = LOADING_ID
 
-  loadingEl.innerHTML = `
+  const htmlText = `
   <style>
     #${LOADING_ID} {
       background: #f3f3f3;
@@ -71,6 +76,8 @@ function createLoader() {
   </svg>
   <span class="hidden">Context Invalidated, Press to Reload</span>
   `
+
+  loadingEl.innerHTML = trustedPolicy ? trustedPolicy.createHTML(htmlText) : htmlText
 
   loadingEl.style.pointerEvents = "none"
 

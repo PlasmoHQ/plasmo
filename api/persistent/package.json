@@ -52,7 +52,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/PlasmoHQ/plasmo.git"
+    "url": "https://github.com/PlasmoHQ/plasmo.git",
+    "directory": "api/persistent"
   },
   "license": "MIT",
   "keywords": [

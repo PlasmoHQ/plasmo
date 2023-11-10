@@ -27,7 +27,7 @@ export const getActiveTab = async () => {
     active: true,
     currentWindow: true
   })
-  return tab
+  return tab as chrome.tabs.Tab | undefined
 }
 
 export const isSameOrigin = (
