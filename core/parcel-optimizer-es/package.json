@@ -27,11 +27,11 @@
     "tsup": "7.2.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.10.2",
+    "@parcel/plugin": "2.10.2",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.9.3",
-    "@swc/core": "1.3.82",
+    "@parcel/utils": "2.10.2",
+    "@swc/core": "1.3.96",
     "nullthrows": "1.1.1"
   }
 }

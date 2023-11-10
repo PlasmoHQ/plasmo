@@ -26,12 +26,12 @@
     "@plasmo/framework-shared": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "@plasmohq/persistent": "workspace:*",
-    "@types/chrome": "0.0.245",
+    "@types/chrome": "0.0.251",
     "tsup": "7.2.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.10.2",
+    "@parcel/plugin": "2.10.2",
     "react-refresh": "0.14.0"
   }
 }
