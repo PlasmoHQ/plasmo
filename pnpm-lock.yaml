@@ -12,6 +12,9 @@ patchedDependencies:
   '@parcel/bundler-default@2.10.2':
     hash: g5vra6dvyjgmh75x3ewfdh7vle
     path: patches/@parcel__bundler-default@2.10.2.patch
+  '@parcel/core@2.10.2':
+    hash: ev7lrsvt5tolou43wvizj5pkc4
+    path: patches/@parcel__core@2.10.2.patch
 
 importers:
 
@@ -299,15 +302,15 @@ importers:
       '@expo/spawn-async':
         specifier: 1.7.2
         version: 1.7.2
-      '@parcel/core':
-        specifier: 2.10.2
-        version: 2.10.2
       '@parcel/fs':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
       '@parcel/package-manager':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
+      '@parcel/rust':
+        specifier: 2.10.2
+        version: 2.10.2
       '@parcel/watcher':
         specifier: 2.3.0
         version: 2.3.0
@@ -421,7 +424,7 @@ importers:
         specifier: 2.10.2
         version: 2.10.2
       nullthrows:
-        specifier: ^1.1.1
+        specifier: 1.1.1
         version: 1.1.1
     devDependencies:
       '@parcel/bundler-default':
@@ -466,7 +469,7 @@ importers:
         version: 2.10.2(@parcel/core@2.10.2)
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/optimizer-data-url':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -569,9 +572,6 @@ importers:
       '@parcel/cache':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
-      '@parcel/core':
-        specifier: 2.10.2
-        version: 2.10.2
       '@parcel/diagnostic':
         specifier: 2.10.2
         version: 2.10.2
@@ -596,6 +596,9 @@ importers:
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
+      '@parcel/rust':
+        specifier: 2.10.2
+        version: 2.10.2
       '@parcel/source-map':
         specifier: 2.1.1
         version: 2.1.1
@@ -618,6 +621,9 @@ importers:
         specifier: 1.1.1
         version: 1.1.1
     devDependencies:
+      '@parcel/core':
+        specifier: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@plasmo/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -632,7 +638,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -654,7 +660,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -679,7 +685,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -710,7 +716,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -741,7 +747,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/hash':
         specifier: 2.9.3
         version: 2.9.3
@@ -853,7 +859,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/hash':
         specifier: 2.9.3
         version: 2.9.3
@@ -884,7 +890,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -918,7 +924,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -940,7 +946,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin':
         specifier: 2.10.2
         version: 2.10.2(@parcel/core@2.10.2)
@@ -965,7 +971,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic':
         specifier: 2.10.2
         version: 2.10.2
@@ -999,7 +1005,7 @@ importers:
         version: 0.1.1
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic':
         specifier: 2.10.2
         version: 2.10.2
@@ -1039,7 +1045,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic':
         specifier: 2.10.2
         version: 2.10.2
@@ -1067,7 +1073,7 @@ importers:
     dependencies:
       '@parcel/core':
         specifier: 2.10.2
-        version: 2.10.2
+        version: 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic':
         specifier: 2.10.2
         version: 2.10.2
@@ -6775,7 +6781,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/fs': 2.10.2(@parcel/core@2.10.2)
       '@parcel/logger': 2.10.2
       '@parcel/utils': 2.10.2
@@ -6787,7 +6793,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.8.3
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/fs': 2.8.3(@parcel/core@2.10.2)
       '@parcel/logger': 2.8.3
       '@parcel/utils': 2.8.3
@@ -6823,7 +6829,7 @@ packages:
     dependencies:
       '@parcel/bundler-default': 2.10.2(patch_hash=g5vra6dvyjgmh75x3ewfdh7vle)(@parcel/core@2.10.2)
       '@parcel/compressor-raw': 2.10.2(@parcel/core@2.10.2)
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/namer-default': 2.10.2(@parcel/core@2.10.2)
       '@parcel/optimizer-css': 2.10.2(@parcel/core@2.10.2)
       '@parcel/optimizer-htmlnano': 2.10.2(@parcel/core@2.10.2)
@@ -6865,7 +6871,7 @@ packages:
       - uncss
     dev: false
 
-  /@parcel/core@2.10.2:
+  /@parcel/core@2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4):
     resolution: {integrity: sha512-c6hh13oYk9w5creiQ9yCz9GLQ17ZRMonULhJ46J0yoFArynVhNTJ9B5xVst7rS/chOTY8jU0jSdJuxQCR4fjkg==}
     engines: {node: '>= 12.0.0'}
     dependencies:
@@ -6894,6 +6900,7 @@ packages:
       msgpackr: 1.9.9
       nullthrows: 1.1.1
       semver: 7.5.4
+    patched: true
 
   /@parcel/diagnostic@2.10.2:
     resolution: {integrity: sha512-FwtphyiV/TJEiYIRYXBOloXp7XhTW37ifRSLr7RdLbDVyn/P9q/7l0+ORlnOL+WuKwbDQtY+dXYLh/ijTsq7qQ==}
@@ -6932,7 +6939,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/rust': 2.10.2
       '@parcel/types': 2.10.2(@parcel/core@2.10.2)
       '@parcel/utils': 2.10.2
@@ -6945,7 +6952,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.8.3
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/fs-search': 2.8.3
       '@parcel/types': 2.8.3(@parcel/core@2.10.2)
       '@parcel/utils': 2.8.3
@@ -7081,7 +7088,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.10.2
       '@parcel/plugin': 2.10.2(@parcel/core@2.10.2)
       '@parcel/rust': 2.10.2
@@ -7122,7 +7129,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.10.2
       '@parcel/fs': 2.10.2(@parcel/core@2.10.2)
       '@parcel/logger': 2.10.2
@@ -7138,7 +7145,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.8.3
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.8.3
       '@parcel/fs': 2.8.3(@parcel/core@2.10.2)
       '@parcel/logger': 2.8.3
@@ -7405,7 +7412,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/plugin': 2.10.2(@parcel/core@2.10.2)
       '@parcel/utils': 2.10.2
       '@parcel/workers': 2.10.2(@parcel/core@2.10.2)
@@ -7427,7 +7434,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.10.2
       '@parcel/plugin': 2.10.2(@parcel/core@2.10.2)
       '@parcel/rust': 2.10.2
@@ -7740,7 +7747,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.10.2
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.10.2
       '@parcel/logger': 2.10.2
       '@parcel/profiler': 2.10.2
@@ -7754,7 +7761,7 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.8.3
     dependencies:
-      '@parcel/core': 2.10.2
+      '@parcel/core': 2.10.2(patch_hash=ev7lrsvt5tolou43wvizj5pkc4)
       '@parcel/diagnostic': 2.8.3
       '@parcel/logger': 2.8.3
       '@parcel/types': 2.8.3(@parcel/core@2.10.2)

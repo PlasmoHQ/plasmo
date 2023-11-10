@@ -38,8 +38,8 @@
     "framework"
   ],
   "dependencies": {
+    "@parcel/rust": "2.10.2",
     "@expo/spawn-async": "1.7.2",
-    "@parcel/core": "2.10.2",
     "@parcel/fs": "2.10.2",
     "@parcel/package-manager": "2.10.2",
     "@parcel/watcher": "2.3.0",

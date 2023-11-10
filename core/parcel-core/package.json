@@ -6,7 +6,7 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "types": "src/types.ts",
+  "types": "src/index.ts",
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup --minify --clean",
@@ -23,14 +23,15 @@
     "url": "https://github.com/PlasmoHQ/plasmo.git"
   },
   "devDependencies": {
+    "@parcel/core": "2.10.2",
     "@parcel/types": "2.8.3",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "tsup": "7.2.0"
   },
   "dependencies": {
+    "@parcel/rust": "2.10.2",
     "@parcel/cache": "2.10.2",
-    "@parcel/core": "2.10.2",
     "@parcel/diagnostic": "2.10.2",
     "@parcel/events": "2.10.2",
     "@parcel/fs": "2.10.2",

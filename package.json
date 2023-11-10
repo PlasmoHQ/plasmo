@@ -35,7 +35,8 @@
       "react-refresh": "0.14.0"
     },
     "patchedDependencies": {
-      "@parcel/bundler-default@2.10.2": "patches/@parcel__bundler-default@2.10.2.patch"
+      "@parcel/bundler-default@2.10.2": "patches/@parcel__bundler-default@2.10.2.patch",
+      "@parcel/core@2.10.2": "patches/@parcel__core@2.10.2.patch"
     }
   },
   "devDependencies": {

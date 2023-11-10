@@ -10,7 +10,6 @@
   "dependencies": {
     "@parcel/compressor-raw": "2.10.2",
     "@parcel/config-default": "2.10.2",
-    "@parcel/core": "2.10.2",
     "@parcel/optimizer-data-url": "2.10.2",
     "@parcel/reporter-bundle-buddy": "2.10.2",
     "@parcel/resolver-default": "2.10.2",
