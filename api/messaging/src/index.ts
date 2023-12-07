@@ -12,18 +12,19 @@ export type {
 } from "./types"
 
 /**
- * Should only be called from CS or Ext Pages
- * Extension Id is required to send a message from a CS in the main world
- * TODO: Add a framework runtime check, using a global variable
+ * Send to Background Service Workers from Content Scripts or Extension pages.
+ * `extensionId` is required to send a message from a Content Script in the main world
  */
+// TODO: Add a framework runtime check, using a global variable
 export const sendToBackground: PlasmoMessaging.SendFx<MessageName> = async (
   req
 ) => {
-    return getExtRuntime().sendMessage(req.extensionId ?? null, req)
+  return getExtRuntime().sendMessage(req.extensionId ?? null, req)
 }
 
 /**
- * Send to CS from Ext pages or BGSW, default to active tab if no tabId is provided in the request
+ * Send to Content Scripts from Extension pages or Background Service Workers.
+ * Default to active tab if no tabId is provided in the request
  */
 export const sendToContentScript: PlasmoMessaging.SendFx = async (req) => {
   const tabId =
