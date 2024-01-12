@@ -176,7 +176,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   get dependencies() {
     ok(this.packageData)
-    return this.packageData.dependencies
+    // to support npm workspaces (mono repos) we need to fallback to
+    // peerDependencies because dependencies will never exist
+    return this.packageData.dependencies ?? this.packageData.peerDependencies
   }
 
   get devDependencies() {
