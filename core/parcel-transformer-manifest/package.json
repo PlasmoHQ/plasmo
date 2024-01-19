@@ -25,18 +25,18 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "7.2.0"
+    "tsup": "8.0.1"
   },
   "dependencies": {
     "@mischnic/json-sourcemap": "0.1.1",
-    "@parcel/core": "2.10.2",
-    "@parcel/diagnostic": "2.10.2",
-    "@parcel/fs": "2.10.2",
-    "@parcel/plugin": "2.10.2",
-    "@parcel/types": "2.10.2",
-    "@parcel/utils": "2.10.2",
+    "@parcel/core": "2.11.0",
+    "@parcel/diagnostic": "2.11.0",
+    "@parcel/fs": "2.11.0",
+    "@parcel/plugin": "2.11.0",
+    "@parcel/types": "2.11.0",
+    "@parcel/utils": "2.11.0",
     "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.9.2",
+    "json-schema-to-ts": "3.0.0",
     "nullthrows": "1.1.1"
   }
 }
