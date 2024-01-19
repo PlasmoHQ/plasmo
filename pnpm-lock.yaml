@@ -2036,6 +2036,55 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
+  examples/with-microsoft-clarity:
+    dependencies:
+      '@plasmohq/messaging':
+        specifier: workspace:*
+        version: link:../../api/messaging
+      buffer:
+        specifier: 6.0.3
+        version: 6.0.3
+      events:
+        specifier: 3.3.0
+        version: 3.3.0
+      plasmo:
+        specifier: workspace:*
+        version: link:../../cli/plasmo
+      process:
+        specifier: 0.11.10
+        version: 0.11.10
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      stream-browserify:
+        specifier: 3.0.0
+        version: 3.0.0
+    devDependencies:
+      '@ianvs/prettier-plugin-sort-imports':
+        specifier: 4.1.1
+        version: 4.1.1(prettier@3.0.3)
+      '@types/chrome':
+        specifier: 0.0.251
+        version: 0.0.251
+      '@types/node':
+        specifier: 20.9.0
+        version: 20.9.0
+      '@types/react':
+        specifier: 18.2.37
+        version: 18.2.37
+      '@types/react-dom':
+        specifier: 18.2.15
+        version: 18.2.15
+      prettier:
+        specifier: 3.0.3
+        version: 3.0.3
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
+
   examples/with-mui:
     dependencies:
       '@emotion/cache':
