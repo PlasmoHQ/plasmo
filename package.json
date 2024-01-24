@@ -61,5 +61,5 @@
     "npm": ">=9.5.0",
     "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@8.8.0"
+  "packageManager": "pnpm@8.14.1"
 }
