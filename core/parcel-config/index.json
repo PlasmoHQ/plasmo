@@ -49,7 +49,8 @@
 
     "*.{gql,graphql}": ["@parcel/transformer-graphql"],
     "*.{sass,scss}": ["@parcel/transformer-sass"],
-    "*.less": ["@parcel/transformer-less"]
+    "*.less": ["@parcel/transformer-less"],
+    "inline:*": ["@plasmohq/parcel-transformer-embed", "..."]
   },
   "namers": ["@plasmohq/parcel-namer-manifest", "..."],
   "packagers": {

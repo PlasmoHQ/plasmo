@@ -3,22 +3,22 @@ declare namespace NodeJS {
     NODE_ENV: "development" | "production"
 
     PLASMO_BROWSER?:
-      | "arc"
-      | "brave"
-      | "chrome"
-      | "chromium"
-      | "edge"
-      | "firefox"
-      | "gecko"
-      | "island"
-      | "opera"
-      | "plasmo"
-      | "safari"
-      | "sigmaos"
-      | "tor"
-      | "vivaldi"
-      | "waterfox"
-      | "yandex"
+    | "arc"
+    | "brave"
+    | "chrome"
+    | "chromium"
+    | "edge"
+    | "firefox"
+    | "gecko"
+    | "island"
+    | "opera"
+    | "plasmo"
+    | "safari"
+    | "sigmaos"
+    | "tor"
+    | "vivaldi"
+    | "waterfox"
+    | "yandex"
 
     PLASMO_MANIFEST_VERSION?: "mv2" | "mv3"
 
@@ -80,6 +80,11 @@ declare module "raw:*" {
 }
 
 declare module "raw-env:*" {
+  const value: string
+  export default value
+}
+
+declare module "inline:*" {
   const value: string
   export default value
 }

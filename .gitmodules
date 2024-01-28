@@ -31,5 +31,5 @@
 	url = https://github.com/PlasmoHQ/plasmo-config.git
 [submodule "api/storage"]
 	path = api/storage
-	url = git@github.com:PlasmoHQ/storage.git
+	url = https://github.com/PlasmoHQ/storage.git
 	branch = main
