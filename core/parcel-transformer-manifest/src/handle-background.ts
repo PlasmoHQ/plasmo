@@ -53,9 +53,9 @@ function handleFirefoxMV3Background(program: MV3Data) {
 
 function handleMV2BackgroundScript(program: MV2Data) {
   const { hot, asset } = getState()
-  vLog(`Handling background scripts`)
 
   if (program.background?.scripts) {
+    vLog(`Handling MV2 background scripts`)
     program.background.scripts = program.background.scripts.map((bgScript) =>
       asset.addURLDependency(bgScript, {
         bundleBehavior: "isolated",
@@ -79,10 +79,9 @@ function handleMV2BackgroundScript(program: MV2Data) {
 
 function handleMV3BackgroundServiceWorker(program: MV3Data) {
   const { hot, asset, filePath, ptrs } = getState()
-  vLog(`Handling background scripts`)
 
   if (program.background?.service_worker) {
-    vLog(`Handling background service worker`)
+    vLog(`Handling MV3 background service worker`)
     program.background.service_worker = asset.addURLDependency(
       program.background.service_worker,
       {
