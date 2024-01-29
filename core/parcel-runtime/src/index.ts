@@ -27,6 +27,7 @@ export default new Runtime({
       .getConfigFrom<{
         dependencies: Record<string, string>
         devDependencies: Record<string, string>
+        peerDependencies: Record<string, string>
       }>(
         join(process.env.PLASMO_PROJECT_DIR, "lab"), // parcel only look up
         ["package.json"],
@@ -36,7 +37,8 @@ export default new Runtime({
       )
       .then((cfg) => cfg?.contents)
 
-    const hasReact = !!pkg?.dependencies?.react || !!pkg?.devDependencies?.react
+    // npm workspaces mono repo's do not have dependencies or devDependencies (they are defined in a parent directory), fallback to peerDependencies
+    const hasReact = !!pkg?.dependencies?.react || !!pkg?.devDependencies?.react || !!pkg?.peerDependencies?.react
 
     return {
       hasReact
