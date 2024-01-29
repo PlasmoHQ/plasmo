@@ -1,4 +1,4 @@
-import { extname, resolve } from "path"
+import { extname, join, resolve } from "path"
 
 import {
   relevantExtensionList,
@@ -18,8 +18,7 @@ export async function handleTildeSrc({
   }
 
   const absoluteBaseFile = resolve(
-    process.env.PLASMO_SRC_DIR,
-    specifier.slice(1)
+    join(process.env.PLASMO_SRC_DIR, specifier.slice(1))
   )
 
   if (
