@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
+ * Copyright (c) 2024 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
  * MIT License
  *
  * Based on: https://github.com/parcel-bundler/parcel/blob/7023c08b7e99a9b8fd3c04995e4ef7ca92dee5c1/packages/transformers/css/src/CSSTransformer.js
@@ -33,7 +33,7 @@ export default new Transformer({
       sourceMap: !!asset.env.sourceMap
     })
 
-    asset.setBuffer(res.code)
+    asset.setBuffer(Buffer.from(res.code))
 
     if (res.dependencies) {
       for (let dep of res.dependencies) {

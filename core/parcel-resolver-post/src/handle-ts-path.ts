@@ -51,7 +51,7 @@ export async function handleTsPath(
   props: ResolverProps
 ): Promise<ResolverResult> {
   try {
-    const { dependency } = props
+    const { dependency, specifier } = props
 
     checkWebpackSpecificImportSyntax(dependency.specifier)
 
@@ -59,6 +59,15 @@ export async function handleTsPath(
 
     if (!isTypescript) {
       return null
+    }
+
+    if (specifier.startsWith(".")) {
+      return {
+        filePath: findModule(
+          resolve(dependency.resolveFrom, "..", specifier),
+          relevantExtList
+        )
+      }
     }
 
     const compilerOptions = await getTsconfigCompilerOptions(props)
@@ -89,8 +98,10 @@ function loadTsPathsMap(tsConfigs: TSConfig[]) {
     return
   }
 
-  const tsPathsMap = new Map<string, TsPaths>()
-  tsConfigs.forEach((tsConfig) => loadPathsFromTSConfig(tsConfig, tsPathsMap))
+  const tsPathsMap = tsConfigs.reduce(
+    (c, tsConfig) => loadPathsFromTSConfig(tsConfig, c),
+    new Map<string, TsPaths>()
+  )
 
   state.pathsMap = tsPathsMap
   state.pathsMapRegex = Array.from(tsPathsMap.entries()).map((entry) => [
@@ -116,6 +127,7 @@ function loadPathsFromTSConfig(
       tsPaths[key].map((p) => join(tsConfigFolderPath, p))
     )
   }
+  return tsPathsMap
 }
 
 function attemptResolve({ specifier, dependency }: ResolverProps) {

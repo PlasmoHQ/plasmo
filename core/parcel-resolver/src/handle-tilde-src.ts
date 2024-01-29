@@ -9,6 +9,7 @@ import {
 } from "./shared"
 
 export async function handleTildeSrc({
+  pipeline,
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
@@ -20,6 +21,19 @@ export async function handleTildeSrc({
     process.env.PLASMO_SRC_DIR,
     specifier.slice(1)
   )
+
+  if (
+    pipeline === "data-text" ||
+    pipeline === "data-base64" ||
+    pipeline === "data-env" ||
+    pipeline === "data-text-env" ||
+    pipeline === "raw" ||
+    pipeline === "raw-env"
+  ) {
+    return {
+      filePath: absoluteBaseFile
+    }
+  }
 
   const importExt = extname(absoluteBaseFile)
 

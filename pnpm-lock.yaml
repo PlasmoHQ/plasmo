@@ -1223,9 +1223,6 @@ importers:
       '@plasmohq/messaging':
         specifier: workspace:*
         version: link:../../api/messaging
-      '@types/tape':
-        specifier: 5.6.4
-        version: 5.6.4
       ajv:
         specifier: 8.12.0
         version: 8.12.0
@@ -1244,25 +1241,28 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.0.3)
+        version: 4.1.1(prettier@3.2.4)
       '@types/chrome':
-        specifier: 0.0.251
-        version: 0.0.251
+        specifier: 0.0.258
+        version: 0.0.258
       '@types/node':
-        specifier: 20.9.0
-        version: 20.9.0
+        specifier: 20.11.5
+        version: 20.11.5
       '@types/react':
-        specifier: 18.2.37
-        version: 18.2.37
+        specifier: 18.2.48
+        version: 18.2.48
       '@types/react-dom':
-        specifier: 18.2.15
-        version: 18.2.15
+        specifier: 18.2.18
+        version: 18.2.18
+      '@types/tape':
+        specifier: 5.6.4
+        version: 5.6.4
       prettier:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.2.4
+        version: 3.2.4
       typescript:
-        specifier: 5.2.2
-        version: 5.2.2
+        specifier: 5.3.3
+        version: 5.3.3
 
   examples/with-content-script:
     dependencies:
@@ -9699,10 +9699,10 @@ packages:
 
   /@types/prop-types@15.7.10:
     resolution: {integrity: sha512-mxSnDQxPqsZxmeShFH+uwQ4kO4gcJcGahjjMFeLbKE95IAZiiZyiEepGZjtXJ7hN/yfu0bu9xN2ajcU0JcxX6A==}
+    dev: true
 
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
-    dev: false
 
   /@types/pug@2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
@@ -9737,9 +9737,9 @@ packages:
   /@types/react@18.2.48:
     resolution: {integrity: sha512-qboRCl6Ie70DQQG9hhNREz81jqC1cs9EVNcjQ1AU+jH6NFfSAhVVbrrY/+nSF+Bsk4AOwm9Qa61InvMCyV+H3w==}
     dependencies:
-      '@types/prop-types': 15.7.10
+      '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.6
-      csstype: 3.1.2
+      csstype: 3.1.3
 
   /@types/scheduler@0.16.6:
     resolution: {integrity: sha512-Vlktnchmkylvc9SnwwwozTv04L/e1NykF5vgoQ0XTmI8DD+wxfjQuHuvHS3p0r2jz2x2ghPs2h1FVeDirIteWA==}
@@ -9764,12 +9764,13 @@ packages:
     dependencies:
       '@types/node': 20.11.5
       '@types/through': 0.0.33
-    dev: false
+    dev: true
 
   /@types/through@0.0.33:
     resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
     dependencies:
       '@types/node': 20.11.5
+    dev: true
 
   /@types/tough-cookie@4.0.5:
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
@@ -11462,7 +11463,6 @@ packages:
 
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-    dev: false
 
   /data-urls@3.0.2:
     resolution: {integrity: sha512-Jy/tj3ldjZJo63sVAvg6LHt2mHvl4V6AgRAmNDtLdm7faqtsx+aJG42rsyCo9JCoRVKwPFzKlIPx3DIibwSIaQ==}
