@@ -1,13 +1,13 @@
 import type { PlasmoMessaging } from "./index"
 
-// TODO: Move this to a broader utils package later on
-const extRuntime = (globalThis.browser?.runtime ||
-  globalThis.chrome?.runtime) as typeof chrome.runtime
-
 const extTabs = (globalThis.browser?.tabs ||
   globalThis.chrome?.tabs) as typeof chrome.tabs
 
 export const getExtRuntime = () => {
+  // TODO: Move this to a broader utils package later on
+  const extRuntime = (globalThis.browser?.runtime ||
+    globalThis.chrome?.runtime) as typeof chrome.runtime
+  
   if (!extRuntime) {
     throw new Error("Extension runtime is not available")
   }
