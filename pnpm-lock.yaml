@@ -69,6 +69,9 @@ importers:
       tsup:
         specifier: 7.2.0
         version: 7.2.0(@swc/core@1.3.96)
+      turbo:
+        specifier: 1.10.16
+        version: 1.10.16
 
   api/messaging:
     dependencies:
@@ -395,33 +398,6 @@ importers:
         specifier: 3.3.8
         version: 3.3.8(typescript@5.2.2)
 
-  core/js:
-    dependencies:
-      '@parcel/diagnostic':
-        specifier: 2.11.0
-        version: 2.11.0
-      '@parcel/plugin':
-        specifier: 2.11.0
-        version: 2.11.0(@parcel/core@2.11.0)
-      '@parcel/rust':
-        specifier: 2.11.0
-        version: 2.11.0
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/types':
-        specifier: 2.11.0
-        version: 2.11.0(@parcel/core@2.11.0)
-      '@parcel/utils':
-        specifier: 2.11.0
-        version: 2.11.0
-      globals:
-        specifier: ^13.2.0
-        version: 13.23.0
-      nullthrows:
-        specifier: ^1.1.1
-        version: 1.1.1
-
   core/parcel-bundler:
     dependencies:
       '@parcel/core':
@@ -463,7 +439,7 @@ importers:
     dependencies:
       '@parcel/plugin':
         specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.11.0)
+        version: 2.9.3(@parcel/core@2.9.3)
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
@@ -489,12 +465,6 @@ importers:
       '@parcel/optimizer-data-url':
         specifier: 2.9.3
         version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/optimizer-esbuild':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/packager-js':
-        specifier: link:..\js
-        version: link:../js
       '@parcel/reporter-bundle-buddy':
         specifier: 2.9.3
         version: 2.9.3(@parcel/core@2.9.3)
@@ -564,21 +534,18 @@ importers:
       '@plasmohq/parcel-packager':
         specifier: workspace:*
         version: link:../parcel-packager
-      '@plasmohq/parcel-packager-inline-func':
-        specifier: link:../parcel-packager-inline-func
-        version: link:../parcel-packager-inline-func
       '@plasmohq/parcel-resolver':
         specifier: workspace:*
         version: link:../parcel-resolver
+      '@plasmohq/parcel-resolver-inlinefunc':
+        specifier: workspace:*
+        version: link:../parcel-resolver-inlinefunc
       '@plasmohq/parcel-resolver-post':
         specifier: workspace:*
         version: link:../parcel-resolver-post
       '@plasmohq/parcel-runtime':
         specifier: workspace:*
         version: link:../parcel-runtime
-      '@plasmohq/parcel-transformer-embed':
-        specifier: link:../parcel-transformer-embed
-        version: link:../parcel-transformer-embed
       '@plasmohq/parcel-transformer-inject-env':
         specifier: workspace:*
         version: link:../parcel-transformer-inject-env
@@ -772,40 +739,6 @@ importers:
         specifier: 7.2.0
         version: 7.2.0(@swc/core@1.3.96)
 
-  core/parcel-packager-inline-func:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.11.0
-        version: 2.11.0
-      '@parcel/packager-js':
-        specifier: 2.11.0
-        version: 2.11.0(@parcel/core@2.11.0)
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.11.0)
-      '@parcel/source-map':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      browserslist:
-        specifier: 4.22.1
-        version: 4.22.1
-      clsx:
-        specifier: 2.1.0
-        version: 2.1.0
-    devDependencies:
-      '@parcel/types':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.11.0)
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../../packages/config
-      tsup:
-        specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
-
   core/parcel-resolver:
     dependencies:
       '@parcel/core':
@@ -814,9 +747,6 @@ importers:
       '@parcel/hash':
         specifier: 2.9.3
         version: 2.9.3
-      '@parcel/node-resolver-core':
-        specifier: 3.2.0
-        version: 3.2.0(@parcel/core@2.9.3)
       '@parcel/plugin':
         specifier: 2.9.3
         version: 2.9.3(@parcel/core@2.9.3)
@@ -866,6 +796,9 @@ importers:
       domain-browser:
         specifier: 4.23.0
         version: 4.23.0
+      esbuild:
+        specifier: 0.19.5
+        version: 0.19.5
       events:
         specifier: 3.3.0
         version: 3.3.0
@@ -918,26 +851,17 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
 
-  core/parcel-resolver-embed:
+  core/parcel-resolver-inlinefunc:
     dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/hash':
-        specifier: 2.9.3
-        version: 2.9.3
       '@parcel/node-resolver-core':
         specifier: 3.2.0
-        version: 3.2.0(@parcel/core@2.9.3)
+        version: 3.2.0(@parcel/core@2.11.0)
       '@parcel/plugin':
         specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
+        version: 2.9.3(@parcel/core@2.11.0)
       '@parcel/types':
         specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
+        version: 2.9.3(@parcel/core@2.11.0)
       esbuild:
         specifier: 0.19.5
         version: 0.19.5
@@ -1013,34 +937,6 @@ importers:
       '@types/chrome':
         specifier: 0.0.251
         version: 0.0.251
-      tsup:
-        specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
-
-  core/parcel-transformer-embed:
-    dependencies:
-      '@parcel/core':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@parcel/plugin':
-        specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
-      '@parcel/utils':
-        specifier: 2.9.3
-        version: 2.9.3
-      '@swc/core':
-        specifier: 1.3.96
-        version: 1.3.96
-      browserslist:
-        specifier: 4.22.1
-        version: 4.22.1
-      esbuild:
-        specifier: 0.19.5
-        version: 0.19.5
-    devDependencies:
-      '@plasmo/config':
-        specifier: workspace:*
-        version: link:../../packages/config
       tsup:
         specifier: 7.2.0
         version: 7.2.0(@swc/core@1.3.96)
@@ -7051,6 +6947,7 @@ packages:
       '@parcel/logger': 2.11.0
       '@parcel/utils': 2.11.0
       lmdb: 2.8.5
+    dev: true
 
   /@parcel/cache@2.8.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-k7xv5vSQrJLdXuglo+Hv3yF4BCSs1tQ/8Vbd6CHTkOhf7LcGg6CPtLw053R/KdMpd/4GPn0QrAsOLdATm1ELtQ==}
@@ -7076,6 +6973,7 @@ packages:
       '@parcel/logger': 2.9.3
       '@parcel/utils': 2.9.3
       lmdb: 2.7.11
+    dev: false
 
   /@parcel/cache@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-Bj/H2uAJJSXtysG7E/x4EgTrE2hXmm7td/bc97K8M9N7+vQjxf7xb0ebgqe84ePVMkj4MVQSMEJkEucXVx4b0Q==}
@@ -7295,6 +7193,7 @@ packages:
       '@parcel/utils': 2.11.0
       '@parcel/watcher': 2.4.0
       '@parcel/workers': 2.11.0(@parcel/core@2.9.3)
+    dev: true
 
   /@parcel/fs@2.8.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-y+i+oXbT7lP0e0pJZi/YSm1vg0LDsbycFuHZIL80pNwdEppUAtibfJZCp606B7HOjMAlNZOBo48e3hPG3d8jgQ==}
@@ -7322,6 +7221,7 @@ packages:
       '@parcel/utils': 2.9.3
       '@parcel/watcher': 2.4.0
       '@parcel/workers': 2.9.3(@parcel/core@2.11.0)
+    dev: false
 
   /@parcel/fs@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-/PrRKgCRw22G7rNPSpgN3Q+i2nIkZWuvIOAdMG4KWXC4XLp8C9jarNaWd5QEQ75amjhQSl3oUzABzkdCtkKrgg==}
@@ -7426,6 +7326,7 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - '@parcel/core'
+    dev: false
 
   /@parcel/node-resolver-core@3.0.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-AjxNcZVHHJoNT/A99PKIdFtwvoze8PAiC3yz8E/dRggrDIOboUEodeQYV5Aq++aK76uz/iOP0tST2T8A5rhb1A==}
@@ -7467,6 +7368,7 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - '@parcel/core'
+    dev: true
 
   /@parcel/optimizer-css@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-RK1QwcSdWDNUsFvuLy0hgnYKtPQebzCb0vPPzqs6LhL+vqUu9utOyRycGaQffHCkHVQP6zGlN+KFssd7YtFGhA==}
@@ -7491,20 +7393,6 @@ packages:
       '@parcel/utils': 2.9.3
       isbinaryfile: 4.0.10
       mime: 2.6.0
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
-
-  /@parcel/optimizer-esbuild@2.9.3(@parcel/core@2.9.3):
-    resolution: {integrity: sha512-ktPTka9Y2hepI3nNd1wu6Bv6WXEyQ0sTD+inOKubYHmH1S6mez8GTnd4JmIWJnTKmxy7y4xSHctQ6jEPysF9xA==}
-    engines: {node: '>= 10.0.0', parcel: ^2.9.3}
-    dependencies:
-      '@parcel/diagnostic': 2.9.3
-      '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
-      '@parcel/source-map': 2.1.1
-      '@parcel/utils': 2.9.3
-      esbuild: 0.13.15
-      nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
     dev: false
@@ -7600,6 +7488,7 @@ packages:
       '@parcel/utils': 2.11.0
       '@parcel/workers': 2.11.0(@parcel/core@2.9.3)
       semver: 7.5.4
+    dev: true
 
   /@parcel/package-manager@2.8.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-tIpY5pD2lH53p9hpi++GsODy6V3khSTX4pLEGuMpeSYbHthnOViobqIlFLsjni+QA1pfc8NNNIQwSNdGjYflVA==}
@@ -7632,6 +7521,7 @@ packages:
       '@parcel/utils': 2.9.3
       '@parcel/workers': 2.9.3(@parcel/core@2.11.0)
       semver: 7.5.4
+    dev: false
 
   /@parcel/package-manager@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-NH6omcNTEupDmW4Lm1e4NUYBjdqkURxgZ4CNESESInHJe6tblVhNB8Rpr1ar7zDar7cly9ILr8P6N3Ei7bTEjg==}
@@ -7671,22 +7561,6 @@ packages:
       '@parcel/utils': 2.9.3
       nullthrows: 1.1.1
       posthtml: 0.16.6
-    transitivePeerDependencies:
-      - '@parcel/core'
-    dev: false
-
-  /@parcel/packager-js@2.11.0(@parcel/core@2.11.0):
-    resolution: {integrity: sha512-SxjCsd0xQfg5H73YtVJj9VOpr9s0rwMsSoeykjkatbkEla9NsZajsUkd/bfYf+/0WvEKOrB8oUBo15HkGOgKug==}
-    engines: {node: '>= 12.0.0', parcel: ^2.11.0}
-    dependencies:
-      '@parcel/diagnostic': 2.11.0
-      '@parcel/plugin': 2.11.0(@parcel/core@2.11.0)
-      '@parcel/rust': 2.11.0
-      '@parcel/source-map': 2.1.1
-      '@parcel/types': 2.11.0(@parcel/core@2.11.0)
-      '@parcel/utils': 2.11.0
-      globals: 13.23.0
-      nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
     dev: false
@@ -8137,6 +8011,7 @@ packages:
       utility-types: 3.10.0
     transitivePeerDependencies:
       - '@parcel/core'
+    dev: true
 
   /@parcel/types@2.8.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-FECA1FB7+0UpITKU0D6TgGBpGxYpVSMNEENZbSJxFSajNy3wrko+zwBKQmFOLOiPcEtnGikxNs+jkFWbPlUAtw==}
@@ -8164,6 +8039,7 @@ packages:
       utility-types: 3.10.0
     transitivePeerDependencies:
       - '@parcel/core'
+    dev: false
 
   /@parcel/types@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-NSNY8sYtRhvF1SqhnIGgGvJocyWt1K8Tnw5cVepm0g38ywtX6mwkBvMkmeehXkII4mSUn+frD9wGsydTunezvA==}
@@ -8470,9 +8346,10 @@ packages:
       '@parcel/diagnostic': 2.11.0
       '@parcel/logger': 2.11.0
       '@parcel/profiler': 2.11.0
-      '@parcel/types': 2.11.0(@parcel/core@2.9.3)
+      '@parcel/types': 2.11.0(@parcel/core@2.11.0)
       '@parcel/utils': 2.11.0
       nullthrows: 1.1.1
+    dev: true
 
   /@parcel/workers@2.8.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-+AxBnKgjqVpUHBcHLWIHcjYgKIvHIpZjN33mG5LG9XXvrZiqdWvouEzqEXlVLq5VzzVbKIQQcmsvRy138YErkg==}
@@ -8502,6 +8379,7 @@ packages:
       '@parcel/types': 2.9.3(@parcel/core@2.9.3)
       '@parcel/utils': 2.9.3
       nullthrows: 1.1.1
+    dev: false
 
   /@parcel/workers@2.9.3(@parcel/core@2.9.3):
     resolution: {integrity: sha512-zRrDuZJzTevrrwElYosFztgldhqW6G9q5zOeQXfVQFkkEJCNfg36ixeiofKRU8uu2x+j+T6216mhMNB6HiuY+w==}
@@ -12312,166 +12190,6 @@ packages:
 
   /es6-promise@3.3.1:
     resolution: {integrity: sha512-SOp9Phqvqn7jtEUxPWdWfWoLmyt2VaJ6MpvP9Comy1MceMXqE6bxvaTu4iaxpYYPzhny28Lc+M87/c2cPK6lDg==}
-    dev: false
-
-  /esbuild-android-arm64@0.13.15:
-    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==}
-    cpu: [arm64]
-    os: [android]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-darwin-64@0.13.15:
-    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-darwin-arm64@0.13.15:
-    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-freebsd-64@0.13.15:
-    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-freebsd-arm64@0.13.15:
-    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==}
-    cpu: [arm64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-32@0.13.15:
-    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==}
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-64@0.13.15:
-    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-arm64@0.13.15:
-    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-arm@0.13.15:
-    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-mips64le@0.13.15:
-    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==}
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-linux-ppc64le@0.13.15:
-    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==}
-    cpu: [ppc64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-netbsd-64@0.13.15:
-    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==}
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-openbsd-64@0.13.15:
-    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==}
-    cpu: [x64]
-    os: [openbsd]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-sunos-64@0.13.15:
-    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==}
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-windows-32@0.13.15:
-    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-windows-64@0.13.15:
-    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild-windows-arm64@0.13.15:
-    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /esbuild@0.13.15:
-    resolution: {integrity: sha512-raCxt02HBKv8RJxE8vkTSCXGIyKHdEdGfUmiYb8wnabnaEmHzyW7DCHb5tEN0xU8ryqg5xw54mcwnYkC4x3AIw==}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      esbuild-android-arm64: 0.13.15
-      esbuild-darwin-64: 0.13.15
-      esbuild-darwin-arm64: 0.13.15
-      esbuild-freebsd-64: 0.13.15
-      esbuild-freebsd-arm64: 0.13.15
-      esbuild-linux-32: 0.13.15
-      esbuild-linux-64: 0.13.15
-      esbuild-linux-arm: 0.13.15
-      esbuild-linux-arm64: 0.13.15
-      esbuild-linux-mips64le: 0.13.15
-      esbuild-linux-ppc64le: 0.13.15
-      esbuild-netbsd-64: 0.13.15
-      esbuild-openbsd-64: 0.13.15
-      esbuild-sunos-64: 0.13.15
-      esbuild-windows-32: 0.13.15
-      esbuild-windows-64: 0.13.15
-      esbuild-windows-arm64: 0.13.15
     dev: false
 
   /esbuild@0.18.20:
@@ -18999,6 +18717,66 @@ packages:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
     dependencies:
       safe-buffer: 5.2.1
+
+  /turbo-darwin-64@1.10.16:
+    resolution: {integrity: sha512-+Jk91FNcp9e9NCLYlvDDlp2HwEDp14F9N42IoW3dmHI5ZkGSXzalbhVcrx3DOox3QfiNUHxzWg4d7CnVNCuuMg==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo-darwin-arm64@1.10.16:
+    resolution: {integrity: sha512-jqGpFZipIivkRp/i+jnL8npX0VssE6IAVNKtu573LXtssZdV/S+fRGYA16tI46xJGxSAivrZ/IcgZrV6Jk80bw==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo-linux-64@1.10.16:
+    resolution: {integrity: sha512-PpqEZHwLoizQ6sTUvmImcRmACyRk9EWLXGlqceogPZsJ1jTRK3sfcF9fC2W56zkSIzuLEP07k5kl+ZxJd8JMcg==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo-linux-arm64@1.10.16:
+    resolution: {integrity: sha512-TMjFYz8to1QE0fKVXCIvG/4giyfnmqcQIwjdNfJvKjBxn22PpbjeuFuQ5kNXshUTRaTJihFbuuCcb5OYFNx4uw==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo-windows-64@1.10.16:
+    resolution: {integrity: sha512-+jsf68krs0N66FfC4/zZvioUap/Tq3sPFumnMV+EBo8jFdqs4yehd6+MxIwYTjSQLIcpH8KoNMB0gQYhJRLZzw==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo-windows-arm64@1.10.16:
+    resolution: {integrity: sha512-sKm3hcMM1bl0B3PLG4ifidicOGfoJmOEacM5JtgBkYM48ncMHjkHfFY7HrJHZHUnXM4l05RQTpLFoOl/uIo2HQ==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /turbo@1.10.16:
+    resolution: {integrity: sha512-2CEaK4FIuSZiP83iFa9GqMTQhroW2QryckVqUydmg4tx78baftTOS0O+oDAhvo9r9Nit4xUEtC1RAHoqs6ZEtg==}
+    hasBin: true
+    optionalDependencies:
+      turbo-darwin-64: 1.10.16
+      turbo-darwin-arm64: 1.10.16
+      turbo-linux-64: 1.10.16
+      turbo-linux-arm64: 1.10.16
+      turbo-windows-64: 1.10.16
+      turbo-windows-arm64: 1.10.16
+    dev: true
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}

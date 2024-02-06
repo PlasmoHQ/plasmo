@@ -37,8 +37,8 @@
     "@plasmohq/parcel-packager": "workspace:*",
     "@plasmohq/parcel-resolver": "workspace:*",
     "@plasmohq/parcel-resolver-post": "workspace:*",
+    "@plasmohq/parcel-resolver-inlinefunc": "workspace:*",
     "@plasmohq/parcel-runtime": "workspace:*",
-    "@plasmohq/parcel-transformer-embed": "link:../parcel-transformer-embed",
     "@plasmohq/parcel-transformer-inject-env": "workspace:*",
     "@plasmohq/parcel-transformer-inline-css": "workspace:*",
     "@plasmohq/parcel-transformer-manifest": "workspace:*",
@@ -46,6 +46,7 @@
     "@plasmohq/parcel-transformer-vue": "workspace:*"
   },
   "devDependencies": {
-    "@parcel/transformer-inline": "2.11.0"
+    "@parcel/transformer-inline": "2.11.0",
+    "@plasmohq/parcel-resolver-inlinefunc": "workspace:0.0.1"
   }
 }
