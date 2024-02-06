@@ -84,7 +84,7 @@ declare module "raw-env:*" {
   export default value
 }
 
-declare module "inline:*" {
+declare module "inlinefunc:*" {
   const value: string
   export default value
 }

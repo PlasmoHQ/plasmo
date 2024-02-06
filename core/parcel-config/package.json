@@ -44,9 +44,5 @@
     "@plasmohq/parcel-transformer-manifest": "workspace:*",
     "@plasmohq/parcel-transformer-svelte": "workspace:*",
     "@plasmohq/parcel-transformer-vue": "workspace:*"
-  },
-  "devDependencies": {
-    "@parcel/transformer-inline": "2.11.0",
-    "@plasmohq/parcel-resolver-inlinefunc": "workspace:0.0.1"
   }
 }

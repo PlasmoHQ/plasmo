@@ -11,7 +11,6 @@ export function removeBundle(
   bundleId: NodeId,
   assetReference: DefaultMap<Asset, Array<[Dependency, Bundle]>>
 ) {
-  return
   let bundle = nullthrows(bundleGraph.getNode(bundleId))
   invariant(bundle !== "root")
 
