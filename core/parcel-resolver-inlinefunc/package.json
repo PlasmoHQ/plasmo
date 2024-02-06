@@ -1,7 +1,7 @@
 {
-  "name": "@plasmohq/parcel-transformer-embed",
-  "version": "0.3.10",
-  "description": "Plasmo Parcel Transformer for embedding code",
+  "name": "@plasmohq/parcel-resolver-inlinefunc",
+  "version": "0.4.2",
+  "description": "Plasmo Parcel resolver for inlining IIFE functions (which can be injected into content scripts)",
   "files": [
     "dist"
   ],
@@ -9,9 +9,9 @@
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup src/index.ts --minify --clean",
-    "dev": "tsup src/index.ts --sourcemap --watch"
+    "dev": "tsup src/index.ts --watch"
   },
-  "author": "Theodore Brockman <mailto:iam@theo.lol>",
+  "author": "Theodore Brockman <iam@theo.lol>",
   "homepage": "https://docs.plasmo.com/",
   "engines": {
     "parcel": ">= 2.7.0"
@@ -23,12 +23,14 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "7.2.0"
+    "@plasmo/utils": "workspace:*"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
+    "@parcel/node-resolver-core": "3.2.0",
     "@parcel/plugin": "2.9.3",
-    "@parcel/utils": "2.9.3",
-    "browserslist": "4.22.1"
+    "@parcel/types": "2.9.3",
+    "esbuild": "0.19.5",
+    "tsup": "7.2.0",
+    "typescript": "5.2.2"
   }
 }
