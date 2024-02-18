@@ -28,6 +28,7 @@ const render = createRender(
   observer?.mountState,
   async (anchor, rootContainer) => {
     const root = createRoot(rootContainer)
+    anchor.root = root
 
     const Layout = getLayout(RawMount)
 
