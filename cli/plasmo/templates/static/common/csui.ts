@@ -182,22 +182,44 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
 
     const renderList: PlasmoCSUIAnchor[] = []
 
-    if (!!inlineAnchor && !mountedInlineAnchorSet.has(inlineAnchor)) {
-      renderList.push({
-        element: inlineAnchor,
-        type: "inline"
-      })
+    if (!!inlineAnchor) {
+      if (inlineAnchor instanceof Element) {
+        if (!mountedInlineAnchorSet.has(inlineAnchor)) {
+          renderList.push({
+            element: inlineAnchor,
+            type: "inline"
+          })
+        }
+      } else if (
+          inlineAnchor.element instanceof Element
+          && !mountedInlineAnchorSet.has(inlineAnchor.element)
+      ) {
+        renderList.push({
+          element: inlineAnchor.element,
+          type: "inline",
+          insertPosition: inlineAnchor.insertPosition
+        })
+      }
     }
 
     if ((inlineAnchorList?.length || 0) > 0) {
       inlineAnchorList.forEach((inlineAnchor) => {
         if (
-          inlineAnchor instanceof Element &&
-          !mountedInlineAnchorSet.has(inlineAnchor)
+            inlineAnchor instanceof Element &&
+            !mountedInlineAnchorSet.has(inlineAnchor)
         ) {
           renderList.push({
             element: inlineAnchor,
             type: "inline"
+          })
+        } else if (
+            inlineAnchor.element instanceof Element &&
+            !mountedInlineAnchorSet.has(inlineAnchor.element)
+        ) {
+          renderList.push({
+            element: inlineAnchor.element,
+            type: "inline",
+            insertPosition: inlineAnchor.insertPosition
           })
         }
       })
