@@ -158,7 +158,7 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
 
     // Go through mounted sets and check if they are still mounted
     for (const el of mountState.hostSet) {
-      if (isMounted(el)) {
+      if (isMounted(el)) { 
         const anchor = mountState.hostMap.get(el)
         if (!!anchor) {
           if (anchor.type === "inline") {
@@ -168,6 +168,8 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
           }
         }
       } else {
+        const anchor = mountState.hostMap.get(el)
+        anchor.root?.unmount();
         mountState.hostSet.delete(el)
       }
     }
