@@ -50,7 +50,10 @@ async function injectAnchor<T>(
       mountState
     })
   } else if (anchor.type === "inline") {
-    anchor.element.insertAdjacentElement(anchor.insertPosition || "afterend", shadowHost)
+    anchor.element.insertAdjacentElement(
+      anchor.insertPosition || "afterend",
+      shadowHost
+    )
   } else {
     document.documentElement.prepend(shadowHost)
   }
@@ -158,7 +161,7 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
 
     // Go through mounted sets and check if they are still mounted
     for (const el of mountState.hostSet) {
-      if (isMounted(el)) { 
+      if (isMounted(el)) {
         const anchor = mountState.hostMap.get(el)
         if (!!anchor) {
           if (anchor.type === "inline") {
@@ -169,7 +172,7 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
         }
       } else {
         const anchor = mountState.hostMap.get(el)
-        anchor.root?.unmount();
+        anchor.root?.unmount()
         mountState.hostSet.delete(el)
       }
     }
@@ -193,8 +196,8 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
           })
         }
       } else if (
-          inlineAnchor.element instanceof Element
-          && !mountedInlineAnchorSet.has(inlineAnchor.element)
+        inlineAnchor.element instanceof Element &&
+        !mountedInlineAnchorSet.has(inlineAnchor.element)
       ) {
         renderList.push({
           element: inlineAnchor.element,
@@ -207,16 +210,16 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
     if ((inlineAnchorList?.length || 0) > 0) {
       inlineAnchorList.forEach((inlineAnchor) => {
         if (
-            inlineAnchor instanceof Element &&
-            !mountedInlineAnchorSet.has(inlineAnchor)
+          inlineAnchor instanceof Element &&
+          !mountedInlineAnchorSet.has(inlineAnchor)
         ) {
           renderList.push({
             element: inlineAnchor,
             type: "inline"
           })
         } else if (
-            inlineAnchor.element instanceof Element &&
-            !mountedInlineAnchorSet.has(inlineAnchor.element)
+          inlineAnchor.element instanceof Element &&
+          !mountedInlineAnchorSet.has(inlineAnchor.element)
         ) {
           renderList.push({
             element: inlineAnchor.element,

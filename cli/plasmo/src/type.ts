@@ -1,5 +1,6 @@
-import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
 import type { Root } from "react-dom/client"
+
+import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
 
 // See https://www.plasmo.com/engineering/log/2022.04#update-2022.04.23
 export type PlasmoCSConfig = Omit<Partial<ManifestContentScript>, "js">
@@ -34,7 +35,7 @@ type PlasmoCSUIOverlayAnchor = {
 type PlasmoCSUIInlineAnchor = {
   element: Element
   type: "inline"
-  insertPosition?: InsertPosition,
+  insertPosition?: InsertPosition
   root?: Root
 }
 
@@ -78,7 +79,9 @@ export type PlasmoGetOverlayAnchor = GetElement
 export type PlasmoGetOverlayAnchorList = Getter<NodeList>
 
 export type PlasmoGetInlineAnchor = GetElement | GetElementInsertOptions
-export type PlasmoGetInlineAnchorList = Getter<NodeList | ElementInsertOptionsList>
+export type PlasmoGetInlineAnchorList = Getter<
+  NodeList | ElementInsertOptionsList
+>
 
 export type PlasmoMountShadowHost = (
   props: {
