@@ -2,7 +2,7 @@
  * Copyright (c) 2023 Plasmo Corp. <foss@plasmo.com> (https://www.plasmo.com) and contributors
  * MIT License
  *
- * Port refreshing code is based on https://github.com/crxjs/chrome-extension-tools/blob/main/packages/vite-plugin/src/client/es/hmr-client-worker.ts#L88
+ * Port refreshing code is based on https://github.com/crxjs/chrome-extension-tools/blob/963e41149cdf327eaa338c643c58909e30d69651/packages/vite-plugin/src/client/es/hmr-client-worker.ts#L88
  *  MIT License
  * Copyright (c) 2019 jacksteamdev
  */
