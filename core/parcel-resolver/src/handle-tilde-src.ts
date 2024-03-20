@@ -1,6 +1,7 @@
 import { extname, join, resolve } from "path"
 
 import {
+  customPipelineSet,
   relevantExtensionList,
   relevantExtensionSet,
   resolveSourceIndex,
@@ -21,14 +22,7 @@ export async function handleTildeSrc({
     join(process.env.PLASMO_SRC_DIR, specifier.slice(1))
   )
 
-  if (
-    pipeline === "data-text" ||
-    pipeline === "data-base64" ||
-    pipeline === "data-env" ||
-    pipeline === "data-text-env" ||
-    pipeline === "raw" ||
-    pipeline === "raw-env"
-  ) {
+  if (customPipelineSet.has(pipeline)) {
     return {
       filePath: absoluteBaseFile
     }
