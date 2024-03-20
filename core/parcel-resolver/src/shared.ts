@@ -17,6 +17,15 @@ export const relevantExtensionList = [
   ".json"
 ] as const
 
+export const customPipelineSet = new Set([
+  "data-text",
+  "data-base64",
+  "data-env",
+  "data-text-env",
+  "raw",
+  "raw-env"
+])
+
 export const relevantExtensionSet = new Set(relevantExtensionList)
 
 type ResolveFx = ConstructorParameters<typeof Resolver>[0]["resolve"]

@@ -1,4 +1,5 @@
-import { extname, isAbsolute, resolve } from "path"
+import { extname, isAbsolute, join, resolve } from "path"
+import { pathExists, pathExistsSync } from "fs-extra"
 
 import {
   relevantExtensionList,
@@ -11,18 +12,23 @@ export async function handleAbsoluteRoot({
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
-  if (specifier[0] !== "/" || isAbsolute(specifier)) {
+  if (specifier[0] !== "/") {
     return null
   }
 
+  if (pathExistsSync(specifier)) {
+    return {
+      filePath: specifier
+    }
+  }
+
   const absoluteBaseFile = resolve(
-    process.env.PLASMO_PROJECT_DIR,
-    specifier.slice(1)
+    join(process.env.PLASMO_PROJECT_DIR, specifier.slice(1))
   )
 
   const importExt = extname(absoluteBaseFile)
 
-  if (importExt.length > 0) {
+  if (importExt.length > 0 && pathExistsSync(absoluteBaseFile)) {
     return {
       filePath: absoluteBaseFile
     }
