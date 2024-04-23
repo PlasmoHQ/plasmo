@@ -41,7 +41,7 @@ export default new Transformer({
     return {
       compilerOptions: {
         dev: options.mode !== "production",
-        css: "external",
+        css: "injected",
         ...compilerOptions
       } as CompileOptions,
       preprocess: contents.preprocess,
