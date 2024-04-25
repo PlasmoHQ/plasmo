@@ -30,7 +30,7 @@ globalThis.__plasmoInternalPortMap = new Map()
 ${importSection}
 
 chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
-  switch (request.name) {
+  switch (request?.name) {
     ${externalMessageSection}
     default:
       break
