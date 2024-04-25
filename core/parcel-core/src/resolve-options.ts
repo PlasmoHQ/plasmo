@@ -58,7 +58,7 @@ export async function resolveOptions(initialOptions: InitialParcelOptions) {
   }
 
   // getRootDir treats the input as files, so getRootDir(["/home/user/myproject"]) returns "/home/user".
-  // Instead we need to make the the entry refer to some file inside the specified folders if entries refers to the directory.
+  // Instead we need to make the entry refer to some file inside the specified folders if entries refers to the directory.
   let entryRoot = getRootDir(
     shouldMakeEntryReferFolder ? [path.join(entries[0], "index")] : entries
   )

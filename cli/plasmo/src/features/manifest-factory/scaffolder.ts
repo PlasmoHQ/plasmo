@@ -71,7 +71,7 @@ export class Scaffolder {
 
     const { staticDirectory } = this.commonPath
 
-    // Generate the static diretory
+    // Generate the static directory
     await ensureDir(staticDirectory)
 
     const hasIndex = indexFile !== undefined

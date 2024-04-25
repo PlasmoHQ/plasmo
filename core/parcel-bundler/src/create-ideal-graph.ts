@@ -803,7 +803,7 @@ export function createIdealGraph(
       let sharedBundleIdsInBundleGroup = bundleIdsInGroup.filter((b) => {
         let bundle = nullthrows(bundleGraph.getNode(b))
         // shared bundles must have source bundles, we could have a bundle
-        // connected to another bundle that isnt a shared bundle, so check
+        // connected to another bundle that isn't a shared bundle, so check
         return (
           bundle !== "root" && bundle.sourceBundles.size > 0 && bundleId != b
         )
