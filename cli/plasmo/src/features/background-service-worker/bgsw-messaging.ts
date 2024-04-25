@@ -30,7 +30,7 @@ globalThis.__plasmoInternalPortMap = new Map()
 ${importSection}
 
 chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
-  switch (request.name) {
+  switch (request?.name) {
     ${externalMessageSection}
     default:
       break
@@ -97,8 +97,8 @@ const getHandlerList = async (
 
 const getMessageCode = (name: string, importName: string) => `case "${name}":
   ${importName}({
-    sender,
-    ...request
+    ...request,
+    sender
   }, {
     send: (p) => sendResponse(p)
   })
