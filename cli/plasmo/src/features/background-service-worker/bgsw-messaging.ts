@@ -97,8 +97,8 @@ const getHandlerList = async (
 
 const getMessageCode = (name: string, importName: string) => `case "${name}":
   ${importName}({
-    sender,
-    ...request
+    ...request,
+    sender
   }, {
     send: (p) => sendResponse(p)
   })
