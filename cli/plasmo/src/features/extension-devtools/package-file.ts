@@ -55,6 +55,7 @@ const _generatePackage = async ({
 export type PackageJSON = Awaited<ReturnType<typeof _generatePackage>> & {
   homepage?: string
   contributors?: string[]
+  peerDependencies?: Record<string, string>
 }
 
 type GenerateArgs = Parameters<typeof _generatePackage>[0]
