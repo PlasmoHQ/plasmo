@@ -22,6 +22,11 @@ export namespace PlasmoMessaging {
     targetOrigin?: string
   }
 
+  export type ExternalRequest<TName = any, TBody = Record<any, any>> = {
+    name: TName
+    sender: chrome.runtime.MessageSender
+  } & TBody
+
   export type RelayMessage<TName = any, TBody = any> = Request<TName, TBody> & {
     /**
      * Used to resolve corresponding window.postMessage messages
@@ -49,6 +54,15 @@ export namespace PlasmoMessaging {
     response: Response<ResponseBody>
   ) => void | Promise<void> | boolean
 
+  export type ExternalHandler<
+    RequestName = string,
+    RequestBody = any,
+    ResponseBody = any
+  > = (
+    request: ExternalRequest<RequestName, RequestBody>,
+    response: Response<ResponseBody>
+  ) => void | Promise<void> | boolean
+
   export type PortHandler<RequestBody = any, ResponseBody = any> = Handler<
     PortName,
     RequestBody,
@@ -60,6 +74,11 @@ export namespace PlasmoMessaging {
     RequestBody,
     ResponseBody
   >
+
+  export type ExternalMessageHandler<
+    RequestBody = any,
+    ResponseBody = any
+  > = ExternalHandler<string, RequestBody, ResponseBody>
 
   export interface SendFx<TName = string> {
     <RequestBody = any, ResponseBody = any>(
