@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-compressor-utf8",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Plasmo UTF8 Compressor for Extension",
   "files": [
     "dist"
