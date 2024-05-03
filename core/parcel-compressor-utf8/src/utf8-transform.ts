@@ -17,8 +17,18 @@ class Utf8Transform extends Transform {
     remainder ? callback(null, this.transformChunk(remainder)) : callback()
   }
 
-  private transformChunk(chunk: string): string {
-    return Array.from(chunk)
+  private transformChunk(chunk: string, segmentSize: number = 1024): string {
+    let result = ""
+    for (let i = 0; i < chunk.length; i += segmentSize) {
+      const endIndex = Math.min(i + segmentSize, chunk.length)
+      const segment = chunk.substring(i, endIndex)
+      result += this.transformSegment(segment)
+    }
+    return result
+  }
+
+  private transformSegment(segment: string): string {
+    return Array.from(segment)
       .map((ch) =>
         ch.charCodeAt(0) <= 0x7f
           ? ch
