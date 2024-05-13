@@ -12,7 +12,7 @@ export async function handleSandboxes() {
     return
   }
 
-  const srcPaths = ["sandboxes", "sandbox.ts", "sandbox.tsx"].map((file) =>
+  const srcPaths = ["sandboxes", "sandbox.ts", "sandbox.tsx", "sandbox.svelte"].map((file) =>
     resolve(srcDir, file)
   )
 
