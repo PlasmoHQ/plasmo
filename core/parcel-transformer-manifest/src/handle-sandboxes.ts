@@ -12,9 +12,13 @@ export async function handleSandboxes() {
     return
   }
 
-  const srcPaths = ["sandboxes", "sandbox.ts", "sandbox.tsx", "sandbox.svelte"].map((file) =>
-    resolve(srcDir, file)
-  )
+  const srcPaths = [
+    "sandboxes",
+    "sandbox.ts",
+    "sandbox.tsx",
+    "sandbox.svelte",
+    "sandbox.vue"
+  ].map((file) => resolve(srcDir, file))
 
   const dotSandboxesDir = resolve(dotPlasmoDir, "sandboxes")
 
@@ -22,6 +26,8 @@ export async function handleSandboxes() {
     srcSandboxesDirExists,
     srcSandboxTsFileExists,
     srcSandboxTsxFileExists,
+    srcSandboxSvelteFileExists,
+    srcSandboxVueFileExists,
     dotSandboxesDirExists
   ] = await Promise.all(
     [...srcPaths, dotSandboxesDir].map((p) => asset.fs.exists(p))
@@ -43,7 +49,12 @@ export async function handleSandboxes() {
     }
   }
 
-  const hasSandboxFile = srcSandboxTsFileExists || srcSandboxTsxFileExists
+  const hasSandboxFile =
+    srcSandboxTsFileExists ||
+    srcSandboxTsxFileExists ||
+    srcSandboxSvelteFileExists ||
+    srcSandboxVueFileExists
+
   if (!hasSandboxFile && sandboxPages.length === 0) {
     return
   }
