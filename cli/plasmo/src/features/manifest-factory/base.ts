@@ -224,6 +224,19 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         }
       })
     )
+
+    if (!process.env.POST_BUILD_SCRIPT)
+      return
+
+    const postBuildPath = resolve(process.env.POST_BUILD_SCRIPT)
+
+    if (!existsSync(postBuildPath)) {
+      console.error("Post-build file does not exist or is not readable:", postBuildPath)
+      return
+    }
+
+    const postBuild = require(postBuildPath)
+    postBuild()
   }
 
   async updateEnv() {
