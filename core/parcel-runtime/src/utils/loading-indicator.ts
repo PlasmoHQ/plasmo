@@ -32,8 +32,8 @@ function updateCSP() {
 }
 
 function createTrustedPolicy() {
-  const trustedTypes = globalThis.window.trustedTypes
-  if (!trustedTypes) {
+  const trustedTypes = globalThis.window?.trustedTypes
+  if (typeof trustedTypes === "undefined") {
     return undefined
   }
   updateCSP()
