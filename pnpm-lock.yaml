@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.0.3)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.0.3)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:packages/rps
@@ -68,7 +68,7 @@ importers:
         version: 0.32.6
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       turbo:
         specifier: 1.10.16
         version: 1.10.16
@@ -87,7 +87,7 @@ importers:
         version: 29.6.3
       '@testing-library/react':
         specifier: 14.1.0
-        version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/chrome':
         specifier: 0.0.251
         version: 0.0.251
@@ -102,7 +102,7 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.9.0)
+        version: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -117,10 +117,10 @@ importers:
         version: 5.0.5
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.18.20)(jest@29.7.0)(typescript@5.2.2)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.18.20)(jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0))(typescript@5.2.2)
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.2.2)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -147,16 +147,16 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.9.0)
+        version: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.18.20)(jest@29.7.0)(typescript@5.2.2)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.18.20)(jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0))(typescript@5.2.2)
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.2.2)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -171,7 +171,7 @@ importers:
         version: 29.6.3
       '@testing-library/react':
         specifier: 14.1.0
-        version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/chrome':
         specifier: 0.0.251
         version: 0.0.251
@@ -186,7 +186,7 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.9.0)
+        version: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -201,10 +201,10 @@ importers:
         version: 5.0.5
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.18.20)(jest@29.7.0)(typescript@5.2.2)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.18.20)(jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0))(typescript@5.2.2)
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.2.2)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -226,7 +226,7 @@ importers:
         version: link:../../packages/rps
       '@testing-library/react':
         specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -241,7 +241,7 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -259,10 +259,10 @@ importers:
         version: 5.0.5
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -433,7 +433,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-compressor-utf8:
     dependencies:
@@ -449,7 +449,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-config:
     dependencies:
@@ -458,7 +458,7 @@ importers:
         version: 2.9.3(@parcel/core@2.9.3)
       '@parcel/config-default':
         specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)
+        version: 2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.2)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)
       '@parcel/core':
         specifier: 2.9.3
         version: 2.9.3
@@ -621,7 +621,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-namer-manifest:
     dependencies:
@@ -643,7 +643,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-optimizer-encapsulate:
     dependencies:
@@ -668,7 +668,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-optimizer-es:
     dependencies:
@@ -686,7 +686,7 @@ importers:
         version: 2.9.3
       '@swc/core':
         specifier: 1.3.96
-        version: 1.3.96
+        version: 1.3.96(@swc/helpers@0.5.2)
       nullthrows:
         specifier: 1.1.1
         version: 1.1.1
@@ -699,7 +699,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-packager:
     dependencies:
@@ -730,7 +730,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-resolver:
     dependencies:
@@ -830,7 +830,7 @@ importers:
         version: 2.0.12
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       tty-browserify:
         specifier: 0.0.1
         version: 0.0.1
@@ -863,7 +863,7 @@ importers:
         version: 2.9.3
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.2.2)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -883,6 +883,9 @@ importers:
       '@parcel/plugin':
         specifier: 2.9.3
         version: 2.9.3(@parcel/core@2.9.3)
+      '@types/trusted-types':
+        specifier: 2.0.7
+        version: 2.0.7
       react-refresh:
         specifier: 0.14.0
         version: 0.14.0
@@ -904,7 +907,7 @@ importers:
         version: 0.0.251
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-inject-env:
     dependencies:
@@ -926,7 +929,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-inline-css:
     dependencies:
@@ -951,7 +954,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-lab:
     dependencies:
@@ -982,7 +985,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-manifest:
     dependencies:
@@ -1025,7 +1028,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-svelte:
     dependencies:
@@ -1053,7 +1056,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   core/parcel-transformer-vue:
     dependencies:
@@ -1077,7 +1080,7 @@ importers:
         version: 2.9.3
       '@plasmohq/consolidate':
         specifier: 0.17.0
-        version: 0.17.0
+        version: 0.17.0(babel-core@7.0.0-bridge.0(@babel/core@7.23.7))(lodash@4.17.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@vue/compiler-sfc':
         specifier: 3.3.8
         version: 3.3.8
@@ -1089,14 +1092,14 @@ importers:
         version: 7.5.4
       vue:
         specifier: 3.3.8
-        version: 3.3.8(typescript@5.2.2)
+        version: 3.3.8(typescript@5.3.3)
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
         version: link:../../packages/config
       tsup:
         specifier: 7.2.0
-        version: 7.2.0(@swc/core@1.3.96)
+        version: 7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
 
   examples/with-ai:
     dependencies:
@@ -1115,7 +1118,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1139,10 +1142,10 @@ importers:
     dependencies:
       '@ant-design/cssinjs':
         specifier: 1.18.2
-        version: 1.18.2(react-dom@18.2.0)(react@18.2.0)
+        version: 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       antd:
         specifier: 5.13.2
-        version: 5.13.2(react-dom@18.2.0)(react@18.2.0)
+        version: 5.13.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -1155,7 +1158,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1198,7 +1201,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1241,7 +1244,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1278,7 +1281,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1312,7 +1315,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1346,7 +1349,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1374,7 +1377,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1402,7 +1405,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1432,7 +1435,7 @@ importers:
         version: 11.11.3(@types/react@18.2.48)(react@18.2.0)
       '@emotion/styled':
         specifier: 11.11.0
-        version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -1448,7 +1451,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1472,7 +1475,7 @@ importers:
     dependencies:
       '@ant-design/cssinjs':
         specifier: 1.18.2
-        version: 1.18.2(react-dom@18.2.0)(react@18.2.0)
+        version: 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@emotion/cache':
         specifier: 11.11.0
         version: 11.11.0
@@ -1481,10 +1484,10 @@ importers:
         version: 11.11.3(@types/react@18.2.48)(react@18.2.0)
       '@emotion/styled':
         specifier: 11.11.0
-        version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
       antd:
         specifier: 5.13.2
-        version: 5.13.2(react-dom@18.2.0)(react@18.2.0)
+        version: 5.13.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -1497,7 +1500,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1540,7 +1543,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1577,7 +1580,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1617,7 +1620,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1651,7 +1654,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1688,7 +1691,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1725,7 +1728,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1765,7 +1768,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@jest/globals':
         specifier: 29.7.0
         version: 29.7.0
@@ -1774,7 +1777,7 @@ importers:
         version: 29.6.3
       '@testing-library/react':
         specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1789,7 +1792,7 @@ importers:
         version: 18.2.18
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -1801,7 +1804,7 @@ importers:
         version: 3.2.4
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -1823,7 +1826,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1857,7 +1860,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1891,7 +1894,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1915,7 +1918,7 @@ importers:
     dependencies:
       '@mantine/core':
         specifier: 7.4.2
-        version: 7.4.2(@mantine/hooks@7.4.2)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+        version: 7.4.2(@mantine/hooks@7.4.2(react@18.2.0))(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mantine/hooks':
         specifier: 7.4.2
         version: 7.4.2(react@18.2.0)
@@ -1934,7 +1937,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1977,7 +1980,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2011,7 +2014,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2041,7 +2044,7 @@ importers:
         version: link:../../api/messaging
       next:
         specifier: 14.1.0
-        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.63.6)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2054,7 +2057,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2106,7 +2109,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2136,10 +2139,10 @@ importers:
         version: 11.11.3(@types/react@18.2.48)(react@18.2.0)
       '@emotion/styled':
         specifier: 11.11.0
-        version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
       '@mui/material':
         specifier: 5.15.5
-        version: 5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+        version: 5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2155,7 +2158,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2192,7 +2195,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2232,7 +2235,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2256,7 +2259,7 @@ importers:
     dependencies:
       next:
         specifier: 14.1.0
-        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.63.6)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2269,7 +2272,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2309,7 +2312,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2346,7 +2349,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2380,7 +2383,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2410,7 +2413,7 @@ importers:
         version: 2.0.11
       '@propelauth/react':
         specifier: 2.0.16
-        version: 2.0.16(react-dom@18.2.0)(react@18.2.0)
+        version: 2.0.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2423,7 +2426,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2456,10 +2459,10 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-native:
         specifier: 0.73.2
-        version: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(react@18.2.0)
+        version: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0)
       react-native-web:
         specifier: 0.19.10
-        version: 0.19.10(react-dom@18.2.0)(react@18.2.0)
+        version: 0.19.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@babel/core':
         specifier: 7.23.7
@@ -2469,7 +2472,7 @@ importers:
         version: 7.23.8(@babel/core@7.23.7)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2496,7 +2499,7 @@ importers:
         version: 5.17.15(react@18.2.0)
       '@tanstack/react-query-devtools':
         specifier: 5.17.18
-        version: 5.17.18(@tanstack/react-query@5.17.15)(react@18.2.0)
+        version: 5.17.18(@tanstack/react-query@5.17.15(react@18.2.0))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2509,7 +2512,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2542,11 +2545,11 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-router-dom:
         specifier: 6.21.3
-        version: 6.21.3(react-dom@18.2.0)(react@18.2.0)
+        version: 6.21.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2576,7 +2579,7 @@ importers:
         version: link:../../api/storage
       '@reduxjs/toolkit':
         specifier: 2.0.1
-        version: 2.0.1(react-redux@9.1.0)(react@18.2.0)
+        version: 2.0.1(react-redux@9.1.0(@types/react@18.2.48)(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))(react@18.2.0)(redux@5.0.1))(react@18.2.0)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2588,7 +2591,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-redux:
         specifier: 9.1.0
-        version: 9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@5.0.1)
+        version: 9.1.0(@types/react@18.2.48)(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))(react@18.2.0)(redux@5.0.1)
       redux:
         specifier: 5.0.1
         version: 5.0.1
@@ -2601,7 +2604,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2641,7 +2644,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2678,7 +2681,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2712,7 +2715,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2751,11 +2754,11 @@ importers:
         version: 0.100.0(slate@0.101.5)
       slate-react:
         specifier: 0.101.5
-        version: 0.101.5(react-dom@18.2.0)(react@18.2.0)(slate@0.101.5)
+        version: 0.101.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(slate@0.101.5)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2789,7 +2792,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2826,7 +2829,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2853,7 +2856,7 @@ importers:
         version: 9.4.2
       next:
         specifier: 14.1.0
-        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.0(@babel/core@7.23.7)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.63.6)
       plasmo:
         specifier: workspace:*
         version: link:../../cli/plasmo
@@ -2875,7 +2878,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2911,14 +2914,14 @@ importers:
         version: 18.2.0(react@18.2.0)
       styled-components:
         specifier: 6.1.8
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
+        version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@babel/core':
         specifier: 7.23.7
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2961,7 +2964,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2991,11 +2994,11 @@ importers:
         version: 4.2.9
       svelte-preprocess:
         specifier: 5.1.3
-        version: 5.1.3(@babel/core@7.23.7)(svelte@4.2.9)(typescript@5.3.3)
+        version: 5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.4.33))(postcss@8.4.33)(sass@1.63.6)(sugarss@4.0.1(postcss@8.4.33))(svelte@4.2.9)(typescript@5.3.3)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3023,7 +3026,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3060,7 +3063,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3097,7 +3100,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@radix-ui/colors':
         specifier: 2.1.0
         version: 2.1.0
@@ -3140,7 +3143,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3168,7 +3171,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3247,16 +3250,16 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       prettier:
         specifier: 3.2.4
         version: 3.2.4
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3285,16 +3288,16 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3318,7 +3321,7 @@ importers:
         version: 18.2.48
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       prettier:
         specifier: 3.2.4
         version: 3.2.4
@@ -3327,10 +3330,10 @@ importers:
         version: 18.2.0
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3370,7 +3373,7 @@ importers:
         version: 3.2.4
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3392,7 +3395,7 @@ importers:
         version: link:../../api/storage
       '@testing-library/react':
         specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/node':
         specifier: 20.11.5
         version: 20.11.5
@@ -3404,7 +3407,7 @@ importers:
         version: 7.0.3
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)
+        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -3422,10 +3425,10 @@ importers:
         version: 5.0.5
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -6683,6 +6686,9 @@ packages:
 
   '@types/transducers.js@0.3.0':
     resolution: {integrity: sha512-ZAHByx9pi7o0fLvGMGJbvtETHXINIAb37sqy2Pl4UgbAwwyJPrypKEqroPSUccHQW2uby862vYOBSzJnJI5YoA==}
+
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
   '@types/use-sync-external-store@0.0.3':
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
@@ -11734,27 +11740,27 @@ snapshots:
     dependencies:
       '@ctrl/tinycolor': 3.6.1
 
-  '@ant-design/cssinjs@1.18.2(react-dom@18.2.0)(react@18.2.0)':
+  '@ant-design/cssinjs@1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@emotion/hash': 0.8.0
       '@emotion/unitless': 0.7.5
       classnames: 2.3.2
       csstype: 3.1.3
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       stylis: 4.3.0
 
   '@ant-design/icons-svg@4.3.1': {}
 
-  '@ant-design/icons@5.2.6(react-dom@18.2.0)(react@18.2.0)':
+  '@ant-design/icons@5.2.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@ant-design/colors': 7.0.2
       '@ant-design/icons-svg': 4.3.1
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -12785,9 +12791,10 @@ snapshots:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.48
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   '@emotion/serialize@1.1.2':
     dependencies:
@@ -12807,7 +12814,7 @@ snapshots:
 
   '@emotion/sheet@1.2.2': {}
 
-  '@emotion/styled@11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)':
+  '@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.22.15
       '@emotion/babel-plugin': 11.11.0
@@ -12816,8 +12823,9 @@ snapshots:
       '@emotion/serialize': 1.1.2
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
-      '@types/react': 18.2.48
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   '@emotion/unitless@0.7.5': {}
 
@@ -13315,21 +13323,21 @@ snapshots:
       '@floating-ui/core': 1.5.3
       '@floating-ui/utils': 0.2.1
 
-  '@floating-ui/react-dom@2.0.2(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react-dom@2.0.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/dom': 1.5.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@floating-ui/react-dom@2.0.6(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react-dom@2.0.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/dom': 1.5.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@floating-ui/react@0.24.8(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react@0.24.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@floating-ui/react-dom': 2.0.2(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       aria-hidden: 1.2.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -13369,7 +13377,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.1': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.1.1(prettier@3.0.3)':
+  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.0.3)':
     dependencies:
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.3
@@ -13378,10 +13386,12 @@ snapshots:
       '@babel/types': 7.23.3
       prettier: 3.0.3
       semver: 7.5.4
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.3.8
     transitivePeerDependencies:
       - supports-color
 
-  '@ianvs/prettier-plugin-sort-imports@4.1.1(prettier@3.2.4)':
+  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)':
     dependencies:
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.3
@@ -13390,6 +13400,8 @@ snapshots:
       '@babel/types': 7.23.3
       prettier: 3.2.4
       semver: 7.5.4
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.3.8
     transitivePeerDependencies:
       - supports-color
 
@@ -13440,7 +13452,7 @@ snapshots:
       jest-util: 29.7.0
       slash: 3.0.0
 
-  '@jest/core@29.7.0':
+  '@jest/core@29.7.0(babel-plugin-macros@3.1.0)':
     dependencies:
       '@jest/console': 29.7.0
       '@jest/reporters': 29.7.0
@@ -13454,7 +13466,7 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@20.11.5)
+      jest-config: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -13688,14 +13700,14 @@ snapshots:
   '@lmdb/lmdb-win32-x64@2.7.11':
     optional: true
 
-  '@mantine/core@7.4.2(@mantine/hooks@7.4.2)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)':
+  '@mantine/core@7.4.2(@mantine/hooks@7.4.2(react@18.2.0))(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@floating-ui/react': 0.24.8(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react': 0.24.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mantine/hooks': 7.4.2(react@18.2.0)
       clsx: 2.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-number-format: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+      react-number-format: 5.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-remove-scroll: 2.5.7(@types/react@18.2.48)(react@18.2.0)
       react-textarea-autosize: 8.5.3(@types/react@18.2.48)(react@18.2.0)
       type-fest: 3.13.1
@@ -13730,32 +13742,30 @@ snapshots:
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.2':
     optional: true
 
-  '@mui/base@5.0.0-beta.32(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)':
+  '@mui/base@5.0.0-beta.32(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
-      '@floating-ui/react-dom': 2.0.6(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.48)
       '@mui/utils': 5.15.5(@types/react@18.2.48)(react@18.2.0)
       '@popperjs/core': 2.11.8
-      '@types/react': 18.2.48
       clsx: 2.1.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   '@mui/core-downloads-tracker@5.15.5': {}
 
-  '@mui/material@5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)':
+  '@mui/material@5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
-      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
-      '@mui/base': 5.0.0-beta.32(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/base': 5.0.0-beta.32(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mui/core-downloads-tracker': 5.15.5
-      '@mui/system': 5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react@18.2.0)
+      '@mui/system': 5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.48)
       '@mui/utils': 5.15.5(@types/react@18.2.48)(react@18.2.0)
-      '@types/react': 18.2.48
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.0
       csstype: 3.1.2
@@ -13763,53 +13773,61 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
-      react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
+      react-transition-group: 4.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+    optionalDependencies:
+      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
+      '@types/react': 18.2.48
 
   '@mui/private-theming@5.15.5(@types/react@18.2.48)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
       '@mui/utils': 5.15.5(@types/react@18.2.48)(react@18.2.0)
-      '@types/react': 18.2.48
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.48
 
-  '@mui/styled-engine@5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(react@18.2.0)':
+  '@mui/styled-engine@5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
       '@emotion/cache': 11.11.0
-      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
       csstype: 3.1.2
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
 
-  '@mui/system@5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react@18.2.0)':
+  '@mui/system@5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
-      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
       '@mui/private-theming': 5.15.5(@types/react@18.2.48)(react@18.2.0)
-      '@mui/styled-engine': 5.15.5(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(react@18.2.0)
+      '@mui/styled-engine': 5.15.5(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.48)
       '@mui/utils': 5.15.5(@types/react@18.2.48)(react@18.2.0)
-      '@types/react': 18.2.48
       clsx: 2.1.0
       csstype: 3.1.2
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@emotion/react': 11.11.3(@types/react@18.2.48)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0)
+      '@types/react': 18.2.48
 
   '@mui/types@7.2.13(@types/react@18.2.48)':
-    dependencies:
+    optionalDependencies:
       '@types/react': 18.2.48
 
   '@mui/utils@5.15.5(@types/react@18.2.48)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
       '@types/prop-types': 15.7.11
-      '@types/react': 18.2.48
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   '@next/env@14.1.0': {}
 
@@ -13895,17 +13913,17 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/config-default@2.9.3(@parcel/core@2.9.3)':
+  '@parcel/config-default@2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.2)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)':
     dependencies:
       '@parcel/bundler-default': 2.9.3(@parcel/core@2.9.3)
       '@parcel/compressor-raw': 2.9.3(@parcel/core@2.9.3)
       '@parcel/core': 2.9.3
       '@parcel/namer-default': 2.9.3(@parcel/core@2.9.3)
       '@parcel/optimizer-css': 2.9.3(@parcel/core@2.9.3)
-      '@parcel/optimizer-htmlnano': 2.9.3(@parcel/core@2.9.3)
+      '@parcel/optimizer-htmlnano': 2.9.3(@parcel/core@2.9.3)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)
       '@parcel/optimizer-image': 2.9.3(@parcel/core@2.9.3)
       '@parcel/optimizer-svgo': 2.9.3(@parcel/core@2.9.3)
-      '@parcel/optimizer-swc': 2.9.3(@parcel/core@2.9.3)
+      '@parcel/optimizer-swc': 2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.2)
       '@parcel/packager-css': 2.9.3(@parcel/core@2.9.3)
       '@parcel/packager-html': 2.9.3(@parcel/core@2.9.3)
       '@parcel/packager-js': 2.9.3(@parcel/core@2.9.3)
@@ -14075,10 +14093,10 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/optimizer-htmlnano@2.9.3(@parcel/core@2.9.3)':
+  '@parcel/optimizer-htmlnano@2.9.3(@parcel/core@2.9.3)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)':
     dependencies:
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
-      htmlnano: 2.0.4(svgo@2.8.0)
+      htmlnano: 2.0.4(postcss@8.4.33)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2)
       nullthrows: 1.1.1
       posthtml: 0.16.6
       svgo: 2.8.0
@@ -14109,13 +14127,13 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/optimizer-swc@2.9.3(@parcel/core@2.9.3)':
+  '@parcel/optimizer-swc@2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.2)':
     dependencies:
       '@parcel/diagnostic': 2.9.3
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.9.3
-      '@swc/core': 1.3.66
+      '@swc/core': 1.3.66(@swc/helpers@0.5.2)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
@@ -14613,9 +14631,14 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@plasmohq/consolidate@0.17.0':
+  '@plasmohq/consolidate@0.17.0(babel-core@7.0.0-bridge.0(@babel/core@7.23.7))(lodash@4.17.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       bluebird: 3.7.2
+    optionalDependencies:
+      babel-core: 7.0.0-bridge.0(@babel/core@7.23.7)
+      lodash: 4.17.21
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   '@plasmohq/redux-persist@6.1.0(redux@5.0.1)':
     dependencies:
@@ -14637,7 +14660,7 @@ snapshots:
 
   '@propelauth/javascript@2.0.11': {}
 
-  '@propelauth/react@2.0.16(react-dom@18.2.0)(react@18.2.0)':
+  '@propelauth/react@2.0.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@propelauth/javascript': 2.0.11
       hoist-non-react-statics: 3.3.2
@@ -14670,19 +14693,19 @@ snapshots:
 
   '@radix-ui/colors@2.1.0': {}
 
-  '@rc-component/color-picker@1.5.1(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/color-picker@1.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.8
       '@ctrl/tinycolor': 3.6.1
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@rc-component/context@1.4.0(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/context@1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -14690,40 +14713,40 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.23.2
 
-  '@rc-component/mutate-observer@1.1.0(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/mutate-observer@1.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@rc-component/portal@1.1.2(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/portal@1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@rc-component/tour@1.12.2(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/tour@1.12.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/portal': 1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@rc-component/trigger@1.18.2(react-dom@18.2.0)(react@18.2.0)':
+  '@rc-component/trigger@1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/portal': 1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -14872,14 +14895,14 @@ snapshots:
 
   '@react-native/assets-registry@0.73.1': {}
 
-  '@react-native/babel-plugin-codegen@0.73.2(@babel/preset-env@7.23.8)':
+  '@react-native/babel-plugin-codegen@0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
-      '@react-native/codegen': 0.73.2(@babel/preset-env@7.23.8)
+      '@react-native/codegen': 0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))
     transitivePeerDependencies:
       - '@babel/preset-env'
       - supports-color
 
-  '@react-native/babel-preset@0.73.19(@babel/core@7.23.7)(@babel/preset-env@7.23.8)':
+  '@react-native/babel-preset@0.73.19(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
       '@babel/core': 7.23.7
       '@babel/plugin-proposal-async-generator-functions': 7.20.7(@babel/core@7.23.7)
@@ -14920,32 +14943,32 @@ snapshots:
       '@babel/plugin-transform-typescript': 7.22.10(@babel/core@7.23.7)
       '@babel/plugin-transform-unicode-regex': 7.23.3(@babel/core@7.23.7)
       '@babel/template': 7.22.15
-      '@react-native/babel-plugin-codegen': 0.73.2(@babel/preset-env@7.23.8)
+      '@react-native/babel-plugin-codegen': 0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       babel-plugin-transform-flow-enums: 0.0.2(@babel/core@7.23.7)
       react-refresh: 0.14.0
     transitivePeerDependencies:
       - '@babel/preset-env'
       - supports-color
 
-  '@react-native/codegen@0.73.2(@babel/preset-env@7.23.8)':
+  '@react-native/codegen@0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
       '@babel/parser': 7.23.3
       '@babel/preset-env': 7.23.8(@babel/core@7.23.7)
       flow-parser: 0.206.0
       glob: 7.2.3
       invariant: 2.2.4
-      jscodeshift: 0.14.0(@babel/preset-env@7.23.8)
+      jscodeshift: 0.14.0(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       mkdirp: 0.5.6
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - supports-color
 
-  '@react-native/community-cli-plugin@0.73.12(@babel/core@7.23.7)(@babel/preset-env@7.23.8)':
+  '@react-native/community-cli-plugin@0.73.12(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
       '@react-native-community/cli-server-api': 12.3.0
       '@react-native-community/cli-tools': 12.3.0
       '@react-native/dev-middleware': 0.73.7
-      '@react-native/metro-babel-transformer': 0.73.13(@babel/core@7.23.7)(@babel/preset-env@7.23.8)
+      '@react-native/metro-babel-transformer': 0.73.13(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       chalk: 4.1.2
       execa: 5.1.1
       metro: 0.80.4
@@ -14983,10 +15006,10 @@ snapshots:
 
   '@react-native/js-polyfills@0.73.1': {}
 
-  '@react-native/metro-babel-transformer@0.73.13(@babel/core@7.23.7)(@babel/preset-env@7.23.8)':
+  '@react-native/metro-babel-transformer@0.73.13(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
       '@babel/core': 7.23.7
-      '@react-native/babel-preset': 0.73.19(@babel/core@7.23.7)(@babel/preset-env@7.23.8)
+      '@react-native/babel-preset': 0.73.19(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       hermes-parser: 0.15.0
       nullthrows: 1.1.1
     transitivePeerDependencies:
@@ -14997,20 +15020,21 @@ snapshots:
 
   '@react-native/normalize-colors@0.73.2': {}
 
-  '@react-native/virtualized-lists@0.73.4(react-native@0.73.2)':
+  '@react-native/virtualized-lists@0.73.4(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))':
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
-      react-native: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(react@18.2.0)
+      react-native: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0)
 
-  '@reduxjs/toolkit@2.0.1(react-redux@9.1.0)(react@18.2.0)':
+  '@reduxjs/toolkit@2.0.1(react-redux@9.1.0(@types/react@18.2.48)(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))(react@18.2.0)(redux@5.0.1))(react@18.2.0)':
     dependencies:
       immer: 10.0.3
-      react: 18.2.0
-      react-redux: 9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@5.0.1)
       redux: 5.0.1
       redux-thunk: 3.1.0(redux@5.0.1)
       reselect: 5.1.0
+    optionalDependencies:
+      react: 18.2.0
+      react-redux: 9.1.0(@types/react@18.2.48)(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))(react@18.2.0)(redux@5.0.1)
 
   '@remix-run/router@1.14.2': {}
 
@@ -15299,7 +15323,7 @@ snapshots:
   '@swc/core-win32-x64-msvc@1.3.96':
     optional: true
 
-  '@swc/core@1.3.66':
+  '@swc/core@1.3.66(@swc/helpers@0.5.2)':
     optionalDependencies:
       '@swc/core-darwin-arm64': 1.3.66
       '@swc/core-darwin-x64': 1.3.66
@@ -15311,8 +15335,9 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.3.66
       '@swc/core-win32-ia32-msvc': 1.3.66
       '@swc/core-win32-x64-msvc': 1.3.66
+      '@swc/helpers': 0.5.2
 
-  '@swc/core@1.3.96':
+  '@swc/core@1.3.96(@swc/helpers@0.5.2)':
     dependencies:
       '@swc/counter': 0.1.2
       '@swc/types': 0.1.5
@@ -15327,6 +15352,7 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.3.96
       '@swc/core-win32-ia32-msvc': 1.3.96
       '@swc/core-win32-x64-msvc': 1.3.96
+      '@swc/helpers': 0.5.2
 
   '@swc/counter@0.1.2': {}
 
@@ -15348,7 +15374,7 @@ snapshots:
 
   '@tanstack/query-devtools@5.17.7': {}
 
-  '@tanstack/react-query-devtools@5.17.18(@tanstack/react-query@5.17.15)(react@18.2.0)':
+  '@tanstack/react-query-devtools@5.17.18(@tanstack/react-query@5.17.15(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@tanstack/query-devtools': 5.17.7
       '@tanstack/react-query': 5.17.15(react@18.2.0)
@@ -15370,7 +15396,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@14.1.0(react-dom@18.2.0)(react@18.2.0)':
+  '@testing-library/react@14.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 9.3.3
@@ -15378,7 +15404,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@testing-library/react@14.1.2(react-dom@18.2.0)(react@18.2.0)':
+  '@testing-library/react@14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 9.3.3
@@ -15565,6 +15591,8 @@ snapshots:
 
   '@types/transducers.js@0.3.0': {}
 
+  '@types/trusted-types@2.0.7': {}
+
   '@types/use-sync-external-store@0.0.3': {}
 
   '@types/uuid@9.0.7': {}
@@ -15689,13 +15717,19 @@ snapshots:
       '@vue/shared': 3.4.15
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.3.8(vue@3.3.8)':
+  '@vue/server-renderer@3.3.8(vue@3.3.8(typescript@5.2.2))':
     dependencies:
       '@vue/compiler-ssr': 3.3.8
       '@vue/shared': 3.3.8
       vue: 3.3.8(typescript@5.2.2)
 
-  '@vue/server-renderer@3.4.15(vue@3.4.15)':
+  '@vue/server-renderer@3.3.8(vue@3.3.8(typescript@5.3.3))':
+    dependencies:
+      '@vue/compiler-ssr': 3.3.8
+      '@vue/shared': 3.3.8
+      vue: 3.3.8(typescript@5.3.3)
+
+  '@vue/server-renderer@3.4.15(vue@3.4.15(typescript@5.3.3))':
     dependencies:
       '@vue/compiler-ssr': 3.4.15
       '@vue/shared': 3.4.15
@@ -15787,53 +15821,53 @@ snapshots:
 
   ansi-styles@6.2.1: {}
 
-  antd@5.13.2(react-dom@18.2.0)(react@18.2.0):
+  antd@5.13.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@ant-design/colors': 7.0.2
-      '@ant-design/cssinjs': 1.18.2(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.2.6(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/cssinjs': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@ant-design/icons': 5.2.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@ant-design/react-slick': 1.0.2(react@18.2.0)
       '@ctrl/tinycolor': 3.6.1
-      '@rc-component/color-picker': 1.5.1(react-dom@18.2.0)(react@18.2.0)
-      '@rc-component/mutate-observer': 1.1.0(react-dom@18.2.0)(react@18.2.0)
-      '@rc-component/tour': 1.12.2(react-dom@18.2.0)(react@18.2.0)
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/color-picker': 1.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@rc-component/mutate-observer': 1.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@rc-component/tour': 1.12.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
       copy-to-clipboard: 3.3.3
       dayjs: 1.11.10
       qrcode.react: 3.1.0(react@18.2.0)
-      rc-cascader: 3.21.0(react-dom@18.2.0)(react@18.2.0)
-      rc-checkbox: 3.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-collapse: 3.7.2(react-dom@18.2.0)(react@18.2.0)
-      rc-dialog: 9.3.4(react-dom@18.2.0)(react@18.2.0)
-      rc-drawer: 7.0.0(react-dom@18.2.0)(react@18.2.0)
-      rc-dropdown: 4.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-field-form: 1.41.0(react-dom@18.2.0)(react@18.2.0)
-      rc-image: 7.5.1(react-dom@18.2.0)(react@18.2.0)
-      rc-input: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      rc-input-number: 8.6.1(react-dom@18.2.0)(react@18.2.0)
-      rc-mentions: 2.10.1(react-dom@18.2.0)(react@18.2.0)
-      rc-menu: 9.12.4(react-dom@18.2.0)(react@18.2.0)
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-notification: 5.3.0(react-dom@18.2.0)(react@18.2.0)
-      rc-pagination: 4.0.4(react-dom@18.2.0)(react@18.2.0)
-      rc-picker: 3.14.6(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)
-      rc-progress: 3.5.1(react-dom@18.2.0)(react@18.2.0)
-      rc-rate: 2.12.0(react-dom@18.2.0)(react@18.2.0)
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-segmented: 2.2.2(react-dom@18.2.0)(react@18.2.0)
-      rc-select: 14.11.0(react-dom@18.2.0)(react@18.2.0)
-      rc-slider: 10.5.0(react-dom@18.2.0)(react@18.2.0)
-      rc-steps: 6.0.1(react-dom@18.2.0)(react@18.2.0)
-      rc-switch: 4.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-table: 7.37.0(react-dom@18.2.0)(react@18.2.0)
-      rc-tabs: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      rc-textarea: 1.6.3(react-dom@18.2.0)(react@18.2.0)
-      rc-tooltip: 6.1.3(react-dom@18.2.0)(react@18.2.0)
-      rc-tree: 5.8.2(react-dom@18.2.0)(react@18.2.0)
-      rc-tree-select: 5.17.0(react-dom@18.2.0)(react@18.2.0)
-      rc-upload: 4.5.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-cascader: 3.21.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-checkbox: 3.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-collapse: 3.7.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-dialog: 9.3.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-drawer: 7.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-dropdown: 4.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-field-form: 1.41.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-image: 7.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-input: 1.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-input-number: 8.6.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-mentions: 2.10.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-menu: 9.12.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-notification: 5.3.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-pagination: 4.0.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-picker: 3.14.6(dayjs@1.11.10)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-progress: 3.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-rate: 2.12.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-segmented: 2.2.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-select: 14.11.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-slider: 10.5.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-steps: 6.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-switch: 4.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-table: 7.37.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tabs: 14.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-textarea: 1.6.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tooltip: 6.1.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tree: 5.8.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tree-select: 5.17.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-upload: 4.5.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       scroll-into-view-if-needed: 3.1.0
@@ -16586,13 +16620,13 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.11
 
-  create-jest@29.7.0(@types/node@20.11.5):
+  create-jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.11.5)
+      jest-config: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -16601,13 +16635,13 @@ snapshots:
       - supports-color
       - ts-node
 
-  create-jest@29.7.0(@types/node@20.9.0):
+  create-jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.9.0)
+      jest-config: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -16731,7 +16765,9 @@ snapshots:
     dependencies:
       mimic-response: 3.1.0
 
-  dedent@1.5.1: {}
+  dedent@1.5.1(babel-plugin-macros@3.1.0):
+    optionalDependencies:
+      babel-plugin-macros: 3.1.0
 
   deep-equal@2.2.3:
     dependencies:
@@ -17712,12 +17748,16 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  htmlnano@2.0.4(svgo@2.8.0):
+  htmlnano@2.0.4(postcss@8.4.33)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2):
     dependencies:
       cosmiconfig: 8.2.0
       posthtml: 0.16.6
-      svgo: 2.8.0
       timsort: 0.3.0
+    optionalDependencies:
+      postcss: 8.4.33
+      srcset: 4.0.0
+      svgo: 2.8.0
+      terser: 5.19.2
 
   htmlparser2@7.2.0:
     dependencies:
@@ -18112,7 +18152,7 @@ snapshots:
       jest-util: 29.7.0
       p-limit: 3.1.0
 
-  jest-circus@29.7.0:
+  jest-circus@29.7.0(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/environment': 29.7.0
       '@jest/expect': 29.7.0
@@ -18121,7 +18161,7 @@ snapshots:
       '@types/node': 20.11.5
       chalk: 4.1.2
       co: 4.6.0
-      dedent: 1.5.1
+      dedent: 1.5.1(babel-plugin-macros@3.1.0)
       is-generator-fn: 2.1.0
       jest-each: 29.7.0
       jest-matcher-utils: 29.7.0
@@ -18138,16 +18178,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@20.11.5):
+  jest-cli@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0):
     dependencies:
-      '@jest/core': 29.7.0
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.11.5)
+      create-jest: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.11.5)
+      jest-config: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -18157,16 +18197,16 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-cli@29.7.0(@types/node@20.9.0):
+  jest-cli@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0):
     dependencies:
-      '@jest/core': 29.7.0
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.9.0)
+      create-jest: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.9.0)
+      jest-config: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -18176,48 +18216,48 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@20.11.5):
+  jest-config@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0):
     dependencies:
       '@babel/core': 7.23.7
       '@jest/test-sequencer': 29.7.0
       '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.23.7)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0(babel-plugin-macros@3.1.0)
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.5
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
       '@types/node': 20.11.5
-      babel-jest: 29.7.0(@babel/core@7.23.7)
-      chalk: 4.1.2
-      ci-info: 3.9.0
-      deepmerge: 4.3.1
-      glob: 7.2.3
-      graceful-fs: 4.2.11
-      jest-circus: 29.7.0
-      jest-environment-node: 29.7.0
-      jest-get-type: 29.6.3
-      jest-regex-util: 29.6.3
-      jest-resolve: 29.7.0
-      jest-runner: 29.7.0
-      jest-util: 29.7.0
-      jest-validate: 29.7.0
-      micromatch: 4.0.5
-      parse-json: 5.2.0
-      pretty-format: 29.7.0
-      slash: 3.0.0
-      strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
 
-  jest-config@29.7.0(@types/node@20.9.0):
+  jest-config@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0):
     dependencies:
       '@babel/core': 7.23.7
       '@jest/test-sequencer': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.9.0
       babel-jest: 29.7.0(@babel/core@7.23.7)
       chalk: 4.1.2
       ci-info: 3.9.0
       deepmerge: 4.3.1
       glob: 7.2.3
       graceful-fs: 4.2.11
-      jest-circus: 29.7.0
+      jest-circus: 29.7.0(babel-plugin-macros@3.1.0)
       jest-environment-node: 29.7.0
       jest-get-type: 29.6.3
       jest-regex-util: 29.6.3
@@ -18230,6 +18270,8 @@ snapshots:
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 20.9.0
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -18326,7 +18368,7 @@ snapshots:
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@29.7.0):
-    dependencies:
+    optionalDependencies:
       jest-resolve: 29.7.0
 
   jest-regex-util@29.6.3: {}
@@ -18475,24 +18517,24 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@20.11.5):
+  jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0):
     dependencies:
-      '@jest/core': 29.7.0
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.11.5)
+      jest-cli: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
       - supports-color
       - ts-node
 
-  jest@29.7.0(@types/node@20.9.0):
+  jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0):
     dependencies:
-      '@jest/core': 29.7.0
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.9.0)
+      jest-cli: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -18510,7 +18552,7 @@ snapshots:
       '@sideway/pinpoint': 2.0.0
 
   jotai@2.6.2(@types/react@18.2.48)(react@18.2.0):
-    dependencies:
+    optionalDependencies:
       '@types/react': 18.2.48
       react: 18.2.0
 
@@ -18531,7 +18573,7 @@ snapshots:
 
   jsc-safe-url@0.2.4: {}
 
-  jscodeshift@0.14.0(@babel/preset-env@7.23.8):
+  jscodeshift@0.14.0(@babel/preset-env@7.23.8(@babel/core@7.23.7)):
     dependencies:
       '@babel/core': 7.23.7
       '@babel/parser': 7.23.3
@@ -19207,7 +19249,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@14.1.0(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0):
+  next@14.1.0(@babel/core@7.23.7)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.63.6):
     dependencies:
       '@next/env': 14.1.0
       '@swc/helpers': 0.5.2
@@ -19228,6 +19270,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 14.1.0
       '@next/swc-win32-ia32-msvc': 14.1.0
       '@next/swc-win32-x64-msvc': 14.1.0
+      sass: 1.63.6
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -19555,8 +19598,9 @@ snapshots:
   postcss-load-config@4.0.1(postcss@8.4.33):
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.33
       yaml: 2.3.1
+    optionalDependencies:
+      postcss: 8.4.33
 
   postcss-mixins@9.0.4(postcss@8.4.33):
     dependencies:
@@ -19755,319 +19799,320 @@ snapshots:
 
   range-parser@1.2.1: {}
 
-  rc-cascader@3.21.0(react-dom@18.2.0)(react@18.2.0):
+  rc-cascader@3.21.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       array-tree-filter: 2.1.0
       classnames: 2.5.1
-      rc-select: 14.11.0(react-dom@18.2.0)(react@18.2.0)
-      rc-tree: 5.8.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-select: 14.11.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tree: 5.8.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-checkbox@3.1.0(react-dom@18.2.0)(react@18.2.0):
+  rc-checkbox@3.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-collapse@3.7.2(react-dom@18.2.0)(react@18.2.0):
+  rc-collapse@3.7.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-dialog@9.3.4(react-dom@18.2.0)(react@18.2.0):
+  rc-dialog@9.3.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/portal': 1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-drawer@7.0.0(react-dom@18.2.0)(react@18.2.0):
+  rc-drawer@7.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/portal': 1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-dropdown@4.1.0(react-dom@18.2.0)(react@18.2.0):
+  rc-dropdown@4.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-field-form@1.41.0(react-dom@18.2.0)(react@18.2.0):
+  rc-field-form@1.41.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       async-validator: 4.2.5
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-image@7.5.1(react-dom@18.2.0)(react@18.2.0):
+  rc-image@7.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/portal': 1.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-dialog: 9.3.4(react-dom@18.2.0)(react@18.2.0)
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-dialog: 9.3.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-input-number@8.6.1(react-dom@18.2.0)(react@18.2.0):
+  rc-input-number@8.6.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       '@rc-component/mini-decimal': 1.1.0
       classnames: 2.5.1
-      rc-input: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-input: 1.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-input@1.4.3(react-dom@18.2.0)(react@18.2.0):
+  rc-input@1.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-mentions@2.10.1(react-dom@18.2.0)(react@18.2.0):
+  rc-mentions@2.10.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-input: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      rc-menu: 9.12.4(react-dom@18.2.0)(react@18.2.0)
-      rc-textarea: 1.6.3(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-input: 1.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-menu: 9.12.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-textarea: 1.6.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-menu@9.12.4(react-dom@18.2.0)(react@18.2.0):
+  rc-menu@9.12.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-overflow: 1.3.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-overflow: 1.3.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-motion@2.9.0(react-dom@18.2.0)(react@18.2.0):
+  rc-motion@2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-notification@5.3.0(react-dom@18.2.0)(react@18.2.0):
+  rc-notification@5.3.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-overflow@1.3.2(react-dom@18.2.0)(react@18.2.0):
+  rc-overflow@1.3.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-pagination@4.0.4(react-dom@18.2.0)(react@18.2.0):
+  rc-pagination@4.0.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-picker@3.14.6(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0):
+  rc-picker@3.14.6(dayjs@1.11.10)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    optionalDependencies:
       dayjs: 1.11.10
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
 
-  rc-progress@3.5.1(react-dom@18.2.0)(react@18.2.0):
+  rc-progress@3.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-rate@2.12.0(react-dom@18.2.0)(react@18.2.0):
+  rc-rate@2.12.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-resize-observer@1.4.0(react-dom@18.2.0)(react@18.2.0):
+  rc-resize-observer@1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
 
-  rc-segmented@2.2.2(react-dom@18.2.0)(react@18.2.0):
+  rc-segmented@2.2.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-select@14.11.0(react-dom@18.2.0)(react@18.2.0):
+  rc-select@14.11.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-overflow: 1.3.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
-      rc-virtual-list: 3.11.2(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-overflow: 1.3.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-virtual-list: 3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-slider@10.5.0(react-dom@18.2.0)(react@18.2.0):
-    dependencies:
-      '@babel/runtime': 7.23.2
-      classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  rc-steps@6.0.1(react-dom@18.2.0)(react@18.2.0):
+  rc-slider@10.5.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-switch@4.1.0(react-dom@18.2.0)(react@18.2.0):
+  rc-steps@6.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-table@7.37.0(react-dom@18.2.0)(react@18.2.0):
-    dependencies:
-      '@babel/runtime': 7.23.2
-      '@rc-component/context': 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
-      rc-virtual-list: 3.11.2(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  rc-tabs@14.0.0(react-dom@18.2.0)(react@18.2.0):
+  rc-switch@4.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-dropdown: 4.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-menu: 9.12.4(react-dom@18.2.0)(react@18.2.0)
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-textarea@1.6.3(react-dom@18.2.0)(react@18.2.0):
+  rc-table@7.37.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@rc-component/context': 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      classnames: 2.5.1
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-virtual-list: 3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  rc-tabs@14.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-input: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-dropdown: 4.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-menu: 9.12.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-tooltip@6.1.3(react-dom@18.2.0)(react@18.2.0):
+  rc-textarea@1.6.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
-      '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      classnames: 2.5.1
+      rc-input: 1.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  rc-tooltip@6.1.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@rc-component/trigger': 1.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-tree-select@5.17.0(react-dom@18.2.0)(react@18.2.0):
+  rc-tree-select@5.17.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-select: 14.11.0(react-dom@18.2.0)(react@18.2.0)
-      rc-tree: 5.8.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-select: 14.11.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-tree: 5.8.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-tree@5.8.2(react-dom@18.2.0)(react@18.2.0):
+  rc-tree@5.8.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
-      rc-virtual-list: 3.11.2(react-dom@18.2.0)(react@18.2.0)
+      rc-motion: 2.9.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-virtual-list: 3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-upload@4.5.2(react-dom@18.2.0)(react@18.2.0):
+  rc-upload@4.5.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  rc-util@5.38.1(react-dom@18.2.0)(react@18.2.0):
+  rc-util@5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
 
-  rc-virtual-list@3.11.2(react-dom@18.2.0)(react@18.2.0):
+  rc-virtual-list@3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-resize-observer: 1.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -20100,7 +20145,7 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-native-web@0.19.10(react-dom@18.2.0)(react@18.2.0):
+  react-native-web@0.19.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       '@react-native/normalize-color': 2.1.0
@@ -20115,19 +20160,19 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(react@18.2.0):
+  react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0):
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@react-native-community/cli': 12.3.0
       '@react-native-community/cli-platform-android': 12.3.0
       '@react-native-community/cli-platform-ios': 12.3.0
       '@react-native/assets-registry': 0.73.1
-      '@react-native/codegen': 0.73.2(@babel/preset-env@7.23.8)
-      '@react-native/community-cli-plugin': 0.73.12(@babel/core@7.23.7)(@babel/preset-env@7.23.8)
+      '@react-native/codegen': 0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))
+      '@react-native/community-cli-plugin': 0.73.12(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       '@react-native/gradle-plugin': 0.73.4
       '@react-native/js-polyfills': 0.73.1
       '@react-native/normalize-colors': 0.73.2
-      '@react-native/virtualized-lists': 0.73.4(react-native@0.73.2)
+      '@react-native/virtualized-lists': 0.73.4(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
@@ -20163,40 +20208,44 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  react-number-format@5.3.1(react-dom@18.2.0)(react@18.2.0):
+  react-number-format@5.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  react-redux@9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@5.0.1):
+  react-redux@9.1.0(@types/react@18.2.48)(react-native@0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0))(react@18.2.0)(redux@5.0.1):
     dependencies:
-      '@types/react': 18.2.48
       '@types/use-sync-external-store': 0.0.3
       react: 18.2.0
-      redux: 5.0.1
       use-sync-external-store: 1.2.0(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.48
+      react-native: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0)
+      redux: 5.0.1
 
   react-refresh@0.14.0: {}
 
   react-remove-scroll-bar@2.3.4(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       react: 18.2.0
       react-style-singleton: 2.2.1(@types/react@18.2.48)(react@18.2.0)
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   react-remove-scroll@2.5.7(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       react: 18.2.0
       react-remove-scroll-bar: 2.3.4(@types/react@18.2.48)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.48)(react@18.2.0)
       tslib: 2.6.2
       use-callback-ref: 1.3.0(@types/react@18.2.48)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.48)(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.48
 
-  react-router-dom@6.21.3(react-dom@18.2.0)(react@18.2.0):
+  react-router-dom@6.21.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@remix-run/router': 1.14.2
       react: 18.2.0
@@ -20216,11 +20265,12 @@ snapshots:
 
   react-style-singleton@2.2.1(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   react-textarea-autosize@8.5.3(@types/react@18.2.48)(react@18.2.0):
     dependencies:
@@ -20231,7 +20281,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
+  react-transition-group@4.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.8
       dom-helpers: 5.2.1
@@ -20638,7 +20688,7 @@ snapshots:
       is-plain-object: 5.0.0
       slate: 0.101.5
 
-  slate-react@0.101.5(react-dom@18.2.0)(react@18.2.0)(slate@0.101.5):
+  slate-react@0.101.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(slate@0.101.5):
     dependencies:
       '@juggle/resize-observer': 3.4.0
       '@types/is-hotkey': 0.1.9
@@ -20844,7 +20894,7 @@ snapshots:
 
   strnum@1.0.5: {}
 
-  styled-components@6.1.8(react-dom@18.2.0)(react@18.2.0):
+  styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@emotion/is-prop-valid': 1.2.1
       '@emotion/unitless': 0.8.0
@@ -20860,9 +20910,10 @@ snapshots:
 
   styled-jsx@5.1.1(@babel/core@7.23.7)(react@18.2.0):
     dependencies:
-      '@babel/core': 7.23.7
       client-only: 0.0.1
       react: 18.2.0
+    optionalDependencies:
+      '@babel/core': 7.23.7
 
   styleq@0.1.3: {}
 
@@ -20904,15 +20955,21 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-preprocess@5.1.3(@babel/core@7.23.7)(svelte@4.2.9)(typescript@5.3.3):
+  svelte-preprocess@5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.4.33))(postcss@8.4.33)(sass@1.63.6)(sugarss@4.0.1(postcss@8.4.33))(svelte@4.2.9)(typescript@5.3.3):
     dependencies:
-      '@babel/core': 7.23.7
       '@types/pug': 2.0.6
       detect-indent: 6.1.0
       magic-string: 0.30.5
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.9
+    optionalDependencies:
+      '@babel/core': 7.23.7
+      less: 4.1.3
+      postcss: 8.4.33
+      postcss-load-config: 4.0.1(postcss@8.4.33)
+      sass: 1.63.6
+      sugarss: 4.0.1(postcss@8.4.33)
       typescript: 5.3.3
 
   svelte@4.2.2:
@@ -21156,14 +21213,11 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.18.20)(jest@29.7.0)(typescript@5.2.2):
+  ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.18.20)(jest@29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0))(typescript@5.2.2):
     dependencies:
-      '@babel/core': 7.23.7
-      '@jest/types': 29.6.3
       bs-logger: 0.2.6
-      esbuild: 0.18.20
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.9.0)
+      jest: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-util: 29.6.1
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -21171,15 +21225,17 @@ snapshots:
       semver: 7.5.4
       typescript: 5.2.2
       yargs-parser: 21.1.1
-
-  ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(esbuild@0.19.5)(jest@29.7.0)(typescript@5.3.3):
-    dependencies:
+    optionalDependencies:
       '@babel/core': 7.23.7
       '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.23.7)
+      esbuild: 0.18.20
+
+  ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3):
+    dependencies:
       bs-logger: 0.2.6
-      esbuild: 0.19.5
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.11.5)
+      jest: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-util: 29.6.1
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -21187,6 +21243,11 @@ snapshots:
       semver: 7.5.4
       typescript: 5.3.3
       yargs-parser: 21.1.1
+    optionalDependencies:
+      '@babel/core': 7.23.7
+      '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.23.7)
+      esbuild: 0.19.5
 
   tslib@2.5.0: {}
 
@@ -21194,28 +21255,7 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tsup@7.2.0(@swc/core@1.3.96):
-    dependencies:
-      '@swc/core': 1.3.96
-      bundle-require: 4.0.1(esbuild@0.18.20)
-      cac: 6.7.14
-      chokidar: 3.5.3
-      debug: 4.3.4
-      esbuild: 0.18.20
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      postcss-load-config: 4.0.1(postcss@8.4.33)
-      resolve-from: 5.0.0
-      rollup: 3.28.0
-      source-map: 0.8.0-beta.0
-      sucrase: 3.34.0
-      tree-kill: 1.2.2
-    transitivePeerDependencies:
-      - supports-color
-      - ts-node
-
-  tsup@7.2.0(typescript@5.2.2):
+  tsup@7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.2.2):
     dependencies:
       bundle-require: 4.0.1(esbuild@0.18.20)
       cac: 6.7.14
@@ -21231,12 +21271,39 @@ snapshots:
       source-map: 0.8.0-beta.0
       sucrase: 3.34.0
       tree-kill: 1.2.2
+    optionalDependencies:
+      '@swc/core': 1.3.96(@swc/helpers@0.5.2)
+      postcss: 8.4.33
       typescript: 5.2.2
     transitivePeerDependencies:
       - supports-color
       - ts-node
 
-  tsup@8.0.1(typescript@5.3.3):
+  tsup@7.2.0(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3):
+    dependencies:
+      bundle-require: 4.0.1(esbuild@0.18.20)
+      cac: 6.7.14
+      chokidar: 3.5.3
+      debug: 4.3.4
+      esbuild: 0.18.20
+      execa: 5.1.1
+      globby: 11.1.0
+      joycon: 3.1.1
+      postcss-load-config: 4.0.1(postcss@8.4.33)
+      resolve-from: 5.0.0
+      rollup: 3.28.0
+      source-map: 0.8.0-beta.0
+      sucrase: 3.34.0
+      tree-kill: 1.2.2
+    optionalDependencies:
+      '@swc/core': 1.3.96(@swc/helpers@0.5.2)
+      postcss: 8.4.33
+      typescript: 5.3.3
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
+
+  tsup@8.0.1(@swc/core@1.3.96(@swc/helpers@0.5.2))(postcss@8.4.33)(typescript@5.3.3):
     dependencies:
       bundle-require: 4.0.1(esbuild@0.19.5)
       cac: 6.7.14
@@ -21252,6 +21319,9 @@ snapshots:
       source-map: 0.8.0-beta.0
       sucrase: 3.34.0
       tree-kill: 1.2.2
+    optionalDependencies:
+      '@swc/core': 1.3.96(@swc/helpers@0.5.2)
+      postcss: 8.4.33
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -21419,9 +21489,10 @@ snapshots:
 
   use-callback-ref@1.3.0(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   use-composed-ref@1.3.0(react@18.2.0):
     dependencies:
@@ -21429,21 +21500,24 @@ snapshots:
 
   use-isomorphic-layout-effect@1.1.2(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   use-latest@1.2.1(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       react: 18.2.0
       use-isomorphic-layout-effect: 1.1.2(@types/react@18.2.48)(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   use-sidecar@1.1.2(@types/react@18.2.48)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.48
       detect-node-es: 1.1.0
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.48
 
   use-sync-external-store@1.2.0(react@18.2.0):
     dependencies:
@@ -21485,17 +21559,29 @@ snapshots:
       '@vue/compiler-dom': 3.3.8
       '@vue/compiler-sfc': 3.3.8
       '@vue/runtime-dom': 3.3.8
-      '@vue/server-renderer': 3.3.8(vue@3.3.8)
+      '@vue/server-renderer': 3.3.8(vue@3.3.8(typescript@5.2.2))
       '@vue/shared': 3.3.8
+    optionalDependencies:
       typescript: 5.2.2
+
+  vue@3.3.8(typescript@5.3.3):
+    dependencies:
+      '@vue/compiler-dom': 3.3.8
+      '@vue/compiler-sfc': 3.3.8
+      '@vue/runtime-dom': 3.3.8
+      '@vue/server-renderer': 3.3.8(vue@3.3.8(typescript@5.3.3))
+      '@vue/shared': 3.3.8
+    optionalDependencies:
+      typescript: 5.3.3
 
   vue@3.4.15(typescript@5.3.3):
     dependencies:
       '@vue/compiler-dom': 3.4.15
       '@vue/compiler-sfc': 3.4.15
       '@vue/runtime-dom': 3.4.15
-      '@vue/server-renderer': 3.4.15(vue@3.4.15)
+      '@vue/server-renderer': 3.4.15(vue@3.4.15(typescript@5.3.3))
       '@vue/shared': 3.4.15
+    optionalDependencies:
       typescript: 5.3.3
 
   w3c-xmlserializer@4.0.0:
