@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-runtime",
-  "version": "0.23.1",
+  "version": "0.24.0",
   "description": "Plasmo Parcel Runtime",
   "files": [
     "dist"
