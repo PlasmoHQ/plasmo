@@ -10,36 +10,29 @@
 
 const LOADING_ID = "__plasmo-loading__"
 
-// Function to update the CSP to allow the new trusted type policy
-function updateCSP() {
-  const cspMetaTag = document.querySelector(
-    'meta[http-equiv="Content-Security-Policy"]'
-  )
-
-  if (!cspMetaTag) {
-    return
-  }
-
-  const currentCSP = cspMetaTag.getAttribute("content")
-  const newPolicy = ` trusted-html-${LOADING_ID}`
-
-  if (currentCSP.includes(newPolicy)) {
-    return
-  }
-
-  const updatedCSP = currentCSP + newPolicy
-  cspMetaTag.setAttribute("content", updatedCSP)
-}
-
 function createTrustedPolicy() {
   const trustedTypes = globalThis.window?.trustedTypes
   if (typeof trustedTypes === "undefined") {
     return undefined
   }
-  updateCSP()
-  return trustedTypes.createPolicy(`trusted-html-${LOADING_ID}`, {
-    createHTML: (str) => str
-  })
+
+  const trustedTypeLists = (
+    document.querySelector('meta[name="trusted-types"]') as HTMLMetaElement
+  )?.content?.split(" ")
+
+  const trustedKey = trustedTypeLists
+    ? trustedTypeLists[trustedTypeLists?.length - 1]
+    : undefined
+
+  // Function to update the CSP to allow the new trusted type policy or use existing policy
+  const trustedPolicy =
+    typeof trustedTypes !== "undefined"
+      ? trustedTypes.createPolicy(trustedKey || `trusted-html-${LOADING_ID}`, {
+          createHTML: (str) => str
+        })
+      : undefined
+
+  return trustedPolicy
 }
 
 const trustedPolicy = createTrustedPolicy()
