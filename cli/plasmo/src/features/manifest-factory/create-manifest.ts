@@ -2,7 +2,6 @@ import { find } from "@plasmo/utils/array"
 import { isAccessible } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
 
-import { updateBgswEntry } from "~features/background-service-worker/update-bgsw-entry"
 import type { PlasmoBundleConfig } from "~features/extension-devtools/get-bundle-config"
 
 import { PlasmoExtensionManifestMV2 } from "./mv2"
@@ -38,9 +37,6 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     plasmoManifest.addPagesDirectory(tabsDirectory),
     plasmoManifest.addPagesDirectory(sandboxesDirectory)
   ])
-
-  // BGSW needs to check CS set for main world
-  initResults.push(await updateBgswEntry(plasmoManifest))
 
   const hasEntrypoints = initResults.flat()
 
