@@ -405,11 +405,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const contentScript = this.injectEnvToObj({
         matches: ["<all_urls>"],
-        js: [
-          metadata?.config?.world === "MAIN"
-            ? scriptPath.split(scriptExt)[0]
-            : scriptPath
-        ],
+        js: [scriptPath],
+        world: metadata?.config?.world,
         ...(metadata?.config || {})
       })
 
@@ -571,9 +568,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
     // Populate content_scripts
     base.content_scripts = [
-      ...Array.from(this.contentScriptMap.values()).filter(
-        (s) => s.world !== "MAIN" // TODO: Remove this when Chrome natively supports mainworld for CS
-      ),
+      ...Array.from(this.contentScriptMap.values()),
       ...(overrideContentScripts! || [])
     ]
 

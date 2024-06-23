@@ -185,7 +185,11 @@ const commonProps = {
           type: "string",
           enum: ["document_idle", "document_start", "document_end"]
         },
-        all_frames: booleanSchema
+        all_frames: booleanSchema,
+        world: {
+          type: "string",
+          enum: ["MAIN", "ISOLATED"]
+        }
       },
       additionalProperties: false,
       required: ["matches"]

@@ -54,7 +54,9 @@ export default new Optimizer({
             comments: shouldMinify ? "some" : "all"
           },
           mangle: shouldMinify,
-          compress: shouldMinify,
+          compress: shouldMinify && {
+            drop_console: true
+          },
           sourceMap: sourceMapType !== "none",
           toplevel:
             bundle.env.outputFormat === "esmodule" ||
