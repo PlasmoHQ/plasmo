@@ -39,7 +39,7 @@ export async function createManifest(bundleConfig: PlasmoBundleConfig) {
     plasmoManifest.addPagesDirectory(sandboxesDirectory)
   ])
 
-  // BGSW needs to check CS set for main world
+  // Check for scripts to be bundled as the background service worker
   initResults.push(await updateBgswEntry(plasmoManifest))
 
   const hasEntrypoints = initResults.flat()
