@@ -10,6 +10,12 @@ import { type PlasmoManifest } from "~features/manifest-factory/base"
 export const createBgswMainWorldInjector = async (
   plasmoManifest: PlasmoManifest
 ) => {
+  const isProd = process.env.NODE_ENV === "production"
+
+  if (isProd) {
+    return false
+  }
+
   try {
     const outputPath = resolve(
       plasmoManifest.commonPath.staticDirectory,

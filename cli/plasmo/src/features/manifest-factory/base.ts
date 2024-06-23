@@ -403,12 +403,16 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         )
       }
 
+      const isDev = process.env.NODE_ENV === "development"
+
       const contentScript = this.injectEnvToObj({
         matches: ["<all_urls>"],
         js: [
-          metadata?.config?.world === "MAIN"
-            ? scriptPath.split(scriptExt)[0]
-            : scriptPath
+          //!! I am not sure what this actually does??
+          // metadata?.config?.world === "MAIN" && isDev
+          //   ? scriptPath.split(scriptExt)[0]
+          //   : scriptPath
+          scriptPath
         ],
         ...(metadata?.config || {})
       })
@@ -569,10 +573,12 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       }
     }
 
+    const isDev = process.env.NODE_ENV === "development"
+
     // Populate content_scripts
     base.content_scripts = [
-      ...Array.from(this.contentScriptMap.values()).filter(
-        (s) => s.world !== "MAIN" // TODO: Remove this when Chrome natively supports mainworld for CS
+      ...Array.from(this.contentScriptMap.values()).filter((s) =>
+        isDev ? s.world !== "MAIN" : true
       ),
       ...(overrideContentScripts! || [])
     ]
