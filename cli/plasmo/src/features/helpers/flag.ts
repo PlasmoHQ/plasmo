@@ -39,15 +39,15 @@ export const flagHelp = `
     
     init
 
-      --entry                     entry files (default: popup)
+      --entry=[name]              entry files (default: popup)
       --with-<name>               use an example template
 
     dev/build     
 
-      --target [string]           set the target (default: chrome-mv3)
-      --tag [string]              set the build tag (default: dev or prod depending on NODE_ENV)
-      --src-path [path]           set the source path relative to project root (default: src)
-      --build-path [path]         set the build path relative to project root (default: build)
-      --entry                     entry point name (default: popup)
-      --env                       relative path to top-level env file
+      --target=[string]           set the target (default: chrome-mv3)
+      --tag=[string]              set the build tag (default: dev or prod depending on NODE_ENV)
+      --src-path=[path]           set the source path relative to project root (default: src)
+      --build-path=[path]         set the build path relative to project root (default: build)
+      --entry=[name]              entry point name (default: popup)
+      --env=[path]                relative path to top-level env file
 `
