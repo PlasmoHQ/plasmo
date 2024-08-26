@@ -27,6 +27,8 @@ async function build() {
 
   const bundleConfig = getBundleConfig()
 
+  iLog("Building for target:", bundleConfig.target)
+
   const plasmoManifest = await createManifest(bundleConfig)
 
   const bundler = await createParcelBuilder(plasmoManifest, {
