@@ -623,9 +623,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
           delete output.browser_specific_settings
       }
     }
-    
+
     if (output.overrides && output.overrides[this.browser]) {
-      output = { ...output, ...(output.overrides[this.browser] || {}) }
+      output = { ...output, ...output.overrides[this.browser] }
       delete output.overrides
     }
     return this.injectEnvToObj(output)
