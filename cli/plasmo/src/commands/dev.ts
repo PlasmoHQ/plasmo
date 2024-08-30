@@ -39,6 +39,8 @@ async function dev() {
 
   const bundleConfig = getBundleConfig()
 
+  iLog("Building for target:", bundleConfig.target)
+
   const plasmoManifest = await createManifest(bundleConfig)
 
   const projectWatcher = await createProjectWatcher(plasmoManifest)
