@@ -1221,6 +1221,49 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
+  examples/with-browser-specific-overrides:
+    dependencies:
+      bip39:
+        specifier: 3.1.0
+        version: 3.1.0
+      buffer:
+        specifier: 6.0.3
+        version: 6.0.3
+      events:
+        specifier: 3.3.0
+        version: 3.3.0
+      plasmo:
+        specifier: workspace:*
+        version: link:../../cli/plasmo
+      process:
+        specifier: 0.11.10
+        version: 0.11.10
+      stream-browserify:
+        specifier: 3.0.0
+        version: 3.0.0
+    devDependencies:
+      '@ianvs/prettier-plugin-sort-imports':
+        specifier: 4.1.1
+        version: 4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)
+      '@types/chrome':
+        specifier: 0.0.258
+        version: 0.0.258
+      '@types/node':
+        specifier: 20.11.5
+        version: 20.11.5
+      '@types/react':
+        specifier: 18.2.48
+        version: 18.2.48
+      '@types/react-dom':
+        specifier: 18.2.18
+        version: 18.2.18
+      prettier:
+        specifier: 3.2.4
+        version: 3.2.4
+      typescript:
+        specifier: 5.3.3
+        version: 5.3.3
+
   examples/with-client-tests:
     dependencies:
       '@plasmohq/messaging':
@@ -3208,8 +3251,8 @@ importers:
   packages/framework-shared:
     dependencies:
       ws:
-        specifier: 8.14.2
-        version: 8.14.2
+        specifier: 8.17.1
+        version: 8.17.1
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
@@ -3499,10 +3542,6 @@ packages:
 
   '@babel/core@7.23.7':
     resolution: {integrity: sha512-+UpDgowcmqe36d4NwqvKsyPMlOLNGMsfMmQ5WGCu+siCe3t3dfe9njrzGfdN4qq+bcNUt0+Vw6haRxBOycs4dw==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/generator@7.23.3':
-    resolution: {integrity: sha512-keeZWAV4LU3tW0qRi19HRpabC/ilM0HRBBzf9/k8FFiG4KVpiv0FIy4hHfLfFQZNhziCTPTmd59zoyv6DNISzg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/generator@7.23.6':
@@ -4258,10 +4297,6 @@ packages:
 
   '@babel/template@7.22.15':
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/traverse@7.23.3':
-    resolution: {integrity: sha512-+K0yF1/9yR0oHdE0StHuEj3uTPzwwbrLGfNOndVJVV2TqA5+j3oljJUb4nmB954FLGjNem976+B+eDuLIjesiQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/traverse@7.23.7':
@@ -11655,8 +11690,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.14.2:
-    resolution: {integrity: sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==}
+  ws@8.17.1:
+    resolution: {integrity: sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -11807,13 +11842,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/generator@7.23.3':
-    dependencies:
-      '@babel/types': 7.23.3
-      '@jridgewell/gen-mapping': 0.3.3
-      '@jridgewell/trace-mapping': 0.3.20
-      jsesc: 2.5.2
-
   '@babel/generator@7.23.6':
     dependencies:
       '@babel/types': 7.23.6
@@ -11823,11 +11851,11 @@ snapshots:
 
   '@babel/helper-annotate-as-pure@7.22.5':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-builder-binary-assignment-operator-visitor@7.22.15':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-compilation-targets@7.22.15':
     dependencies:
@@ -11868,7 +11896,7 @@ snapshots:
   '@babel/helper-define-polyfill-provider@0.4.3(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/helper-compilation-targets': 7.22.15
+      '@babel/helper-compilation-targets': 7.23.6
       '@babel/helper-plugin-utils': 7.22.5
       debug: 4.3.4
       lodash.debounce: 4.0.8
@@ -11903,19 +11931,19 @@ snapshots:
   '@babel/helper-function-name@7.23.0':
     dependencies:
       '@babel/template': 7.22.15
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-hoist-variables@7.22.5':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-member-expression-to-functions@7.22.15':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-module-imports@7.22.15':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-module-transforms@7.23.3(@babel/core@7.23.7)':
     dependencies:
@@ -11928,7 +11956,7 @@ snapshots:
 
   '@babel/helper-optimise-call-expression@7.22.5':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-plugin-utils@7.22.5': {}
 
@@ -11948,15 +11976,15 @@ snapshots:
 
   '@babel/helper-simple-access@7.22.5':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-skip-transparent-expression-wrappers@7.22.5':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-split-export-declaration@7.22.6':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helper-string-parser@7.22.5': {}
 
@@ -11972,7 +12000,7 @@ snapshots:
     dependencies:
       '@babel/helper-function-name': 7.23.0
       '@babel/template': 7.22.15
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/helpers@7.23.8':
     dependencies:
@@ -12480,7 +12508,7 @@ snapshots:
       '@babel/helper-module-imports': 7.22.15
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-jsx': 7.23.3(@babel/core@7.23.7)
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@babel/plugin-transform-regenerator@7.23.3(@babel/core@7.23.7)':
     dependencies:
@@ -12701,23 +12729,8 @@ snapshots:
   '@babel/template@7.22.15':
     dependencies:
       '@babel/code-frame': 7.22.13
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.3
-
-  '@babel/traverse@7.23.3':
-    dependencies:
-      '@babel/code-frame': 7.22.13
-      '@babel/generator': 7.23.3
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-function-name': 7.23.0
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.3
-      debug: 4.3.4
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
+      '@babel/parser': 7.23.6
+      '@babel/types': 7.23.6
 
   '@babel/traverse@7.23.7':
     dependencies:
@@ -13380,10 +13393,10 @@ snapshots:
   '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.0.3)':
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
-      '@babel/parser': 7.23.3
-      '@babel/traverse': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/generator': 7.23.6
+      '@babel/parser': 7.23.6
+      '@babel/traverse': 7.23.7
+      '@babel/types': 7.23.6
       prettier: 3.0.3
       semver: 7.5.4
     optionalDependencies:
@@ -13394,10 +13407,10 @@ snapshots:
   '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.3.8)(prettier@3.2.4)':
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
-      '@babel/parser': 7.23.3
-      '@babel/traverse': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/generator': 7.23.6
+      '@babel/parser': 7.23.6
+      '@babel/traverse': 7.23.7
+      '@babel/types': 7.23.6
       prettier: 3.2.4
       semver: 7.5.4
     optionalDependencies:
@@ -13792,7 +13805,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.23.8
       '@emotion/cache': 11.11.0
-      csstype: 3.1.2
+      csstype: 3.1.3
       prop-types: 15.8.1
       react: 18.2.0
     optionalDependencies:
@@ -13807,7 +13820,7 @@ snapshots:
       '@mui/types': 7.2.13(@types/react@18.2.48)
       '@mui/utils': 5.15.5(@types/react@18.2.48)(react@18.2.0)
       clsx: 2.1.0
-      csstype: 3.1.2
+      csstype: 3.1.3
       prop-types: 15.8.1
       react: 18.2.0
     optionalDependencies:
@@ -14952,7 +14965,7 @@ snapshots:
 
   '@react-native/codegen@0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))':
     dependencies:
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.6
       '@babel/preset-env': 7.23.8(@babel/core@7.23.7)
       flow-parser: 0.206.0
       glob: 7.2.3
@@ -15166,7 +15179,7 @@ snapshots:
       '@supabase/node-fetch': 2.6.14
       '@types/phoenix': 1.6.1
       '@types/ws': 8.5.10
-      ws: 8.14.2
+      ws: 8.17.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -15243,7 +15256,7 @@ snapshots:
 
   '@svgr/hast-util-to-babel-ast@6.5.1':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
       entities: 4.5.0
 
   '@svgr/plugin-jsx@6.5.1(@svgr/core@6.5.1)':
@@ -15420,24 +15433,24 @@ snapshots:
 
   '@types/babel__core@7.20.4':
     dependencies:
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/parser': 7.23.6
+      '@babel/types': 7.23.6
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.4
 
   '@types/babel__generator@7.6.7':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/parser': 7.23.6
+      '@babel/types': 7.23.6
 
   '@types/babel__traverse@7.20.4':
     dependencies:
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
 
   '@types/chrome@0.0.251':
     dependencies:
@@ -16046,7 +16059,7 @@ snapshots:
   babel-plugin-jest-hoist@29.6.3:
     dependencies:
       '@babel/template': 7.22.15
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
       '@types/babel__core': 7.20.4
       '@types/babel__traverse': 7.20.4
 
@@ -16892,7 +16905,7 @@ snapshots:
   dom-helpers@5.2.1:
     dependencies:
       '@babel/runtime': 7.23.8
-      csstype: 3.1.2
+      csstype: 3.1.3
 
   dom-serializer@1.4.1:
     dependencies:
@@ -18097,7 +18110,7 @@ snapshots:
   istanbul-lib-instrument@5.2.1:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.6
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
       semver: 6.3.1
@@ -18107,7 +18120,7 @@ snapshots:
   istanbul-lib-instrument@6.0.1:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.6
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
       semver: 7.5.4
@@ -18448,10 +18461,10 @@ snapshots:
   jest-snapshot@29.7.0:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
+      '@babel/generator': 7.23.6
       '@babel/plugin-syntax-jsx': 7.23.3(@babel/core@7.23.7)
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.23.7)
-      '@babel/types': 7.23.3
+      '@babel/types': 7.23.6
       '@jest/expect-utils': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
@@ -18576,7 +18589,7 @@ snapshots:
   jscodeshift@0.14.0(@babel/preset-env@7.23.8(@babel/core@7.23.7)):
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.6
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.7)
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.23.7)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.23.7)
@@ -18624,7 +18637,7 @@ snapshots:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
-      ws: 8.14.2
+      ws: 8.17.1
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -19028,8 +19041,8 @@ snapshots:
 
   metro-source-map@0.80.4:
     dependencies:
-      '@babel/traverse': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/traverse': 7.23.7
+      '@babel/types': 7.23.6
       invariant: 2.2.4
       metro-symbolicate: 0.80.4
       nullthrows: 1.1.1
@@ -19053,9 +19066,9 @@ snapshots:
   metro-transform-plugins@0.80.4:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
+      '@babel/generator': 7.23.6
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.3
+      '@babel/traverse': 7.23.7
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - supports-color
@@ -19063,9 +19076,9 @@ snapshots:
   metro-transform-worker@0.80.4:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/generator': 7.23.6
+      '@babel/parser': 7.23.6
+      '@babel/types': 7.23.6
       metro: 0.80.4
       metro-babel-transformer: 0.80.4
       metro-cache: 0.80.4
@@ -19083,11 +19096,11 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.22.13
       '@babel/core': 7.23.7
-      '@babel/generator': 7.23.3
-      '@babel/parser': 7.23.3
+      '@babel/generator': 7.23.6
+      '@babel/parser': 7.23.6
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.3
-      '@babel/types': 7.23.3
+      '@babel/traverse': 7.23.7
+      '@babel/types': 7.23.6
       accepts: 1.3.8
       chalk: 4.1.2
       ci-info: 2.0.0
@@ -19509,7 +19522,7 @@ snapshots:
 
   parse-json@5.2.0:
     dependencies:
-      '@babel/code-frame': 7.22.13
+      '@babel/code-frame': 7.23.5
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -21739,7 +21752,7 @@ snapshots:
 
   ws@7.5.9: {}
 
-  ws@8.14.2: {}
+  ws@8.17.1: {}
 
   xml-name-validator@4.0.0: {}
 
