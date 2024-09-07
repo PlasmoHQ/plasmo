@@ -16,6 +16,7 @@
     "build:api": "turbo run build --filter \"./api/**\"",
     "build:core": "turbo run build --filter \"./core/**\"",
     "build:examples": "pnpm --filter \"./examples/**\" -r build",
+    "test:examples": "pnpm --filter \"./examples/**\" -r test",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
     "publish:api": "pnpm --filter \"./api/**\" publish",
     "publish:core": "pnpm --filter \"./core/**\" publish",
