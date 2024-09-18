@@ -89,6 +89,12 @@ function maybeParseJSON(value: string): any {
   return match ? JSON.parse(match[1]) : value
 }
 
+export const setInternalEnv = (env: Record<string, string>) => {
+  for (const [key, value] of Object.entries(env)) {
+    process.env[`${INTERNAL_ENV_PREFIX}${constantCase(key)}`] = value
+  }
+}
+
 export const getEnvFileNames = () => {
   const nodeEnv = process.env.NODE_ENV
   const flagMap = getFlagMap()
