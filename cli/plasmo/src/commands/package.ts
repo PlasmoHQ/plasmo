@@ -9,7 +9,7 @@ import { zipBundle } from "~features/manifest-factory/zip"
 
 async function packageCmd() {
   printHeader()
-  await checkNewVersion()
+  checkNewVersion()
 
   process.env.NODE_ENV = "production"
 
