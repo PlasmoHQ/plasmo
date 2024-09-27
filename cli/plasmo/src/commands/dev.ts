@@ -14,7 +14,7 @@ import { createManifest } from "~features/manifest-factory/create-manifest"
 
 async function dev() {
   printHeader()
-  await checkNewVersion()
+  checkNewVersion()
 
   process.env.NODE_ENV = "development"
 
