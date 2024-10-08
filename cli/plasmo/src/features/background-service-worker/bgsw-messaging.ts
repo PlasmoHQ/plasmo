@@ -1,7 +1,7 @@
-import { join, resolve } from "path"
 import { camelCase } from "change-case"
 import glob from "fast-glob"
 import { outputFile } from "fs-extra"
+import { join, resolve } from "path"
 
 import { isWriteable } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
@@ -77,7 +77,8 @@ const getHandlerList = async (
 
   const handlerFileList = await glob("**/*.ts", {
     cwd: handlerDir,
-    onlyFiles: true
+    onlyFiles: true,
+    ignore: dirName === "messages" ? ["external"] : []
   })
 
   return handlerFileList.map((filePath) => {
