@@ -161,7 +161,7 @@ export class Parcel {
       throw new BuildError(result.diagnostics)
     }
 
-    return result
+    return result as BuildSuccessEvent
   }
 
   async _end(): Promise<void> {
@@ -259,6 +259,11 @@ export class Parcel {
       if (options.shouldProfile) {
         await this.startProfiling()
       }
+
+      this.#watchEvents.emit({
+        buildEvent: { type: "buildStart" }
+      })
+
       this.#reporterRunner.report({
         type: "buildStart"
       })

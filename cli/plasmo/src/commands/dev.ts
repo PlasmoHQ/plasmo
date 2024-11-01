@@ -9,6 +9,7 @@ import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { createProjectWatcher } from "~features/extension-devtools/project-watcher"
 import { checkNewVersion } from "~features/framework-update/version-tracker"
 import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
+import { startLoading, stopLoading } from "~features/helpers/loading-animation"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
 
@@ -62,6 +63,7 @@ async function dev() {
 
   const bundlerWatcher = await bundler.watch(async (err, event) => {
     if (err) {
+      stopLoading()
       throw err
     }
 
@@ -69,13 +71,21 @@ async function dev() {
       return
     }
 
+    if (event.type === "buildStart") {
+      startLoading()
+      return
+    }
+
     if (event.type === "buildSuccess") {
+      stopLoading()
       sLog(`Extension re-packaged in ${chalk.bold(event.buildTime)}ms! 🚀`)
-
       await plasmoManifest.postBuild()
-
       buildWatcher.broadcast(BuildSocketEvent.BuildReady)
-    } else if (event.type === "buildFailure") {
+      return
+    }
+
+    if (event.type === "buildFailure") {
+      stopLoading()
       if (!isVerbose()) {
         eLog(
           chalk.redBright(
