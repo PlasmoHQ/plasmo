@@ -121,7 +121,7 @@
   "devDependencies": {
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
-    "@testing-library/react": "14.1.0",
+    "@testing-library/react": "16.2.0",
     "@types/chrome": "0.0.251",
     "@types/node": "20.9.0",
     "@types/react": "18.2.37",
