@@ -62,7 +62,7 @@
     "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
     "node-object-hash": "3.0.0",
-    "package-json": "8.1.1",
+    "package-json": "10.0.1",
     "process": "0.11.10",
     "semver": "7.5.4",
     "sharp": "0.32.6",
