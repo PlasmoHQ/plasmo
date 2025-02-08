@@ -35,7 +35,7 @@
     "constants-browserify": "1.0.0",
     "crc-32": "1.2.2",
     "crypto-browserify": "3.12.0",
-    "domain-browser": "4.23.0",
+    "domain-browser": "5.7.0",
     "esbuild": "0.19.5",
     "events": "3.3.0",
     "https-browserify": "1.0.0",

@@ -787,8 +787,8 @@ importers:
         specifier: 3.12.0
         version: 3.12.0
       domain-browser:
-        specifier: 4.23.0
-        version: 4.23.0
+        specifier: 5.7.0
+        version: 5.7.0
       esbuild:
         specifier: 0.19.5
         version: 0.19.5
@@ -8363,9 +8363,9 @@ packages:
   dom-serializer@1.4.1:
     resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
 
-  domain-browser@4.23.0:
-    resolution: {integrity: sha512-ArzcM/II1wCCujdCNyQjXrAFwS4mrLh4C7DZWlaI8mdh7h3BfKdNd3bKXITfl2PT9FtfQqaGvhi1vPRQPimjGA==}
-    engines: {node: '>=10'}
+  domain-browser@5.7.0:
+    resolution: {integrity: sha512-edTFu0M/7wO1pXY6GDxVNVW086uqwWYIHP98txhcPyV995X21JIH2DtYp33sQJOupYoXKe9RwTw2Ya2vWaquTQ==}
+    engines: {node: '>=4'}
 
   domelementtype@2.3.0:
     resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
@@ -18240,7 +18240,7 @@ snapshots:
       domhandler: 4.3.1
       entities: 2.2.0
 
-  domain-browser@4.23.0: {}
+  domain-browser@5.7.0: {}
 
   domelementtype@2.3.0: {}
 
