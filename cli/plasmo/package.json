@@ -55,7 +55,7 @@
     "fast-glob": "3.3.2",
     "fflate": "0.8.1",
     "get-port": "7.0.0",
-    "got": "13.0.0",
+    "got": "14.4.5",
     "ignore": "7.0.3",
     "inquirer": "9.2.12",
     "is-path-inside": "4.0.0",
