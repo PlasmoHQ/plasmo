@@ -16,7 +16,7 @@
 	branch = main
 [submodule "examples"]
 	path = examples
-	url = https://github.com/PlasmoHQ/examples.git
+	url = https://github.com/pippinmole/examples.git
 [submodule "packages/permission-ui"]
 	path = packages/permission-ui
 	url = https://github.com/PlasmoHQ/permission-ui.git
