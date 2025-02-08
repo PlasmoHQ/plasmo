@@ -1,25 +1,25 @@
 [submodule "packages/rps"]
 	path = packages/rps
-	url = https://github.com/PlasmoHQ/rps.git
+	url = git@github.com:PlasmoHQ/rps.git
 	branch = main
 [submodule "packages/puro"]
 	path = packages/puro
-	url = https://github.com/PlasmoHQ/puro.git
+	url = git@github.com:PlasmoHQ/puro.git
 	branch = main
 [submodule "packages/gcp-refresh-token"]
 	path = packages/gcp-refresh-token
-	url = https://github.com/PlasmoHQ/gcp-refresh-token.git
+	url = git@github.com:PlasmoHQ/gcp-refresh-token.git
 	branch = main
 [submodule "packages/use-hashed-state"]
 	path = packages/use-hashed-state
-	url = https://github.com/PlasmoHQ/use-hashed-state.git
+	url = git@github.com:PlasmoHQ/use-hashed-state.git
 	branch = main
 [submodule "examples"]
 	path = examples
-	url = https://github.com/pippinmole/examples.git
+	url = git@github.com:PlasmoHQ/examples.git
 [submodule "packages/permission-ui"]
 	path = packages/permission-ui
-	url = https://github.com/PlasmoHQ/permission-ui.git
+	url = git@github.com:PlasmoHQ/permission-ui.git
 [submodule "packages/utils"]
 	path = packages/utils
 	url = https://github.com/PlasmoHQ/plasmo-utils.git
@@ -31,5 +31,5 @@
 	url = https://github.com/PlasmoHQ/plasmo-config.git
 [submodule "api/storage"]
 	path = api/storage
-	url = https://github.com/PlasmoHQ/storage.git
+	url = git@github.com:PlasmoHQ/storage.git
 	branch = main
