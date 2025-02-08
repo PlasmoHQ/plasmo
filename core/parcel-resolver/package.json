@@ -49,7 +49,7 @@
     "stream-http": "3.2.0",
     "string_decoder": "1.3.0",
     "timers-browserify": "2.0.12",
-    "tsup": "7.2.0",
+    "tsup": "8.3.6",
     "tty-browserify": "0.0.1",
     "url": "0.11.3",
     "util": "0.12.5",
