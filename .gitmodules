@@ -1,6 +1,6 @@
 [submodule "packages/rps"]
 	path = packages/rps
-	url = git@github.com:PlasmoHQ/rps.git
+	url = https://github.com/PlasmoHQ/rps.git
 	branch = main
 [submodule "packages/puro"]
 	path = packages/puro
