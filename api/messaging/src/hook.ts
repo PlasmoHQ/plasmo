@@ -28,7 +28,7 @@ export const useMessage = <RequestBody, ResponseBody>(
 }
 
 export const usePort: PlasmoMessaging.PortHook = (name) => {
-  const portRef = useRef<chrome.runtime.Port>()
+  const portRef = useRef<chrome.runtime.Port>(undefined)
   const reconnectRef = useRef(0)
   const [data, setData] = useState()
 
@@ -76,7 +76,7 @@ export function useMessageRelay<RequestBody = any>(
 }
 
 export const useRelay: PlasmoMessaging.RelayFx = (req, onMessage) => {
-  const relayRef = useRef<() => void>()
+  const relayRef = useRef<() => void>(undefined)
 
   useEffect(() => {
     relayRef.current = relay(req, onMessage)
