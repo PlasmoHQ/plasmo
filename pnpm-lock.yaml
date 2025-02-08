@@ -346,8 +346,8 @@ importers:
         specifier: 13.0.0
         version: 13.0.0
       ignore:
-        specifier: 5.2.4
-        version: 5.2.4
+        specifier: 7.0.3
+        version: 7.0.3
       inquirer:
         specifier: 9.2.12
         version: 9.2.12
@@ -8861,6 +8861,10 @@ packages:
 
   ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
+    engines: {node: '>= 4'}
+
+  ignore@7.0.3:
+    resolution: {integrity: sha512-bAH5jbK/F3T3Jls4I0SO1hmPR0dKU0a7+SY6n1yzRtG54FLO8d6w/nxLFX2Nb7dBu6cCWXPaAME6cYqFUMmuCA==}
     engines: {node: '>= 4'}
 
   image-size@0.5.5:
@@ -18712,6 +18716,8 @@ snapshots:
   ieee754@1.2.1: {}
 
   ignore@5.2.4: {}
+
+  ignore@7.0.3: {}
 
   image-size@0.5.5:
     optional: true
