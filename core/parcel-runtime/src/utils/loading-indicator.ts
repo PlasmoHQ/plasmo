@@ -21,7 +21,7 @@ function createTrustedPolicy() {
   )?.content?.split(" ")
 
   const trustedKey = trustedTypeLists
-    ? trustedTypeLists[trustedTypeLists?.length - 1]
+    ? trustedTypeLists[trustedTypeLists?.length - 1].replace(/;/g, "")
     : undefined
 
   // Function to update the CSP to allow the new trusted type policy or use existing policy
