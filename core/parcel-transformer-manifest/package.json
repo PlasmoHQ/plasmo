@@ -25,7 +25,7 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "7.2.0"
+    "tsup": "8.3.6"
   },
   "dependencies": {
     "@mischnic/json-sourcemap": "0.1.0",
@@ -36,7 +36,7 @@
     "@parcel/types": "2.9.3",
     "@parcel/utils": "2.9.3",
     "content-security-policy-parser": "0.4.1",
-    "json-schema-to-ts": "2.9.2",
+    "json-schema-to-ts": "3.1.1",
     "nullthrows": "1.1.1"
   }
 }

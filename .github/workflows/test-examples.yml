@@ -1,10 +1,9 @@
 name: Test examples
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
-  workflow_dispatch:
+    types: [opened, synchronize]
 
 jobs:
   build:
