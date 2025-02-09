@@ -1,0 +1,37 @@
+name: Test package manager execution
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to test, i.e latest, 1.0.0. Default latest"
+        required: false
+        default: latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        package-manager:
+          [{ name: "pnpm", exec: "pnpm dlx" }, { name: "npm", exec: "npx -y" }]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: "Install package manager"
+        run: npm install -g ${{ matrix.package-manager.name }}
+      - name: Check if Plasmo command works
+        run: ${{ matrix.package-manager.exec }} plasmo@${{ github.event.inputs.tag }} version
+      - name: Check if plasmo init works at all
+        run: yes "lab" | ${{ matrix.package-manager.exec }} plasmo@${{ github.event.inputs.tag }} init --verbose
+      - name: Check if building is possible and if it built
+        run: |
+          pushd lab
+          ${{ matrix.package-manager.name }} run build
+          pushd build
+          popd
+          timeout 10 ${{ matrix.package-manager.name }} run dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi

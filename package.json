@@ -2,22 +2,63 @@
   "name": "p1asm0",
   "private": true,
   "workspaces": [
+    "cli/*",
+    "api/*",
+    "core/*",
     "packages/*",
-    "templates/*",
-    "extensions/*"
+    "examples/*"
   ],
   "scripts": {
+    "dev:cli": "turbo run dev --filter=plasmo",
     "build": "turbo run build",
-    "patch": "pnpm --filter ./packages/** --parallel -r exec pnpm version -- patch",
-    "publish": "pnpm --parallel --filter ./packages/** -r publish"
+    "build:cli": "turbo run build --filter=plasmo",
+    "build:packages": "turbo run build --filter \"./packages/**\"",
+    "build:api": "turbo run build --filter \"./api/**\"",
+    "build:core": "turbo run build --filter \"./core/**\"",
+    "build:examples": "pnpm --filter \"./examples/**\" -r build",
+    "test:examples": "pnpm --filter \"./examples/**\" -r test",
+    "publish:packages": "pnpm --filter \"./packages/**\" publish",
+    "publish:api": "pnpm --filter \"./api/**\" publish",
+    "publish:core": "pnpm --filter \"./core/**\" publish",
+    "publish:cli": "pnpm --filter \"./cli/*\" publish",
+    "publish:cli:lab": "pnpm --filter \"./cli/*\" publish --no-git-checks --tag lab",
+    "publish:lab": "run-s publish:packages publish:cli:lab",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mjs}\"",
+    "### version script usage example": "pnpm v:cli patch",
+    "v:packages": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:core": "pnpm --filter \"./core/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:api": "pnpm --filter \"./api/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update",
+    "v:cli": "pnpm --filter \"./cli/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
+  },
+  "pnpm": {
+    "overrides": {
+      "@parcel/source-map": "2.1.1",
+      "react-refresh": "0.14.0"
+    }
   },
   "devDependencies": {
-    "turbo": "1.2.8"
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@plasmohq/rps": "workspace:*",
+    "@types/fs-extra": "11.0.4",
+    "@types/inquirer": "9.0.7",
+    "@types/node": "20.9.0",
+    "@types/node-rsa": "1.1.4",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "@types/semver": "7.5.5",
+    "@types/uuid": "10.0.0",
+    "@types/ws": "8.5.9",
+    "esbuild": "0.19.5",
+    "eslint": "8.53.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-react": "7.33.2",
+    "fs-extra": "11.1.1",
+    "prettier": "3.2.4",
+    "tsup": "8.3.6",
+    "turbo": "2.4.0"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@7.0.1",
-  "version": "0.0.2"
+  "packageManager": "pnpm@9.15.0"
 }

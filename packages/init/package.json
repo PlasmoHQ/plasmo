@@ -1,0 +1,18 @@
+{
+  "name": "@plasmohq/init",
+  "version": "0.7.0",
+  "description": "Plasmo init template files",
+  "files": [
+    "entries",
+    "templates",
+    "bpp.yml"
+  ],
+  "main": "index.json",
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  }
+}

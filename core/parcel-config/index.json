@@ -1,0 +1,74 @@
+{
+  "extends": "@parcel/config-default",
+  "bundler": "@plasmohq/parcel-bundler",
+  "resolvers": [
+    "@plasmohq/parcel-resolver",
+    "@parcel/resolver-default",
+    "@plasmohq/parcel-resolver-post"
+  ],
+  "transformers": {
+    "*.plasmo.manifest.json": ["@plasmohq/parcel-transformer-manifest"],
+
+    "react:*.svg": ["@parcel/transformer-svg-react"],
+    "react:*.{js,mjs,jsm,jsx,es6,cjs,ts,tsx}": [
+      "@parcel/transformer-babel",
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap"
+    ],
+
+    "data-text:*.module.{css,pcss}": [
+      "@parcel/transformer-postcss",
+      "@plasmohq/parcel-transformer-inline-css",
+      "@parcel/transformer-inline-string"
+    ],
+
+    "data-text:*": ["...", "@parcel/transformer-inline-string"],
+    "data-base64:*": ["...", "@parcel/transformer-inline-string"],
+
+    "data-env:*": ["@plasmohq/parcel-transformer-inject-env", "..."],
+    "data-text-env:*": [
+      "@plasmohq/parcel-transformer-inject-env",
+      "...",
+      "@parcel/transformer-inline-string"
+    ],
+
+    "raw:*": ["@parcel/transformer-raw"],
+    "raw-env:*": [
+      "@plasmohq/parcel-transformer-inject-env",
+      "@parcel/transformer-raw"
+    ],
+
+    "*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "template:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "script:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "style:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "style-raw:*.vue": ["@plasmohq/parcel-transformer-vue"],
+    "custom:*.vue": ["@plasmohq/parcel-transformer-vue"],
+
+    "*.svelte": ["@plasmohq/parcel-transformer-svelte"],
+
+    "*.{gql,graphql}": ["@parcel/transformer-graphql"],
+    "*.{sass,scss}": ["@parcel/transformer-sass"],
+    "*.less": ["@parcel/transformer-less"]
+  },
+  "namers": ["@plasmohq/parcel-namer-manifest", "..."],
+  "packagers": {
+    "manifest.json": "@plasmohq/parcel-packager"
+  },
+  "optimizers": {
+    "data-base64:*": ["...", "@parcel/optimizer-data-url"],
+    "*.{js,mjs,cjs}": [
+      "@plasmohq/parcel-optimizer-encapsulate",
+      "@plasmohq/parcel-optimizer-es"
+    ]
+  },
+  "compressors": {
+    "*.js": ["@plasmohq/parcel-compressor-utf8"],
+    "*": ["@parcel/compressor-raw"]
+  },
+  "runtimes": [
+    "@parcel/runtime-js",
+    "@plasmohq/parcel-runtime",
+    "@parcel/runtime-service-worker"
+  ]
+}

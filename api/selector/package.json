@@ -1,0 +1,95 @@
+{
+  "name": "@plasmohq/selector",
+  "version": "0.0.6",
+  "description": "Powerful Selector API with Dedicated Monitoring Supports",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./hook": {
+      "types": "./dist/hook.d.ts",
+      "import": "./dist/hook.js",
+      "require": "./dist/hook.cjs"
+    },
+    "./monitor": {
+      "types": "./dist/monitor.d.ts",
+      "import": "./dist/monitor.js",
+      "require": "./dist/monitor.cjs"
+    },
+    "./background": {
+      "types": "./dist/background.d.ts",
+      "import": "./dist/background.js",
+      "require": "./dist/background.cjs"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "hook": [
+        "./dist/hook.d.ts"
+      ],
+      "monitor": [
+        "./dist/monitor.d.ts"
+      ],
+      "background": [
+        "./dist/background.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:compile": "tsup --watch",
+    "dev:test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "build": "tsup",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "prepublishOnly": "pnpm build"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "contributors": [
+    "@louisgv",
+    "@ColdSauce"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git",
+    "directory": "api/selector"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-hook",
+    "browser-extension",
+    "chrome-extension"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.6 || ^17 || ^18 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@jest/types": "29.6.3",
+    "@testing-library/react": "16.2.0",
+    "@types/chrome": "0.0.251",
+    "@types/node": "20.9.0",
+    "@types/react": "19.0.8",
+    "cross-env": "7.0.3",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "rimraf": "6.0.1",
+    "ts-jest": "29.1.1",
+    "tsup": "8.3.6",
+    "typescript": "5.2.2"
+  }
+}

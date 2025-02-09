@@ -1,0 +1,88 @@
+name: 🐛 Bug Report
+description: File a bug report
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for taking the time to fill out this bug report!** 🥳
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+
+  # - type: checkboxes
+  #   attributes:
+  #     label: Verify canary release
+  #     description: '`plasmo@canary` is the canary version of Plasmo framework that ships daily. It includes all features and fixes that have not been released to the stable version yet. Think of canary as a public beta. Some issues may already be fixed in the canary version, so please verify that your issue reproduces before opening a new issue.'
+  #     options:
+  #       - label: I verified that the issue exists in `plasmo` canary release
+  #         required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of the framework are you using?
+      options:
+        - Latest
+        - Canary
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: What OS are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - MacOSX
+        - Linux
+        - Other
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Chrome
+        - Microsoft Edge
+        - Opera
+        - Safari
+        - Firefox
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: Shell
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: (OPTIONAL) Contribution
+      description: Would you be willing to create a PR to solve this issue?
+      options:
+        - label: I would like to fix this BUG via a PR
+          required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+        - label: I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues?q=is%3Aopen+is%3Aissue+label%3Abug) for duplicate problems.
+          required: true

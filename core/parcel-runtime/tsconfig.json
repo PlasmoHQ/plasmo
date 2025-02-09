@@ -1,0 +1,8 @@
+{
+  "extends": "@plasmo/config/ts/framework",
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "lib": ["WebWorker", "dom"]
+  }
+}

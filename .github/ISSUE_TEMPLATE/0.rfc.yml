@@ -1,0 +1,64 @@
+name: ⚡ Request for Comments
+description: File an RFC for Feature Request/Enhancement/Refactor
+title: "[RFC] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for taking the time to fill out this RFC!** 🥳
+
+  - type: textarea
+    id: description
+    attributes:
+      label: How do you envision this feature/change to look/work like?
+      description: Please be as detailed as possible, providing any relevant context.
+      placeholder: The framework should read icon-1024.png and transforms them into smaller icons...
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: What is the purpose of this change/feature? Why?
+      description: Please provide a simple summary/abstraction.
+      placeholder: |
+        The current image is not versatile enough, i.e it is too small.
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: (OPTIONAL) Example implementations
+      description: If you have any examples of how this feature/change works, please list them here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: (OPTIONAL) Contribution
+      description: Would you be willing to create a PR to solve this issue?
+      options:
+        - label: I would like to contribute to this RFC via a PR
+          required: false
+
+  - type: checkboxes
+    attributes:
+      label: Verify canary release
+      description: "`plasmo@canary` is the canary version of Plasmo framework that ships daily. It includes all features and fixes that have not been released to the stable version yet. Think of canary as a public beta. Some issues may already be fixed in the canary version, so please verify that your issue reproduces before opening a new issue."
+      options:
+        - label: I verified that the issue exists in `plasmo` canary release
+          required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+        - label: I checked the [current issues](https://github.com/PlasmoHQ/plasmo/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement+) for duplicate problems.
+          required: true

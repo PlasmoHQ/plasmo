@@ -1,4 +1,6 @@
 packages:
+  - "cli/*"
   - "packages/*"
-  - "extensions/*"
-  - "templates/*"
+  - "examples/*"
+  - "api/*"
+  - "core/*"

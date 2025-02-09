@@ -1,0 +1,79 @@
+{
+  "name": "plasmo",
+  "version": "0.90.1",
+  "description": "The Plasmo Framework CLI",
+  "publishConfig": {
+    "types": "dist/type.d.ts"
+  },
+  "types": "src/type.ts",
+  "main": "dist/index.js",
+  "bin": "bin/index.mjs",
+  "type": "module",
+  "files": [
+    "bin/index.mjs",
+    "dist/index.js",
+    "dist/type.d.ts",
+    "templates"
+  ],
+  "scripts": {
+    "dev": "node index.mjs -w",
+    "build": "node index.mjs",
+    "type": "tsup src/type.ts --format esm --dts-only --dts-resolve",
+    "prepublishOnly": "run-p type build",
+    "lint": "run-p lint:*",
+    "lint:type": "tsc --noemit",
+    "lint:code": "eslint src/**/*.ts"
+  },
+  "author": "Plasmo Corp. <support@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git",
+    "directory": "cli/plasmo"
+  },
+  "license": "MIT",
+  "keywords": [
+    "plasmo",
+    "browser-extensions",
+    "framework"
+  ],
+  "dependencies": {
+    "@expo/spawn-async": "1.7.2",
+    "@parcel/core": "2.9.3",
+    "@parcel/fs": "2.9.3",
+    "@parcel/package-manager": "2.9.3",
+    "@parcel/watcher": "2.2.0",
+    "@plasmohq/init": "workspace:*",
+    "@plasmohq/parcel-config": "workspace:*",
+    "@plasmohq/parcel-core": "workspace:*",
+    "buffer": "6.0.3",
+    "chalk": "5.3.0",
+    "change-case": "5.1.2",
+    "dotenv": "16.3.1",
+    "dotenv-expand": "12.0.1",
+    "events": "3.3.0",
+    "fast-glob": "3.3.2",
+    "fflate": "0.8.1",
+    "get-port": "7.0.0",
+    "got": "14.4.5",
+    "ignore": "7.0.3",
+    "inquirer": "12.4.1",
+    "is-path-inside": "4.0.0",
+    "json5": "2.2.3",
+    "mnemonic-id": "3.2.7",
+    "node-object-hash": "3.0.0",
+    "package-json": "10.0.1",
+    "process": "0.11.10",
+    "semver": "7.5.4",
+    "sharp": "0.33.5",
+    "tempy": "3.1.0",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/constants": "workspace:*",
+    "@plasmo/framework-shared": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "vue": "3.3.8"
+  }
+}

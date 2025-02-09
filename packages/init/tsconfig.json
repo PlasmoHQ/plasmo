@@ -1,0 +1,10 @@
+{
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "compilerOptions": {
+    "strict": false,
+    "jsx": "react-jsx",
+    "paths": {
+      "plasmo": ["../../cli/plasmo/src/type.ts"]
+    }
+  }
+}

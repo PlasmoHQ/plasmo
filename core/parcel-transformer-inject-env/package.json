@@ -1,0 +1,34 @@
+{
+  "name": "@plasmohq/parcel-transformer-inject-env",
+  "version": "0.2.12",
+  "description": "Plasmo Parcel Transformer to inject environment variables",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsup src/index.ts --minify --clean",
+    "dev": "tsup src/index.ts --sourcemap --watch"
+  },
+  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "homepage": "https://docs.plasmo.com/",
+  "engines": {
+    "parcel": ">= 2.7.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmoHQ/plasmo.git"
+  },
+  "devDependencies": {
+    "@plasmo/config": "workspace:*",
+    "@plasmo/utils": "workspace:*",
+    "tsup": "8.3.6"
+  },
+  "dependencies": {
+    "@parcel/core": "2.9.3",
+    "@parcel/plugin": "2.9.3",
+    "@parcel/types": "2.9.3"
+  }
+}

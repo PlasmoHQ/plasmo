@@ -1,0 +1,64 @@
+name: Test examples
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@master
+        with:
+          submodules: "recursive"
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4.2.0
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: "Build local version of Plasmo"
+        run: |
+          pnpm i --no-frozen-lockfile
+          pnpm run build:packages
+          pnpm run build:api
+          pnpm i
+          pnpm run build:cli
+          pnpm i
+
+      - name: "Go to each example and try to build it"
+        run: |
+          pnpm run build:examples
+          # pushd examples
+          # for d in *
+          # do
+          #   test -d "$d" || continue
+          #   pushd "$d"
+          #   rm -rf .plasmo
+          #   rm -rf build
+          #   timeout 5 pnpm dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
+          #   popd
+          # done
+          # popd
+          pnpm run test:examples
