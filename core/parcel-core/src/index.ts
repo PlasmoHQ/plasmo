@@ -157,8 +157,6 @@ export class Parcel {
     let result = await this._build({ startTime })
     await this._end()
 
-    console.log("Got result type", result.type)
-
     if (result.type === "buildFailure") {
       throw new BuildError(result.diagnostics)
     }
