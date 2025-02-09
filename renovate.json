@@ -1,5 +1,11 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
-  ]
+    "config:recommended",
+    "group:allNonMajor"
+  ],
+  "git-submodules": {
+    "enabled": true
+  },
+  "cloneSubmodules": true
 }
