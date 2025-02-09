@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.0.3)
+        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:packages/rps
@@ -61,8 +61,8 @@ importers:
         specifier: 11.1.1
         version: 11.1.1
       prettier:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.2.4
+        version: 3.2.4
       sharp:
         specifier: 0.32.6
         version: 0.32.6
@@ -85,9 +85,12 @@ importers:
       '@jest/types':
         specifier: 29.6.3
         version: 29.6.3
+      '@testing-library/dom':
+        specifier: 10.4.0
+        version: 10.4.0
       '@testing-library/react':
         specifier: 16.2.0
-        version: 16.2.0(@testing-library/dom@9.3.3)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
         specifier: 0.0.251
         version: 0.0.251
@@ -97,6 +100,9 @@ importers:
       '@types/react':
         specifier: 19.0.8
         version: 19.0.8
+      canvas:
+        specifier: 3.1.0
+        version: 3.1.0
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -105,7 +111,7 @@ importers:
         version: 29.7.0(@types/node@20.9.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
-        version: 29.7.0(canvas@2.11.2)
+        version: 29.7.0(canvas@3.1.0)
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -171,7 +177,7 @@ importers:
         version: 29.6.3
       '@testing-library/react':
         specifier: 16.2.0
-        version: 16.2.0(@testing-library/dom@9.3.3)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
         specifier: 0.0.251
         version: 0.0.251
@@ -225,8 +231,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/rps
       '@testing-library/react':
-        specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 16.2.0
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -234,8 +240,11 @@ importers:
         specifier: 20.11.5
         version: 20.11.5
       '@types/react':
-        specifier: 18.2.48
-        version: 18.2.48
+        specifier: 19.0.8
+        version: 19.0.8
+      canvas:
+        specifier: 3.1.0
+        version: 3.1.0
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -244,16 +253,16 @@ importers:
         version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
-        version: 29.7.0(canvas@2.11.2)
+        version: 29.7.0(canvas@3.1.0)
       prettier:
         specifier: 3.2.4
         version: 3.2.4
       react:
-        specifier: 18.2.0
-        version: 18.2.0
+        specifier: 19.0.0
+        version: 19.0.0
       react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
       rimraf:
         specifier: 5.0.5
         version: 5.0.5
@@ -7321,6 +7330,10 @@ packages:
     peerDependencies:
       react: ^18.0.0
 
+  '@testing-library/dom@10.4.0':
+    resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
+    engines: {node: '>=18'}
+
   '@testing-library/dom@9.3.3':
     resolution: {integrity: sha512-fB0R+fa3AUqbLHWyxXa2kGVtf1Fe1ZZFr0Zp6AIbIAzXb2mKbEXl+PCQNUOaq5lbTab5tfctfXRNsWXxa2f7Aw==}
     engines: {node: '>=14'}
@@ -8096,6 +8109,10 @@ packages:
   canvas@2.11.2:
     resolution: {integrity: sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==}
     engines: {node: '>=6'}
+
+  canvas@3.1.0:
+    resolution: {integrity: sha512-tTj3CqqukVJ9NgSahykNwtGda7V33VLObwrHfzT0vqJXu7J4d4C/7kQQW3fOEGDfZZoILPut5H00gOjyttPGyg==}
+    engines: {node: ^18.12.0 || >= 20.9.0}
 
   chai@5.1.1:
     resolution: {integrity: sha512-pT1ZgP8rPNqUgieVaEY+ryQr6Q4HXNg8Ei9UnLUrjN4IA7dvQC5JB+/kxVcPNDHyBcc/26CXPkbNzq3qwrOEKA==}
@@ -11115,11 +11132,6 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
-    engines: {node: '>=14'}
-    hasBin: true
-
   prettier@3.2.4:
     resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
     engines: {node: '>=14'}
@@ -13094,7 +13106,7 @@ snapshots:
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
       js-tokens: 4.0.0
-      picocolors: 1.0.0
+      picocolors: 1.1.1
 
   '@babel/compat-data@7.23.3': {}
 
@@ -13304,7 +13316,7 @@ snapshots:
 
   '@babel/highlight@7.22.13':
     dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.25.9
       chalk: 2.4.2
       js-tokens: 4.0.0
 
@@ -14790,20 +14802,6 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.1': {}
-
-  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.0.3)':
-    dependencies:
-      '@babel/core': 7.23.7
-      '@babel/generator': 7.23.6
-      '@babel/parser': 7.25.6
-      '@babel/traverse': 7.23.7
-      '@babel/types': 7.25.6
-      prettier: 3.0.3
-      semver: 7.5.4
-    optionalDependencies:
-      '@vue/compiler-sfc': 3.4.15
-    transitivePeerDependencies:
-      - supports-color
 
   '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)':
     dependencies:
@@ -17225,10 +17223,21 @@ snapshots:
       '@tanstack/query-core': 5.17.15
       react: 18.2.0
 
+  '@testing-library/dom@10.4.0':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/runtime': 7.23.8
+      '@types/aria-query': 5.0.4
+      aria-query: 5.3.0
+      chalk: 4.1.2
+      dom-accessibility-api: 0.5.16
+      lz-string: 1.5.0
+      pretty-format: 27.5.1
+
   '@testing-library/dom@9.3.3':
     dependencies:
-      '@babel/code-frame': 7.22.13
-      '@babel/runtime': 7.23.2
+      '@babel/code-frame': 7.26.2
+      '@babel/runtime': 7.23.8
       '@types/aria-query': 5.0.4
       aria-query: 5.1.3
       chalk: 4.1.2
@@ -17244,10 +17253,10 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@testing-library/react@16.2.0(@testing-library/dom@9.3.3)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.23.8
-      '@testing-library/dom': 9.3.3
+      '@testing-library/dom': 10.4.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     optionalDependencies:
@@ -18218,6 +18227,11 @@ snapshots:
       - encoding
       - supports-color
     optional: true
+
+  canvas@3.1.0:
+    dependencies:
+      node-addon-api: 7.0.0
+      prebuild-install: 7.1.1
 
   chai@5.1.1:
     dependencies:
@@ -20343,6 +20357,23 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  jest-environment-jsdom@29.7.0(canvas@3.1.0):
+    dependencies:
+      '@jest/environment': 29.7.0
+      '@jest/fake-timers': 29.7.0
+      '@jest/types': 29.6.3
+      '@types/jsdom': 20.0.1
+      '@types/node': 20.9.0
+      jest-mock: 29.7.0
+      jest-util: 29.7.0
+      jsdom: 20.0.3(canvas@3.1.0)
+    optionalDependencies:
+      canvas: 3.1.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
   jest-environment-node@29.7.0:
     dependencies:
       '@jest/environment': 29.7.0
@@ -20661,6 +20692,41 @@ snapshots:
       xml-name-validator: 4.0.0
     optionalDependencies:
       canvas: 2.11.2
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  jsdom@20.0.3(canvas@3.1.0):
+    dependencies:
+      abab: 2.0.6
+      acorn: 8.11.2
+      acorn-globals: 7.0.1
+      cssom: 0.5.0
+      cssstyle: 2.3.0
+      data-urls: 3.0.2
+      decimal.js: 10.4.3
+      domexception: 4.0.0
+      escodegen: 2.1.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.7
+      parse5: 7.1.2
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.1.3
+      w3c-xmlserializer: 4.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
+      ws: 8.17.1
+      xml-name-validator: 4.0.0
+    optionalDependencies:
+      canvas: 3.1.0
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -21132,7 +21198,7 @@ snapshots:
 
   metro@0.80.4:
     dependencies:
-      '@babel/code-frame': 7.22.13
+      '@babel/code-frame': 7.26.2
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.6
       '@babel/parser': 7.25.6
@@ -21654,7 +21720,7 @@ snapshots:
 
   parse-json@5.2.0:
     dependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.26.2
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -21846,8 +21912,6 @@ snapshots:
       prettier: 3.2.4
     optionalDependencies:
       '@ianvs/prettier-plugin-sort-imports': 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
-
-  prettier@3.0.3: {}
 
   prettier@3.2.4: {}
 
