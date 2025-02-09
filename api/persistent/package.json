@@ -25,14 +25,14 @@
   },
   "exports": {
     "./background": {
+      "types": "./dist/background.d.ts",
       "import": "./dist/background.js",
-      "require": "./dist/background.cjs",
-      "types": "./dist/background.d.ts"
+      "require": "./dist/background.cjs"
     },
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [

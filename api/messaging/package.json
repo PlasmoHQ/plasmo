@@ -1,45 +1,45 @@
 {
   "name": "@plasmohq/messaging",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Type-safe, zero-config messaging library for modern browser extensions",
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "./hook": {
+      "types": "./dist/hook.d.ts",
       "import": "./dist/hook.js",
-      "require": "./dist/hook.cjs",
-      "types": "./dist/hook.d.ts"
+      "require": "./dist/hook.cjs"
     },
     "./relay": {
+      "types": "./dist/relay.d.ts",
       "import": "./dist/relay.js",
-      "require": "./dist/relay.cjs",
-      "types": "./dist/relay.d.ts"
+      "require": "./dist/relay.cjs"
     },
     "./port": {
+      "types": "./dist/port.d.ts",
       "import": "./dist/port.js",
-      "require": "./dist/port.cjs",
-      "types": "./dist/port.d.ts"
+      "require": "./dist/port.cjs"
     },
     "./pub-sub": {
+      "types": "./dist/pub-sub.d.ts",
       "import": "./dist/pub-sub.js",
-      "require": "./dist/pub-sub.cjs",
-      "types": "./dist/pub-sub.d.ts"
+      "require": "./dist/pub-sub.cjs"
     },
     "./background": {
+      "types": "./dist/background.d.ts",
       "import": "./dist/background.js",
-      "require": "./dist/background.cjs",
-      "types": "./dist/background.d.ts"
+      "require": "./dist/background.cjs"
     },
     "./message": {
+      "types": "./dist/message.d.ts",
       "import": "./dist/message.js",
-      "require": "./dist/message.cjs",
-      "types": "./dist/message.d.ts"
+      "require": "./dist/message.cjs"
     },
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "typesVersions": {

@@ -7,24 +7,24 @@
   "types": "./dist/index.d.ts",
   "exports": {
     "./hook": {
+      "types": "./dist/hook.d.ts",
       "import": "./dist/hook.js",
-      "require": "./dist/hook.cjs",
-      "types": "./dist/hook.d.ts"
+      "require": "./dist/hook.cjs"
     },
     "./monitor": {
+      "types": "./dist/monitor.d.ts",
       "import": "./dist/monitor.js",
-      "require": "./dist/monitor.cjs",
-      "types": "./dist/monitor.d.ts"
+      "require": "./dist/monitor.cjs"
     },
     "./background": {
+      "types": "./dist/background.d.ts",
       "import": "./dist/background.js",
-      "require": "./dist/background.cjs",
-      "types": "./dist/background.d.ts"
+      "require": "./dist/background.cjs"
     },
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "typesVersions": {
