@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-manifest",
-  "version": "0.20.1",
+  "version": "0.21.0",
   "description": "Plasmo Parcel Transformer for Web Extension Manifest",
   "files": [
     "dist",
