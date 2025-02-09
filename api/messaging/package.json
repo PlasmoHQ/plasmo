@@ -138,6 +138,6 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "nanoid": "5.0.3"
+    "nanoid": "5.0.9"
   }
 }
