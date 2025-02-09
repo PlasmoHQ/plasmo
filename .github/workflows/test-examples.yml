@@ -47,18 +47,9 @@ jobs:
           pnpm run build:cli
           pnpm i
 
-      - name: "Go to each example and try to build it"
-        run: |
-          pnpm run build:examples
-          # pushd examples
-          # for d in *
-          # do
-          #   test -d "$d" || continue
-          #   pushd "$d"
-          #   rm -rf .plasmo
-          #   rm -rf build
-          #   timeout 5 pnpm dev || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
-          #   popd
-          # done
-          # popd
-          pnpm run test:examples
+      - name: "Build all examples"
+        run: pnpm run build:examples
+
+      - name: "Test all examples"
+        run: pnpm run test:examples
+          
