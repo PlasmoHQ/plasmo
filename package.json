@@ -54,7 +54,6 @@
     "eslint-plugin-react": "7.33.2",
     "fs-extra": "11.1.1",
     "prettier": "3.2.4",
-    "sharp": "0.32.6",
     "tsup": "8.3.6",
     "turbo": "2.4.0"
   },
