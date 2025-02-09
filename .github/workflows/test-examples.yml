@@ -21,9 +21,9 @@ jobs:
         with:
           submodules: "recursive"
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4.1.0
         with:
-          version: v9.0.6
+          version: v9.15.0
           run_install: false
 
       - name: Get pnpm store directory
@@ -32,7 +32,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4.2.0
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
