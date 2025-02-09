@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { Root } from "react-dom/client"
 
 import type { ManifestContentScript } from "@plasmo/constants/manifest/content-script"
@@ -114,7 +115,7 @@ export type PlasmoCSUIContainerProps = {
 
 export type PlasmoCSUIJSXContainer = (
   p?: PlasmoCSUIContainerProps
-) => JSX.Element
+) => React.JSX.Element
 export type PlasmoCSUIHTMLContainer = (
   p?: PlasmoCSUIContainerProps
 ) => HTMLElement
