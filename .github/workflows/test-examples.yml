@@ -50,6 +50,14 @@ jobs:
       - name: "Go to each example and try to build it"
         run: |
           pnpm run build:examples
+
+          # Check the exit code of the previous command. If it is not 0, the build has failed.
+          # Output an error message and terminate the workflow with a failure status.
+          if [ $? -ne 0 ]; then
+            echo "Build failed" >&2
+            exit 1
+          fi
+
           # pushd examples
           # for d in *
           # do
