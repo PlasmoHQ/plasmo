@@ -26,11 +26,11 @@
     "tsup": "8.3.6"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.13.3",
+    "@parcel/diagnostic": "2.13.3",
+    "@parcel/plugin": "2.13.3",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.9.3",
+    "@parcel/utils": "2.13.3",
     "svelte": "4.2.2"
   }
 }
