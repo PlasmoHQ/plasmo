@@ -1,15 +1,17 @@
 import { dirname, join, resolve } from "path"
 import ParcelFS from "@parcel/fs"
 import ParcelPM from "@parcel/package-manager"
-import { emptyDir, ensureDir, readJson, writeJson } from "fs-extra"
+import { emptyDir, ensureDir, exists, readJson, writeJson } from "fs-extra"
 
 import { getFlag, hasFlag } from "@plasmo/utils/flags"
+import { wLog } from "@plasmo/utils/logging"
 
 import { Parcel, type ParcelOptions } from "@plasmohq/parcel-core"
 
 import type { PlasmoManifest } from "~features/manifest-factory/base"
 
 import { getPackageManager } from "./package-manager"
+import { setInternalEnv } from "~features/env/env-config"
 
 const PackageInstallerMap = {
   npm: ParcelPM.Npm,
@@ -65,7 +67,7 @@ export const createParcelBuilder = async (
 
   const baseConfig = require.resolve("@plasmohq/parcel-config")
 
-  const runConfig = join(dirname(baseConfig), "run.json")
+  let runConfig = join(dirname(baseConfig), "run.json")
 
   const configJson = await readJson(baseConfig)
 
@@ -75,6 +77,26 @@ export const createParcelBuilder = async (
 
   await writeJson(runConfig, configJson)
 
+  if (await exists(commonPath.parcelConfig)) {
+    runConfig = commonPath.parcelConfig
+
+    if (isProd) {
+      const customConfig = await readJson(runConfig)
+
+      if (customConfig.extends !== "@plasmohq/parcel-config") {
+        wLog(
+          'The .parcelrc does not extend "@plasmohq/parcel-config", the result may be unexpected'
+        )
+      }
+    }
+
+    if (hasFlag("--bundle-buddy")) {
+      wLog(
+        'The "--bundle-buddy" flag does not work with a custom .parcelrc file'
+      )
+    }
+  }
+
   const engines = {
     browsers:
       bundleConfig.manifestVersion === "mv2" &&
@@ -82,6 +104,8 @@ export const createParcelBuilder = async (
         ? ["IE 11"]
         : ["last 1 Chrome version"]
   }
+
+  setInternalEnv(bundleConfig)
 
   const bundler = new Parcel({
     inputFS,

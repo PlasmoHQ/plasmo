@@ -45,6 +45,7 @@ export const getCommonPath = (projectDirectory = cwd()) => {
     packageFilePath: resolve(projectDirectory, "package.json"),
     gitIgnorePath: resolve(projectDirectory, ".gitignore"),
     assetsDirectory: resolve(projectDirectory, "assets"),
+    parcelConfig: resolve(projectDirectory, ".parcelrc"),
 
     dotPlasmoDirectory,
     cacheDirectory,

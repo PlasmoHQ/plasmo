@@ -90,7 +90,7 @@ export const handleProjectFile = async (
     }
     case WatchReason.PackageJson: {
       iLog(
-        "package.json changed, updating manifest overides. You might need to restart the dev server."
+        "package.json changed, updating manifest overrides. You might need to restart the dev server."
       )
       await plasmoManifest.updatePackageData()
       return

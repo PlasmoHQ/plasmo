@@ -1,5 +1,5 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -15,8 +15,5 @@
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
-  "git.detectSubmodulesLimit": 99,
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  }
+  "git.detectSubmodulesLimit": 99
 }

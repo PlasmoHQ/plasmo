@@ -36,7 +36,7 @@ import {
 import { assertTruthy } from "@plasmo/utils/assert"
 import { injectEnv } from "@plasmo/utils/env"
 import { isDirectory, isReadable } from "@plasmo/utils/fs"
-import { vLog } from "@plasmo/utils/logging"
+import { vLog, wLog } from "@plasmo/utils/logging"
 import { getSubExt, toPosix } from "@plasmo/utils/path"
 
 import { loadEnvConfig, type EnvConfig } from "~features/env/env-config"
@@ -176,7 +176,9 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
   get dependencies() {
     ok(this.packageData)
-    return this.packageData.dependencies
+    // to support npm workspaces (mono repos) we need to fallback to
+    // peerDependencies because dependencies will never exist
+    return this.packageData.dependencies ?? this.packageData.peerDependencies
   }
 
   get devDependencies() {
@@ -222,6 +224,19 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
         }
       })
     )
+
+    if (!process.env.POST_BUILD_SCRIPT) {
+      return
+    }
+    const postBuildPath = resolve(process.env.POST_BUILD_SCRIPT)
+
+    if (!existsSync(postBuildPath)) {
+      wLog("Post-build script is unavailable:", postBuildPath)
+      return
+    }
+
+    const postBuild = require(postBuildPath)
+    postBuild()
   }
 
   async updateEnv() {
@@ -476,9 +491,8 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
 
       const parsedModulePath = parse(scriptPath)
 
-      const { wereFilesWritten } = await this.scaffolder.createPageMount(
-        parsedModulePath
-      )
+      const { wereFilesWritten } =
+        await this.scaffolder.createPageMount(parsedModulePath)
 
       // if enabled, and the template file was written, invalidate hash!
       if (wereFilesWritten) {
@@ -582,7 +596,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       return {}
     }
 
-    const output = await this.prepareOverrideManifest()
+    let output = await this.prepareOverrideManifest()
 
     if ((output.web_accessible_resources?.length || 0) > 0) {
       output.web_accessible_resources = await this.resolveWAR(
@@ -610,6 +624,10 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       }
     }
 
+    if (output.overrides && output.overrides[this.browser]) {
+      output = { ...output, ...output.overrides[this.browser] }
+    }
+    delete output.overrides
     return this.injectEnvToObj(output)
   }
 

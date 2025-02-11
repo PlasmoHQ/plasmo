@@ -7,9 +7,9 @@ import { handleTsPath } from "./handle-ts-path"
 export default new Resolver({
   async resolve(props) {
     return (
+      (await handleHacks(props)) ||
       (await handleTsPath(props)) ||
       (await handleModuleExport(props)) ||
-      (await handleHacks(props)) ||
       null
     )
   }

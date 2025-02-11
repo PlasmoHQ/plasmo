@@ -15,14 +15,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
         package-manager:
-          [
-            { name: "pnpm", exec: "pnpm dlx" },
-            { name: "npm", exec: "npm -y x" }
-          ]
+          [{ name: "pnpm", exec: "pnpm dlx" }, { name: "npm", exec: "npx -y" }]
     steps:
-      - uses: actions/setup-node@v3.4.1
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: "Install package manager"

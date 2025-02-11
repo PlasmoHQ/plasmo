@@ -4,7 +4,11 @@ import { getExtRuntime } from "./utils"
 export const listen = <RequestBody, ResponseBody>(
   handler: PlasmoMessaging.Handler<string, RequestBody, ResponseBody>
 ) => {
-  const metaListener = async (req, sender, sendResponse) => {
+  const metaListener = async (
+    req: any,
+    sender: chrome.runtime.MessageSender,
+    sendResponse: (response?: ResponseBody) => void
+  ) => {
     await handler?.(
       {
         ...req,
@@ -16,9 +20,13 @@ export const listen = <RequestBody, ResponseBody>(
     )
   }
 
-  const listener = (req, sender, sendResponse) => {
+  const listener = (
+    req: any,
+    sender: chrome.runtime.MessageSender,
+    sendResponse: (response?: ResponseBody) => void
+  ) => {
     metaListener(req, sender, sendResponse)
-    return // Syncronous return to indicate this is an async listener
+    return true // Synchronous return to indicate this is an async listener
   }
 
   getExtRuntime().onMessage.addListener(listener)

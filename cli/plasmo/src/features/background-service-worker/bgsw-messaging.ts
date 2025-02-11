@@ -1,7 +1,7 @@
-import { join, resolve } from "path"
 import { camelCase } from "change-case"
 import glob from "fast-glob"
 import { outputFile } from "fs-extra"
+import { join, resolve } from "path"
 
 import { isWriteable } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
@@ -21,7 +21,8 @@ const state = {
 // TODO: cache these?
 const createEntryCode = (
   importSection: string,
-  switchCaseSection: string,
+  messageSection: string,
+  externalMessageSection: string,
   portSection: string
 ) => `// @ts-nocheck
 globalThis.__plasmoInternalPortMap = new Map()
@@ -29,8 +30,8 @@ globalThis.__plasmoInternalPortMap = new Map()
 ${importSection}
 
 chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
-  switch (request.name) {
-    ${switchCaseSection}
+  switch (request?.name) {
+    ${externalMessageSection}
     default:
       break
   }
@@ -40,7 +41,7 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.name) {
-    ${switchCaseSection}
+    ${messageSection}
     default:
       break
   }
@@ -63,7 +64,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 const getHandlerList = async (
   plasmoManifest: PlasmoManifest,
-  dirName: "messages" | "ports"
+  dirName: "messages" | "messages/external" | "ports"
 ) => {
   const handlerDir = join(
     plasmoManifest.projectPath.backgroundDirectory,
@@ -76,7 +77,8 @@ const getHandlerList = async (
 
   const handlerFileList = await glob("**/*.ts", {
     cwd: handlerDir,
-    onlyFiles: true
+    onlyFiles: true,
+    ignore: dirName === "messages" ? ["external"] : []
   })
 
   return handlerFileList.map((filePath) => {
@@ -96,8 +98,8 @@ const getHandlerList = async (
 
 const getMessageCode = (name: string, importName: string) => `case "${name}":
   ${importName}({
-    sender,
-    ...request
+    ...request,
+    sender
   }, {
     send: (p) => sendResponse(p)
   })
@@ -114,14 +116,18 @@ const getPortCode = (name: string, importName: string) => `case "${name}":
 
 export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
   try {
-    const [messageHandlerList, portHandlerList] = await Promise.all([
+    const handlerLists = await Promise.all([
       getHandlerList(plasmoManifest, "messages"),
+      getHandlerList(plasmoManifest, "messages/external"),
       getHandlerList(plasmoManifest, "ports")
     ])
 
-    vLog({ messageHandlerList, portHandlerList })
+    const [messageHandlerList, externalMessageHandlerList, portHandlerList] =
+      handlerLists
 
-    if (messageHandlerList.length === 0 && portHandlerList.length === 0) {
+    vLog({ messageHandlerList, externalMessageHandlerList, portHandlerList })
+
+    if (handlerLists.every((list) => list.length === 0)) {
       return false
     }
 
@@ -145,10 +151,13 @@ export const createBgswMessaging = async (plasmoManifest: PlasmoManifest) => {
     state.md5Hash = declarationMd5Hash
 
     const entryCode = createEntryCode(
-      [...messageHandlerList, ...portHandlerList]
+      [...messageHandlerList, ...externalMessageHandlerList, ...portHandlerList]
         .map((code) => code.importCode)
         .join("\n"),
       messageHandlerList
+        .map((code) => getMessageCode(code.name, code.importName))
+        .join("\n"),
+      externalMessageHandlerList
         .map((code) => getMessageCode(code.name, code.importName))
         .join("\n"),
       portHandlerList

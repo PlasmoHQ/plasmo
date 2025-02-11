@@ -10,10 +10,32 @@
 
 const LOADING_ID = "__plasmo-loading__"
 
-const trustedPolicy = typeof trustedTypes !== "undefined"
-  ? trustedTypes
-    .createPolicy(`trusted-html-${LOADING_ID}`, { createHTML: str => str })
-  : undefined
+function createTrustedPolicy() {
+  const trustedTypes = globalThis.window?.trustedTypes
+  if (typeof trustedTypes === "undefined") {
+    return undefined
+  }
+
+  const trustedTypeLists = (
+    document.querySelector('meta[name="trusted-types"]') as HTMLMetaElement
+  )?.content?.split(" ")
+
+  const trustedKey = trustedTypeLists
+    ? trustedTypeLists[trustedTypeLists?.length - 1].replace(/;/g, "")
+    : undefined
+
+  // Function to update the CSP to allow the new trusted type policy or use existing policy
+  const trustedPolicy =
+    typeof trustedTypes !== "undefined"
+      ? trustedTypes.createPolicy(trustedKey || `trusted-html-${LOADING_ID}`, {
+          createHTML: (str) => str
+        })
+      : undefined
+
+  return trustedPolicy
+}
+
+const trustedPolicy = createTrustedPolicy()
 
 function getLoader() {
   return document.getElementById(LOADING_ID)
@@ -77,7 +99,9 @@ function createLoader() {
   <span class="hidden">Context Invalidated, Press to Reload</span>
   `
 
-  loadingEl.innerHTML = trustedPolicy ? trustedPolicy.createHTML(htmlText) : htmlText
+  loadingEl.innerHTML = trustedPolicy
+    ? (trustedPolicy.createHTML(htmlText) as any)
+    : htmlText
 
   loadingEl.style.pointerEvents = "none"
 
@@ -134,16 +158,19 @@ export const createLoadingIndicator = () => {
       await injectPromise
       const loadingEl = getLoader()
       loadingEl.style.opacity = "1"
-      if (reloadButton) {
-        loadingEl.onclick = (e) => {
-          e.stopPropagation()
-          globalThis.location.reload()
-        }
-        loadingEl.querySelector("span").classList.remove("hidden")
 
-        loadingEl.style.cursor = "pointer"
-        loadingEl.style.pointerEvents = "all"
+      if (!reloadButton) {
+        return
       }
+
+      loadingEl.onclick = (e) => {
+        e.stopPropagation()
+        globalThis.location.reload()
+      }
+      loadingEl.querySelector("span").classList.remove("hidden")
+
+      loadingEl.style.cursor = "pointer"
+      loadingEl.style.pointerEvents = "all"
     },
     hide: async () => {
       await injectPromise

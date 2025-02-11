@@ -16,6 +16,7 @@
     "build:api": "turbo run build --filter \"./api/**\"",
     "build:core": "turbo run build --filter \"./core/**\"",
     "build:examples": "pnpm --filter \"./examples/**\" -r build",
+    "test:examples": "pnpm --filter \"./examples/**\" -r test",
     "publish:packages": "pnpm --filter \"./packages/**\" publish",
     "publish:api": "pnpm --filter \"./api/**\" publish",
     "publish:core": "pnpm --filter \"./core/**\" publish",
@@ -46,24 +47,22 @@
     "@types/inquirer": "9.0.7",
     "@types/node": "20.11.5",
     "@types/node-rsa": "1.1.4",
-    "@types/react": "18.2.48",
-    "@types/react-dom": "18.2.18",
-    "@types/semver": "7.5.6",
-    "@types/uuid": "9.0.7",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "@types/semver": "7.5.5",
+    "@types/uuid": "10.0.0",
     "@types/ws": "8.5.10",
     "esbuild": "0.19.11",
     "eslint": "8.56.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-plugin-react": "7.33.2",
     "fs-extra": "11.2.0",
     "prettier": "3.2.4",
-    "sharp": "0.33.2",
-    "tsup": "8.0.1",
-    "turbo": "1.11.3"
+    "tsup": "8.3.6",
+    "turbo": "2.4.0"
   },
   "engines": {
-    "npm": ">=9.5.0",
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@8.14.1"
+  "packageManager": "pnpm@9.15.0"
 }

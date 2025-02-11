@@ -177,6 +177,7 @@ const commonProps = {
         css: arraySchema,
         js: arraySchema,
         match_about_blank: booleanSchema,
+        match_origin_as_fallback: booleanSchema,
         exclude_matches: arraySchema,
         include_globs: arraySchema,
         exclude_globs: arraySchema,

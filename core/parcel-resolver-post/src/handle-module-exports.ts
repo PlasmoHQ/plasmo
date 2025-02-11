@@ -1,8 +1,5 @@
 import type { ResolverProps, ResolverResult } from "./shared"
 
-// TODO: move this stuff into plasmo.config.ts
-const knownEsmPackageSet = new Set(["firebase-admin", "svelte", "ai"])
-
 // Last resort resolver for weird packages:
 export async function handleModuleExport({
   specifier,
@@ -14,16 +11,12 @@ export async function handleModuleExport({
   }
 
   try {
-    const segments = specifier.split("/")
+    const filePath = require.resolve(specifier, {
+      paths: [dependency.resolveFrom]
+    })
 
-    if (segments.length > 2 || knownEsmPackageSet.has(segments[0])) {
-      const filePath = require.resolve(specifier, {
-        paths: [dependency.resolveFrom]
-      })
-
-      return {
-        filePath
-      }
+    return {
+      filePath
     }
   } catch {}
 

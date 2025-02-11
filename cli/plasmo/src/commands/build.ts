@@ -12,7 +12,7 @@ import { zipBundle } from "~features/manifest-factory/zip"
 
 async function build() {
   printHeader()
-  await checkNewVersion()
+  checkNewVersion()
 
   process.env.NODE_ENV = "production"
 
@@ -26,6 +26,8 @@ async function build() {
   iLog("Prepare to bundle the extension...")
 
   const bundleConfig = getBundleConfig()
+
+  iLog("Building for target:", bundleConfig.target)
 
   const plasmoManifest = await createManifest(bundleConfig)
 

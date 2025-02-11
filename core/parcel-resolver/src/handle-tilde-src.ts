@@ -1,6 +1,7 @@
-import { extname, resolve } from "path"
+import { extname, join, resolve } from "path"
 
 import {
+  customPipelineSet,
   relevantExtensionList,
   relevantExtensionSet,
   resolveSourceIndex,
@@ -9,6 +10,7 @@ import {
 } from "./shared"
 
 export async function handleTildeSrc({
+  pipeline,
   specifier,
   dependency
 }: ResolverProps): Promise<ResolverResult> {
@@ -17,9 +19,14 @@ export async function handleTildeSrc({
   }
 
   const absoluteBaseFile = resolve(
-    process.env.PLASMO_SRC_DIR,
-    specifier.slice(1)
+    join(process.env.PLASMO_SRC_DIR, specifier.slice(1))
   )
+
+  if (customPipelineSet.has(pipeline)) {
+    return {
+      filePath: absoluteBaseFile
+    }
+  }
 
   const importExt = extname(absoluteBaseFile)
 

@@ -50,7 +50,10 @@ async function injectAnchor<T>(
       mountState
     })
   } else if (anchor.type === "inline") {
-    anchor.element.insertAdjacentElement(anchor.insertPosition || "afterend", shadowHost)
+    anchor.element.insertAdjacentElement(
+      anchor.insertPosition || "afterend",
+      shadowHost
+    )
   } else {
     document.documentElement.prepend(shadowHost)
   }
@@ -168,6 +171,8 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
           }
         }
       } else {
+        const anchor = mountState.hostMap.get(el)
+        anchor.root?.unmount()
         mountState.hostSet.delete(el)
       }
     }
@@ -182,11 +187,24 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
 
     const renderList: PlasmoCSUIAnchor[] = []
 
-    if (!!inlineAnchor && !mountedInlineAnchorSet.has(inlineAnchor)) {
-      renderList.push({
-        element: inlineAnchor,
-        type: "inline"
-      })
+    if (!!inlineAnchor) {
+      if (inlineAnchor instanceof Element) {
+        if (!mountedInlineAnchorSet.has(inlineAnchor)) {
+          renderList.push({
+            element: inlineAnchor,
+            type: "inline"
+          })
+        }
+      } else if (
+        inlineAnchor.element instanceof Element &&
+        !mountedInlineAnchorSet.has(inlineAnchor.element)
+      ) {
+        renderList.push({
+          element: inlineAnchor.element,
+          type: "inline",
+          insertPosition: inlineAnchor.insertPosition
+        })
+      }
     }
 
     if ((inlineAnchorList?.length || 0) > 0) {
@@ -198,6 +216,15 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
           renderList.push({
             element: inlineAnchor,
             type: "inline"
+          })
+        } else if (
+          inlineAnchor.element instanceof Element &&
+          !mountedInlineAnchorSet.has(inlineAnchor.element)
+        ) {
+          renderList.push({
+            element: inlineAnchor.element,
+            type: "inline",
+            insertPosition: inlineAnchor.insertPosition
           })
         }
       })
