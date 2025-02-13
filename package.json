@@ -41,7 +41,7 @@
     "@plasmohq/rps": "workspace:*",
     "@types/fs-extra": "11.0.4",
     "@types/inquirer": "9.0.7",
-    "@types/node": "20.9.0",
+    "@types/node": "22.13.2",
     "@types/node-rsa": "1.1.4",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
