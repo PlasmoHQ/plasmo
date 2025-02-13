@@ -6,7 +6,7 @@ settings:
 
 overrides:
   '@parcel/source-map': 2.1.1
-  react-refresh: 0.14.0
+  react-refresh: 0.16.0
 
 importers:
 
@@ -826,8 +826,8 @@ importers:
         specifier: 0.2.1
         version: 0.2.1
       react-refresh:
-        specifier: 0.14.0
-        version: 0.14.0
+        specifier: 0.16.0
+        version: 0.16.0
       stream-browserify:
         specifier: 3.0.0
         version: 3.0.0
@@ -899,8 +899,8 @@ importers:
         specifier: 2.0.7
         version: 2.0.7
       react-refresh:
-        specifier: 0.14.0
-        version: 0.14.0
+        specifier: 0.16.0
+        version: 0.16.0
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
@@ -11697,8 +11697,8 @@ packages:
       redux:
         optional: true
 
-  react-refresh@0.14.0:
-    resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
+  react-refresh@0.16.0:
+    resolution: {integrity: sha512-FPvF2XxTSikpJxcr+bHut2H4gJ17+18Uy20D5/F+SKzFap62R3cM5wH6b8WN3LyGSYeQilLEcJcR1fjBSI2S1A==}
     engines: {node: '>=0.10.0'}
 
   react-remove-scroll-bar@2.3.4:
@@ -16193,7 +16193,7 @@ snapshots:
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
       '@parcel/utils': 2.9.3
       react-error-overlay: 6.0.9
-      react-refresh: 0.14.0
+      react-refresh: 0.16.0
     transitivePeerDependencies:
       - '@parcel/core'
 
@@ -16335,7 +16335,7 @@ snapshots:
     dependencies:
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
       '@parcel/utils': 2.9.3
-      react-refresh: 0.14.0
+      react-refresh: 0.16.0
     transitivePeerDependencies:
       - '@parcel/core'
 
@@ -16913,7 +16913,7 @@ snapshots:
       '@babel/template': 7.22.15
       '@react-native/babel-plugin-codegen': 0.73.2(@babel/preset-env@7.23.8(@babel/core@7.23.7))
       babel-plugin-transform-flow-enums: 0.0.2(@babel/core@7.23.7)
-      react-refresh: 0.14.0
+      react-refresh: 0.16.0
     transitivePeerDependencies:
       - '@babel/preset-env'
       - supports-color
@@ -22771,7 +22771,7 @@ snapshots:
       promise: 8.3.0
       react: 18.2.0
       react-devtools-core: 4.28.0
-      react-refresh: 0.14.0
+      react-refresh: 0.16.0
       react-shallow-renderer: 16.15.0(react@18.2.0)
       regenerator-runtime: 0.13.11
       scheduler: 0.24.0-canary-efb381bbf-20230505
@@ -22803,7 +22803,7 @@ snapshots:
       react-native: 0.73.2(@babel/core@7.23.7)(@babel/preset-env@7.23.8(@babel/core@7.23.7))(react@18.2.0)
       redux: 5.0.1
 
-  react-refresh@0.14.0: {}
+  react-refresh@0.16.0: {}
 
   react-remove-scroll-bar@2.3.4(@types/react@18.2.48)(react@18.2.0):
     dependencies:
