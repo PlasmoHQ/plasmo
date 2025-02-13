@@ -44,7 +44,7 @@
     "@parcel/utils": "2.9.3",
     "@parcel/watcher": "2.2.0",
     "@parcel/workers": "2.9.3",
-    "abortcontroller-polyfill": "1.7.5",
+    "abortcontroller-polyfill": "1.7.8",
     "nullthrows": "1.1.1"
   }
 }
