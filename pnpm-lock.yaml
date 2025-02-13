@@ -95,8 +95,8 @@ importers:
         specifier: 16.2.0
         version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
-        specifier: 0.0.251
-        version: 0.0.251
+        specifier: 0.0.304
+        version: 0.0.304
       '@types/node':
         specifier: 20.9.0
         version: 20.9.0
@@ -146,8 +146,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/config
       '@types/chrome':
-        specifier: 0.0.251
-        version: 0.0.251
+        specifier: 0.0.304
+        version: 0.0.304
       '@types/node':
         specifier: 20.9.0
         version: 20.9.0
@@ -182,8 +182,8 @@ importers:
         specifier: 16.2.0
         version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
-        specifier: 0.0.251
-        version: 0.0.251
+        specifier: 0.0.304
+        version: 0.0.304
       '@types/node':
         specifier: 20.9.0
         version: 20.9.0
@@ -915,8 +915,8 @@ importers:
         specifier: workspace:*
         version: link:../../api/persistent
       '@types/chrome':
-        specifier: 0.0.251
-        version: 0.0.251
+        specifier: 0.0.304
+        version: 0.0.304
       tsup:
         specifier: 8.3.6
         version: 8.3.6(@swc/core@1.3.96(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
@@ -7416,9 +7416,6 @@ packages:
 
   '@types/chai@4.3.19':
     resolution: {integrity: sha512-2hHHvQBVE2FiSK4eN0Br6snX9MtolHaTo/batnLjlGRhoQzlCL61iVpxoqO7SfFyOw+P/pwv+0zNHzKoGWz9Cw==}
-
-  '@types/chrome@0.0.251':
-    resolution: {integrity: sha512-UF+yr0LEKWWGsKxQ5A3XOSF5SNoU1ctW3pXcWJPpT8OOUTEspYeaLU8spDKe+6xalXeMTS0TBrX1g0b6qlWmkw==}
 
   '@types/chrome@0.0.258':
     resolution: {integrity: sha512-vicJi6cg2zaFuLmLY7laG6PHBknjKFusPYlaKQ9Zlycskofy71rStlGvW07MUuqUIVorZf8k5KH+zeTTGcH2dQ==}
@@ -17421,11 +17418,6 @@ snapshots:
       '@babel/types': 7.25.6
 
   '@types/chai@4.3.19': {}
-
-  '@types/chrome@0.0.251':
-    dependencies:
-      '@types/filesystem': 0.0.35
-      '@types/har-format': 1.2.15
 
   '@types/chrome@0.0.258':
     dependencies:
