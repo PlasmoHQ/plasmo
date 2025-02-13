@@ -37,7 +37,7 @@
     }
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@ianvs/prettier-plugin-sort-imports": "4.4.1",
     "@plasmohq/rps": "workspace:*",
     "@types/fs-extra": "11.0.4",
     "@types/inquirer": "9.0.7",
