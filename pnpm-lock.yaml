@@ -337,8 +337,8 @@ importers:
         specifier: 5.1.2
         version: 5.1.2
       dotenv:
-        specifier: 16.3.1
-        version: 16.3.1
+        specifier: 16.4.7
+        version: 16.4.7
       dotenv-expand:
         specifier: 12.0.1
         version: 12.0.1
@@ -8805,10 +8805,6 @@ packages:
 
   dotenv-expand@5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
-
-  dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
-    engines: {node: '>=12'}
 
   dotenv@16.4.7:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
@@ -19164,8 +19160,6 @@ snapshots:
       dotenv: 16.4.7
 
   dotenv-expand@5.1.0: {}
-
-  dotenv@16.3.1: {}
 
   dotenv@16.4.7: {}
 
