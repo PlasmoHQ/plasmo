@@ -35,7 +35,7 @@
     "@parcel/plugin": "2.9.3",
     "@parcel/types": "2.9.3",
     "@parcel/utils": "2.9.3",
-    "content-security-policy-parser": "0.4.1",
+    "content-security-policy-parser": "0.6.0",
     "json-schema-to-ts": "3.1.1",
     "nullthrows": "1.1.1"
   }

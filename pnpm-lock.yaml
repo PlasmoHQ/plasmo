@@ -1023,8 +1023,8 @@ importers:
         specifier: 2.9.3
         version: 2.9.3
       content-security-policy-parser:
-        specifier: 0.4.1
-        version: 0.4.1
+        specifier: 0.6.0
+        version: 0.6.0
       json-schema-to-ts:
         specifier: 3.1.1
         version: 3.1.1
@@ -8366,9 +8366,9 @@ packages:
   constants-browserify@1.0.0:
     resolution: {integrity: sha512-xFxOwqIzR/e1k1gLiWEophSCMqXcwVHIH7akf7b/vxcUeGunlj3hvZaaqxwHsTgn+IndtkQJgSztIDWeumWJDQ==}
 
-  content-security-policy-parser@0.4.1:
-    resolution: {integrity: sha512-NNJS8XPnx3OKr/CUOSwDSJw+lWTrZMYnclLKj0Y9CYOfJNJTWLFGPg3u2hYgbXMXKVRkZR2fbyReNQ1mUff/Qg==}
-    engines: {node: '>=8.0.0'}
+  content-security-policy-parser@0.6.0:
+    resolution: {integrity: sha512-wejtC/p+HLNQ7uaWgg1o3CKHhE8QXC9fJ2GCY0X82L5HUNtZSq1dmUvNSHHEb6R7LS02fpmRBq/vP8i4/+9KCg==}
+    engines: {node: '>=18.0.0'}
 
   convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
@@ -18714,7 +18714,7 @@ snapshots:
 
   constants-browserify@1.0.0: {}
 
-  content-security-policy-parser@0.4.1: {}
+  content-security-policy-parser@0.6.0: {}
 
   convert-source-map@1.9.0: {}
 
