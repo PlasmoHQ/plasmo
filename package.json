@@ -45,7 +45,7 @@
     "@types/node-rsa": "1.1.4",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
-    "@types/semver": "7.5.5",
+    "@types/semver": "7.5.8",
     "@types/uuid": "10.0.0",
     "@types/ws": "8.5.9",
     "esbuild": "0.19.5",
