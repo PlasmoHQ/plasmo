@@ -54,7 +54,7 @@
     "events": "3.3.0",
     "fast-glob": "3.3.2",
     "fflate": "0.8.1",
-    "get-port": "7.0.0",
+    "get-port": "7.1.0",
     "got": "14.4.5",
     "ignore": "7.0.3",
     "inquirer": "12.4.1",
