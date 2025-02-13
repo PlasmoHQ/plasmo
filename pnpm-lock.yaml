@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.4.1
-        version: 4.4.1(@vue/compiler-sfc@3.4.15)(prettier@3.5.1)
+        version: 4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:packages/rps
@@ -68,7 +68,7 @@ importers:
         version: 3.5.1
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       turbo:
         specifier: 2.4.2
         version: 2.4.2
@@ -129,7 +129,7 @@ importers:
         version: 29.2.5(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.2)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -165,7 +165,7 @@ importers:
         version: 29.2.5(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.2)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -213,7 +213,7 @@ importers:
         version: 29.2.5(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.2)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -274,7 +274,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -407,8 +407,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/utils
       vue:
-        specifier: 3.3.8
-        version: 3.3.8(typescript@5.7.3)
+        specifier: 3.5.13
+        version: 3.5.13(typescript@5.7.3)
 
   core/parcel-bundler:
     dependencies:
@@ -445,7 +445,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-compressor-utf8:
     dependencies:
@@ -461,7 +461,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-config:
     dependencies:
@@ -470,7 +470,7 @@ importers:
         version: 2.9.3(@parcel/core@2.9.3)
       '@parcel/config-default':
         specifier: 2.9.3
-        version: 2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.15)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)
+        version: 2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.15)(postcss@8.5.2)(srcset@4.0.0)(terser@5.19.2)
       '@parcel/core':
         specifier: 2.9.3
         version: 2.9.3
@@ -633,7 +633,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-namer-manifest:
     dependencies:
@@ -655,7 +655,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-optimizer-encapsulate:
     dependencies:
@@ -680,7 +680,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-optimizer-es:
     dependencies:
@@ -711,7 +711,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-packager:
     dependencies:
@@ -742,7 +742,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-resolver:
     dependencies:
@@ -842,7 +842,7 @@ importers:
         version: 2.0.12
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       tty-browserify:
         specifier: 0.0.1
         version: 0.0.1
@@ -875,7 +875,7 @@ importers:
         version: 2.9.3
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -919,7 +919,7 @@ importers:
         version: 0.0.304
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-inject-env:
     dependencies:
@@ -941,7 +941,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-inline-css:
     dependencies:
@@ -966,7 +966,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-lab:
     dependencies:
@@ -997,7 +997,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-manifest:
     dependencies:
@@ -1040,7 +1040,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-svelte:
     dependencies:
@@ -1068,7 +1068,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-vue:
     dependencies:
@@ -1094,8 +1094,8 @@ importers:
         specifier: 0.17.0
         version: 0.17.0(ejs@3.1.10)(lodash@4.17.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@vue/compiler-sfc':
-        specifier: 3.3.8
-        version: 3.3.8
+        specifier: 3.5.13
+        version: 3.5.13
       nullthrows:
         specifier: 1.1.1
         version: 1.1.1
@@ -1103,15 +1103,15 @@ importers:
         specifier: 7.7.1
         version: 7.7.1
       vue:
-        specifier: 3.3.8
-        version: 3.3.8(typescript@5.7.3)
+        specifier: 3.5.13
+        version: 3.5.13(typescript@5.7.3)
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
         version: link:../../packages/config
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   examples/with-ai:
     dependencies:
@@ -1130,7 +1130,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1170,7 +1170,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1213,7 +1213,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1256,7 +1256,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chai':
         specifier: 4.3.19
         version: 4.3.19
@@ -1314,7 +1314,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1351,7 +1351,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1385,7 +1385,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1419,7 +1419,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1447,7 +1447,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1475,7 +1475,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1521,7 +1521,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1570,7 +1570,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1613,7 +1613,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1650,7 +1650,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1690,7 +1690,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1724,7 +1724,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1761,7 +1761,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1798,7 +1798,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1838,7 +1838,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@jest/globals':
         specifier: 29.7.0
         version: 29.7.0
@@ -1896,7 +1896,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1930,7 +1930,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -1964,7 +1964,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2007,7 +2007,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2050,7 +2050,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2084,7 +2084,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2127,7 +2127,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2179,7 +2179,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2228,7 +2228,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2265,7 +2265,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2305,7 +2305,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2342,7 +2342,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2385,7 +2385,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.4.1
-        version: 4.4.1(@vue/compiler-sfc@3.4.15)(prettier@3.4.2)
+        version: 4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.4.2)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -2425,7 +2425,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2462,7 +2462,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2496,7 +2496,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2539,7 +2539,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2585,7 +2585,7 @@ importers:
         version: 7.23.8(@babel/core@7.23.7)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2625,7 +2625,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2662,7 +2662,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2717,7 +2717,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2757,7 +2757,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2797,7 +2797,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2852,7 +2852,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2876,7 +2876,7 @@ importers:
         version: 3.2.4
       prettier-plugin-tailwindcss:
         specifier: 0.6.11
-        version: 0.6.11(@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4))(prettier@3.2.4)
+        version: 0.6.11(@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4))(prettier@3.2.4)
       tailwindcss:
         specifier: 3.4.1
         version: 3.4.1
@@ -2898,7 +2898,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2941,7 +2941,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -2975,7 +2975,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3012,7 +3012,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3061,7 +3061,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:../../packages/rps
@@ -3104,7 +3104,7 @@ importers:
         version: 7.23.7
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3147,7 +3147,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3177,11 +3177,11 @@ importers:
         version: 4.2.9
       svelte-preprocess:
         specifier: 5.1.3
-        version: 5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.4.33))(postcss@8.4.33)(sass@1.63.6)(sugarss@4.0.1(postcss@8.4.33))(svelte@4.2.9)(typescript@5.3.3)
+        version: 5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.5.2))(postcss@8.5.2)(sass@1.63.6)(sugarss@4.0.1(postcss@8.5.2))(svelte@4.2.9)(typescript@5.3.3)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3209,7 +3209,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3246,7 +3246,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3283,7 +3283,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@radix-ui/colors':
         specifier: 2.1.0
         version: 2.1.0
@@ -3326,7 +3326,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3354,7 +3354,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -3442,7 +3442,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3480,7 +3480,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3516,7 +3516,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3556,7 +3556,7 @@ importers:
         version: 3.2.4
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3611,7 +3611,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3797,10 +3797,6 @@ packages:
     resolution: {integrity: sha512-AsUnxuLhRYsisFiaJwvp1QF+I3KjD5FOxut14q/GzovUe6orHLesW2C7d754kRm53h5gqrz6sFl6sxc4BVtE/g==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.22.5':
-    resolution: {integrity: sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-string-parser@7.24.8':
     resolution: {integrity: sha512-pO9KhhRcuUyGnJWwyEgnRJTSIZHiT+vMD0kPeD+so0l7mxkMT19g3pjY9GTnHySck/hDzq+dtW/4VgnMkippsQ==}
     engines: {node: '>=6.9.0'}
@@ -3844,11 +3840,6 @@ packages:
   '@babel/highlight@7.23.4':
     resolution: {integrity: sha512-acGdbYSfp2WheJoJm/EBBBLh/ID8KDc64ISZ9DYtBmC8/Q204PZJLHyzeB5qMzJ5trcOkybd78M4x2KWsUq++A==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.23.3':
-    resolution: {integrity: sha512-uVsWNvlVsIninV2prNz/3lHCb+5CJ+e+IUBfbjToAHODtfGYLfCFuY4AU7TskI+dAKk+njsPiBjq1gKTvZOBaw==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.25.6':
     resolution: {integrity: sha512-trGdfBdbD0l1ZPmcJ83eNxB9rbEax4ALFTF7fN386TMYbeCQbyme5cOEXQhbGXKebwGaB/J52w1mrklMcbgy6Q==}
@@ -4470,10 +4461,6 @@ packages:
 
   '@babel/traverse@7.26.8':
     resolution: {integrity: sha512-nic9tRkjYH0oB2dzr/JoGIm+4Q6SuYeLEiIiZDwBscRMYFJ+tMAz98fuel9ZnbXViA2I0HVSSRRK8DW5fjXStA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.23.3':
-    resolution: {integrity: sha512-OZnvoH2l8PK5eUvEcUyCt/sXgr/h+UWpVuBbOljwcrAgUl6lpchoQ++PHGyQy1AtYnVA6CEq3y5xeEI10brpXw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.25.6':
@@ -5804,6 +5791,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
+
+  '@jridgewell/sourcemap-codec@1.5.0':
+    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
   '@jridgewell/trace-mapping@0.3.18':
     resolution: {integrity: sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==}
@@ -7728,66 +7718,63 @@ packages:
     resolution: {integrity: sha512-kArLq83QxGLbuHrTMoOEWO+l2MwsNS2TGISEdx8xgqpkbytB07XmlQyQdNDrCc1ecSqx0cnmhGvpX+VBwqqSkg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vue/compiler-core@3.3.8':
-    resolution: {integrity: sha512-hN/NNBUECw8SusQvDSqqcVv6gWq8L6iAktUR0UF3vGu2OhzRqcOiAno0FmBJWwxhYEXRlQJT5XnoKsVq1WZx4g==}
-
   '@vue/compiler-core@3.4.15':
     resolution: {integrity: sha512-XcJQVOaxTKCnth1vCxEChteGuwG6wqnUHxAm1DO3gCz0+uXKaJNx8/digSz4dLALCy8n2lKq24jSUs8segoqIw==}
 
-  '@vue/compiler-dom@3.3.8':
-    resolution: {integrity: sha512-+PPtv+p/nWDd0AvJu3w8HS0RIm/C6VGBIRe24b9hSyNWOAPEUosFZ5diwawwP8ip5sJ8n0Pe87TNNNHnvjs0FQ==}
+  '@vue/compiler-core@3.5.13':
+    resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
 
   '@vue/compiler-dom@3.4.15':
     resolution: {integrity: sha512-wox0aasVV74zoXyblarOM3AZQz/Z+OunYcIHe1OsGclCHt8RsRm04DObjefaI82u6XDzv+qGWZ24tIsRAIi5MQ==}
 
-  '@vue/compiler-sfc@3.3.8':
-    resolution: {integrity: sha512-WMzbUrlTjfYF8joyT84HfwwXo+8WPALuPxhy+BZ6R4Aafls+jDBnSz8PDz60uFhuqFbl3HxRfxvDzrUf3THwpA==}
+  '@vue/compiler-dom@3.5.13':
+    resolution: {integrity: sha512-ZOJ46sMOKUjO3e94wPdCzQ6P1Lx/vhp2RSvfaab88Ajexs0AHeV0uasYhi99WPaogmBlRHNRuly8xV75cNTMDA==}
 
   '@vue/compiler-sfc@3.4.15':
     resolution: {integrity: sha512-LCn5M6QpkpFsh3GQvs2mJUOAlBQcCco8D60Bcqmf3O3w5a+KWS5GvYbrrJBkgvL1BDnTp+e8q0lXCLgHhKguBA==}
 
-  '@vue/compiler-ssr@3.3.8':
-    resolution: {integrity: sha512-hXCqQL/15kMVDBuoBYpUnSYT8doDNwsjvm3jTefnXr+ytn294ySnT8NlsFHmTgKNjwpuFy7XVV8yTeLtNl/P6w==}
+  '@vue/compiler-sfc@3.5.13':
+    resolution: {integrity: sha512-6VdaljMpD82w6c2749Zhf5T9u5uLBWKnVue6XWxprDobftnletJ8+oel7sexFfM3qIxNmVE7LSFGTpv6obNyaQ==}
 
   '@vue/compiler-ssr@3.4.15':
     resolution: {integrity: sha512-1jdeQyiGznr8gjFDadVmOJqZiLNSsMa5ZgqavkPZ8O2wjHv0tVuAEsw5hTdUoUW4232vpBbL/wJhzVW/JwY1Uw==}
 
-  '@vue/reactivity-transform@3.3.8':
-    resolution: {integrity: sha512-49CvBzmZNtcHua0XJ7GdGifM8GOXoUMOX4dD40Y5DxI3R8OUhMlvf2nvgUAcPxaXiV5MQQ1Nwy09ADpnLQUqRw==}
-
-  '@vue/reactivity@3.3.8':
-    resolution: {integrity: sha512-ctLWitmFBu6mtddPyOKpHg8+5ahouoTCRtmAHZAXmolDtuZXfjL2T3OJ6DL6ezBPQB1SmMnpzjiWjCiMYmpIuw==}
+  '@vue/compiler-ssr@3.5.13':
+    resolution: {integrity: sha512-wMH6vrYHxQl/IybKJagqbquvxpWCuVYpoUJfCqFZwa/JY1GdATAQ+TgVtgrwwMZ0D07QhA99rs/EAAWfvG6KpA==}
 
   '@vue/reactivity@3.4.15':
     resolution: {integrity: sha512-55yJh2bsff20K5O84MxSvXKPHHt17I2EomHznvFiJCAZpJTNW8IuLj1xZWMLELRhBK3kkFV/1ErZGHJfah7i7w==}
 
-  '@vue/runtime-core@3.3.8':
-    resolution: {integrity: sha512-qurzOlb6q26KWQ/8IShHkMDOuJkQnQcTIp1sdP4I9MbCf9FJeGVRXJFr2mF+6bXh/3Zjr9TDgURXrsCr9bfjUw==}
+  '@vue/reactivity@3.5.13':
+    resolution: {integrity: sha512-NaCwtw8o48B9I6L1zl2p41OHo/2Z4wqYGGIK1Khu5T7yxrn+ATOixn/Udn2m+6kZKB/J7cuT9DbWWhRxqixACg==}
 
   '@vue/runtime-core@3.4.15':
     resolution: {integrity: sha512-6E3by5m6v1AkW0McCeAyhHTw+3y17YCOKG0U0HDKDscV4Hs0kgNT5G+GCHak16jKgcCDHpI9xe5NKb8sdLCLdw==}
 
-  '@vue/runtime-dom@3.3.8':
-    resolution: {integrity: sha512-Noy5yM5UIf9UeFoowBVgghyGGPIDPy1Qlqt0yVsUdAVbqI8eeMSsTqBtauaEoT2UFXUk5S64aWVNJN4MJ2vRdA==}
+  '@vue/runtime-core@3.5.13':
+    resolution: {integrity: sha512-Fj4YRQ3Az0WTZw1sFe+QDb0aXCerigEpw418pw1HBUKFtnQHWzwojaukAs2X/c9DQz4MQ4bsXTGlcpGxU/RCIw==}
 
   '@vue/runtime-dom@3.4.15':
     resolution: {integrity: sha512-EVW8D6vfFVq3V/yDKNPBFkZKGMFSvZrUQmx196o/v2tHKdwWdiZjYUBS+0Ez3+ohRyF8Njwy/6FH5gYJ75liUw==}
 
-  '@vue/server-renderer@3.3.8':
-    resolution: {integrity: sha512-zVCUw7RFskvPuNlPn/8xISbrf0zTWsTSdYTsUTN1ERGGZGVnRxM2QZ3x1OR32+vwkkCm0IW6HmJ49IsPm7ilLg==}
-    peerDependencies:
-      vue: 3.3.8
+  '@vue/runtime-dom@3.5.13':
+    resolution: {integrity: sha512-dLaj94s93NYLqjLiyFzVs9X6dWhTdAlEAciC3Moq7gzAc13VJUdCnjjRurNM6uTLFATRHexHCTu/Xp3eW6yoog==}
 
   '@vue/server-renderer@3.4.15':
     resolution: {integrity: sha512-3HYzaidu9cHjrT+qGUuDhFYvF/j643bHC6uUN9BgM11DVy+pM6ATsG6uPBLnkwOgs7BpJABReLmpL3ZPAsUaqw==}
     peerDependencies:
       vue: 3.4.15
 
-  '@vue/shared@3.3.8':
-    resolution: {integrity: sha512-8PGwybFwM4x8pcfgqEQFy70NaQxASvOC5DJwLQfpArw1UDfUXrJkdxD3BhVTMS+0Lef/TU7YO0Jvr0jJY8T+mw==}
+  '@vue/server-renderer@3.5.13':
+    resolution: {integrity: sha512-wAi4IRJV/2SAW3htkTlB+dHeRmpTiVIK1OGLWV1yeStVSebSQQOwGwIq0D3ZIoBj2C2qpgz5+vX9iEBkTdk5YA==}
+    peerDependencies:
+      vue: 3.5.13
 
   '@vue/shared@3.4.15':
     resolution: {integrity: sha512-KzfPTxVaWfB+eGcGdbSf4CWdaXcGDqckoeXUh7SB3fZdEtzPCK2Vq9B/lRRL3yutax/LWITz+SwvgyOxz5V75g==}
+
+  '@vue/shared@3.5.13':
+    resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
 
   abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
@@ -10573,6 +10560,9 @@ packages:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
 
+  magic-string@0.30.17:
+    resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
+
   magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
@@ -10838,6 +10828,11 @@ packages:
 
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@3.3.8:
+    resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -11343,6 +11338,10 @@ packages:
 
   postcss@8.4.33:
     resolution: {integrity: sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.2:
+    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
     engines: {node: ^10 || ^12 || >=14}
 
   posthtml-parser@0.10.2:
@@ -12301,6 +12300,10 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
 
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
   source-map-support@0.5.13:
     resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
 
@@ -13137,16 +13140,16 @@ packages:
   vm-browserify@1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
 
-  vue@3.3.8:
-    resolution: {integrity: sha512-5VSX/3DabBikOXMsxzlW8JyfeLKlG9mzqnWgLQLty88vdZL7ZJgrdgBOmrArwxiLtmS+lNNpPcBYqrhE6TQW5w==}
+  vue@3.4.15:
+    resolution: {integrity: sha512-jC0GH4KkWLWJOEQjOpkqU1bQsBwf4R1rsFtw5GQJbjHVKWDzO6P0nWWBTmjp1xSemAioDFj1jdaK1qa3DnMQoQ==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
 
-  vue@3.4.15:
-    resolution: {integrity: sha512-jC0GH4KkWLWJOEQjOpkqU1bQsBwf4R1rsFtw5GQJbjHVKWDzO6P0nWWBTmjp1xSemAioDFj1jdaK1qa3DnMQoQ==}
+  vue@3.5.13:
+    resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -13618,8 +13621,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.25.6
 
-  '@babel/helper-string-parser@7.22.5': {}
-
   '@babel/helper-string-parser@7.24.8': {}
 
   '@babel/helper-string-parser@7.25.9': {}
@@ -13659,10 +13660,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
       js-tokens: 4.0.0
-
-  '@babel/parser@7.23.3':
-    dependencies:
-      '@babel/types': 7.23.3
 
   '@babel/parser@7.25.6':
     dependencies:
@@ -14402,12 +14399,6 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/types@7.23.3':
-    dependencies:
-      '@babel/helper-string-parser': 7.22.5
-      '@babel/helper-validator-identifier': 7.22.20
-      to-fast-properties: 2.0.0
 
   '@babel/types@7.25.6':
     dependencies:
@@ -15236,7 +15227,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)':
+  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)':
     dependencies:
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.6
@@ -15246,11 +15237,11 @@ snapshots:
       prettier: 3.2.4
       semver: 7.5.4
     optionalDependencies:
-      '@vue/compiler-sfc': 3.4.15
+      '@vue/compiler-sfc': 3.5.13
     transitivePeerDependencies:
       - supports-color
 
-  '@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.4.15)(prettier@3.4.2)':
+  '@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.4.2)':
     dependencies:
       '@babel/generator': 7.26.8
       '@babel/parser': 7.26.8
@@ -15259,11 +15250,11 @@ snapshots:
       prettier: 3.4.2
       semver: 7.5.4
     optionalDependencies:
-      '@vue/compiler-sfc': 3.4.15
+      '@vue/compiler-sfc': 3.5.13
     transitivePeerDependencies:
       - supports-color
 
-  '@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.4.15)(prettier@3.5.1)':
+  '@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)':
     dependencies:
       '@babel/generator': 7.26.8
       '@babel/parser': 7.26.8
@@ -15272,7 +15263,7 @@ snapshots:
       prettier: 3.5.1
       semver: 7.5.4
     optionalDependencies:
-      '@vue/compiler-sfc': 3.4.15
+      '@vue/compiler-sfc': 3.5.13
     transitivePeerDependencies:
       - supports-color
 
@@ -15708,6 +15699,8 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.4.15': {}
 
+  '@jridgewell/sourcemap-codec@1.5.0': {}
+
   '@jridgewell/trace-mapping@0.3.18':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
@@ -16049,14 +16042,14 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/config-default@2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.15)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)':
+  '@parcel/config-default@2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.15)(postcss@8.5.2)(srcset@4.0.0)(terser@5.19.2)':
     dependencies:
       '@parcel/bundler-default': 2.9.3(@parcel/core@2.9.3)
       '@parcel/compressor-raw': 2.9.3(@parcel/core@2.9.3)
       '@parcel/core': 2.9.3
       '@parcel/namer-default': 2.9.3(@parcel/core@2.9.3)
       '@parcel/optimizer-css': 2.9.3(@parcel/core@2.9.3)
-      '@parcel/optimizer-htmlnano': 2.9.3(@parcel/core@2.9.3)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)
+      '@parcel/optimizer-htmlnano': 2.9.3(@parcel/core@2.9.3)(postcss@8.5.2)(srcset@4.0.0)(terser@5.19.2)
       '@parcel/optimizer-image': 2.9.3(@parcel/core@2.9.3)
       '@parcel/optimizer-svgo': 2.9.3(@parcel/core@2.9.3)
       '@parcel/optimizer-swc': 2.9.3(@parcel/core@2.9.3)(@swc/helpers@0.5.15)
@@ -16248,10 +16241,10 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/optimizer-htmlnano@2.9.3(@parcel/core@2.9.3)(postcss@8.4.33)(srcset@4.0.0)(terser@5.19.2)':
+  '@parcel/optimizer-htmlnano@2.9.3(@parcel/core@2.9.3)(postcss@8.5.2)(srcset@4.0.0)(terser@5.19.2)':
     dependencies:
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
-      htmlnano: 2.0.4(postcss@8.4.33)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2)
+      htmlnano: 2.0.4(postcss@8.5.2)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2)
       nullthrows: 1.1.1
       posthtml: 0.16.6
       svgo: 2.8.0
@@ -17686,7 +17679,7 @@ snapshots:
 
   '@types/babel__core@7.20.4':
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@babel/types': 7.25.6
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
@@ -17698,7 +17691,7 @@ snapshots:
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@babel/types': 7.25.6
 
   '@types/babel__traverse@7.20.4':
@@ -17966,43 +17959,31 @@ snapshots:
       '@typescript-eslint/types': 8.24.0
       eslint-visitor-keys: 4.2.0
 
-  '@vue/compiler-core@3.3.8':
-    dependencies:
-      '@babel/parser': 7.23.3
-      '@vue/shared': 3.3.8
-      estree-walker: 2.0.2
-      source-map-js: 1.0.2
-
   '@vue/compiler-core@3.4.15':
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@vue/shared': 3.4.15
       entities: 4.5.0
       estree-walker: 2.0.2
       source-map-js: 1.0.2
 
-  '@vue/compiler-dom@3.3.8':
+  '@vue/compiler-core@3.5.13':
     dependencies:
-      '@vue/compiler-core': 3.3.8
-      '@vue/shared': 3.3.8
+      '@babel/parser': 7.26.8
+      '@vue/shared': 3.5.13
+      entities: 4.5.0
+      estree-walker: 2.0.2
+      source-map-js: 1.2.1
 
   '@vue/compiler-dom@3.4.15':
     dependencies:
       '@vue/compiler-core': 3.4.15
       '@vue/shared': 3.4.15
 
-  '@vue/compiler-sfc@3.3.8':
+  '@vue/compiler-dom@3.5.13':
     dependencies:
-      '@babel/parser': 7.23.3
-      '@vue/compiler-core': 3.3.8
-      '@vue/compiler-dom': 3.3.8
-      '@vue/compiler-ssr': 3.3.8
-      '@vue/reactivity-transform': 3.3.8
-      '@vue/shared': 3.3.8
-      estree-walker: 2.0.2
-      magic-string: 0.30.5
-      postcss: 8.4.33
-      source-map-js: 1.0.2
+      '@vue/compiler-core': 3.5.13
+      '@vue/shared': 3.5.13
 
   '@vue/compiler-sfc@3.4.15':
     dependencies:
@@ -18016,47 +17997,45 @@ snapshots:
       postcss: 8.4.33
       source-map-js: 1.0.2
 
-  '@vue/compiler-ssr@3.3.8':
+  '@vue/compiler-sfc@3.5.13':
     dependencies:
-      '@vue/compiler-dom': 3.3.8
-      '@vue/shared': 3.3.8
+      '@babel/parser': 7.26.8
+      '@vue/compiler-core': 3.5.13
+      '@vue/compiler-dom': 3.5.13
+      '@vue/compiler-ssr': 3.5.13
+      '@vue/shared': 3.5.13
+      estree-walker: 2.0.2
+      magic-string: 0.30.17
+      postcss: 8.5.2
+      source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.4.15':
     dependencies:
       '@vue/compiler-dom': 3.4.15
       '@vue/shared': 3.4.15
 
-  '@vue/reactivity-transform@3.3.8':
+  '@vue/compiler-ssr@3.5.13':
     dependencies:
-      '@babel/parser': 7.23.3
-      '@vue/compiler-core': 3.3.8
-      '@vue/shared': 3.3.8
-      estree-walker: 2.0.2
-      magic-string: 0.30.5
-
-  '@vue/reactivity@3.3.8':
-    dependencies:
-      '@vue/shared': 3.3.8
+      '@vue/compiler-dom': 3.5.13
+      '@vue/shared': 3.5.13
 
   '@vue/reactivity@3.4.15':
     dependencies:
       '@vue/shared': 3.4.15
 
-  '@vue/runtime-core@3.3.8':
+  '@vue/reactivity@3.5.13':
     dependencies:
-      '@vue/reactivity': 3.3.8
-      '@vue/shared': 3.3.8
+      '@vue/shared': 3.5.13
 
   '@vue/runtime-core@3.4.15':
     dependencies:
       '@vue/reactivity': 3.4.15
       '@vue/shared': 3.4.15
 
-  '@vue/runtime-dom@3.3.8':
+  '@vue/runtime-core@3.5.13':
     dependencies:
-      '@vue/runtime-core': 3.3.8
-      '@vue/shared': 3.3.8
-      csstype: 3.1.2
+      '@vue/reactivity': 3.5.13
+      '@vue/shared': 3.5.13
 
   '@vue/runtime-dom@3.4.15':
     dependencies:
@@ -18064,11 +18043,12 @@ snapshots:
       '@vue/shared': 3.4.15
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.3.8(vue@3.3.8(typescript@5.7.3))':
+  '@vue/runtime-dom@3.5.13':
     dependencies:
-      '@vue/compiler-ssr': 3.3.8
-      '@vue/shared': 3.3.8
-      vue: 3.3.8(typescript@5.7.3)
+      '@vue/reactivity': 3.5.13
+      '@vue/runtime-core': 3.5.13
+      '@vue/shared': 3.5.13
+      csstype: 3.1.3
 
   '@vue/server-renderer@3.4.15(vue@3.4.15(typescript@5.3.3))':
     dependencies:
@@ -18076,9 +18056,15 @@ snapshots:
       '@vue/shared': 3.4.15
       vue: 3.4.15(typescript@5.3.3)
 
-  '@vue/shared@3.3.8': {}
+  '@vue/server-renderer@3.5.13(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      '@vue/compiler-ssr': 3.5.13
+      '@vue/shared': 3.5.13
+      vue: 3.5.13(typescript@5.7.3)
 
   '@vue/shared@3.4.15': {}
+
+  '@vue/shared@3.5.13': {}
 
   abab@2.0.6: {}
 
@@ -20369,13 +20355,13 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  htmlnano@2.0.4(postcss@8.4.33)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2):
+  htmlnano@2.0.4(postcss@8.5.2)(srcset@4.0.0)(svgo@2.8.0)(terser@5.19.2):
     dependencies:
       cosmiconfig: 8.2.0
       posthtml: 0.16.6
       timsort: 0.3.0
     optionalDependencies:
-      postcss: 8.4.33
+      postcss: 8.5.2
       srcset: 4.0.0
       svgo: 2.8.0
       terser: 5.19.2
@@ -20716,7 +20702,7 @@ snapshots:
   istanbul-lib-instrument@5.2.1:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
       semver: 6.3.1
@@ -20726,7 +20712,7 @@ snapshots:
   istanbul-lib-instrument@6.0.1:
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
       semver: 7.7.1
@@ -21225,7 +21211,7 @@ snapshots:
   jscodeshift@0.14.0(@babel/preset-env@7.23.8(@babel/core@7.23.7)):
     dependencies:
       '@babel/core': 7.23.7
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.7)
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.23.7)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.23.7)
@@ -21620,6 +21606,10 @@ snapshots:
 
   lz-string@1.5.0: {}
 
+  magic-string@0.30.17:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
+
   magic-string@0.30.5:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -21768,7 +21758,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.6
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@babel/types': 7.25.6
       metro: 0.80.4
       metro-babel-transformer: 0.80.4
@@ -21788,7 +21778,7 @@ snapshots:
       '@babel/code-frame': 7.26.2
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.6
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.8
       '@babel/template': 7.22.15
       '@babel/traverse': 7.23.7
       '@babel/types': 7.25.6
@@ -21995,6 +21985,8 @@ snapshots:
     optional: true
 
   nanoid@3.3.7: {}
+
+  nanoid@3.3.8: {}
 
   nanoid@5.0.9: {}
 
@@ -22431,11 +22423,18 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.33
 
-  postcss-load-config@6.0.1(postcss@8.4.33)(tsx@4.19.0):
+  postcss-load-config@4.0.1(postcss@8.5.2):
+    dependencies:
+      lilconfig: 2.1.0
+      yaml: 2.3.1
+    optionalDependencies:
+      postcss: 8.5.2
+
+  postcss-load-config@6.0.1(postcss@8.5.2)(tsx@4.19.0):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
-      postcss: 8.4.33
+      postcss: 8.5.2
       tsx: 4.19.0
 
   postcss-mixins@9.0.4(postcss@8.4.33):
@@ -22480,6 +22479,12 @@ snapshots:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  postcss@8.5.2:
+    dependencies:
+      nanoid: 3.3.8
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
   posthtml-parser@0.10.2:
     dependencies:
       htmlparser2: 7.2.0
@@ -22514,11 +22519,11 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.11(@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4))(prettier@3.2.4):
+  prettier-plugin-tailwindcss@0.6.11(@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4))(prettier@3.2.4):
     dependencies:
       prettier: 3.2.4
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+      '@ianvs/prettier-plugin-sort-imports': 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
 
   prettier@3.2.4: {}
 
@@ -23655,6 +23660,8 @@ snapshots:
 
   source-map-js@1.0.2: {}
 
+  source-map-js@1.2.1: {}
+
   source-map-support@0.5.13:
     dependencies:
       buffer-from: 1.1.2
@@ -23880,6 +23887,11 @@ snapshots:
     dependencies:
       postcss: 8.4.33
 
+  sugarss@4.0.1(postcss@8.5.2):
+    dependencies:
+      postcss: 8.5.2
+    optional: true
+
   supports-color@5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -23894,7 +23906,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-preprocess@5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.4.33))(postcss@8.4.33)(sass@1.63.6)(sugarss@4.0.1(postcss@8.4.33))(svelte@4.2.9)(typescript@5.3.3):
+  svelte-preprocess@5.1.3(@babel/core@7.23.7)(less@4.1.3)(postcss-load-config@4.0.1(postcss@8.5.2))(postcss@8.5.2)(sass@1.63.6)(sugarss@4.0.1(postcss@8.5.2))(svelte@4.2.9)(typescript@5.3.3):
     dependencies:
       '@types/pug': 2.0.6
       detect-indent: 6.1.0
@@ -23905,10 +23917,10 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.23.7
       less: 4.1.3
-      postcss: 8.4.33
-      postcss-load-config: 4.0.1(postcss@8.4.33)
+      postcss: 8.5.2
+      postcss-load-config: 4.0.1(postcss@8.5.2)
       sass: 1.63.6
-      sugarss: 4.0.1(postcss@8.4.33)
+      sugarss: 4.0.1(postcss@8.5.2)
       typescript: 5.3.3
 
   svelte@4.2.19:
@@ -24230,7 +24242,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(typescript@5.3.3):
+  tsup@8.0.1(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3):
     dependencies:
       bundle-require: 4.0.1(esbuild@0.19.5)
       cac: 6.7.14
@@ -24240,7 +24252,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.1(postcss@8.4.33)
+      postcss-load-config: 4.0.1(postcss@8.5.2)
       resolve-from: 5.0.0
       rollup: 4.9.5
       source-map: 0.8.0-beta.0
@@ -24248,13 +24260,13 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       '@swc/core': 1.10.16(@swc/helpers@0.5.15)
-      postcss: 8.4.33
+      postcss: 8.5.2
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
 
-  tsup@8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3):
+  tsup@8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.24.2)
       cac: 6.7.14
@@ -24264,7 +24276,7 @@ snapshots:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(postcss@8.4.33)(tsx@4.19.0)
+      postcss-load-config: 6.0.1(postcss@8.5.2)(tsx@4.19.0)
       resolve-from: 5.0.0
       rollup: 4.34.6
       source-map: 0.8.0-beta.0
@@ -24274,7 +24286,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       '@swc/core': 1.10.16(@swc/helpers@0.5.15)
-      postcss: 8.4.33
+      postcss: 8.5.2
       typescript: 5.7.3
     transitivePeerDependencies:
       - jiti
@@ -24530,16 +24542,6 @@ snapshots:
 
   vm-browserify@1.1.2: {}
 
-  vue@3.3.8(typescript@5.7.3):
-    dependencies:
-      '@vue/compiler-dom': 3.3.8
-      '@vue/compiler-sfc': 3.3.8
-      '@vue/runtime-dom': 3.3.8
-      '@vue/server-renderer': 3.3.8(vue@3.3.8(typescript@5.7.3))
-      '@vue/shared': 3.3.8
-    optionalDependencies:
-      typescript: 5.7.3
-
   vue@3.4.15(typescript@5.3.3):
     dependencies:
       '@vue/compiler-dom': 3.4.15
@@ -24549,6 +24551,16 @@ snapshots:
       '@vue/shared': 3.4.15
     optionalDependencies:
       typescript: 5.3.3
+
+  vue@3.5.13(typescript@5.7.3):
+    dependencies:
+      '@vue/compiler-dom': 3.5.13
+      '@vue/compiler-sfc': 3.5.13
+      '@vue/runtime-dom': 3.5.13
+      '@vue/server-renderer': 3.5.13(vue@3.5.13(typescript@5.7.3))
+      '@vue/shared': 3.5.13
+    optionalDependencies:
+      typescript: 5.7.3
 
   w3c-xmlserializer@4.0.0:
     dependencies:
