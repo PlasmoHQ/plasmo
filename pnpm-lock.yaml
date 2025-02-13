@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.2.4)
+        version: 4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.5.1)
       '@plasmohq/rps':
         specifier: workspace:*
         version: link:packages/rps
@@ -64,8 +64,8 @@ importers:
         specifier: 15.14.0
         version: 15.14.0
       prettier:
-        specifier: 3.2.4
-        version: 3.2.4
+        specifier: 3.5.1
+        version: 3.5.1
       tsup:
         specifier: 8.3.6
         version: 8.3.6(@swc/core@1.10.16(@swc/helpers@0.5.15))(postcss@8.4.33)(tsx@4.19.0)(typescript@5.7.3)
@@ -11253,6 +11253,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.5.1:
+    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-format@26.6.2:
     resolution: {integrity: sha512-7AeGuCYNGmycyQbCqd/3PWH4eOoX/OiCa0uphp57NVTeAGdJGaAliecxwBDHYQCIvrW7aDBZCYeNTP/WX69mkg==}
     engines: {node: '>= 10'}
@@ -14987,6 +14992,20 @@ snapshots:
       '@babel/traverse': 7.23.7
       '@babel/types': 7.25.6
       prettier: 3.2.4
+      semver: 7.5.4
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.4.15
+    transitivePeerDependencies:
+      - supports-color
+
+  '@ianvs/prettier-plugin-sort-imports@4.1.1(@vue/compiler-sfc@3.4.15)(prettier@3.5.1)':
+    dependencies:
+      '@babel/core': 7.23.7
+      '@babel/generator': 7.23.6
+      '@babel/parser': 7.25.6
+      '@babel/traverse': 7.23.7
+      '@babel/types': 7.25.6
+      prettier: 3.5.1
       semver: 7.5.4
     optionalDependencies:
       '@vue/compiler-sfc': 3.4.15
@@ -22202,6 +22221,8 @@ snapshots:
   prettier@3.2.4: {}
 
   prettier@3.4.2: {}
+
+  prettier@3.5.1: {}
 
   pretty-format@26.6.2:
     dependencies:
