@@ -60,7 +60,7 @@
     "@parcel/hash": "2.9.3",
     "@parcel/plugin": "2.9.3",
     "@parcel/types": "2.9.3",
-    "fast-glob": "3.3.2",
+    "fast-glob": "3.3.3",
     "fs-extra": "11.3.0",
     "got": "14.4.5"
   }
