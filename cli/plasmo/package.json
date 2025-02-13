@@ -47,7 +47,7 @@
     "@plasmohq/parcel-config": "workspace:*",
     "@plasmohq/parcel-core": "workspace:*",
     "buffer": "6.0.3",
-    "chalk": "5.3.0",
+    "chalk": "5.4.1",
     "change-case": "5.1.2",
     "dotenv": "16.3.1",
     "dotenv-expand": "12.0.1",
