@@ -64,7 +64,7 @@
     "node-object-hash": "3.0.0",
     "package-json": "10.0.1",
     "process": "0.11.10",
-    "semver": "7.5.4",
+    "semver": "7.7.1",
     "sharp": "0.33.5",
     "tempy": "3.1.0",
     "typescript": "5.2.2"
