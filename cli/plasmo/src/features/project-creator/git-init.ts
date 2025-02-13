@@ -15,7 +15,7 @@ const gitInitAddCommit = async (root: string) => {
     vLog(`${root} is a git repository, bailing ${chalk.bold("git init")}`)
     return false
   } catch (e: any) {
-    if (e.errno === "ENOENT") {
+    if (e.code === "ENOENT") {
       throw new Error("Unable to initialize git repo. `git` not in PATH.")
     }
   }
