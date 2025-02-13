@@ -355,8 +355,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0
       got:
-        specifier: 14.4.5
-        version: 14.4.5
+        specifier: 14.4.6
+        version: 14.4.6
       ignore:
         specifier: 7.0.3
         version: 7.0.3
@@ -765,8 +765,8 @@ importers:
         specifier: 11.3.0
         version: 11.3.0
       got:
-        specifier: 14.4.5
-        version: 14.4.5
+        specifier: 14.4.6
+        version: 14.4.6
     devDependencies:
       '@plasmo/config':
         specifier: workspace:*
@@ -9329,8 +9329,8 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
-  got@14.4.5:
-    resolution: {integrity: sha512-sq+uET8TnNKRNnjEOPJzMcxeI0irT8BBNmf+GtZcJpmhYsQM1DSKmCROUjPWKsXZ5HzwD5Cf5/RV+QD9BSTxJg==}
+  got@14.4.6:
+    resolution: {integrity: sha512-rnhwfM/PhMNJ1i17k3DuDqgj0cKx3IHxBKVv/WX1uDKqrhi2Gv3l7rhPThR/Cc6uU++dD97W9c8Y0qyw9x0jag==}
     engines: {node: '>=20'}
 
   graceful-fs@4.2.10:
@@ -19965,7 +19965,7 @@ snapshots:
 
   gopd@1.2.0: {}
 
-  got@14.4.5:
+  got@14.4.6:
     dependencies:
       '@sindresorhus/is': 7.0.1
       '@szmarczak/http-timer': 5.0.1
