@@ -32,6 +32,6 @@
     "@parcel/types": "2.9.3",
     "@parcel/utils": "2.9.3",
     "tsup": "8.3.6",
-    "typescript": "5.2.2"
+    "typescript": "5.7.3"
   }
 }
