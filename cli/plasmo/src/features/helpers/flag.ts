@@ -39,8 +39,9 @@ const DEV_BUILD_COMMON_ARGS = `      --target=[string]           set the target 
       --tag=[string]              set the build tag (default: dev or prod depending on NODE_ENV)
       --src-path=[path]           set the source path relative to project root (default: src)
       --build-path=[path]         set the build path relative to project root (default: build)
-      --entry=[name]                     entry point name (default: popup)
-      --env=[path]                       relative path to top-level env file`
+      --entry=[name]              entry point name (default: popup)
+      --env=[path]                relative path to top-level env file
+      --no-cs-reload              disable content script auto reloading`
 
 export const flagHelp = `
     
