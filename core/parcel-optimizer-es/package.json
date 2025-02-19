@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-optimizer-es",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Plasmo ECMAScript Optimizer for Extension",
   "files": [
     "dist"
@@ -27,10 +27,10 @@
     "tsup": "8.3.6"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.11.0",
+    "@parcel/plugin": "2.11.0",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.9.3",
+    "@parcel/utils": "2.11.0",
     "@swc/core": "1.10.16",
     "nullthrows": "1.1.1"
   }

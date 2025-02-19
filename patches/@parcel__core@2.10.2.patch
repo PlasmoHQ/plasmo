@@ -1,0 +1,17 @@
+diff --git a/lib/resolveOptions.js b/lib/resolveOptions.js
+index 0bf28331b54c99e807367efc296d6ff1d595d873..e42d034c1f3ae08eeb524f76873ac9f518b7f42b 100644
+--- a/lib/resolveOptions.js
++++ b/lib/resolveOptions.js
+@@ -116,11 +116,7 @@ async function resolveOptions(initialOptions) {
+   if (shouldBuildLazily && shouldContentHash) {
+     throw new Error('Lazy bundling does not work with content hashing');
+   }
+-  let env = {
+-    ...(await (0, _loadDotEnv.default)((_initialOptions$env = initialOptions.env) !== null && _initialOptions$env !== void 0 ? _initialOptions$env : {}, inputFS, _path().default.join(projectRoot, 'index'), projectRoot)),
+-    ...process.env,
+-    ...initialOptions.env
+-  };
++  let env = initialOptions.env;
+   let port = determinePort(initialOptions.serveOptions, env.PORT);
+   return {
+     config: getRelativeConfigSpecifier(inputFS, projectRoot, initialOptions.config),
