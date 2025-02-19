@@ -1,17 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    "group:allNonMajor"
+    "config:recommended"
   ],
   "git-submodules": {
     "enabled": true
   },
-  "cloneSubmodules": true,
-  "packageRules": [
-    {
-      "matchPackageNames": ["@parcel/**"],
-      "groupName": "parcel packages"
-    }
-  ]
+  "cloneSubmodules": true
 }
