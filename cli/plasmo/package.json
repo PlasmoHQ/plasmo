@@ -39,9 +39,10 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.7.2",
-    "@parcel/fs": "2.11.0",
-    "@parcel/package-manager": "2.11.0",
-    "@parcel/rust": "2.11.0",
+    "@parcel/core": "2.13.0",
+    "@parcel/fs": "2.13.0",
+    "@parcel/package-manager": "2.13.0",
+    "@parcel/rust": "2.13.0",
     "@parcel/watcher": "2.4.0",
     "@plasmohq/init": "workspace:*",
     "@plasmohq/parcel-config": "workspace:*",
@@ -70,6 +71,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
+    "@parcel/types": "2.13.0",
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
     "@plasmo/framework-shared": "workspace:*",
