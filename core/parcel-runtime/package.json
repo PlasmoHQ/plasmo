@@ -30,10 +30,10 @@
     "tsup": "8.3.6"
   },
   "dependencies": {
+    "@parcel/core": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/utils": "catalog:",
     "@types/trusted-types": "2.0.7",
-    "@parcel/core": "2.11.0",
-    "@parcel/plugin": "2.11.0",
-    "@parcel/utils": "2.11.0",
     "react-refresh": "0.16.0"
   }
 }

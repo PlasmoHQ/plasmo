@@ -56,10 +56,10 @@
     "vm-browserify": "1.1.2"
   },
   "dependencies": {
-    "@parcel/core": "2.11.0",
-    "@parcel/hash": "2.9.3",
-    "@parcel/plugin": "2.11.0",
-    "@parcel/types": "2.11.0",
+    "@parcel/core": "catalog:",
+    "@parcel/hash": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/types": "catalog:",
     "fast-glob": "3.3.3",
     "fs-extra": "11.3.0",
     "got": "14.4.6"

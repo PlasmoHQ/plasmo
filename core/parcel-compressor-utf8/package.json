@@ -27,6 +27,7 @@
     "tsup": "8.3.6"
   },
   "dependencies": {
-    "@parcel/plugin": "2.13.3"
+    "@parcel/plugin": "catalog:",
+    "@parcel/core": "catalog:"
   }
 }

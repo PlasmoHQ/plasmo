@@ -26,9 +26,9 @@
     "tsup": "8.3.6"
   },
   "dependencies": {
-    "@parcel/core": "2.11.0",
-    "@parcel/plugin": "2.11.0",
-    "@parcel/utils": "2.11.0",
+    "@parcel/core": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/utils": "catalog:",
     "browserslist": "4.24.4",
     "lightningcss": "1.23.0"
   }

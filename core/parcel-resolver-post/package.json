@@ -26,11 +26,11 @@
     "@plasmo/utils": "workspace:*"
   },
   "dependencies": {
-    "@parcel/core": "2.11.0",
-    "@parcel/hash": "2.9.3",
-    "@parcel/plugin": "2.11.0",
-    "@parcel/types": "2.11.0",
-    "@parcel/utils": "2.11.0",
+    "@parcel/core": "catalog:",
+    "@parcel/hash": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/types": "catalog:",
+    "@parcel/utils": "catalog:",
     "tsup": "8.3.6",
     "typescript": "5.7.3"
   }

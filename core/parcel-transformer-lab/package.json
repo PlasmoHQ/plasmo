@@ -27,11 +27,11 @@
     "tsup": "8.0.1"
   },
   "dependencies": {
-    "@parcel/core": "2.11.0",
-    "@parcel/diagnostic": "2.11.0",
-    "@parcel/fs": "2.11.0",
-    "@parcel/plugin": "2.11.0",
-    "@parcel/types": "2.11.0",
-    "@parcel/utils": "2.11.0"
+    "@parcel/core": "catalog:",
+    "@parcel/diagnostic": "catalog:",
+    "@parcel/fs": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/types": "catalog:",
+    "@parcel/utils": "catalog:"
   }
 }
