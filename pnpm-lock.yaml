@@ -271,7 +271,7 @@ importers:
         version: 5.0.5
       ts-jest:
         specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
+        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
         version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
@@ -1830,15 +1830,15 @@ importers:
         specifier: workspace:*
         version: link:../../cli/plasmo
       react:
-        specifier: 18.2.0
-        version: 18.2.0
+        specifier: 19.0.0
+        version: 19.0.0
       react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
-        specifier: 4.1.1
-        version: 4.1.1(@vue/compiler-sfc@3.5.13)(prettier@3.2.4)
+        specifier: 4.4.1
+        version: 4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)
       '@jest/globals':
         specifier: 29.7.0
         version: 29.7.0
@@ -1846,38 +1846,38 @@ importers:
         specifier: 29.6.3
         version: 29.6.3
       '@testing-library/react':
-        specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 16.2.0
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
-        specifier: 0.0.258
-        version: 0.0.258
+        specifier: 0.0.304
+        version: 0.0.304
       '@types/node':
-        specifier: 20.11.5
-        version: 20.11.5
+        specifier: 22.13.4
+        version: 22.13.4
       '@types/react':
-        specifier: 18.2.48
-        version: 18.2.48
+        specifier: 19.0.10
+        version: 19.0.10
       '@types/react-dom':
-        specifier: 18.2.18
-        version: 18.2.18
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.10)
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
+        version: 29.7.0(@types/node@22.13.4)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0(canvas@2.11.2)
       jest-webextension-mock:
-        specifier: 3.8.9
-        version: 3.8.9
+        specifier: 4.0.0
+        version: 4.0.0
       prettier:
-        specifier: 3.2.4
-        version: 3.2.4
+        specifier: 3.5.1
+        version: 3.5.1
       ts-jest:
-        specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
+        specifier: 29.2.5
+        version: 29.2.5(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.4)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.7.3
+        version: 5.7.3
 
   examples/with-jotai:
     dependencies:
@@ -3578,7 +3578,7 @@ importers:
         version: link:../../api/storage
       '@testing-library/react':
         specifier: 14.1.2
-        version: 14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 14.1.2(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/node':
         specifier: 20.11.5
         version: 20.11.5
@@ -7579,9 +7579,6 @@ packages:
   '@types/node@20.11.5':
     resolution: {integrity: sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w==}
 
-  '@types/node@20.9.0':
-    resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
-
   '@types/node@22.13.1':
     resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
 
@@ -7605,6 +7602,11 @@ packages:
 
   '@types/react-dom@18.2.18':
     resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
+
+  '@types/react-dom@18.3.5':
+    resolution: {integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==}
+    peerDependencies:
+      '@types/react': ^18.0.0
 
   '@types/react-dom@19.0.3':
     resolution: {integrity: sha512-0Knk+HJiMP/qOZgMyNFamlIjw9OFCsyC2ZbigmEEyXXixgre6IQpm/4V+r3qH4GC1JPvRJKInw+on2rV6YZLeA==}
@@ -10318,8 +10320,8 @@ packages:
     resolution: {integrity: sha512-49Fg7WXkU3Vl2h6LbLtMQ/HyB6rXSIX7SqvBLQmssRBGN9I0PNvPmAmCWSOY6SOvrjhI/F7/bGAv9RtnsPA03g==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  jest-webextension-mock@3.8.9:
-    resolution: {integrity: sha512-PglflLBEhqAtfKOmwEcP2iV2YdQK3Xwa7e/SELIK/4+y1NiKSJnba7DdPe32HavHJCJwuL8bpVwFrxGZFD2m+A==}
+  jest-webextension-mock@4.0.0:
+    resolution: {integrity: sha512-s6q0z6dEa632MUa6334kStxY2BL86B8vntd9OsvBdOpqYX9BzY6ictX6akXlMyo9YGjDXqwmXdeyrtjXWDH07A==}
 
   jest-worker@29.7.0:
     resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
@@ -10972,8 +10974,8 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nan@2.20.0:
-    resolution: {integrity: sha512-bk3gXBZDGILuuo/6sKtr0DQmSThYHLtNCdSdXk9YkxD/jK6X2vmCyyXBBxyqZ4XcnzTyYEAThfX3DCEnLf6igw==}
+  nan@2.22.0:
+    resolution: {integrity: sha512-nbajikzWTMwsW+eSsNm3QwlOs7het9gGJU5dDZzRTQGk03vyBOauxgI4VakDzE0PtsGTmXPsXTbbjVhRwR5mpw==}
 
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
@@ -15429,7 +15431,7 @@ snapshots:
   '@grpc/grpc-js@1.9.9':
     dependencies:
       '@grpc/proto-loader': 0.7.9
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
 
   '@grpc/proto-loader@0.7.9':
     dependencies:
@@ -15887,7 +15889,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       '@types/yargs': 15.0.15
       chalk: 4.1.2
 
@@ -15896,7 +15898,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 20.9.0
+      '@types/node': 22.13.4
       '@types/yargs': 17.0.24
       chalk: 4.1.2
 
@@ -17883,13 +17885,15 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@14.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@testing-library/react@14.1.2(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 9.3.3
-      '@types/react-dom': 18.2.18
+      '@types/react-dom': 18.3.5(@types/react@18.2.48)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
 
   '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
@@ -17952,7 +17956,7 @@ snapshots:
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 20.11.5
 
   '@types/estree@1.0.5': {}
 
@@ -18017,7 +18021,7 @@ snapshots:
 
   '@types/kefir@3.8.7':
     dependencies:
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
 
   '@types/lodash@4.14.201': {}
 
@@ -18030,10 +18034,6 @@ snapshots:
       '@types/node': 22.13.4
 
   '@types/node@20.11.5':
-    dependencies:
-      undici-types: 5.26.5
-
-  '@types/node@20.9.0':
     dependencies:
       undici-types: 5.26.5
 
@@ -18057,7 +18057,11 @@ snapshots:
 
   '@types/react-dom@18.2.18':
     dependencies:
-      '@types/react': 19.0.8
+      '@types/react': 18.2.48
+
+  '@types/react-dom@18.3.5(@types/react@18.2.48)':
+    dependencies:
+      '@types/react': 18.2.48
 
   '@types/react-dom@19.0.3(@types/react@19.0.8)':
     dependencies:
@@ -18074,7 +18078,7 @@ snapshots:
 
   '@types/react-transition-group@4.4.10':
     dependencies:
-      '@types/react': 19.0.10
+      '@types/react': 18.2.48
 
   '@types/react@18.2.48':
     dependencies:
@@ -18994,7 +18998,7 @@ snapshots:
   canvas@2.11.2:
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
-      nan: 2.20.0
+      nan: 2.22.0
       simple-get: 3.1.1
     transitivePeerDependencies:
       - encoding
@@ -19058,7 +19062,7 @@ snapshots:
 
   chrome-launcher@0.15.2:
     dependencies:
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -19069,7 +19073,7 @@ snapshots:
 
   chromium-edge-launcher@1.0.0:
     dependencies:
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -21409,7 +21413,7 @@ snapshots:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 20.9.0
+      '@types/node': 22.13.4
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3(canvas@2.11.2)
@@ -21426,7 +21430,7 @@ snapshots:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 20.9.0
+      '@types/node': 22.13.4
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3(canvas@3.1.0)
@@ -21442,7 +21446,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -21600,7 +21604,7 @@ snapshots:
   jest-util@29.6.1:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.11
@@ -21635,7 +21639,7 @@ snapshots:
       jest-util: 29.7.0
       string-length: 4.0.2
 
-  jest-webextension-mock@3.8.9: {}
+  jest-webextension-mock@4.0.0: {}
 
   jest-worker@29.7.0:
     dependencies:
@@ -22473,7 +22477,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nan@2.20.0:
+  nan@2.22.0:
     optional: true
 
   nanoid@3.3.7: {}
@@ -23093,7 +23097,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.13.4
+      '@types/node': 20.11.5
       long: 5.2.3
 
   prr@1.0.1:
@@ -24407,7 +24411,7 @@ snapshots:
 
   stripe@14.13.0:
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 20.11.5
       qs: 6.11.2
 
   strnum@1.0.5: {}
@@ -24762,24 +24766,6 @@ snapshots:
       typescript: 5.7.3
 
   ts-interface-checker@0.1.13: {}
-
-  ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3):
-    dependencies:
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0)
-      jest-util: 29.6.1
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.5.4
-      typescript: 5.3.3
-      yargs-parser: 21.1.1
-    optionalDependencies:
-      '@babel/core': 7.23.7
-      '@jest/types': 29.6.3
-      babel-jest: 29.7.0(@babel/core@7.23.7)
-      esbuild: 0.19.5
 
   ts-jest@29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3):
     dependencies:
