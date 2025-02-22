@@ -419,8 +419,8 @@ importers:
         specifier: 2.9.3
         version: 2.9.3
       '@parcel/graph':
-        specifier: 2.9.3
-        version: 2.9.3
+        specifier: 3.3.3
+        version: 3.3.3
       '@parcel/hash':
         specifier: 2.9.3
         version: 2.9.3
@@ -589,8 +589,8 @@ importers:
         specifier: 2.9.3
         version: 2.9.3(@parcel/core@2.9.3)
       '@parcel/graph':
-        specifier: 2.9.3
-        version: 2.9.3
+        specifier: 3.3.3
+        version: 3.3.3
       '@parcel/hash':
         specifier: 2.9.3
         version: 2.9.3
@@ -6202,6 +6202,10 @@ packages:
     resolution: {integrity: sha512-K0Scx+Bx9f9p1vuShMzNwIgiaZUkxEnexaKYHYemJrM7pMAqxIuIqhnvwurRCsZOVLUJPDDNJ626cWTc5vIq+A==}
     engines: {node: '>= 12.0.0'}
 
+  '@parcel/feature-flags@2.13.3':
+    resolution: {integrity: sha512-UZm14QpamDFoUut9YtCZSpG1HxPs07lUwUCpsAYL0PpxASD3oWJQxIJGfDZPa2272DarXDG9adTKrNXvkHZblw==}
+    engines: {node: '>= 16.0.0'}
+
   '@parcel/fs-search@2.8.3':
     resolution: {integrity: sha512-DJBT2N8knfN7Na6PP2mett3spQLTqxFrvl0gv+TJRp61T8Ljc4VuUTb0hqBj+belaASIp3Q+e8+SgaFQu7wLiQ==}
     engines: {node: '>= 12.0.0'}
@@ -6225,6 +6229,10 @@ packages:
   '@parcel/graph@2.9.3':
     resolution: {integrity: sha512-3LmRJmF8+OprAr6zJT3X2s8WAhLKkrhi6RsFlMWHifGU5ED1PFcJWFbOwJvSjcAhMQJP0fErcFIK1Ludv3Vm3g==}
     engines: {node: '>= 12.0.0'}
+
+  '@parcel/graph@3.3.3':
+    resolution: {integrity: sha512-pxs4GauEdvCN8nRd6wG3st6LvpHske3GfqGwUSR0P0X0pBPI1/NicvXz6xzp3rgb9gPWfbKXeI/2IOTfIxxVfg==}
+    engines: {node: '>= 16.0.0'}
 
   '@parcel/hash@2.8.3':
     resolution: {integrity: sha512-FVItqzjWmnyP4ZsVgX+G00+6U2IzOvqDtdwQIWisCcVoXJFCqZJDy6oa2qDDFz96xCCCynjRjPdQx2jYBCpfYw==}
@@ -16352,6 +16360,8 @@ snapshots:
 
   '@parcel/events@2.9.3': {}
 
+  '@parcel/feature-flags@2.13.3': {}
+
   '@parcel/fs-search@2.8.3':
     dependencies:
       detect-libc: 1.0.3
@@ -16386,6 +16396,11 @@ snapshots:
 
   '@parcel/graph@2.9.3':
     dependencies:
+      nullthrows: 1.1.1
+
+  '@parcel/graph@3.3.3':
+    dependencies:
+      '@parcel/feature-flags': 2.13.3
       nullthrows: 1.1.1
 
   '@parcel/hash@2.8.3':
