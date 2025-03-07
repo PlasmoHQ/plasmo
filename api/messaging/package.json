@@ -124,7 +124,7 @@
     "@testing-library/react": "16.2.0",
     "@testing-library/dom": "10.4.0",
     "@types/chrome": "0.0.306",
-    "@types/node": "22.13.4",
+    "@types/node": "22.13.9",
     "@types/react": "19.0.10",
     "canvas": "3.1.0",
     "cross-env": "7.0.3",
