@@ -47,7 +47,7 @@
     "@types/react-dom": "19.0.4",
     "@types/semver": "7.5.8",
     "@types/uuid": "10.0.0",
-    "@types/ws": "8.5.14",
+    "@types/ws": "8.18.0",
     "esbuild": "0.25.0",
     "eslint": "9.21.0",
     "eslint-config-prettier": "10.1.1",
