@@ -43,8 +43,8 @@ importers:
         specifier: 10.0.0
         version: 10.0.0
       '@types/ws':
-        specifier: 8.5.14
-        version: 8.5.14
+        specifier: 8.18.0
+        version: 8.18.0
       esbuild:
         specifier: 0.25.0
         version: 0.25.0
@@ -7663,8 +7663,8 @@ packages:
   '@types/uuid@10.0.0':
     resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
 
-  '@types/ws@8.5.14':
-    resolution: {integrity: sha512-bd/YFLW+URhBzMXurx7lWByOu+xzU9+kb3RboOteXYDfW+tr+JZa99OyNmPINEGB/ahzKrEuc8rcv4gnpJmxTw==}
+  '@types/ws@8.18.0':
+    resolution: {integrity: sha512-8svvI3hMyvN0kKCJMvTJP/x6Y/EoQbepff882wL+Sn5QsXb3etnamgrJq4isrBxSJj5L2AuXcI0+bgkoAXGUJw==}
 
   '@types/yargs-parser@21.0.0':
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
@@ -17674,7 +17674,7 @@ snapshots:
     dependencies:
       '@supabase/node-fetch': 2.6.14
       '@types/phoenix': 1.6.1
-      '@types/ws': 8.5.14
+      '@types/ws': 8.18.0
       ws: 8.18.1
     transitivePeerDependencies:
       - bufferutil
@@ -18119,7 +18119,7 @@ snapshots:
 
   '@types/uuid@10.0.0': {}
 
-  '@types/ws@8.5.14':
+  '@types/ws@8.18.0':
     dependencies:
       '@types/node': 22.13.9
 
