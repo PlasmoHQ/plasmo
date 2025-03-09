@@ -57,7 +57,7 @@
     "get-port": "7.1.0",
     "got": "14.4.6",
     "ignore": "7.0.3",
-    "inquirer": "12.4.2",
+    "inquirer": "12.4.3",
     "is-path-inside": "4.0.0",
     "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
