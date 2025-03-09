@@ -70,7 +70,7 @@
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "ts-jest": "29.2.6",
-    "tsup": "8.3.6",
+    "tsup": "8.4.0",
     "typescript": "5.7.3"
   }
 }
