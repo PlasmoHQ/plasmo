@@ -68,7 +68,7 @@ importers:
         version: 3.5.3
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       turbo:
         specifier: 2.4.4
         version: 2.4.4
@@ -129,7 +129,7 @@ importers:
         version: 29.2.6(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.10)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -165,7 +165,7 @@ importers:
         version: 29.2.6(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.10)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -213,7 +213,7 @@ importers:
         version: 29.2.6(@babel/core@7.23.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@22.13.10)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -274,7 +274,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.19.5)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -445,7 +445,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-compressor-utf8:
     dependencies:
@@ -461,7 +461,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-config:
     dependencies:
@@ -633,7 +633,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-namer-manifest:
     dependencies:
@@ -655,7 +655,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-optimizer-encapsulate:
     dependencies:
@@ -680,7 +680,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-optimizer-es:
     dependencies:
@@ -697,8 +697,8 @@ importers:
         specifier: 2.9.3
         version: 2.9.3
       '@swc/core':
-        specifier: 1.10.18
-        version: 1.10.18(@swc/helpers@0.5.15)
+        specifier: 1.11.8
+        version: 1.11.8(@swc/helpers@0.5.15)
       nullthrows:
         specifier: 1.1.1
         version: 1.1.1
@@ -711,7 +711,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-packager:
     dependencies:
@@ -742,7 +742,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-resolver:
     dependencies:
@@ -842,7 +842,7 @@ importers:
         version: 2.0.12
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       tty-browserify:
         specifier: 0.0.1
         version: 0.0.1
@@ -875,7 +875,7 @@ importers:
         version: 2.9.3
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -919,7 +919,7 @@ importers:
         version: 0.0.308
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-inject-env:
     dependencies:
@@ -941,7 +941,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-inline-css:
     dependencies:
@@ -966,7 +966,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-lab:
     dependencies:
@@ -997,7 +997,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-manifest:
     dependencies:
@@ -1040,7 +1040,7 @@ importers:
         version: link:../../packages/utils
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-svelte:
     dependencies:
@@ -1068,7 +1068,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   core/parcel-transformer-vue:
     dependencies:
@@ -1111,7 +1111,7 @@ importers:
         version: link:../../packages/config
       tsup:
         specifier: 8.4.0
-        version: 8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
+        version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
 
   examples/with-ai:
     dependencies:
@@ -3442,7 +3442,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3480,7 +3480,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3516,7 +3516,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3556,7 +3556,7 @@ importers:
         version: 3.2.4
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3611,7 +3611,7 @@ importers:
         version: 29.1.1(@babel/core@7.23.7)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.7))(esbuild@0.25.0)(jest@29.7.0(@types/node@20.11.5)(babel-plugin-macros@3.1.0))(typescript@5.3.3)
       tsup:
         specifier: 8.0.1
-        version: 8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
+        version: 8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -7184,68 +7184,68 @@ packages:
     peerDependencies:
       '@svgr/core': '*'
 
-  '@swc/core-darwin-arm64@1.10.18':
-    resolution: {integrity: sha512-FdGqzAIKVQJu8ROlnHElP59XAUsUzCFSNsou+tY/9ba+lhu8R9v0OI5wXiPErrKGZpQFMmx/BPqqhx3X4SuGNg==}
+  '@swc/core-darwin-arm64@1.11.8':
+    resolution: {integrity: sha512-rrSsunyJWpHN+5V1zumndwSSifmIeFQBK9i2RMQQp15PgbgUNxHK5qoET1n20pcUrmZeT6jmJaEWlQchkV//Og==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@swc/core-darwin-x64@1.10.18':
-    resolution: {integrity: sha512-RZ73gZRituL/ZVLgrW6BYnQ5g8tuStG4cLUiPGJsUZpUm0ullSH6lHFvZTCBNFTfpQChG6eEhi2IdG6DwFp1lw==}
+  '@swc/core-darwin-x64@1.11.8':
+    resolution: {integrity: sha512-44goLqQuuo0HgWnG8qC+ZFw/qnjCVVeqffhzFr9WAXXotogVaxM8ze6egE58VWrfEc8me8yCcxOYL9RbtjhS/Q==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [darwin]
 
-  '@swc/core-linux-arm-gnueabihf@1.10.18':
-    resolution: {integrity: sha512-8iJqI3EkxJuuq21UHoen1VS+QlS23RvynRuk95K+Q2HBjygetztCGGEc+Xelx9a0uPkDaaAtFvds4JMDqb9SAA==}
+  '@swc/core-linux-arm-gnueabihf@1.11.8':
+    resolution: {integrity: sha512-Mzo8umKlhTWwF1v8SLuTM1z2A+P43UVhf4R8RZDhzIRBuB2NkeyE+c0gexIOJBuGSIATryuAF4O4luDu727D1w==}
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux]
 
-  '@swc/core-linux-arm64-gnu@1.10.18':
-    resolution: {integrity: sha512-8f1kSktWzMB6PG+r8lOlCfXz5E8Qhsmfwonn77T/OfjvGwQaWrcoASh2cdjpk3dydbf8jsKGPQE1lSc7GyjXRQ==}
+  '@swc/core-linux-arm64-gnu@1.11.8':
+    resolution: {integrity: sha512-EyhO6U+QdoGYC1MeHOR0pyaaSaKYyNuT4FQNZ1eZIbnuueXpuICC7iNmLIOfr3LE5bVWcZ7NKGVPlM2StJEcgA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/core-linux-arm64-musl@1.10.18':
-    resolution: {integrity: sha512-4rv+E4VLdgQw6zjbTAauCAEExxChvxMpBUMCiZweTNPKbJJ2dY6BX2WGJ1ea8+RcgqR/Xysj3AFbOz1LBz6dGA==}
+  '@swc/core-linux-arm64-musl@1.11.8':
+    resolution: {integrity: sha512-QU6wOkZnS6/QuBN1MHD6G2BgFxB0AclvTVGbqYkRA7MsVkcC29PffESqzTXnypzB252/XkhQjoB2JIt9rPYf6A==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/core-linux-x64-gnu@1.10.18':
-    resolution: {integrity: sha512-vTNmyRBVP+sZca+vtwygYPGTNudTU6Gl6XhaZZ7cEUTBr8xvSTgEmYXoK/2uzyXpaTUI4Bmtp1x81cGN0mMoLQ==}
+  '@swc/core-linux-x64-gnu@1.11.8':
+    resolution: {integrity: sha512-r72onUEIU1iJi9EUws3R28pztQ/eM3EshNpsPRBfuLwKy+qn3et55vXOyDhIjGCUph5Eg2Yn8H3h6MTxDdLd+w==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/core-linux-x64-musl@1.10.18':
-    resolution: {integrity: sha512-1TZPReKhFCeX776XaT6wegknfg+g3zODve+r4oslFHI+g7cInfWlxoGNDS3niPKyuafgCdOjme2g3OF+zzxfsQ==}
+  '@swc/core-linux-x64-musl@1.11.8':
+    resolution: {integrity: sha512-294k8cLpO103++f4ZUEDr3vnBeUfPitW6G0a3qeVZuoXFhFgaW7ANZIWknUc14WiLOMfMecphJAEiy9C8OeYSw==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/core-win32-arm64-msvc@1.10.18':
-    resolution: {integrity: sha512-o/2CsaWSN3bkzVQ6DA+BiFKSVEYvhWGA1h+wnL2zWmIDs2Knag54sOEXZkCaf8YQyZesGeXJtPEy9hh/vjJgkA==}
+  '@swc/core-win32-arm64-msvc@1.11.8':
+    resolution: {integrity: sha512-EbjOzQ+B85rumHyeesBYxZ+hq3ZQn+YAAT1ZNE9xW1/8SuLoBmHy/K9YniRGVDq/2NRmp5kI5+5h5TX0asIS9A==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [win32]
 
-  '@swc/core-win32-ia32-msvc@1.10.18':
-    resolution: {integrity: sha512-eTPASeJtk4mJDfWiYEiOC6OYUi/N7meHbNHcU8e+aKABonhXrIo/FmnTE8vsUtC6+jakT1TQBdiQ8fzJ1kJVwA==}
+  '@swc/core-win32-ia32-msvc@1.11.8':
+    resolution: {integrity: sha512-Z+FF5kgLHfQWIZ1KPdeInToXLzbY0sMAashjd/igKeP1Lz0qKXVAK+rpn6ASJi85Fn8wTftCGCyQUkRVn0bTDg==}
     engines: {node: '>=10'}
     cpu: [ia32]
     os: [win32]
 
-  '@swc/core-win32-x64-msvc@1.10.18':
-    resolution: {integrity: sha512-1Dud8CDBnc34wkBOboFBQud9YlV1bcIQtKSg7zC8LtwR3h+XAaCayZPkpGmmAlCv1DLQPvkF+s0JcaVC9mfffQ==}
+  '@swc/core-win32-x64-msvc@1.11.8':
+    resolution: {integrity: sha512-j6B6N0hChCeAISS6xp/hh6zR5CSCr037BAjCxNLsT8TGe5D+gYZ57heswUWXRH8eMKiRDGiLCYpPB2pkTqxCSw==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
 
-  '@swc/core@1.10.18':
-    resolution: {integrity: sha512-IUWKD6uQYGRy8w2X9EZrtYg1O3SCijlHbCXzMaHQYc1X7yjijQh4H3IVL9ssZZyVp2ZDfQZu4bD5DWxxvpyjvg==}
+  '@swc/core@1.11.8':
+    resolution: {integrity: sha512-UAL+EULxrc0J73flwYHfu29mO8CONpDJiQv1QPDXsyCvDUcEhqAqUROVTgC+wtJCFFqMQdyr4stAA5/s0KSOmA==}
     engines: {node: '>=10'}
     peerDependencies:
       '@swc/helpers': '*'
@@ -7265,8 +7265,8 @@ packages:
   '@swc/helpers@0.5.2':
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
 
-  '@swc/types@0.1.17':
-    resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
+  '@swc/types@0.1.19':
+    resolution: {integrity: sha512-WkAZaAfj44kh/UFdAQcrMP1I0nwRqpt27u+08LMBYMqmQfwwMofYoMh/48NGkMMRfC4ynpfwRbJuu8ErfNloeA==}
 
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
@@ -16294,7 +16294,7 @@ snapshots:
       '@parcel/plugin': 2.9.3(@parcel/core@2.9.3)
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.9.3
-      '@swc/core': 1.10.18(@swc/helpers@0.5.15)
+      '@swc/core': 1.11.8(@swc/helpers@0.5.15)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
@@ -17560,51 +17560,51 @@ snapshots:
       deepmerge: 4.3.1
       svgo: 2.8.0
 
-  '@swc/core-darwin-arm64@1.10.18':
+  '@swc/core-darwin-arm64@1.11.8':
     optional: true
 
-  '@swc/core-darwin-x64@1.10.18':
+  '@swc/core-darwin-x64@1.11.8':
     optional: true
 
-  '@swc/core-linux-arm-gnueabihf@1.10.18':
+  '@swc/core-linux-arm-gnueabihf@1.11.8':
     optional: true
 
-  '@swc/core-linux-arm64-gnu@1.10.18':
+  '@swc/core-linux-arm64-gnu@1.11.8':
     optional: true
 
-  '@swc/core-linux-arm64-musl@1.10.18':
+  '@swc/core-linux-arm64-musl@1.11.8':
     optional: true
 
-  '@swc/core-linux-x64-gnu@1.10.18':
+  '@swc/core-linux-x64-gnu@1.11.8':
     optional: true
 
-  '@swc/core-linux-x64-musl@1.10.18':
+  '@swc/core-linux-x64-musl@1.11.8':
     optional: true
 
-  '@swc/core-win32-arm64-msvc@1.10.18':
+  '@swc/core-win32-arm64-msvc@1.11.8':
     optional: true
 
-  '@swc/core-win32-ia32-msvc@1.10.18':
+  '@swc/core-win32-ia32-msvc@1.11.8':
     optional: true
 
-  '@swc/core-win32-x64-msvc@1.10.18':
+  '@swc/core-win32-x64-msvc@1.11.8':
     optional: true
 
-  '@swc/core@1.10.18(@swc/helpers@0.5.15)':
+  '@swc/core@1.11.8(@swc/helpers@0.5.15)':
     dependencies:
       '@swc/counter': 0.1.3
-      '@swc/types': 0.1.17
+      '@swc/types': 0.1.19
     optionalDependencies:
-      '@swc/core-darwin-arm64': 1.10.18
-      '@swc/core-darwin-x64': 1.10.18
-      '@swc/core-linux-arm-gnueabihf': 1.10.18
-      '@swc/core-linux-arm64-gnu': 1.10.18
-      '@swc/core-linux-arm64-musl': 1.10.18
-      '@swc/core-linux-x64-gnu': 1.10.18
-      '@swc/core-linux-x64-musl': 1.10.18
-      '@swc/core-win32-arm64-msvc': 1.10.18
-      '@swc/core-win32-ia32-msvc': 1.10.18
-      '@swc/core-win32-x64-msvc': 1.10.18
+      '@swc/core-darwin-arm64': 1.11.8
+      '@swc/core-darwin-x64': 1.11.8
+      '@swc/core-linux-arm-gnueabihf': 1.11.8
+      '@swc/core-linux-arm64-gnu': 1.11.8
+      '@swc/core-linux-arm64-musl': 1.11.8
+      '@swc/core-linux-x64-gnu': 1.11.8
+      '@swc/core-linux-x64-musl': 1.11.8
+      '@swc/core-win32-arm64-msvc': 1.11.8
+      '@swc/core-win32-ia32-msvc': 1.11.8
+      '@swc/core-win32-x64-msvc': 1.11.8
       '@swc/helpers': 0.5.15
 
   '@swc/counter@0.1.3': {}
@@ -17621,7 +17621,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@swc/types@0.1.17':
+  '@swc/types@0.1.19':
     dependencies:
       '@swc/counter': 0.1.3
 
@@ -24596,7 +24596,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.0.1(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3):
+  tsup@8.0.1(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(typescript@5.3.3):
     dependencies:
       bundle-require: 4.0.1(esbuild@0.19.5)
       cac: 6.7.14
@@ -24613,14 +24613,14 @@ snapshots:
       sucrase: 3.34.0
       tree-kill: 1.2.2
     optionalDependencies:
-      '@swc/core': 1.10.18(@swc/helpers@0.5.15)
+      '@swc/core': 1.11.8(@swc/helpers@0.5.15)
       postcss: 8.5.2
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
 
-  tsup@8.4.0(@swc/core@1.10.18(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3):
+  tsup@8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.25.0)
       cac: 6.7.14
@@ -24639,7 +24639,7 @@ snapshots:
       tinyglobby: 0.2.12
       tree-kill: 1.2.2
     optionalDependencies:
-      '@swc/core': 1.10.18(@swc/helpers@0.5.15)
+      '@swc/core': 1.11.8(@swc/helpers@0.5.15)
       postcss: 8.5.2
       typescript: 5.7.3
     transitivePeerDependencies:
