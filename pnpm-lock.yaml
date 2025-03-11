@@ -95,8 +95,8 @@ importers:
         specifier: 16.2.0
         version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
-        specifier: 0.0.308
-        version: 0.0.308
+        specifier: 0.0.309
+        version: 0.0.309
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -146,8 +146,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/config
       '@types/chrome':
-        specifier: 0.0.308
-        version: 0.0.308
+        specifier: 0.0.309
+        version: 0.0.309
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -182,8 +182,8 @@ importers:
         specifier: 16.2.0
         version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/chrome':
-        specifier: 0.0.308
-        version: 0.0.308
+        specifier: 0.0.309
+        version: 0.0.309
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -915,8 +915,8 @@ importers:
         specifier: workspace:*
         version: link:../../api/persistent
       '@types/chrome':
-        specifier: 0.0.308
-        version: 0.0.308
+        specifier: 0.0.309
+        version: 0.0.309
       tsup:
         specifier: 8.4.0
         version: 8.4.0(@swc/core@1.11.8(@swc/helpers@0.5.15))(postcss@8.5.2)(tsx@4.19.0)(typescript@5.7.3)
@@ -7369,8 +7369,8 @@ packages:
   '@types/chrome@0.0.304':
     resolution: {integrity: sha512-ms9CLILU+FEMK7gcmgz/Mtn2E81YQWiMIzCFF8ktp98EVNIIfoqaDTD4+ailOCq1sGjbnEmfJxQ1FAsQtk5M3A==}
 
-  '@types/chrome@0.0.308':
-    resolution: {integrity: sha512-H5VF01xhUQHwNy8Hfu4khwHJncyckw7IEricOqrIBan8gsDXnBu5A3qJ15him8Kx+YY6lNkrXZGJajEUSGRsRQ==}
+  '@types/chrome@0.0.309':
+    resolution: {integrity: sha512-ZFADzcp8b+roUrux68U8pti4cmNOLJXWkShk8lfxj9SBcjYqpJt7NypBprSJUJDJVakGZgd2Tt00QePIGh7oPA==}
 
   '@types/cross-spawn@6.0.6':
     resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
@@ -17763,7 +17763,7 @@ snapshots:
       '@types/filesystem': 0.0.35
       '@types/har-format': 1.2.15
 
-  '@types/chrome@0.0.308':
+  '@types/chrome@0.0.309':
     dependencies:
       '@types/filesystem': 0.0.35
       '@types/har-format': 1.2.15
