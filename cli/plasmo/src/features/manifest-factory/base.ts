@@ -519,6 +519,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       return
     }
     vLog("Hash changed, updating manifest")
+    console.log("Writing new manifest to", this.commonPath.entryManifestPath, newManifest)
     return writeJson(this.commonPath.entryManifestPath, newManifest, {
       spaces: 2
     })

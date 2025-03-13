@@ -46,6 +46,7 @@
     "@plasmohq/init": "workspace:*",
     "@plasmohq/parcel-config": "workspace:*",
     "@plasmohq/parcel-core": "workspace:*",
+    "@vitejs/plugin-react": "4.3.4",
     "buffer": "6.0.3",
     "chalk": "5.4.1",
     "change-case": "5.4.4",
@@ -67,7 +68,8 @@
     "semver": "7.7.1",
     "sharp": "0.33.5",
     "tempy": "3.1.0",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "vite": "6.2.0"
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",

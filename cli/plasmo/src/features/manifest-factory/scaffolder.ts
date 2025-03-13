@@ -30,7 +30,7 @@ export class Scaffolder {
     return this.plasmoManifest.mountExt
   }
 
-  constructor(private plasmoManifest: PlasmoManifest) {}
+  constructor(private plasmoManifest: PlasmoManifest) { }
 
   async init() {
     const [_, ...uiPagesResult] = await Promise.all([
@@ -108,13 +108,14 @@ export class Scaffolder {
     }
 
     const hasOverride = await isFile(overridePath)
-
-    return hasOverride
-      ? this.#copyGenerate(overridePath, outputPath, {
-          ...templateReplace,
-          "</body>": `<div id="__plasmo"></div><script src="${scriptMountPath}" type="module"></script></body>`
-        })
-      : this.#cachedGenerate("index.html", outputPath, templateReplace)
+    if (hasOverride) {
+      return this.#copyGenerate(overridePath, outputPath, {
+        ...templateReplace,
+        "</body>": `<div id="__plasmo"></div><script src="${scriptMountPath}" type="module"></script></body>`
+      })
+    } else {
+      return this.#cachedGenerate("index.html", outputPath, templateReplace)
+    }
   }
 
   /**
@@ -157,24 +158,24 @@ export class Scaffolder {
     const generateResultList = await Promise.all(
       isUiExt
         ? [
-            this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
-              __plasmo_import_module__: `~${toPosix(
-                join(module.dir, module.name)
-              )}`
-            }),
-            this.generateHtml(
-              htmlPath,
-              `./${module.name}${this.mountExt}`,
-              overrideHtmlPath
-            )
-          ]
+          this.#cachedGenerate(`index${this.mountExt}`, scriptPath, {
+            __plasmo_import_module__: `~${toPosix(
+              join(module.dir, module.name)
+            )}`
+          }),
+          this.generateHtml(
+            htmlPath,
+            `./${module.name}${this.mountExt}`,
+            overrideHtmlPath
+          )
+        ]
         : [
-            this.generateHtml(
-              htmlPath,
-              `~${toPosix(join(module.dir, module.name))}${module.ext}`,
-              overrideHtmlPath
-            )
-          ]
+          this.generateHtml(
+            htmlPath,
+            `~${toPosix(join(module.dir, module.name))}${module.ext}`,
+            overrideHtmlPath
+          )
+        ]
     )
 
     return {
@@ -255,6 +256,7 @@ export class Scaffolder {
     outputFilePath: string,
     replaceMap: Record<string, string>
   ) => {
+    console.log("#cachedGenerate(", fileName, ",", outputFilePath, ")")
     this.#templateCache[fileName] ||= await readFile(
       resolve(this.plasmoManifest.staticScaffoldPath, fileName),
       "utf8"

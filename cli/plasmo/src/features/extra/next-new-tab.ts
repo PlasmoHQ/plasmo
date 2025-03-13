@@ -69,8 +69,11 @@ export const nextNewTab = async () => {
 
   // Create manifest.json with chrome_url_overrides with index.html
 
+  const path = resolve(extensionDirectory, "manifest.json")
+
+  console.log(">>>>>>>>>>>>> Writing to manifest:", path)
   await writeJson(
-    resolve(extensionDirectory, "manifest.json"),
+    path,
     generateNewTabManifest(packageData),
     {
       spaces: 2

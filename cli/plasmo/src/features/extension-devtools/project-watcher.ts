@@ -140,6 +140,7 @@ export const handleProjectFile = async (
     }
 
     case WatchReason.PopupHtml: {
+      console.log("Creating popup.html")
       await plasmoManifest.scaffolder.createPageHtml("popup", isEnabled && path)
       return
     }

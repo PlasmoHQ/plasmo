@@ -62,6 +62,8 @@ export async function generateIcons({
   assetsDirectory,
   genAssetsDirectory
 }: CommonPath) {
+  console.log("Generating assets in", genAssetsDirectory)
+
   // Precalculate the base icon paths
   if (iconState.baseIconPaths.length === 0) {
     const iconNameList = getPrioritizedIconPaths()
@@ -120,8 +122,8 @@ export async function generateIcons({
         return devProvidedIcon !== undefined
           ? copy(devProvidedIcon, generatedIconPath)
           : sharp(Buffer.from(baseIconBuffer))
-              .resize({ width, height: width })
-              .toFile(generatedIconPath)
+            .resize({ width, height: width })
+            .toFile(generatedIconPath)
       }
     })
   )

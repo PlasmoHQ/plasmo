@@ -5,12 +5,13 @@ import { iLog, sLog } from "@plasmo/utils/logging"
 import { getBundleConfig } from "~features/extension-devtools/get-bundle-config"
 import { nextNewTab } from "~features/extra/next-new-tab"
 import { checkNewVersion } from "~features/framework-update/version-tracker"
-import { createParcelBuilder } from "~features/helpers/create-parcel-bundler"
+import { createViteBuilder } from "~features/helpers/create-vite-bundler"
 import { printHeader } from "~features/helpers/print"
 import { createManifest } from "~features/manifest-factory/create-manifest"
 import { zipBundle } from "~features/manifest-factory/zip"
+import { build } from 'vite'
 
-async function build() {
+async function buildPlasmo() {
   printHeader()
   checkNewVersion()
 
@@ -31,24 +32,32 @@ async function build() {
 
   const plasmoManifest = await createManifest(bundleConfig)
 
-  const bundler = await createParcelBuilder(plasmoManifest, {
+  // Use the Vite builder function
+  const viteConfig = await createViteBuilder(plasmoManifest, {
     mode: "production",
-    shouldDisableCache: true,
-    shouldContentHash: false,
-    defaultTargetOptions: {
-      shouldOptimize: true,
-      shouldScopeHoist: hasFlag("--hoist")
-    }
+    // defaultTargetOptions: {
+    //   shouldOptimize: true,
+    //   shouldScopeHoist: hasFlag("--hoist")
+    // }
   })
 
-  const result = await bundler.run()
-  sLog(`Finished in ${result.buildTime}ms!`)
+  // Measure build time
+  const startTime = Date.now()
 
-  await plasmoManifest.postBuild()
+  // Call vite.build() directly with the generated Vite config
+  const result = await build(viteConfig)
+
+  const endTime = Date.now()
+
+  // Log the build time manually
+  const buildDuration = endTime - startTime
+  sLog(`Finished in ${buildDuration}ms!`)
+
+  // await plasmoManifest.postBuild()
 
   if (hasFlag("--zip")) {
     await zipBundle(plasmoManifest.commonPath)
   }
 }
 
-export default build
+export default buildPlasmo
