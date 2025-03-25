@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "@types/trusted-types": "2.0.7",
-    "@parcel/core": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.14.2",
+    "@parcel/plugin": "2.14.2",
     "react-refresh": "0.16.0"
   }
 }
