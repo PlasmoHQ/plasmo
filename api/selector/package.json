@@ -79,7 +79,7 @@
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
     "@testing-library/react": "16.2.0",
-    "@types/chrome": "0.0.310",
+    "@types/chrome": "0.0.312",
     "@types/node": "22.13.10",
     "@types/react": "19.0.12",
     "cross-env": "7.0.3",
