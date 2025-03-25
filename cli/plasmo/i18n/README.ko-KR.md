@@ -120,7 +120,7 @@ ext-dir
 
 Plasmo 커뮤니티는 [Discord](https://www.plasmo.com/s/d)에서 찾을 수 있습니다. Plasmo 프레임워크 사용에 관한 도움을 받기에 적절한 채널입니다.
 
-[행동 강령(Code of Conduct)](./.github/CODE_OF_CONDUCT.md)은 모든 Plasmo 커뮤니티 채널에 적용됩니다.
+[행동 강령(Code of Conduct)](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md)은 모든 Plasmo 커뮤니티 채널에 적용됩니다.
 
 ## 기여
 

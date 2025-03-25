@@ -120,7 +120,7 @@ ext-dir
 
 [Discord](https://www.plasmo.com/s/d)にPlasmoのコミュニティがあります。Plasmo Framework に関するヘルプはこちらでお願いします。
 
-[Code of Conduct](./.github/CODE_OF_CONDUCT.md)は、全てのPlasmoコミュニティに適用されます。
+[Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md)は、全てのPlasmoコミュニティに適用されます。
 
 ## コントリビュート
 

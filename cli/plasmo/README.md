@@ -118,7 +118,7 @@ To see a list of supported browser targets, [please refer to our documentation h
 
 The Plasmo community can be found on [Discord](https://www.plasmo.com/s/d). This is the appropriate channel to get help with using the Plasmo Framework.
 
-Our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) applies to all Plasmo community channels.
+Our [Code of Conduct](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) applies to all Plasmo community channels.
 
 ## Contributing
 

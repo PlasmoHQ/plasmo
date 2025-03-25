@@ -118,7 +118,7 @@ ext-dir
 
 可以在 [Discord](https://www.plasmo.com/s/d) 找到 Plasmo 社区。这是获得 Plasmo 框架使用帮助的恰当渠道。
 
-我们的 [行为守则](./.github/CODE_OF_CONDUCT.md) 适用于所有 Plasmo 社区频道。
+我们的 [行为守则](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) 适用于所有 Plasmo 社区频道。
 
 ## 贡献
 
