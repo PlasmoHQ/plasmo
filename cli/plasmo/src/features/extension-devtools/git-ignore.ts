@@ -35,7 +35,7 @@ dist/
 # plasmo - https://www.plasmo.com
 .plasmo
 
-# bpp - http://bpp.browser.market/
+# bpp - https://github.com/marketplace/actions/browser-platform-publisher
 keys.json
 
 # typescript
