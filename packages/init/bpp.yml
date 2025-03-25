@@ -18,10 +18,10 @@ jobs:
         with:
           version: latest
           run_install: true
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3.4.1
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: "pnpm"
       - name: Build the extension
         run: pnpm build
