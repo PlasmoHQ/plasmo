@@ -58,7 +58,7 @@
     "get-port": "7.1.0",
     "got": "14.4.6",
     "ignore": "7.0.3",
-    "inquirer": "12.4.2",
+    "inquirer": "12.5.0",
     "is-path-inside": "4.0.0",
     "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
@@ -68,7 +68,7 @@
     "semver": "7.7.1",
     "sharp": "0.33.5",
     "tempy": "3.1.0",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "devDependencies": {
     "@parcel/types": "catalog:",

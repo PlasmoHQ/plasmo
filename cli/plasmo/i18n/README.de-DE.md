@@ -101,7 +101,7 @@ Außerdem kannst du auch vermeiden, dass alle Dateien im Hauptverzeichnis liegen
 
 Die Plasmo-Community ist auf [Discord](https://www.plasmo.com/s/d) zu finden. Das ist der richtige Kanal, um Hilfe bei der Verwendung des Plasmo-Frameworks zu erhalten.
 
-Unser [Verhaltenskodex](./.github/CODE_OF_CONDUCT.md) gilt für alle Plasmo Community-Kanäle.
+Unser [Verhaltenskodex](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) gilt für alle Plasmo Community-Kanäle.
 
 ## Am Projekt beteiligen
 
