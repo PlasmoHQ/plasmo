@@ -161,18 +161,18 @@ export function createAnchorObserver<T>(Mount: PlasmoCSUI<T>) {
 
     // Go through mounted sets and check if they are still mounted
     for (const el of mountState.hostSet) {
-      if (isMounted(el)) {
-        const anchor = mountState.hostMap.get(el)
-        if (!!anchor) {
-          if (anchor.type === "inline") {
-            mountedInlineAnchorSet.add(anchor.element)
-          } else if (anchor.type === "overlay") {
-            overlayHost = el
-          }
+      const anchor = mountState.hostMap.get(el)
+      const anchorExists = document.contains(anchor?.element)
+      if (isMounted(el) && anchorExists) {
+        if (anchor.type === "inline") {
+          mountedInlineAnchorSet.add(anchor.element)
+        } else if (anchor.type === "overlay") {
+          overlayHost = el
         }
       } else {
-        const anchor = mountState.hostMap.get(el)
         anchor.root?.unmount()
+        // Clean up the plasmo-csui element
+        el.remove()
         mountState.hostSet.delete(el)
       }
     }
