@@ -39,7 +39,8 @@
       "@parcel/watcher",
       "@swc/core",
       "esbuild",
-      "svelte-preprocess"
+      "svelte-preprocess",
+      "canvas"
     ]
   },
   "devDependencies": {
