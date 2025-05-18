@@ -26,7 +26,7 @@
     "@parcel/types": "2.8.3",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "8.3.6"
+    "tsup": "8.4.0"
   },
   "dependencies": {
     "@parcel/cache": "2.9.3",
@@ -42,7 +42,7 @@
     "@parcel/source-map": "2.1.1",
     "@parcel/types": "2.9.3",
     "@parcel/utils": "2.9.3",
-    "@parcel/watcher": "2.2.0",
+    "@parcel/watcher": "2.5.1",
     "@parcel/workers": "2.9.3",
     "abortcontroller-polyfill": "1.7.8",
     "nullthrows": "1.1.1"

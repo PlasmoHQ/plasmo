@@ -104,7 +104,7 @@ Enfin, vous pouvez aussi éviter de placer le code source dans votre répertoire
 
 La communauté Plasmo se trouve sur [Discord](https://www.plasmo.com/s/d). C'est le réseau approprié pour obtenir de l'aide sur l'utilisation du cadre Plasmo.
 
-Notre [code de conduite](./.github/CODE_OF_CONDUCT.md) s'applique à tous les canaux de la communauté Plasmo.
+Notre [code de conduite](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) s'applique à tous les canaux de la communauté Plasmo.
 
 ## Contribution
 

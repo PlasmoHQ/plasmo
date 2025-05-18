@@ -116,7 +116,7 @@ Untuk melihat daftar target browser yang didukung, [lihat dokumentasi kami di si
 
 Komunitas Plasmo dapat ditemukan di [Discord](https://www.plasmo.com/s/d). Ini adalah saluran yang tepat untuk mendapatkan bantuan dalam menggunakan Plasmo Framework.
 
-[Pedoman Perilaku](./.github/CODE_OF_CONDUCT.md) kami berlaku untuk semua saluran komunitas Plasmo.
+[Pedoman Perilaku](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) kami berlaku untuk semua saluran komunitas Plasmo.
 
 ## Berkontribusi
 

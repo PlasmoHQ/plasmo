@@ -104,7 +104,7 @@ Cuối cùng, bạn cũng có thể tránh đặt mã nguồn vào thư mục g�
 
 Cộng đồng Plasmo có thể được tìm thấy trên [Discord](https://www.plasmo.com/s/d). Đây là kênh thích hợp để nhận trợ giúp về việc sử dụng Plasmo Framework.
 
-[Quy tắc ứng xử](./.github/CODE_OF_CONDUCT.md) của chúng tôi áp dụng cho tất cả các kênh cộng đồng của Plasmo.
+[Quy tắc ứng xử](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) của chúng tôi áp dụng cho tất cả các kênh cộng đồng của Plasmo.
 
 ## Đóng góp
 

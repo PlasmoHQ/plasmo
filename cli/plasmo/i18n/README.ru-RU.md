@@ -116,6 +116,8 @@ pnpm dev
 
 Сообщество Plasmo можно найти в [Discord](https://www.plasmo.com/s/d). Это подходящий канал для получения помощи в использовании Plasmo Framework.
 
+Наш [Кодекс поведения](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) применяется ко всем каналам сообщества Plasmo.
+
 ## Внести свой вклад
 
 Пожалуйста, ознакомьтесь с [рекомендациями по контрибьютингу](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CONTRIBUTING.md) чтобы узнать больше.

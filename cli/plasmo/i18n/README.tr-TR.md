@@ -116,7 +116,7 @@ Desteklenen tarayıcı hedeflerinin bir listesini görmek için [lütfen buradak
 
 Plasmo topluluğu [Discord](https://www.plasmo.com/s/d)'da. Bu Plasmo Framework'ü kullanma konusunda yardım almak için uygun bir kanaldır.
 
-[Davranış Kurallarımız](./.github/CODE_OF_CONDUCT.md) tüm Plasmo topluluk kanalları için geçerlidir.
+[Davranış Kurallarımız](https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md) tüm Plasmo topluluk kanalları için geçerlidir.
 
 ## Katkıda bulunma
 

@@ -26,8 +26,8 @@
     "@plasmo/framework-shared": "workspace:*",
     "@plasmo/utils": "workspace:*",
     "@plasmohq/persistent": "workspace:*",
-    "@types/chrome": "0.0.304",
-    "tsup": "8.3.6"
+    "@types/chrome": "0.0.312",
+    "tsup": "8.4.0"
   },
   "dependencies": {
     "@types/trusted-types": "2.0.7",

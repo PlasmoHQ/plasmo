@@ -34,33 +34,40 @@
     "overrides": {
       "@parcel/source-map": "2.1.1",
       "react-refresh": "0.16.0"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "esbuild",
+      "svelte-preprocess",
+      "canvas"
+    ]
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.4.1",
     "@plasmohq/rps": "workspace:*",
     "@types/fs-extra": "11.0.4",
     "@types/inquirer": "9.0.7",
-    "@types/node": "22.13.4",
+    "@types/node": "22.13.13",
     "@types/node-rsa": "1.1.4",
-    "@types/react": "19.0.10",
+    "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "@types/semver": "7.5.8",
+    "@types/semver": "7.7.0",
     "@types/uuid": "10.0.0",
-    "@types/ws": "8.5.14",
-    "esbuild": "0.25.0",
-    "eslint": "9.20.1",
-    "eslint-config-prettier": "10.0.1",
+    "@types/ws": "8.18.0",
+    "esbuild": "0.25.1",
+    "eslint": "9.23.0",
+    "eslint-config-prettier": "10.1.1",
     "eslint-plugin-react": "7.37.4",
     "fs-extra": "11.3.0",
-    "globals": "15.15.0",
-    "prettier": "3.5.1",
-    "tsup": "8.3.6",
-    "turbo": "2.4.2",
-    "typescript-eslint": "8.24.1"
+    "globals": "16.0.0",
+    "prettier": "3.5.3",
+    "tsup": "8.4.0",
+    "turbo": "2.4.4",
+    "typescript-eslint": "8.28.0"
   },
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@9.15.5"
+  "packageManager": "pnpm@10.11.0"
 }
