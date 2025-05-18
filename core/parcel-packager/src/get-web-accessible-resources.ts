@@ -34,12 +34,21 @@ export const getWarsFromContentScripts = (
 
       contentScript.css = [
         ...new Set(
-          (contentScript.css || []).concat(
-            srcBundles
-              .flatMap((b) => bundleGraph.getReferencedBundles(b))
-              .filter((b) => b.type == "css")
-              .map((b) => getRelativePath(bundle, b))
-          )
+          srcBundles
+            .flatMap((b) => bundleGraph.getReferencedBundles(b))
+            .filter((b) => b.type == "css")
+            .map((b) => getRelativePath(bundle, b))
+            .concat(contentScript.css || [])
+        )
+      ]
+
+      contentScript.js = [
+        ...new Set(
+          srcBundles
+            .flatMap((b) => bundleGraph.getReferencedBundles(b))
+            .filter((b) => b.type == "js")
+            .map((b) => getRelativePath(bundle, b))
+            .concat(contentScript.js || [])
         )
       ]
 

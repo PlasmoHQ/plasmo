@@ -1,6 +1,6 @@
 {
   "name": "@plasmohq/parcel-transformer-lab",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "Plasmo Parcel Transformer Laboratory - a way to experiment with how the transformer works",
   "files": [
     "dist"
@@ -27,11 +27,11 @@
     "tsup": "8.4.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/fs": "2.9.3",
-    "@parcel/plugin": "2.9.3",
-    "@parcel/types": "2.9.3",
-    "@parcel/utils": "2.9.3"
+    "@parcel/core": "catalog:",
+    "@parcel/diagnostic": "catalog:",
+    "@parcel/fs": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/types": "catalog:",
+    "@parcel/utils": "catalog:"
   }
 }

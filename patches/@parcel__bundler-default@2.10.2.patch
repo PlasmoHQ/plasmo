@@ -1,0 +1,22 @@
+diff --git a/lib/DefaultBundler.js b/lib/DefaultBundler.js
+index 1cea97aa3851b77fed1d6cd91abcf255c3f1cdaa..118611eaaf10ec307b1905a0e75d7c24f8a641a6 100644
+--- a/lib/DefaultBundler.js
++++ b/lib/DefaultBundler.js
+@@ -106,11 +106,12 @@ const dependencyPriorityEdges = {
+  *
+  */
+ var _default = new (_plugin().Bundler)({
+-  loadConfig({
+-    config,
+-    options
+-  }) {
+-    return loadBundlerConfig(config, options);
++  loadConfig() {
++    return {
++      minBundles: 1_000_000_000,
++      minBundleSize: 2_400,
++      maxParallelRequests: 20,
++    };    
+   },
+   bundle({
+     bundleGraph,

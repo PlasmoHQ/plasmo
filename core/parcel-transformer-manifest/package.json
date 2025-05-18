@@ -29,12 +29,12 @@
   },
   "dependencies": {
     "@mischnic/json-sourcemap": "0.1.1",
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/fs": "2.9.3",
-    "@parcel/plugin": "2.9.3",
-    "@parcel/types": "2.9.3",
-    "@parcel/utils": "2.9.3",
+    "@parcel/core": "catalog:",
+    "@parcel/diagnostic": "catalog:",
+    "@parcel/fs": "catalog:",
+    "@parcel/plugin": "catalog:",
+    "@parcel/types": "catalog:",
+    "@parcel/utils": "catalog:",
     "content-security-policy-parser": "0.6.0",
     "json-schema-to-ts": "3.1.1",
     "nullthrows": "1.1.1"
