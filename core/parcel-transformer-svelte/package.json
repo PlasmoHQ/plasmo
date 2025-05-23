@@ -31,6 +31,6 @@
     "@parcel/plugin": "2.9.3",
     "@parcel/source-map": "2.1.1",
     "@parcel/utils": "2.9.3",
-    "svelte": "4.2.19"
+    "svelte": "5.33.1"
   }
 }
