@@ -64,13 +64,13 @@
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
     "@plasmo/config": "workspace:*",
-    "@types/chrome": "0.0.312",
-    "@types/node": "22.13.13",
+    "@types/chrome": "0.0.323",
+    "@types/node": "22.15.21",
     "cross-env": "7.0.3",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
-    "ts-jest": "29.3.0",
-    "tsup": "8.4.0",
-    "typescript": "5.8.2"
+    "ts-jest": "29.3.4",
+    "tsup": "8.5.0",
+    "typescript": "5.8.3"
   }
 }

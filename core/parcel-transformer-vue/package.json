@@ -23,19 +23,19 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.15.1",
+    "@parcel/diagnostic": "2.15.1",
+    "@parcel/plugin": "2.15.1",
     "@parcel/source-map": "2.1.1",
-    "@parcel/types": "2.9.3",
-    "@parcel/utils": "2.9.3",
+    "@parcel/types": "2.15.1",
+    "@parcel/utils": "2.15.1",
     "@plasmohq/consolidate": "0.17.0",
-    "@vue/compiler-sfc": "3.5.13",
+    "@vue/compiler-sfc": "3.5.14",
     "nullthrows": "1.1.1",
-    "semver": "7.7.1",
-    "vue": "3.5.13"
+    "semver": "7.7.2",
+    "vue": "3.5.14"
   }
 }

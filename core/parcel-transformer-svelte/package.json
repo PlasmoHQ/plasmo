@@ -23,14 +23,14 @@
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.15.1",
+    "@parcel/diagnostic": "2.15.1",
+    "@parcel/plugin": "2.15.1",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.9.3",
-    "svelte": "4.2.19"
+    "@parcel/utils": "2.15.1",
+    "svelte": "4.2.20"
   }
 }

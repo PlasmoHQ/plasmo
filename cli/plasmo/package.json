@@ -39,9 +39,9 @@
   ],
   "dependencies": {
     "@expo/spawn-async": "1.7.2",
-    "@parcel/core": "2.9.3",
-    "@parcel/fs": "2.9.3",
-    "@parcel/package-manager": "2.9.3",
+    "@parcel/core": "2.15.1",
+    "@parcel/fs": "2.15.1",
+    "@parcel/package-manager": "2.15.1",
     "@parcel/watcher": "2.5.1",
     "@plasmohq/init": "workspace:*",
     "@plasmohq/parcel-config": "workspace:*",
@@ -49,31 +49,31 @@
     "buffer": "6.0.3",
     "chalk": "5.4.1",
     "change-case": "5.4.4",
-    "dotenv": "16.4.7",
-    "dotenv-expand": "12.0.1",
+    "dotenv": "16.5.0",
+    "dotenv-expand": "12.0.2",
     "events": "3.3.0",
     "fast-glob": "3.3.3",
     "fflate": "0.8.2",
     "get-port": "7.1.0",
-    "got": "14.4.6",
-    "ignore": "7.0.3",
-    "inquirer": "12.5.0",
+    "got": "14.4.7",
+    "ignore": "7.0.4",
+    "inquirer": "12.6.2",
     "is-path-inside": "4.0.0",
     "json5": "2.2.3",
     "mnemonic-id": "3.2.7",
     "node-object-hash": "3.1.1",
     "package-json": "10.0.1",
     "process": "0.11.10",
-    "semver": "7.7.1",
-    "sharp": "0.33.5",
+    "semver": "7.7.2",
+    "sharp": "0.34.2",
     "tempy": "3.1.0",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/constants": "workspace:*",
     "@plasmo/framework-shared": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "vue": "3.5.13"
+    "vue": "3.5.14"
   }
 }
