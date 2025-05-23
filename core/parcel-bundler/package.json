@@ -18,18 +18,18 @@
     "parcel": ">= 2.7.0"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/diagnostic": "2.9.3",
+    "@parcel/core": "2.15.1",
+    "@parcel/diagnostic": "2.15.1",
     "@parcel/graph": "2.9.3",
     "@parcel/hash": "2.9.3",
-    "@parcel/plugin": "2.9.3",
-    "@parcel/utils": "2.9.3",
+    "@parcel/plugin": "2.15.1",
+    "@parcel/utils": "2.15.1",
     "nullthrows": "1.1.1"
   },
   "devDependencies": {
-    "@parcel/types": "2.9.3",
+    "@parcel/types": "2.15.1",
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   }
 }
