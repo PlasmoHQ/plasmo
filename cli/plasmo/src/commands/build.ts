@@ -47,7 +47,7 @@ async function build() {
   await plasmoManifest.postBuild()
 
   if (hasFlag("--zip")) {
-    await zipBundle(plasmoManifest.commonPath)
+    await zipBundle(plasmoManifest.commonPath, hasFlag("--source-maps"))
   }
 }
 
