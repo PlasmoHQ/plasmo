@@ -535,7 +535,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       content_scripts: overrideContentScripts,
       background: overrideBackground,
       ...overide
-    } = this.overideManifest as T
+    } = (this.overideManifest || {}) as T
 
     if (base.options_ui?.page) {
       base.options_ui = {
