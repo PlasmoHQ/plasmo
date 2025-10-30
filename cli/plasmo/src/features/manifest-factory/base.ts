@@ -77,6 +77,14 @@ export const iconMap = {
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
+const directoryIgnoreSet = new Set([
+  "node_modules",
+  "build",
+  ".plasmo",
+  "coverage",
+  ".git"
+])
+
 const hasher = createHasher({ trim: true, sort: true })
 
 export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
@@ -432,18 +440,40 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
       return false
     }
 
-    return readdir(path, { withFileTypes: true })
-      .then((files) =>
-        Promise.all(
-          files
-            .filter((f) =>
-              f.isFile() && filterFile ? filterFile(f.name) : true
-            )
-            .map((f) => resolve(path, f.name))
-            .map((filePath) => toggleDynamicPath(filePath, true))
-        )
+    const walk = async (currentPath: string): Promise<boolean> => {
+      const files = await readdir(currentPath, { withFileTypes: true })
+
+      const results = await Promise.all(
+        files.map(async (file) => {
+          const filePath = resolve(currentPath, file.name)
+
+          if (file.isSymbolicLink()) {
+            return false
+          }
+
+          if (file.isDirectory()) {
+            if (directoryIgnoreSet.has(file.name)) {
+              return false
+            }
+            return walk(filePath)
+          }
+
+          if (!file.isFile()) {
+            return false
+          }
+
+          if (filterFile && !filterFile(file.name)) {
+            return false
+          }
+
+          return toggleDynamicPath(filePath, true)
+        })
       )
-      .then((results) => results.includes(true))
+
+      return results.includes(true)
+    }
+
+    return walk(path)
   }
 
   addContentScriptsIndexFiles = async () => {
