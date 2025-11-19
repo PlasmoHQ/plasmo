@@ -47,6 +47,8 @@
 
     "*.svelte": ["@plasmohq/parcel-transformer-svelte"],
 
+    "*.css.ts": ["@vanilla-extract/parcel-transformer"],
+
     "*.{gql,graphql}": ["@parcel/transformer-graphql"],
     "*.{sass,scss}": ["@parcel/transformer-sass"],
     "*.less": ["@parcel/transformer-less"]
