@@ -52,7 +52,19 @@ const _generatePackage = async ({
   return baseData
 }
 
-export type PackageJSON = Awaited<ReturnType<typeof _generatePackage>> & {
+/**
+ * npm author field can be either a string or an object.
+ * @see https://docs.npmjs.com/cli/v11/configuring-npm/package-json#people-fields-author-contributors
+ */
+export type PackageAuthor =
+  | string
+  | { name?: string; email?: string; url?: string }
+
+export type PackageJSON = Omit<
+  Awaited<ReturnType<typeof _generatePackage>>,
+  "author"
+> & {
+  author?: PackageAuthor
   homepage?: string
   contributors?: string[]
   peerDependencies?: Record<string, string>
