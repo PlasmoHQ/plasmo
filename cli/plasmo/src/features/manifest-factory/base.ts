@@ -77,6 +77,40 @@ export const iconMap = {
 
 export const autoPermissionList: ManifestPermission[] = ["storage"]
 
+/**
+ * Converts npm package.json author field to string format.
+ * npm allows author to be either a string or an object with name/email/url fields.
+ * Chrome extension manifest requires author to be a string.
+ *
+ * @see https://docs.npmjs.com/cli/v11/configuring-npm/package-json#people-fields-author-contributors
+ */
+const normalizeAuthor = (
+  author: string | { name?: string; email?: string; url?: string } | undefined
+): string | undefined => {
+  if (!author) {
+    return undefined
+  }
+
+  if (typeof author === "string") {
+    return author
+  }
+
+  // Convert object format to string: "Name <email> (url)"
+  const { name, email, url } = author
+  if (!name) {
+    return undefined
+  }
+
+  let result = name
+  if (email) {
+    result += ` <${email}>`
+  }
+  if (url) {
+    result += ` (${url})`
+  }
+  return result
+}
+
 const hasher = createHasher({ trim: true, sort: true })
 
 export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
@@ -255,7 +289,7 @@ export abstract class PlasmoManifest<T extends ExtensionManifest = any> {
     }
 
     this.data.version = this.packageData.version
-    this.data.author = this.packageData.author
+    this.data.author = normalizeAuthor(this.packageData.author)
 
     this.data.name = this.prefixDev(this.packageData.displayName)
 
