@@ -47,7 +47,10 @@ export const sendToActiveContentScript = sendToContentScript
  * Any request sent to this relay get send to background, then emitted back as a response
  */
 export const relayMessage: PlasmoMessaging.MessageRelayFx = (req) =>
-  rawRelay(req, sendToBackground)
+  rawRelay(
+    req,
+    sendToBackground as (req: PlasmoMessaging.Request) => Promise<any>
+  )
 
 /**
  * @deprecated Migrated to `relayMessage`

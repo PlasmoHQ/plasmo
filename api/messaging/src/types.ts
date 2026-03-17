@@ -62,15 +62,28 @@ export namespace PlasmoMessaging {
   >
 
   export interface SendFx<TName = string> {
-    <RequestBody = any, ResponseBody = any>(
-      request: Request<TName, RequestBody>,
+    <TSpecificName extends TName>(
+      request: Request<
+        TSpecificName,
+        TSpecificName extends keyof MessagesMetadata
+          ? MessagesMetadata[TSpecificName] extends { req: infer R }
+            ? R
+            : any
+          : any
+      >,
       messagePort?:
         | Pick<
             MessagePort,
             "addEventListener" | "removeEventListener" | "postMessage"
           >
         | Window
-    ): Promise<ResponseBody>
+    ): Promise<
+      TSpecificName extends keyof MessagesMetadata
+        ? MessagesMetadata[TSpecificName] extends { res: infer R }
+          ? R
+          : any
+        : any
+    >
   }
 
   export interface RelayFx {
@@ -93,12 +106,28 @@ export namespace PlasmoMessaging {
   }
 
   export interface PortHook {
-    <TRequestBody = Record<string, any>, TResponseBody = any>(
-      name: PortName
+    <TName extends PortName>(
+      name: TName
     ): {
-      data?: TResponseBody
-      send: (payload: TRequestBody) => void
-      listen: <T = TResponseBody>(
+      data?: TName extends keyof PortsMetadata
+        ? PortsMetadata[TName] extends { res: infer R }
+          ? R
+          : any
+        : any
+      send: (
+        payload: TName extends keyof PortsMetadata
+          ? PortsMetadata[TName] extends { req: infer R }
+            ? R
+            : any
+          : any
+      ) => void
+      listen: <
+        T = TName extends keyof PortsMetadata
+          ? PortsMetadata[TName] extends { res: infer R }
+            ? R
+            : any
+          : any
+      >(
         handler: (msg: T) => void
       ) => {
         port: chrome.runtime.Port

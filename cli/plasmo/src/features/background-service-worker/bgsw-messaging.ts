@@ -1,7 +1,7 @@
+import { join, resolve } from "path"
 import { camelCase } from "change-case"
 import glob from "fast-glob"
-import { outputFile } from "fs-extra"
-import { join, resolve } from "path"
+import { outputFile, readFile } from "fs-extra"
 
 import { isWriteable } from "@plasmo/utils/fs"
 import { vLog, wLog } from "@plasmo/utils/logging"
@@ -81,19 +81,37 @@ const getHandlerList = async (
     ignore: dirName === "messages" ? ["external"] : []
   })
 
-  return handlerFileList.map((filePath) => {
-    const posixFilePath = toPosix(filePath)
-    const handlerName = posixFilePath.slice(0, -3)
-    const importPath = `${dirName}/${handlerName}`
-    const importName = camelCase(importPath)
+  return Promise.all(
+    handlerFileList.map(async (filePath) => {
+      const posixFilePath = toPosix(filePath)
+      const handlerName = posixFilePath.slice(0, -3)
+      const importPath = `${dirName}/${handlerName}`
+      const importName = camelCase(importPath)
 
-    return {
-      importName,
-      name: handlerName,
-      declaration: `"${handlerName}" : {}`,
-      importCode: `import { default as ${importName} } from "~background/${importPath}"`
-    }
-  })
+      const source = await readFile(join(handlerDir, filePath), "utf8")
+      const hasReqBody = /export\s+(?:type|interface)\s+RequestBody\b/.test(
+        source
+      )
+      const hasResBody = /export\s+(?:type|interface)\s+ResponseBody\b/.test(
+        source
+      )
+
+      const typeRef = `~background/${importPath}`
+      const bodyTypes = [
+        hasReqBody ? `req: import("${typeRef}").RequestBody` : null,
+        hasResBody ? `res: import("${typeRef}").ResponseBody` : null
+      ]
+        .filter(Boolean)
+        .join(", ")
+
+      return {
+        importName,
+        name: handlerName,
+        declaration: `"${handlerName}" : { ${bodyTypes} }`,
+        importCode: `import { default as ${importName} } from "~background/${importPath}"`
+      }
+    })
+  )
 }
 
 const getMessageCode = (name: string, importName: string) => `case "${name}":
