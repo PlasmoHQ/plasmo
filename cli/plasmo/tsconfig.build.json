@@ -1,0 +1,20 @@
+{
+  "extends": "@plasmo/config/ts/framework.json",
+  "include": [
+    "src/**/*.ts",
+    "templates/plasmo.d.ts",
+    "templates/static/**/*.ts",
+    "templates/static/**/*.tsx"
+  ],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "lib": ["es2022", "dom"],
+    "jsx": "preserve",
+    "paths": {
+      "~*": ["./src/*"],
+      "@plasmo-static-common/*": ["./templates/static/common/*"]
+    }
+  }
+}
