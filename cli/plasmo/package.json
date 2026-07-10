@@ -13,15 +13,16 @@
     "bin/index.mjs",
     "dist/index.js",
     "dist/type.d.ts",
-    "templates"
+    "templates",
+    "tsconfig.json"
   ],
   "scripts": {
     "dev": "node index.mjs -w",
     "build": "node index.mjs",
-    "type": "tsup src/type.ts --format esm --dts-only --dts-resolve",
+    "type": "tsup src/type.ts --format esm --dts-only --dts-resolve --tsconfig tsconfig.build.json",
     "prepublishOnly": "run-p type build",
     "lint": "run-p lint:*",
-    "lint:type": "tsc --noemit",
+    "lint:type": "tsc --noemit -p tsconfig.build.json",
     "lint:code": "eslint src/**/*.ts"
   },
   "author": "Plasmo Corp. <support@plasmo.com>",
