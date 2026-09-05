@@ -24,14 +24,14 @@
   "devDependencies": {
     "@plasmo/config": "workspace:*",
     "@plasmo/utils": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.1"
   },
   "dependencies": {
-    "@parcel/core": "2.9.3",
-    "@parcel/plugin": "2.9.3",
+    "@parcel/core": "2.16.4",
+    "@parcel/plugin": "2.16.4",
     "@parcel/source-map": "2.1.1",
-    "@parcel/utils": "2.9.3",
-    "@swc/core": "1.11.13",
+    "@parcel/utils": "2.16.4",
+    "@swc/core": "1.16.2",
     "nullthrows": "1.1.1"
   }
 }
