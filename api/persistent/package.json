@@ -61,14 +61,14 @@
     "chrome-extension"
   ],
   "devDependencies": {
-    "@jest/globals": "29.7.0",
-    "@jest/types": "29.6.3",
+    "@jest/globals": "30.5.1",
+    "@jest/types": "30.5.1",
     "@plasmo/config": "workspace:*",
     "@types/chrome": "0.0.312",
     "@types/node": "22.13.13",
     "cross-env": "7.0.3",
-    "jest": "29.7.0",
-    "jest-environment-jsdom": "29.7.0",
+    "jest": "30.5.1",
+    "jest-environment-jsdom": "30.5.1",
     "ts-jest": "29.3.0",
     "tsup": "8.4.0",
     "typescript": "5.8.2"
