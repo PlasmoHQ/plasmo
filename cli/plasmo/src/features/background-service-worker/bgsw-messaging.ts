@@ -27,9 +27,11 @@ const createEntryCode = (
 ) => `// @ts-nocheck
 globalThis.__plasmoInternalPortMap = new Map()
 
+const __plasmoRuntime = globalThis.browser?.runtime ?? chrome.runtime
+
 ${importSection}
 
-chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+__plasmoRuntime.onMessageExternal.addListener((request, sender, sendResponse) => {
   switch (request?.name) {
     ${externalMessageSection}
     default:
@@ -39,7 +41,7 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => 
   return true
 })
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+__plasmoRuntime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.name) {
     ${messageSection}
     default:
@@ -49,7 +51,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true
 })
 
-chrome.runtime.onConnect.addListener(function(port) {
+__plasmoRuntime.onConnect.addListener(function(port) {
   globalThis.__plasmoInternalPortMap.set(port.name, port)
   port.onMessage.addListener(function(request) {
     switch (port.name) {
